@@ -1,0 +1,4 @@
+#map for xe timing for RIBF79-2019
+#cat, id, [Dev, fp, det , geo, ch]
+37, 0, 0,0,31,0,9 # F8 Xe L tdc 
+37, 1, 0,0,31,0,10 # F8 Xe R tdc

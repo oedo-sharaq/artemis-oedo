@@ -1,0 +1,35 @@
+# plane configuration file for LP-MWDC type-C
+# Last Modified: Apr 6,  (Masuoka)
+#
+# - z position is relative to the detector center
+#
+# - Center wire id is zero-origin.
+#
+# - Angle is defined so that the coordinate system is the right-handed system.
+#
+# - The angle of axis of each plane to the horizontal axis.
+
+- x1:
+    z:         -13.5
+    nWire:    &nwire 24
+    cellSize: &cell 9.
+    angle:    &xangle 0.
+    center:    12.
+- x2:
+    z:        -4.5
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    *xangle
+    center:    11.5
+- u:
+    z:         4.5
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    &uangle -30.
+    center:    11.5
+- v:
+    z:        13.5
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    &vangle 30.
+    center:    12.

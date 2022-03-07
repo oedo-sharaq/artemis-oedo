@@ -1,0 +1,10 @@
+# [category] [id] [[device] [focus] [detector] [geo] [ch]] ...
+#  Map   Tx1 Tx2 Ty1 Ty2 Ta
+# F3 PPAC 1A bripdaq
+1,    0,  0  3  1 0   4,  0  3  1 0   6,  0  3  1 0   5,  0  3  1 0   7,  0  3  1 0  0
+# F3 PPAC 1B bripsdaq
+1,    1,  0  3  1 0   8,  0  3  1 0  10,  0  3  1 0   9,  0  3  1 0  11,  0  3  1 0  1
+# F3 PPAC 2A bripsdaq
+1,    2,  0  3  1 0  12,  0  3  1 0  14,  0  3  1 0  13,  0  3  1 0  15,  0  3  1 0  2
+# F3 PPAC 2B bripsdaq
+1,    3,  0  3  1 0  16,  0  3  1 0  18,  0  3  1 0  17,  0  3  1 0  19,  0  3  1 0  3

@@ -1,0 +1,7 @@
+#map for xe timing & charge for test by h307-10 data
+#cat, id, [Dev, fp, det , geo, ch] [Dev, fp, det , geo, ch]
+136, 0, 32,31,31,0,2, 32,31,48,4,4
+136, 1, 32,31,31,0,3, 32,31,48,4,5
+
+
+

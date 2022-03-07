@@ -1,0 +1,55 @@
+# plane configuration file for RCNP-EN MWDC
+#
+# z position is relative to the detector center
+# Center wire id is zero-origin.
+# Angle is defined so that the coordinate system is the right-handed system.
+#
+# The angle of axis of each plane to the horizontal axis.
+- x1:
+    z:         -13.2
+    nWire:    &nwire 12
+    cellSize: &cell 5.
+    angle:    &xangle 180.
+    center:    5.75
+- x2:
+    z:         -8.4
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    *xangle
+    center:    5.25
+- y1:
+    z:         -3.6
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    &yangle 90.
+    center:    5.75
+- y2:
+    z:        1.2
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    *yangle
+    center:    5.25
+- x3:      
+    z:        6.0
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    *xangle
+    center:   5.75
+- x4:
+    z:        10.8
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    *xangle
+    center:   5.25
+- y3:
+    z:        15.6
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    *yangle
+    center:   5.75
+- y4:
+    z:        20.4
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    *yangle
+    center:   5.25

@@ -1,0 +1,69 @@
+# plane configuration file for LowPressure-1/3CellStaggered3Planes-MWDC (XX'X''UU'U''VV'V'')
+#
+# center wire ID is zero-origin
+# the detector position is measured relatively to the detector center
+# the coordinate should be defined in right-handed systeme
+# the origin of the angle is set to positive direction of x-axis
+
+- x1:
+    z:  40
+    nWire:  &nwire  24
+    cellSize:  &cell  10.
+    angle:  0
+    center:  11.5
+
+- x2:
+    z: 30 
+    nWire:  *nwire
+    cellSize:  *cell
+    angle:  0
+    center:  11.166666667
+
+- x3:
+    z: 20 
+    nWire:  *nwire
+    cellSize:  *cell
+    angle:  0
+    center:  11.83333333
+
+- u1:
+    z:  10
+    nWire:  *nwire
+    cellSize:  *cell
+    angle:  -30
+    center: 11.5
+
+- u2:
+    z:  0
+    nWire:  *nwire
+    cellSize:  *cell
+    angle:  -30.
+    center: 11.166666667 
+
+- u3:
+    z:  -10.
+    nWire:  *nwire
+    cellSize:  *cell
+    angle:  -30.
+    center:  11.83333333
+
+- v1:
+    z:  -20
+    nWire:  *nwire
+    cellSize:  *cell
+    angle:  30.
+    center:  11.5
+
+- v2:
+    z:  -30.
+    nWire:  *nwire
+    cellSize:  *cell
+    angle:  30.
+    center:  11.166666667
+
+- v3:
+    z:  -40.
+    nWire:  *nwire
+    cellSize:  *cell
+    angle:  30.
+    center:  11.83333333

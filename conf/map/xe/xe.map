@@ -1,0 +1,5 @@
+#map for xe timing & charge for RIBF79-2019
+#cat, id, [Dev, fp, det , geo, ch] [Dev, fp, det , geo, ch]
+36, 0, 0,0,31,0,9, 0,0,31,1,0 #F8 Xe L tdc & qdc
+36, 1, 0,0,31,0,10, 0,0,31,1,1 #F8 Xe R tdc & qdc
+

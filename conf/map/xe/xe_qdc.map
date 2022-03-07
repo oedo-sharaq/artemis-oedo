@@ -1,0 +1,6 @@
+#map for xe charge for RIBF79-2019
+#cat, id, [Dev, fp, det , geo, ch]
+38, 0, 0,0,31,1,0 #F8 Xe L qdc
+38, 1, 0,0,31,1,1 #F8 Xe R qdc
+38, 2, 0,0,31,1,2 #F8 Xe L qdc baseline
+38, 3, 0,0,31,1,3 #F8 Xe R qdc baseline

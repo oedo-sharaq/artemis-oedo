@@ -1,0 +1,65 @@
+# plane configuration file DC72 (F2 Downstream)
+#
+# z position is relative to the detector center
+# Center wire id is zero-origin.
+# Angle is defined so that the coordinate system is the right-handed system.
+#
+# The angle of axis of each plane to the horizontal axis.
+# x1angle:x1,x2  x2angle:x'1,x'2  y1angle:y1,y2  y2angle:y'1,y'2
+
+- x1: #X1
+    z:         +15.9
+    nWire:    &nwire 16
+    cellSize: &cell 5.
+    angle:    &x1angle 0.
+#    center:    8.0
+    center:    6.150
+- x2: #X'1
+    z:         +11.1
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    &x2angle 180.
+#    center:    8.0
+    center:    8.308
+- y1: #Y1
+    z:         +6.3
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    &y1angle -90.
+#    center:    8.0
+    center:    9.103
+- y2: #Y'1
+    z:         +1.5
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    &y2angle 90.
+#    center:    8.0
+    center:    5.366
+- x3: #X2
+    z:        -3.3
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    *x1angle
+#    center:   8.0
+    center:   6.155
+- x4: #X'2
+    z:        -8.1
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    *x2angle
+#    center:   8.0
+    center:   8.316
+- y3: #Y2
+    z:        -12.9
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    *y1angle
+#    center:   8.0
+    center:   9.103
+- y4: #Y'2
+    z:        -17.7
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    *y2angle
+#    center:   8.0
+    center:   5.394

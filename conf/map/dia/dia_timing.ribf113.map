@@ -1,0 +1,5 @@
+# map for dia timing (pad)
+# cat, id,[Dev, fp, det, geo, ch,]
+13, 0, 60,0,10,1, 20 # F3 Pad timing  
+13, 1, 60,0,10,1, 22  # F7 Pad timing
+

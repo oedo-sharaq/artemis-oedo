@@ -1,0 +1,39 @@
+# plane configuration file for DC71 (F7 Upstream)
+#
+# z position is relative to the detector center
+# Center wire id is zero-origin.
+# Angle is defined so that the coordinate system is the right-handed system.
+#
+# The angle of axis of each plane to the horizontal axis.
+
+- x1: #X1
+    z:         +0.5
+    nWire:    &nwire  16
+    cellSize: &cell   3.
+    angle:    &xangle 0
+#    angle:    &xangle 0.
+#    center:    7.75
+#    center:    6.844
+    center:    8.25
+- x2: #X'1
+    z:         -2.5
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    *xangle
+#    center:    7.25
+    center:    7.75
+#    center:    6.341
+- y1: #Y1
+    z:         -5.5
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    &yangle 90.
+#    center:    7.75
+    center:    8.25
+- y2: #Y'1
+    z:         -8.5
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    *yangle
+#    center:    7.25
+    center:    7.75

@@ -1,0 +1,6 @@
+#[cat][id][TL][TR] {SH,fp,det,geo,ch}
+#
+11, 0, 31, 34, 3, 3, 29,  31, 34, 3, 3, 34   # Dia upstream Pad TTC  (A2/dummy)
+11, 1, 31, 34, 3, 3, 24,  31, 34, 3, 3, 26   # Dia upstream Strip2 TTC (L3/R3)
+11, 2, 31, 34, 3, 3, 25,  31, 34, 3, 3, 27   # Dia upstream Strip3 TTC (L4/R4)
+

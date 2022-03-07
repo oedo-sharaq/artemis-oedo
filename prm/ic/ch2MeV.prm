@@ -1,0 +1,8 @@
+c ----------------------------------------
+c Parameter ch2MeV for I.C.
+c E_Loss[MeV] = par0 + par1 * ADC_CH
+c 
+c Copied from ANAPAW 2015/0410  M. Matsushita
+c
+-11.1305	0.0505767
+59.1777		0.131947

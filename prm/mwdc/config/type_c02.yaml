@@ -1,0 +1,37 @@
+# plane configuration file for LP-MWDC type-C (C02)
+# Last Modified: Apr 16, 2015 07:43:29 JST (dozono)
+#
+# - z position is relative to the detector center
+#
+# - Center wire id is zero-origin.
+#
+# - Angle is defined so that the coordinate system is the right-handed system.
+#
+# - The angle of axis of each plane to the horizontal axis.
+
+- v1:
+    z:         4.5
+    nWire:    &nwire 24
+    cellSize: &cell 9.
+    angle:    &vangle 150.
+#    angle:    &vangle 30.
+    center:    11.51
+- v2:
+    z:        -4.5
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    *vangle
+    center:    10.99
+- u1:
+    z:         13.5
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    &uangle 210.
+#    angle:    &uangle -30.
+    center:    11.54
+- u2:
+    z:        -13.5
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    *uangle
+    center:    11.96

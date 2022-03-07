@@ -1,0 +1,13 @@
+# Map file for diamond(TTC)
+
+#=========================F3============================
+#cat, id,[Dev, fp, det, geo, ch,][Dev, fp, det, geo, ch,]
+  15,  0,  60,  0,  1,  1, 20 # Dia Pad
+  15,  1,  60,  0,  1,  1, 21 # Dia Pad (attenuated)
+
+#=========================F7==========================
+#cat, id,[Dev, fp, det, geo, ch,][Dev, fp, det, geo, ch,]
+  15,  2,  60,  0,  6,  1, 24 # Dia Pad
+  15,  3,  60,  0,  6,  1, 26 # Dia Pad (attenuated)
+
+

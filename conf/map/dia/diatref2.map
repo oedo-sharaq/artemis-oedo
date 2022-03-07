@@ -1,0 +1,7 @@
+# map for F7 Diamond
+# TDC channels might be different. 
+#[cat][id][TL][TR] {SH,fp,det,geo,ch}
+#
+10, 0, 60, 0, 10, 1, 26,  60, 0, 10, 1, 62   # Dia Pad Discri.    (A1/dummy)
+10, 1, 60, 0, 10, 1, 23,  60, 0, 10, 1, 22   # Dia Strip2 Discri. (L1/R1)
+10, 2, 60, 0, 10, 1, 25,  60, 0, 10, 1, 24   # Dia Strip3 Discri. (L2/R2)

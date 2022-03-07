@@ -1,0 +1,7 @@
+# map for F3 Diamond
+# TDC channels might be different. 
+#[cat][id][TL][TR] {SH,fp,det,geo,ch}
+#
+9, 0, 60, 0, 10, 1, 20,  60, 0, 10, 1, 62   # Dia Pad Discri.    (A1/dummy)
+9, 1, 60, 0, 10, 1, 17,  60, 0, 10, 1, 16   # Dia Strip2 Discri. (L1/R1)
+9, 2, 60, 0, 10, 1, 19,  60, 0, 10, 1, 18   # Dia Strip3 Discri. (L2/R2)

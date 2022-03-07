@@ -1,0 +1,12 @@
+# Map file for diamond(QTC)
+
+#=========================F3============================
+#cat, id,[Dev, fp, det, geo, ch,][Dev, fp, det, geo, ch,]
+  15,  0,  11,  3,  31,   3, 22, # 11,  3,  31,   3, 17 # QTC ch 17      / Dia Pad Low Gain
+  15,  1,  11,  3,  31,   3, 28, # 11,  3,  31,   3, 23 # QTC ch 23      / Dia Pad Mid Gain
+
+#=========================F7==========================
+#cat, id,[Dev, fp, det, geo, ch,][Dev, fp, det, geo, ch,]
+  15,  2,  11,  7,  31,   3, 17, # 11,  7,  31,   3, 17 # QTM ch  17     / Dia Pad Low Gain
+  15,  3,  11,  7,  31,   3, 23, # 11,  7,  31,   3, 23 # QTM ch  23     / Dia Pad Mid Gain
+

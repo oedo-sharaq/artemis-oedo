@@ -1,0 +1,9 @@
+# Map file for VETO scintillator
+#cat, id,[Dev, fp, type, geo, ch,][Dev, fp, type, geo, ch,]
+  61,  0,  32, 31,  31,   1, 12,   32,  31,  48,   4, 0 # VETO-L1
+  61,  1,  32, 31,  31,   1, 13,   32,  31,  48,   4, 1 # VETO-L2
+  61,  2,  32, 31,  31,   1, 14,   32,  31,  48,   4, 2 # VETO-R1
+  61,  3,  32, 31,  31,   1, 15,   32,  31,  48,   4, 3 # VETO-R2
+
+
+

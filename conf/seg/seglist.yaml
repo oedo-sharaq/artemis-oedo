@@ -1,0 +1,100 @@
+###################################
+#<Example>
+#
+#BLD_VXX:
+# segid: [[dev], [fp], [det]]
+# type: V7XX
+# modules:
+#   - id: [geo1]
+#   - id: [geo2]
+###################################
+
+#B3F_V7XX:
+#  segid: [0, 0, 31]
+#  type: V7XX
+#  modules:
+#    - id: 1
+#
+#B3F_V1290:
+#  segid: [0, 0, 31]
+#  type: V1290
+#  modules:
+#    - id: 0
+#
+
+#F3_V1190:
+#  segid: [0, 3, 31]
+#  type: V1190
+#  modules:
+#    - id: 0
+#    - id: 1
+#
+#F5_V1190:
+#  segid: [0, 5, 50]
+#  type: AMTDC
+#  modules:
+#    - id: 0
+#    - id: 1
+#    - id: 2
+#    - id: 3
+#    - id: 4
+#    - id: 5
+#    - id: 6
+#    - id: 7
+
+FE12_V1190:
+  segid: [11, 12, 1]
+  type: V1190
+  modules:
+    - id: 0
+    - id: 1
+
+
+#B3F_V1190:
+  segid: [0, 63, 1]
+  type: V1190
+  modules:
+    - id: 7
+    - id: 8
+
+B3F_V1290:
+  segid: [0, 63, 3]
+  type: V1290
+  modules:
+    - id: 6
+
+#DALI_V785:
+#  segid: [20, 8, 21]
+#  type: V785DALI
+#  modules:
+#    - id: 6
+#    - id: 7
+#    - id: 8
+#    - id: 9
+#    - id: 10
+#    - id: 11
+#    - id: 12
+#    - id: 13
+#
+#DALI_V1190:
+#  segid: [20, 8, 22]
+#  type: V1190
+#  modules:
+#    - id: 16
+#    - id: 17
+#
+#
+#F7_V1190:
+#  segid: [0, 7, 31]
+#  type: V1190
+#  modules:
+#    - id: 0
+#    - id: 1
+#    - id: 2
+
+      
+# shcr_v1290:
+#   segid: [60,0,10]
+#   type: V1290
+#   modules:
+#     - id: 1

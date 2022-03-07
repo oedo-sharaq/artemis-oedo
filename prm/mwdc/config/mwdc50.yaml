@@ -1,0 +1,66 @@
+# plane configuration file for MWDC50 (cell size 3 mm)
+#* Last Modified : 2016-05-23 00:41:11 JST (ota)
+#
+# z position is relative to the detector center
+# Center wire id is zero-origin.
+# Angle is defined so that the coordinate system is the right-handed system.
+#
+# The angle of axis of each plane to the horizontal axis.
+
+- x1: #X1
+    z:         +10.3
+    nWire:    &nwire  16
+    cellSize: &cell   3.
+    angle:    &xangle 0.
+#    center:    7.75
+#    center:    7.7818
+    center:    6.701
+- x2: #X1'
+    z:         +7.3
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    *xangle
+#    center:    7.25
+    center:    6.247
+- y1: #Y1
+    z:         +4.3
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    &yangle 90.
+#    center:    7.75
+    center:    6.714
+- y2: #Y1'
+    z:         +1.3
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    *yangle
+#    center:    7.25
+    center:    6.278
+- x3: #X2
+    z:         -1.7
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    *xangle
+#    center:    7.75
+    center:    6.739
+- x4: #X2'
+    z:         -4.7
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    *xangle
+#    center:    7.25
+    center:    6.262
+- y3: #Y2
+    z:         -7.7
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    *yangle
+#    center:    7.75
+    center:    6.72347
+- y4: #Y2'
+    z:         -10.7
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    *yangle
+#    center:    7.25
+    center:    6.266

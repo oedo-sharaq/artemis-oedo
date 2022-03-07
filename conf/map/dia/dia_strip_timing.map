@@ -1,0 +1,6 @@
+# map for dia strip timing
+# cat, id, [Dev, fp, det, geo, ch] [Dev, fp, det, geo, ch]
+14, 0, 60,0,10,1, 17, 60,0,10,1, 16  # F3 Dia strip timing L2/R2
+14, 1, 60,0,10,1, 19, 60,0,10,1, 18  # F3 Dia strip timing L3/R3
+14, 2, 60,0,10,1, 24, 60,0,10,1, 23  # F7 Dia strip timing L1/R1
+14, 3, 60,0,10,1, 26, 60,0,10,1, 25  # F7 Dia strip timing L2/R2

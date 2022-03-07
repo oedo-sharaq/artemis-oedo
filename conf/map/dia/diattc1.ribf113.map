@@ -1,0 +1,6 @@
+#[cat][id][TL][TR] {SH,fp,det,geo,ch}
+#
+8, 0, 60, 0, 1, 1, 20,  60, 0, 1, 1,  1   # F3 Dia Pad TTC  (A1/dummy)
+8, 1, 60, 0, 1, 1, 17,  60, 0, 1, 1, 16   # F3 Dia Strip2 TTC (L1/R1)
+8, 2, 60, 0, 1, 1, 19,  60, 0, 1, 1, 18   # F3 Dia Strip3 TTC (L2/R2)
+8, 3, 60, 0, 1, 1, 21,  60, 0, 1, 1,  2   # F3 Dia Pad TTC (attenuated)  (A1/dummy)

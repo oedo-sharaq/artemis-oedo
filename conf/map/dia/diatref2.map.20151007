@@ -1,0 +1,8 @@
+#[cat][id][TL][TR] {SH,fp,det,geo,ch}
+#
+10, 0, 31, 34, 3, 3, 11,  31, 34, 3, 3, 63   # Dia upstream Pad Discri.    (A2/dummy)
+10, 1, 31, 34, 3, 3,  6,  31, 34, 3, 3,  8   # Dia upstream Strip2 Discri. (L3/R3)
+10, 2, 31, 34, 3, 3,  7,  31, 34, 3, 3,  9   # Dia upstream Strip3 Discri. (L4/R4)
+#10, 0, 31, 34, 3, 3, 10,  31, 34, 3, 3, 63   # Dia upstream Pad Discri.    (A2/dummy)
+#10, 1, 31, 34, 3, 3,  5,  31, 34, 3, 3,  7   # Dia upstream Strip2 Discri. (L3/R3)
+#10, 2, 31, 34, 3, 3,  6,  31, 34, 3, 3,  8   # Dia upstream Strip3 Discri. (L4/R4)
