@@ -1,0 +1,43 @@
+Anchor:
+  - &catdata @CATDATA@
+  - &seleftif @SELECTIF@
+  - &beamXmin @BEAM_X_MIN@
+  - &beamXmax @BEAM_X_MAX@
+  - &ch2MeV @CH2MEV@
+Processor:
+  - name: cat:mapping@SUFFIX@
+    type: art::TCatAtMappingProcessor
+    parameter:
+      CatID: 51
+      InputCollection: *catdata
+      OutputCollection: 
+      MaxDetID: 4048
+      SelectIf: *selectif
+      BeamRegion: [*beamXmin,*beamXmax]
+  - name: catsub@SUFFIX@
+    type: art::TCatAtPedestalSubtractionProcessor
+    parameter:
+      InputCollection: at@SUFFIX@
+      OutputCollection: atsub@SUFFIX@
+      OutputTransparency: 0
+  - name: atpulsefinder@SUFFIX@
+    type: art::TPulseFinder
+    parameter:
+      InputCollection: atsub@SUFFIX@
+      OutputCollection: atpulse@SUFFIX@
+      RisingThreshold: 10
+      FallingThreshold: 40
+      ClockPeriod: 40
+      PrePulse: 40
+      PostPulse: 40.
+      SavePulse: 1
+      OutputTransparency: 0
+  - name: cat_calib@SUFFIX@
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: atpulse@SUFFIX@
+      OutputCollection: athit@SUFFIX@
+      ChargeConverterArray: *ch2MeV
+      InputIsDigital: 0      
+
+

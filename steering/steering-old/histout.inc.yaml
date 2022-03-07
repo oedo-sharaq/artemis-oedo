@@ -1,0 +1,10 @@
+Anchor:
+  - &histout output/@RNUM@/@PREFIX@_@RNUM@.hist.root
+  - &filename @FILENAME@
+Processor:  
+  - name: hist
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: *filename
+      OutputFilename: *histout
+      Type: art::TTreeProjection

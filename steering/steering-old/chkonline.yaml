@@ -1,0 +1,42 @@
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+#      - ridf/phys/BLD_phys0455.ridf 
+#      - ridf/phys/BLD_phys0455.ridf 
+#      - ridf79/beam/BLD_beam2182.ridf # 48Ca
+      - ridf79/phys/BLD_phys2235.ridf # 132Sn
+#      - ridf79/phys/BLD_phys2118.ridf # 132Sn
+ 
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+      
+  - include: bld/v1190_tref.yaml
+  - include: v1290_tref.yaml
+  - include: dia/dia_online.yaml
+  # - include: bld/mwdc/chkF3.yaml
+  # - include: bld/mwdc/chkF5.yaml
+  # - include: bld/mwdc/chkF7.yaml
+  - include: bld/mwdc/chkall.yaml
+  - include: plastic/spla.yaml
+  - include: plastic/tref.yaml
+  - include: bld/mwdc/caliball.yaml
+#  - include: ppac/ppac.yaml
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type:     art::TTreeProjection
+      FileName: hist/online.yaml
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: online.root

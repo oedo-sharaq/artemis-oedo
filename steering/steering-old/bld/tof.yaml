@@ -1,0 +1,30 @@
+# require: spla.yaml
+
+
+Alias:
+  - &spla_id_f3_small  0
+  - &spla_id_f3_medium 4
+  - &tref_id_f3        0
+  - &tref_id_f5        1
+
+Processor:
+#  - name: proc_tof_tref_f3
+#    type: art::TTimingSubtractionProcessor
+#    parameter:
+#      InputCollection:        tref
+#      OutputCollection:       tof_tref_f3
+#      StartTimingCollection:  tref
+#      StartTimingDetID:      *tref_id_f3
+#      MaxDetID:               13
+#      UseMultipleStartTiming: 1
+#
+#  - name: proc_tof_tref_f5
+#    type: art::TTimingSubtractionProcessor
+#    parameter:
+#      InputCollection:        tref
+#      OutputCollection:       tof_tref_f5
+#      StartTimingCollection:  tref
+#      StartTimingDetID:      *tref_id_f5
+#      MaxDetID:               13
+#      UseMultipleStartTiming: 1
+

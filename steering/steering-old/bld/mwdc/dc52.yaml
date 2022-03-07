@@ -1,0 +1,127 @@
+# steering file for DC52 analysis
+# Load bld-plastic steering file before.
+
+Alias: 
+ - &tref_id 0
+
+Processor:
+  - name: proc_dc52_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_dc52_ch2ns
+      Type:     art::TAffineConverter
+      FileName: prm/mwdc/dc52/ch2ns.dat
+
+  - name: proc_dc52_dxdt_x1
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc52_dxdt_x1
+      Type:     art::TMonotoneTableConverter
+#      FileName: prm/mwdc/dc52/dt2dl/beam0061/x1.dat
+#      FileName: prm/mwdc/dc52/dt2dl/beam0047/x1.dat
+#      FileName: prm/mwdc/dc52/dt2dl/beam0185/x1.dat
+#      FileName: prm/mwdc/dc52/dt2dl/phys0455/x1.dat
+      FileName: prm/mwdc/dc52/dt2dl/current/x1.dat
+
+
+  - name: proc_dc52_dxdt_x2
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc52_dxdt_x2
+      Type:     art::TMonotoneTableConverter
+#      FileName: prm/mwdc/dc52/dt2dl/beam0061/x2.dat
+#      FileName: prm/mwdc/dc52/dt2dl/beam0047/x2.dat
+#      FileName: prm/mwdc/dc52/dt2dl/beam0185/x2.dat
+#      FileName: prm/mwdc/dc52/dt2dl/phys0455/x2.dat
+      FileName: prm/mwdc/dc52/dt2dl/current/x2.dat
+
+  - name: proc_dc52_dxdt_u
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc52_dxdt_u
+      Type:     art::TMonotoneTableConverter
+#      FileName: prm/mwdc/dc52/dt2dl/beam0061/u.dat
+#      FileName: prm/mwdc/dc52/dt2dl/beam0047/u.dat
+#      FileName: prm/mwdc/dc52/dt2dl/beam0185/u.dat
+#      FileName: prm/mwdc/dc52/dt2dl/phys0455/u.dat
+      FileName: prm/mwdc/dc52/dt2dl/current/v.dat
+
+  - name: proc_dc52_dxdt_v
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc52_dxdt_v
+      Type:     art::TMonotoneTableConverter
+#      FileName: prm/mwdc/dc52/dt2dl/beam0061/v.dat
+#      FileName: prm/mwdc/dc52/dt2dl/beam0047/v.dat
+#      FileName: prm/mwdc/dc52/dt2dl/beam0185/v.dat\
+#      FileName: prm/mwdc/dc52/dt2dl/phys0455/v.dat
+      FileName: prm/mwdc/dc52/dt2dl/current/v.dat
+      
+  - name: proc_dc52_geo
+    type: art::TParameterLoader
+    parameter:
+      Name:     dc52
+      Type:     art::TMWDCParameter
+      FileName: prm/mwdc/dc52/geometry.yaml
+
+  - name: proc_dc52_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              27
+      TimingTypeID:       0
+      OutputCollection:   dc52_raw
+      OutputTransparency: 0
+
+  - name: proc_dc52_cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      dc52_raw
+      OutputCollection:     dc52_cal1
+      TimingConverterArray: prm_dc52_ch2ns
+      OutputTransparency:   0
+
+  - name: proc:validtime
+    type: art::TTimeValidator
+    parameter:
+      InputCollection: dc52_cal1
+      OutputCollection: dc52_cal
+#      ValidTimeRange: [-1260.,-1080,0.]
+      ValidTimeRange: [-1100.,-900,0.]
+      
+
+  - name: proc_dc52_dt
+    type: art::TTimingSubtractionProcessor
+    parameter:
+      InputCollection:       dc52_cal
+      OutputCollection:      dc52_dt
+#      StartTimingCollection: tref
+#      StartTimingDetID:     *tref_id
+      StartTimingCollection: diaf3_v1290
+#      StartTimingCollection: dc51_cal
+      StartTimingDetID:     0
+      OutputTransparency:    0
+
+
+  - name: proc_dc52_plane
+    type: art::TMWDCPlaneProcessor
+    parameter:
+      InputCollection: dc52_dt
+      MWDCName:        dc52
+      ConverterList:
+        - prm_dc52_dxdt_x1
+        - prm_dc52_dxdt_x2
+        - prm_dc52_dxdt_u
+        - prm_dc52_dxdt_v
+      OutputTransparency: 0
+
+  - name: proc_dc52_track
+    type: art::TMWDCTrackingProcessor
+    parameter:
+      InputCollection:
+        - dc52_x1
+        - dc52_x2
+        - dc52_u
+        - dc52_v
+      OutputCollection:   dc52
+      UseGlobalPos:       0
+      OutputTransparency: 0

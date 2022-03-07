@@ -1,0 +1,36 @@
+Processor:
+  - name: proc_dali2_ch2MeV
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_dali2_ch2MeV
+      Type:     art::TAffineConverter
+      FileName: prm/dali2/dali2A_ch2keV.dat
+
+  - name: proc_dali2fraw_pre
+    type: art::TSimpleDataMappingProcessor
+    parameter:
+      CatID:            30
+      DataTypeID:       0
+      Sparse:           1
+      OutputCollection: dali2Araw_pre
+
+  - name: proc_dali2raw_validate
+    type: art::TChargeValidateProcessor
+    parameter:
+      InputCollection: dali2Araw_pre
+      OutputCollection: dali2Araw
+      Range:            [300., 4000.]
+
+  - name: proc_dali2qcal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      dali2Araw
+      OutputCollection:     dali2Acal
+      ChargeConverterArray: prm_dali2_ch2MeV
+
+  - name: proc_dali2
+    type: art::TDaliProcessor
+    parameter:
+      DaliAName:     dali2Acal
+      DaliTName:     dali2t
+      OutputName:    dali2

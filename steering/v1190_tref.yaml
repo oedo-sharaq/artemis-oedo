@@ -1,0 +1,23 @@
+Processor:
+  - name: proc_tref_v1190_tina
+    type: art::TTimeReferenceProcessor
+    parameter:
+      # [[device] [focus] [detector] [geo] [ch]]
+      RefConfig: [0, 0, 0, 0, 1, 24]
+      SegConfig: [0, 0, 0, 0]
+
+  - name: proc_tref_v1190_f8_a
+    type: art::TTimeReferenceProcessor
+    parameter:
+      # [[device] [focus] [detector] [geo] [ch]]
+      # tempolarly for DALI2 analysis
+      RefConfig: [20, 8, 22, 16, 127]
+      SegConfig: [20, 8, 22, 16]
+
+  - name: proc_tref_v1190_f8_b
+    type: art::TTimeReferenceProcessor
+    parameter:
+      # [[device] [focus] [detector] [geo] [ch]]
+      # tempolarly for DALI2 analysis
+      RefConfig: [20, 8, 22, 17, 127]
+      SegConfig: [20, 8, 22, 17]

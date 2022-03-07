@@ -1,0 +1,5 @@
+#position: [0.,0.,-1318.7]
+position: [0.,0.,-167]
+angle: 0.
+turned: 0
+plane_config: prm/mwdc/config/type_b.yaml

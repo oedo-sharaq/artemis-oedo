@@ -1,0 +1,36 @@
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+        - ridf/run0006.ridf
+
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+
+  - name: proc_gateinit
+    type: art::TGateArrayInitializer
+
+  - include: bld/v1190_tref.yaml
+  - include: dia/v1290_tref.yaml
+  - include: bld/spla.yaml
+  - include: bld/tref.yaml
+  - include: dia/dia.yaml
+  - include: bld/tof.yaml
+  - include: bld/mwdc/chkall.yaml
+  - include: bld/mwdc/caliball.yaml
+
+#  - name: brho
+#    type: art::TBrhoReconstructProcessor
+#    parameter:
+
+
+  - name: output
+    type: art::TOutputTreeProcessor
+      
+    

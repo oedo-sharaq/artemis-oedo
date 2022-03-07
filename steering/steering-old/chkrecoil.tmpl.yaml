@@ -1,0 +1,66 @@
+# @file my.yaml
+# @brief main yaml
+# 
+# @date Create        : 2019-11-24 01:46:09 JST
+#       Last Modified : 2019-11-25 14:52:45 JST (ota)
+# @author: Shinsuke OTA <ota@cns.s.u-tokyo.ac.jp>
+#
+Anchor:
+  - &catdata_f8 "catdata_f8"
+  - &catdata_cat "catdata_cat"
+Processor:
+  - include:
+      name: cat-m-8cobo_recoil.tmpl.yaml
+      replace:
+        NUM: @NUM@
+#  - include:
+#      name: cat-m-si.yaml
+#      replace:
+#        NUM: @NUM@
+#  - include:
+#      name: f8/ridf.yaml
+#      replace:
+#        NUM: @NUM@
+#        CATDATA: *catdata_f8
+#  - include: 
+#      name: trigf8.yaml
+#      replace:
+#        CATDATA: *catdata_f8
+#  - include:
+#      name: f8/scaler.tmpl.yaml
+#      replace:
+#        CATDATA: *catdata_f8
+#        CATID: 201
+#        
+  - name: gate_array_init
+    type: art::TGateArrayInitializer
+    parameter:
+      OutputTransparency: 1
+  - name: coin_cat
+    type: art::TTreeFormulaGateProcessor
+    parameter:
+      Definitions:
+        - "has_hits; atcluster.fHits@.size() > 10 & TMath::Abs(atcluster.fPrincipalAxis.Z()) <0.95 && abs(atcluster.fStartPoint.Z()) < 160"
+#        - "dsb; Sum$(abs(trigf8.fTiming-203e3)<3e3 && trigf8.fID == 2)"
+#        - "si; Sum$(abs(trigf8.fTiming-203e3)<3e3 && trigf8.fID == 1)"
+  - name: stop_coin
+    type: art::TGateStopProcessor
+    parameter:
+#      GateName: "si"
+      GateName: "has_hits"
+#  - name: hist
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/my.hist.yaml
+#      OutputFilename: output/@NUM@/@NUM@.hist.root
+#      Type: art::TTreeProjection
+
+  - name: treeout
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: output/@NUM@/@NUM@.tree.root
+
+  - name: endtimer
+    type: art::TTimerProcessor
+---
+# end of my.yaml

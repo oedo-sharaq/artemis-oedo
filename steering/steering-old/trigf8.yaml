@@ -1,0 +1,40 @@
+# @file trigf8.yaml
+# @brief trigger yaml
+# 
+# @date Create        : 2019-11-24 01:43:09 JST
+#       Last Modified : 2019-11-24 04:34:48 JST (ota)
+# @author:  Shinsuke OTA <ota@cns.s.u-tokyo.ac.jp>
+# 
+Processor:
+  - name: proc::f8::trigger
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: 101  # [Int_t] Category ID of plastic
+      ChargeType: 0  # [Int_t] 0: V1190 width (default), 1: QDC (V792 etc.), 2: paired time and charge (hinp)
+      InputCollection: @CATDATA@  # [TString] rawdata object returned by TRIDFEventStore
+      OutputCollection: trigf8  # [TString] output collection name
+      OutputTransparency: 0  # [Bool_t] Output is persistent if false (default)
+      Sparse: 1  # [Bool_t] hit will be inserted at the index corresponding to its id if sparse is 0, otherwize hit will be added ordinaly (default: 1)
+      TimingTypeID: 0  # [Int_t] data type id for timing information (default: 1)
+      TrailingComesFirst: 0  # [Bool_t] 0: Leading->Trailing (default), 1: Trailing->Leading (for QTC etc.)
+      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
+  - name: proc:ppac:x:81:raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      InputCollection: @CATDATA@
+      CatID: 47
+      TimingTypeID: 0
+      TrailingComesFirst: 1
+      OutputCollection: srppac_x_81_raw
+      
+  - name: proc:ppac:y:81:raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      InputCollection: @CATDATA@
+      CatID: 48
+      TimingTypeID: 0
+      TrailingComesFirst: 1
+      OutputCollection: srppac_y_81_raw      
+      
+---
+# end of trigf8.yaml

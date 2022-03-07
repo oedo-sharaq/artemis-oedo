@@ -1,0 +1,90 @@
+Processor:
+  - name: proc_@NAME@_dxdt_x1
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_@NAME@_dxdt_x1
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/@NAME@/dt2dl/current/x1.dat
+
+  - name: proc_@NAME@_dxdt_x2
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_@NAME@_dxdt_x2
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/@NAME@/dt2dl/current/x2.dat
+
+
+  - name: proc_@NAME@_dxdt_y1
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_@NAME@_dxdt_y1
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/@NAME@/dt2dl/current/y1.dat
+
+  - name: proc_@NAME@_dxdt_y2
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_@NAME@_dxdt_y2
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/@NAME@/dt2dl/current/y2.dat
+  - name: proc_@NAME@_geo
+    type: art::TParameterLoader
+    parameter:
+      Name:     @NAME@tref
+      Type:     art::TMWDCParameter
+      FileName: prm/mwdc/@NAME@/geometry.yaml
+  - name: proc_@NAME@tref_plane
+    type: art::TMWDCPlaneProcessor
+    parameter:
+      InputCollection: @NAME@_cal
+      MWDCName:        @NAME@tref
+      ConverterList:
+        - prm_@NAME@_dxdt_x1
+        - prm_@NAME@_dxdt_x2
+        - prm_@NAME@_dxdt_y1
+        - prm_@NAME@_dxdt_y2
+        - prm_@NAME@_dxdt_x3
+        - prm_@NAME@_dxdt_x4
+        - prm_@NAME@_dxdt_y3
+        - prm_@NAME@_dxdt_y4
+      OutputTransparency: 0
+  - name: xxyy_tref::replace_id_x1
+    type: art::TReplaceIDProcessor
+    parameter:
+      Input: @NAME@tref_x1
+  - name: xxyy_tref::replace_id_y1
+    type: art::TReplaceIDProcessor
+    parameter:
+      Input: @NAME@tref_y1
+  - name: xxyy_tref::replace_id_x2
+    type: art::TReplaceIDProcessor
+    parameter:
+      Input: @NAME@tref_x2
+  - name: xxyy_tref::replace_id_y2
+    type: art::TReplaceIDProcessor
+    parameter:
+      Input: @NAME@tref_y2
+  - name: proc_@NAME@ytiming
+    type: art::TTwoSidedPlasticCalibrationProcessor
+    parameter:
+      InputCollection1: @NAME@tref_y1
+      InputCollection2: @NAME@tref_y2
+      OutputCollection: @NAME@tref_y
+      DetIDRange:       [0,15]
+      ValidTimeRange: [-30000.,30000.,0]
+  - name: proc_@NAME@xtiming
+    type: art::TTwoSidedPlasticCalibrationProcessor
+    parameter:
+      InputCollection1: @NAME@tref_x1
+      InputCollection2: @NAME@tref_x2
+      OutputCollection: @NAME@tref_x
+      DetIDRange:       [0,15]
+      ValidTimeRange: [-30000.,30000.,0]
+  - name: proc_@NAME@xtiming
+    type: art::TTwoSidedPlasticCalibrationProcessor
+    parameter:
+      InputCollection1: @NAME@tref_x
+      InputCollection2: @NAME@tref_y
+      OutputCollection: @NAME@tref
+      DetIDRange:       [0,15]
+      ValidTimeRange: [-30000.,30000.,0]

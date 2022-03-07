@@ -1,0 +1,167 @@
+g++ -M -O2 -Wall -Wextra -I. -I/opt/local/artemis_share/include `artemis-config --cflags`  -fPIC `root-config --cflags` -g TSRPPACPlaneProcessor.cc > .deps/TSRPPACPlaneProcessor.d
+g++ -M -O2 -Wall -Wextra -I. -I/opt/local/artemis_share/include `artemis-config --cflags`  -fPIC `root-config --cflags` -g TSRPPACParameter.cc > .deps/TSRPPACParameter.d
+g++ -M -O2 -Wall -Wextra -I. -I/opt/local/artemis_share/include `artemis-config --cflags`  -fPIC `root-config --cflags` -g TSRPPACPlaneData.cc > .deps/TSRPPACPlaneData.d
+mpic++ -O2 -Wall -Wextra -I. -I/opt/local/artemis_share/include `artemis-config --cflags`  -fPIC `root-config --cflags` -g -c -o .objects/TSRPPACPlaneData.o TSRPPACPlaneData.cc
+mpic++ -O2 -Wall -Wextra -I. -I/opt/local/artemis_share/include `artemis-config --cflags`  -fPIC `root-config --cflags` -g -c -o .objects/TSRPPACParameter.o TSRPPACParameter.cc
+mpic++ -O2 -Wall -Wextra -I. -I/opt/local/artemis_share/include `artemis-config --cflags`  -fPIC `root-config --cflags` -g -c -o .objects/TSRPPACPlaneProcessor.o TSRPPACPlaneProcessor.cc
+mpic++ -O2 -Wall -Wextra -I. -I/opt/local/artemis_share/include `artemis-config --cflags`  -fPIC `root-config --cflags` -g   -c -o libsrppac_dict.o libsrppac_dict.cc
+TSRPPACPlaneData.cc: In copy constructor ‘art::TSRPPACPlaneData::TSRPPACPlaneData(const art::TSRPPACPlaneData&)’:
+TSRPPACPlaneData.cc:27:1: warning: base class ‘class art::TTimingChargeData’ should be explicitly initialized in the copy constructor [-Wextra]
+ TSRPPACPlaneData::TSRPPACPlaneData(const TSRPPACPlaneData& rhs)
+ ^~~~~~~~~~~~~~~~
+TSRPPACPlaneData.cc:27:60: warning: unused parameter ‘rhs’ [-Wunused-parameter]
+ TSRPPACPlaneData::TSRPPACPlaneData(const TSRPPACPlaneData& rhs)
+                                                            ^~~
+In file included from /opt/yaml-cpp/0.3.0/include/yaml-cpp/yaml.h:8:0,
+                 from TSRPPACParameter.cc:13:
+/opt/yaml-cpp/0.3.0/include/yaml-cpp/parser.h:46:8: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+   std::auto_ptr<Scanner> m_pScanner;
+        ^~~~~~~~
+In file included from /opt/rh/devtoolset-7/root/usr/include/c++/7/bits/locale_conv.h:41:0,
+                 from /opt/rh/devtoolset-7/root/usr/include/c++/7/locale:43,
+                 from /opt/rh/devtoolset-7/root/usr/include/c++/7/iomanip:43,
+                 from /opt/root/v6.16.00/include/ROOT/RWrap_libcpp_string_view.h:44,
+                 from /opt/root/v6.16.00/include/ROOT/RStringView.hxx:26,
+                 from /opt/root/v6.16.00/include/TString.h:28,
+                 from /opt/root/v6.16.00/include/TNamed.h:26,
+                 from /opt/root/v6.16.00/include/TSystem.h:34,
+                 from /opt/artemis/include/TParameterObject.h:18,
+                 from TSRPPACParameter.h:15,
+                 from TSRPPACParameter.cc:12:
+/opt/rh/devtoolset-7/root/usr/include/c++/7/bits/unique_ptr.h:51:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+In file included from /opt/yaml-cpp/0.3.0/include/yaml-cpp/yaml.h:8:0,
+                 from TSRPPACParameter.cc:13:
+/opt/yaml-cpp/0.3.0/include/yaml-cpp/parser.h:47:8: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+   std::auto_ptr<Directives> m_pDirectives;
+        ^~~~~~~~
+In file included from /opt/rh/devtoolset-7/root/usr/include/c++/7/bits/locale_conv.h:41:0,
+                 from /opt/rh/devtoolset-7/root/usr/include/c++/7/locale:43,
+                 from /opt/rh/devtoolset-7/root/usr/include/c++/7/iomanip:43,
+                 from /opt/root/v6.16.00/include/ROOT/RWrap_libcpp_string_view.h:44,
+                 from /opt/root/v6.16.00/include/ROOT/RStringView.hxx:26,
+                 from /opt/root/v6.16.00/include/TString.h:28,
+                 from /opt/root/v6.16.00/include/TNamed.h:26,
+                 from /opt/root/v6.16.00/include/TSystem.h:34,
+                 from /opt/artemis/include/TParameterObject.h:18,
+                 from TSRPPACParameter.h:15,
+                 from TSRPPACParameter.cc:12:
+/opt/rh/devtoolset-7/root/usr/include/c++/7/bits/unique_ptr.h:51:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+In file included from /opt/yaml-cpp/0.3.0/include/yaml-cpp/yaml.h:9:0,
+                 from TSRPPACParameter.cc:13:
+/opt/yaml-cpp/0.3.0/include/yaml-cpp/emitter.h:105:8: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+   std::auto_ptr <EmitterState> m_pState;
+        ^~~~~~~~
+In file included from /opt/rh/devtoolset-7/root/usr/include/c++/7/bits/locale_conv.h:41:0,
+                 from /opt/rh/devtoolset-7/root/usr/include/c++/7/locale:43,
+                 from /opt/rh/devtoolset-7/root/usr/include/c++/7/iomanip:43,
+                 from /opt/root/v6.16.00/include/ROOT/RWrap_libcpp_string_view.h:44,
+                 from /opt/root/v6.16.00/include/ROOT/RStringView.hxx:26,
+                 from /opt/root/v6.16.00/include/TString.h:28,
+                 from /opt/root/v6.16.00/include/TNamed.h:26,
+                 from /opt/root/v6.16.00/include/TSystem.h:34,
+                 from /opt/artemis/include/TParameterObject.h:18,
+                 from TSRPPACParameter.h:15,
+                 from TSRPPACParameter.cc:12:
+/opt/rh/devtoolset-7/root/usr/include/c++/7/bits/unique_ptr.h:51:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+In file included from /opt/yaml-cpp/0.3.0/include/yaml-cpp/node.h:14:0,
+                 from /opt/yaml-cpp/0.3.0/include/yaml-cpp/yaml.h:13,
+                 from TSRPPACParameter.cc:13:
+/opt/yaml-cpp/0.3.0/include/yaml-cpp/iterator.h:20:17: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+   Iterator(std::auto_ptr<IterPriv> pData);
+                 ^~~~~~~~
+In file included from /opt/rh/devtoolset-7/root/usr/include/c++/7/bits/locale_conv.h:41:0,
+                 from /opt/rh/devtoolset-7/root/usr/include/c++/7/locale:43,
+                 from /opt/rh/devtoolset-7/root/usr/include/c++/7/iomanip:43,
+                 from /opt/root/v6.16.00/include/ROOT/RWrap_libcpp_string_view.h:44,
+                 from /opt/root/v6.16.00/include/ROOT/RStringView.hxx:26,
+                 from /opt/root/v6.16.00/include/TString.h:28,
+                 from /opt/root/v6.16.00/include/TNamed.h:26,
+                 from /opt/root/v6.16.00/include/TSystem.h:34,
+                 from /opt/artemis/include/TParameterObject.h:18,
+                 from TSRPPACParameter.h:15,
+                 from TSRPPACParameter.cc:12:
+/opt/rh/devtoolset-7/root/usr/include/c++/7/bits/unique_ptr.h:51:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+In file included from /opt/yaml-cpp/0.3.0/include/yaml-cpp/node.h:14:0,
+                 from /opt/yaml-cpp/0.3.0/include/yaml-cpp/yaml.h:13,
+                 from TSRPPACParameter.cc:13:
+/opt/yaml-cpp/0.3.0/include/yaml-cpp/iterator.h:36:8: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+   std::auto_ptr<IterPriv> m_pData;
+        ^~~~~~~~
+In file included from /opt/rh/devtoolset-7/root/usr/include/c++/7/bits/locale_conv.h:41:0,
+                 from /opt/rh/devtoolset-7/root/usr/include/c++/7/locale:43,
+                 from /opt/rh/devtoolset-7/root/usr/include/c++/7/iomanip:43,
+                 from /opt/root/v6.16.00/include/ROOT/RWrap_libcpp_string_view.h:44,
+                 from /opt/root/v6.16.00/include/ROOT/RStringView.hxx:26,
+                 from /opt/root/v6.16.00/include/TString.h:28,
+                 from /opt/root/v6.16.00/include/TNamed.h:26,
+                 from /opt/root/v6.16.00/include/TSystem.h:34,
+                 from /opt/artemis/include/TParameterObject.h:18,
+                 from TSRPPACParameter.h:15,
+                 from TSRPPACParameter.cc:12:
+/opt/rh/devtoolset-7/root/usr/include/c++/7/bits/unique_ptr.h:51:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+In file included from /opt/yaml-cpp/0.3.0/include/yaml-cpp/yaml.h:13:0,
+                 from TSRPPACParameter.cc:13:
+/opt/yaml-cpp/0.3.0/include/yaml-cpp/node.h:43:8: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+   std::auto_ptr<Node> Clone() const;
+        ^~~~~~~~
+In file included from /opt/rh/devtoolset-7/root/usr/include/c++/7/bits/locale_conv.h:41:0,
+                 from /opt/rh/devtoolset-7/root/usr/include/c++/7/locale:43,
+                 from /opt/rh/devtoolset-7/root/usr/include/c++/7/iomanip:43,
+                 from /opt/root/v6.16.00/include/ROOT/RWrap_libcpp_string_view.h:44,
+                 from /opt/root/v6.16.00/include/ROOT/RStringView.hxx:26,
+                 from /opt/root/v6.16.00/include/TString.h:28,
+                 from /opt/root/v6.16.00/include/TNamed.h:26,
+                 from /opt/root/v6.16.00/include/TSystem.h:34,
+                 from /opt/artemis/include/TParameterObject.h:18,
+                 from TSRPPACParameter.h:15,
+                 from TSRPPACParameter.cc:12:
+/opt/rh/devtoolset-7/root/usr/include/c++/7/bits/unique_ptr.h:51:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+In file included from /opt/yaml-cpp/0.3.0/include/yaml-cpp/yaml.h:13:0,
+                 from TSRPPACParameter.cc:13:
+/opt/yaml-cpp/0.3.0/include/yaml-cpp/node.h:117:8: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+   std::auto_ptr<NodeOwnership> m_pOwnership;
+        ^~~~~~~~
+In file included from /opt/rh/devtoolset-7/root/usr/include/c++/7/bits/locale_conv.h:41:0,
+                 from /opt/rh/devtoolset-7/root/usr/include/c++/7/locale:43,
+                 from /opt/rh/devtoolset-7/root/usr/include/c++/7/iomanip:43,
+                 from /opt/root/v6.16.00/include/ROOT/RWrap_libcpp_string_view.h:44,
+                 from /opt/root/v6.16.00/include/ROOT/RStringView.hxx:26,
+                 from /opt/root/v6.16.00/include/TString.h:28,
+                 from /opt/root/v6.16.00/include/TNamed.h:26,
+                 from /opt/root/v6.16.00/include/TSystem.h:34,
+                 from /opt/artemis/include/TParameterObject.h:18,
+                 from TSRPPACParameter.h:15,
+                 from TSRPPACParameter.cc:12:
+/opt/rh/devtoolset-7/root/usr/include/c++/7/bits/unique_ptr.h:51:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+In file included from TSRPPACPlaneProcessor.h:15:0,
+                 from TSRPPACPlaneProcessor.cc:12:
+/opt/artemis/include/TProcessor.h: In member function ‘void art::TProcessor::RemoveIO(std::vector<art::TProcessor::IOCollection>&, const char*)’:
+/opt/artemis/include/TProcessor.h:148:62: warning: unused parameter ‘iocol’ [-Wunused-parameter]
+    void RemoveIO(std::vector<art::TProcessor::IOCollection>& iocol, const char* name) {
+                                                              ^~~~~
+TSRPPACPlaneProcessor.cc: In member function ‘virtual void art::TSRPPACPlaneProcessor::Init(art::TEventCollection*)’:
+TSRPPACPlaneProcessor.cc:67:52: warning: unused parameter ‘col’ [-Wunused-parameter]
+ void TSRPPACPlaneProcessor::Init(TEventCollection *col)
+                                                    ^~~
+In file included from TSRPPACPlaneProcessor.h:15:0,
+                 from libsrppac_dict.cc:42:
+/opt/artemis/include/TProcessor.h: In member function ‘void art::TProcessor::RemoveIO(std::vector<art::TProcessor::IOCollection>&, const char*)’:
+/opt/artemis/include/TProcessor.h:148:62: warning: unused parameter ‘iocol’ [-Wunused-parameter]
+    void RemoveIO(std::vector<art::TProcessor::IOCollection>& iocol, const char* name) {
+                                                              ^~~~~
+Linux
+mpic++ -shared -Wl,-soname,libsrppac.so -o libsrppac.so .objects/TSRPPACPlaneData.o .objects/TSRPPACParameter.o .objects/TSRPPACPlaneProcessor.o libsrppac_dict.o -L/home/rulonghui/local/lib `artemis-config --libs` `root-config --libs` -lTreePlayer -L/opt/local/artemis_share/lib -luser

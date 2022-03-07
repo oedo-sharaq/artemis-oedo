@@ -1,0 +1,5 @@
+Processor:
+  - name: pad
+    type: art::TCatReadoutPadConditionProcessor
+    parameter:
+      Type: 11

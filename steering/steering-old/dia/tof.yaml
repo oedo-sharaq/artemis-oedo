@@ -1,0 +1,54 @@
+# require: dia.yaml
+
+
+Alias:
+  - &tcal_dia_f3_pad  0
+
+Processor:
+  - name: proc_dia_tof_f3
+    type: art::TTimingSubtractionProcessor
+    parameter:
+      InputCollection:        dia_pad_tcal
+      OutputCollection:       dia_tof
+      StartTimingCollection:  dia_pad_tcal
+      StartTimingDetID:      *tcal_dia_f3_pad
+      MaxDetID:               2
+      UseMultipleStartTiming: 1
+
+
+  - name: proc:tof_f7dia_f5pla
+    parameter:
+      InputCollection: dia_pad_tcal
+      OutputCollection: dia_tof_f5
+      StartTimingCollection: tref
+      StartTimingDetID: 1 # F5
+      MaxDetID:               2
+      UseMultipleStartTiming: 1
+      OutputTransparency: 1
+
+  - name: proc:tof_f5pla_f3dia
+    parameter:
+      InputCollection:        tref
+      OutputCollection:       dia_tof_f3
+      StartTimingCollection:  dia_pad_tcal
+      StartTimingDetID:      *tcal_dia_f3_pad
+      MaxDetID:               4
+      UseMultipleStartTiming: 1
+      OutputTransparency: 1
+
+  - name: separatetof_f3
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: dia_tof_f3
+      OutputCollections:
+        - ""
+        - "tof35tref"
+  - name: separatetof_f5
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: dia_tof_f5
+      OutputCollections:
+        - ""
+        - "tof57tref"
+
+        

@@ -1,0 +1,2 @@
+Anchor:
+  - &ridf_bld ridf/@NAME@/BLD_@NAME@@NUM@.ridf.gz

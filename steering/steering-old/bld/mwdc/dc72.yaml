@@ -1,0 +1,145 @@
+# steering file for DC72 analysis
+# Load bld-plastic steering file before.
+
+Alias: 
+ - &tref_id 0
+
+Processor:
+  - name: proc_dc72_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_dc72_ch2ns
+      Type:     art::TAffineConverter
+      FileName: prm/mwdc/dc72/ch2ns.dat
+
+  - name: proc_dc72_dxdt_x1
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc72_dxdt_x1
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dc72/dt2dl/current/x1.dat
+
+  - name: proc_dc72_dxdt_x2
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc72_dxdt_x2
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dc72/dt2dl/current/x2.dat
+
+  - name: proc_dc72_dxdt_y1
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc72_dxdt_y1
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dc72/dt2dl/current/y1.dat
+
+  - name: proc_dc72_dxdt_y2
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc72_dxdt_y2
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dc72/dt2dl/current/y2.dat
+
+  - name: proc_dc72_dxdt_x3
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc72_dxdt_x3
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dc72/dt2dl/current/x3.dat
+
+  - name: proc_dc72_dxdt_x4
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc72_dxdt_x4
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dc72/dt2dl/current/x4.dat
+
+  - name: proc_dc72_dxdt_y3
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc72_dxdt_y3
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dc72/dt2dl/current/y3.dat
+
+  - name: proc_dc72_dxdt_y4
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc72_dxdt_y4
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dc72/dt2dl/current/y4.dat      
+
+  - name: proc_dc72_geo
+    type: art::TParameterLoader
+    parameter:
+      Name:     dc72
+      Type:     art::TMWDCParameter
+      FileName: prm/mwdc/dc72/geometry.yaml
+
+  - name: proc_dc72_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              24
+      TimingTypeID:       0
+      OutputCollection:   dc72_raw
+      OutputTransparency: 0
+
+  - name: proc_dc72_cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      dc72_raw
+      OutputCollection:     dc72_cal
+      TimingConverterArray: prm_dc72_ch2ns
+      OutputTransparency:   0
+
+  - name: proc:validtime:dc
+    type: art::TTimeValidator
+    parameter:
+      InputCollection: dc72_cal
+      OutputCollection: dc72_val
+#      ValidTimeRange: [-1000000., 1000000., 0.] # Change here
+#      ValidTimeRange: [-1060., -1000., 0.] # Sn ESPRI trig
+#      ValidTimeRange: [-1060., -1000., 0.] # Ca ESPRI trig
+      ValidTimeRange: [-920., -800., 0.] # Ca ESPRI trig
+      OutputTransparency:   0      
+
+  - name: proc_dc72_dt
+    type: art::TTimingSubtractionProcessor
+    parameter:
+      InputCollection:       dc72_val
+      OutputCollection:      dc72_dt
+#      StartTimingCollection: dia_pad_tcal
+      StartTimingCollection: dia7_val
+      StartTimingDetID:     0
+      OutputTransparency:    0
+
+  - name: proc_dc72_plane
+    type: art::TMWDCPlaneProcessor
+    parameter:
+      InputCollection: dc72_dt
+#      InputCollection: dc72_val
+      MWDCName: dc72
+      ConverterList:
+        - prm_dc72_dxdt_x1
+        - prm_dc72_dxdt_x2
+        - prm_dc72_dxdt_y1
+        - prm_dc72_dxdt_y2
+        - prm_dc72_dxdt_x3
+        - prm_dc72_dxdt_x4
+        - prm_dc72_dxdt_y3
+        - prm_dc72_dxdt_y4
+      OutputTransparency: 0
+
+  - name: proc_dc72_track
+    type: art::TMWDCTrackingProcessor
+    parameter:
+      InputCollection:
+        - dc72_x1
+        - dc72_x2
+        - dc72_y1
+        - dc72_y2
+        - dc72_x3
+        - dc72_x4
+        - dc72_y3
+        - dc72_y4
+      OutputCollection:   dc72
+      OutputTransparency: 0

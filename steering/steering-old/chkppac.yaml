@@ -1,0 +1,89 @@
+anchor:
+  - &input ridf/@NAME@@NUM@.ridf
+#  - &treeout output/@NUM@/chkppac.@NUM@.tree.root
+  - &treeout output/@NUM@/chkppac.@NUM@.tree.himac.root
+#  - &histout output/@NUM@/chkppac.@NUM@.hist.root
+  - &histout output/@NUM@/chkppac.@NUM@.hist.himac.root
+
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+        - *input
+
+  - name: map
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+      MapConfig: mapper.conf
+
+  - include: himac/steering/v1290_tref.yaml
+  - include: himac/steering/bld/v1190_tref.yaml
+  - include: himac/steering/trigger.yaml
+  - include: himac/steering/chksca.yaml
+
+#  - name: gate_array_init
+#    type: art::TGateArrayInitializer
+    
+#  - include: beam_required.yaml
+#  - include: himac/steering/bld/srppac/srppac.yaml
+#  - include: himac/steering/bld/srppac/srppaccalib.yaml
+  - include: himac/steering/bld/xe.yaml
+  - include: himac/steering/bld/mwdc/chkall.yaml
+  - include: himac/steering/bld/mwdc/dc31_calib.yaml
+  - include: himac/steering/bld/mwdc/dc32_calib.yaml
+  - include: himac/steering/bld/srppac/srppac.yaml
+  - include: himac/steering/bld/srppac/srppaccalib.yaml
+ 
+#  - name: proc_dc31_gate
+#    type: art::TTreeFormulaGateProcessor
+#    parameter:
+#      Definitions: [ dc31@.GetEntriesFast()==1 ] 
+#      OutputTransparency: 0
+#      Verbose: 1
+#
+#  - name: proc_dc32_gate
+#    type: art::TTreeFormulaGateProcessor
+#    parameter:
+#      Definitions: [ dc32@.GetEntriesFast()==1 ] 
+#      OutputTransparency: 0
+#      Verbose: 1
+
+
+
+#  - include: dia/v1290_tref.yaml
+#  - include: plastic/ttc.yaml
+#  - include: plastic/tref.yaml
+#  - include: dia/ttc.yaml
+#  - include: dia/tref.yaml
+#  - include: tof.yaml
+
+  # - name: proj
+  #   type: art::TTreeProjectionProcessor
+  #   parameter:
+  #     Type: art::TTreeProjection
+  #     FileName: hist/plastic/chkpla.yaml
+
+  - name: projppac
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type: art::TTreeProjection
+      FileName: hist/histset.yaml
+      OutputFilename: *histout
+
+#  - name: projdc
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      Type: art::TTreeProjection
+#      FileName: hist/bld/chk.yaml
+      
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: *treeout
+

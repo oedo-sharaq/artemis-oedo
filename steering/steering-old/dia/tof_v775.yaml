@@ -1,0 +1,74 @@
+# require: dia.yaml
+
+
+Alias:
+  - &tcal_dia_f3_pad  0
+
+Processor:
+  - name: proc_dia_tof_f3_v775
+    type: art::TTimingSubtractionProcessor
+    parameter:
+      InputCollection:        dia_pad_tcal_v775
+      OutputCollection:       dia_tof_v775
+      StartTimingCollection:  dia_pad_tcal_v775
+      StartTimingDetID:      *tcal_dia_f3_pad
+      MaxDetID:               2
+      UseMultipleStartTiming: 1
+
+  - name: proc:tof_f5pla_f3dia
+    type: art::TTimingSubtractionProcessor
+    parameter:
+      InputCollection:        tref
+      OutputCollection:       dia_tof_f3_v775
+      StartTimingCollection:  dia_pad_tcal_v775
+      StartTimingDetID:      *tcal_dia_f3_pad
+      MaxDetID:               4
+      UseMultipleStartTiming: 1
+      OutputTransparency: 1
+
+  - name: proc:tof_f7dia_f5pla
+    type: art::TTimingSubtractionProcessor
+    parameter:
+      InputCollection: dia_pad_tcal_v775
+      OutputCollection: dia_tof_f5_v775
+      StartTimingCollection: tref
+      StartTimingDetID: 1 # F5
+      MaxDetID:               2
+      UseMultipleStartTiming: 1
+      OutputTransparency: 1
+  - name: proc:tof_tref_tref
+    type: art::TTimingSubtractionProcessor
+    parameter:
+      InputCollection: dia_pad_tcal_v775
+      OutputCollection: dia_tof_f5_tref
+      StartTimingCollection: tref
+      StartTimingDetID: 1 # F5
+      MaxDetID:               4
+      UseMultipleStartTiming: 1
+      OutputTransparency: 1
+
+
+  - name: separate_tof
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: dia_tof_v775
+      OutputCollections:
+        - ""
+        - "tof37"
+        
+  - name: separatetof_f3_tref
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: dia_tof_f3_v775
+      OutputCollections:
+        - ""
+        - "tof35"
+  - name: separatetof_f5_v775
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: dia_tof_f5_v775
+      OutputCollections:
+        - ""
+        - "tof57"
+
+      

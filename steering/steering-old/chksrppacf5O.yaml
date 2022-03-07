@@ -1,0 +1,68 @@
+anchor:
+ - &input ridf/mpv/bld/@NAME@@NUM@.ridf
+ - &treeout output/@NUM@/chkppac.@NUM@.tree.root
+ - &histout output/@NUM@/chkppac.@NUM@.hist.root
+
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+        - *input
+
+  - name: map
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+#      MapConfig: mapper.conf
+
+  - include: tref.yaml
+#  - include: trigger.yaml
+  
+#  - name: gate_array_init
+#    type: art::TGateArrayInitializer
+    
+#  - include: beam_required.yaml
+  - include: srppac/srppacO.yaml
+#  - include: bld/srppac/srppaccalib.yaml
+#  - include: bld/xe.yaml
+#  - include: bld/mwdc/chkall.yaml
+#  - include: bld/mwdc/dc31_calib.yaml
+#  - include: bld/mwdc/dc32_calib.yaml
+
+#  - include: dia/v1290_tref.yaml
+  # - include: plastic/ttc.yaml
+  # - include: plastic/tref.yaml
+  # - include: dia/ttc.yaml
+  # - include: dia/tref.yaml
+  # - include: tof.yaml
+
+  # - name: proj
+  #   type: art::TTreeProjectionProcessor
+  #   parameter:
+  #     Type: art::TTreeProjection
+  #     FileName: hist/plastic/chkpla.yaml
+
+  - name: projppac
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type: art::TTreeProjection
+      FileName: hist/srppac/srppac5152O.yaml
+      OutputFilename: *histout
+
+
+#  - name: projdc
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      Type: art::TTreeProjection
+#      FileName: hist/bld/chk.yaml
+      
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: *treeout
+

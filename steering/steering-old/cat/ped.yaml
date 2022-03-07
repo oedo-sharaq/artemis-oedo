@@ -1,0 +1,26 @@
+Alias:
+## pedestal run
+  - &ridf1 ridf/CAT1_fadc0138.ridf
+  - &ridf2 ridf/CAT2_fadc0138.ridf
+  - &rootfile fa
+Processor:
+# ridf files
+  - name: ridfevent
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      InputFiles:
+#        - *ridf1
+        - *ridf2
+
+  - name: timer
+    type: art::TTimerProcessor
+    parameter:
+      Verbose: 0
+
+  - name: catpedestal
+    type: art::TCatAtPedestalCalculator
+    parameter:
+      SegID: [31,34,55,63]
+      MaxGeo: 8
+      Verbose: 0

@@ -1,0 +1,56 @@
+eProcessor:
+  - name: ridfevent
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      InputFiles:
+        - *ridf1
+  - name: ridfevent2
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      SegmentedData: segdata2
+      InputFiles:
+        - *ridf2
+  - name: pad
+    type: art::TCatReadoutPadConditionProcessor
+  - name: timer
+    type: art::TTimerProcessor
+  - name: map
+    type: art::TMappingProcessor
+    parameter:
+      MapConfig: mapper.conf
+      InputCollection: [segdata,segdata2]
+      OutputTransparency:  1
+  - name: catmapping
+    type: art::TCatAtMappingProcessor
+    parameter:
+      CatID: 51
+      OutputCollection: at
+      OutputTransparency: 0
+  - name: catsub
+    type: art::TCatAtPedestalSubtractionProcessor
+    parameter:
+      InputCollection: at
+      OutputCollection: atsub
+      OutputTransparency: 1
+  - name: atpulsefinder
+    type: art::TPulseFinder
+    parameter:
+      InputCollection: atsub
+      RisingThreshold: 3
+      FallingThreshold: 3
+      PrePulse: 15.
+      PostPulse: 20.
+      SavePulse: 1
+      Sparse: 0
+      OutputTransparency: 0
+  - name: projcat
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type: art::TTreeProjection
+      FileName: hist/cat/chkcat_hist.yaml
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: cat_last.root

@@ -1,0 +1,79 @@
+Processor:
+  - name: proc_tref_v1290_b3f
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [0,  0, 31, 0, 0]
+      SegConfig: [0,  0, 31, 0]
+  
+  - name: proc_tref_v1190_3_0
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [0,  3, 31, 0, 0]
+      SegConfig: [0,  3, 31, 0]
+
+  - name: proc_tref_v1190_3_1
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [0,  3, 31, 1, 0]
+      SegConfig: [0,  3, 31, 1]
+
+  - name: proc_tref_v1190_3_2
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [0,  3, 31, 2, 0]
+      SegConfig: [0,  3, 31, 2]
+
+  - name: proc_tref_v1190_5_0
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [0,  5, 31, 0, 0]
+      SegConfig: [0,  5, 31, 0]
+
+  - name: proc_tref_v1190_5_1
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [0,  5, 31, 1, 0]
+      SegConfig: [0,  5, 31, 1]
+
+  - name: proc_tref_v1190_5_2
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [0,  5, 31, 2, 0]
+      SegConfig: [0,  5, 31, 2]
+
+  - name: proc_tref_v1190_5_3
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [0,  5, 31, 3, 0]
+      SegConfig: [0,  5, 31, 3]
+      
+  - name: proc_tref_v1190_7_0
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [0,  7, 31, 0, 0]
+      SegConfig: [0,  7, 31, 0]
+
+  - name: proc_tref_v1190_7_1
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [0,  7, 31, 1, 0]
+      SegConfig: [0,  7, 31, 1]
+
+  - name: proc_tref_v1190_7_2
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [0,  7, 31, 2, 0]
+      SegConfig: [0,  7, 31, 2]
+
+#  - name: proc_tref_v1190_8_0
+#    type: art::TTimeReferenceProcessor
+#    parameter:
+#      RefConfig: [0,  8, 31, 0, 0]
+#      SegConfig: [0,  8, 31, 0]
+      
+#  - name: proc_tref_v1190_8_1
+#    type: art::TTimeReferenceProcessor
+#    parameter:
+#      RefConfig: [0,  8, 31, 1, 0]
+#      SegConfig: [0,  8, 31, 1]
+      

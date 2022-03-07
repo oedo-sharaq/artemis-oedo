@@ -1,0 +1,32 @@
+Processor:
+  - name: MyTProcessor
+    type: art::TBinaryReactionGenerator
+    parameter:
+      AngDistFile: ""  # [TString] file name of the angular distribution. The format of content is '%f %f'.
+      AngMom: -1  # [Int_t] angular momentum for bessel function. If -1 (default), the isotopic distribution is assumed.
+      AngRange: [2, 3]  # [FloatVec_t] the range of angular distribution
+      ExMean: 0  # [Float_t] mean of excitation energy
+      ExRange: [0, 30]  # [FloatVec_t] the range of excitation energy
+      ExWidth: 0  # [Float_t] width of excitation energy : default is delta function
+      KinMean: 100  # [Float_t] mean kinetic energy per nucleon
+      MCTruthCollection: mctruth  # [TString] output name of MC truth
+      MaxLoop: 100  # [Int_t] the maximum number of loop
+      OutputCollection: recoil  # [TString] output name of particle array
+      OutputTransparency: 0  # [Bool_t] Output is persistent if false (default)
+      Particle1: [132, 50]  # [IntVec_t] mass and atomic number for particle1
+      Particle2: [2, 1]  # [IntVec_t] mass and atomic number for particle2
+      Particle3: [132, 50]  # [IntVec_t] mass and atomic number for particle3
+      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
+  - name: missingmass
+    type: art::TCatMissingMassProcessor
+    parameter:
+      RecoilInput: mctruth
+      RangeTableFile: data/DeuteronDeuterium/DeuteronDeuterium064.txt.out      
+      Ex: Ex
+      ThetaCM: ThetaCM
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: test.root
+
+    

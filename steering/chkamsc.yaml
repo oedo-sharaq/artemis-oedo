@@ -1,0 +1,47 @@
+# @file chkamsc.yaml
+# @brief check amttdc decoder
+# 
+# @date Create        : 2021.05.13 16:37 (HJKT)
+#       Last Modified : 2021.05.13 16:37
+# @author:  Yuto HIJIKATA
+# 
+Processor:
+  - &ridf ridf/@NAME@@NUM@.ridf
+  - &treeout output/chkamsc/@NAME@@NUM@.tree.root
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+        - *ridf
+
+  - name: map
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+      MapConfig: mapper.conf
+
+
+  - include: bld/mwdc/dc51_decodertest.yaml
+  - include: bld/mwdc/dc52_decodertest.yaml
+
+#  - name: projopt
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      Type: art::TTreeProjection
+#      FileName: hist/mwdc.yaml
+#      OutputFilename: *histout
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: *treeout
+
+
+    
+---
+# end of chkamsc.yaml

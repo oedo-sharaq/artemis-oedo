@@ -1,0 +1,27 @@
+Processor:
+  Anchor:
+#    - &root root/alpha0383_gainshift_cor_track.root
+    - &root test.root
+Processor:
+#  - name: event count
+#    type: art::TEventSkipProcessor
+#    parameter:
+#      MaxNumEvent: 1000
+  - name: timer
+    type: art::TTimerProcessor
+  - name: ridfevent
+    type: art::TTreeEventStore
+    parameter:
+      OutputTransparency:  1
+      FileName: *root
+  - name: projcat
+    type: art::TTreeProjectionProcessor
+    parameter:
+#      FileName: hist/cat/ex.hist.yaml
+      FileName: hist/cat/alpha.hist.yaml
+      Name: projection
+      OutputTransparency: 1
+      Type: art::TTreeProjection
+  - name: timer
+    type: art::TTimerProcessor
+      

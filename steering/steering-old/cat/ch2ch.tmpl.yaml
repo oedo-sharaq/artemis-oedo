@@ -1,0 +1,89 @@
+Anchor:
+  - &ridf1 ridf/phys/CAT1_phys0300.ridf.gz
+  - &ridf2 ridf/phys/CAT2_phys0300.ridf.gz
+  - &rootout root/test.root
+  - &histout root/test.hist.root
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+  - name: ridfevent
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      InputFiles:
+        - *ridf1
+  - name: ridfevent2
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      SegmentedData: segdata2
+      InputFiles:
+        - *ridf2
+  - name: map
+    type: art::TMappingProcessor
+    parameter:
+      InputCollection: [segdata, segdata2]
+      OutputTransparency:  1
+      MapConfig: mapper.conf
+#======================================================================
+# parameters
+  - name: pad
+    type: art::TCatReadoutPadConditionProcessor
+    parameter:
+      Gap: 0.      
+      Type: 2
+      Bads: [43, 142, 167, 168, 176, 181, 207, 367, 372, 375, 380, 393]
+#======================================================================
+# event loop
+  - name: catmapping
+    type: art::TCatAtMappingProcessor
+    parameter:
+      CatID: 51
+      OutputCollection: at
+      OutputTransparency: 0
+      SelectIf: 1
+      BeamRegion: [-18,18]
+  - name: catsub
+    type: art::TCatAtPedestalSubtractionProcessor
+    parameter:
+      InputCollection: at
+      OutputCollection: atsub
+      OutputTransparency: 0
+  - name: atpulsefinder
+    type: art::TPulseFinder
+    parameter:
+      InputCollection: atsub
+      RisingThreshold: 30
+      FallingThreshold: 0.5
+      PrePulse: 30
+      PostPulse: 15
+      SavePulse: 1
+      Sparse: 0
+      OutputTransparency: 0
+  - name: cluster:recoil
+    type: art::TCatTpcHitClusterProcessor
+    parameter:
+      ClusterRadius: [8.1, 21]  # [vector<Double_t>] radius of cluster
+      InputCollection: atpulse  # [TString] input pulse collection (for a specific region)
+      IsSingle: 1  # [Bool_t] select maximum size cluster if 1 (default: 0)
+      MinClusterSize: 5  # [Double_t] required minimum cluster size
+      OutputCollection: atcluster  # [TString] output pulse collection as a candidate of recoil track
+      OutputTransparency: 0  # [Bool_t] Output is persistent if false (default)
+      ReadoutPad: readoutPad  # [TString] Name of readout pad array
+      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
+  - name: projcat
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/cat/ecal.hist.yaml
+      Name: projection
+      OutputTransparency: 1
+      Type: art::TTreeProjection
+      Verbose: 1
+      OutputFilename: *histout
+#  - name: outputtree
+#    type: art::TOutputTreeProcessor
+#    parameter:
+#      FileName: *rootout
+  - name: timer
+    type: art::TTimerProcessor
+      

@@ -1,0 +1,25 @@
+# require: spla.yaml
+
+
+Alias:
+  - &tof_tref_id_s2 1
+  - &spla_id_f3_m  4
+  - &spla_id_fhx_m 7
+  - &si_id_f3_us 8
+  - &pid_hist ["hPID","particle id;TOF F3-FHX;F3 Si US Q",200,840,890,300,0,1200] ## CHANGE HERE!!
+
+Particles: &gatelist
+  - ["54Sc",862,850,864,950]   ## CHANGE HERE!! [gatename,tmin,qmin,tmax,qmax]
+
+Processor:
+  - name: proc_pidgate
+    type: art::TPIDGateProcessor
+    parameter:
+#      TimingArray:     tof_spla_f3
+      TimingArray:     tof37_v1290
+#      TimingDetID:    *spla_id_fhx_m
+#      ChargeArray:     si
+      ChargeArray:     diaf3_qcal
+#      ChargeDetID:    *si_id_f3_us
+      Rectangle:       *gatelist
+      HistogramOption: *pid_hist

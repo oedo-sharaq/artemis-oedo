@@ -1,0 +1,20 @@
+Processor:
+  - name: proc_F3_tracking
+    type: art::TMWDCTrackingProcessor
+    parameter:
+      InputCollection:
+        - dc31_x1
+        - dc31_x2
+        - dc31_y1
+        - dc31_y2
+        - dc31_x3
+        - dc31_x4
+        - dc31_y3
+        - dc31_y4
+        - dc32_x1
+        - dc32_x2
+        - dc32_y1
+        - dc32_y2
+      OutputCollection:   f3
+#      UseGlobalPos:       1
+      OutputTransparency: 0

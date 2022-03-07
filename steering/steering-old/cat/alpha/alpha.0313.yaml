@@ -1,0 +1,155 @@
+Anchor:
+  - &ridf1 ridf/alpha/CAT1_alpha0313.ridf.gz
+  - &ridf2 ridf/alpha/CAT2_alpha0313.ridf.gz
+  - &rootout root/alpha/0313/alpha0313.root
+  - &histout root/alpha/0313/alpha0313.hist.root
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+  - name: ridfevent
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      InputFiles:
+        - *ridf1
+  - name: ridfevent2
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      SegmentedData: segdata2
+      InputFiles:
+        - *ridf2
+  - name: map
+    type: art::TMappingProcessor
+    parameter:
+      InputCollection: [segdata, segdata2]
+      OutputTransparency:  1
+      MapConfig: mapper.conf
+  - include: ../../chkcoin.yaml
+  - include: ../../chksca.yaml
+  - name: gate_array_init
+    type: art::TGateArrayInitializer
+#======================================================================
+# parameters
+  - name: pad
+    type: art::TCatReadoutPadConditionProcessor
+    parameter:
+      Gap: 0.      
+      Type: 2
+      Bads: [43, 142, 167, 168, 176, 181, 207, 367, 372, 375, 380, 393]
+  - name: gaindrift
+    type: art::TAffineConverterConditionProcessor
+    parameter:
+      ParameterList: [drift0313,prm/cat/0313/gaindrift.0313.dat]
+  - name: samplecalibgen
+    type: art::TAffineConverterArrayGenerator
+    parameter:
+      ParameterList:
+        - [ch2MeVpre, prm/cat/0313/ch2MeV.0313.dat]
+        - [MeVit1, prm/cat/0313/alpha.0313.it1.dat]
+  - name: proc:rangetable
+    type: art::TRangeTableConditionProcessor
+    parameter:
+      RangeTableFile: data/HeliumDeuterium/HeliumDeuterium064.txt.out
+      RangeTable: rangeTable
+      
+#======================================================================
+# event loop
+  - name: catmapping
+    type: art::TCatAtMappingProcessor
+    parameter:
+      CatID: 51
+      OutputCollection: at
+      OutputTransparency: 0
+      SelectIf: 1
+      BeamRegion: [-12,12]
+  - name: catsub
+    type: art::TCatAtPedestalSubtractionProcessor
+    parameter:
+      InputCollection: at
+      OutputCollection: atsub
+      OutputTransparency: 0
+  - name: atpulsefinder
+    type: art::TPulseFinder
+    parameter:
+      InputCollection: atsub
+      RisingThreshold: 25
+      FallingThreshold: 0.5
+      PrePulse: 30
+      PostPulse: 15
+      SavePulse: 1
+      Sparse: 0
+      OutputTransparency: 0
+  - name: calib:drift
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: atpulse
+      OutputCollection: atpulse_drift
+      ChargeConverterArray: drift0313
+  - name: calib:ch2MeVpre
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: atpulse_drift
+      OutputCollection: atpulse_MeVpre
+      ChargeConverterArray: ch2MeVpre
+      InputIsDigital: 0      
+  - name: calib:MeVit1
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: atpulse_MeVpre
+      OutputCollection: atpulse_MeV
+      ChargeConverterArray: MeVit1
+      InputIsDigital: 0      
+  - name: cluster:recoil
+    type: art::TCatTpcHitClusterProcessor
+    parameter:
+      ClusterRadius: [8.1, 21]  # [vector<Double_t>] radius of cluster
+      InputCollection: atpulse_MeV  # [TString] input pulse collection (for a specific region)
+      IsSingle: 1  # [Bool_t] select maximum size cluster if 1 (default: 0)
+      MinClusterSize: 5  # [Double_t] required minimum cluster size
+      OutputCollection: atcluster  # [TString] output pulse collection as a candidate of recoil track
+      OutputTransparency: 0  # [Bool_t] Output is persistent if false (default)
+      ReadoutPad: readoutPad  # [TString] Name of readout pad array
+      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
+  - name: trackWithDiffusedCharge
+    type: art::TCatTrackingWithDiffusedChargeProcessor
+    parameter:
+      InputCollection: atcluster
+      RangeTable: rangeTable
+#      ReadoutPlaneOffset: -45.5
+      OutputCollection: track3
+      FixedOrigin: 253
+      InitialRange: 490.
+      IndependentVariable: 2
+      Attachment: 0.
+      DefaultIntegrateStep: 0.1
+      DiffusionCoefficient: 0.045
+#      DiffusionCoefficient: 0.1
+      SigmaCoeff: [39.6, 0.107]
+      ResponseTableFileName: data/restable_7mm_10um_finedev_nogap.root      
+      UseRandom: 0
+      MeshDim: [1,20,20]
+      DoMeshSearch: 0
+#  - name: displayTrack
+#    type: art::TCatTrackResultDisplayProcessor
+#    parameter:
+#      DisplayMode: 1
+#      InputCollection: ["track3"]
+#      WaitTime: 1000000
+  - name: projcat
+    type: art::TTreeProjectionProcessor
+    parameter:
+#      FileName: hist/cat/base.hist.yaml
+      FileName: hist/cat/alpha.hist.yaml
+      Name: projection
+      OutputTransparency: 1
+      Type: art::TTreeProjection
+      Verbose: 1
+      OutputFilename: *histout
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: *rootout
+  - name: timer
+    type: art::TTimerProcessor
+      

@@ -1,0 +1,8 @@
+# DCC1 for MS-EXP20-04
+# Last Modified : 2021-06-11 17:23:43 JST (ota)
+#position: [0.,0.,260.]
+#position: [0.,0.,-260]
+position: [25.,0.,-1810]
+angle: 0.
+turned: 1
+plane_config: prm/mwdc/config/xxyyxxyy.yaml

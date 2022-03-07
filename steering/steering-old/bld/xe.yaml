@@ -1,0 +1,51 @@
+Processor:
+
+  - name: proc_xetdc_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm_xetdc_ch2ns
+      Type: art::TAffineConverter
+      FileName: prm/xe/xetdc_ch2ns.dat
+
+  - name: proc_xeqdc_ch2MeV
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_xeqdc_ch2MeV
+      Type:     art::TAffineConverter
+      FileName: prm/xe/xeqdc_ch2MeV.dat
+
+  - name: proc_xeraw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+#      CatID: 136
+      CatID: 36
+      ChargeType: 1
+      TimingTypeID: 0
+      ChargeTypeID: 1
+      OutputCollection: xeraw
+      OutputTransparency: 0
+      
+  - name: proc_xecal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: xeraw
+      OutputCollection: xecal
+      TimingConverterArray: prm_xetdc_ch2ns
+      ChargeConverterArray: prm_xeqdc_ch2MeV
+      OutputTransparency: 0
+      
+  - name: proc_xesep
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: xecal
+      OutputCollections: 
+        - xecal_l
+        - xecal_r
+      
+  - name: proc_xe
+    type: art::TTwoSidedPlasticCalibrationProcessor
+    parameter:
+      InputCollection1: xecal_l
+      InputCollection2: xecal_r
+      OutputCollection: xe
+

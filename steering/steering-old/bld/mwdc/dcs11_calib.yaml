@@ -1,0 +1,40 @@
+# for calibration of DCS11
+#
+# * include after dcs11.yaml
+# * prepare pid gate (sample: pidgate.yaml)
+
+Alias:
+  - &pid_gate 54Sc  # CHANGE HERE
+
+Processor:
+  - name: proc_dcs11_x1_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dcs11_x1
+      Gate:            *pid_gate
+      TimingGate:      [700,900] # CHANGE HERE
+      ChargeGate:      [500,4000] # CHANGE HERE
+
+  - name: proc_dcs11_x2_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dcs11_x2
+      Gate:            *pid_gate
+      TimingGate:      [700,900] # CHANGE HERE
+      ChargeGate:      [500,4000] # CHANGE HERE
+
+  - name: proc_dcs11_y1_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dcs11_y1
+      Gate:            *pid_gate
+      TimingGate:      [700,900] # CHANGE HERE
+      ChargeGate:      [500,4000] # CHANGE HERE
+
+  - name: proc_dcs11_y2_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dcs11_y2
+      Gate:            *pid_gate
+      TimingGate:      [700,900] # CHANGE HERE
+      ChargeGate:      [500,4000] # CHANGE HERE

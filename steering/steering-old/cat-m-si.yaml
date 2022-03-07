@@ -1,0 +1,118 @@
+Anchor:
+  - &maxEvtNum 100000000
+  - &data0 /data20/narval/data20/cobo10/run_@NUM@.dat
+  - &histout output/@NUM@/cat-m-si_@NUM@.hist.root
+  - &rootout output/@NUM@/cat-m-si_@NUM@.root
+Processor:
+  - name: pad
+    type: art::TCatReadoutPadConditionProcessor
+    parameter:
+      Type: 11
+      Bads: [2783, 2806]
+#  - name: proc:rangetable
+#    type: art::TRangeTableConditionProcessor
+#    parameter:
+#      RangeTableFile: data/ProtonHydrogen/ProtonHydrogen025.txt.out
+#      RangeTable: rangeTable
+#      RangeStep: 0.1
+#  - name: proc:rangetable
+#    type: art::TRangeTableConditionProcessor
+#    parameter:
+#      RangeTableFile: data/HeliumHydrogen/HeliumHydrogen025.txt.out
+#      RangeTable: rangeTableHeH
+#      RangeStep: 0.1
+#  - name: proc:rangetable
+#    type: art::TRangeTableConditionProcessor
+#    parameter:
+#      RangeTableFile: data/XenonHydrogen/XenonHydrogen025.txt.out
+#      RangeTable: rangeTableXeH
+#      RangeStep: 1.
+#      TKECutoff: 20000
+  - name: samplecalibgen
+    type: art::TAffineConverterArrayGenerator
+    parameter:
+      ParameterList:
+        - [ch5MeV,  prm/cat/ch5MeV.dat]
+# ======================================================================
+  - name: get
+    type: art::TGetEventStore
+    parameter:
+#      InputFiles: /data00/narval/cobo00/run_0172.dat.17-12-17_18h51m31s
+      InputFiles: *data0
+      RequireHitBit: 1 #For Reading always
+      OutputTransparency: 1
+      MaxEventNum: *maxEvtNum
+      ValidBucket: [2, 500]
+  - name: categorized
+    type: art::TMappingProcessor
+    parameter:
+#      InputCollection: [segdata,segdata2,segdata3,segdata4]
+      InputCollection: [segdata]
+      OutputTransparency: 1
+      MapConfig: mapper.conf
+  - name: cat:mapping
+    type: art::TCatAtMappingProcessor
+    parameter:
+      CatID: 52
+      OutputCollection: atsi
+      MaxDetID: 96
+#      SelectIf: 0
+#      BeamRegion: [-12,12]
+#  - name: cat:mapping
+#    type: art::TCatAtMappingProcessor
+#    parameter:
+#      CatID: 51
+#      OutputCollection: atall
+#      MaxDetID: 4048
+#  - name: cat:mapping2
+#    type: art::TCatAtMappingProcessor
+#    parameter:
+#      CatID: 52
+#      OutputCollection: atsi
+#      MaxDetID: 96
+  - name: catsub
+    type: art::TCatAtPedestalSubtractionProcessor
+    parameter:
+      InputCollection: atsi
+      OutputCollection: atsisub
+      OutputTransparency: 0
+      DoInvertPulse: 1
+
+  - name: atpulsefinder
+    type: art::TPulseFinder
+    parameter:
+      InputCollection: atsisub
+      OutputCollection: atsipulse
+      RisingThreshold: 100.
+      FallingThreshold: 50.
+      ClockPeriod: 40
+      PrePulse: 30.
+      PostPulse: 30.
+      SavePulse: 1
+#      Sparse: 0
+      OutputTransparency: 0
+
+  - name: calib:ch2MeV
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:  atsipulse
+      OutputCollection: atsihit
+      ChargeConverterArray: ch5MeV
+      InputIsDigital: 0      
+
+  - include:
+      name: cat/si_separate.yaml
+
+  - name: hist
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/cat-m-si.hist.yaml
+      OutputFilename: *histout
+      Type: art::TTreeProjection
+      
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: *rootout
+  - name: timer
+    type: art::TTimerProcessor

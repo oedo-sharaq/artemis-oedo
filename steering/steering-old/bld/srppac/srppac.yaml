@@ -1,0 +1,114 @@
+Processor:
+
+  - name: proc:ppac:ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm:ppac:ch2ns
+      Type: art::TAffineConverter
+      FileName: prm/ppac/ch2ns.dat
+
+  - name: proc:ppac:conv:x
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm:ppac:x:conv
+      Type: art::TAffineConverter
+      FileName: prm/ppac/x_conv.dat
+
+  - name: proc:ppac:conv:y
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm:ppac:y:conv
+      Type: art::TAffineConverter
+      FileName: prm/ppac/y_conv.dat
+      
+      # ---------------------------------------
+  - name: proc:ppac:param:geo:x
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm:ppac:geo:x
+      Type: art::TSRPPACParameter
+      FileName: prm/srppac/geometry_x.yaml
+      FileFormat: yaml
+  - name: proc:ppac:param:geo:y
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm:ppac:geo:y
+      Type: art::TSRPPACParameter
+      FileName: prm/srppac/geometry_y.yaml
+      FileFormat: yaml
+
+  - name: proc:ppac:x:raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: 42
+      TimingTypeID: 0
+      TrailingComesFirst: 0
+      OutputCollection: srppac_x_raw
+
+  - name: proc:ppac:y:raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: 43
+      TimingTypeID: 0
+      TrailingComesFirst: 0
+      OutputCollection: srppac_y_raw
+
+  - name: proc:ppac:x:cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: srppac_x_raw
+      OutputCollection: srppac_x_cal
+      TimingConverterArray: prm:ppac:ch2ns
+      ChargeConverterArray: prm:ppac:conv:x
+
+  - name: proc:ppac:y:cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: srppac_y_raw
+      OutputCollection: srppac_y_cal
+      TimingConverterArray: prm:ppac:ch2ns
+      ChargeConverterArray: prm:ppac:conv:y
+
+  - name: proc:ppac:x
+    type: art::TSRPPACPlaneProcessor
+    parameter:
+      InputCollection: srppac_x_cal
+      OutputCollection: srppac_x
+      SRPPACParameter: prm:ppac:geo:x
+      
+  - name: proc:ppac:y
+    type: art::TSRPPACPlaneProcessor
+    parameter:
+      InputCollection: srppac_y_cal
+      OutputCollection: srppac_y
+      SRPPACParameter: prm:ppac:geo:y
+      
+  - name: proc:ppac:anode:led:raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: 40
+      TimingTypeID: 0
+      OutputCollection: srppac_anode_led_raw
+
+  - name: proc:ppac:anode:led:cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: srppac_anode_led_raw
+      OutputCollection: srppac_anode_led
+      TimingConverterArray: prm:ppac:ch2ns
+
+  - name: proc:ppac:anode:tot:raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: 41
+      TimingTypeID: 0
+      OutputCollection: srppac_anode_tot_raw
+
+  - name: proc:ppac:anode:tot:cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: srppac_anode_tot_raw
+      OutputCollection: srppac_anode_tot
+      TimingConverterArray: prm:ppac:ch2ns
+      ChargeConverterArray: prm:ppac:ch2ns
+    

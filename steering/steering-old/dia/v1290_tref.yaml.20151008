@@ -1,0 +1,12 @@
+Processor:
+  - name: proc_tref_v1290
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [31,34,35,5,0]
+      SegConfig: [31,34,35,5]
+  - name: proc_tref_v1290_geo3
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [31,34,3,3,0]
+#      RefConfig: [31,34,3,3,1]
+      SegConfig: [31,34,3,3]

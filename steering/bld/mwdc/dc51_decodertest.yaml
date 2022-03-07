@@ -1,0 +1,12 @@
+# steering file for DC51 decoder test
+# Load bld-plastic steering file before.
+
+Processor:
+
+  - name: proc_dc51_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              25
+      TimingTypeID:       0
+      OutputCollection:   dc51_raw
+      OutputTransparency: 0

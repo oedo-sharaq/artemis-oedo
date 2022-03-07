@@ -1,0 +1,97 @@
+# steering file for DCS12 analysis
+# Load bld-plastic steering file before.
+
+Alias: 
+ - &tref_id_s2 0 # CHANGE HERE
+
+Processor:
+  - name: proc_dcs12_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_dcs12_ch2ns
+      Type:     art::TAffineConverter
+      FileName: prm/mwdc/dcs12/ch2ns.dat
+
+  - name: proc_dcs12_dxdt_x1
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dcs12_dxdt_x1
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dcs12/dt2dl/current/x1.dat
+
+  - name: proc_dcs12_dxdt_x2
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dcs12_dxdt_x2
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dcs12/dt2dl/current/x2.dat
+
+  - name: proc_dcs12_dxdt_y1
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dcs12_dxdt_y1
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dcs12/dt2dl/current/y1.dat
+
+  - name: proc_dcs12_dxdt_y2
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dcs12_dxdt_y2
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dcs12/dt2dl/current/y2.dat
+
+  - name: proc_dcs12_geo
+    type: art::TParameterLoader
+    parameter:
+      Name:     dcs12
+      Type:     art::TMWDCParameter
+      FileName: prm/mwdc/dcs12/geometry.yaml
+
+  - name: proc_dcs12_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              31 # CHANGE HERE
+      TimingTypeID:       0
+      OutputCollection:   dcs12_raw
+      OutputTransparency: 0
+
+  - name: proc_dcs12_cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      dcs12_raw
+      OutputCollection:     dcs12_cal
+      TimingConverterArray: prm_dcs12_ch2ns
+      OutputTransparency:   0
+
+  - name: proc_dcs12_dt
+    type: art::TTimingSubtractionProcessor
+    parameter:
+      InputCollection:       dcs12_cal
+      OutputCollection:      dcs12_dt
+      StartTimingCollection: tref
+      StartTimingDetID:     *tref_id_s2 
+      OutputTransparency:    1
+
+  - name: proc_dcs12_plane
+    type: art::TMWDCPlaneProcessor
+    parameter:
+      InputCollection: dcs12_dt
+      MWDCName:        dcs12
+      ConverterList:
+        - prm_dcs12_dxdt_x1
+        - prm_dcs12_dxdt_x2
+        - prm_dcs12_dxdt_y1
+        - prm_dcs12_dxdt_y2
+      OutputTransparency: 0
+
+  - name: proc_dcs12_track
+    type: art::TMWDCTrackingProcessor
+    parameter:
+      InputCollection:
+        - dcs12_x1
+        - dcs12_x2
+        - dcs12_y1
+        - dcs12_y2
+      OutputCollection:   dcs12
+      UseGlobalPos:       0
+      OutputTransparency: 0

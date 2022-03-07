@@ -1,0 +1,30 @@
+Anchor:
+#  - &ridf1 ridf/phys/CAT1_phys0490.ridf.gz
+#  - &ridf2 ridf/phys/CAT2_phys0490.ridf.gz
+#  - &ridf1 ridf/alpha/CAT1_alpha0514.ridf.gz
+#  - &ridf2 ridf/alpha/CAT2_alpha0514.ridf.gz
+  - &ridf1 ridf/alpha/CAT1_alpha0313.ridf.gz
+  - &ridf2 ridf/alpha/CAT2_alpha0313.ridf.gz
+  - &rootout root/alpha/0313/alpha0313.root
+  - &histout root/alpha/0313/alpha0313.hist.root
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+  - name: treeevent
+    type: art::TTreeEventStore
+    parameter:
+      OutputTransparency:  1
+      FileName: *rootout
+  - name: projcat
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/cat/alpha.hist.yaml
+      Name: projection
+      OutputTransparency: 1
+      Type: art::TTreeProjection
+      Verbose: 1
+      OutputFilename: *histout
+  - name: timer
+    type: art::TTimerProcessor
+      
+      

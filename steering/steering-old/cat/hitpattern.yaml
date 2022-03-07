@@ -1,0 +1,22 @@
+Processor:
+  - name: pattern1
+    type: art::TCatAtHitPatternProcessor
+    parameter:
+      InputCollection: at
+      WaitTime: 5
+#  - name: pattern2
+#    type: art::TCatAtHitPatternProcessor
+#    parameter:
+#      InputCollection: atpulse
+#      WaitTime: 5
+  - name: pat3
+    type: art::TCatAtHitPatternProcessor
+    parameter:
+      InputCollection: atpulse
+      WaitTime: 1000000
+#  - name: pat4
+#    type: art::TCatAtHitPatternProcessor
+#    parameter:
+#      InputCollection: atrc
+#      WaitTime: 500000
+  

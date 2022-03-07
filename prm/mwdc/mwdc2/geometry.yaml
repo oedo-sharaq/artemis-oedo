@@ -1,0 +1,4 @@
+position: [0, 0, -606]  # global position of MWDC
+angle: 0  # rotation angle around z-axis
+turned: 1  # put 1 if local z-axis and global z-axis is opposite
+plane_config: prm/mwdc/config/type_c.yaml  # file describes plane configuration

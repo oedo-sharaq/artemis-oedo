@@ -1,0 +1,35 @@
+# for calibration of DCX2
+#
+# * include after dcx2.yaml
+# * prepare pid gate (sample: pidgate.yaml)
+
+Alias:
+  - &pid_gate 54Sc  # CHANGE HERE
+
+Processor:
+  - name: proc_dcx2_x_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dcx2_x
+#      Gate:            *pid_gate
+      TimingGate:      [200,400] # CHANGE HERE
+      ChargeGate:      [800,4000] # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_dcx2_u_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dcx2_u
+#      Gate:            *pid_gate
+      TimingGate:      [200,400] # CHANGE HERE
+      ChargeGate:      [800,4000] # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_dcx2_v_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dcx2_v
+#      Gate:            *pid_gate
+      TimingGate:      [200,400] # CHANGE HERE
+      ChargeGate:      [400,4000] # CHANGE HERE
+      UseMax: 1

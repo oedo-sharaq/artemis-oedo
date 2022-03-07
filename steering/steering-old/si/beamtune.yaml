@@ -1,0 +1,18 @@
+Processor:
+  - name: ridfevent
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 0
+#      InputFiles: /home/ywatanabe/artemis-h307-main/data/CAT_march_alpha0162.ridf
+#      InputFiles: /home/ywatanabe/artemis-h307-main/data/CAT_2014Jun_1020187.ridf
+      InputFiles:
+                - ridf/ridf/CAT_alpha0079.ridf
+#                - ridf/ridf/CAT_sipulser0073.ridf
+#      InputFiles: /home/ywatanabe/artemis-h307-main/data/CAT_march_alpha0160.ridf
+#      OutputTransparency: 1
+#      Verbose: 0
+#      - name: OutputTransparency
+#        value: 1
+#       - name: Verbose
+#        value: 0
+  

@@ -1,0 +1,19 @@
+Processor:
+  - name: proc_F7_tracking
+    type: art::TMWDCTrackingProcessor
+    parameter:
+      InputCollection:
+        - dc71_x1
+        - dc71_x2
+        - dc71_y1
+        - dc71_y2
+        - dc72_x1
+        - dc72_x2
+        - dc72_y1
+        - dc72_y2
+        - dc72_x3
+        - dc72_x4
+        - dc72_y3
+        - dc72_y4
+      OutputCollection:   f7
+      OutputTransparency: 0

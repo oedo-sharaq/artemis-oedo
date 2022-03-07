@@ -1,0 +1,30 @@
+# steering for veto scintillator
+
+Anchor:
+  - &input /getdaq02/atns/h307-10/run1004.ridf
+  - &output output/atns/1004/run1004.tree.root
+
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+        - *input
+        
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+
+  - include: bld/v1190_tref.yaml
+
+  - include: veto.inc.yaml
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: *output

@@ -1,0 +1,256 @@
+Processor:
+############################################################
+# Load Parameters
+  - name: load_dia_ch2ns_v1290
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_dia_ch2ns_v1290
+      Type:     art::TAffineConverter
+      FileName: prm/dia/ch2ns_v1290.dat
+  - name: load_dia1_offset
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_dia1_offset
+      Type:     art::TAffineConverter
+      FileName: prm/dia/offset_1.dat
+  - name: load_dia2_offset
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_dia2_offset
+      Type:     art::TAffineConverter
+      FileName: prm/dia/offset_2.dat
+  - name: load_dia3_offset
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_dia3_offset
+      Type:     art::TAffineConverter
+      FileName: prm/dia/offset_3.dat
+  - name: load_dia4_offset
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_dia4_offset
+      Type:     art::TAffineConverter
+      FileName: prm/dia/offset_4.dat
+  - name: load_dia_ns2mm
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_dia_ns2mm
+      Type:     art::TAffineConverter
+      FileName: prm/dia/ns2mm.dat
+############################################################
+
+############################################################
+# for dia1 (Upper left)
+  - name: proc_dia1_traw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:               14
+      TimingTypeID:         0
+      TrailingComesFirst:   0
+      OutputCollection:   dia1_traw
+      OutputTransparency:   0
+
+  - name: proc_dia1_t
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:    dia1_traw
+      OutputCollection:   dia1_tcal0
+      TimingConverterArray: prm_dia_ch2ns_v1290
+      OutputTransparency: 0
+    
+  - name: proc_dia1_t_offset
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:    dia1_tcal0
+      OutputCollection:   dia1_tcal
+      TimingConverterArray: prm_dia1_offset
+      OutputTransparency: 0
+      InputIsDigital: 0
+
+  - name: proc_validtime_dia1
+    type: art::TTimeValidator
+    parameter:
+      InputCollection: dia1_tcal
+      OutputCollection: dia1_tval
+#      ValidTimeRange: [-1000000., 1000000., 0.] # Change here
+#      ValidTimeRange: [-290., -240., 0.] # cut for ESPRI trigger Sn
+#      ValidTimeRange: [-150.,  -100., 0.] # cut for F3DSB trigger Sn
+#      ValidTimeRange: [-5000.,-4000., 0.] # cut for CAT trigger Sn
+#      ValidTimeRange: [-290., -245., 0.] # cut for ESPRI trigger Ca
+      ValidTimeRange: [-130.,-70., 0.] # cut for BLD_phys3192n
+      OutputTransparency:   0      
+############################################################
+
+############################################################
+# for dia2 (Lower left)
+  - name: proc_dia2_traw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:               14
+      TimingTypeID:         1
+      TrailingComesFirst:   0
+      OutputCollection:   dia2_traw
+      OutputTransparency:   0
+
+  - name: proc_dia2_t
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:    dia2_traw
+      OutputCollection:   dia2_tcal0
+      TimingConverterArray: prm_dia_ch2ns_v1290
+      OutputTransparency: 0
+    
+  - name: proc_dia2_t_offset
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:    dia2_tcal0
+      OutputCollection:   dia2_tcal
+      TimingConverterArray: prm_dia2_offset
+      OutputTransparency: 0
+      InputIsDigital: 0
+
+  - name: proc_validtime_dia2
+    type: art::TTimeValidator
+    parameter:
+      InputCollection: dia2_tcal
+      OutputCollection: dia2_tval
+#      ValidTimeRange: [-1000000., 1000000., 0.] # Change here
+#      ValidTimeRange: [-290., -240., 0.] # cut for ESPRI trigger Sn
+#      ValidTimeRange: [-150.,  -100., 0.] # cut for F3DSB trigger Sn
+#      ValidTimeRange: [-5000.,-4000., 0.] # cut for CAT trigger Sn
+#      ValidTimeRange: [-290., -245., 0.] # cut for ESPRI trigger Ca
+      ValidTimeRange: [-130.,-70., 0.] # cut for BLD_phys3192n
+      OutputTransparency:   0      
+############################################################
+
+############################################################
+# for dia3 (Lower left)
+  - name: proc_dia3_traw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:               14
+      TimingTypeID:         2
+      TrailingComesFirst:   0
+      OutputCollection:   dia3_traw
+      OutputTransparency:   0
+
+  - name: proc_dia3_t
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:    dia3_traw
+      OutputCollection:   dia3_tcal0
+      TimingConverterArray: prm_dia_ch2ns_v1290
+      OutputTransparency: 0
+    
+  - name: proc_dia3_t_offset
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:    dia3_tcal0
+      OutputCollection:   dia3_tcal
+      TimingConverterArray: prm_dia3_offset
+      OutputTransparency: 0
+      InputIsDigital: 0
+
+  - name: proc_validtime_dia3
+    type: art::TTimeValidator
+    parameter:
+      InputCollection: dia3_tcal
+      OutputCollection: dia3_tval
+#      ValidTimeRange: [-1000000., 1000000., 0.] # Change here
+#      ValidTimeRange: [-290., -240., 0.] # cut for ESPRI trigger Sn
+#      ValidTimeRange: [-150.,  -100., 0.] # cut for F3DSB trigger Sn
+#      ValidTimeRange: [-5000.,-4000., 0.] # cut for CAT trigger Sn
+#      ValidTimeRange: [-290., -245., 0.] # cut for ESPRI trigger Ca
+      ValidTimeRange: [-130., -70., 0.] # cut for BLD_phys3192n
+      OutputTransparency:   0      
+
+############################################################
+
+############################################################
+# for dia4 (Lower left)
+  - name: proc_dia4_traw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:               14
+      TimingTypeID:         3
+      TrailingComesFirst:   0
+      OutputCollection:   dia4_traw
+      OutputTransparency:   0
+
+  - name: proc_dia4_t
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:    dia4_traw
+      OutputCollection:   dia4_tcal0
+      TimingConverterArray: prm_dia_ch2ns_v1290
+      OutputTransparency: 0
+    
+  - name: proc_dia4_t_offset
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:    dia4_tcal0
+      OutputCollection:   dia4_tcal
+      TimingConverterArray: prm_dia4_offset
+      OutputTransparency: 0
+      InputIsDigital: 0
+
+  - name: proc_validtime_dia4
+    type: art::TTimeValidator
+    parameter:
+      InputCollection: dia4_tcal
+      OutputCollection: dia4_tval
+#      ValidTimeRange: [-1000000., 1000000., 0.] # Change here
+#      ValidTimeRange: [-290., -240., 0.] # cut for ESPRI trigger Sn
+#      ValidTimeRange: [-150.,  -100., 0.] # cut for F3DSB trigger Sn
+#      ValidTimeRange: [-5000.,-4000., 0.] # cut for CAT trigger Sn
+#      ValidTimeRange: [-290., -245., 0.] # cut for ESPRI trigger Ca
+      ValidTimeRange: [-130.,-70., 0.] # cut for BLD_phys3192n
+      OutputTransparency:   0      
+############################################################
+
+############################################################
+# FourSidedDiaPad
+  - name: proc_foursided_dia
+    type: art::TFourSidedDiaPadProcessor
+    parameter:
+      InputCollection1: dia1_tval
+      InputCollection2: dia2_tval
+      InputCollection3: dia3_tval
+      InputCollection4: dia4_tval      
+      OutputCollection: dia
+      DetIDRange:       [0,1]
+      PositionConverterArray: prm_dia_ns2mm
+      ValidTimeRange: [-10,10,0.]
+
+  - name: proc_sep_dia
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: dia
+      OutputCollections:
+        - "dia3" # F3Dia PAD
+        - "dia7" # F7Dia PAD
+
+  - name: proc:validtime:dia3
+    type: art::TTimeValidator
+    parameter:
+      InputCollection: dia3
+      OutputCollection: dia3_val
+#      ValidTimeRange: [-1000000., 1000000., 0.] # Change here
+#      ValidTimeRange: [-310., -260., 0.] # for 132Sn beam
+      ValidTimeRange: [-130., -100., 0.] # for 48Ca beam
+#      ValidTimeRange: [-290., -265., 0.] # for 48Ca beam
+#      ValidTimeRange: [-5000.,-4000., 0.] # cut for CAT trigger Sn
+      OutputTransparency:   0
+
+  - name: proc:validtime:dia7
+    type: art::TTimeValidator
+    parameter:
+      InputCollection: dia7
+      OutputCollection: dia7_val
+#      ValidTimeRange: [-1000000., 1000000., 0.] # Change here
+#      ValidTimeRange: [-280., -225., 0.] # for 132Sn beam
+#      ValidTimeRange: [-100., -50., 0.] # for 48Ca beam
+#      ValidTimeRange: [-280., -240., 0.] # for 48Ca beam
+      ValidTimeRange: [-110., -70., 0.] # for 48Ca beam
+      OutputTransparency:   0
+      

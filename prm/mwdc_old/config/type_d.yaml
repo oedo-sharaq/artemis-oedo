@@ -1,0 +1,28 @@
+# plane configuration file for LP-MWDC type-D
+# Type-D: Dozono-san's MWDC
+# Last Modified: 2014-03-13 17:38:07 JST (kawase)
+
+- x1:
+    z:       -15.
+    nWire:    &xnwire 40
+    cellSize: &cell 12.
+    angle:    &xangle 0.
+    center:   20.5
+- x2:
+    z:        -5.
+    nWire:    *xnwire
+    cellSize: *cell
+    angle:    *xangle
+    center:   21.
+- y1:
+    z:         5.
+    nWire:    &ynwire 20
+    cellSize: *cell
+    angle:    &yangle -90.
+    center:   10.5
+- y2:
+    z:        15.
+    nWire:    *ynwire
+    cellSize: *cell
+    angle:    *yangle
+    center:   11.

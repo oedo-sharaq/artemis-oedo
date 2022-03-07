@@ -1,0 +1,209 @@
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+  - name: pad 
+    type: art::TCatReadoutPadConditionProcessor
+#  - include: pulsercalib.yaml
+#  - include: pulsercalib1.yaml
+  - include: beamtune.yaml
+  - name: map
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+      MapConfig: mapper.h307-6.conf
+#####  - name: pad
+#####    type: art::TCatReadoutPadConditionProcessor;
+######   - name: catpedestal
+######     type: art::TCatAtPedestalCalculator
+######     parameter:
+######       - name: SegID
+######         value: [31,43,55,63]
+#  - name: catmapping
+#    type: art::TCatAtMappingProcessor
+#    parameter:
+#      CatID: 51
+#      OutputTransparency: 0
+#      OutputCollection: at
+  - name: catmapping
+    type: art::TCatAtMappingProcessor
+    parameter:
+      CatID: 4
+      OutputTransparency: 0
+      OutputCollection: siat
+#  - name: pulsebitcor
+#    type: art::TCatPulseBitCorrectionProcessor
+#    parameter:
+#      InputCollection: at
+#  - name: samplecalibgen
+#    type: art::TAffineConverterArrayGenerator
+#    parameter:
+#      ParameterList: [samplecalibADC,prm/cat/adccalib.dat]
+#  - name: atsub
+#    type: art::TCatAtPedestalSubtractionProcessor
+#    parameter:
+#      InputCollection: at
+#      OutputCollection: atsub
+#      OutputTransparency: 0
+###  - name: atsub2
+###    type: art::TCatAtPedestalSubtractionProcessor
+###    parameter:
+###      - name: InputCollection
+###        value: at
+###      - name: OutputCollection
+###        value: atsub2
+###      - name: OutputTransparency
+###        value: 0
+#  - name: atpolezero
+#    type: art::TPulseUnfoldHighPassProcessor
+#    parameter:
+#      InputCollection: atsub
+#      TimeConstant: 240
+#  - name: samplecalib
+#    type: art::TSampleCalibratorProcessor
+#    parameter:
+#      InputCollection: atsub
+#      ADCConverterArrayName: samplecalibADC
+#  - name: atpulsefinder
+#    type: art::TPulseFinder
+#    parameter:
+#      InputCollection: atsub
+#      RisingThreshold: 0.1
+#      FallingThreshold: 0.05
+#      PrePulse: 20
+#      PostPulse: 20
+#      SavePulse: 1
+#      Sparse: 0
+#      OutputTransparency: 0
+  # - name: atpulsefinder
+  #   type: art::TPulseFinder2
+  #   parameter:
+  #     InputCollection: si
+  #     OutputCollection: sipulse
+  #     RisingThreshold: 1100
+  #     FallingThreshold: 1100
+  #     PrePulse: 100
+  #     PostPulse: 100
+  #     SavePulse: 1
+  #     Sparse: 1
+  #     OutputTransparency: 0
+##  - name: atlowpass
+##    type: art::TPulseUnfoldLowPassProcessor
+##    parameter:
+##      - name: InputCollection
+##        value: atsub
+##      - name: TimeConstant
+##        value: 3.5
+##  - name: atpolezero
+##    type: art::TPulseUnfoldHighPassProcessor
+##    parameter:
+##      - name: InputCollection
+##        value: atsub
+##      - name: TimeConstant
+##        value: 3.5
+###  - name: ataccumulate
+##    type: art::TPulseUnfoldHighPassProcessor
+##    parameter:
+##      - name: InputCollection
+##        value: atsub
+##      - name: TimeConstant
+##        value: 100.
+##  - name: atsum
+##    type: art::TCatSumSampleProcessor
+##    parameter:
+##      - name: InputCollection
+##        value: atsub
+##      - name: OutputCollection
+##        value: atsum
+##      - name: Sparse
+##        value: 0
+##      - name: Overwrite
+##        value: 0
+##  - name: atdiff
+##    type: art::TCatDiffSampleProcessor
+##    parameter:
+##      - name: InputCollection
+##        value: atsub
+##      - name: OutputCollection
+##        value: atdiff
+####  - name: randomproc
+####    type: art::TRandomNumberProcessor
+#  - name: histpattern
+#    type: art::TCatAtHitPatternProcessor
+#    parameter:
+#      InputCollection: atsub
+#      WaitTime: 1
+#      - name: InputCollection
+#        value: atsub
+#      - name: WaitTime
+#        value: 1
+###  - name: scalermapping
+###    type: art::TCatScalerMappingProcessor
+###    parameter:
+###      - name: CatID
+###        value: 36
+##  - name: hist
+##    type: art::THistogramProcessor
+###  - name: sicomnoise
+##    type: art::TCatSiCommonNoiseSubtractionProcessor
+##    parameter:
+##      - name: InputCollection
+##        value: si
+##      - name: OutputCollection
+##        value: sicomsub
+##  - name: sipedsub
+##    type: art::TCatSiPedestalSubtractionProcessor
+##    parameter:
+##      - name: InputCollection
+##        value: sicomsub
+##      - name: OutputCollection
+##        value: siped
+##  - name: sisum
+##    type: art::TCatSumSampleProcessor
+##    parameter:
+##      - name: InputCollection
+##        value: siped
+##      - name: OutputCollection
+##        value: sipulse
+##      - name: Sparse
+##        value: 1
+##      - name: Overwrite
+##        value: 0
+##  - name: sihitfind
+##    type: art::TCatSiHitFindProcessor
+##    prameter:
+##      - name: InputCollection
+##        value: siped
+##      - name: OutputCollection
+##        value: sihit
+##############
+#  - name: projectionloader
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      - name: FileName  # input filename
+#        type: TString
+#        size: 0
+#        value:
+#          - steering/hist.yaml
+#      - name: Name  # name of parameter output
+#        type: TString
+#        size: 0
+#        value:
+#          - projection
+#      - name: OutputTransparency  # Output is persistent if false (default)
+#        type: Bool_t
+#        size: 0
+#        value: 1
+#      - name: Type  # type(class) of parameter
+#        type: TString
+#        size: 0
+#        value:
+#          - art::TTreeProjection
+#      - name: Verbose  # verbose level (default 1 : non quiet)
+#        type: Int_t
+#        size: 0
+#        value:
+#          - 1
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: last.root

@@ -1,0 +1,46 @@
+# requires the rf
+
+Processor:
+  - name: timevalid
+    type: art::TTimeValidator
+    parameter:
+      InputCollection: rf
+      OutputCollection: rf_valid
+      ValidTimeRange: [@TMIN@,@TMAX@,0]
+  - name: tof
+    type: art::TTimingSubtractionProcessor
+    parameter:
+      StartTimingDetID: 0
+      StartTimingCollection: rf_valid
+      InputCollection: @TEND@
+      OutputCollection: @OUTPUT@
+      MaxDetID: 1
+
+
+#  - name: proc_tof37_multi
+#    type: art::TTimingSubtractionProcessor
+#    parameter:
+#      StartTimingCollection: dc31tref
+#      InputCollection: f71pla
+#      OutputCollection: tof3dc7
+#      StartTimingDetID: 0
+#      UseMultipleStartTiming: 1
+#  - name: proc_tof37_multi
+#    type: art::TTimingSubtractionProcessor
+#    parameter:
+#      StartTimingCollection: rf_valid
+#      InputCollection: dc31tref
+#      OutputCollection: tof03dc
+#      StartTimingDetID: 0
+#      UseMultipleStartTiming: 1
+#  - name: proc_tof37_multi
+#    type: art::TTimingSubtractionProcessor
+#    parameter:
+#      StartTimingCollection: rf_valid
+#      InputCollection: dc51tref
+#      OutputCollection: tof05dc
+#      StartTimingDetID: 0
+#      UseMultipleStartTiming: 1
+#
+
+

@@ -1,0 +1,16 @@
+Processor:
+  - name: proc_FE12_tracking
+    type: art::TMWDCTrackingProcessor
+    parameter:
+      InputCollection:
+        - dcc1_x1
+        - dcc1_x2
+        - dcc1_y1
+        - dcc1_y2
+        - dcc2_x1
+        - dcc2_x2
+        - dcc2_y1
+        - dcc2_y2
+      OutputCollection:   s0
+#      UseGlobalPos:       1
+      OutputTransparency: 0

@@ -1,0 +1,77 @@
+Anchor:
+  - &input ridf/beam/BLD_beam0238.ridf
+  - &output root/beam/bld0238.root
+
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+#        - ridf/phys/BLD_phys0490.ridf.gz
+        - *input
+        
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+
+  - include: bld/v1190_tref.yaml
+  - include: v1290_tref.yaml    
+  - include: dia/dia.yaml
+  - include: bld/chk.yaml
+  - include: bld/ic/ic.yaml
+
+#  - name: separate_tof
+#    type: art::TSeparateOutputProcessor
+#    parameter:
+#      InputCollection: dia_tof_v775
+#      OutputCollections:
+#        - "tof33"
+#        - "tof37"
+#        
+#
+#  - name: brho
+#    type: art::TBrhoReconstructProcessor
+#    parameter:
+#      Brho0: 5.8076
+#  - name: brho
+#    type: art::TBrhoReconstructProcessor
+#    parameter:
+#      InputName1: f5
+#      InputName2: f7
+#      OutputName: brho57
+#      Brho0: 4.5798
+#      Section: 57
+#
+#  - name: betadecompose
+#    type: art::TBetaDecomposeProcessor
+#    parameter:
+#      InputNameBrho1: brho35
+#      InputNameBrho2: brho57
+#      InputNameTOF: tof37
+#
+#  - name: pid
+#    type: art::ms1502::TPIDProcessor
+#    parameter:
+#      AtomicNumberNormalization: 1  # [Float_t] normalization factor to calculate atomic number
+#      DegraderThickness: [3.5, 0.00300000]  # [FloatVec_t] d = p0 + p1 * x
+#      InputNameBeta1: beta35  # [TString] name of beta at the first section
+#      InputNameBeta2: beta57  # [TString] name of beta at the first section
+#      InputNameBrho1: brho35  # [TString] name of brho at the first section
+#      InputNameBrho2: brho57  # [TString] name of brho at the second section
+#      InputNameDF: f5  # [TString] name of dispersive forcus where the degrader is set
+#      OutputNameAQ35: aq35  # [TString] name of output A/Q from 35
+#      OutputNameAQ57: aq57  # [TString] name of output A/Q from 57
+#      OutputNameZdeg: Zdeg  # [TString] name of output atomic number
+#      OutputTransparency: 0  # [Bool_t] Output is persistent if false (default)
+#      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
+          
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+#    parameter:
+#      FileName: chk.root
+    

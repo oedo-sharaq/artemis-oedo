@@ -1,0 +1,99 @@
+# steering file for DCX1 analysis
+# Load bld-plastic steering file before.
+
+Alias: 
+ - &spla_id_fhx_m 7
+
+Processor:
+  - name: proc_dcx1_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_dcx1_ch2ns
+      Type:     art::TAffineConverter
+      FileName: prm/mwdc/dcx1/ch2ns.dat
+
+  - name: proc_dcx1_dxdt_x
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dcx1_dxdt_x
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dcx1/dt2dl/run0038/dcx1_x.dat
+
+  - name: proc_dcx1_dxdt_u
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dcx1_dxdt_u
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dcx1/dt2dl/run0038/dcx1_u.dat
+
+  - name: proc_dcx1_dxdt_v
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dcx1_dxdt_v
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dcx1/dt2dl/run0038/dcx1_v.dat
+
+  - name: proc_dcx1_geo
+    type: art::TParameterLoader
+    parameter:
+      Name:     dcx1
+      Type:     art::TMWDCParameter
+      FileName: prm/mwdc/dcx1/geometry.yaml
+
+  - name: proc_dcx1_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              26
+      TimingTypeID:       0
+      OutputCollection:   dcx1_raw
+      OutputTransparency: 1
+
+  - name: proc_dcx1_cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      dcx1_raw
+      OutputCollection:     dcx1_cal1
+      TimingConverterArray: prm_dcx1_ch2ns
+      OutputTransparency:   1
+
+  - name: proc:validtime
+    type: art::TTimeValidator
+    parameter:
+      InputCollection: dcx1_cal1
+      OutputCollection: dcx1_cal
+      ValidTimeRange: [-50., 80., -1100.]
+      
+  - name: proc_dcx1_dt
+    type: art::TTimingSubtractionProcessor
+    parameter:
+      InputCollection:       dcx1_cal
+      OutputCollection:      dcx1_dt
+      #StartTimingCollection: tref_r      
+      #StartTimingDetID:     1
+      StartTimingCollection: diaf3_v1290_true
+      StartTimingDetID:     0
+#      StartTimingCollection: spla         
+#      StartTimingDetID:     *spla_id_fhx_m 
+      OutputTransparency:    0
+
+  - name: proc_dcx1_plane
+    type: art::TMWDCPlaneProcessor
+    parameter:
+      InputCollection: dcx1_dt
+      MWDCName:        dcx1
+      ConverterList:
+        - prm_dcx1_dxdt_x
+        - prm_dcx1_dxdt_u
+        - prm_dcx1_dxdt_v
+      OutputTransparency: 1
+
+  - name: proc_dcx1_track
+    type: art::TMWDCTrackingProcessor
+    parameter:
+      InputCollection:
+        - dcx1_x
+        - dcx1_u
+        - dcx1_v
+      OutputCollection:   dcx1
+      UseGlobalPos:       0
+      OutputTransparency: 0

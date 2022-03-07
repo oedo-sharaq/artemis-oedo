@@ -1,0 +1,50 @@
+Processor:
+
+  - name: proc_spla_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_spla_ch2ns
+      Type:     art::TAffineConverter
+      FileName: prm/plastic/spla_ch2ns.dat
+
+  - name: proc_spla_l_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              2
+      TimingTypeID:       0
+      TrailingComesFirst: 1
+      OutputCollection:   spla_l_raw
+      OutputTransparency: 1
+
+  - name: proc_spla_l
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      spla_l_raw
+      OutputCollection:     spla_l
+      TimingConverterArray: prm_spla_ch2ns
+      OutputTransparency:   1
+
+  - name: proc_spla_r_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              2
+      TimingTypeID:       1
+      TrailingComesFirst: 1
+      OutputCollection:   spla_r_raw
+      OutputTransparency: 1
+
+  - name: proc_spla_r
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      spla_r_raw
+      OutputCollection:     spla_r
+      TimingConverterArray: prm_spla_ch2ns
+      OutputTransparency:   1
+
+  - name: proc_spla
+    type: art::TTwoSidedPlasticCalibrationProcessor
+    parameter:
+      InputCollection1: spla_l
+      InputCollection2: spla_r
+      OutputCollection: spla
+      DetIDRange:       [0,12]

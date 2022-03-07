@@ -1,0 +1,17 @@
+Processor:
+  - name: proc:ppac:ch2MeV
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm:ppac:ch2MeV
+      Type: art::TAffineConverter
+      FileName: prm/ic/ch2MeV.prm
+# ---------------------------------------
+  - name: proc:ic
+    type: art::TSimpleDataMappingProcessor
+    parameter:
+      CatID: 12
+      OutputCollection:  ic_raw
+      Sparse: 1
+      OutputTransparency: 0
+
+# ---------------------------------------

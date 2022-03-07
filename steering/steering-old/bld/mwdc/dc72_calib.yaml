@@ -1,0 +1,83 @@
+# for calibration of DC72
+#
+# * include after dc72.yaml
+# * prepare pid gate (sample: pidgate.yaml)
+# modify with run:beam2203 2019/11/20
+
+Alias:
+  - &pid_gate 54Sc  # CHANGE HERE
+  - &tgate [-850.,-750.]
+  - &qgate [0.,2500.]
+
+Processor:
+  - name: proc_dc72_x1_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dc72_x1
+#      Gate:            *pid_gate
+      TimingGate:      *tgate # CHANGE HERE
+      ChargeGate:      *qgate # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_dc72_x2_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dc72_x2
+#      Gate:            *pid_gate
+      TimingGate:      *tgate # CHANGE HERE
+      ChargeGate:      *qgate # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_dc72_y1_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dc72_y1
+#      Gate:            *pid_gate
+      TimingGate:      *tgate # CHANGE HERE
+      ChargeGate:      *qgate # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_dc72_y2_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dc72_y2
+#      Gate:            *pid_gate
+      TimingGate:      *tgate # CHANGE HERE
+      ChargeGate:      *qgate # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_dc72_x3_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dc72_x3
+#      Gate:            *pid_gate
+      TimingGate:      *tgate # CHANGE HERE
+      ChargeGate:      *qgate # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_dc72_x4_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dc72_x4
+#      Gate:            *pid_gate
+      TimingGate:      *tgate # CHANGE HERE
+      ChargeGate:      *qgate # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_dc72_y3_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dc72_y3
+#      Gate:            *pid_gate
+      TimingGate:      *tgate # CHANGE HERE
+      ChargeGate:      *qgate # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_dc72_y4_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dc72_y4
+#      Gate:            *pid_gate
+      TimingGate:      *tgate # CHANGE HERE
+      ChargeGate:      *qgate # CHANGE HERE
+      UseMax: 1      

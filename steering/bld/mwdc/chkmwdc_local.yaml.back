@@ -1,0 +1,187 @@
+Processor:
+ 
+# F3
+  - include: 
+      name: time2dt.inc.yaml
+      replace: 
+        CATID: 20    
+        NAME: dc31
+        TREDET: f71pla
+        TREFID: 0
+  - include: 
+      name: time2dt.inc.yaml
+      replace: 
+        CATID: 21    
+        NAME: dc32
+        TREDET: f71pla
+        TREFID: 0
+  - include:
+      name:  xxyyxxyy_tref.inc.yaml
+      replace:
+        NAME: dc31
+  - include:
+      name:  xxyy_tref.inc.yaml
+      replace:
+        NAME: dc32
+  - name: proc_dc31_geo
+    type: art::TParameterLoader
+    parameter:
+      Name:     dc31
+      Type:     art::TMWDCParameter
+      FileName: prm/mwdc/dc31/geometry.yaml
+  - name: proc_dc31_dt
+    type: art::TTimingSubtractionProcessor
+    parameter:
+      InputCollection:       dc31_cal
+      OutputCollection:      dc31_dt2
+      StartTimingCollection: dc32tref
+      StartTimingDetID:   0
+      OutputTransparency:   0
+  - name: proc_d31x_plane
+    type: art::TMWDCPlaneProcessor
+    parameter:
+      InputCollection: dc31_dt2
+      MWDCName:        dc31
+      ConverterList:
+        - prm_dc31_dxdt_x1
+        - prm_dc31_dxdt_x2
+        - prm_dc31_dxdt_y1
+        - prm_dc31_dxdt_y2
+        - prm_dc31_dxdt_x3
+        - prm_dc31_dxdt_x4
+        - prm_dc31_dxdt_y3
+        - prm_dc31_dxdt_y4
+      OutputTransparency: 0
+  - name: proc_dc31_track
+    type: art::TMWDCTrackingProcessor
+    parameter:
+      InputCollection:
+        - dc31_x1
+        - dc31_x2
+        - dc31_y1
+        - dc31_y2
+      OutputCollection:   dc31
+      OutputTransparency: 0
+  - name: proc_dc32_geo
+    type: art::TParameterLoader
+    parameter:
+      Name:     dc32
+      Type:     art::TMWDCParameter
+      FileName: prm/mwdc/dc32/geometry.yaml
+  - name: proc_dc32_dt
+    type: art::TTimingSubtractionProcessor
+    parameter:
+      InputCollection:       dc32_cal
+      OutputCollection:      dc32_dt2
+      StartTimingCollection: dc31tref
+      StartTimingDetID:  0 
+      OutputTransparency:   0
+  - name: proc_d31x_plane
+    type: art::TMWDCPlaneProcessor
+    parameter:
+      InputCollection: dc32_dt2
+      MWDCName:        dc32
+      ConverterList:
+        - prm_dc32_dxdt_x1
+        - prm_dc32_dxdt_x2
+        - prm_dc32_dxdt_y1
+        - prm_dc32_dxdt_y2
+      OutputTransparency: 0
+  - name: proc_dc31_track
+    type: art::TMWDCTrackingProcessor
+    parameter:
+      InputCollection:
+        - dc32_x1
+        - dc32_x2
+        - dc32_y1
+        - dc32_y2
+      OutputCollection:   dc32
+      OutputTransparency: 0
+######################################################################
+#  f5
+######################################################################
+  - name: proc_dc51_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_dc51_ch2ns
+      Type:     art::TAffineConverter
+      FileName: prm/mwdc/dc51/ch2ns.dat
+
+  - name: proc_dc51_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              25
+      TimingTypeID:       0
+      OutputCollection:   dc51_raw
+      OutputTransparency: 0
+
+  - name: proc_dc51_cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      dc51_raw
+      OutputCollection:     dc51_cal
+      TimingConverterArray: prm_dc51_ch2ns
+      OutputTransparency:   0
+  - include:
+      name:  xxxuuuvvv_tref.inc.yaml
+      replace:
+        NAME: dc51
+
+  - name: proc_dc52_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_dc52_ch2ns
+      Type:     art::TAffineConverter
+      FileName: prm/mwdc/dc52/ch2ns.dat
+
+  - name: proc_dc52_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              26
+      TimingTypeID:       0
+      OutputCollection:   dc52_raw
+      OutputTransparency: 0
+
+  - name: proc_dc52_cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      dc52_raw
+      OutputCollection:     dc52_cal
+      TimingConverterArray: prm_dc52_ch2ns
+      OutputTransparency:   0
+
+  - include:
+      name:  xxxuuuvvv_tref.inc.yaml
+      replace:
+        NAME: dc52
+
+
+  - name: proc_dc51_dt
+    type: art::TTimingSubtractionProcessor
+    parameter:
+      InputCollection:       dc51_cal
+      OutputCollection:      dc51_dt
+      StartTimingCollection: dc52tref
+      StartTimingDetID:   0
+      OutputTransparency:   0
+
+  - include: 
+      name: xxxuuuvvv.inc.yaml
+      replace:
+        NAME: dc51
+  - name: proc_dc52_dt
+    type: art::TTimingSubtractionProcessor
+    parameter:
+      InputCollection:       dc52_cal
+      OutputCollection:      dc52_dt
+      StartTimingCollection: dc51tref
+      StartTimingDetID:     0
+      OutputTransparency:   0
+  - include: 
+      name: xxxuuuvvv.inc.yaml
+      replace:
+        NAME: dc52
+
+  - include: f3mwdctrack.yaml
+  - include: f5mwdctrack.yaml
+ 

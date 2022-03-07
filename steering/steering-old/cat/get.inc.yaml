@@ -1,0 +1,71 @@
+Anchor:
+  - &maxEvtNum 100000000
+  - &data0 getdata/cobo00/run_2000.dat
+  - &data1 getdata/cobo01/run_2000.dat
+  - &data2 getdata/cobo02/run_2000.dat
+  - &data3 getdata/cobo03/run_2000.dat
+  - &data4 getdata/cobo10/run_2000.dat
+  - &seg0 segdataGET0
+  - &seg1 segdataGET1
+  - &seg2 segdataGET2
+  - &seg3 segdataGET3
+  - &seg4 segdataGET4
+Processor:
+  - name: get
+    type: art::TGetEventStore
+    parameter:
+      InputFiles: *data0
+      EventHeaderName: evtheaderGET0
+      SegmentedData: *seg0
+      OutputTransparency: 1
+      MaxEventNum: *maxEvtNum
+      ValidBucket: [5., 510.]
+      SubtractFPN: 1
+  - name: get
+    type: art::TGetEventStore
+    parameter:
+      InputFiles: *data1
+      EventHeaderName: evtheaderGET1
+      SegmentedData: *seg1
+      OutputTransparency: 1
+      MaxEventNum: *maxEvtNum
+      ValidBucket: [5., 510.]
+      SubtractFPN: 1
+  - name: get
+    type: art::TGetEventStore
+    parameter:
+      EventHeaderName: evtheaderGET2
+      SegmentedData: *seg2
+      InputFiles: *data2
+      OutputTransparency: 1
+      MaxEventNum: *maxEvtNum
+      ValidBucket: [5., 510.]
+      SubtractFPN: 1
+  - name: get
+    type: art::TGetEventStore
+    parameter:
+      EventHeaderName: evtheaderGET3
+      SegmentedData: *seg3
+      InputFiles: *data3 
+      OutputTransparency: 1
+      MaxEventNum: *maxEvtNum
+      ValidBucket: [5., 510.]
+      SubtractFPN: 1
+#  - name: get
+#    type: art::TGetEventStore
+#    parameter:
+#      EventHeaderName: evtheaderGET4
+#      SegmentedData: *seg4
+#      InputFiles: *data4
+#      OutputTransparency: 1
+#      MaxEventNum: *maxEvtNum
+#      ValidBucket: [5., 510.]
+#      SubtractFPN: 1
+  - name: categorized
+    type: art::TMappingProcessor
+    parameter:
+      InputCollection: [*seg0,*seg1,*seg2,*seg3]
+ #     InputCollection: [*seg0,*seg1,*seg2,*seg3,*seg4]
+      CategorizedData: @CATDATA@
+      OutputTransparency: 1
+      MapConfig: mapper.conf

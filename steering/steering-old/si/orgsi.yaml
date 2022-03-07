@@ -1,0 +1,90 @@
+Processor:
+  - name: sisamplecalibgen
+    type: art::TAffineConverterArrayGenerator
+    parameter:
+      ParameterList: [sisamplecalibADC, prm.h307-6/si/siadccalib.dat]
+  - name: timer
+    type: art::TTimerProcessor
+  - name: pad 
+    type: art::TCatReadoutPadConditionProcessor
+  - name: ridfevent
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 0
+      InputFiles:
+        - ridf/CAT2_hoge0072.ridf
+  - name: map
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 0
+      MapConfig: mapper.h307-6.conf
+
+  - name: ssdmapping1
+    type: art::TCatAtMappingProcessor
+    parameter:
+      CatID: 52
+      Outputtransparency: 0
+      OutputCollection: si
+  - name: ssdmapping2
+    type: art::TCatAtMappingProcessor
+    parameter:
+      CatID: 52
+      sparse: 0
+      Outputtransparency: 0
+      OutputCollection: sispa0
+      
+
+  - name: sisub
+    type: art::TCatAtPedestalSubtractionProcessor
+    parameter:
+      InputCollection: si
+      OutputCollection: sisub
+      OutputTransparency: 0
+
+  - name: atpolezero
+    type: art::TPulseUnfoldHighPassProcessor
+    parameter:
+      InputCollection: sisub
+      TimeConstant: 0
+# - name: sisamplecalib
+#   type: art::TSampleCalibratorProcessor
+#   parameter:
+#     InputCollection: si
+#     ADCConverterArrayName: samplecalibADC
+#  - name: sisamplecalib
+#    type: art::TSampleCalibratorProcessor
+#    parameter:
+#      InputCollection: sisub
+#      ADCConverterArrayName: sisamplecalibADC
+
+  - name: sipulsefinder
+    type: art::TPulseFinder
+    parameter:
+      InputCollection: sisub
+      OutputCollection: sipulse
+      RisingThreshold: 0.3
+      FallingThreshold: 3
+      PrePulse: 30.
+      PostPulse: 15
+      SavePulse: 0
+      Sparse: 0
+      OutputTransparency: 0
+#
+#  - name: sihitfind
+#    type: art::TCatSiHitFindProcessor
+#    prameter:
+#      - name: InputCollection
+#        value: siped
+#      - name: OutputCollection
+#        value: sihit
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      Type: art::TTreeProjection
+#      FileName: hist/si/chksi.yaml
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: last.root

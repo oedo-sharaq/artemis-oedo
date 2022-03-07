@@ -1,0 +1,23 @@
+Processor:
+  - name: proc_dali2_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_dali2_ch2ns
+      Type:     art::TAffineConverter
+      FileName: prm/dali2/dali2T_ch2ns.dat
+
+  - name: proc_tdc_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+       CatID: 31
+       TimingTypeID: 0
+       TrailingComesFirst: 0
+       OutputCollection: dali2traw
+       OutputTransparency: 0
+
+  - name: proc_dali2tcal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      dali2traw
+      OutputCollection:     dali2t
+      TimingConverterArray: prm_dali2_ch2ns

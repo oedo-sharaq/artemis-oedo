@@ -1,0 +1,84 @@
+Anchor:
+  - &ridf1 ridf/phys/CAT1_phys0239.ridf.gz
+  - &ridf2 ridf/phys/CAT2_phys0239.ridf.gz
+  - &rootout root/phys/0239/phys0239.basic.root
+  - &histout root/phys/0239/phys0239.basic.hist.root
+Processor:
+#### input information ####
+  - name: pad
+    type: art::TCatReadoutPadConditionProcessor
+    parameter:
+      Type: 2
+      Bads: [33, 43, 142, 367, 375, 380, 390, 393]      
+#### input information ####
+  - name: timer
+    type: art::TTimerProcessor
+  - name: ridfevent
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      InputFiles:
+        - *ridf1
+  - name: ridfevent2
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      SegmentedData: segdata2
+      InputFiles:
+        - *ridf2
+  - name: map
+    type: art::TMappingProcessor
+    parameter:
+      InputCollection: [segdata, segdata2]
+      OutputTransparency:  1
+      MapConfig: mapper.conf
+  - name: catmapping
+    type: art::TCatAtMappingProcessor
+    parameter:
+      CatID: 51
+      OutputCollection: at
+      OutputTransparency: 1
+      SelectIf: 0
+      BeamRegion: [-10,10]
+  - name: catsub
+    type: art::TCatAtPedestalSubtractionProcessor
+    parameter:
+      InputCollection: at
+      OutputCollection: atsub
+      OutputTransparency: 1
+  - name: atpulsefinder
+    type: art::TPulseFinder
+    parameter:
+      InputCollection: atsub
+      RisingThreshold: 1.
+      FallingThreshold: 0.5
+      PrePulse: 30
+      PostPulse: 15
+      SavePulse: 0
+      Sparse: 0
+      OutputTransparency: 0
+  - name: atpulsefinder
+    type: art::TPulseFinder
+    parameter:
+      InputCollection: atsub
+      OutputCollection: atpulse_high
+      RisingThreshold: 20.
+      FallingThreshold: 0.5
+      PrePulse: 30
+      PostPulse: 15
+      SavePulse: 0
+      Sparse: 0
+      OutputTransparency: 0
+  - name: projcat
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/cat/basic.hist.yaml
+      Name: projection
+      OutputTransparency: 1
+      Type: art::TTreeProjection
+      Verbose: 1
+      OutputFilename: *histout
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: *rootout

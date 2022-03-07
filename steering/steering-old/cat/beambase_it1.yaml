@@ -1,0 +1,155 @@
+Anchor:
+  - &logfilepath  "log"
+  - &figfilepath  "figs/cat"
+  - &figfilepath2 "figs/cat/UntilPulseFinder"
+
+Processor:
+#======================================================================
+# parameters
+  - name: pad
+    type: art::TCatReadoutPadConditionProcessor
+    parameter:
+      Type: 2
+      Bads: [33, 43, 142, 167, 168, 176, 181, 193, 194, 195, 207, 208, 220, 233. 367, 375, 380, 390, 393]      
+#      Bads: [31, 32, 33, 43, 55, 120, 129, 142, 167, 168, 176, 181, 207, 367, 372, 375, 380, 390, 393, 403, 409, 415]      
+#      LowGains: [0, 6, 13, 20, 27, 32, 39, 40, 52, 65, 78, 91, 92, 104, 117, 130, 156, 300.]
+  - name: samplecalibgen
+    type: art::TAffineConverterArrayGenerator
+    parameter:
+      ParameterList:
+        - [ch2ch,  prm/cat/ch2ch.dat]        
+        - [ch2fc,  prm/cat/ch2fc.uniform.dat]
+        - [fc2MeV, prm/cat/fc2MeV.uniform.dat]
+        - [MeVcorbeam0, prm/cat/MeVcor.beam.dat]
+        - [MeVcorbeam1, prm/cat/MeVcor.beam_it1.dat]
+        - [MeVcorbeam2, prm/cat/MeVcor.beam_it2.dat]
+#        - [MeVit1, prm/cat/MeVcor.it1_min.dat]
+  - name: proc:rangetable
+    type: art::TRangeTableConditionProcessor
+    parameter:
+      RangeTableFile: data/TinDeuterium/TinDeuterium064.txt.out
+      RangeTable: rangeTable
+      TKECutoff: 20000.
+      RangeStep: 1.
+#  - name: proc:rangetable
+#    type: art::TRangeTableConditionProcessor
+#    parameter:
+#      RangeTableFile: data/ProtonDeuterium/ProtonDeuterium064.txt.out
+#      RangeTable: rangeTable2
+#======================================================================
+# event loop
+  - name: catmapping
+    type: art::TCatAtMappingProcessor
+    parameter:
+      CatID: 51
+      OutputCollection: at
+      OutputTransparency: 1
+      Sparse: 0
+      SelectIf: 2
+      BeamRegion: [-6.,6.]
+  - name: catsub
+    type: art::TCatAtPedestalSubtractionProcessor
+    parameter:
+      InputCollection: at
+      OutputCollection: atsub
+      OutputTransparency: 1
+  - name: atpulsefinder
+    type: art::TPulseFinder
+    parameter:
+      InputCollection: atsub
+      RisingThreshold: 2.
+      FallingThreshold: 0.5
+      PrePulse: 30.
+      PostPulse: 15
+      SavePulse: 1
+      Sparse: 0
+      OutputTransparency: 0
+  - name: calib:ch2ch
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: atpulse
+      OutputCollection: atpulse_uniform
+      ChargeConverterArray: ch2ch
+
+  - name: validate
+    type: art::TChargeValidateProcessor
+    parameter:
+      InputCollection: atpulse_uniform
+      OutputCollection: atpulse_charge_valid
+      Range: [100., 1e6]
+      OutputInvalid: 0
+  - name: calib:ch2fc
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: atpulse_uniform
+      OutputCollection: atpulse_fc
+      ChargeConverterArray: ch2fc
+  - name: calib:fc2MeV
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: atpulse_fc
+      OutputCollection: atpulse_MeVpre
+      ChargeConverterArray: fc2MeV
+      InputIsDigital: 0
+  - name: calib:fc2MeV
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: atpulse_MeVpre
+      OutputCollection: atpulse_MeV0
+      ChargeConverterArray: MeVcorbeam0
+      InputIsDigital: 0
+  - name: calib:fc2MeV
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: atpulse_MeV0
+      OutputCollection: atpulse_MeV1
+      ChargeConverterArray: MeVcorbeam1
+      InputIsDigital: 0
+#  - name: calib:fc2MeV
+#    type: art::TTimingChargeCalibrationProcessor
+#    parameter:
+#      InputCollection: atpulse_MeV1
+#      OutputCollection: atpulse_MeV2
+#      ChargeConverterArray: MeVcorbeam2
+#      InputIsDigital: 0
+  - name: cluster:beam
+    type: art::TCatTpcHitClusterProcessor
+    parameter:
+      ClusterRadius: [8., 1.5]  # [vector<Double_t>] radius of cluster
+      InputCollection: atpulse_MeV1  # [TString] input pulse collection (for a specific region)
+      IsSingle: 0  # [Bool_t] select maximum size cluster if 1 (default: 0)
+      MinClusterSize: 5  # [Double_t] required minimum cluster size
+      OutputCollection: atcluster  # [TString] output pulse collection as a candidate of recoil track
+      OutputTransparency: 0  # [Bool_t] Output is persistent if false (default)
+      ReadoutPad: readoutPad  # [TString] Name of readout pad array
+      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
+      
+  - name: trackWithDiffusedCharge
+    type: art::TCatTrackingWithDiffusedChargeProcessor
+    parameter:
+      InputCollection: atcluster
+#      RangeTableFile: data/DeuteronInDeuterium0.4atm.txt.out
+      RangeTable: rangeTable      
+      ReadoutPlaneOffset: -45.5
+      OutputCollection: beam
+      FixedOrigin: -212.
+      InitialRange: -83770.
+      IndependentVariable: 2
+      Attachment: 0.
+      DefaultIntegrateStep: 0.1
+      DiffusionCoefficient: 0.04
+      ResponseTableFileName: data/restable_7mm_10um_finedev_nogap.root      
+      UseRandom: 0
+      MeshDim: [1,20,20]
+      DoMeshSearch: 0
+                                                
+---
+  - name: displayTrack
+    type: art::TCatTrackResultDisplayProcessor
+    parameter:
+      DisplayMode: 1
+      InputCollection: ["beam"]
+      WaitTime: 1000000
+  
+    
+

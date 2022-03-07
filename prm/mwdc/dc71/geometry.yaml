@@ -1,0 +1,10 @@
+#position: [0.,0.,205.]
+position: [0.,0.,-250.] 
+#position: [-5.315,3.13,205.]
+#position: [14.685,3.13,205.] # ribf79
+#position: [-10.,-10. , 205.] # ribf79
+angle: 0.
+turned: 1
+plane_config: prm/mwdc/config/type_a.yaml
+#plane_config: prm/mwdc/config/type_rcnp-en.f71.yaml
+#plane_config: prm/mwdc/config/type_c01.yaml

@@ -1,0 +1,78 @@
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+  - name: ridfevent
+    type: art::TRIDFEventStore
+    parameter:
+      InputFiles:
+#        - ridf/beam/GLAST_beam0131.ridf
+#        - ridf/cat_calib/GLAST_sipulser8037.ridf
+#        - ridf/phys/GLAST_phys0226.ridf
+        - ridf/phys/GLAST_phys0240.ridf
+        - ridf/phys/GLAST_phys0242.ridf
+        - ridf/phys/GLAST_phys0243.ridf
+        - ridf/phys/GLAST_phys0244.ridf
+        - ridf/phys/GLAST_phys0245.ridf
+        - ridf/phys/GLAST_phys0247.ridf
+        - ridf/phys/GLAST_phys0248.ridf
+        - ridf/phys/GLAST_phys0249.ridf
+        - ridf/phys/GLAST_phys0250.ridf
+        - ridf/phys/GLAST_phys0251.ridf
+        - ridf/phys/GLAST_phys0252.ridf
+        - ridf/phys/GLAST_phys0253.ridf
+
+  - name: map
+    type: art::TMappingProcessor
+    parameter:
+      MapConfig: mapper.conf
+
+  - name: simap
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: 53
+      OutputCollection: si
+      ChargeType: 2
+      TimingTypeID: 0
+      ChargeTypeID: 0
+      Sparse: 1
+
+  - name: sipedprmloader
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     sipedprm
+      Type:     art::TAffineConverter
+      FileName: prm/glast/ped.prm
+
+  - name: sicalprmloader
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     sicalprm
+      Type:     art::TAffineConverter
+      FileName: prm/glast/cal.prm
+
+  - name: sipedproc
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      si
+      OutputCollection:     siped
+      ChargeConverterArray: sipedprm
+      OutputTransparency:   0
+
+  - name: sicalproc
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      siped
+      OutputCollection:     sical
+      ChargeConverterArray: sicalprm
+      OutputTransparency:   0
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type: art::TTreeProjection
+      FileName: hist/glast/chkglast.yaml
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: glast.root

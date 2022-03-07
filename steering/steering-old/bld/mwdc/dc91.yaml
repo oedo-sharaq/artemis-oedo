@@ -1,0 +1,88 @@
+# steering file for DC91 analysis
+# Load bld-plastic steering file before.
+
+Alias: 
+ - &tref_id_f3 0
+
+Processor:
+  - name: proc_dc91_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_dc91_ch2ns
+      Type:     art::TAffineConverter
+      FileName: prm/mwdc/dc91/ch2ns.dat
+
+  - name: proc_dc91_dxdt_x
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc91_dxdt_x
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dc91/dt2dl/current/x.dat
+
+  - name: proc_dc91_dxdt_u
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc91_dxdt_u
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dc91/dt2dl/current/u.dat
+
+  - name: proc_dc91_dxdt_y
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc91_dxdt_y
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dc91/dt2dl/current/y.dat
+
+  - name: proc_dc91_geo
+    type: art::TParameterLoader
+    parameter:
+      Name:     dc91
+      Type:     art::TMWDCParameter
+      FileName: prm/mwdc/dc91/geometry.yaml
+
+  - name: proc_dc91_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              25
+      TimingTypeID:       0
+      OutputCollection:   dc91_raw
+      OutputTransparency: 1
+
+  - name: proc_dc91_cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      dc91_raw
+      OutputCollection:     dc91_cal
+      TimingConverterArray: prm_dc91_ch2ns
+      OutputTransparency:   0
+
+  - name: proc_dc91_dt
+    type: art::TTimingSubtractionProcessor
+    parameter:
+      InputCollection:       dc91_cal
+      OutputCollection:      dc91_dt
+      StartTimingCollection: tref         
+      StartTimingDetID:     *tref_id_f3
+      OutputTransparency:    1
+
+  - name: proc_dc91_plane
+    type: art::TMWDCPlaneProcessor
+    parameter:
+      InputCollection: dc91_dt
+      MWDCName:        dc91
+      ConverterList:
+        - prm_dc91_dxdt_x
+        - prm_dc91_dxdt_u
+        - prm_dc91_dxdt_y
+      OutputTransparency: 0
+
+  - name: proc_dc91_track
+    type: art::TMWDCTrackingProcessor
+    parameter:
+      InputCollection:
+        - dc91_x
+        - dc91_u
+        - dc91_y
+      OutputCollection:   dc91
+      UseGlobalPos:       0
+      OutputTransparency: 0

@@ -1,0 +1,86 @@
+Anchor:
+#  - &ridf1 ridf/phys/CAT1_phys0490.ridf.gz
+#  - &ridf2 ridf/phys/CAT2_phys0490.ridf.gz
+#  - &ridf1 ridf/beam/CAT1_beam0450.ridf
+#  - &ridf2 ridf/beam/CAT2_beam0450.ridf
+#  - &ridf1 ridf/beam/CAT1_beam0238.ridf
+#  - &ridf2 ridf/beam/CAT2_beam0238.ridf
+  - &ridf1 /t4/h307-7/alpha/CAT1_run7095.ridf
+  - &ridf2 /t4/h307-7/alpha/CAT2_run7095.ridf
+
+#
+#  - &ridf1 ridf/phys/CAT1_phys0506.ridf
+#  - &ridf2 ridf/phys/CAT2_phys0506.ridf
+#  - &rootout root/phys0489_2.root
+#  - &rootout phys0506.root
+#  - &rootout phys0490.root
+#  - &rootout root/beam/it0/beam_450.root
+#  - &histout root/beam/it0/hist_beam_450.root  
+  - &rootout root/beam/h307-7.7095.root
+  - &histout root/beam/h307-7.7095.hist.root
+Processor:
+#  - name: event count
+#    type: art::TEventSkipProcessor
+#    parameter:
+#      MaxNumEvent: 1000
+  - name: timer
+    type: art::TTimerProcessor
+  - name: ridfevent
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      InputFiles:
+        - *ridf1
+      MaxEventNum: 100000
+  - name: ridfevent2
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      SegmentedData: segdata2
+      InputFiles:
+        - *ridf2
+  - name: map
+    type: art::TMappingProcessor
+    parameter:
+      InputCollection: [segdata, segdata2]
+      OutputTransparency:  1
+      MapConfig: mapper.conf
+                                                  
+  - include: ../chkcoin.yaml
+  - include: ../chksca.yaml
+  - name: gate_array_init
+    type: art::TGateArrayInitializer
+      
+#  - name: coin_cat
+#    type: art::TTreeFormulaGateProcessor
+#    parameter:
+#      Definitions:
+#        - "req_tpc; coin.Test(0)"
+#        - "req_si; coin.Test(1)"
+#  - name: stop_coin
+#    type: art::TGateStopProcessor
+#    parameter:
+#      GateName: req_tpc
+##  - name: processed
+##    type: art::TTimerProcessor
+##
+  - include: h307-7.base.yaml
+#  - name: projcat
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+##      FileName: hist/cat/ex.hist.yaml
+#      FileName: hist/cat/beam.hist.yaml
+#      Name: projection
+#      OutputTransparency: 1
+#      Type: art::TTreeProjection
+#      OutputFilename: *histout
+# #      Verbose: 1
+##
+##  - include: hitpattern.yaml
+#  - name: outputtree
+#    type: art::TOutputTreeProcessor
+#    parameter:
+#      FileName: *rootout
+#  - name: timer
+#    type: art::TTimerProcessor
+      

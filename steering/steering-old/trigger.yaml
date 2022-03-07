@@ -1,0 +1,34 @@
+Processor:
+  - name: proc_trigger_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm_trigger_ch2ns
+      Type: art::TAffineConverter
+      FileName: prm/trigger_ch2ns.dat
+
+  - name: proc_triggerraw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: 0
+      TimingTypeID: 0
+      TrailingComesFirst: 0
+      OutputCollection: triggerraw
+      OutputTransparency: 0
+
+  - name: proc_triggercal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: triggerraw
+      OutputCollection: trigger
+      TimingConverterArray: prm_trigger_ch2ns
+      OutputTransparency: 0
+
+  - name: proc_triggersep
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: trigger
+      OutputCollections:
+        - tpctrig
+        - dsbtrig
+        - sitrig_delay
+        - dsbtrig_delay

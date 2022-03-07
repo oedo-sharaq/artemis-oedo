@@ -1,0 +1,32 @@
+# for calibration of DC91
+#
+# * include after dc91.yaml
+# * prepare pid gate (sample: pidgate.yaml)
+
+Alias:
+  - &pid_gate 54Sc  # CHANGE HERE
+
+Processor:
+  - name: proc_dc91_x_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dc91_x
+      Gate:            *pid_gate
+      TimingGate:      [700,900] # CHANGE HERE
+      ChargeGate:      [500,4000] # CHANGE HERE
+
+  - name: proc_dc91_u_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dc91_u
+      Gate:            *pid_gate
+      TimingGate:      [700,900] # CHANGE HERE
+      ChargeGate:      [500,4000] # CHANGE HERE
+
+  - name: proc_dc91_y_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dc91_y
+      Gate:            *pid_gate
+      TimingGate:      [700,900] # CHANGE HERE
+      ChargeGate:      [500,4000] # CHANGE HERE

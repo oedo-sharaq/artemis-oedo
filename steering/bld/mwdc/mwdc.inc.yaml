@@ -1,0 +1,83 @@
+# @file mwdc.inc.yaml
+# @brief all the mwdc to be used
+# 
+# @date Create        : 2020-11-21 14:33:48 JST
+#       Last Modified : 2020-11-21 15:35:48 JST (ota)
+# @author:  <ms2004@ata03.atnet>
+# 
+Processor:
+  ######################################################################
+  # time reference
+  ######################################################################
+  - include:
+      name: ../srppac/anode.inc.yaml
+      replace:
+        CATID: 43
+        NAME: src0
+  ######################################################################
+  # DCC1
+  ######################################################################
+  - include:
+      name: time2dt.inc.yaml
+      replace:
+        CATID: 23
+        NAME: dcc1
+        TREFDET: srppac_a_src0_cal
+        TREFID: 0
+  - include: # DCC1
+      name: xxyy.inc.yaml
+      replace:
+        NAME: dcc1
+  - include:
+      name: xxyy_calib.inc.yaml
+      replace:
+        NAME: dcc1
+        TGATE: [-10000.,10000]
+        QGATE: [0. 100.]
+  ######################################################################
+  # DCC2
+  ######################################################################
+  - include:
+      name: time2dt.inc.yaml
+      replace:
+        CATID: 24
+        NAME: dcc2
+        TREFDET: srppac_a_src0_cal
+        TREFID: 0
+  - include: # DCC2
+      name: xxyyxxyy.inc.yaml
+      replace:
+        NAME: dcc2
+  - include:
+      name: xxyyxxyy_calib.inc.yaml
+      replace:
+        NAME: dcc2
+        TGATE: [-10000.,10000]
+        QGATE: [0. 100.]
+  ######################################################################
+  # FE12
+  ######################################################################
+  - name: tracking_fe12
+    type: art::TMWDCTrackingProcessor
+    parameter:
+      ChargeGate: [-1000000, 1000000]  # [FloatVec_t] charge gate
+      InputCollection:
+        - dcc1_x1
+        - dcc1_x2
+        - dcc1_y1
+        - dcc1_y2
+        - dcc2_x1
+        - dcc2_x2
+        - dcc2_y1
+        - dcc2_y2
+      MaxSSR: 10  # [Float_t] maximum limit for SSR
+      OutputCollection: fe12  # [TString] output
+      OutputTransparency: 0  # [Bool_t] Output is persistent if false (default)
+      SignificanceLevel: 0.05000000074505806  # [Float_t] significance level
+      TimingGate: [-1000000, 1000000]  # [FloatVec_t] timing gate
+      UseAllCombination: 0  # [Bool_t] use all the combination
+      UseLocalPos: 0  # [Int_t] default: 0
+      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
+
+---
+# end of mwdc.inc.yaml

@@ -1,0 +1,39 @@
+Anchor:
+#  - &input ridf/mpv/bld/ribf79r10008.ridf
+  - &input ridf/mpv/bld/BLD_phys@NUM@.ridf
+  - &output output/BLD_phys@NUM@.root
+
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+        - *input
+        
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+
+#  - include: tref_h307-10.yaml
+  - include: tref.yaml
+  - include: bld/xe_2.yaml
+  - include: dia/dia_4pad.yaml
+  - include: srppac/srppac_dzn.yaml
+    
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type:     art::TTreeProjection
+      FileName: hist/bld/xe_2.yaml
+          
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: 
+        - *output

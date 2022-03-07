@@ -1,0 +1,16 @@
+Processor:
+  - name: proc_f5_tracking
+    type: art::TMWDCTrackingProcessor
+    parameter:
+      InputCollection:
+        - dc51_x1
+        - dc51_x2
+        - dc51_u
+        - dc51_v
+        - dc52_x1
+        - dc52_x2
+        - dc52_u
+        - dc52_v
+      OutputCollection:   f5
+      UseGlobalPos:       1
+      OutputTransparency: 0

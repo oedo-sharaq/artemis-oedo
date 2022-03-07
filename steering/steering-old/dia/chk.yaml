@@ -1,0 +1,34 @@
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+#         - ridf/Monitor_daqtest0017.ridf
+#         - ridf/Monitor_reso0047.ridf
+#         - ridf/Monitor_debug0069.ridf
+#         - /home/ms1502/art_analysis/user/kiyo/ridf/data9001.ridf
+          - ridf/bld_calib/beam0003.ridf
+
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 0
+
+  - include: v1290_tref.yaml
+  - include: dia.yaml
+  - include: tof.yaml
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type:     art::TTreeProjection
+      FileName: hist/dia/dia.yaml
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName:  dia.root

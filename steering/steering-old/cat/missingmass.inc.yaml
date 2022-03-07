@@ -1,0 +1,53 @@
+Processor:
+  - name: MyTParticleGenerateProcessor
+    type: art::TParticleGenerateProcessor
+    parameter:
+      AtomicNumber: 1  # [Int_t] atomic number of particle (0)
+      KineticEnergy: 0  # [Double_t] energy per nucleon (0 MeV)
+      MassNumber: 2  # [Int_t] mass number of particle (0)
+      OutputTransparency: 0  # [Bool_t] Output is persistent if false (default)
+      ParticleName: targetD  # [TString] name of particle
+      PhiRange: [0, 0]  # [FloatVec_t] range of phi (deg) distribution (default [0,0])
+      ThetaRange: [0, 0]  # [FloatVec_t] range of theta (deg) distribution (default [0,0])
+      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
+  - name: MyTParticleGenerateProcessor
+    type: art::TParticleGenerateProcessor
+    parameter:
+      AtomicNumber: 1  # [Int_t] atomic number of particle (0)
+      KineticEnergy: 0  # [Double_t] energy per nucleon (0 MeV)
+      MassNumber: 2  # [Int_t] mass number of particle (0)
+      OutputTransparency: 0  # [Bool_t] Output is persistent if false (default)
+      ParticleName: recoilD  # [TString] name of particle
+      PhiRange: [0, 0]  # [FloatVec_t] range of phi (deg) distribution (default [0,0])
+      ThetaRange: [0, 0]  # [FloatVec_t] range of theta (deg) distribution (default [0,0])
+      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
+  - name: MyTParticleGenerateProcessor
+    type: art::TParticleGenerateProcessor
+    parameter:
+      AtomicNumber: 54  # [Int_t] atomic number of particle (0)
+      KineticEnergy: 100  # [Double_t] energy per nucleon (0 MeV)
+      MassNumber: 132  # [Int_t] mass number of particle (0)
+      OutputTransparency: 0  # [Bool_t] Output is persistent if false (default)
+      ParticleName: beamXe  # [TString] name of particle
+      PhiRange: [0, 0]  # [FloatVec_t] range of phi (deg) distribution (default [0,0])
+      ThetaRange: [0, 0]  # [FloatVec_t] range of theta (deg) distribution (default [0,0])
+      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
+  - name: MyTUpdateParticleMomentumProcessor
+    type: art::TUpdateParticleMomentumProcessor
+    parameter:
+      IgnoreRange: 0  # [Int_t] ignore range of track if non-zero (only angular information will be used)
+      OutputTransparency: 0  # [Bool_t] Output is persistent if false (default)
+      Particle: recoilD  # [TString] name of particle
+      RangeTable: rangeTableDD  # [TString] name of range table
+      Track: atcluster  # [TString] name of track
+      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
+  - name: MyTMissingMassProcessor
+    type: art::TMissingMassProcessor
+    parameter:
+      OutputTransparency: 0  # [Bool_t] Output is persistent if false (default)
+      Particle1: beamXe  # [TString] name of input particle 1 (P1)
+      Particle2: targetD  # [TString] name of input particle 2 (P2)
+      Particle3: recoilD  # [TString] name of input particle 3 (P3)
+      Particle4: scatXe  # [TString] name of output particle 4 (P4)
+      Particle4CM: scatXeCM  # [TString] name of output particle 4 (P4) in cm frame
+      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)

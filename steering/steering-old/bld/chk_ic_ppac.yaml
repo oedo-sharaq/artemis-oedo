@@ -1,0 +1,76 @@
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+#        - ./ridf/run0012.ridf
+#        - ./ridf/run0013.ridf
+#        - ./ridf/beam/BLD_beam0058.ridf
+        - ./ridf/beam/BLD_beam0068.ridf
+
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+
+  - name: proc_gateinit
+    type: art::TGateArrayInitializer
+
+  - include: v1190_tref.yaml
+  - include: ../v1290_tref.yaml
+  - include: ../dia/dia.yaml
+  - include: v1190_tref_ppac.yaml
+#  - include: spla.yaml
+#  - include: tref.yaml
+#  - include: tof.yaml
+#  - include: si.yaml
+#  - include: pid_gate.yaml
+
+#  - name: proc_stop
+#    type: art::TOutputTreeProcessor
+#    parameter:
+#      gate: 54Sc
+
+#  - include: mwdc/dc51.yaml
+#  - include: mwdc/dc52.yaml
+
+  - name: proc_gate_f7diapad
+    type: art::TTreeFormulaGateProcessor
+    parameter:
+      Definitions: f7dia; diaf7_v1290[1].fTiming>-80
+
+  - name: proc_stop_f7diapad
+    type: art::TGateStopProcessor
+    parameter:
+      StopIf: 1
+      gate: f7dia
+
+  - include: mwdc/dc71.yaml
+  - include: mwdc/dc72.yaml
+  - include: mwdc/dc71_calib.yaml
+  - include: mwdc/dc72_calib.yaml
+#  - include: mwdc/chkall.yaml
+#  - include: mwdc/caliball.yaml
+
+  - include: ppac/ppac.yaml
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type:     art::TTreeProjection
+      FileName: hist/bld/chkppac.yaml
+
+#  - include: ic/ic.yaml
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      Type:     art::TTreeProjection
+#      FileName: hist/bld/ic.yaml
+#
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+#      FileName: matsu.root

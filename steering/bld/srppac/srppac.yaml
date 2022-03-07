@@ -1,0 +1,492 @@
+Processor:
+  - name: proc:ppac:ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm:ppac:ch2ns_x
+      Type: art::TAffineConverter
+      FileName: prm/srppac/ch2ns_x.dat
+
+  - name: proc:ppac:ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm:ppac:ch2ns_y
+      Type: art::TAffineConverter
+      FileName: prm/srppac/ch2ns_y.dat
+
+  - name: proc:ppac:ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm:ppac:ch2ns_a
+      Type: art::TAffineConverter
+      FileName: prm/srppac/ch2ns_a.dat
+
+##  - name: proc:ppac:conv:x
+##    type: art::TParameterArrayLoader
+##    parameter:
+##      Name: prm:ppac:x:conv
+##      Type: art::TAffineConverter
+##      FileName: prm/ppac/x_conv.dat
+##
+##  - name: proc:ppac:conv:y
+##    type: art::TParameterArrayLoader
+##    parameter:
+##      Name: prm:ppac:y:conv
+##      Type: art::TAffineConverter
+##      FileName: prm/ppac/y_conv.dat
+##      
+##  - name: proc:ppac:param:geo:x
+##    type: art::TParameterArrayLoader
+##    parameter:
+##      Name: prm:ppac:geo:x
+##      Type: art::TSRPPACParameter
+##      FileName: prm/srppac/geometry_x.yaml
+##      FileFormat: yaml
+##
+##  - name: proc:ppac:param:geo:y
+##    type: art::TParameterArrayLoader
+##    parameter:
+##      Name: prm:ppac:geo:y
+##      Type: art::TSRPPACParameter
+##      FileName: prm/srppac/geometry_y.yaml
+##      FileFormat: yaml
+
+  - name: proc_dqdx_xc0u
+    type: art::TParameterLoader
+    parameter:
+      Name:     dqdx_srppac_xc0u
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/srppac/sr91/dq2dx/current/xc0.dat
+  - name: proc_dqdx_yc0u
+    type: art::TParameterLoader
+    parameter:
+      Name:     dqdx_srppac_yc0u
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/srppac/sr91/dq2dx/current/yc0.dat
+
+  - name: proc_dqdx_xc0d
+    type: art::TParameterLoader
+    parameter:
+      Name:     dqdx_srppac_xc0d
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/srppac/sr92/dq2dx/current/xc0.dat
+  - name: proc_dqdx_yc0d
+    type: art::TParameterLoader
+    parameter:
+      Name:     dqdx_srppac_yc0d
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/srppac/sr92/dq2dx/current/yc0.dat
+
+
+#  - name: proc_dqdx_xclu
+#    type: art::TParameterLoader
+#    parameter:
+#      Name:     dqdx_srppac_xclu
+#      Type:     art::TMonotoneTableConverter
+#      FileName: prm/srppac/sru/dq2dx/current/xcl.dat
+#
+#  - name: proc_dqdx_xcru
+#    type: art::TParameterLoader
+#    parameter:
+#      Name:     dqdx_srppac_xcru
+#      Type:     art::TMonotoneTableConverter
+#      FileName: prm/srppac/sru/dq2dx/current/xcr.dat
+#
+#  - name: proc_dqdx_yclu
+#    type: art::TParameterLoader
+#    parameter:
+#      Name:     dqdx_srppac_yclu
+#      Type:     art::TMonotoneTableConverter
+#      FileName: prm/srppac/sru/dq2dx/current/ycl.dat
+#
+#  - name: proc_dqdx_ycru
+#    type: art::TParameterLoader
+#    parameter:
+#      Name:     dqdx_srppac_ycru
+#      Type:     art::TMonotoneTableConverter
+#      FileName: prm/srppac/sru/dq2dx/current/ycr.dat
+
+
+#  - name: proc_dqdx_xcld
+#    type: art::TParameterLoader
+#    parameter:
+#      Name:     dqdx_srppac_xcld
+#      Type:     art::TMonotoneTableConverter
+#      FileName: prm/srppac/srd/dq2dx/current/xcl.dat
+#
+#  - name: proc_dqdx_xcrd
+#    type: art::TParameterLoader
+#    parameter:
+#      Name:     dqdx_srppac_xcrd
+#      Type:     art::TMonotoneTableConverter
+#      FileName: prm/srppac/srd/dq2dx/current/xcr.dat
+#
+#  - name: proc_dqdx_ycld
+#    type: art::TParameterLoader
+#    parameter:
+#      Name:     dqdx_srppac_ycld
+#      Type:     art::TMonotoneTableConverter
+#      FileName: prm/srppac/srd/dq2dx/current/ycl.dat
+#
+#  - name: proc_dqdx_ycrd
+#    type: art::TParameterLoader
+#    parameter:
+#      Name:     dqdx_srppac_ycrd
+#      Type:     art::TMonotoneTableConverter
+#      FileName: prm/srppac/srd/dq2dx/current/ycr.dat
+
+
+
+# raw data
+
+  - name: proc:ppac:sr91a:raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: 40
+      TimingTypeID: 0
+      TrailingComesFirst: 0
+      OutputCollection: sr91_a_raw
+
+  - name: proc:ppac:sr91x:raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: 41
+      TimingTypeID: 0
+      TrailingComesFirst: 1
+      OutputCollection: sr91_x_raw
+
+  - name: proc:ppac:sr91y:raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: 42
+      TimingTypeID: 0
+      TrailingComesFirst: 1
+      OutputCollection: sr91_y_raw
+
+  - name: proc:ppac:sr92a:raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: 43
+      TimingTypeID: 0
+      TrailingComesFirst: 0
+      OutputCollection: sr92_a_raw
+
+  - name: proc:ppac:sr92x:raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: 44
+      TimingTypeID: 0
+      TrailingComesFirst: 1
+      OutputCollection: sr92_x_raw
+
+  - name: proc:ppac:sr92y:raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: 45
+      TimingTypeID: 0
+      TrailingComesFirst: 1
+      OutputCollection: sr92_y_raw
+
+
+
+# time validate
+
+
+  - name: proc:ppac:sr91a:val
+    type: art::TTimeValidator
+    parameter:
+      InputCollection: sr91_a_raw
+      OutputCollection: sr91_a_val
+      ValidTimeRange: [-100000,100000,0]  # temporary
+#      ValidTimeRange: [190000,200000,0]  # run3176
+
+  - name: proc:ppac:sr91x:val
+    type: art::TTimeValidator
+    parameter:
+      InputCollection: sr91_x_raw
+      OutputCollection: sr91_x_val
+      ValidTimeRange: [-100000,100000,0]  # temporary
+#      ValidTimeRange: [190000,200000,0]  # run3176
+
+  - name: proc:ppac:sr91y:val
+    type: art::TTimeValidator
+    parameter:
+      InputCollection: sr91_y_raw
+      OutputCollection: sr91_y_val
+      ValidTimeRange: [-100000,100000,0]  # temporary
+#      ValidTimeRange: [190000,200000,0]  # run3176
+
+  - name: proc:ppac:sr92a:val
+    type: art::TTimeValidator
+    parameter:
+      InputCollection: sr92_a_raw
+      OutputCollection: sr92_a_val
+      ValidTimeRange: [-100000,100000,0]  # temporary
+#      ValidTimeRange: [190000,200000,0]  # run3176
+
+  - name: proc:ppac:sr92x:val
+    type: art::TTimeValidator
+    parameter:
+      InputCollection: sr92_x_raw
+      OutputCollection: sr92_x_val
+      ValidTimeRange: [-100000,100000,0]  # temporary
+#      ValidTimeRange: [190000,200000,0]  # run3176
+
+  - name: proc:ppac:sr92y:val
+    type: art::TTimeValidator
+    parameter:
+      InputCollection: sr92_y_raw
+      OutputCollection: sr92_y_val
+      ValidTimeRange: [-100000,100000,0]  # temporary
+#      ValidTimeRange: [190000,200000,0]  # run3176
+
+
+# calib ch to ns
+
+  - name: proc:ppac:sr91a:cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: sr91_a_val
+      OutputCollection: sr91_a_cal
+      TimingConverterArray: prm:ppac:ch2ns_a
+      ChargeConverterArray: prm:ppac:ch2ns_a
+
+  - name: proc:ppac:sr91x:cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: sr91_x_val
+      OutputCollection: sr91_x_cal
+      TimingConverterArray: prm:ppac:ch2ns_x
+      ChargeConverterArray: prm:ppac:ch2ns_x
+
+
+  - name: proc:ppac:sr91y:cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: sr91_y_val
+      OutputCollection: sr91_y_cal
+      TimingConverterArray: prm:ppac:ch2ns_y
+      ChargeConverterArray: prm:ppac:ch2ns_y
+
+
+  - name: proc:ppac:sr92a:cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: sr92_a_val
+      OutputCollection: sr92_a_cal
+      TimingConverterArray: prm:ppac:ch2ns_a
+      ChargeConverterArray: prm:ppac:ch2ns_a
+
+
+  - name: proc:ppac:sr92x:cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: sr92_x_val
+      OutputCollection: sr92_x_cal
+      TimingConverterArray: prm:ppac:ch2ns_x
+      ChargeConverterArray: prm:ppac:ch2ns_x
+
+
+  - name: proc:ppac:sr92y:cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: sr92_y_val
+      OutputCollection: sr92_y_cal
+      TimingConverterArray: prm:ppac:ch2ns_y
+      ChargeConverterArray: prm:ppac:ch2ns_y
+
+ # position 
+
+  - name: planeproc:sr91x
+    type: art::TSRPPACPlaneProcessor
+    parameter:
+      InputCollection: sr91_x_cal
+      OutputCollection: sr91_x
+#      srppacparameter: prm:ppac:geo:x    
+      Verbose: 0
+      nStrip: 94
+      stripWidth: 2.55
+      center: 46.5
+      z: -174.
+      detoffset: 0
+      turned: 1
+
+  - name: planeproc:sr91y
+    type: art::TSRPPACPlaneProcessor
+    parameter:
+      InputCollection: sr91_y_cal
+      OutputCollection: sr91_y
+#      srppacparameter: prm:ppac:geo:y
+      Verbose: 0
+      nStrip: 58
+      stripWidth: 2.58
+      center: 28.5
+      z: -166.
+      detoffset: 0
+      turned: 1
+
+  - name: planeproc:sr92x
+    type: art::TSRPPACPlaneProcessor
+    parameter:
+      InputCollection: sr92_x_cal
+      OutputCollection: sr92_x
+#      srppacparameter: prm:ppac:geo:x    
+      Verbose: 0
+      nStrip: 94
+      stripWidth: 2.55
+      center: 46.5
+      z: -174.
+      detoffset: 0
+      turned: 1
+
+  - name: planeproc:sr92y
+    type: art::TSRPPACPlaneProcessor
+    parameter:
+      InputCollection: sr92_y_cal
+      OutputCollection: sr92_y
+#      srppacparameter: prm:ppac:geo:y
+      Verbose: 0
+      nStrip: 58
+      stripWidth: 2.58
+      center: 28.5
+      z: -166.
+      detoffset: 0
+      turned: 1
+
+# dqdx calib
+
+  - name: proc:ppac:sr91dqdx
+    type: art::TSRPPACPlaneDqdxProcessor
+    parameter:
+      InputCollection: sr91_x
+      OutputCollection: sr91_xc0
+      Converter: dqdx_srppac_xc0u
+ #     SRPPACParameter: prm:ppac:geo:x
+      nStrip: 94
+      stripWidth: 2.55
+      center: 46.5
+      z: -4.
+      detoffset: 0
+      turned: 1
+ 
+ 
+  - name: proc:ppac:sr91dqdy
+    type: art::TSRPPACPlaneDqdxProcessor
+    parameter:
+      InputCollection: sr91_y
+      OutputCollection: sr91_yc0
+      Converter: dqdx_srppac_yc0u
+ #     SRPPACParameter: prm:ppac:geo:y
+      nStrip: 58
+      stripWidth: 2.58
+      center: 28.5
+      z: -4.
+      detoffset: 0
+      turned: 1
+ 
+ 
+  - name: proc:ppac:sr92dqdx
+    type: art::TSRPPACPlaneDqdxProcessor
+    parameter:
+#      InputCollection: sr92_x
+      InputCollection: sr92_x_cal
+      OutputCollection: sr92_xc0
+      Converter: dqdx_srppac_xc0d
+ #     SRPPACParameter: prm:ppac:geo:x
+      nStrip: 94
+      stripWidth: 2.55
+      center: 46.5
+      z: -4.
+      detoffset: 0
+      turned: 1
+ 
+ 
+  - name: proc:ppac:sr92dqdy
+    type: art::TSRPPACPlaneDqdxProcessor
+    parameter:
+      InputCollection: sr92_y
+      OutputCollection: sr92_yc0
+      Converter: dqdx_srppac_yc0d
+ #     SRPPACParameter: prm:ppac:geo:y
+      nStrip: 58
+      stripWidth: 2.58
+      center: 28.5
+      z: -4.
+      detoffset: 0
+      turned: 1
+# #
+# #
+# #
+# #
+# # - name: proc:ppac:sruxw
+# #   type: art::TSRPPACPlaneSideDqdxProcessor
+# #   parameter:
+# #     InputCollection: srppacu_x
+# #     OutputCollection: srppacu_xcw
+# #     Converter1: dqdx_srppacu_xclu
+# #     Converter2: dqdx_srppacu_xcru
+# #      SRPPACParameter: prm:ppac:geo:x
+# #     Combination: 0
+# #     nStrip: 94
+# #     stripWidth: 2.55
+# #     center: 46.5
+# #     z: -4.
+# #     detoffset: -2.099
+# #     turned: 1
+# #
+# # - name: proc:ppac:sruyw
+# #   type: art::TSRPPACPlaneSideDqdxProcessor
+# #   parameter:
+# #     InputCollection: srppacu_y
+# #     OutputCollection: srppacu_ycw
+# #     Converter1: dqdx_srppacu_yclu
+# #     Converter2: dqdx_srppacu_ycru
+# ##     SRPPACParameter: prm:ppac:geo:y
+# #     Combination: 0
+# #     nStrip: 58
+# #     stripWidth: 2.58
+# #     center: 28.5
+# #     z: -4.
+# #     detoffset: -2.099
+# #     turned: 1
+# #
+# # - name: proc:ppac:srdxw
+# #   type: art::TSRPPACPlaneSideDqdxProcessor
+# #   parameter:
+# #     InputCollection: srppacd_x
+# #     OutputCollection: srppacd_xcw
+# #     Converter1: dqdx_srppacd_xcld
+# #     Converter2: dqdx_srppacd_xcrd
+# #      SRPPACParameter: prm:ppac:geo:x
+# #     Combination: 0
+# #     nStrip: 94
+# #     stripWidth: 2.55
+# #     center: 46.5
+# #     z: -4.
+# #     detoffset: -2.099
+# #     turned: 1
+# #
+# # - name: proc:ppac:srdyw
+# #   type: art::TSRPPACPlaneSideDqdxProcessor
+# #   parameter:
+# #     InputCollection: srppacd_y
+# #     OutputCollection: srppacd_ycw
+# #     Converter1: dqdx_srppacd_ycld
+# #     Converter2: dqdx_srppacd_ycrd
+# #      SRPPACParameter: prm:ppac:geo:y
+# #     Combination: 0
+# #     nStrip: 58
+# #     stripWidth: 2.58
+# #     center: 28.5
+# #     z: -4.
+# #     detoffset: -2.099
+# #     turned: 1
+# #
+# #
+# #
+# #
+# #
+# #
+# #
+# #
+# 
+# 

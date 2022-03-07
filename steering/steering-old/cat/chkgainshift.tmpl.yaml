@@ -1,0 +1,81 @@
+# Required anchors
+# &ridf1: the first input ridf file
+# &ridf2: the second input ridf file
+# &treeout: output root file including tree
+# &histout: output root file including histogram
+#
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+  - name: ridfevent
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      InputFiles:
+        - *ridf1
+  - name: ridfevent2
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      SegmentedData: segdata2
+      InputFiles:
+        - *ridf2
+  - name: map
+    type: art::TMappingProcessor
+    parameter:
+      InputCollection: [segdata, segdata2]
+      OutputTransparency:  1
+      MapConfig: mapper.conf
+  - include: ../../../steering/chkcoin.yaml
+  - include: ../../../steering/chksca.yaml
+  - name: gate_array_init
+    type: art::TGateArrayInitializer
+#======================================================================
+# parameters
+  - name: pad
+    type: art::TCatReadoutPadConditionProcessor
+    parameter:
+      Gap: 0.      
+      Type: 2
+#======================================================================
+# event loop
+  - name: catmapping
+    type: art::TCatAtMappingProcessor
+    parameter:
+      CatID: 51
+      OutputCollection: at
+      OutputTransparency: 1
+      SelectIf: 1
+      BeamRegion: [-10,10]
+  - name: catsub
+    type: art::TCatAtPedestalSubtractionProcessor
+    parameter:
+      InputCollection: at
+      OutputCollection: atsub
+      OutputTransparency: 1
+  - name: atpulsefinder
+    type: art::TPulseFinder
+    parameter:
+      InputCollection: atsub
+      RisingThreshold: 25
+      FallingThreshold: 0.5
+      PrePulse: 30
+      PostPulse: 15
+      SavePulse: 0 ##
+      Sparse: 0
+      OutputTransparency: 0
+  - name: projcat
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/cat/chkgainshift.last.hist.yaml
+      Name: projection
+      OutputTransparency: 1
+      Type: art::TTreeProjection
+      Verbose: 1
+      OutputFilename: *histout
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: *treeout
+  - name: timer
+    type: art::TTimerProcessor

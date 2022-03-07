@@ -1,0 +1,109 @@
+Processor:
+
+  # - name: proc_platcc_ch2ns
+  #   type: art::TParameterArrayLoader
+  #   parameter:
+  #     Name:     prm_platcc_ch2ns
+  #     Type:     art::TAffineConverter
+  #     FileName: prm.h307-6/plastic/platcc_ch2ns.dat
+
+#  - name: proc_platcc_l_raw 
+  - name: proc_platcc_l #raw -> output
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              2
+      TimingTypeID:       0
+      TrailingComesFirst: 0
+      OutputCollection:   platcc_l
+      OutputTransparency: 1
+      Sparse:             1 # !!
+
+#   - name: proc_platcc_l
+#     type: art::TTimingChargeCalibrationProcessor
+#     parameter:
+#       InputCollection:      platcc_l_raw
+#       OutputCollection:     platcc_l
+#       TimingConverterArray: prm_platcc_ch2ns
+# #      OutputTransparency:   1
+
+#  - name: proc_platcc_r_raw
+  - name: proc_platcc_r
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              2
+      TimingTypeID:       1
+      TrailingComesFirst: 0
+      OutputCollection:   platcc_r
+      OutputTransparency: 1
+      Sparse:             1 # !!
+
+#   - name: proc_platcc_r
+#     type: art::TTimingChargeCalibrationProcessor
+#     parameter:
+#       InputCollection:      platcc_r_raw
+#       OutputCollection:     platcc_r
+#       TimingConverterArray: prm_platcc_ch2ns
+# #      OutputTransparency:   1
+
+  # - name: proc_platcc
+  #   type: art::TTwoSidedPlasticCalibrationProcessor
+  #   parameter:
+  #     InputCollection1: platcc_l
+  #     InputCollection2: platcc_r
+  #     OutputCollection: platcc
+  #     DetIDRange:       [0,1]
+      
+#- name: sep:pla_r
+#     type: art::TSeparateOutputProcessor
+#     parameter:
+#       InputCollection: platcc_r
+#       OutputCollections:
+# #        - f1_r
+# #        - f3_r
+#         - f5_r
+#   - name: sep:pla_l
+#     type: art::TSeparateOutputProcessor
+#     parameter:
+#       InputCollection: platcc_l
+#       OutputCollections:
+# #        - f1_l
+# #        - f3_l
+#         - f5_l
+        
+  # - name: proc_platref_multi
+  #   type: art::TTwoSidedPlasticCalibrationProcessor
+  #   parameter:
+  #     InputCollection1: f1_r
+  #     InputCollection2: f1_l
+  #     OutputCollection: f1c
+  #     DetIDRange:       [0,2]
+  #     ValidTimeRange: [-5.,5.,0]
+
+  # - name: proc_platref_multi
+  #   type: art::TTwoSidedPlasticCalibrationProcessor
+  #   parameter:
+  #     InputCollection1: f3_r
+  #     InputCollection2: f3_l
+  #     OutputCollection: f3c
+  #     DetIDRange:       [0,2]
+  #     ValidTimeRange: [-5.,5.,0]
+
+  # - name: proc_platref_multi
+  #   type: art::TTwoSidedPlasticCalibrationProcessor
+  #   parameter:
+  #     InputCollection1: f5_r
+  #     InputCollection2: f5_l
+  #     OutputCollection: f5c
+  #     DetIDRange:       [0,0]
+  #     ValidTimeRange: [-5.,5.,0]
+
+
+      
+  # - name: proc_platref_multi
+  #   type: art::TTwoSidedPlasticCalibrationProcessor
+  #   parameter:
+  #     InputCollection1: f3c
+  #     InputCollection2: f1c
+  #     OutputCollection: tof13c
+  #     DetIDRange:       [0,1]
+  #     ValidTimeRange: [-30,30.,15]

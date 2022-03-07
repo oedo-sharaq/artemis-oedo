@@ -1,0 +1,73 @@
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+#        - ridf/bld_calib/beam0015.ridf
+#         - ridf/beam/BLD_beam0076.ridf
+#         - ridf/beam/BLD_beam0077.ridf
+#         - ridf/beam/BLD_beam0082.ridf
+#         - ridf/beam/BLD_beam0085.ridf
+#         - ridf/beam/BLD_beam0086.ridf
+#         - ridf/beam/BLD_beam0079.ridf
+#         - ridf/beam/BLD_beam0062.ridf
+#         - ridf/beam/BLD_beam0088.ridf # F3 trig.
+#         - ridf/beam/BLD_beam0089.ridf # F3 trig.
+#         - ridf/beam/BLD_beam0090.ridf # F3 trig.
+#         - ridf/beam/BLD_beam0114.ridf # high rate
+#         - ridf/beam/BLD_beam0124.ridf # high rate
+#         - ridf/beam/BLD_beam0450.ridf # high rate
+#         - ridf/beam/BLD_beam0449.ridf # high rate
+#         - ridf79/beam/BLD_beam2085.ridf # to be analyzed
+         - ridf79/phys/BLD_phys2110.ridf 
+
+
+
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+
+  - name: proc_gateinit
+    type: art::TGateArrayInitializer
+
+  - include: bld/v1190_tref.yaml
+  - include: v1290_tref.yaml
+  - include: dia/dia.yaml
+  - include: plastic/spla.yaml
+#  - include: bld/v1190_tref_ppac.yaml
+#  - include: bld/ppac/ppac.yaml
+
+  - include: bld/mwdc/dc31.yaml
+  - include: bld/mwdc/dc32.yaml
+  - include: bld/mwdc/dc51.yaml
+  - include: bld/mwdc/dc52.yaml
+  - include: bld/mwdc/dc71.yaml
+  - include: bld/mwdc/dc72.yaml
+  - include: bld/mwdc/f5.yaml
+#  - include: bld/mwdc/F7.yaml
+#  - include: bld/mwdc/dc51_calib.yaml
+#  - include: bld/mwdc/dc52_calib.yaml
+#  - include: bld/mwdc/F7.yaml
+#  - include: mwdc/chkall.yaml
+#  - include: mwdc/caliball.yaml
+#  - include: ../chkcoin.yaml
+#  - include: ../chksca.yaml
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type:     art::TTreeProjection
+###      FileName: hist/bld/mwdc/chkeff_f7.yaml
+      FileName: hist/pid.yaml
+#      FileName: hist/bld/pid.yaml
+###      FileName: hist/bld/mwdc/dc71.yaml
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: temp.root

@@ -1,0 +1,19 @@
+# @file scaler.tmpl.yaml
+# @brief scaler for f8
+# 
+# @date Create        : 2019-11-25 07:17:04 JST
+#       Last Modified : 2019-11-25 07:17:33 JST (ota)
+# @author:  <ribf79@ata03.atnet>
+# 
+Processor:
+  - name: scaler
+    type: art::TCatScalerMappingProcessor
+    parameter:
+      InputCollection: @CATDATA@
+      CatID: @CATID@
+      OutputCollectionDiff: f8scadiff
+      OutputCollectionTotal: f8scatot
+      
+  
+---
+# end of scaler.tmpl.yaml

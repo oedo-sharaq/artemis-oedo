@@ -1,0 +1,17 @@
+# steering file for trig
+Processor:
+  - name: proc_trig_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              62
+      TimingTypeID:       0
+      OutputCollection:   trig_raw
+      OutputTransparency: 0
+  - name: separate_trig
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: trig_raw
+      OutputCollections:
+        - "trig_f3dsb"
+        - "trig_cat"
+        - "trig_espri"

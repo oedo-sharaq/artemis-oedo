@@ -1,0 +1,54 @@
+Anchor:
+  - &maxEvtNum 100000000
+  - &rnum 1571
+  - &catdata catdata_cat
+Processor:
+  - name: pad
+    type: art::TCatReadoutPadConditionProcessor
+    parameter:
+      Type: 11
+#      Bads: [2783, 2806]
+  - name: proc:rangetable
+    type: art::TRangeTableConditionProcessor
+    parameter:
+      RangeTableFile: data/DeuteronDeuterium/DeuteronDeuterium064.txt.out
+      RangeTable: rangeTableDD
+      RangeStep: 0.1
+  - name: proc:rangetable
+    type: art::TRangeTableConditionProcessor
+    parameter:
+      RangeTableFile: data/TinDeuterium/TinDeuterium064.txt.out
+      RangeTable: rangeTableTinD
+      RangeStep: 1.
+      TKECutoff: 20000
+  - name: samplecalibgen
+    type: art::TAffineConverterArrayGenerator
+    parameter:
+      ParameterList:
+        - [ch2fc,  prm/cat/ch2fc.uniform.dat]
+        - [chsum2fc,  prm/cat/chsum2fc_1pF.prm]
+        - [fc2MeV, prm/cat/fc2MeV.255.prm]
+        - [ch2ch, prm/cat/ch2ch_h307-10.dat]
+  # ======================================================================
+  - name: timer
+    type: art::TTimerProcessor
+  - include:
+      name: cat/get.inc.yaml
+      replace:
+        RNUM: *rnum 
+        CATDATA: *catdata
+  - name: cat:mapping
+    type: art::TCatAtMappingProcessor
+    parameter:
+      CatID: 51
+      InputCollection: *catdata
+      OutputCollection: at
+      MaxDetID: 4048
+      SelectIf: 0
+      BeamRegion: [-12,12]
+  - include:
+      name: treeout.inc.yaml
+      replace:
+        RNUM: *rnum
+  - name: timer
+    type: art::TTimerProcessor

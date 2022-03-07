@@ -1,0 +1,33 @@
+# @file ridf.yaml
+# @brief f8 ridf yaml
+# 
+# @date Create        : 2019-11-24 01:47:07 JST
+#       Last Modified : 2019-11-24 04:54:14 JST (ota)
+# @author: Shinsuke OTA <ota@cns.s.u-tokyo.ac.jp>
+# 
+Processor:
+  - name: MyTRIDFEventStore
+    type: art::TRIDFEventStore
+    parameter:
+      Asynchronous: 0  # [Int_t] asynchronous run end for timestamp event reconstruction
+      EventHeaderName: eventheader_f8  # [TString] the name of event header
+      EventListName: ""  # [TString] name of event list
+      InputEventNumber: ""  # [TString] name of event number info to align with other event store
+      InputFiles: ridf/mpv/f8/ribf79f8@NUM@.ridf  # [StringVec_t] The names of input files
+      MaxEventNum: 0  # [Int_t] maximum number of event (no limit if 0)
+      OutputEventNumber: ""  # [TString] name of event number info to align with other event store
+      OutputTransparency: 1  # [Bool_t] Output is persistent if false (default)
+      RunHeadersName: runinfo_f8  # [TString] the name of output array for run headers, run header will be stored once
+      SHMID: 0  # [Int_t] Shared memory id (default : 0)
+      SegmentedData: segdata_f8  # [TString] The name of output array for segmented data
+      Start: 0  # [Int_t] start event number
+      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
+  - name: mapping
+    type: art::TMappingProcessor
+    parameter:
+      CategorizedData: @CATDATA@
+      InputCollection: segdata_f8
+      OutputTransparency: 1
+
+---
+# end of ridf.yaml

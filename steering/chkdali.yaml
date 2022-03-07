@@ -1,0 +1,68 @@
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 0
+      InputFiles:
+       - ridf/dali/dalicalib2008.ridf
+#       - ridf/az30393.ridf
+#       - ridf/az30394.ridf
+#       - ridf/az30395.ridf
+
+
+#  - name: modlistloader
+#    type: art::TParameterArrayLoader
+#    parameter:
+#      Name: modlist
+#      Type: art::TModuleType
+#      FileName: conf/seg/modulelist.yaml
+#      FileFormat: yaml
+
+#  - name: seglistloader
+#    type: art::TParameterArrayLoader
+#    parameter:
+#      Name: seglist
+#      Type: art::TSegmentInfo
+#      FileName: conf/seg/seglist.yaml
+#      FileFormat: yaml
+
+#  - name: MyTSegmentCheckProcessor
+#    type: art::TSegmentCheckProcessor
+#    parameter:
+#      Ignore:  # [StringVec_t] ignore segment list
+#        - ""
+#      ModuleList: modlist  # [TString] name of the module list
+#      OutputTransparency: 1  # [Bool_t] Output is persistent if false (default)
+#      SegmentList: seglist  # [TString] name of the segment list
+#      SegmentedDataName: segdata  # [TString] name of the segmented data
+#      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
+#
+#
+
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 0
+
+  - include: v1190_tref.yaml
+  - include: dali2/dalit.yaml
+  - include: dali2/dalia.yaml
+
+
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type:     art::TTreeProjection
+      FileName: hist/dali2hist.yaml
+
+#  - name: proc_gateinits1
+#    type: art::TGateArrayInitializer
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: ./root/dali2_393-5.root

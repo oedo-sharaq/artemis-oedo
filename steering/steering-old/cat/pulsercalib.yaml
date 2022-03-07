@@ -1,0 +1,397 @@
+Anchor:
+  - &logfilepath  "log"
+  - &figfilepath  "figs/cat"
+  - &figfilepath2 "figs/cat/UntilPulseFinder"
+#  - &ridf1 ridf/cat_calib/CAT1_tpcpulser7001.ridf
+#  - &ridf2 ridf/cat_calib/CAT2_tpcpulser7001.ridf
+  - &rootout last.root
+
+Processor:
+  - name: ridfevent
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      InputFiles:
+#        - *ridf1
+        - ridf/cat_calib/CAT1_tpcpulser7001.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7002.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7003.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7007.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7008.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7009.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7010.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7011.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7012.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7014.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7015.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7016.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7017.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7018.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7019.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7020.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7021.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7024.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7025.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7026.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7027.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7028.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7029.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7031.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7034.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7035.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7036.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7037.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7038.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7039.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7040.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7041.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7044.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7045.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7046.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7047.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7048.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7049.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7050.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7051.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7054.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7055.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7056.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7057.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7058.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7059.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7060.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7061.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7064.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7065.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7066.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7067.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7068.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7069.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7070.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7071.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7074.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7075.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7076.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7077.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7078.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7079.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7080.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7081.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7084.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7085.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7086.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7087.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7088.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7089.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7090.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7091.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7094.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7095.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7096.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7097.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7098.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7099.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7100.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7101.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7104.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7105.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7106.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7107.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7108.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7109.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7110.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7111.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7114.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7115.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7116.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7117.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7118.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7119.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7120.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7121.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7124.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7125.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7126.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7127.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7128.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7129.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7130.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7131.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7134.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7135.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7136.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7137.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7138.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7139.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7140.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7141.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7144.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7145.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7146.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7147.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7148.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7149.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7150.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7151.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7154.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7155.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7156.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7157.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7158.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7159.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7160.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7161.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7164.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7165.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7166.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7167.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7168.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7169.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7170.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7171.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7174.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7175.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7176.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7177.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7178.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7179.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7180.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7181.ridf
+        - ridf/cat_calib/CAT1_tpcpulser7182.ridf
+        
+  - name: ridfevent2
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      SegmentedData: segdata2
+      InputFiles:
+#        - *ridf2
+        - ridf/cat_calib/CAT2_tpcpulser7001.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7002.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7003.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7007.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7008.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7009.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7010.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7011.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7012.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7014.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7015.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7016.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7017.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7018.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7019.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7020.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7021.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7024.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7025.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7026.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7027.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7028.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7029.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7031.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7034.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7035.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7036.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7037.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7038.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7039.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7040.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7041.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7044.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7045.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7046.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7047.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7048.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7049.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7050.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7051.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7054.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7055.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7056.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7057.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7058.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7059.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7060.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7061.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7064.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7065.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7066.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7067.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7068.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7069.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7070.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7071.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7074.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7075.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7076.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7077.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7078.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7079.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7080.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7081.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7084.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7085.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7086.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7087.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7088.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7089.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7090.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7091.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7094.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7095.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7096.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7097.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7098.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7099.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7100.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7101.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7104.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7105.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7106.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7107.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7108.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7109.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7110.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7111.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7114.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7115.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7116.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7117.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7118.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7119.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7120.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7121.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7124.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7125.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7126.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7127.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7128.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7129.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7130.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7131.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7134.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7135.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7136.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7137.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7138.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7139.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7140.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7141.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7144.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7145.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7146.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7147.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7148.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7149.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7150.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7151.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7154.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7155.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7156.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7157.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7158.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7159.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7160.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7161.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7164.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7165.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7166.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7167.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7168.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7169.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7170.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7171.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7174.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7175.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7176.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7177.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7178.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7179.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7180.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7181.ridf
+        - ridf/cat_calib/CAT2_tpcpulser7182.ridf
+  - name: pad
+    type: art::TCatReadoutPadConditionProcessor
+    parameter:
+      Type: 2
+  - name: timer
+    type: art::TTimerProcessor
+  - name: map
+    type: art::TMappingProcessor
+    parameter:
+      InputCollection: [segdata, segdata2]
+      OutputTransparency:  1
+      MapConfig: mapper.conf
+  - name: catmapping
+    type: art::TCatAtMappingProcessor
+    parameter:
+      CatID: 51
+      OutputCollection: at
+      OutputTransparency: 0
+  - name: pulsebitcor
+    type: art::TCatPulseBitCorrectionProcessor
+    parameter:
+      InputCollection: at
+  - name: catsub
+    type: art::TCatAtPedestalSubtractionProcessor
+    parameter:
+      InputCollection: at
+      OutputCollection: atsub
+      OutputTransparency: 0
+#  - name: atpolezero
+#    type: art::TPulseUnfoldHighPassProcessor
+#    parameter:
+#      InputCollection: atsub
+#      TimeConstant: 300
+#  - name: atpolezero
+#    type: art::TPulseUnfoldHighPassProcessor
+#    parameter:
+#      InputCollection: atsub
+#      TimeConstant: 0
+#  - name: samplecalib
+#    type: art::TSampleCalibratorProcessor
+#    parameter:
+#      InputCollection: atsub
+#      ADCConverterArrayName: samplecalibADC
+  - name: atpulsefinder
+    type: art::TPulseFinder
+    parameter:
+      InputCollection: atsub
+      RisingThreshold: 1.
+      FallingThreshold: 1.
+      PrePulse: 30.
+      PostPulse: 15
+      SavePulse: 1
+      Sparse: 0
+      OutputTransparency: 0
+  - name: projectionloader
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/cat/pulser.hist.yaml
+      Name: projection
+      OutputTransparency: 1
+      Type: art::TTreeProjection
+      Verbose: 1
+#  - name: pattern0
+#    type: art::TCatAtHitPatternProcessor
+#    parameter:
+#      InputCollection: atpulse
+##      WaitTime: 500000
+#      WaitTime: 1
+#  - name: pattern1
+#    type: art::TCatAtHitPatternProcessor
+#    parameter:
+#      InputCollection: atpulse
+#      WaitTime: 1
+#  - name: pattern2
+#    type: art::TCatAtHitPatternProcessor
+#    parameter:
+#      InputCollection: atroughrecoil
+#      WaitTime: 500000
+    
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: *rootout

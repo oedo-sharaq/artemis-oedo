@@ -1,0 +1,279 @@
+Processor:
+  - name: load_dia_ch2ns_v1190
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_dia_ch2ns_v1190
+      Type:     art::TAffineConverter
+      FileName: prm/dia/ch2ns_v1190.dat
+  - name: load_dia_ch2ns_v1290
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_dia_ch2ns_v1290
+      Type:     art::TAffineConverter
+      FileName: prm/dia/ch2ns_v1290.dat
+  - name: load_dia_offset
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_dia_l_offset
+      Type:     art::TAffineConverter
+      FileName: prm/dia/strip_l_offset.dat
+  - name: load_dia_offset
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_dia_r_offset
+      Type:     art::TAffineConverter
+      FileName: prm/dia/strip_r_offset.dat
+
+  - name: timecharge
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:             13
+      TimingTypeID:       0
+      TrailingComesFirst: 0
+      OutputCollection:   dia_pad_traw
+      Sparse:             1
+      OutputTransparency: 0
+      VerboseLevel: 0
+
+  - name: timecharge
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:             15
+      TimingTypeID:       0
+      TrailingComesFirst: 0
+      OutputCollection:   dia_pad_tot
+      Sparse:             0
+      OutputTransparency: 0
+      VerboseLevel: 0
+
+  - name: proc_dia_tcalib
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      dia_pad_traw
+      OutputCollection:     dia_pad_tcal
+      TimingConverterArray: prm_dia_ch2ns_v1290
+#      ChargeConverterArray: prm_dia_ch2ns
+      OutputTransparency:   0
+
+  - name: proc_sep_dia_tcal
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: dia_pad_traw
+      OutputCollections:
+        - "diaf3_v1290_raw"
+        - "diaf7_v1290_raw"
+
+  - name: proc_sep_dia_tcal
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: dia_pad_tcal
+      OutputCollections:
+        - "diaf3_v1290_all"
+        - "diaf7_v1290_all"
+
+  - name: proc:validtime
+    type: art::TTimeValidator
+    parameter:
+      InputCollection: diaf3_v1290_all
+      OutputCollection: diaf3_v1290
+#      ValidTimeRange: [-220.,-216., 0.] # bld_calib run
+#      ValidTimeRange: [-216.,-210., 0.] # beam run
+#      ValidTimeRange: [-400.,-375., 0.] # beam trigger
+#      ValidTimeRange: [-420, -380.,0.] # f7 trigger (beam0257)
+#      ValidTimeRange: [-500, -480.,0.] # phys trigger
+      ValidTimeRange: [-380, -320.,0.] # 200 MeV/u phys (f7dia ds)
+
+  - name: proc:validtime
+    type: art::TTimeValidator
+    parameter:
+      InputCollection: diaf7_v1290_all
+      OutputCollection: diaf7_v1290
+#      ValidTimeRange: [-270., -266., 0.]
+#      ValidTimeRange: [-266.,-260., 0.] # phys trigger
+#      ValidTimeRange: [-254.5.,-253.5., 0.] # f7 trigger (beam0257)
+#      ValidTimeRange: [-370.,-360., 0.] # phys trigger
+      ValidTimeRange: [-300.,-250., 0.] # phys trigger
+
+      
+  - name: proc_tof_dia_v1290
+    type: art::TTimingSubtractionProcessor
+    parameter:
+      InputCollection: diaf7_v1290
+      OutputCollection: tof37_v1290
+      StartTimingCollection: diaf3_v1290
+      StartTimingDetID: 0 # F3
+      MaxDetID:               1
+      UseMultipleStartTiming: 1
+      OutputTransparency: 0
+
+
+  - name: proc_dia_qcalib
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      dia_pad_tot
+      OutputCollection:     dia_pad_qcal
+      TimingConverterArray: prm_dia_ch2ns_v1190
+      ChargeConverterArray: prm_dia_ch2ns
+      OutputTransparency:   0
+
+#  - name: proc_sep_dia_qcal
+#    type: art::TSeparateOutputProcessor
+#    parameter:
+#      InputCollection: dia_pad_qcal
+#      OutputCollections:
+#        - "diaf3_qcal"
+#        - "diaf3_qcal2"        
+#        - "diaf7_qcal"
+#        - "diaf7_qcal2"        
+
+      
+  - name: proc_dia_l_traw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:               14
+      TimingTypeID:         0
+      TrailingComesFirst:   0
+      OutputCollection:   dia_l_traw
+      OutputTransparency:   0
+
+  - name: proc_dia_l_t
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:    dia_l_traw
+      OutputCollection:   dia_l_tcal0
+      TimingConverterArray: prm_dia_ch2ns_v1290
+      OutputTransparency: 0
+  - name: proc_dia_l_t_offset
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:    dia_l_tcal0
+      OutputCollection:   dia_l_tcal
+      TimingConverterArray: prm_dia_l_offset
+      OutputTransparency: 0
+      InputIsDigital: 0
+
+  - name: proc_dia_r_traw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:               14
+      TimingTypeID:         1
+      TrailingComesFirst:   0
+      OutputCollection:   dia_r_traw
+      OutputTransparency:   0
+
+  - name: proc_dia_r_t
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:    dia_r_traw
+      OutputCollection:   dia_r_tcal0
+      TimingConverterArray: prm_dia_ch2ns_v1290
+      OutputTransparency: 0
+  - name: proc_dia_r_t_offset
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:    dia_r_tcal0
+      OutputCollection:   dia_r_tcal
+      TimingConverterArray: prm_dia_r_offset
+      OutputTransparency: 0
+      InputIsDigital: 0
+  
+  - name: proc_dia_l_qraw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:               16
+      TimingTypeID:         0
+      TrailingComesFirst:   0
+      OutputCollection:   dia_l_qraw
+      OutputTransparency:   0
+
+  - name: proc_dia_l_q
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:    dia_l_qraw
+      OutputCollection:   dia_l_qcal
+      TimingConverterArray: prm_dia_ch2ns_v1190
+      OutputTransparency: 0
+
+
+  - name: proc_dia_r_qraw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:               16
+      TimingTypeID:         1
+      TrailingComesFirst:   0
+      OutputCollection:   dia_r_qraw
+      OutputTransparency:   0
+
+  - name: proc_dia_r_q
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:    dia_r_qraw
+      OutputCollection:   dia_r_qcal
+      TimingConverterArray: prm_dia_ch2ns_v1190
+      OutputTransparency: 0
+      
+#  - name: proc_dia_validate
+#    type: art::TChargeValidateProcessor
+#    parameter:
+#      InputCollection: dia_qcal
+#      OutputCollection: dia_qcal_true
+#      Range: [10.,200.]
+
+#  - name: proc_sep_dia_l
+#    type: art::TSeparateOutputProcessor
+#    parameter:
+#      InputCollection: dia_l_tcal
+#      OutputCollections:
+#        - "dia_l0"
+#        - "dia_l1"
+#  - name: proc_sep_dia_r
+#    type: art::TSeparateOutputProcessor
+#    parameter:
+#      InputCollection: dia_r_tcal
+#      OutputCollections:
+#        - "dia_r0"
+#        - "dia_r1"
+#
+
+  - name: proc_strip_t
+    type: art::TTwoSidedPlasticCalibrationProcessor
+    parameter:
+      InputCollection1: dia_l_tcal
+      InputCollection2: dia_r_tcal
+      OutputCollection: dia_strip_t
+      DetIDRange:       [0,3]
+      ValidTimeRange: [-10,10,0.]
+
+  - name: proc_strip_q
+    type: art::TTwoSidedPlasticCalibrationProcessor
+    parameter:
+      InputCollection1: dia_l_qcal
+      InputCollection2: dia_r_qcal
+      OutputCollection: dia_strip_q
+      DetIDRange:       [0,3]
+      ValidTimeRange: [-10,10,0.]
+      
+#  - name: proc_strip0
+#    type: art::TTwoSidedPlasticCalibrationProcessor
+#    parameter:
+#      InputCollection1: dia_l0
+#      InputCollection2: dia_r0
+#      OutputCollection: dia_strip0
+#      DetIDRange:       [0,0]
+#      ValidTimeRange: [-5,5,0.]
+#  - name: proc_strip1
+#    type: art::TTwoSidedPlasticCalibrationProcessor
+#    parameter:
+#      InputCollection1: dia_l1
+#      InputCollection2: dia_r1
+#      OutputCollection: dia_strip1
+#      DetIDRange:       [1,1]
+#      ValidTimeRange: [-5,5,0.]
+#
+
+  # - name: projection
+  #   type: art::TTreeProjectionProcessor
+  #   parameter:
+  #     Type:     art::TTreeProjection
+  #     FileName: hist/dia/dia.ribf113.yaml
+

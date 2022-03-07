@@ -1,0 +1,41 @@
+Anchor:
+ - &input ridf/@NAME@@NUM@.ridf
+ - &output output/@NAME@/@NUM@/chkdlppac@NAME@@NUM@.root
+ - &histout output/@NAME@/@NUM@/chkdlppac@NAME@@NUM@.hist.root
+
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+        - *input
+        
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+
+#  - include: tref.yaml
+  - include: bld/ppac/ppac.yaml
+#  - include: bld/ppac/ppac.brips.yaml
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/chkcorrelation.yaml
+      OutputFilename: *histout
+      Type:     art::TTreeProjection
+      Replace: |
+#        track: f3       #f3 mwdc 
+        track: f7track       #f7 ppac 
+#        track: f5       #f5 mwdc 
+         
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: 
+        - *output

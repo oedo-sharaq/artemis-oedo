@@ -1,0 +1,23 @@
+# @file trig_espri.yaml
+# @brief description
+# 
+# @date Create        : 2019-11-21 11:48:09 JST
+#       Last Modified : 2019-11-24 10:46:29 JST (ota)
+# @author:  <ribf79@ata03.atnet>
+# 
+
+Processor:
+  - name: gate_array_init
+    type: art::TGateArrayInitializer
+  - name: coin_espri
+    type: art::TTreeFormulaGateProcessor
+    parameter:
+      Definitions:
+#        - "espri_trig; trig_espri.fTiming > -2910 && trig_espri.fTiming < -2900 " # Sn RIBF79
+        - "espri_trig; trig_espri.fTiming > -2920 && trig_espri.fTiming < -2900 " # Ca RIBF79        
+  - name: stop_coin
+    type: art::TGateStopProcessor
+    parameter:
+      GateName: "espri_trig"
+---
+# end of trig_espri.yaml

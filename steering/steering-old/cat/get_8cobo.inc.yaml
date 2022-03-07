@@ -1,0 +1,138 @@
+Anchor:
+  - &maxEvtNum 100000000
+ # - &data0  /data20/narval/cobo00/run_@RNUM@.dat
+#  - &data1  /data20/narval/cobo01/run_@RNUM@.dat
+#  - &data2  /data20/narval/cobo02/run_@RNUM@.dat
+#  - &data3  /data20/narval/cobo03/run_@RNUM@.dat
+#  - &data4  /data20/narval/cobo10/run_@RNUM@.dat
+#  - &data20 /data20/narval/cobo20/run_@RNUM@.dat
+#  - &data21 /data20/narval/cobo21/run_@RNUM@.dat
+#  - &data22 /data20/narval/cobo22/run_@RNUM@.dat
+#  - &data23 /data20/narval/cobo23/run_@RNUM@.dat
+  - &data0 /data/ribf79/narval/data20/cobo00/run_@RNUM@.dat
+  - &data1 /data/ribf79/narval/data20/cobo01/run_@RNUM@.dat
+  - &data2 /data/ribf79/narval/data20/cobo02/run_@RNUM@.dat
+  - &data3 /data/ribf79/narval/data20/cobo03/run_@RNUM@.dat
+  - &data4 /data/ribf79/narval/data20/cobo10/run_@RNUM@.dat
+  - &data20 /data/ribf79/narval/data20/cobo20/run_@RNUM@.dat
+  - &data21 /data/ribf79/narval/data20/cobo21/run_@RNUM@.dat
+  - &data22 /data/ribf79/narval/data20/cobo22/run_@RNUM@.dat
+  - &data23 /data/ribf79/narval/data20/cobo23/run_@RNUM@.dat
+  - &seg0 segdataGET0
+  - &seg1 segdataGET1
+  - &seg2 segdataGET2
+  - &seg3 segdataGET3
+  - &seg4 segdataGET4
+  - &seg20 segdataGET20
+  - &seg21 segdataGET21
+  - &seg22 segdataGET22
+  - &seg23 segdataGET23
+  - &hitbit 1
+Processor:
+  - name: get
+    type: art::TGetEventStore
+    parameter:
+      InputFiles: *data0
+      EventHeaderName: evtheaderGET0
+      SegmentedData: *seg0
+      OutputTransparency: 1
+      MaxEventNum: *maxEvtNum
+      ValidBucket: [5., 510.]
+      SubtractFPN: 1
+      RequireHitBit: *hitbit
+  - name: get
+    type: art::TGetEventStore
+    parameter:
+      InputFiles: *data1
+      EventHeaderName: evtheaderGET1
+      SegmentedData: *seg1
+      OutputTransparency: 1
+      MaxEventNum: *maxEvtNum
+      ValidBucket: [5., 510.]
+      SubtractFPN: 1
+      RequireHitBit: *hitbit
+  - name: get
+    type: art::TGetEventStore
+    parameter:
+      EventHeaderName: evtheaderGET2
+      SegmentedData: *seg2
+      InputFiles: *data2
+      OutputTransparency: 1
+      MaxEventNum: *maxEvtNum
+      ValidBucket: [5., 510.]
+      SubtractFPN: 1
+      RequireHitBit: *hitbit
+  - name: get
+    type: art::TGetEventStore
+    parameter:
+      EventHeaderName: evtheaderGET3
+      SegmentedData: *seg3
+      InputFiles: *data3 
+      OutputTransparency: 1
+      MaxEventNum: *maxEvtNum
+      ValidBucket: [5., 510.]
+      SubtractFPN: 1
+      RequireHitBit: *hitbit
+  - name: get
+    type: art::TGetEventStore
+    parameter:
+      EventHeaderName: evtheaderGET20
+      SegmentedData: *seg20
+      InputFiles: *data20
+      OutputTransparency: 1
+      MaxEventNum: *maxEvtNum
+      ValidBucket: [5., 510.]
+      SubtractFPN: 1
+      RequireHitBit: *hitbit
+  - name: get
+    type: art::TGetEventStore
+    parameter:
+      EventHeaderName: evtheaderGET21
+      SegmentedData: *seg21
+      InputFiles: *data21
+      OutputTransparency: 1
+      MaxEventNum: *maxEvtNum
+      ValidBucket: [5., 510.]
+      SubtractFPN: 1
+      RequireHitBit: *hitbit
+  - name: get
+    type: art::TGetEventStore
+    parameter:
+      EventHeaderName: evtheaderGET22
+      SegmentedData: *seg22
+      InputFiles: *data22
+      OutputTransparency: 1
+      MaxEventNum: *maxEvtNum
+      ValidBucket: [5., 510.]
+      SubtractFPN: 1
+      RequireHitBit: *hitbit
+  - name: get
+    type: art::TGetEventStore
+    parameter:
+      EventHeaderName: evtheaderGET23
+      SegmentedData: *seg23
+      InputFiles: *data23
+      OutputTransparency: 1
+      MaxEventNum: *maxEvtNum
+      ValidBucket: [5., 510.]
+      SubtractFPN: 1
+      RequireHitBit: *hitbit
+#  - name: get
+#    type: art::TGetEventStore
+#    parameter:
+#      EventHeaderName: evtheaderGET4
+#      SegmentedData: *seg4
+#      InputFiles: *data4
+#      OutputTransparency: 1
+#      MaxEventNum: *maxEvtNum
+#      ValidBucket: [5., 510.]
+#      SubtractFPN: 1
+  - name: categorized
+    type: art::TMappingProcessor
+    parameter:
+#      InputCollection: [*seg0,*seg1,*seg2,*seg3]
+      InputCollection: [*seg0,*seg1,*seg2,*seg3, *seg20, *seg21, *seg22, *seg23]
+ #     InputCollection: [*seg0,*seg1,*seg2,*seg3,*seg4]
+      CategorizedData: @CATDATA@
+      OutputTransparency: 1
+      MapConfig: mapper.conf

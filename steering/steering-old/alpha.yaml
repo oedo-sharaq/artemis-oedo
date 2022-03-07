@@ -1,0 +1,152 @@
+Anchor:
+  - &maxEvtNum 100000000
+  - &rnum 1574
+  - &catdata catdata_cat
+Processor:
+  - name: pad
+    type: art::TCatReadoutPadConditionProcessor
+    parameter:
+      Type: 11
+#      Bads: [2783, 2806]
+  - name: proc:rangetable
+    type: art::TRangeTableConditionProcessor
+    parameter:
+      RangeTableFile: data/DeuteronDeuterium/DeuteronDeuterium064.txt.out
+      RangeTable: rangeTableDD
+      RangeStep: 0.1
+  - name: proc:rangetable
+    type: art::TRangeTableConditionProcessor
+    parameter:
+      RangeTableFile: data/TinDeuterium/TinDeuterium064.txt.out
+      RangeTable: rangeTableTinD
+      RangeStep: 1.
+      TKECutoff: 20000
+  - name: samplecalibgen
+    type: art::TAffineConverterArrayGenerator
+    parameter:
+      ParameterList:
+        - [ch2fc,  prm/cat/ch2fc.uniform.dat]
+        - [chsum2fc,  prm/cat/chsum2fc_1pF.prm]
+        - [fc2MeV, prm/cat/fc2MeV.255.prm]
+        - [ch2ch, prm/cat/ch2ch_h307-10.dat]
+  # ======================================================================
+  - name: timer
+    type: art::TTimerProcessor
+  - include:
+      name: cat/get.inc.yaml
+      replace:
+        RNUM: *rnum 
+        CATDATA: *catdata
+  - name: cat:mapping
+    type: art::TCatAtMappingProcessor
+    parameter:
+      CatID: 51
+      InputCollection: *catdata
+      OutputCollection: at
+      MaxDetID: 4048
+      SelectIf: 1
+      BeamRegion: [-12,12]
+  - name: cat:mapping
+    type: art::TCatAtMappingProcessor
+    parameter:
+      CatID: 51
+      InputCollection: *catdata
+      OutputCollection: atall
+      MaxDetID: 4048
+      SelectIf: 0
+      BeamRegion: [-12,12]
+  - name: catsub
+    type: art::TCatAtPedestalSubtractionProcessor
+    parameter:
+      InputCollection: at
+      OutputCollection: atsub
+      OutputTransparency: 0
+  - name: sampleCalib
+    type: art::TSampleCalibratorProcessor
+    parameter:
+      ADCConverterArrayName: "ch2ch"  # [TString] converter array name for ADC
+      InputCollection: [atsub]  # [StringVec_t] input collection
+      OutputTransparency: 0  # [Bool_t] Output is persistent if false (default)
+      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
+  - name: atpulsefinder
+    type: art::TPulseFinder
+    parameter:
+      InputCollection: atsub
+      RisingThreshold: 70
+      FallingThreshold: 40
+      ClockPeriod: 40
+      PrePulse: 20,
+      PostPulse: 20.
+      SavePulse: 1
+#      Sparse: 0
+      OutputTransparency: 0
+  - name: catsub
+    type: art::TCatAtPedestalSubtractionProcessor
+    parameter:
+      InputCollection: atall
+      OutputCollection: atsuball
+      OutputTransparency: 0
+  - name: sampleCalib
+    type: art::TSampleCalibratorProcessor
+    parameter:
+      ADCConverterArrayName: "ch2ch"  # [TString] converter array name for ADC
+      InputCollection: [atsuball]  # [StringVec_t] input collection
+      OutputTransparency: 0  # [Bool_t] Output is persistent if false (default)
+      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
+
+  - name: atpulsefinder
+    type: art::TPulseFinder
+    parameter:
+      InputCollection: atsuball
+      OutputCollection: atpulseall
+      RisingThreshold: 70
+      FallingThreshold: 20
+      ClockPeriod: 40
+      PrePulse: 20
+      PostPulse: 20
+      SavePulse: 1
+#      Sparse: 0
+      OutputTransparency: 0
+
+  - name: calib:chsum2fc
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: atpulse
+      OutputCollection: athitsumfc
+      ChargeConverterArray: chsum2fc
+      InputIsDigital: 0      
+  - name: calib:fc2MeV
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:  athitsumfc
+      OutputCollection: athit
+      ChargeConverterArray: fc2MeV
+      InputIsDigital: 0      
+
+  - name: MyTCatTpcHitClusterProcessor
+    type: art::TCatTpcHitClusterProcessor
+    parameter:
+#      BeamRegionID: [0, 0]  # [IntVec_t] beam region id [start,end]
+      ClusterRadius: [20., 21]  # [vector<Double_t>] radius of cluster
+      InputCollection: athit  # [TString] input pulse collection (for a specific region)
+      IsSingle: 1  # [Bool_t] select maximum size cluster if 1 (default: 0)
+      MinClusterSize: 5  # [Double_t] required minimum cluster size 
+      MinHeight: 0  # [Double_t] minimum pulse height
+      OutputCollection: atcluster  # [TString] output pulse collection as a candidate of recoil track
+      OutputTransparency: 0  # [Bool_t] Output is persistent if false (default)
+      PulseLengthRange: [0, 200]  # [vector<Double_t>] range of pulse length [start,end]. ([0,100])
+      ReadoutPad: readoutPad  # [TString] Name of readout pad array
+      ReadoutPadType: 11  # [Int_t] select readout pad type 2 if 2 (default: 2)
+      SelectIf: 0  # [Int_t] select all if 0, recoil if 1 and beam if 2. The id region is indicated by BeamRegionID
+      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
+      IndependentVariable: 0
+      DoTrackUpdate: 1
+
+  - include:
+      name: treeout.inc.yaml
+      replace:
+        RNUM: *rnum
+
+      
+  - name: timer
+    type: art::TTimerProcessor

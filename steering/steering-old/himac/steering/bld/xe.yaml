@@ -1,0 +1,161 @@
+Processor:
+# QDC
+  - name: proc_xeqdc_ch2MeV
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_xeqdc_ch2MeV
+      Type:     art::TAffineConverter
+      FileName: prm/xe/xeqdc_ch2MeV.dat
+
+  - name: proc_xeqdcraw
+    type: art::TSimpleDataMappingProcessor
+    parameter:
+      CatID:            37
+      DataTypeID:       0
+      OutputCollection: xeqdcraw
+
+  - name: proc_xeqdccal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: xeqdcraw
+      OutputCollection: xeqdc
+      ChargeConverterArray: prm_xeqdc_ch2MeV
+
+  - name: proc_xeqdc_sep
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: xeqdc
+      OutputCollections:
+        - xeqdcl1
+        - xeqdcr1
+        - xeqdcl2
+        - xeqdcr2
+#  - name: proc_xeqdc2_sep
+#    type: art::TSeparateOutputProcessor     
+#    parameter:
+#      InputCollection: xeqdc2
+#      OutputCollections:
+#        - xeqdcl2
+#        - xeqdcr2
+
+#TAC
+
+
+  - name: proc_xetacraw
+    type: art::TSimpleDataMappingProcessor
+    parameter:
+      CatID:            38
+      DataTypeID:       0
+      OutputCollection: 
+        - xetac
+
+  - name: proc_xetac
+    type: art::TSeparateOutputProcessor
+    parameter:
+#      CatID: 38
+#      DataTypeID: 0
+      InputCollection: xetac
+      OutputCollections: 
+        - xetac1
+        - xetac2
+
+# leading edge
+  - name: proc_xe_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm_xe_ch2ns
+      Type: art::TAffineConverter
+      FileName: prm/xe/xe_ch2ns.dat
+
+  - name: proc_xelraw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: 35
+      TimingTypeID: 0
+      TrailingComesFirst: 0
+      OutputCollection: xelraw
+      OutputTransparency: 0
+
+  - name: proc_xelcal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: xelraw
+      OutputCollection: xel
+      TimingConverterArray: prm_xe_ch2ns
+      OutputTransparency: 0
+
+  - name: proc_xerraw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: 35
+      TimingTypeID: 1
+      TrailingComesFirst: 0
+      OutputCollection: xerraw
+      OutputTransparency: 0
+
+  - name: proc_xercal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: xerraw
+      OutputCollection: xer
+      TimingConverterArray: prm_xe_ch2ns
+      OutputTransparency: 0
+
+  - name: proc_xe
+    type: art::TTwoSidedPlasticCalibrationProcessor
+    parameter:
+      InputCollection1: xel
+      InputCollection2: xer
+      OutputCollection: xe
+
+# QTC
+  - name: proc_xeqtc_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm_xeqtc_ch2ns
+      Type: art::TAffineConverter
+      FileName: prm/xe/xeqtc_ch2ns.dat
+
+  - name: proc_xeqtclraw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: 36
+      TimingTypeID: 0
+      TrailingComesFirst: 0
+      OutputCollection: xeqtclraw
+      OutputTransparency: 0
+
+  - name: proc_xeqtclcal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: xeqtclraw
+      OutputCollection: xeqtcl
+      TimingConverterArray: prm_xeqtc_ch2ns
+      ChargeConverterArray: prm_xeqtc_ch2ns
+      OutputTransparency: 0
+
+  - name: proc_xeqtcrraw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: 36
+      TimingTypeID: 1
+      TrailingComesFirst: 0
+      OutputCollection: xeqtcrraw
+      OutputTransparency: 0
+
+  - name: proc_xeqtcrcal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: xeqtcrraw
+      OutputCollection: xeqtcr
+      TimingConverterArray: prm_xeqtc_ch2ns
+      ChargeConverterArray: prm_xeqtc_ch2ns
+      OutputTransparency: 0
+
+  - name: proc_xeqtc
+    type: art::TTwoSidedPlasticCalibrationProcessor
+    parameter:
+      InputCollection1: xeqtcl
+      InputCollection2: xeqtcr
+      OutputCollection: xeqtc
+

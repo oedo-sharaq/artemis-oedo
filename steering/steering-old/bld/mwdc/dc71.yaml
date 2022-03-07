@@ -1,0 +1,107 @@
+# steering file for DC71 analysis
+# Load bld-plastic steering file before.
+
+#Alias: 
+# - &tref_id 0
+
+Processor:
+  - name: proc_dc71_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_dc71_ch2ns
+      Type:     art::TAffineConverter
+      FileName: prm/mwdc/dc71/ch2ns.dat
+
+  - name: proc_dc71_dxdt_x1
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc71_dxdt_x1
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dc71/dt2dl/current/x1.dat
+
+  - name: proc_dc71_dxdt_x2
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc71_dxdt_x2
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dc71/dt2dl/current/x2.dat
+
+  - name: proc_dc71_dxdt_y1
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc71_dxdt_y1
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dc71/dt2dl/current/y1.dat
+
+  - name: proc_dc71_dxdt_y2
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc71_dxdt_y2
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dc71/dt2dl/current/y2.dat
+
+  - name: proc_dc71_geo
+    type: art::TParameterLoader
+    parameter:
+      Name:     dc71
+      Type:     art::TMWDCParameter
+      FileName: prm/mwdc/dc71/geometry.yaml
+
+  - name: proc_dc71_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              23
+      TimingTypeID:       0
+      OutputCollection:   dc71_raw
+      OutputTransparency: 0
+
+  - name: proc_dc71_cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      dc71_raw
+      OutputCollection:     dc71_cal
+      TimingConverterArray: prm_dc71_ch2ns
+      OutputTransparency:   0
+
+  - name: proc:validtime:dc
+    type: art::TTimeValidator
+    parameter:
+      InputCollection: dc71_cal
+      OutputCollection: dc71_val
+#      ValidTimeRange: [-1000000., 1000000., 0.] # Change here      
+#      ValidTimeRange: [-1070., -1030., 0.] # Sn ESPRI trig
+#      ValidTimeRange: [-1080., -1000., 0.] # Ca ESPRI trig                           
+      ValidTimeRange: [-920., -800., 0.] # Ca ESPRI trig
+  - name: proc_dc71_dt
+    type: art::TTimingSubtractionProcessor
+    parameter:
+      InputCollection:       dc71_val
+      OutputCollection:      dc71_dt
+#      StartTimingCollection: dia_pad_tcal
+      StartTimingCollection: dia7_val
+      StartTimingDetID:     0
+      OutputTransparency:    0
+
+  - name: proc_dc71_plane
+    type: art::TMWDCPlaneProcessor
+    parameter:
+      InputCollection: dc71_dt
+#      InputCollection: dc71_val
+      MWDCName: dc71
+      ConverterList:
+        - prm_dc71_dxdt_x1
+        - prm_dc71_dxdt_x2
+        - prm_dc71_dxdt_y1
+        - prm_dc71_dxdt_y2
+      OutputTransparency: 0
+
+  - name: proc_dc71_track
+    type: art::TMWDCTrackingProcessor
+    parameter:
+      InputCollection:
+        - dc71_x1
+        - dc71_x2
+        - dc71_y1
+        - dc71_y2
+      OutputCollection:   dc71
+      OutputTransparency: 0

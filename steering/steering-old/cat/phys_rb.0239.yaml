@@ -1,0 +1,292 @@
+Anchor:
+  - &ridf1 ridf/phys/CAT1_phys0239.ridf.gz
+  - &ridf2 ridf/phys/CAT2_phys0239.ridf.gz
+  - &rootout root/phys/0239/phys0239.root
+  - &histout root/phys/0239/phys0239.hist.root
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+  - name: ridfevent
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      InputFiles:
+        - *ridf1
+  - name: ridfevent2
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      SegmentedData: segdata2
+      InputFiles:
+        - *ridf2
+  - name: map
+    type: art::TMappingProcessor
+    parameter:
+      InputCollection: [segdata, segdata2]
+      OutputTransparency:  1
+      MapConfig: mapper.conf
+  - include: ../chkcoin.yaml
+  - include: ../chksca.yaml
+  - name: gate_array_init
+    type: art::TGateArrayInitializer
+#======================================================================
+# parameters
+  - name: pad
+    type: art::TCatReadoutPadConditionProcessor
+    parameter:
+      Gap: 0.      
+      Type: 2
+      Bads: [43, 142, 167, 168, 176, 181, 207, 367, 372, 375, 380, 393]
+  - name: gaindrift
+    type: art::TAffineConverterConditionProcessor
+    parameter:
+      ParameterList: [drift0313,prm/cat/0313/gaindrift.0313.dat]
+  - name: samplecalibgen
+    type: art::TAffineConverterArrayGenerator
+    parameter:
+      ParameterList:
+        - [ch2MeVpre, prm/cat/ch2MeV.0313.dat]
+        - [MeVit1, prm/cat/0313/alpha.0313.it1.dat]
+        - [ch2ch,  prm/cat/ch2ch.dat]        
+        - [ch2fc,  prm/cat/ch2fc.uniform.dat]
+        - [fc2MeV, prm/cat/fc2MeV.239.dat]
+        - [MeVcorbeam, prm/cat/MeVcor.239.dat]
+  - name: proc:rangetable
+    type: art::TRangeTableConditionProcessor
+    parameter:
+      RangeTableFile: data/DeuteronDeuterium/DeuteronDeuterium064.txt.out
+      RangeTable: rangeTable
+      RangeStep: 0.01      
+  - name: proc:rangetable
+    type: art::TRangeTableConditionProcessor
+    parameter:
+      RangeTableFile: data/ProtonDeuterium/ProtonDeuterium064.txt.out
+      RangeTable: rangeTable2
+      RangeStep: 0.01      
+#======================================================================
+# event loop
+  - name: catmapping
+    type: art::TCatAtMappingProcessor
+    parameter:
+      CatID: 51
+      OutputCollection: at
+      OutputTransparency: 1
+      SelectIf: 1
+      BeamRegion: [-10,10]
+  - name: catmapping
+    type: art::TCatAtMappingProcessor
+    parameter:
+      CatID: 51
+      OutputCollection: atbeam
+      OutputTransparency: 1
+      SelectIf: 2
+      BeamRegion: [-10,10]
+  - name: catsub
+    type: art::TCatAtPedestalSubtractionProcessor
+    parameter:
+      InputCollection: at
+      OutputCollection: atsub
+      OutputTransparency: 1
+  - name: catsub
+    type: art::TCatAtPedestalSubtractionProcessor
+    parameter:
+      InputCollection: atbeam
+      OutputCollection: atsubbeam
+      OutputTransparency: 1
+  - name: atpulsefinder
+    type: art::TPulseFinder
+    parameter:
+      InputCollection: atsub
+      RisingThreshold: 25
+      FallingThreshold: 0.5
+      PrePulse: 30
+      PostPulse: 15
+      SavePulse: 1
+      Sparse: 0
+      OutputTransparency: 0
+  - name: atpulsefinder
+    type: art::TPulseFinder
+    parameter:
+      InputCollection: atsubbeam
+      OutputCollection: atpulsebeam
+      RisingThreshold: 25
+      FallingThreshold: 0.5
+      PrePulse: 30
+      PostPulse: 15
+      SavePulse: 1
+      Sparse: 0
+      OutputTransparency: 0
+#  - name: calib:drift
+#    type: art::TTimingChargeCalibrationProcessor
+#    parameter:
+#      InputCollection: atpulse
+#      OutputCollection: atpulse_drift
+#      ChargeConverterArray: drift0313
+  - name: calib:ch2MeVpre
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: atpulse
+      OutputCollection: atpulse_MeVpre
+      ChargeConverterArray: ch2MeVpre
+      InputIsDigital: 0      
+  - name: calib:MeVit1
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: atpulse_MeVpre
+      OutputCollection: atpulse_MeV
+      ChargeConverterArray: MeVit1
+      InputIsDigital: 0      
+  - name: cluster:recoil
+    type: art::TCatTpcHitClusterProcessor
+    parameter:
+      ClusterRadius: [8.1, 21]  # [vector<Double_t>] radius of cluster
+      InputCollection: atpulse_MeV  # [TString] input pulse collection (for a specific region)
+      IsSingle: 1  # [Bool_t] select maximum size cluster if 1 (default: 0)
+      MinClusterSize: 5  # [Double_t] required minimum cluster size
+      OutputCollection: atcluster  # [TString] output pulse collection as a candidate of recoil track
+      OutputTransparency: 0  # [Bool_t] Output is persistent if false (default)
+      ReadoutPad: readoutPad  # [TString] Name of readout pad array
+      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
+# beam      
+  - name: calib:ch2ch
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: atpulsebeam
+      OutputCollection: atpulse_uniform_beam
+      ChargeConverterArray: ch2ch
+  - name: calib:ch2fc
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: atpulse_uniform_beam
+      OutputCollection: atpulse_fc_beam
+      ChargeConverterArray: ch2fc
+  - name: calib:fc2MeV
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: atpulse_fc_beam
+      OutputCollection: atpulse_MeVpre_beam
+      ChargeConverterArray: fc2MeV
+      InputIsDigital: 0
+  - name: calib:MeVcor
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: atpulse_MeVpre_beam
+      OutputCollection: atpulse_MeV_beam
+      ChargeConverterArray: MeVcorbeam
+      InputIsDigital: 0
+  - name: cluster:beam
+    type: art::TCatTpcHitClusterProcessor
+    parameter:
+      ClusterRadius: [8.1, 1.5]  # [vector<Double_t>] radius of cluster
+      InputCollection: atpulse_MeV_beam  # [TString] input pulse collection (for a specific region)
+      IsSingle: 0  # [Bool_t] select maximum size cluster if 1 (default: 0)
+      MinClusterSize: 5  # [Double_t] required minimum cluster size
+      OutputCollection: atcluster_beam  # [TString] output pulse collection as a candidate of recoil track
+      OutputTransparency: 0  # [Bool_t] Output is persistent if false (default)
+      ReadoutPad: readoutPad  # [TString] Name of readout pad array
+      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
+#   - name: pattern1
+#     type: art::TCatAtHitPatternProcessor
+#     parameter:
+#       InputCollection: atpulse_MeV
+#       WaitTime: 5
+  - name: beam_recoil
+    type: art::TCatRecoilBeamSelector
+    parameter:
+      InputRecoil: atcluster
+      InputBeam: atcluster_beam
+      OutputBeam: atcluster_beam_true
+  - name: trueevent
+    type: art::TTreeFormulaGateProcessor
+    parameter:
+      Definitions:
+        - "true; abs(atcluster.fPrincipalAxis.Z()) < 0.95 && abs(sin(atcluster.fPrincipalAxis.Phi())) <0.95"
+  - name: stop_trueevent
+    type: art::TGateStopProcessor
+    parameter:
+      GateName: "true"
+  - name: displayTrack
+    type: art::TCatTrackResultDisplayProcessor
+    parameter:
+      DisplayMode: 1
+      InputCollection: ["atcluster","atcluster_beam"]
+      WaitTime: 1000000
+      
+  - name: trackWithDiffusedCharge
+    type: art::TCatTrackingWithDiffusedChargeProcessor
+    parameter:
+      InputCollection: atcluster
+      RangeTable: rangeTable
+#      ReadoutPlaneOffset: -45.5
+      OutputCollection: track3
+      FixedOrigin: 0.
+#      InitialRange: 490.
+      IndependentVariable: 0
+      Attachment: 0.
+      DefaultIntegrateStep: 0.1
+      DiffusionCoefficient: 0.045
+#      DiffusionCoefficient: 0.1
+      SigmaCoeff: [39.6, 0.107]
+      ResponseTableFileName: data/restable_7mm_10um_finedev_nogap.root      
+      UseRandom: 0
+      MeshDim: [1,20,20]
+      DoMeshSearch: 0
+#  - name: displayTrack
+#    type: art::TCatTrackResultDisplayProcessor
+#    parameter:
+#      DisplayMode: 1
+#      InputCollection: ["track3"]
+#      WaitTime: 1000000
+      
+  - name: trackWithDiffusedCharge
+    type: art::TCatTrackingWithDiffusedChargeProcessor
+    parameter:
+      InputCollection: atcluster
+      RangeTable: rangeTable2
+#      ReadoutPlaneOffset: -45.5
+      OutputCollection: track4
+      FixedOrigin: 0.
+#      InitialRange: 490.
+      IndependentVariable: 0
+      Attachment: 0.
+      DefaultIntegrateStep: 0.1
+      DiffusionCoefficient: 0.045
+#      DiffusionCoefficient: 0.1
+      SigmaCoeff: [39.6, 0.107]
+      ResponseTableFileName: data/restable_7mm_10um_finedev_nogap.root      
+      UseRandom: 0
+      MeshDim: [1,20,20]
+      DoMeshSearch: 0
+  - name: missingmass
+    type: art::TCatMissingMassProcessor
+    parameter:
+      RecoilInput: track3
+      RangeTableFile: data/DeuteronDeuterium/DeuteronDeuterium064.txt.out      
+      Ex: Ex3
+      ThetaCM: ThetaCM3
+  - name: missingmassa
+    type: art::TCatMissingMassProcessor
+    parameter:
+      RecoilInput: track4
+      RangeTableFile: data/ProtonDeuterium/ProtonDeuterium064.txt.out      
+      RecoilOutput: recoilMom4
+      Ex: Ex4
+      ThetaCM: ThetaCM4
+      
+  - name: projcat
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/cat/base.hist.yaml
+#      FileName: hist/cat/phys.hist.yaml
+      Name: projection
+      OutputTransparency: 1
+      Type: art::TTreeProjection
+      Verbose: 1
+      OutputFilename: *histout
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: *rootout
+  - name: timer
+    type: art::TTimerProcessor
+      

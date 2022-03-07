@@ -1,0 +1,12 @@
+Alias:
+  - &spla_id_f3_small  0
+  - &spla_id_f3_medium 4
+  - &tref_id_f3        0
+
+Processor:
+  - name: proc_si
+    type: art::TSimpleDataMappingProcessor
+    parameter:
+      CatID:            4
+      DataTypeID:       0
+      OutputCollection: si

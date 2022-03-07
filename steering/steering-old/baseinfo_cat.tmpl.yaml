@@ -1,0 +1,41 @@
+Processor:
+#======================================================================
+  - name: timer
+    type: art::TTimerProcessor
+# ridf files
+  - name: ridfevent
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      SegmentedData: segdata
+      InputFiles: *ridf1
+  - name: ridfevent2
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      SegmentedData: segdata2
+      InputFiles: *ridf2
+  - name: map
+    type: art::TMappingProcessor
+    parameter:
+      CategorizedData: catdata
+      InputCollection: [segdata, segdata2]
+      MapConfig: mapper.conf
+      OutputTransparency: 1
+## Scaler
+  - include: chksca.yaml
+## Coin. Reg.
+  - include: chkcoin.yaml
+  - name: projectionloader
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/baseinfo_cat.hist.yaml
+      Name: projection
+      Type: art::TTreeProjection
+      OutputFilename: *histout
+      OutputTransparency: 1
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: *rootout
+      TreeName: tree

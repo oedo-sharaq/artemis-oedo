@@ -1,0 +1,40 @@
+#anchor:
+#  - &input ridf/mpv/bld/@NAME@@NUM@.ridf
+#  - &treeout output/@NUM@/chkdia.@NUM@.tree.root
+#  - &histout output/@NUM@/chkdia.@NUM@.hist.root
+#
+#Processor:
+#  - name: timer
+#    type: art::TTimerProcessor
+#
+#  - name: ridf
+#    type: art::TRIDFEventStore
+#    parameter:
+#      OutputTransparency: 1
+#      InputFiles:
+#        - *input
+#
+#  - name: mapper
+#    type: art::TMappingProcessor
+#    parameter:
+#      OutputTransparency: 1
+#      MapConfig: mapper.conf
+
+#  - name: catscaler
+#    type: art::TCatScalerMappingProcessor
+#    parameter:
+#      CatID: 101
+
+  - name: scaler
+    type: art::TScalerMappingProcessor
+    parameter:
+      CatID: 19
+      OutputCollectionDiff: scadiff_si  # [TString] output collection name
+      OutputCollectionTotal: scatot_si  # [TString] output collection name
+#
+#  - name: outputtree
+#    type: art::TOutputTreeProcessor
+#    parameter:
+#      FileName: *treeout
+#
+      

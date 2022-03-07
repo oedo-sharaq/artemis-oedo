@@ -1,0 +1,56 @@
+# for calibration of DC71
+#
+# * include after dc71.yaml
+# * prepare pid gate (sample: pidgate.yaml)
+# mod with run:beam2203 2019/11/20
+
+anchor:
+  - &tgate [-850.,-750.]
+  - &qgate [0.,2500.]
+ 
+Alias:
+  - &pid_gate 54Sc  # CHANGE HERE
+
+Processor:
+  - name: proc_dc71_x1_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dc71_x1
+#      Gate:            *pid_gate
+#      TimingGate:      [-825.,-795] # CHANGE HERE
+      TimingGate:      *tgate # CHANGE HERE
+      ChargeGate:      [0.,1300.] # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_dc71_x2_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dc71_x2
+#      Gate:            *pid_gate
+#      TimingGate:      [-820.,-790] # CHANGE HERE
+      TimingGate:      *tgate # CHANGE HERE
+      ChargeGate:      [0.,1300.] # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_dc71_y1_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dc71_y1
+#      Gate:            *pid_gate
+#      TimingGate:      [-830.,-795] # CHANGE HERE
+#      TimingGate:      [-820.,-790] # CHANGE HERE
+      TimingGate:      *tgate # CHANGE HERE
+      ChargeGate:      [0.,1300.] # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_dc71_y2_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dc71_y2
+#      Gate:            *pid_gate
+#      TimingGate:      [-830.,-795] # CHANGE HERE
+#      TimingGate:      [-820.,-790] # CHANGE HERE
+      TimingGate:      *tgate # CHANGE HERE
+      ChargeGate:      [0.,1300.] # CHANGE HERE
+      UseMax: 1
+

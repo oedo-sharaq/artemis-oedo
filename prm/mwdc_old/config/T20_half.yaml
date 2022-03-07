@@ -1,0 +1,29 @@
+# plane configuration file for LP-MWDC type-C
+# Last Modified: 2014-05-16 15:56:53 JST (kawase)
+#
+# z, angle, and center need to check!
+
+- x1:
+    z:         7.2
+    nWire:    &nwire  16
+    cellSize: &cell   5.
+    angle:    &xangle 0.
+    center:    9.
+- x2:
+    z:         2.4
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    *xangle
+    center:    8.5
+- y1:
+    z:        -2.4
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    &yangle 90.
+    center:    9.
+- y2:
+    z:        -7.2
+    nWire:    *nwire
+    cellSize: *cell
+    angle:    *yangle
+    center:    8.5

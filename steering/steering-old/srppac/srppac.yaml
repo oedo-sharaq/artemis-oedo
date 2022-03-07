@@ -1,0 +1,463 @@
+Processor:
+   - name: proc:ppac:ano:ch2ns
+     type: art::TParameterArrayLoader
+     parameter:
+       Name: prm:ppac:ano:ch2ns
+       Type: art::TAffineConverter
+       FileName: prm/srppac/ano_ch2ns.dat
+   - name: proc:ppac:cath:ch2ns
+     type: art::TParameterArrayLoader
+     parameter:
+       Name: prm:ppac:cath:ch2ns
+       Type: art::TAffineConverter
+       FileName: prm/srppac/cath_ch2ns.dat
+      
+  # - name: proc:ppac:conv:x
+  #   type: art::TParameterArrayLoader
+  #   parameter:
+  #     Name: prm:ppac:x:conv
+  #     Type: art::TAffineConverter
+  #     FileName: prm/srppac/x_conv.dat
+ 
+  # - name: proc:ppac:conv:y
+  #   type: art::TParameterArrayLoader
+  #   parameter:
+  #     Name: prm:ppac:y:conv
+  #     Type: art::TAffineConverter
+  #     FileName: prm/srppac/y_conv.dat
+      
+  # - name: proc:ppac:param:geo:x
+  #   type: art::TParameterArrayLoader
+  #   parameter:
+  #     Name: prm:ppac:geo:x
+  #     Type: art::TSRPPACParameter
+  #     FileName: prm/srppac/geometry_x.yaml
+  #     FileFormat: yaml
+
+  # - name: proc:ppac:param:geo:y
+  #   type: art::TParameterArrayLoader
+  #   parameter:
+  #     Name: prm:ppac:geo:y
+  #     Type: art::TSRPPACParameter
+  #     FileName: prm/srppac/geometry_y.yaml
+  #     FileFormat: yaml
+
+#  - name: proc:ppac:anode:led:raw
+#    type: art::TTimingChargeMappingProcessor
+#    parameter:
+#      CatID: 40
+#      TimingTypeID: 0
+#      OutputCollection: srppac_anode_led_raw
+
+#  - name: proc:ppac:anode:tot:raw
+#    type: art::TTimingChargeMappingProcessor
+#    parameter:
+#      CatID: 41
+#      TimingTypeID: 0      
+#      OutputCollection: srppac_anode_tot_raw
+
+#  - name: proc:ppac:anode:led:cal
+#    type: art::TTimingChargeCalibrationProcessor
+#    parameter:
+#      InputCollection: srppac_anode_led_raw
+#      OutputCollection: srppac_anode_led
+#      TimingConverterArray: prm:ppac:ano:ch2ns
+      
+#  - name: proc:ppac:anode:tot:cal
+#    type: art::TTimingChargeCalibrationProcessor
+#    parameter:
+#      InputCollection: srppac_anode_tot_raw
+#      OutputCollection: srppac_anode_tot
+#      TimingConverterArray: prm:ppac:ano:ch2ns
+#      ChargeConverterArray: prm:ppac:ano:ch2ns
+     
+#  - name: proc:ppac:x:raw
+#    type: art::TTimingChargeMappingProcessor
+#    parameter:
+#      CatID: 42
+#      TimingTypeID: 0
+#      TrailingComesFirst: 1
+#      OutputCollection: srppac_x_raw
+
+#  - name: proc:ppac:x:valid
+#    type: art::TTimeValidator
+#    parameter:
+#      InputCollection: srppac_x_raw
+#      OutputCollection: srppac_x_val
+#      ValidTimeRange: [-2500,0,0]
+      
+#  - name: proc:ppac:y:raw
+#    type: art::TTimingChargeMappingProcessor
+#    parameter:
+#      CatID: 43
+#      TimingTypeID: 0      
+#      TrailingComesFirst: 1
+#      OutputCollection: srppac_y_raw
+
+#  - name: proc:ppac:y:valid
+#    type: art::TTimeValidator
+#    parameter:
+#      InputCollection: srppac_y_raw
+#      OutputCollection: srppac_y_val
+#      ValidTimeRange: [-2500,0,0]
+
+
+   - name: proc:ppac:anode:51:raw
+     type: art::TTimingChargeMappingProcessor
+     parameter:
+       CatID: 40
+       TimingTypeID: 0
+       TrailingComesFirst: 0
+       OutputCollection: srppac_a_51_raw
+      
+   - name: proc:ppac:x:51:raw
+     type: art::TTimingChargeMappingProcessor
+     parameter:
+       CatID: 41
+       TimingTypeID: 0
+       TrailingComesFirst: 1
+       OutputCollection: srppac_x_51_raw
+      
+   - name: proc:ppac:y:51:raw
+     type: art::TTimingChargeMappingProcessor
+     parameter:
+       CatID: 42
+       TimingTypeID: 0
+       TrailingComesFirst: 1
+       OutputCollection: srppac_y_51_raw
+ 
+   - name: proc:ppac:anode:52:raw
+     type: art::TTimingChargeMappingProcessor
+     parameter:
+       CatID: 43
+       TimingTypeID: 0
+       TrailingComesFirst: 0
+       OutputCollection: srppac_a_52_raw
+     
+   - name: proc:ppac:x:52:raw
+     type: art::TTimingChargeMappingProcessor
+     parameter:
+       CatID: 44
+       TimingTypeID: 0
+       TrailingComesFirst: 1
+       OutputCollection: srppac_x_52_raw
+     
+   - name: proc:ppac:y:52:raw
+     type: art::TTimingChargeMappingProcessor
+     parameter:
+       CatID: 45
+       TimingTypeID: 0
+       TrailingComesFirst: 1
+       OutputCollection: srppac_y_52_raw
+
+   - name: proc:ppac:x:51:valid
+     type: art::TTimeValidator
+     parameter:
+       InputCollection: srppac_x_51_raw
+       OutputCollection: srppac_x_51_val
+       ValidTimeRange: [-11500,-10500,0] 
+
+   - name: proc:ppac:y:51:valid
+     type: art::TTimeValidator
+     parameter:
+       InputCollection: srppac_y_51_raw
+       OutputCollection: srppac_y_51_val
+       ValidTimeRange: [-111500,-10500,0] 
+
+   - name: proc:ppac:x:52:valid
+     type: art::TTimeValidator
+     parameter:
+       InputCollection: srppac_x_52_raw
+       OutputCollection: srppac_x_52_val
+       ValidTimeRange: [-111500,-10500,0] 
+
+   - name: proc:ppac:y:52:valid
+     type: art::TTimeValidator
+     parameter:
+       InputCollection: srppac_y_52_raw
+       OutputCollection: srppac_y_52_val
+       ValidTimeRange: [-111500,-10500,0] 
+
+   - name: proc:ppac:a:51:valid
+     type: art::TTimeValidator
+     parameter:
+       InputCollection: srppac_a_51_raw
+       OutputCollection: srppac_a_51_val
+       ValidTimeRange: [-10900,-10700,0] 
+
+   - name: proc:ppac:a:52:valid
+     type: art::TTimeValidator
+     parameter:
+       InputCollection: srppac_a_52_raw
+       OutputCollection: srppac_a_52_val
+       ValidTimeRange: [-10900,-10700,0] 
+ 
+   - name: proc:ppac:x:51:cal
+     type: art::TTimingChargeCalibrationProcessor
+     parameter:
+#       InputCollection: srppac_x_raw
+       InputCollection: srppac_x_51_val
+       OutputCollection: srppac_x_51_cal
+       TimingConverterArray: prm:ppac:cath:ch2ns
+#        ChargeConverterArray: prm:ppac:conv:x
+       ChargeConverterArray: prm:ppac:cath:ch2ns #temporary
+
+   - name: proc:ppac:y:51:cal
+     type: art::TTimingChargeCalibrationProcessor
+     parameter:
+#      InputCollection: srppac_x_raw
+       InputCollection: srppac_y_51_val
+       OutputCollection: srppac_y_51_cal
+       TimingConverterArray: prm:ppac:cath:ch2ns
+#        ChargeConverterArray: prm:ppac:conv:x
+       ChargeConverterArray: prm:ppac:cath:ch2ns #temporary
+
+   - name: proc:ppac:a:51:cal
+     type: art::TTimingChargeCalibrationProcessor
+     parameter:
+#      InputCollection: srppac_x_raw
+       InputCollection: srppac_a_51_val
+       OutputCollection: srppac_a_51_cal
+       TimingConverterArray: prm:ppac:ano:ch2ns
+#        ChargeConverterArray: prm:ppac:conv:x
+       ChargeConverterArray: prm:ppac:ano:ch2ns #temporary
+
+   - name: proc:ppac:x:52:cal
+     type: art::TTimingChargeCalibrationProcessor
+     parameter:
+#      InputCollection: srppac_x_raw
+       InputCollection: srppac_x_52_val
+       OutputCollection: srppac_x_52_cal
+       TimingConverterArray: prm:ppac:cath:ch2ns
+#        ChargeConverterArray: prm:ppac:conv:x
+       ChargeConverterArray: prm:ppac:cath:ch2ns #temporary
+
+   - name: proc:ppac:y:52:cal
+     type: art::TTimingChargeCalibrationProcessor
+     parameter:
+#      InputCollection: srppac_x_raw
+       InputCollection: srppac_y_52_val
+       OutputCollection: srppac_y_52_cal
+       TimingConverterArray: prm:ppac:cath:ch2ns
+#        ChargeConverterArray: prm:ppac:conv:x
+       ChargeConverterArray: prm:ppac:cath:ch2ns #temporary
+
+   - name: proc:ppac:a:52:cal
+     type: art::TTimingChargeCalibrationProcessor
+     parameter:
+#      InputCollection: srppac_x_raw
+       InputCollection: srppac_a_52_val
+       OutputCollection: srppac_a_52_cal
+       TimingConverterArray: prm:ppac:ano:ch2ns
+#        ChargeConverterArray: prm:ppac:conv:x
+       ChargeConverterArray: prm:ppac:ano:ch2ns #temporary
+
+
+
+#  - name: proc:ppac:anode:81:raw
+#    type: art::TTimingChargeMappingProcessor
+#    parameter:
+#      CatID: 46
+#      TimingTypeID: 0
+#      TrailingComesFirst: 0
+#      OutputCollection: srppac_a_81_raw
+#     
+#  - name: proc:ppac:x:81:raw
+#    type: art::TTimingChargeMappingProcessor
+#    parameter:
+#      CatID: 47
+#      TimingTypeID: 0
+#      TrailingComesFirst: 1
+#      OutputCollection: srppac_x_81_raw
+#      
+#  - name: proc:ppac:y:81:raw
+#    type: art::TTimingChargeMappingProcessor
+#    parameter:
+#      CatID: 48
+#      TimingTypeID: 0
+#      TrailingComesFirst: 1
+#      OutputCollection: srppac_y_81_raw
+   
+# - name: proc:ppac:x:cal
+#   type: art::TTimingChargeCalibrationProcessor
+#   parameter:
+#      InputCollection: srppac_x_raw
+#     InputCollection: srppac_x_val
+#     OutputCollection: srppac_x_cal
+#     TimingConverterArray: prm:ppac:cath:ch2ns
+#      ChargeConverterArray: prm:ppac:conv:x
+#     ChargeConverterArray: prm:ppac:cath:ch2ns #temporary
+#
+# - name: proc:ppac:y:cal
+#   type: art::TTimingChargeCalibrationProcessor
+#   parameter:
+#      InputCollection: srppac_y_raw
+#     InputCollection: srppac_y_val
+#     OutputCollection: srppac_y_cal
+#     TimingConverterArray: prm:ppac:ch2ns      
+#      ChargeConverterArray: prm:ppac:conv:y
+#     ChargeConverterArray: prm:ppac:cath:ch2ns #temporary
+#
+# - name: proc:ppac:x
+#   type: art::TSRPPACPlaneProcessor
+#   parameter:
+#     InputCollection: srppac_x_cal
+#     OutputCollection: srppac_x
+#     SRPPACParameter: prm:ppac:geo:x
+#      Verbose: 1
+#     nStrip: 58
+#     stripWidth: 2.57
+#     center: 29.5
+#      nStrip: 29
+#      stripWidth: 5.1
+#      center: 14.5
+#     z: -4.
+#     detoffset: -2.099
+#      detoffset: -2.099
+#    turned: 1
+
+#     
+# - name: proc:ppac:y
+#   type: art::TSRPPACPlaneProcessor
+#   parameter:
+#     InputCollection: srppac_y_cal
+#     OutputCollection: srppac_y
+#     SRPPACParameter: prm:ppac:geo:y
+#     nStrip: 58
+#     stripWidth: 2.57
+#     center: 29.5
+#      nStrip: 29
+#      stripWidth: 5.1
+#      center: 14.5
+#     z: 4.
+#     detoffset: -1.596
+#     turned: 0
+
+
+# - name: proc_dqdx_xc0
+#   type: art::TParameterLoader
+#   parameter:
+#     Name:     dqdx_srppac_xc0
+#     Type:     art::TMonotoneTableConverter
+#     FileName: prm/srppac/srppac/dq2dl/current/xc0.dat
+# - name: proc_dqdx_xc1
+#   type: art::TParameterLoader
+#   parameter:
+#     Name:     dqdx_srppac_xc1
+#     Type:     art::TMonotoneTableConverter
+#     FileName: prm/srppac/srppac/dq2dl/current/xc1.dat
+# - name: proc_dqdx_yc0
+#   type: art::TParameterLoader
+#   parameter:
+#     Name:     dqdx_srppac_yc0
+#     Type:     art::TMonotoneTableConverter
+#     FileName: prm/srppac/srppac/dq2dl/current/yc0.dat
+# - name: proc_dqdx_yc1
+#   type: art::TParameterLoader
+#   parameter:
+#     Name:     dqdx_srppac_yc1
+#     Type:     art::TMonotoneTableConverter
+#     FileName: prm/srppac/srppac/dq2dl/current/yc1.dat
+#     
+# - name: proc:ppac:x
+#   type: art::TSRPPACPlaneDqdxProcessor
+#   parameter:
+#     InputCollection: srppac_x
+#     OutputCollection: srppac_xc0
+#     Converter: dqdx_srppac_xc0
+#     SRPPACParameter: prm:ppac:geo:x
+#     nStrip: 58
+#     stripWidth: 2.57
+#    center: 29.5
+#    z: -4.
+#    detoffset: -2.099
+#    turned: 1
+# - name: proc:ppac:x
+#   type: art::TSRPPACPlaneDqdxProcessor
+#   parameter:
+#     InputCollection: srppac_x
+#     OutputCollection: srppac_xc1
+#     Converter: dqdx_srppac_xc1
+#     SRPPACParameter: prm:ppac:geo:x
+#     Combination: 1
+#     nStrip: 58
+#     stripWidth: 2.57
+#     center: 29.5
+#     z: -4.
+#     detoffset: -2.099
+#     turned: 1
+
+# - name: proc:ppac:y
+#   type: art::TSRPPACPlaneDqdxProcessor
+#   parameter:
+#     InputCollection: srppac_y
+#     OutputCollection: srppac_yc0
+#     Converter: dqdx_srppac_yc0
+#     SRPPACParameter: prm:ppac:geo:y
+#     nStrip: 58
+#     stripWidth: 2.57
+#     center: 29.5
+#     z: -4.
+#     detoffset: -1.596
+#     turned: 0
+# - name: proc:ppac:y
+#   type: art::TSRPPACPlaneDqdxProcessor
+#   parameter:
+#     InputCollection: srppac_y
+#     OutputCollection: srppac_yc1
+#     Converter: dqdx_srppac_yc1
+#     SRPPACParameter: prm:ppac:geo:y
+#     Combination: 1
+#     nStrip: 58
+#     stripWidth: 2.57
+#     center: 29.5
+#     z: -4.
+#     detoffset: -1.596
+#     turned: 0
+
+      
+  # - name: sep:y
+  #   type: art::TSeparateOutputProcessor
+  #   parameter:
+  #     InputCollection: srppac_y_cal
+  #     OutputCollections:
+  #       - spy1
+  #       - spy2
+  #       - spy3
+  #       - spy4
+  #       - spy5
+  #       - spy6
+  #       - spy7
+  #       - spy8
+  #       - spy9
+  #       - spy10
+  #       - spy11
+  #       - spy12
+  #       - spy13
+  #       - spy14
+  #       - spy15
+  #       - spy16
+  #       - spy17
+  #       - spy18
+  #       - spy19
+  #       - spy20
+  #       - spy21
+  #       - spy22
+  #       - spy23
+  #       - spy24
+  #       - spy25
+  #       - spy26
+  #       - spy27
+  #       - spy28
+  #       - spy29
+  #       - spy30
+  #       - spy31
+  #       - spy32
+  #       - spy33
+  #       - spy34
+  #       - spy35
+  #       - spy36
+  #       - spy37
+  #       - spy38
+  #       - spy39
+  #       - spy40

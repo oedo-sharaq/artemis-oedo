@@ -1,0 +1,20 @@
+Processor:
+  - include: dc31.yaml
+  - include: dc32.yaml
+  - include: f3.yaml
+#  - include: dc51.yaml
+#  - include: dc52.yaml
+#  - include: f5.yaml
+  - include: dc71.yaml
+  - include: dc72.yaml
+  - include: f7.yaml
+#  - include: dc91.yaml
+#  - include: dcx1.yaml
+#  - include: dcx2.yaml
+#  - include: F5.yaml
+#  - include: dcs11.yaml
+#  - include: dcs12.yaml
+#  - include: dcs21.yaml
+#  - include: dcs22.yaml
+
+#  - include: s1.yaml

@@ -1,0 +1,14 @@
+Processor:
+  - include: dc31_calib.yaml
+  - include: dc32_calib.yaml
+#  - include: dc51_calib.yaml
+#  - include: dc52_calib.yaml
+  - include: dc71_calib.yaml
+  - include: dc72_calib.yaml
+#  - include: dc91_calib.yaml
+#  - include: dcx1_calib.yaml
+#  - include: dcx2_calib.yaml
+#  - include: dcs11_calib.yaml
+#  - include: dcs12_calib.yaml
+#  - include: dcs21_calib.yaml
+#  - include: dcs22_calib.yaml

@@ -1,0 +1,197 @@
+Anchor:
+  - &ridf1 ridf/phys/CAT1_phys0300.ridf.gz
+  - &ridf2 ridf/phys/CAT2_phys0300.ridf.gz
+  - &rootout root/test.root
+  - &histout root/test.hist.root
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+  - name: ridfevent
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      InputFiles:
+        - *ridf1
+  - name: ridfevent2
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      SegmentedData: segdata2
+      InputFiles:
+        - *ridf2
+  - name: map
+    type: art::TMappingProcessor
+    parameter:
+      InputCollection: [segdata, segdata2]
+      OutputTransparency:  1
+      MapConfig: mapper.conf
+  - include: ../chkcoin.yaml
+  - include: ../chksca.yaml
+  - name: gate_array_init
+    type: art::TGateArrayInitializer
+#======================================================================
+# parameters
+  - name: pad
+    type: art::TCatReadoutPadConditionProcessor
+    parameter:
+      Gap: 0.      
+      Type: 2
+      Bads: [43, 142, 167, 168, 176, 181, 207, 367, 372, 375, 380, 393]
+  - name: samplecalibgen
+    type: art::TAffineConverterArrayGenerator
+    parameter:
+      ParameterList:
+        - [ch2MeVpre, test.out]
+  - name: proc:rangetable
+    type: art::TRangeTableConditionProcessor
+    parameter:
+      RangeTableFile: data/DeuteronDeuterium/DeuteronDeuterium064.txt.out
+      RangeTable: rangeTable
+      RangeStep: 0.01      
+  - name: proc:rangetable
+    type: art::TRangeTableConditionProcessor
+    parameter:
+      RangeTableFile: data/ProtonDeuterium/ProtonDeuterium064.txt.out
+      RangeTable: rangeTable2
+      RangeStep: 0.01      
+#======================================================================
+# event loop
+  - name: catmapping
+    type: art::TCatAtMappingProcessor
+    parameter:
+      CatID: 51
+      OutputCollection: at
+      OutputTransparency: 0
+      SelectIf: 1
+      BeamRegion: [-18,18]
+  - name: catsub
+    type: art::TCatAtPedestalSubtractionProcessor
+    parameter:
+      InputCollection: at
+      OutputCollection: atsub
+      OutputTransparency: 0
+  - name: atpulsefinder
+    type: art::TPulseFinder
+    parameter:
+      InputCollection: atsub
+      RisingThreshold: 30
+      FallingThreshold: 0.5
+      PrePulse: 30
+      PostPulse: 15
+      SavePulse: 1
+      Sparse: 0
+      OutputTransparency: 0
+  - name: calib:ch2MeVpre
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: atpulse
+      OutputCollection: atpulse_MeVpre
+      ChargeConverterArray: ch2MeVpre
+      InputIsDigital: 0      
+  - name: cluster:recoil
+    type: art::TCatTpcHitClusterProcessor
+    parameter:
+      ClusterRadius: [8.1, 21]  # [vector<Double_t>] radius of cluster
+      InputCollection: atpulse_MeVpre  # [TString] input pulse collection (for a specific region)
+      IsSingle: 1  # [Bool_t] select maximum size cluster if 1 (default: 0)
+      MinClusterSize: 5  # [Double_t] required minimum cluster size
+      OutputCollection: atcluster  # [TString] output pulse collection as a candidate of recoil track
+      OutputTransparency: 0  # [Bool_t] Output is persistent if false (default)
+      ReadoutPad: readoutPad  # [TString] Name of readout pad array
+      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
+  - name: trueevent
+    type: art::TTreeFormulaGateProcessor
+    parameter:
+      Definitions:
+        - "true; abs(atcluster.fPrincipalAxis.Z()) < 0.95 && abs(sin(atcluster.fPrincipalAxis.Phi())) <0.95"
+  - name: stop_trueevent
+    type: art::TGateStopProcessor
+    parameter:
+      GateName: "true"
+  - name: trackWithDiffusedCharge
+    type: art::TCatTrackingWithDiffusedChargeProcessor
+    parameter:
+      InputCollection: atcluster
+      RangeTable: rangeTable
+#      ReadoutPlaneOffset: -45.5
+      OutputCollection: track3
+      FixedOrigin: 0.
+#      InitialRange: 490.
+      IndependentVariable: 0
+      Attachment: 0.
+      DefaultIntegrateStep: 0.1
+      DiffusionCoefficient: 0.045
+#      DiffusionCoefficient: 0.1
+      SigmaCoeff: [0., 1., 0.]
+#      SigmaCoeff: [39.6, 0.00,0.107]
+      ResponseTableFileName: data/restable_7mm_10um_finedev_nogap.root      
+      UseRandom: 0
+      MeshDim: [10,10,10]
+      MeshStep: [1.,0.1,0.01]
+      DoMeshSearch: 0
+     
+  - name: trackWithDiffusedCharge
+    type: art::TCatTrackingWithDiffusedChargeProcessor
+    parameter:
+      InputCollection: atcluster
+      RangeTable: rangeTable2
+#      ReadoutPlaneOffset: -45.5
+      OutputCollection: track4
+      FixedOrigin: 0.
+#      InitialRange: 490.
+      IndependentVariable: 0
+      Attachment: 0.
+      DefaultIntegrateStep: 0.1
+      DiffusionCoefficient: 0.045
+#      DiffusionCoefficient: 0.1
+      SigmaCoeff: [39.6, 0, 0.107]
+      ResponseTableFileName: data/restable_7mm_10um_finedev_nogap.root      
+      UseRandom: 0
+      MeshDim: [10,10,10]
+      MeshStep: [1.,0.1,0.01]
+      DoMeshSearch: 0
+  - name: missingmass
+    type: art::TCatMissingMassProcessor
+    parameter:
+      RecoilInput: track3
+      RangeTableFile: data/DeuteronDeuterium/DeuteronDeuterium064.txt.out      
+      Ex: Ex3
+      ThetaCM: ThetaCM3
+  - name: missingmassa
+    type: art::TCatMissingMassProcessor
+    parameter:
+      RecoilInput: track4
+      RangeTableFile: data/ProtonDeuterium/ProtonDeuterium064.txt.out      
+      RecoilOutput: recoilMom4
+      Ex: Ex4
+      ThetaCM: ThetaCM4
+      
+#  - name: displayTrack_d
+#    type: art::TCatTrackResultDisplayProcessor
+#    parameter:
+#      DisplayMode: 1
+#      InputCollection: ["track3"]
+#      WaitTime: 10
+#  - name: displayTrack_p
+#    type: art::TCatTrackResultDisplayProcessor
+#    parameter:
+#      DisplayMode: 1
+#      InputCollection: ["track4"]
+#      WaitTime: 1000000
+  - name: projcat
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/cat/base.hist.yaml
+#      FileName: hist/cat/phys.hist.yaml
+      Name: projection
+      OutputTransparency: 1
+      Type: art::TTreeProjection
+      Verbose: 1
+      OutputFilename: *histout
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: *rootout
+  - name: timer
+    type: art::TTimerProcessor
+      

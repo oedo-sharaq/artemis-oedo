@@ -1,0 +1,15 @@
+Processor:
+  - name: treeinput
+    type: art::TTreeEventStore
+    parameter:
+      FileName: output/1496653635/simtrack.root
+  - name: projcat
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/cat/sim.hist.yaml
+#      FileName: hist/cat/phys.hist.yaml
+      Name: projection
+      OutputTransparency: 1
+      Type: art::TTreeProjection
+      Verbose: 1
+    

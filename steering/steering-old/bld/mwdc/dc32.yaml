@@ -1,0 +1,110 @@
+# steering file for DC32 analysis
+# Load bld-plastic steering file before.
+
+#Alias: 
+# - &spla_id_f3_m 0
+
+Processor:
+  - name: proc_dc32_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_dc32_ch2ns
+      Type:     art::TAffineConverter
+      FileName: prm/mwdc/dc32/ch2ns.dat
+
+  - name: proc_dc32_dxdt_x1
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc32_dxdt_x1
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dc32/dt2dl/current/x1.dat
+
+  - name: proc_dc32_dxdt_x2
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc32_dxdt_x2
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dc32/dt2dl/current/x2.dat
+
+  - name: proc_dc32_dxdt_y1
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc32_dxdt_y1
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dc32/dt2dl/current/y1.dat
+
+  - name: proc_dc32_dxdt_y2
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc32_dxdt_y2
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dc32/dt2dl/current/y2.dat
+
+  - name: proc_dc32_geo
+    type: art::TParameterLoader
+    parameter:
+      Name:     dc32
+      Type:     art::TMWDCParameter
+      FileName: prm/mwdc/dc32/geometry.yaml
+
+  - name: proc_dc32_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              21
+      TimingTypeID:       0
+      OutputCollection:   dc32_raw
+      OutputTransparency: 0
+
+  - name: proc_dc32_cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      dc32_raw
+      OutputCollection:     dc32_cal
+      TimingConverterArray: prm_dc32_ch2ns
+      OutputTransparency:   0
+
+  - name: proc:validtime
+    type: art::TTimeValidator
+    parameter:
+      InputCollection: dc32_cal
+      OutputCollection: dc32_val
+#      ValidTimeRange: [-1000000., 1000000., 0.] # Change here
+      ValidTimeRange: [-1400., -1200., 0.] # Change here
+#      ValidTimeRange: [-1500., -1440., 0.] # Sn ESPRI trig
+#      ValidTimeRange: [-1520., -1440., 0.] # Ca ESPRI trig
+      OutputTransparency:   0
+      
+  - name: proc_dc32_dt
+    type: art::TTimingSubtractionProcessor
+    parameter:
+      InputCollection:       dc32_val
+      OutputCollection:      dc32_dt
+#      StartTimingCollection: dia_pad_tcal
+      StartTimingCollection: dia3_val
+      StartTimingDetID:     0
+      OutputTransparency:    0
+
+      
+  - name: proc_dc32_plane
+    type: art::TMWDCPlaneProcessor
+    parameter:
+      InputCollection: dc32_dt
+#      InputCollection: dc32_val
+      MWDCName:        dc32
+      ConverterList:
+        - prm_dc32_dxdt_x1
+        - prm_dc32_dxdt_x2
+        - prm_dc32_dxdt_y1
+        - prm_dc32_dxdt_y2
+      OutputTransparency: 0
+
+  - name: proc_dc32_track
+    type: art::TMWDCTrackingProcessor
+    parameter:
+      InputCollection:
+        - dc32_x1
+        - dc32_x2
+        - dc32_y1
+        - dc32_y2
+      OutputCollection:   dc32
+      OutputTransparency: 0

@@ -1,0 +1,6 @@
+Processor:
+
+#  - include: v1290_tref.yaml
+  - include: dia_v775.yaml
+  - include: tof_v775.yaml
+

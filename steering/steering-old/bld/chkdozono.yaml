@@ -1,0 +1,54 @@
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+#        - bld_calib/tdccalib0034.ridf
+#        - bld_calib/tdccalib0035.ridf
+#        - bld_calib/tdccalib0036.ridf
+#        - bld_calib/tdccalib0037.ridf
+#        - ridf/bld_calib/tdccalib0044.ridf
+#        - ridf/bld_calib/tdccalib0045.ridf
+#        - ridf/bld_calib/tdccalib0047.ridf
+        - ridf/bld_calib/tdccalib0045.ridf
+
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+
+#  - name: proc_gateinit
+#    type: art::TGateArrayInitializer
+
+  - include: v1190_tref.yaml
+#  - include: spla.yaml
+#  - include: tref.yaml
+#  - include: tof.yaml
+#  - include: si.yaml
+#  - include: pid_gate.yaml
+
+#  - name: proc_stop
+#    type: art::TOutputTreeProcessor
+#    parameter:
+#      gate: 54Sc
+    
+  - include: mwdc/dc31.yaml
+  - include: mwdc/dc32.yaml
+#  - include: mwdc/chkall.yaml
+#  - include: mwdc/caliball.yaml
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type:     art::TTreeProjection
+      FileName: hist/bld/timecalib.yaml
+#      FileName: hist/bld/chk.yaml
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+#      FileName: chk.root

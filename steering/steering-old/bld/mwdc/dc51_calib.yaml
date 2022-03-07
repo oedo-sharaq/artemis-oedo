@@ -1,0 +1,44 @@
+# for calibration of DC51
+#
+# * include after dc51.yaml
+# * prepare pid gate (sample: pidgate.yaml)
+
+alias:
+  - &pid_gate 54Sc  # CHANGE HERE
+
+Processor:
+  - name: proc_dc51_x1_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dc51_x1
+#      Gate:            *pid_gate
+      TimingGate:      [-880,-700.] # CHANGE HERE
+      ChargeGate:      [100.,1200.] # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_dc51_x2_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dc51_x2
+#      Gate:            *pid_gatz0e
+      TimingGate:      [-880.,-700..] # CHANGE HERE
+      ChargeGate:      [200,1200] # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_dc51_u_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dc51_u
+#      Gate:            *pid_gate
+      TimingGate:      [-880.,-700..] # CHANGE HERE
+      ChargeGate:      [200.,1200.] # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_dc51_v_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dc51_v
+#      Gate:            *pid_gate
+      TimingGate:      [-880.,-700..] # CHANGE HERE
+      ChargeGate:      [200.,1200.] # CHANGE HERE
+      UseMax: 1

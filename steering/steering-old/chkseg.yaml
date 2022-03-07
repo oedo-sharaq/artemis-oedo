@@ -1,0 +1,48 @@
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+        - /getdaq02/atns/h307-10/run1027.ridf
+#        - ridf/bld_calib/beam0001.ridf # 700V
+#        - ridf/bld_calib/beam0002.ridf # 400V,500V,600V
+#        - ridf/beam/beam0061.ridf # 600V
+#        - ridf/bld_calib/beam0004.ridf # clock (Vth=40mV)
+#        - ridf.ribf79/beam/BLD_beam2014.ridf # clock (Vth=40mV)
+        
+  - name: modlistloader
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: modlist
+      Type: art::TModuleType
+      FileName: conf/seg/modulelist.yaml
+      FileFormat: yaml
+  - name: seglistloader
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: seglist
+      Type: art::TSegmentInfo
+      FileName: conf/seg/seglist.yaml
+      FileFormat: yaml
+
+  - name: MyTSegmentCheckProcessor
+    type: art::TSegmentCheckProcessor
+    parameter:
+      Ignore:  # [StringVec_t] ignore segment list
+        - ""
+      ModuleList: modlist  # [TString] name of the module list
+      SegmentList: seglist  # [TString] name of the segment list
+
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+#      FileName: chk.root

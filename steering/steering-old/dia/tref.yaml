@@ -1,0 +1,106 @@
+Processor:
+
+  - name: proc_diatref1_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_diatref1_ch2ns
+      Type:     art::TAffineConverter
+      FileName: prm.h307-6/dia/diatref_ch2ns.dat
+
+  - name: proc_diatref1_l_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              9
+      TimingTypeID:       0
+      TrailingComesFirst: 0
+      OutputCollection:   diatref1_l_raw
+      OutputTransparency: 1
+#      Sparse:             0  # !!
+
+  - name: proc_diatref1_l
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      diatref1_l_raw
+      OutputCollection:     diatref1_l
+      TimingConverterArray: prm_diatref1_ch2ns
+#      OutputTransparency:   1
+
+  - name: proc_diatref1_r_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              9
+      TimingTypeID:       1
+      TrailingComesFirst: 0
+      OutputCollection:   diatref1_r_raw
+      OutputTransparency: 1
+#      Sparse:             0  # !!
+
+  - name: proc_diatref1_r
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      diatref1_r_raw
+      OutputCollection:     diatref1_r
+      TimingConverterArray: prm_diatref1_ch2ns
+#      OutputTransparency:   1
+
+  - name: proc_diatref1
+    type: art::TTwoSidedPlasticCalibrationProcessor
+    parameter:
+      InputCollection1: diatref1_l
+      InputCollection2: diatref1_r
+      OutputCollection: diatref1
+      DetIDRange:       [0,2]
+
+
+  - name: proc_diatref2_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_diatref2_ch2ns
+      Type:     art::TAffineConverter
+      FileName: prm.h307-6/dia/diatref_ch2ns.dat
+
+  - name: proc_diatref2_l_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              10
+      TimingTypeID:       0
+      TrailingComesFirst: 0
+      OutputCollection:   diatref2_l_raw
+      OutputTransparency: 1
+#      Sparse:             0  # !!
+
+  - name: proc_diatref2_l
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      diatref2_l_raw
+      OutputCollection:     diatref2_l
+      TimingConverterArray: prm_diatref2_ch2ns
+#      OutputTransparency:   1
+
+  - name: proc_diatref2_r_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              10
+      TimingTypeID:       1
+      TrailingComesFirst: 0
+      OutputCollection:   diatref2_r_raw
+      OutputTransparency: 1
+#      Sparse:             0  # !!
+
+  - name: proc_diatref2_r
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      diatref2_r_raw
+      OutputCollection:     diatref2_r
+      TimingConverterArray: prm_diatref2_ch2ns
+#      OutputTransparency:   1
+
+  - name: proc_diatref2
+    type: art::TTwoSidedPlasticCalibrationProcessor
+    parameter:
+      InputCollection1: diatref2_l
+      InputCollection2: diatref2_r
+      OutputCollection: diatref2
+      DetIDRange:       [0,2]
+
+

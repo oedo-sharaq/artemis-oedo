@@ -1,0 +1,36 @@
+# main loop for veto scintillator
+
+Processor:
+  - name: proc_veto_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prmVetoCh2ns
+      Type:     art::TAffineConverter
+      FileName: prm/veto/ch2ns.dat
+  - name: proc_veto_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              61
+      TimingTypeID:       0
+      ChargeTypeID:       1
+      ChargeType:         1
+      OutputCollection:   vetoraw
+      OutputTransparency: 0
+  - name: proc_veto_calib
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: vetoraw
+      OutputCollection: veto
+      TimingConverterArray: prmVetoCh2ns
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type:     art::TTreeProjection
+      FileName: hist/veto.hist.yaml
+
+
+
+
+
+    

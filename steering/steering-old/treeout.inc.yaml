@@ -1,0 +1,9 @@
+Anchor:
+  - &treeout output/@RNUM@/@RNUM@.tree.root
+
+Processor:
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: *treeout
+      

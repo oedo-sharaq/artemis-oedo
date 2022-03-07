@@ -1,0 +1,25 @@
+Processor:
+  - name: srppaccalibx
+    type: art::TSRPPACCalibrationProcessor
+    parameter:
+      ChargeGate: [0.,80.]
+      InputCollection: srppac_x
+  - name: srppaccalibx
+    type: art::TSRPPACCalibrationProcessor
+    parameter:
+      ChargeGate: [0.,80.]
+      InputCollection: srppac_y
+  - name: srppaccalibx
+    type: art::TSRPPACCalibrationProcessor
+    parameter:
+      ChargeGate: [0.,80.]
+      InputCollection: srppac_x
+      Combination: 1
+  - name: srppaccalibx
+    type: art::TSRPPACCalibrationProcessor
+    parameter:
+      ChargeGate: [0.,80.]
+      InputCollection: srppac_y
+      Combination: 1
+      
+      

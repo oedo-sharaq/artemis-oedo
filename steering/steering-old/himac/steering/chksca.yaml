@@ -1,0 +1,13 @@
+Processor:
+  - name: scaler
+    type: art::TCatScalerMappingProcessor
+    parameter:
+      CatID: 100
+#  - name: scaler
+#    type: art::TCatScalerMappingProcessor
+#    parameter:
+#      CatID: 111
+      OutputCollectionDiff: scadiff_si  # [TString] output collection name
+      OutputCollectionTotal: scatot_si  # [TString] output collection name
+            
+      

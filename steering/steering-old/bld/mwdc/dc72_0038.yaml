@@ -1,0 +1,99 @@
+# steering file for DC72 analysis
+# Load bld-plastic steering file before.
+
+Alias: 
+ - &tref_id 0
+
+Processor:
+  - name: proc_dc72_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_dc72_ch2ns
+      Type:     art::TAffineConverter
+      FileName: prm/mwdc/dc72/ch2ns.dat
+
+  - name: proc_dc72_dxdt_u1
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc72_dxdt_u1
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dc72/dt2dl/run0038/dc72_u1.dat
+
+  - name: proc_dc72_dxdt_v1
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc72_dxdt_v1
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dc72/dt2dl/run0038/dc72_v1.dat
+
+  - name: proc_dc72_dxdt_v2
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc72_dxdt_v2
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dc72/dt2dl/run0038/dc72_v2.dat
+
+  - name: proc_dc72_dxdt_u2
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_dc72_dxdt_u2
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/dc72/dt2dl/run0038/dc72_u2.dat
+
+  - name: proc_dc72_geo
+    type: art::TParameterLoader
+    parameter:
+      Name:     dc72
+      Type:     art::TMWDCParameter
+      FileName: prm/mwdc/dc72/geometry.yaml
+
+  - name: proc_dc72_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              24
+      TimingTypeID:       0
+      OutputCollection:   dc72_raw
+      OutputTransparency: 0
+
+  - name: proc_dc72_cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      dc72_raw
+      OutputCollection:     dc72_cal
+      TimingConverterArray: prm_dc72_ch2ns
+      OutputTransparency:   0
+
+  - name: proc_dc72_dt
+    type: art::TTimingSubtractionProcessor
+    parameter:
+      InputCollection:       dc72_cal
+      OutputCollection:      dc72_dt
+      #StartTimingCollection: tref
+      #StartTimingDetID:     *tref_id
+      StartTimingCollection: dia_pad_tcal
+      StartTimingDetID:     1
+      OutputTransparency:    1
+
+  - name: proc_dc72_plane
+    type: art::TMWDCPlaneProcessor
+    parameter:
+      InputCollection: dc72_dt
+      MWDCName:        dc72
+      ConverterList:
+        - prm_dc72_dxdt_v1
+        - prm_dc72_dxdt_v2
+        - prm_dc72_dxdt_u1
+        - prm_dc72_dxdt_u2
+      OutputTransparency: 0
+
+  - name: proc_dc72_track
+    type: art::TMWDCTrackingProcessor
+    parameter:
+      InputCollection:
+        - dc72_v1
+        - dc72_v2
+        - dc72_u1
+        - dc72_u2
+      OutputCollection:   dc72
+      UseGlobalPos:       0
+      OutputTransparency: 0

@@ -1,0 +1,91 @@
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+#        - ridf/run0029.ridf # 200 MeV/u 0.1%
+        - ridf/run0037.ridf.gz # 100 MeV/u 0.1%
+#        - ridf/run0038.ridf.gz # 100 MeV/u 3% parrallel
+#        - ridf/run0039.ridf.gz # 100 MeV/u 3% focus
+#        - ridf/run0044.ridf # 100 MeV/u 3% parrallel
+#        - ridf/run0047.ridf # 100 MeV/u 1MHz
+#        - ridf/run0048.ridf # 100 MeV/u 1MHz
+#        - ridf/run0049.ridf # 100 MeV/u 1.9MHz
+#        - ridf/run0050.ridf # 100 MeV/u 1.9MHz 30mm 
+#        - ridf/run0051.ridf # 100 MeV/u 3.4MHz 21.
+#        - ridf/run0057.ridf # 100 MeV/u 3% focus
+
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+
+  - include: bld/ppac/ppac.yaml
+  - include: bld/chk.yaml
+  - include: dia/chk_v775.yaml
+  - include: bld/ic/ic.yaml
+
+  - name: separate_tof
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: dia_tof_v775
+      OutputCollections:
+        - "tof33"
+        - "tof37"
+        
+
+  - name: brho
+    type: art::TBrhoReconstructProcessor
+    parameter:
+#      Brho0: 6.81117 # 200 MeV/u
+      Brho0: 5.8159 # 100 MeV/u
+  - name: brho
+    type: art::TBrhoReconstructProcessor
+    parameter:
+      InputName1: f5
+      InputName2: f7
+      OutputName: brho57
+#      Brho0: 5.9445 # 200 MeV/u
+      Brho0: 4.5865 # 100 MeV/u
+      Section: 57
+
+  - name: betadecompose
+    type: art::TBetaDecomposeProcessor
+    parameter:
+      InputNameBrho1: brho35
+      InputNameBrho2: brho57
+      InputNameTOF: tof37
+      Length1: 23.4117
+      Length2: 23.6307
+
+  - name: pid
+    type: art::ms1502::TPIDProcessor
+    parameter:
+      AtomicNumberNormalization: 1  # [Float_t] normalization factor to calculate atomic number
+      DegraderThickness: [3.5, 0.00300000]  # [FloatVec_t] d = p0 + p1 * x
+      InputNameBeta1: beta35  # [TString] name of beta at the first section
+      InputNameBeta2: beta57  # [TString] name of beta at the first section
+      InputNameBrho1: brho35  # [TString] name of brho at the first section
+      InputNameBrho2: brho57  # [TString] name of brho at the second section
+      InputNameDF: f5  # [TString] name of dispersive forcus where the degrader is set
+      OutputNameAQ35: aq35  # [TString] name of output A/Q from 35
+      OutputNameAQ57: aq57  # [TString] name of output A/Q from 57
+      OutputNameZdeg: Zdeg  # [TString] name of output atomic number
+      OutputTransparency: 0  # [Bool_t] Output is persistent if false (default)
+      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
+
+  - name: hist
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type: art::TTreeProjection
+      FileName: hist/bld/mwdc/check_residual.yaml
+#      FileName: hist/bld/ppac/profile.yaml
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+#    parameter:
+#      FileName: chk.root
+    

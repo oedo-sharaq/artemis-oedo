@@ -1,0 +1,81 @@
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+#         - ridf/bld_calib/beam0005.ridf
+#         - ridf/bld_calib/beam0007.ridf
+#         - ridf/bld_calib/beam0014.ridf # HV = 500V
+#         - ridf/bld_calib/beam0015.ridf # HV = 600V
+#         - ridf/bld_calib/beam0018.ridf # HV = 650V
+#         - ridf/bld_calib/beam0031.ridf # HV = 520V
+#         - ridf/bld_calib/beam0032.ridf # HV = 540V
+#         - ridf/bld_calib/beam0038.ridf # HV = 630V
+#         - ridf/bld_calib/beam0034.ridf # HV = 670V
+#         - ridf/bld_calib/beam0035.ridf # HV = 690V
+#         - ridf/bld_calib/beam0041.ridf # HV = 640V
+#         - ridf/bld_calib/beam0042.ridf # HV = 650V
+#         - ridf/bld_calib/beam0043.ridf # HV = 650V, 640V
+#         - ridf/bld_calib/beam0044.ridf # HV = 650V
+#         - ridf/bld_calib/beam0045.ridf # HV = 650V
+#         - ridf/bld_calib/beam0048.ridf
+         - ridf/beam/BLD_beam0061.ridf
+
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+
+  - name: proc_gateinit
+    type: art::TGateArrayInitializer
+
+  - include: bld/v1190_tref.yaml
+  - include: v1290_tref.yaml
+  - include: dia/dia.yaml
+  - include: bld/v1190_tref_ppac.yaml
+  - include: bld/ppac/ppac.yaml
+#  - include: spla.yaml
+#  - include: tref.yaml
+#  - include: tof.yaml
+#  - include: si.yaml
+#  - include: pid_gate.yaml
+
+#  - name: proc_stop
+#    type: art::TOutputTreeProcessor
+#    parameter:
+#      gate: 54Sc
+
+  - name: proc_gate_f7diapad
+    type: art::TTreeFormulaGateProcessor
+    parameter:
+      Definitions: f7dia; diaf7_v1290[1].fTiming>-80
+
+  - name: proc_stop_f7diapad
+    type: art::TGateStopProcessor
+    parameter:
+      StopIf: 1
+      gate: f7dia
+
+  - include: bld/mwdc/dc71.yaml
+  - include: bld/mwdc/dc72.yaml
+  - include: bld/mwdc/dc71_calib.yaml
+  - include: bld/mwdc/dc72_calib.yaml
+#  - include: mwdc/chkall.yaml
+#  - include: mwdc/caliball.yaml
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type:     art::TTreeProjection
+#      FileName: hist/bld/mwdc/chkeff_f7.yaml
+      FileName: hist/bld/chkdc7.yaml
+#      FileName: hist/bld/mwdc/dc71.yaml
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: temp.root

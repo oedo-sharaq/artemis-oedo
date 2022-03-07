@@ -1,0 +1,55 @@
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+#                - ridf/BEAM_tune0006.ridf 
+#                - ridf/BEAM_tune0012.ridf 
+#                - ridf/BEAM_tune0015.ridf 
+#                - ridf/BEAM_xe0032.ridf 
+#                - ridf/BEAM_tune0069.ridf 
+#                - ridf/BEAM_tune0072.ridf 
+#                - ridf/BEAM_tune0072.ridf 
+#                - ridf/BEAM_tune0075.ridf 
+#                - ridf/BEAM_tune0077.ridf 
+#                - ridf/BEAM_tune0098.ridf 
+#                - ridf/BEAM_dia0018.ridf 
+#                - ridf/BEAM_dia0024.ridf 
+#                - ridf/BEAM_dia0025.ridf 
+                - ridf/BEAM_15O0117.ridf 
+
+  - name: map
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+      MapConfig: mapper.h307-6.conf
+
+#  - include: v1290_tref.yaml
+  - include: dia/v1290_tref.yaml
+  - include: plastic/ttc.yaml
+  - include: plastic/tref.yaml
+  - include: dia/ttc.yaml
+  - include: dia/tref.yaml
+  - include: tof.yaml
+
+  - name: projpla
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type: art::TTreeProjection
+      FileName: hist/plastic/chkpla.yaml
+
+  - name: projdia
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type: art::TTreeProjection
+      FileName: hist/dia/chkdia.yaml
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: last.root
+

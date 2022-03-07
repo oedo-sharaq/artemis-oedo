@@ -1,0 +1,18 @@
+# steering file for S1 tracking analysis
+# Load bld-plastic steering file before.
+
+  - name: proc_s1_track
+    type: art::TMWDCTrackingProcessor
+    parameter:
+      InputCollection:
+        - dcs11_x1
+        - dcs11_x2
+        - dcs11_y1
+        - dcs11_y2
+        - dcs12_x1
+        - dcs12_x2
+        - dcs12_y1
+        - dcs12_y2
+      OutputCollection:   s1_track
+      UseGlobalPos:       1
+      OutputTransparency: 0

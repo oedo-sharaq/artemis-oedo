@@ -1,0 +1,93 @@
+# required
+# &ch2MeV: calibration parameter for pulse
+# &ridf1:
+# &ridf2:
+# &histout:
+# &treeout:
+
+Processor:
+#======================================================================
+# parameters
+  - name: pad
+    type: art::TCatReadoutPadConditionProcessor
+    parameter:
+      Type: 2
+      Bads: [33, 43, 142, 167, 168, 176, 181, 193,194,195, 207,208,220,233, 367, 375, 380, 390, 393]      
+  - name: samplecalibgen
+    type: art::TAffineConverterCombinator
+    parameter:
+      NameOutput: ch2MeV
+      ParameterList: *ch2MeV
+# event loop
+  - name: timer
+    type: art::TTimerProcessor
+  - name: ridfevent
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      InputFiles:
+        - *ridf1
+      MaxEventNum: 100000
+  - name: ridfevent2
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      SegmentedData: segdata2
+      InputFiles:
+        - *ridf2
+  - name: map
+    type: art::TMappingProcessor
+    parameter:
+      InputCollection: [segdata, segdata2]
+      OutputTransparency:  1
+      MapConfig: mapper.conf
+  - name: catmapping
+    type: art::TCatAtMappingProcessor
+    parameter:
+      CatID: 51
+      OutputCollection: at
+      OutputTransparency: 1
+      Sparse: 0
+      SelectIf: 2
+      BeamRegion: [-6.,6.]
+  - name: catsub
+    type: art::TCatAtPedestalSubtractionProcessor
+    parameter:
+      InputCollection: at
+      OutputCollection: atsub
+      OutputTransparency: 1
+  - name: atpulsefinder
+    type: art::TPulseFinder
+    parameter:
+      InputCollection: atsub
+      RisingThreshold: 2.
+      FallingThreshold: 0.5
+      PrePulse: 30.
+      PostPulse: 15
+      SavePulse: 1
+      Sparse: 0
+      OutputTransparency: 0
+  - name: calib:ch2MeV
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: atpulse
+      OutputCollection: athits
+      ChargeConverterArray: ch2MeV
+      InputIsDigital: 0
+  - name: projcat
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/cat/beam_ecal.hist.yaml
+      Name: projection
+      OutputTransparency: 1
+      Type: art::TTreeProjection
+      OutputFilename: *histout
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: *treeout
+  - name: timer
+    type: art::TTimerProcessor
+        
+    
+

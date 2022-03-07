@@ -1,0 +1,18 @@
+Anchor:
+  - &catdata catdata
+
+Processor:
+  - include: tpc_prepare.inc.yaml
+  - include:
+      name: get.inc.yaml
+      replace:
+        CATDATA: *catdata
+  - include: 
+      name: tpc_base.inc.yaml
+      replace:
+        SUFFIX: all
+        CATDATA: *catdata
+        SELECTIF: 0
+        BEAM_X_MIN: -12
+        BEAM_X_MAX: 12
+        CH2MEV: ch2MeV

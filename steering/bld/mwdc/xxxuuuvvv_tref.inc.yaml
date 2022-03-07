@@ -1,0 +1,81 @@
+Processor:
+  - name: proc_@NAME@_geo
+    type: art::TParameterLoader
+    parameter:
+      Name:     @NAME@tref
+      Type:     art::TMWDCParameter
+      FileName: prm/mwdc/@NAME@/geometry.yaml
+  - name: proc_@NAME@tref_plane
+    type: art::TMWDCPlaneProcessor
+    parameter:
+      InputCollection: @NAME@_cal
+      MWDCName:        @NAME@tref
+      OutputTransparency: 0
+  - name: xxyy_tref::replace_id_x1
+    type: art::TReplaceIDProcessor
+    parameter:
+      Input: @NAME@tref_x1
+  - name: xxyy_tref::replace_id_x2
+    type: art::TReplaceIDProcessor
+    parameter:
+      Input: @NAME@tref_x2
+  - name: xxyy_tref::replace_id_x3
+    type: art::TReplaceIDProcessor
+    parameter:
+      Input: @NAME@tref_x3
+  - name: xxyy_tref::replace_id_u1
+    type: art::TReplaceIDProcessor
+    parameter:
+      Input: @NAME@tref_u1
+  - name: xxyy_tref::replace_id_u2
+    type: art::TReplaceIDProcessor
+    parameter:
+      Input: @NAME@tref_u2
+  - name: xxyy_tref::replace_id_u3
+    type: art::TReplaceIDProcessor
+    parameter:
+      Input: @NAME@tref_u3
+  - name: xxyy_tref::replace_id_v1
+    type: art::TReplaceIDProcessor
+    parameter:
+      Input: @NAME@tref_v1
+  - name: xxyy_tref::replace_id_v2
+    type: art::TReplaceIDProcessor
+    parameter:
+      Input: @NAME@tref_v2
+  - name: xxyy_tref::replace_id_v3
+    type: art::TReplaceIDProcessor
+    parameter:
+      Input: @NAME@tref_v3
+  - name: proc_@NAME@ytiming
+    type: art::TTimingAverageProcessor
+    parameter:
+      OutputCollection: @NAME@tref_x
+      InputCollections:
+        - @NAME@tref_x1
+        - @NAME@tref_x2
+        - @NAME@tref_x3
+  - name: proc_@NAME@ytiming
+    type: art::TTimingAverageProcessor
+    parameter:
+      OutputCollection: @NAME@tref_u
+      InputCollections:
+        - @NAME@tref_u1
+        - @NAME@tref_u2
+        - @NAME@tref_u3
+  - name: proc_@NAME@ytiming
+    type: art::TTimingAverageProcessor
+    parameter:
+      OutputCollection: @NAME@tref_v
+      InputCollections:
+        - @NAME@tref_v1
+        - @NAME@tref_v2
+        - @NAME@tref_v3
+  - name: proc_@NAME@ytiming
+    type: art::TTimingAverageProcessor
+    parameter:
+      OutputCollection: @NAME@tref
+      InputCollections:
+        - @NAME@tref_x
+        - @NAME@tref_u
+        - @NAME@tref_v

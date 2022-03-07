@@ -1,0 +1,37 @@
+Processor:
+
+  - name: proc_tof
+    type: art::TTimingSubtractionProcessor
+    parameter:
+      InputCollection        : diatref2
+      StartTimingCollection  : platref
+      OutputCollection       : tof
+      StartTimingDetID       : 0
+
+  - name: proc_platof
+    type: art::TTimingSubtractionProcessor
+    parameter:
+      InputCollection        : platref
+      StartTimingCollection  : platref
+      OutputCollection       : platof
+      StartTimingDetID       : 0
+
+
+  - name: proc_diatof
+    type: art::TTimingSubtractionProcessor
+    parameter:
+      InputCollection        : diatref1
+      StartTimingCollection  : diatref2
+      OutputCollection       : diatof
+      StartTimingDetID       : 1
+
+  - name: proc_diapadtof
+    type: art::TTimingSubtractionProcessor
+    parameter:
+      InputCollection        : diatref1_l
+      StartTimingCollection  : diatref2_l
+      OutputCollection       : diapadtof
+      StartTimingDetID       : 0
+      
+
+

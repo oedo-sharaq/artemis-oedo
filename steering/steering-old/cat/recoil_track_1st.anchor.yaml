@@ -1,0 +1,12 @@
+Anchor:
+  - &ch2MeV
+    - [ch2ch,  prm/cat/ch2ch.dat]        
+    - [ch2fc,  prm/cat/ch2fc.uniform.dat]
+    - [fc2MeV, prm/cat/fc2MeV.uniform.dat]
+    - [MeVcor, prm/cat/@NUM@/ch2MeVcor_0.dat]
+    - [MeVcor, prm/cat/@NUM@/ch2MeVcor_10.dat]
+    - [MeVcor, prm/cat/@NUM@/ch2MeVcor_11.dat]
+    - [dE, prm/cat/dE.dat]
+  - &ridf1 ridf/@NAME@/CAT1_@NAME@@NUM@.ridf.gz
+  - &ridf2 ridf/@NAME@/CAT2_@NAME@@NUM@.ridf.gz
+  - &diffusion 0.048

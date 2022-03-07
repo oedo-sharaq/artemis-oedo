@@ -1,0 +1,7 @@
+Processor:
+  - name: coin
+    type: art::TCoinRegMappingProcessor
+    processor:
+      CatID: 1
+      DetID: 0
+      

@@ -1,0 +1,7 @@
+Processor:
+  - name: proc_tref_v1290_SHCR
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [60,0,10,1,0]
+      SegConfig: [60,0,10,1]
+

@@ -1,0 +1,422 @@
+Anchor:
+  - &logfilepath  "log"
+  - &figfilepath  "figs/cat"
+  - &figfilepath2 "figs/cat/UntilPulseFinder"
+#  - &ridf1 ridf/cat_calib/CAT1_tpcpulser7001.ridf
+#  - &ridf2 ridf/cat_calib/CAT2_tpcpulser7001.ridf
+  - &rootout last.root
+
+Processor:
+  - name: ridfevent
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      InputFiles:
+#        - *ridf1
+        - ridf79/alpha/CAT1_tpcpulser9001.ridf
+        - ridf79/alpha/CAT1_tpcpulser9002.ridf
+        - ridf79/alpha/CAT1_tpcpulser9003.ridf
+        - ridf79/alpha/CAT1_tpcpulser9004.ridf
+        - ridf79/alpha/CAT1_tpcpulser9005.ridf
+        - ridf79/alpha/CAT1_tpcpulser9006.ridf
+        - ridf79/alpha/CAT1_tpcpulser9007.ridf
+        - ridf79/alpha/CAT1_tpcpulser9008.ridf
+        - ridf79/alpha/CAT1_tpcpulser9011.ridf
+        - ridf79/alpha/CAT1_tpcpulser9012.ridf
+        - ridf79/alpha/CAT1_tpcpulser9013.ridf
+        - ridf79/alpha/CAT1_tpcpulser9014.ridf
+        - ridf79/alpha/CAT1_tpcpulser9015.ridf
+        - ridf79/alpha/CAT1_tpcpulser9016.ridf
+        - ridf79/alpha/CAT1_tpcpulser9017.ridf
+        - ridf79/alpha/CAT1_tpcpulser9018.ridf
+        - ridf79/alpha/CAT1_tpcpulser9021.ridf
+        - ridf79/alpha/CAT1_tpcpulser9022.ridf
+        - ridf79/alpha/CAT1_tpcpulser9023.ridf
+        - ridf79/alpha/CAT1_tpcpulser9024.ridf
+        - ridf79/alpha/CAT1_tpcpulser9025.ridf
+        - ridf79/alpha/CAT1_tpcpulser9026.ridf
+        - ridf79/alpha/CAT1_tpcpulser9027.ridf
+        - ridf79/alpha/CAT1_tpcpulser9028.ridf
+        - ridf79/alpha/CAT1_tpcpulser9031.ridf
+        - ridf79/alpha/CAT1_tpcpulser9032.ridf
+        - ridf79/alpha/CAT1_tpcpulser9033.ridf
+        - ridf79/alpha/CAT1_tpcpulser9034.ridf
+        - ridf79/alpha/CAT1_tpcpulser9035.ridf
+        - ridf79/alpha/CAT1_tpcpulser9036.ridf
+        - ridf79/alpha/CAT1_tpcpulser9037.ridf
+        - ridf79/alpha/CAT1_tpcpulser9038.ridf
+        - ridf79/alpha/CAT1_tpcpulser9031.ridf
+        - ridf79/alpha/CAT1_tpcpulser9032.ridf
+        - ridf79/alpha/CAT1_tpcpulser9033.ridf
+        - ridf79/alpha/CAT1_tpcpulser9034.ridf
+        - ridf79/alpha/CAT1_tpcpulser9035.ridf
+        - ridf79/alpha/CAT1_tpcpulser9036.ridf
+        - ridf79/alpha/CAT1_tpcpulser9037.ridf
+        - ridf79/alpha/CAT1_tpcpulser9038.ridf
+        - ridf79/alpha/CAT1_tpcpulser9041.ridf
+        - ridf79/alpha/CAT1_tpcpulser9042.ridf
+        - ridf79/alpha/CAT1_tpcpulser9043.ridf
+        - ridf79/alpha/CAT1_tpcpulser9044.ridf
+        - ridf79/alpha/CAT1_tpcpulser9045.ridf
+        - ridf79/alpha/CAT1_tpcpulser9046.ridf
+        - ridf79/alpha/CAT1_tpcpulser9047.ridf
+        - ridf79/alpha/CAT1_tpcpulser9048.ridf
+        - ridf79/alpha/CAT1_tpcpulser9051.ridf
+        - ridf79/alpha/CAT1_tpcpulser9052.ridf
+        - ridf79/alpha/CAT1_tpcpulser9053.ridf
+        - ridf79/alpha/CAT1_tpcpulser9054.ridf
+        - ridf79/alpha/CAT1_tpcpulser9055.ridf
+        - ridf79/alpha/CAT1_tpcpulser9056.ridf
+        - ridf79/alpha/CAT1_tpcpulser9057.ridf
+        - ridf79/alpha/CAT1_tpcpulser9058.ridf
+        - ridf79/alpha/CAT1_tpcpulser9061.ridf
+        - ridf79/alpha/CAT1_tpcpulser9062.ridf
+        - ridf79/alpha/CAT1_tpcpulser9063.ridf
+        - ridf79/alpha/CAT1_tpcpulser9064.ridf
+        - ridf79/alpha/CAT1_tpcpulser9065.ridf
+        - ridf79/alpha/CAT1_tpcpulser9066.ridf
+        - ridf79/alpha/CAT1_tpcpulser9067.ridf
+        - ridf79/alpha/CAT1_tpcpulser9068.ridf
+        - ridf79/alpha/CAT1_tpcpulser9081.ridf
+        - ridf79/alpha/CAT1_tpcpulser9082.ridf
+        - ridf79/alpha/CAT1_tpcpulser9083.ridf
+        - ridf79/alpha/CAT1_tpcpulser9084.ridf
+        - ridf79/alpha/CAT1_tpcpulser9085.ridf
+        - ridf79/alpha/CAT1_tpcpulser9086.ridf
+        - ridf79/alpha/CAT1_tpcpulser9087.ridf
+        - ridf79/alpha/CAT1_tpcpulser9088.ridf
+        - ridf79/alpha/CAT1_tpcpulser9091.ridf
+        - ridf79/alpha/CAT1_tpcpulser9092.ridf
+        - ridf79/alpha/CAT1_tpcpulser9093.ridf
+        - ridf79/alpha/CAT1_tpcpulser9094.ridf
+        - ridf79/alpha/CAT1_tpcpulser9095.ridf
+        - ridf79/alpha/CAT1_tpcpulser9096.ridf
+        - ridf79/alpha/CAT1_tpcpulser9097.ridf
+        - ridf79/alpha/CAT1_tpcpulser9098.ridf
+        - ridf79/alpha/CAT1_tpcpulser9101.ridf
+        - ridf79/alpha/CAT1_tpcpulser9102.ridf
+        - ridf79/alpha/CAT1_tpcpulser9103.ridf
+        - ridf79/alpha/CAT1_tpcpulser9104.ridf
+        - ridf79/alpha/CAT1_tpcpulser9105.ridf
+        - ridf79/alpha/CAT1_tpcpulser9106.ridf
+        - ridf79/alpha/CAT1_tpcpulser9107.ridf
+        - ridf79/alpha/CAT1_tpcpulser9108.ridf
+        - ridf79/alpha/CAT1_tpcpulser9111.ridf
+        - ridf79/alpha/CAT1_tpcpulser9112.ridf
+        - ridf79/alpha/CAT1_tpcpulser9113.ridf
+        - ridf79/alpha/CAT1_tpcpulser9114.ridf
+        - ridf79/alpha/CAT1_tpcpulser9115.ridf
+        - ridf79/alpha/CAT1_tpcpulser9116.ridf
+        - ridf79/alpha/CAT1_tpcpulser9117.ridf
+        - ridf79/alpha/CAT1_tpcpulser9118.ridf
+        - ridf79/alpha/CAT1_tpcpulser9121.ridf
+        - ridf79/alpha/CAT1_tpcpulser9122.ridf
+        - ridf79/alpha/CAT1_tpcpulser9123.ridf
+        - ridf79/alpha/CAT1_tpcpulser9124.ridf
+        - ridf79/alpha/CAT1_tpcpulser9125.ridf
+        - ridf79/alpha/CAT1_tpcpulser9126.ridf
+        - ridf79/alpha/CAT1_tpcpulser9127.ridf
+        - ridf79/alpha/CAT1_tpcpulser9128.ridf
+        - ridf79/alpha/CAT1_tpcpulser9131.ridf
+        - ridf79/alpha/CAT1_tpcpulser9132.ridf
+        - ridf79/alpha/CAT1_tpcpulser9133.ridf
+        - ridf79/alpha/CAT1_tpcpulser9134.ridf
+        - ridf79/alpha/CAT1_tpcpulser9135.ridf
+        - ridf79/alpha/CAT1_tpcpulser9136.ridf
+        - ridf79/alpha/CAT1_tpcpulser9137.ridf
+        - ridf79/alpha/CAT1_tpcpulser9138.ridf
+        - ridf79/alpha/CAT1_tpcpulser9141.ridf
+        - ridf79/alpha/CAT1_tpcpulser9142.ridf
+        - ridf79/alpha/CAT1_tpcpulser9143.ridf
+        - ridf79/alpha/CAT1_tpcpulser9144.ridf
+        - ridf79/alpha/CAT1_tpcpulser9145.ridf
+        - ridf79/alpha/CAT1_tpcpulser9146.ridf
+        - ridf79/alpha/CAT1_tpcpulser9147.ridf
+        - ridf79/alpha/CAT1_tpcpulser9148.ridf
+        - ridf79/alpha/CAT1_tpcpulser9151.ridf
+        - ridf79/alpha/CAT1_tpcpulser9152.ridf
+        - ridf79/alpha/CAT1_tpcpulser9153.ridf
+        - ridf79/alpha/CAT1_tpcpulser9154.ridf
+        - ridf79/alpha/CAT1_tpcpulser9155.ridf
+        - ridf79/alpha/CAT1_tpcpulser9156.ridf
+        - ridf79/alpha/CAT1_tpcpulser9157.ridf
+        - ridf79/alpha/CAT1_tpcpulser9158.ridf
+        - ridf79/alpha/CAT1_tpcpulser9161.ridf
+        - ridf79/alpha/CAT1_tpcpulser9162.ridf
+        - ridf79/alpha/CAT1_tpcpulser9163.ridf
+        - ridf79/alpha/CAT1_tpcpulser9164.ridf
+        - ridf79/alpha/CAT1_tpcpulser9165.ridf
+        - ridf79/alpha/CAT1_tpcpulser9166.ridf
+        - ridf79/alpha/CAT1_tpcpulser9167.ridf
+        - ridf79/alpha/CAT1_tpcpulser9168.ridf
+        - ridf79/alpha/CAT1_tpcpulser9171.ridf
+        - ridf79/alpha/CAT1_tpcpulser9172.ridf
+        - ridf79/alpha/CAT1_tpcpulser9173.ridf
+        - ridf79/alpha/CAT1_tpcpulser9174.ridf
+        - ridf79/alpha/CAT1_tpcpulser9175.ridf
+        - ridf79/alpha/CAT1_tpcpulser9176.ridf
+        - ridf79/alpha/CAT1_tpcpulser9177.ridf
+        - ridf79/alpha/CAT1_tpcpulser9178.ridf
+        
+  - name: ridfevent2
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      SegmentedData: segdata2
+      InputFiles:
+#        - *ridf2
+        - ridf79/alpha/CAT2_tpcpulser9001.ridf
+        - ridf79/alpha/CAT2_tpcpulser9002.ridf
+        - ridf79/alpha/CAT2_tpcpulser9003.ridf
+        - ridf79/alpha/CAT2_tpcpulser9004.ridf
+        - ridf79/alpha/CAT2_tpcpulser9005.ridf
+        - ridf79/alpha/CAT2_tpcpulser9006.ridf
+        - ridf79/alpha/CAT2_tpcpulser9007.ridf
+        - ridf79/alpha/CAT2_tpcpulser9008.ridf
+        - ridf79/alpha/CAT2_tpcpulser9011.ridf
+        - ridf79/alpha/CAT2_tpcpulser9012.ridf
+        - ridf79/alpha/CAT2_tpcpulser9013.ridf
+        - ridf79/alpha/CAT2_tpcpulser9014.ridf
+        - ridf79/alpha/CAT2_tpcpulser9015.ridf
+        - ridf79/alpha/CAT2_tpcpulser9016.ridf
+        - ridf79/alpha/CAT2_tpcpulser9017.ridf
+        - ridf79/alpha/CAT2_tpcpulser9018.ridf
+        - ridf79/alpha/CAT2_tpcpulser9021.ridf
+        - ridf79/alpha/CAT2_tpcpulser9022.ridf
+        - ridf79/alpha/CAT2_tpcpulser9023.ridf
+        - ridf79/alpha/CAT2_tpcpulser9024.ridf
+        - ridf79/alpha/CAT2_tpcpulser9025.ridf
+        - ridf79/alpha/CAT2_tpcpulser9026.ridf
+        - ridf79/alpha/CAT2_tpcpulser9027.ridf
+        - ridf79/alpha/CAT2_tpcpulser9028.ridf
+        - ridf79/alpha/CAT2_tpcpulser9031.ridf
+        - ridf79/alpha/CAT2_tpcpulser9032.ridf
+        - ridf79/alpha/CAT2_tpcpulser9033.ridf
+        - ridf79/alpha/CAT2_tpcpulser9034.ridf
+        - ridf79/alpha/CAT2_tpcpulser9035.ridf
+        - ridf79/alpha/CAT2_tpcpulser9036.ridf
+        - ridf79/alpha/CAT2_tpcpulser9037.ridf
+        - ridf79/alpha/CAT2_tpcpulser9038.ridf
+        - ridf79/alpha/CAT2_tpcpulser9031.ridf
+        - ridf79/alpha/CAT2_tpcpulser9032.ridf
+        - ridf79/alpha/CAT2_tpcpulser9033.ridf
+        - ridf79/alpha/CAT2_tpcpulser9034.ridf
+        - ridf79/alpha/CAT2_tpcpulser9035.ridf
+        - ridf79/alpha/CAT2_tpcpulser9036.ridf
+        - ridf79/alpha/CAT2_tpcpulser9037.ridf
+        - ridf79/alpha/CAT2_tpcpulser9038.ridf
+        - ridf79/alpha/CAT2_tpcpulser9041.ridf
+        - ridf79/alpha/CAT2_tpcpulser9042.ridf
+        - ridf79/alpha/CAT2_tpcpulser9043.ridf
+        - ridf79/alpha/CAT2_tpcpulser9044.ridf
+        - ridf79/alpha/CAT2_tpcpulser9045.ridf
+        - ridf79/alpha/CAT2_tpcpulser9046.ridf
+        - ridf79/alpha/CAT2_tpcpulser9047.ridf
+        - ridf79/alpha/CAT2_tpcpulser9048.ridf
+        - ridf79/alpha/CAT2_tpcpulser9051.ridf
+        - ridf79/alpha/CAT2_tpcpulser9052.ridf
+        - ridf79/alpha/CAT2_tpcpulser9053.ridf
+        - ridf79/alpha/CAT2_tpcpulser9054.ridf
+        - ridf79/alpha/CAT2_tpcpulser9055.ridf
+        - ridf79/alpha/CAT2_tpcpulser9056.ridf
+        - ridf79/alpha/CAT2_tpcpulser9057.ridf
+        - ridf79/alpha/CAT2_tpcpulser9058.ridf
+        - ridf79/alpha/CAT2_tpcpulser9061.ridf
+        - ridf79/alpha/CAT2_tpcpulser9062.ridf
+        - ridf79/alpha/CAT2_tpcpulser9063.ridf
+        - ridf79/alpha/CAT2_tpcpulser9064.ridf
+        - ridf79/alpha/CAT2_tpcpulser9065.ridf
+        - ridf79/alpha/CAT2_tpcpulser9066.ridf
+        - ridf79/alpha/CAT2_tpcpulser9067.ridf
+        - ridf79/alpha/CAT2_tpcpulser9068.ridf
+        - ridf79/alpha/CAT2_tpcpulser9081.ridf
+        - ridf79/alpha/CAT2_tpcpulser9082.ridf
+        - ridf79/alpha/CAT2_tpcpulser9083.ridf
+        - ridf79/alpha/CAT2_tpcpulser9084.ridf
+        - ridf79/alpha/CAT2_tpcpulser9085.ridf
+        - ridf79/alpha/CAT2_tpcpulser9086.ridf
+        - ridf79/alpha/CAT2_tpcpulser9087.ridf
+        - ridf79/alpha/CAT2_tpcpulser9088.ridf
+        - ridf79/alpha/CAT2_tpcpulser9091.ridf
+        - ridf79/alpha/CAT2_tpcpulser9092.ridf
+        - ridf79/alpha/CAT2_tpcpulser9093.ridf
+        - ridf79/alpha/CAT2_tpcpulser9094.ridf
+        - ridf79/alpha/CAT2_tpcpulser9095.ridf
+        - ridf79/alpha/CAT2_tpcpulser9096.ridf
+        - ridf79/alpha/CAT2_tpcpulser9097.ridf
+        - ridf79/alpha/CAT2_tpcpulser9098.ridf
+        - ridf79/alpha/CAT2_tpcpulser9101.ridf
+        - ridf79/alpha/CAT2_tpcpulser9102.ridf
+        - ridf79/alpha/CAT2_tpcpulser9103.ridf
+        - ridf79/alpha/CAT2_tpcpulser9104.ridf
+        - ridf79/alpha/CAT2_tpcpulser9105.ridf
+        - ridf79/alpha/CAT2_tpcpulser9106.ridf
+        - ridf79/alpha/CAT2_tpcpulser9107.ridf
+        - ridf79/alpha/CAT2_tpcpulser9108.ridf
+        - ridf79/alpha/CAT2_tpcpulser9111.ridf
+        - ridf79/alpha/CAT2_tpcpulser9112.ridf
+        - ridf79/alpha/CAT2_tpcpulser9113.ridf
+        - ridf79/alpha/CAT2_tpcpulser9114.ridf
+        - ridf79/alpha/CAT2_tpcpulser9115.ridf
+        - ridf79/alpha/CAT2_tpcpulser9116.ridf
+        - ridf79/alpha/CAT2_tpcpulser9117.ridf
+        - ridf79/alpha/CAT2_tpcpulser9118.ridf
+        - ridf79/alpha/CAT2_tpcpulser9121.ridf
+        - ridf79/alpha/CAT2_tpcpulser9122.ridf
+        - ridf79/alpha/CAT2_tpcpulser9123.ridf
+        - ridf79/alpha/CAT2_tpcpulser9124.ridf
+        - ridf79/alpha/CAT2_tpcpulser9125.ridf
+        - ridf79/alpha/CAT2_tpcpulser9126.ridf
+        - ridf79/alpha/CAT2_tpcpulser9127.ridf
+        - ridf79/alpha/CAT2_tpcpulser9128.ridf
+        - ridf79/alpha/CAT2_tpcpulser9131.ridf
+        - ridf79/alpha/CAT2_tpcpulser9132.ridf
+        - ridf79/alpha/CAT2_tpcpulser9133.ridf
+        - ridf79/alpha/CAT2_tpcpulser9134.ridf
+        - ridf79/alpha/CAT2_tpcpulser9135.ridf
+        - ridf79/alpha/CAT2_tpcpulser9136.ridf
+        - ridf79/alpha/CAT2_tpcpulser9137.ridf
+        - ridf79/alpha/CAT2_tpcpulser9138.ridf
+        - ridf79/alpha/CAT2_tpcpulser9141.ridf
+        - ridf79/alpha/CAT2_tpcpulser9142.ridf
+        - ridf79/alpha/CAT2_tpcpulser9143.ridf
+        - ridf79/alpha/CAT2_tpcpulser9144.ridf
+        - ridf79/alpha/CAT2_tpcpulser9145.ridf
+        - ridf79/alpha/CAT2_tpcpulser9146.ridf
+        - ridf79/alpha/CAT2_tpcpulser9147.ridf
+        - ridf79/alpha/CAT2_tpcpulser9148.ridf
+        - ridf79/alpha/CAT2_tpcpulser9151.ridf
+        - ridf79/alpha/CAT2_tpcpulser9152.ridf
+        - ridf79/alpha/CAT2_tpcpulser9153.ridf
+        - ridf79/alpha/CAT2_tpcpulser9154.ridf
+        - ridf79/alpha/CAT2_tpcpulser9155.ridf
+        - ridf79/alpha/CAT2_tpcpulser9156.ridf
+        - ridf79/alpha/CAT2_tpcpulser9157.ridf
+        - ridf79/alpha/CAT2_tpcpulser9158.ridf
+        - ridf79/alpha/CAT2_tpcpulser9161.ridf
+        - ridf79/alpha/CAT2_tpcpulser9162.ridf
+        - ridf79/alpha/CAT2_tpcpulser9163.ridf
+        - ridf79/alpha/CAT2_tpcpulser9164.ridf
+        - ridf79/alpha/CAT2_tpcpulser9165.ridf
+        - ridf79/alpha/CAT2_tpcpulser9166.ridf
+        - ridf79/alpha/CAT2_tpcpulser9167.ridf
+        - ridf79/alpha/CAT2_tpcpulser9168.ridf
+        - ridf79/alpha/CAT2_tpcpulser9171.ridf
+        - ridf79/alpha/CAT2_tpcpulser9172.ridf
+        - ridf79/alpha/CAT2_tpcpulser9173.ridf
+        - ridf79/alpha/CAT2_tpcpulser9174.ridf
+        - ridf79/alpha/CAT2_tpcpulser9175.ridf
+        - ridf79/alpha/CAT2_tpcpulser9176.ridf
+        - ridf79/alpha/CAT2_tpcpulser9177.ridf
+        - ridf79/alpha/CAT2_tpcpulser9178.ridf
+  - name: pad
+    type: art::TCatReadoutPadConditionProcessor
+    parameter:
+      Type: 2
+  - name: timer
+    type: art::TTimerProcessor
+  - name: map
+    type: art::TMappingProcessor
+    parameter:
+      InputCollection: [segdata, segdata2]
+      OutputTransparency:  1
+      MapConfig: mapper.conf
+  - name: catmapping
+    type: art::TCatAtMappingProcessor
+    parameter:
+      CatID: 51
+      OutputCollection: at
+      OutputTransparency: 0
+  - name: pulsebitcor
+    type: art::TCatPulseBitCorrectionProcessor
+    parameter:
+      InputCollection: at
+  - name: catsub
+    type: art::TCatAtPedestalSubtractionProcessor
+    parameter:
+      InputCollection: at
+      OutputCollection: atsub
+      OutputTransparency: 0
+#  - name: atpolezero
+#    type: art::TPulseUnfoldHighPassProcessor
+#    parameter:
+#      InputCollection: atsub
+#      TimeConstant: 300
+#  - name: atpolezero
+#    type: art::TPulseUnfoldHighPassProcessor
+#    parameter:
+#      InputCollection: atsub
+#      TimeConstant: 0
+#  - name: samplecalib
+#    type: art::TSampleCalibratorProcessor
+#    parameter:
+#      InputCollection: atsub
+#      ADCConverterArrayName: samplecalibADC
+  - name: atpulsefinder
+    type: art::TPulseFinder
+    parameter:
+      InputCollection: atsub
+      RisingThreshold: 0.3
+      FallingThreshold: 1.
+      PrePulse: 30.
+      PostPulse: 15
+      SavePulse: 1
+      Sparse: 0
+      OutputTransparency: 0
+  - name: projectionloader
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/cat/pulser.hist.yaml
+      Name: projection
+      OutputTransparency: 1
+      Type: art::TTreeProjection
+      Verbose: 1
+      
+#  - name: gaincheck
+#    type: art::TCatGainEvaluationProcessor
+#  - name: hitfinder
+#    type: art::THitFinder
+#    parameter:
+#      InputCollection: atpulse
+#      OutputCollection: athit
+#      AcceptableOffsetDifference: 20
+#  - name: histpattern
+#    type: art::TCatAtHitPatternProcessor
+#    parameter:
+#      InputCollection: atpulse
+#      WaitTime: 200000
+#  - name: pattern2
+#    type: art::TCatAtHitPatternProcessor
+#    parameter:
+#      InputCollection: at
+#      WaitTime: 500000
+#  - name: projectionloader
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: steering/cathist.yaml
+#      Name: projection
+#      OutputTransparency: 1
+#      Type: art::TTreeProjection
+#      Verbose: 1
+#  - name: pattern0
+#    type: art::TCatAtHitPatternProcessor
+#    parameter:
+#      InputCollection: atpulse
+##      WaitTime: 500000
+#      WaitTime: 1
+#  - name: pattern1
+#    type: art::TCatAtHitPatternProcessor
+#    parameter:
+#      InputCollection: atpulse
+#      WaitTime: 1
+#  - name: pattern2
+#    type: art::TCatAtHitPatternProcessor
+#    parameter:
+#      InputCollection: atroughrecoil
+#      WaitTime: 500000
+    
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: *rootout

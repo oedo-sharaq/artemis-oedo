@@ -1,0 +1,126 @@
+Processor:
+  - name: pad
+    type: art::TCatReadoutPadConditionProcessor
+    parameter:
+      Type: 11
+  - name: proc:rangetable
+    type: art::TRangeTableConditionProcessor
+    parameter:
+      RangeTableFile: data/ProtonHydrogen/ProtonHydrogen025.txt.out
+      RangeTable: rangeTable
+      RangeStep: 0.01
+# ======================================================================
+  - name: get
+    type: art::TGetEventStore
+    parameter:
+#      InputFiles: /data00/narval/cobo00/run_0172.dat.17-12-17_18h51m31s
+      InputFiles: /data00/narval/cobo00/run_0242.dat
+#      InputFiles: /data00/narval/cobo10/run_0229.dat.22-12-17_16h44m41s # silicon
+#      InputFiles: /data00/narval/cobo10/run_0230.dat.22-12-17_17h14m22s
+      OutputTransparency: 1
+  - name: get
+    type: art::TGetEventStore
+    parameter:
+#      InputFiles: /data00/narval/cobo00/run_0172.dat.17-12-17_18h51m31s
+      InputFiles: /data00/narval/cobo10/run_0242.dat
+      EventHeaderName: eventheader2
+      SegmentedData: segdata2
+      OutputTransparency: 1
+  - name: get
+    type: art::TGetEventStore
+    parameter:
+#      InputFiles: /data00/narval/cobo00/run_0172.dat.17-12-17_18h51m31s
+      InputFiles: /data00/narval/cobo02/run_0242.dat
+      EventHeaderName: eventheader3
+      SegmentedData: segdata3
+      OutputTransparency: 1
+  - name: get
+    type: art::TGetEventStore
+    parameter:
+#      InputFiles: /data00/narval/cobo00/run_0172.dat.17-12-17_18h51m31s
+      InputFiles: /data00/narval/cobo03/run_0242.dat
+      EventHeaderName: eventheader4
+      SegmentedData: segdata4
+      OutputTransparency: 1
+  - name: categorized
+    type: art::TMappingProcessor
+    parameter:
+#      InputCollection: [segdata,segdata2,segdata3,segdata4]
+      InputCollection: [segdata,segdata2,segdata3,segdata4]
+#      InputCollection: [segdata]
+      OutputTransparency: 1
+      MapConfig: mapper.conf
+  - name: cat:mapping
+    type: art::TCatAtMappingProcessor
+    parameter:
+      CatID: 51
+      OutputCollection: at
+      MaxDetID: 4048
+#  - name: cat:mapping2
+#    type: art::TCatAtMappingProcessor
+#    parameter:
+#      CatID: 52
+#      OutputCollection: atsi
+#      MaxDetID: 96
+  - name: catsub
+    type: art::TCatAtPedestalSubtractionProcessor
+    parameter:
+      InputCollection: at
+      OutputCollection: atsub
+      OutputTransparency: 0
+  - name: atpulsefinder
+    type: art::TPulseFinder
+    parameter:
+      InputCollection: atsub
+      RisingThreshold: 40
+      FallingThreshold: 40.
+      ClockPeriod: 40
+      PrePulse: 10.
+      PostPulse: 10.
+      SavePulse: 1
+#      Sparse: 0
+      OutputTransparency: 0
+
+  - name: MyTCatTpcHitClusterProcessor
+    type: art::TCatTpcHitClusterProcessor
+    parameter:
+      BeamRegionID: [0, 0]  # [IntVec_t] beam region id [start,end]
+      ClusterRadius: [10., 21]  # [vector<Double_t>] radius of cluster
+      InputCollection: atpulse  # [TString] input pulse collection (for a specific region)
+      IsSingle: 1  # [Bool_t] select maximum size cluster if 1 (default: 0)
+      MinClusterSize: 10  # [Double_t] required minimum cluster size 
+      MinHeight: 0  # [Double_t] minimum pulse height
+      OutputCollection: atcluster  # [TString] output pulse collection as a candidate of recoil track
+      OutputTransparency: 0  # [Bool_t] Output is persistent if false (default)
+      PulseLengthRange: [0, 200]  # [vector<Double_t>] range of pulse length [start,end]. ([0,100])
+      ReadoutPad: readoutPad  # [TString] Name of readout pad array
+      ReadoutPadType: 11  # [Int_t] select readout pad type 2 if 2 (default: 2)
+      SelectIf: 0  # [Int_t] select all if 0, recoil if 1 and beam if 2. The id region is indicated by BeamRegionID
+      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
+
+#  - name: gate_array_init
+#    type: art::TGateArrayInitializer
+#  - name: coin_cat
+#    type: art::TTreeFormulaGateProcessor
+#    parameter:
+#      Definitions:
+#        - "has_hits; atpulse@.GetEntriesFast() > 10"
+#  - name: stop_coin
+#    type: art::TGateStopProcessor
+#    parameter:
+#      GateName: "has_hits"
+#  - name: cat:hitpattern
+#    type: art::TCatAtHitPatternProcessor
+#    parameter:
+#    parameter:
+#      InputCollection: atpulse
+#      WaitTime: 200000
+#      WidthDX: 160
+#9      WidthDY: 160
+      
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: output.root
+  - name: timer
+    type: art::TTimerProcessor

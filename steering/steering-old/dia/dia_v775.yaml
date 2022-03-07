@@ -1,0 +1,32 @@
+Processor:
+  - name: load_dia_ch2ns_v775
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_dia_ch2ns_v775
+      Type:     art::TAffineConverter
+      FileName: prm/dia/ch2ns_v775.dat
+
+  - name: timecharge_v775
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:             113
+      TimingTypeID:       0
+      TrailingComesFirst: 0
+      OutputCollection:   dia_pad_traw_v775
+      Sparse:             0
+      OutputTransparency: 0
+      VerboseLevel: 0
+
+
+  - name: proc_dia_tcalib_v775
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      dia_pad_traw_v775
+      OutputCollection:     dia_pad_tcal_v775
+      TimingConverterArray: prm_dia_ch2ns_v775
+#      ChargeConverterArray: prm_dia_ch2ns
+      OutputTransparency:   0
+
+
+
+

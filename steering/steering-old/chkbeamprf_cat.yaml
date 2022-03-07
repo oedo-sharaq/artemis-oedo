@@ -1,0 +1,173 @@
+Anchor:
+  - &logfilepath  "log"
+  - &figfilepath  "figs/cat"
+  - &figfilepath2 "figs/cat/UntilPulseFinder"
+#  - &ridf1 ridf/phys/CAT1_phys0191.ridf
+#  - &ridf2 ridf/phys/CAT2_phys0191.ridf
+#  - &ridf1 ridf/beam/CAT1_beam0103.ridf
+#  - &ridf2 ridf/beam/CAT2_beam0103.ridf
+#  - &ridf0 ridf/beam/BLD_beam0257.ridf
+#  - &ridf1 ridf/beam/CAT1_beam0257.ridf
+#  - &ridf2 ridf/beam/CAT2_beam0257.ridf
+  - &ridf0 ridf/phys/BLD_phys0391.ridf
+  - &ridf1 ridf/phys/CAT1_phys0391.ridf
+  - &ridf2 ridf/phys/CAT2_phys0391.ridf
+  - &rootout last.root
+
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+        - *ridf0
+#         - ridf/beam/BLD_beam0076.ridf
+#         - ridf/beam/BLD_beam0077.ridf
+#         - ridf/beam/BLD_beam0082.ridf
+#         - ridf/beam/BLD_beam0085.ridf
+#         - ridf/phys/BLD_phys0244.ridf
+#         - ridf/beam/BLD_beam0179.ridf         # low intensity
+#         - ridf/beam/BLD_beam0181.ridf         # high intensity
+#         - ridf/beam/BLD_beam0238.ridf         # before high intensity f3 trigger
+#         - ridf/beam/BLD_beam0254.ridf         # after beam comes w/ steerer tuning
+#         - ridf/beam/BLD_beam0256.ridf         # same setting just after RF rebalance (04/15 00:00)
+#         - ridf/beam/BLD_beam0257.ridf         # F7 trigger
+#         - ridf/phys/BLD_phys0267.ridf         # 
+#         - ridf/phys/BLD_phys0253.ridf         # high intensity
+#         - ridf/beam/BLD_beam0079.ridf
+#         - ridf/beam/BLD_beam0062.ridf
+#         - ridf/beam/BLD_beam0088.ridf # F3 trig.
+#         - ridf/beam/BLD_beam0089.ridf # F3 trig.
+#         - ridf/beam/BLD_beam0090.ridf # F3 trig.
+#         - ridf/beam/BLD_beam0114.ridf # high rate
+#         - ridf/beam/BLD_beam0124.ridf # high rate
+#         - ridf/beam/BLD_beam0132.ridf # high rate
+  - name: ridfevent
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      SegmentedData: segdata2
+      InputFiles:
+        - *ridf1
+  - name: ridfevent2
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      SegmentedData: segdata3
+      InputFiles:
+        - *ridf2
+  - name: pad
+    type: art::TCatReadoutPadConditionProcessor
+    parameter:
+      Type: 2
+  - name: map
+    type: art::TMappingProcessor
+    parameter:
+      InputCollection: [segdata, segdata2,segdata3]
+      OutputTransparency:  1
+      MapConfig: mapper.conf
+
+  - include: chkcoin.yaml
+  - include: chksca.yaml
+
+  - name: proc_gateinit
+    type: art::TGateArrayInitializer
+
+  - include: bld/v1190_tref.yaml
+  - include: v1290_tref.yaml
+  - include: dia/dia.yaml
+  - include: bld/v1190_tref_ppac.yaml
+  - include: bld/ppac/ppac.yaml
+#  - include: spla.yaml
+#  - include: tref.yaml
+#  - include: tof.yaml
+#  - include: si.yaml
+#  - include: pid_gate.yaml
+
+#  - name: proc_stop
+#    type: art::TOutputTreeProcessor
+#    parameter:
+#      gate: 54Sc
+
+  - include: bld/mwdc/dc31.yaml
+  - include: bld/mwdc/dc32.yaml
+  - include: bld/mwdc/dc51.yaml
+  - include: bld/mwdc/dc52.yaml
+
+
+  - include: bld/mwdc/dc71.yaml
+  - include: bld/mwdc/dc72.yaml
+  - include: bld/mwdc/F3.yaml
+  - include: bld/mwdc/F5.yaml
+  - include: bld/mwdc/F7.yaml
+#  - include: bld/mwdc/dc51_calib.yaml
+#  - include: bld/mwdc/dc52_calib.yaml
+#  - include: bld/mwdc/F7.yaml
+#  - include: mwdc/chkall.yaml
+#  - include: mwdc/caliball.yaml
+
+  - name: catmapping
+    type: art::TCatAtMappingProcessor
+    parameter:
+      CatID: 51
+      OutputCollection: at
+      OutputTransparency: 0
+  - name: catsub
+    type: art::TCatAtPedestalSubtractionProcessor
+    parameter:
+      InputCollection: at
+      OutputCollection: atsub
+      OutputTransparency: 0
+  - name: atpulsefinder
+    type: art::TPulseFinder
+    parameter:
+      InputCollection: atsub
+      RisingThreshold: 30
+      FallingThreshold: 3
+      PrePulse: 30.
+      PostPulse: 15
+      SavePulse: 1
+      Sparse: 0
+      OutputTransparency: 0
+#  - name: pattern1
+#    type: art::TCatAtHitPatternProcessor
+#    parameter:
+#      InputCollection: atpulse
+#      WaitTime: 1000000
+#  - name: pulsebitcor
+#    type: art::TCatPulseBitCorrectionProcessor
+#    parameter:
+#      InputCollection: at
+#  - name: catsub
+#    type: art::TCatAtPedestalSubtractionProcessor
+#    parameter:
+#      InputCollection: at
+#      OutputCollection: atsub
+#      OutputTransparency: 0
+
+#  - name: at
+#    type: art::TTreeFormulaGateProcessor
+#    parameter:
+#      Definitions:
+#        - "atmulti; at@.GetEntriesFast() < 10"
+#  - name: stop_coin
+#    type: art::TGateStopProcessor
+#    parameter:
+#      GateName: atmulti
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type:     art::TTreeProjection
+##      FileName: hist/bld/mwdc/chkeff_f7.yaml
+      FileName: hist/bld/pid.yaml
+##      FileName: hist/bld/mwdc/dc71.yaml
+
+  - name: timer
+    type: art::TTimerProcessor
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: temp.root

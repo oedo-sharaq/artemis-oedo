@@ -1,0 +1,68 @@
+# @file chkdlppac.tmpl.yaml
+# @brief check delayline ppacs
+# 
+# @date Create        : 2020-11-21 11:22:17 JST (ota)
+#       Last Modified : 2020-11-22 05:25:06 JST (ota)
+# @author:  <ota@cns.s.u-tokyo.ac.jp>
+Processor:
+  - name: proc:ppac:ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm:ppac:ch2ns
+      Type: art::TAffineConverter
+      FileName: prm/dlppac/ch2ns.prm
+
+  - name: proc:ppac:param
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm:ppac
+      Type: art::TPPACParameter
+      FileName: prm/dlppac/dlppac.prm.yaml
+      FileFormat: yaml
+      OutputTransparency: 1
+
+  - name: proc:ppac
+    type: art::TPPACProcessor
+    parameter:
+      CatID: 1
+#      TimingConverterArray: prm:ppac:ch2ns
+      HasEachChConverter: 1
+      DoSeparatePPACs: 1
+      OutputTransparency: 0
+      ListOfPPACNames:
+        - f1ppac1
+        - f1ppac2
+        - f2ppac1
+        - f2ppac2
+        - f3ppac1a
+        - f3ppac1b
+        - f3ppac2a
+        - f3ppac2b
+        - f4ppac
+        - f5ppac1a
+        - f5ppac1b
+        - f5ppac2a
+        - f5ppac2b
+        - f6ppac
+
+  - name: prc:ppactrack:f3
+    type: art::TPPACTrackingProcessor
+    parameter:
+      InputColName:
+        - f3ppac1a
+        - f3ppac1b
+        - f3ppac2a
+        - f3ppac2b
+      OutputColName:
+        - f3track
+
+  - name: prc:ppactrack:f5
+    type: art::TPPACTrackingProcessor
+    parameter:
+      InputColName:
+        - f5ppac1a
+        - f5ppac1b
+        - f5ppac2a
+        - f5ppac2b
+      OutputColName:
+        - f5track

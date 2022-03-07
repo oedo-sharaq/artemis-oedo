@@ -1,0 +1,257 @@
+Anchor:
+  - &logfilepath  "log"
+  - &figfilepath  "figs/cat"
+  - &figfilepath2 "figs/cat/UntilPulseFinder"
+
+Processor:
+#======================================================================
+# parameters
+  - name: pad
+    type: art::TCatReadoutPadConditionProcessor
+    parameter:
+      Type: 2
+      Bads: [43, 142, 167, 168, 176, 181, 207, 367, 372, 375, 380, 390, 393]
+      LowGains: [0, 6, 13, 20, 27, 32, 39, 40, 52, 65, 78, 91, 92, 104, 117, 130, 156, 300.]
+  - name: gaindrift
+    type: art::TAffineConverterConditionProcessor
+    parameter:
+      ParameterList: [drift, gaincorrection.dat]
+  - name: samplecalibgen
+    type: art::TAffineConverterArrayGenerator
+    parameter:
+#      ParameterList: [ch2fc, prm/cat/adccalib.dat]
+      ParameterList: [ch2fc, prm/cat/ch2fc.pulser-mod.dat]
+  - name: enecalibgen
+    type: art::TAffineConverterArrayGenerator
+    parameter:
+#      ParameterList: [ch2fc, prm/cat/adccalib.dat]
+      ParameterList: [fc2MeV, prm/cat/fc2MeV.uniform.dat]
+  - name: enecalibcorgen
+    type: art::TAffineConverterArrayGenerator
+    parameter:
+#      ParameterList: [ch2fc, prm/cat/adccalib.dat]
+      ParameterList: [MeVcor, prm/cat/MeVcor.uniform.dat]
+  - name: enecalibcorgen
+    type: art::TAffineConverterArrayGenerator
+    parameter:
+#      ParameterList: [ch2fc, prm/cat/adccalib.dat]
+      ParameterList: [MeVcor2, prm/cat/MeVcor.pad.dat]
+  - name: enecalibcorgen2
+    type: art::TAffineConverterArrayGenerator
+    parameter:
+#      ParameterList: [ch2fc, prm/cat/adccalib.dat]
+      ParameterList:
+        - [MeVcor3, prm/cat/MeVcor.pad.it2.dat]
+        - [MeVcor4, prm/cat/MeVcor.pad.it3.dat]
+  - name: calib2
+    type: art::TAffineConverterArrayGenerator
+    parameter:
+#      ParameterList: [ch2fc, prm/cat/adccalib.dat]
+      ParameterList: [ch2keV_cor, prm/cat/ch2keV_cor.alpha.prm]
+  - name: proc:rangetable
+    type: art::TRangeTableConditionProcessor
+    parameter:
+      RangeTableFile: data/HeliumDeuterium/HeliumDeuterium064.txt.out
+#      RangeTableFile: data/HeliumDeuterium/HeliumDeuterium060.txt.out
+      RangeTable: rangeTableAD
+      
+#======================================================================
+# event loop
+  - name: catmapping
+    type: art::TCatAtMappingProcessor
+    parameter:
+      CatID: 51
+      OutputCollection: at
+      OutputTransparency: 0
+      SelectIf: 0
+      BeamRegion: [-10,10]
+  - name: catsub
+    type: art::TCatAtPedestalSubtractionProcessor
+    parameter:
+      InputCollection: at
+      OutputCollection: atsub
+      OutputTransparency: 1      
+  - name: atpulsefinder
+    type: art::TPulseFinder
+    parameter:
+      InputCollection: atsub
+      RisingThreshold: 1.
+      FallingThreshold: 0.5
+      PrePulse: 30.
+      PostPulse: 15
+      SavePulse: 1
+      Sparse: 0
+      OutputTransparency: 0
+  - name: calib:drift
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: atpulse
+      OutputCollection: atpulse_drift
+      ChargeConverterArray: drift
+
+  - name: calib:ch2fc
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: atpulse_drift
+      OutputCollection: atpulse_fc
+      ChargeConverterArray: ch2fc
+  - name: calib:fc2MeV
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: atpulse_fc
+      OutputCollection: atpulse_MeV
+      ChargeConverterArray: fc2MeV
+      InputIsDigital: 0
+  - name: calib:MeVcor0
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: atpulse_MeV
+      OutputCollection: atpulse_MeV2
+      ChargeConverterArray: MeVcor
+      InputIsDigital: 0
+  - name: calib:MeVcor1
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: atpulse_MeV2
+      OutputCollection: atpulse_MeV3
+      ChargeConverterArray: MeVcor2
+      InputIsDigital: 0
+  - name: calib:MeVcor2
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: atpulse_MeV3
+      OutputCollection: atpulse_MeV4
+      ChargeConverterArray: MeVcor3
+      InputIsDigital: 0
+  - name: calib:MeVcor3
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: atpulse_MeV4
+      OutputCollection: atpulse_MeV5
+      ChargeConverterArray: MeVcor4
+      InputIsDigital: 0
+  - name: atRecoilCandidateSelector
+    type: art::TCatTPCRecoilCandidateSelectProcessor
+    parameter:
+      InputCollection: atpulse_MeV5
+#      InputCollection: athit
+      OutputCollection: atrcorg
+      ClusterRadius: [10., 21]
+      BeamRegion: [-10.,10]
+
+  - name: trueevent
+    type: art::TTreeFormulaGateProcessor
+    parameter:
+      Definitions:
+        - "true; atrcorg@.GetEntriesFast() > 10"
+  - name: stop_trueevent
+    type: art::TGateStopProcessor
+    parameter:
+      GateName: "true"
+  - name: trackWithDiffusedCharge
+    type: art::TCatTrackingWithDiffusedChargeProcessor
+    parameter:
+      InputCollection: atrcorg
+#      RangeTableFile: data/DeuteronInDeuterium0.4atm.txt.out
+#      RangeTableFile: data/HeliumDeuterium/HeliumDeuterium064.txt.out
+      RangeTable: rangeTableAD
+#      FieldCageOffset: -60.
+      FieldCageOffset: -45.5
+      FileNameResponseTable: data/test.root      
+      ResponseTableFileName: data/test.root
+      FixedOrigin: 253
+      InitialRange: 490
+      IndependentVariable: 2
+      DefaultIntegrateStep: 0.1
+      DiffusionCoefficient: 0.04
+      OutputCollection: track3
+      MeshDim: [1,20,20]
+      DoMeshSearch: 1
+#  - name: trackWithDiffusedCharge
+#    type: art::TCatTrackingWithDiffusedChargeProcessor
+#    parameter:
+#      InputCollection: atrcorg
+##      RangeTableFile: data/DeuteronInDeuterium0.4atm.txt.out
+#      RangeTableFile: data/ProtonDeuterium/ProtonDeuterium064.txt.out
+##      FieldCageOffset: -60.
+#      FieldCageOffset: -45.5
+#      FileNameResponseTable: data/test.root
+#      OutputCollection: track4
+#  - name: missingmass
+#    type: art::TCatMissingMassProcessor
+#    parameter:
+#      RecoilInput: track3
+#      RangeTableFile: data/DeuteronDeuterium/DeuteronDeuterium064.txt.out      
+#      Ex: Ex3
+#      ThetaCM: ThetaCM3
+#  - name: missingmass
+#    type: art::TCatMissingMassProcessor
+#    parameter:
+#      RecoilInput: track4
+#      RangeTableFile: data/ProtonDeuterium/ProtonDeuterium064.txt.out      
+#      Ex: Ex4
+#      ThetaCM: ThetaCM4
+#      RecoilOutput: recoilMom4
+#
+---
+  - name: displayTrack
+    type: art::TCatTrackResultDisplayProcessor
+    parameter:
+      DisplayMode: 1
+      InputCollection: ["track3"]
+      WaitTime: 1000000
+---      
+  - name: atCentroidTrackingProcessor
+    type: art::TCatCentroidTrackingProcessor
+    parameter:
+      InputCollection: atrcorg
+      RangeTableFile: data/DeuteronInDeuterium0.4atm.txt.out
+      RangeTableFormat: "%lg %*lg %*lg %lg %*lg %*lg"
+      DisplayMode: 0
+      DirNameFmt: figs/%s/20160721/stopintpc_1
+      EndPoint: endPoint2
+      StartPoint: startPoint2
+      FirstPadPos: firstPadPos2
+      LastPadPos: lastPadPos2
+      OutputHits: reshits2
+      OutputCollection: track2
+      OutputDEDX: dedx2
+      Ex: Ex2
+      ThetaCM: ThetaCM2
+      OutputTransparency: 0
+      WaitTime: 1000000
+      
+---
+  - name: track
+    type: art::TCatTrackingProcessor
+    parameter:
+      InputCollection: atrcorg
+#      InputCollection: atroughrecoil
+      RangeTableFile: data/DeuteronInDeuterium0.4atm.txt.out
+      RangeTableFormat: "%lg %*lg %*lg %lg %*lg %*lg"
+#      GlobalEnergyCorrection: 0.000010416 # without ADC calibration
+#      GlobalEnergyCorrection: 0.0000770833 # = 37eV/(G=3000)/(1.6e-4)
+#      GlobalEnergyCorrection: 0.000154
+#      GlobalEnergyCorrection: 0.00020
+#      GlobalEnergyCorrection: 0.00025
+      DriftVelocity: 1.
+      GlobalEnergyCorrection: 1.
+      Attachment: 0.1
+      FieldCageOffset: -45.5
+      DrawFitResultFlag: 1
+      SaveFigFlag: 0
+      TableLookupFlag: 1
+      ChargeDistributionTable: data/test.root
+      WaitTimeForFitResult: 1000000
+#      GlobalEnergyCorrection: 0.000011248
+      EndPoint: endPoint3
+      StartPoint: startPoint3
+      FirstPadPos: firstPadPos3
+      LastPadPos: lastPadPos3
+      OutputHits: reshits3
+      OutputCollection: track3
+      Ex: Ex3
+      ThetaCM: ThetaCM3
+  
+    
+
