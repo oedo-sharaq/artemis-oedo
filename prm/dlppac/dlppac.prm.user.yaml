@@ -1,0 +1,69 @@
+Type: art::TPPACParameter
+Contents:
+  fe7ppac1:
+    ns2mm:
+    - 0.140
+    - 0.142
+    delayoffset:
+    - 0.92
+    - 1.58
+    linecalib:
+    - 0.0
+    - 1.0
+    exchange: 0
+    reflectx: 0
+    geometry:
+    - 0.0
+    - 0.0
+    - 182.8
+    TXSumLimit:
+    - -800.0
+    - 800.0
+    TYSumLimit:
+    - -800.0
+    - 800.0
+  fe7ppac2:
+    ns2mm:
+    - 1.257
+    - 1.257
+    delayoffset:
+    - 0.05
+    - 0.04
+    linecalib:
+    - 0.0
+    - 1.0
+    exchange: 0
+    reflectx: 0
+    geometry:
+    - 0.87
+    - 0.0
+    - 502.8
+    TXSumLimit:
+    - -800.0
+    - 800.0
+    TYSumLimit:
+    - -800.0
+    - 800.0
+  fe8ppac:
+    ns2mm:
+    - 1.226
+    - 1.221
+    delayoffset:
+    - 0.75
+    - 0.63
+    linecalib:
+    - 0.0
+    - 1.0
+    exchange: 0
+    reflectx: 0
+    geometry:
+    - 0.0
+    - 0.0
+    - -880.85
+    TXSumLimit:
+    - -800.0
+    - 800.0
+    TYSumLimit:
+    - -800.0
+    - 800.0
+

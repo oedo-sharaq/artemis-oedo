@@ -1,5 +1,5 @@
 Anchor:
- - &input ridf/@NAME@@NUM@.ridf
+ - &input ridf_prep/@NAME@@NUM@.ridf
  - &output output/@NAME@/@NUM@/chkdlppac@NAME@@NUM@.root
  - &histout output/@NAME@/@NUM@/chkdlppac@NAME@@NUM@.hist.root
 
@@ -19,21 +19,20 @@ Processor:
     parameter:
       OutputTransparency: 1
 
-#  - include: tref.yaml
-  - include: bld/ppac/ppac.yaml
+##  - include: tref.yaml
+  - include: bld/dlppac/dlppac.inc.yaml
 #  - include: bld/ppac/ppac.brips.yaml
-
-  - name: projection
-    type: art::TTreeProjectionProcessor
-    parameter:
-      FileName: hist/chkcorrelation.yaml
-      OutputFilename: *histout
-      Type:     art::TTreeProjection
-      Replace: |
-#        track: f3       #f3 mwdc 
-        track: f7track       #f7 ppac 
-#        track: f5       #f5 mwdc 
-         
+#  - include: bld/dlppac/ppac.yaml
+#
+##  - name: projection
+##    type: art::TTreeProjectionProcessor
+##    parameter:
+##      FileName: hist/chkcorrelation.yaml
+##      OutputFilename: *histout
+##      Type:     art::TTreeProjection
+##      Replace: |
+##        track: f7track       #f7 ppac 
+##         
   - name: outputtree
     type: art::TOutputTreeProcessor
     parameter:
