@@ -2,14 +2,14 @@ Type: art::TPPACParameter
 Contents:
   fe7ppac1:
     ns2mm:
-    - 0.140
-    - 0.142
+    - 1.240
+    - 1.242
     delayoffset:
     - 0.92
     - 1.58
     linecalib:
-    - 0.0
-    - 1.0
+    - 11.790
+    -  1.887
     exchange: 0
     reflectx: 0
     geometry:
@@ -30,8 +30,8 @@ Contents:
     - 0.05
     - 0.04
     linecalib:
-    - 0.0
-    - 1.0
+    - -6.8188
+    - 0.8266
     exchange: 0
     reflectx: 0
     geometry:
@@ -52,8 +52,8 @@ Contents:
     - 0.75
     - 0.63
     linecalib:
-    - 0.0
-    - 1.0
+    - 0.16100
+    - 0.72606
     exchange: 0
     reflectx: 0
     geometry:

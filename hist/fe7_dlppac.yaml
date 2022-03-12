@@ -1,0 +1,47 @@
+group:
+  - name: fe7
+    title: dlppac
+    contents:
+      - name: fe7ppac1_anode
+        title: PPAC1 Anode
+        x: ["fe7ppac1.fTAnode", 300, 11869.5, 11899.5]
+      - name: fe7ppac1_x1_x2
+        title: PPAC1 X1 Vs X2
+        x: ["fe7ppac1.fTX2",250,11799.5,11999.5]
+        y: ["fe7ppac1.fTX1",250,11799.5,11999.5]
+      - name: fe7ppac1_y1_y2
+        title: PPAC1 Y1 Vs Y2
+        x: ["fe7ppac1.fTY2",250,11799.5,11999.5]
+        y: ["fe7ppac1.fTY1",250,11799.5,11999.5]
+      - name: fe7ppac1_xdiff
+        title: PPAC1 XDiff
+        x: ["fe7ppac1.fTXDiff",500,-100.,100.]
+      - name: fe7ppac1_ydiff
+        title: PPAC1 YDiff
+        x: ["fe7ppac1.fTYDiff",500,-100.,100.]
+      - name: fe7ppac1_y_x
+        title: PPAC1 GetY Vs GetX
+        x: ["fe7ppac1.GetX()",500,-50.,50.]
+        y: ["fe7ppac1.GetY()",500,-50.,50.]
+     
+      - name: fe7ppac2_anode
+        title: PPAC2 Anode
+        x: ["fe7ppac2.fTAnode", 300, 11869.5, 11899.5]
+      - name: fe7ppac2_x1_x2
+        title: PPAC2 X1 Vs X2
+        x: ["fe7ppac2.fTX2",250,11799.5,11999.5]
+        y: ["fe7ppac2.fTX1",250,11799.5,11999.5]
+      - name: fe7ppac2_y1_y2
+        title: PPAC2 Y1 Vs Y2
+        x: ["fe7ppac2.fTY2",250,11799.5,11999.5]
+        y: ["fe7ppac2.fTY1",250,11799.5,11999.5]
+      - name: fe7ppac2_xdiff
+        title: PPAC2 XDiff
+        x: ["fe7ppac2.fTXDiff",500,-100.,100.]
+      - name: fe7ppac2_ydiff
+        title: PPAC2 YDiff
+        x: ["fe7ppac2.fTYDiff",500,-100.,100.]
+      - name: fe7ppac2_y_x
+        title: PPAC2 GetY Vs GetX
+        x: ["fe7ppac2.GetX()",500,-50.,50.]
+        y: ["fe7ppac2.GetY()",500,-50.,50.]

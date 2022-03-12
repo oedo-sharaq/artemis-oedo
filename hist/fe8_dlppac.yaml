@@ -1,0 +1,25 @@
+group:
+  - name: fe8
+    title: dlppac
+    contents:
+      - name: fe8ppac_anode
+        title: PPAC1 Anode
+        x: ["fe8ppac.fTAnode", 250,11699.5,11749.5]
+      - name: fe8ppac_x1_x2
+        title: PPAC1 X1 Vs X2
+        x: ["fe8ppac.fTX2",300,11699.5,11899.5]
+        y: ["fe8ppac.fTX1",300,11699.5,11899.5]
+      - name: fe8ppac_y1_y2
+        title: PPAC1 Y1 Vs Y2
+        x: ["fe8ppac.fTY2",300,11699.5,11899.5]
+        y: ["fe8ppac.fTY1",300,11699.5,11899.5]
+      - name: fe8ppac_xdiff
+        title: PPAC1 XDiff
+        x: ["fe8ppac.fTXDiff",500,-100.,100.]
+      - name: fe8ppac_ydiff
+        title: PPAC1 YDiff
+        x: ["fe8ppac.fTYDiff",500,-100.,100.]
+      - name: fe8ppac_y_x
+        title: PPAC1 GetY Vs GetX
+        x: ["fe8ppac.GetX()",500,-50.,50.]
+        y: ["fe8ppac.GetY()",500,-50.,50.]
