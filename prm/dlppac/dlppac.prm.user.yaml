@@ -31,7 +31,7 @@ Contents:
     - 0.04
     linecalib:
     - -6.8188
-    - 0.8266
+    - 0.64
     exchange: 0
     reflectx: 0
     geometry:
@@ -52,7 +52,7 @@ Contents:
     - 0.75
     - 0.63
     linecalib:
-    - 0.16100
+    - -0.16100
     - 0.72606
     exchange: 0
     reflectx: 0
