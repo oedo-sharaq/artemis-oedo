@@ -1,0 +1,56 @@
+Processor:
+  - name: MyTTpcStaticGasPropertyConditionProcessor
+    type: art::TTpcStaticGasPropertyConditionProcessor
+    parameter:
+      AttachCoeff: 0  # [Double_t] attachment coefficient (1/cm)
+      ConstLongDiff: 0.20000000000000001  # [Double_t] constant longitudinal diffusion (mm)
+      ConstTransDiff: 0.40000000000000002  # [Double_t] constant transverse diffusion (mm)
+      DriftVelocity: 1  # [Double_t] drift velocity in cm/us
+      LongDiffCoeff: 0.02  # [Double_t] longitudinal diffusion coefficient (cm^{1/2})
+      OutputTransparency: 0  # [Bool_t] Output is persistent if false (default)
+      PropertyName: tpcGasProperty  # [TString] name of tpc static gas property
+      TransDiffCoeff: 0.040000000000000001  # [Double_t] transverse diffusion coefficient (cm^{1/2})
+      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
+      WorkFunction: 37  # [Double_t] WorkFunction (eV)
+
+  - name: @BRNAME@:mapping
+    type: art::TCatAtMappingProcessor
+    parameter:
+      CatID: @CATID@
+      InputCollection: catdata
+      OutputCollection: @BRNAME@
+      MaxDetID: 512
+      #MaxDetID: 256
+      OutputTransparency: 0
+
+  - name: @BRNAME@:pedestal
+    type: art::TCatAtPedestalSubtractionProcessor
+    parameter: 
+      InputCollection: @BRNAME@
+      OutputCollection: @BRNAME@_sub
+      DoInvertPulse: @ISNEG@
+#
+  - name: @BRNAME@:pulse
+    type: art::TPulseFinder
+    parameter:
+      ChargeRiseCompensation: []  # [vector<Double_t>] 3 parameters for charge compensation with rise time
+      ClockPeriod: 20  # [Double_t] clock priod in ns
+      DoKeepInvalid: 0  # [Bool_t] keep invalid pulse shape if 1 (default 0)
+      FallingThreshold: 10  # [Float_t] threshold for falling edge
+      InputCollection: @BRNAME@_sub  # [StringVec_t] pulse data (TCatPulseShape)
+      MaxLength: 150  # [Int_t] maximum length to be valid
+      NumAvgPoints: 5  # [Int_t] number of average points
+      NumSampleForBaseline: 10  # [Int_t] the number of sample for the calculation of baseline
+      OffsetRange: [-10000, 10000]  # [FloatVec_t] minimum and maximum range of offset
+      OutputCollection: @BRNAME@_pulse  # [TString] output pulse data (TCatPulseShape)
+      OutputTransparency: 0  # [Bool_t] Output is persistent if false (default)
+      PostPulse: 10  # [Int_t] the number of sampling for pre-pulse
+      PrePulse: 10  # [Int_t] the number of sampling for pre-pulse
+      RisingThreshold: 10  # [Float_t] threshold for rising edge
+      SavePulse: 0  # [Bool_t] flag to save pulse
+      Sparse: 0  # [Bool_t] sparse mode (first hist is stored)
+      Time2Drift: 3  # [Int_t] type of time to calculate drift length (0: offset, 1: cfd (0.5), 2: peak
+#      TpcGasProp: ""  # [TString] name of tpc static gas property
+      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet) 
+
+#    
