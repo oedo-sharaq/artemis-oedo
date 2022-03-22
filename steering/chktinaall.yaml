@@ -1,0 +1,58 @@
+Anchor:
+ - &input /home/data/getdaq01/get/sakura2022/run/run_@NUM@
+ - &output output/get/@NUM@/chkget@NUM@.root
+# - &ridf /media/cnsdaq/2020TiNACom/tinacom@NUM@.ridf
+Processor:
+  - name: pad
+    type: art::TCatReadoutPadConditionProcessor
+    parameter:
+      Type: 11
+#      Bads: [2783, 2806]
+
+
+  # ======================================================================
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: get
+    type: art::TGetEventStore
+    parameter:
+      InputFiles: *input
+      EventHeaderName: evtheaderGET0
+      SegmentedData: segdata0
+      OutputTransparency: 1
+      ValidBucket: [5., 510.]
+      SubtractFPN: 0
+      RequireHitBit: 0
+#      MaxEventNum: 5
+
+#  - name: ridf	     
+#    type: art::TRIDFEventStore
+#    parameter:
+#      InputFiles: *ridf
+
+  - name: categorized
+    type: art::TMappingProcessor
+    parameter:
+#      InputCollection: [segdata0,segdata]
+      InputCollection: segdata0
+      CategorizedData: catdata
+      OutputTransparency: 1
+      MapConfig: mapper.conf
+  - include:
+      name: ttt/pulse.inc.all.yaml
+      replace:
+        CATID: 202
+        BRNAME: ttt
+        ISNEG: 0
+#  - include:
+#      name: csi/tina_csi.inc.yaml
+#      replace:
+#        CATID: 92
+#        BRNAME: tina_csi
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: test.root
+
