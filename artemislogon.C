@@ -18,15 +18,24 @@
   incpath.Append(" -I/home/ota/repos/artemis-cat-src");
 
 
+  dypath.Append(":/opt/local/GETDecoder/lib");
+  incpath.Append(" -I/opt/local/GETDecoder/include");
+
+
+  dypath.Append(":src-oedo");
+  incpath.Append(" -I src-oedo");
+
   gStyle->SetOptStat(1111111);
   gStyle->SetOptFit(1111);
 
   gSystem->SetDynamicPath(dypath);
   gSystem->SetIncludePath(incpath);
+  gSystem->Load("libGETDecoder");
   gSystem->Load("libMinuit");
   gSystem->Load("libGenetic");
   gSystem->Load("libuser");
   gSystem->Load("libCAT");
+  gSystem->Load("liboedo");
 //  gSystem->Load("libsrppac");
   TCatCmdFactory *cf = TCatCmdFactory::Instance();
   cf->SetOptExactName(kFALSE);

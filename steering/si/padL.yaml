@@ -1,0 +1,22 @@
+Processor:
+  - name: proc_padL_calib
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_padL_calib  
+      Type:     art::TAffineConverter
+      FileName: prm/padL.dat
+
+  - name: proc_padL_raw
+    type: art::TSimpleDataMappingProcessor
+    parameter:
+      CatID:        0
+      DataTypeID:   0
+      OutputCollection: padLraw
+
+  - name: proc_padl_cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: padLraw
+      OutputCollection: padL
+      ChargeConverterArray: prm_padL_calib
+

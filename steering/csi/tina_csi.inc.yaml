@@ -1,0 +1,12 @@
+Processor:
+  - name: mapcsi
+    type: art::TSimpleDataMappingProcessor
+    parameter:
+      CatID: @CATID@
+      OutputCollection: @BRNAME@
+  - name: csi:qval
+    type: art::TChargeValidator
+    parameter:
+      Input: @BRNAME@
+      Output: @BRNAME@_qval
+      ChargeRange: [160, 3840]

@@ -1,0 +1,22 @@
+Processor:
+  - name: proc_csiL_calib
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_csiL_calib  
+      Type:     art::TAffineConverter
+      FileName: prm/csiL.dat
+
+  - name: proc_csiL_raw
+    type: art::TSimpleDataMappingProcessor
+    parameter:
+      CatID:        6
+      DataTypeID:   0
+      OutputCollection: csiLraw
+
+  - name: proc_csil_cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: csiLraw
+      OutputCollection: csiL
+      ChargeConverterArray: prm_csiL_calib
+

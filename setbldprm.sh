@@ -12,69 +12,87 @@ if [ $1_ = _ ] ; then
     exit
 fi
 
-dc71_prm_dir="/home/r3_01r1/art_analysis/user/$2/prm/mwdc/dc71/dt2dl"
-cd $dc71_prm_dir
+dca1_prm_dir="/home/SAKURA01/art_analysis/user/$2/prm/mwdc/dca1/dt2dl"
+cd $dca1_prm_dir
 if [ -d $1 ] ; then
-    echo ln -sf $1 current
+    echo dca1_prm $1 is current
     rm -f current
     ln -sf $1 current
 else
-    echo "$dc71_prm_dir/$1 not found."
+    echo "$dca1_prm_dir/$1 not found."
 fi
 
-dc72_prm_dir="/home/r3_01r1/art_analysis/user/$2/prm/mwdc/dc72/dt2dl"
-cd $dc72_prm_dir
+dca2_prm_dir="/home/SAKURA01/art_analysis/user/$2/prm/mwdc/dca2/dt2dl"
+cd $dca2_prm_dir
 if [ -d $1 ] ; then
-    echo ln -sf $1 current
+    echo dca2 $1 is current
     rm -f current
     ln -sf $1 current
 else
-    echo "$dc72_prm_dir/$1 not found."
+    echo "$dca2_prm_dir/$1 not found."
 fi
 
 
-sr91_prm_dir="/home/r3_01r1/art_analysis/user/$2/prm/srppac/sr91/dq2dx"
+sr91_prm_dir="/home/SAKURA01/art_analysis/user/$2/prm/srppac/sr91/dq2dx"
 cd $sr91_prm_dir
 if [ -d $1 ] ; then
-    echo ln -sf $1 current
+    echo sr91_prm $1 is current
     rm -f current
     ln -sf $1 current
 else
     echo "$sr91_prm_dir/$1 not found."
 fi
 
-sr92_prm_dir="/home/r3_01r1/art_analysis/user/$2/prm/srppac/sr92/dq2dx"
+sr92_prm_dir="/home/SAKURA01/art_analysis/user/$2/prm/srppac/sr92/dq2dx"
 cd $sr92_prm_dir
 if [ -d $1 ] ; then
-    echo ln -sf $1 current
+    echo sr92_prm $1 is current
     rm -f current
     ln -sf $1 current
 else
     echo "$sr92_prm_dir/$1 not found."
 fi
 
-dcc1_prm_dir="/home/r3_01r1/art_analysis/user/$2/prm/mwdc/dcc1/dt2dl"
-cd $dcc1_prm_dir
+src1_prm_dir="/home/SAKURA01/art_analysis/user/$2/prm/srppac/src1/dq2dx"
+cd $src1_prm_dir
 if [ -d $1 ] ; then
-    echo ln -sf $1 current
+    echo src1_prm $1 is current
     rm -f current
     ln -sf $1 current
 else
-    echo "$dcc1_prm_dir/$1 not found."
+    echo "$src1_prm_dir/$1 not found."
 fi
 
-dcc2_prm_dir="/home/r3_01r1/art_analysis/user/$2/prm/mwdc/dcc2/dt2dl"
-cd $dcc2_prm_dir
+src2_prm_dir="/home/SAKURA01/art_analysis/user/$2/prm/srppac/src2/dq2dx"
+cd $src2_prm_dir
 if [ -d $1 ] ; then
-    echo ln -sf $1 current
+    echo src2_prm $1 is current
     rm -f current
     ln -sf $1 current
 else
-    echo "$dcc2_prm_dir/$1 not found."
+    echo "$src2_prm_dir/$1 not found."
 fi
 
 
+sr11_prm_dir="/home/SAKURA01/art_analysis/user/$2/prm/srppac/sr11/dq2dx"
+cd $sr11_prm_dir
+if [ -d $1 ] ; then
+    echo sr11_prm $1 is current
+    rm -f current
+    ln -sf $1 current
+else
+    echo "$sr11_prm_dir/$1 not found."
+fi
 
+sr12_prm_dir="/home/SAKURA01/art_analysis/user/$2/prm/srppac/sr12/dq2dx"
+cd $sr12_prm_dir
+if [ -d $1 ] ; then
+    echo sr12_prm $1 is current
+    rm -f current
+    ln -sf $1 current
+else
+    echo "$sr12_prm_dir/$1 not found."
+fi
 
 
 cd ../..

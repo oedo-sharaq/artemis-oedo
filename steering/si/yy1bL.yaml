@@ -1,0 +1,44 @@
+Processor:
+  - name: proc_yy1bL_calib
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_yy1bL_calib  
+      Type:     art::TAffineConverter
+      FileName: prm/yy1bL.dat
+
+  - name: proc_yy1bL_raw
+    type: art::TSimpleDataMappingProcessor
+    parameter:
+      CatID:            4
+      DataTypeID:       0
+      Sparse:           1
+      OutputCollection: yy1bLraw
+
+  - name: proc_yy1bL_cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: yy1bLraw
+      OutputCollection: yy1bL
+      ChargeConverterArray: prm_yy1bL_calib
+
+  - name: proc_yy1bL_sep
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: yy1bLraw
+      OutputCollections:
+        - bL0raw
+        - bL1raw
+        - bL2raw
+        - bL3raw
+        - bL4raw
+        - bL5raw
+        - bL6raw
+        - bL7raw
+        - bL8raw
+        - bL9raw
+        - bL10raw
+        - bL11raw
+        - bL12raw
+        - bL13raw
+        - bL14raw
+        - bL15raw

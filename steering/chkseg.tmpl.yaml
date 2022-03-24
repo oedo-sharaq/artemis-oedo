@@ -4,7 +4,7 @@ Processor:
     parameter:
       OutputTransparency: 1
       InputFiles:
-        - ridf/@NAME@@NUM@.ridf
+        - ridf_prep/@NAME@@NUM@.ridf
         
   - name: modlistloader
     type: art::TParameterArrayLoader

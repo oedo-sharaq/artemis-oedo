@@ -1,4 +1,0 @@
-# Map file for SR-PPAC Anode at F5 upstream
-#[cat][id][Tlead][Ttrail]{SH,fp,det,geo,ch}
-40,  0,  0,5,31,0,1
-

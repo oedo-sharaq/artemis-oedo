@@ -1,0 +1,44 @@
+Processor:
+  - name: proc_w1f_calib
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_w1f_calib  
+      Type:     art::TAffineConverter
+      FileName: prm/w1f.dat
+
+  - name: proc_w1f_raw
+    type: art::TSimpleDataMappingProcessor
+    parameter:
+      CatID:            8
+      DataTypeID:       0
+      Sparse:           1
+      OutputCollection: w1fraw
+
+  - name: proc_w1f_cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: w1fraw
+      OutputCollection: w1f
+      ChargeConverterArray: prm_w1f_calib
+
+  - name: proc_w1f_sep
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: w1fraw
+      OutputCollections:
+        - w1f0raw
+        - w1f1raw
+        - w1f2raw
+        - w1f3raw
+        - w1f4raw
+        - w1f5raw
+        - w1f6raw
+        - w1f7raw
+        - w1f8raw
+        - w1f9raw
+        - w1f10raw
+        - w1f11raw
+        - w1f12raw
+        - w1f13raw
+        - w1f14raw
+        - w1f15raw
