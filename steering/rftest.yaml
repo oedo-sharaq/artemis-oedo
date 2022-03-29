@@ -1,5 +1,5 @@
 Anchor:
- - &input rfdata/@NAME@@NUM@.ridf
+ - &input ridf_rftest/@NAME@@NUM@.ridf
  - &output output/@NAME@/@NUM@/rftest@NAME@@NUM@.tree.root
  - &histout output/@NAME@/@NUM@/rftest@NAME@@NUM@.hist.root
 
@@ -25,15 +25,15 @@ Processor:
   - include: bld/srppac/srppac.yaml
 
 
-  - name: projectioncorrelation
-    type: art::TTreeProjectionProcessor
-    parameter:
-      FileName: hist/srppac/rfhist.yaml
-      OutputFilename: *histout
-      Replace: |
-        sr: sr91        
-      Type:     art::TTreeProjection
-         
+#  - name: projectioncorrelation
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/rfhist.yaml
+#      OutputFilename: *histout
+#      Replace: |
+#        sr: sr91        
+#      Type:     art::TTreeProjection
+#         
   - name: outputtree
     type: art::TOutputTreeProcessor
     parameter:
