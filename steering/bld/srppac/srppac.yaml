@@ -1,82 +1,94 @@
 Processor:
 #### FE9
 ####
-  - include: srppac.inc.yaml
-    replace:
-      NAME: sr91
-      CATIDa: 40 
-      CATIDx: 41
-      CATIDy: 42
+  - include: 
+      name: srppac.inc.yaml
+      replace:
+        NAME: sr91
+        CATIDa: 40 
+        CATIDx: 41
+        CATIDy: 42
 
-  - include: srppac.inc.yaml
-    replace:
-      NAME: sr92
-      CATIDa: 43 
-      CATIDx: 44
-      CATIDy: 45
+  - include:
+      name: srppac.inc.yaml
+      replace:
+         NAME: sr92
+         CATIDa: 43 
+         CATIDx: 44
+         CATIDy: 45
 
 ### calib LR
-#  - include: srppac.calib.lr.yaml
-#    replace: 
-#      NAME: sr91
-#  - include: srppac.calib.lr.yaml
-#    replace: 
-#      NAME: sr92
+#  - include: 
+#      name: srppac.calib.lr.yaml
+#      replace: 
+#        NAME: sr91
+#  - include: 
+#      name: srppac.calib.lr.yaml
+#      replace: 
+#        NAME: sr92
 
 
 
  
 #### FE12
 ####
-  - include: srppac.inc.yaml
-    replace:
-      NAME: src1
-      CATIDa: 46 
-      CATIDx: 47
-      CATIDy: 48
+  - include: 
+      name: srppac.inc.yaml
+      replace:
+        NAME: src1
+        CATIDa: 46 
+        CATIDx: 47
+        CATIDy: 48
 
-  - include: srppac.inc.yaml
-    replace:
-      NAME: src2
-      CATIDa: 49 
-      CATIDx: 50
-      CATIDy: 51
+  - include: 
+      name: srppac.inc.yaml
+      replace:
+        NAME: src2
+        CATIDa: 49 
+        CATIDx: 50
+        CATIDy: 51
 
 
 ### calib LR
 # 
-#  - include: srppac.calib.lr.yaml
-#    replace: 
-#      NAME: src1
-#  - include: srppac.calib.lr.yaml
-#    replace: 
-#      NAME: src2
+#  - include:
+#      name: srppac.calib.lr.yaml
+#      replace: 
+#        NAME: src1
+#  - include:
+#      name: srppac.calib.lr.yaml
+#      replace: 
+#        NAME: src2
 
 
 
 #### S1
 ####
-  - include: srppac.inc.yaml
-    replace:
-      NAME: sr11
-      CATIDa: 52 
-      CATIDx: 53
-      CATIDy: 54
+  - include: 
+      name: srppac.inc.yaml
+      replace:
+        NAME: sr11
+        CATIDa: 52 
+        CATIDx: 53
+        CATIDy: 54
 
-  - include: srppac.inc.yaml
-    replace:
-      NAME: sr12
-      CATIDa: 55 
-      CATIDx: 56
-      CATIDy: 57
+  - include: 
+      name: srppac.inc.yaml
+      replace:
+        NAME: sr12
+        CATIDa: 55 
+        CATIDx: 56
+        CATIDy: 57
 
 ### calib LR
 # 
-#  - include: srppac.calib.lr.yaml
-#    replace: 
-#      NAME: sr11
+#  - include:
+#      name: srppac.calib.lr.yaml
+#      replace: 
+#        NAME: sr11
 #
-#  - include: srppac.calib.lr.yaml
-#    replace: 
-#      NAME: sr12
+#  - include:
+#      name: srppac.calib.lr.yaml
+#      replace: 
+#        NAME: sr12
 
