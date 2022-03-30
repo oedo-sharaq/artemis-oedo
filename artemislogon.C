@@ -135,6 +135,7 @@
     // mod ID 36 : SIS3820
     df->Register(new art::TModuleDecoderSIS3820);
     df->Register(new art::TModuleDecoderSIS3610);
+    df->Register(new art::TModuleDecoderMXDC32);
     
     df->Register(new art::TModuleDecoderSkip(42));
 
