@@ -1,6 +1,6 @@
 Anchor:
- - &input s0test/os22stest@NUM@.ridf
- - &output output/yy/@NUM@/chlni@NUM@.root
+ - &input ridf_tina/os22stest@NUM@.ridf
+ - &output output/yy/@NUM@/chkni@NUM@.root
 
 Processor:
   - name: timer
