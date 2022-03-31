@@ -1,0 +1,130 @@
+Processor:
+  - name: proc_ic_ch2MeV
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2V
+      Type:     art::TAffineConverter
+      FileName: prm/ic/ch2MeV.dat
+
+  - name: proc_icraw
+    type: art::TSimpleDataMappingProcessor
+    parameter:
+      CatID:            12
+      DataTypeID:       0
+      Sparse:       0
+      OutputCollection: icraw
+
+  - name: proc_icqcal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: icraw
+      OutputCollection: ic
+      ChargeConverterArray: prm_ic_ch2V
+
+#  - name: proc_icde
+#    type: art::TIonChamberProcessor
+#    parameter:
+#      InputName: ic
+#      OutputName: icde
+#      NumChannel: 5
+#      DropRatio: 0.0
+#
+#  - name: proc_icde2
+#    type: art::TIonChamberProcessor
+#    parameter:
+#      InputName: ic
+#      OutputName: icde2
+#      NumChannel: 2
+#      DropRatio: 0.0
+#
+#  - name: proc_icave
+#    type: art::TIonChamberProcessor
+#    parameter:
+#      InputName: ic
+#      OutputName: icave
+#      NumChannel: 30
+#      DropRatio: 0.0
+#
+#  - name: proc_ic_sep
+#    type: art::TSeparateOutputProcessor
+#    parameter:
+#      InputCollection: ic
+#      OutputCollections:
+#        - ic_0
+#        - ic_1
+#        - ic_2
+#        - ic_3
+#        - ic_4
+#        - ic_5
+#        - ic_6
+#        - ic_7
+#        - ic_8
+#        - ic_9
+#        - ic_10
+#        - ic_11
+#        - ic_12
+#        - ic_13
+#        - ic_14
+#        - ic_15
+#        - ic_16
+#        - ic_17
+#        - ic_18
+#        - ic_19
+#        - ic_20
+#        - ic_21
+#        - ic_22
+#        - ic_23
+#        - ic_24
+#        - ic_25
+#        - ic_26
+#        - ic_27
+#        - ic_28
+#        - ic_29
+#
+#-----------Timing-----------------------
+#  - name: proc_ic_ch2ns
+#    type: art::TParameterArrayLoader
+#    parameter:
+#      Name:     prm_ic_ch2ns
+#      Type:     art::TAffineConverter
+#      FileName: prm/ic/ch2ns.dat
+#
+#  - name: proc_ic_traw
+#    type: art::TSimpleDataMappingProcessor
+#    parameter:
+#      CatID:        14
+#      DataTypeID:   0
+#      OutputCollection: ictraw
+#      OutputTransparency:   0
+#
+#  - name: proc_ic_traw
+#    type: art::TTimingChargeMappingProcessor
+#    parameter:
+#      CatID:        14
+#      TimingTypeID: 0
+#      OutputCollection: ictraw
+#      OutputTransparency: 0
+#
+#  - name: proc_ictcal
+#    type: art::TTimingChargeCalibrationProcessor
+#    parameter:
+#      InputCollection: ictraw
+#      OutputCollection: ict
+#      TimingConverterArray: prm_ic_ch2ns
+#
+#  - name: proc_ictcal
+#    type: art::TDataCalibrationProcessor
+#    parameter:
+#      InputCollection:  ictraw
+#      OutputCollection: ict
+#      DataClass:        ITiming
+#      ConverterArray:   prm_ic_ch2ns
+#
+#  - name: proc_ic_drift
+#    type: art::TTimingSubtractionProcessor
+#    parameter:
+#      InputCollection:          ict
+#      StartTimingCollection:    s1ppac_ta
+#      OutputCollection:         ic_drift
+#      MaxDetID:                 30
+
