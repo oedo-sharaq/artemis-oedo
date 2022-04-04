@@ -1,0 +1,81 @@
+anchor:
+  - &idraw ["@plane@_raw.fID",128,-0.5,127.5]
+  - &traw ["@plane@_raw.fTiming",1000,-20000.,10000.]
+  - &qraw ["@plane@_raw.fCharge",100,-1.,4000.]
+  - &isprocessed ["@plane@.IsProcessed()",2,-0.5,1.5]
+  - &isgood ["@plane@.IsGood()",2,-0.5,1.5]
+  - &entry ["@plane@.GetEntriesFast()",8,-0.5,7.5]
+  - &ssr ["@plane@.GetSSR()",100,0,10]
+  - &residual ["@plane@.GetResidual(0)",200,-2.,2.]
+
+#alias:
+##  pidgate: gate.Test("54Sc")
+#  qcut_x1: dc31_x1.fCharge >  300 && dc31_x1.fCharge < 500
+#  qcut_x2: dc31_x2.fCharge >  300 && dc31_x2.fCharge < 500
+#  qcut_y1: dc31_y1.fCharge >  300 && dc31_y1.fCharge < 500
+#  qcut_y2: dc31_y2.fCharge >  300 && dc31_y2.fCharge < 500
+#  qcut_x3: dc31_x3.fCharge >  200 && dc31_x3.fCharge < 400
+#  qcut_x4: dc31_x4.fCharge >  200 && dc31_x4.fCharge < 400
+#  qcut_y3: dc31_y3.fCharge >  200 && dc31_y3.fCharge < 400
+#  qcut_y4: dc31_y4.fCharge >  200 && dc31_y4.fCharge < 400
+#  tcut_x1: dc31_x1.fTiming > -1240 && dc31_x1.fTiming < -1190
+#  tcut_x2: dc31_x2.fTiming > -1240 && dc31_x2.fTiming < -1190
+#  tcut_y1: dc31_y1.fTiming > -1240 && dc31_y1.fTiming < -1190
+#  tcut_y2: dc31_y2.fTiming > -1240 && dc31_y2.fTiming < -1190
+#  tcut_x3: dc31_x3.fTiming > -1240 && dc31_x3.fTiming < -1190
+#  tcut_x4: dc31_x4.fTiming > -1240 && dc31_x4.fTiming < -1190
+#  tcut_y3: dc31_y3.fTiming > -1240 && dc31_y3.fTiming < -1190
+#  tcut_y4: dc31_y4.fTiming > -1240 && dc31_y4.fTiming < -1190
+#  y1y2hit: dc31_y1@.GetEntriesFast()>=1 && dc31_y2@.GetEntriesFast()>=1
+#  x1x2hit: dc31_x1@.GetEntriesFast()>=1 && dc31_x2@.GetEntriesFast()>=1  
+#  f7pla: f71pla@.GetEntriesFast() > 0
+#  pid: abs(tof37-10)<10
+
+
+group:
+  - name: @plane@
+    title: @plane@
+    contents:
+      - name: id
+        title: @plane@ ID
+        x: *idraw
+      - name: time
+        title: @plane@ Timing
+        x: *traw
+      - name: charge
+        title: @plane@ Charge
+        x: *qraw
+
+      - name: id_traw
+        title: @plane@ ID vs t_{raw}
+        x: *idraw
+        y: *traw
+      - name: id_charge
+        title: @plane@ ID vs charge
+        x: *idraw
+        y: *qraw
+      - name: traw_charge
+        title: @plane@ t_{raw} vs charge
+        x: *traw
+        y: *qraw
+      - name: id_tcal
+        title: @plane@ ID vs t_{raw}
+        x: *idraw
+        y: *traw
+#      - name: entry
+#        title: @plane@ Entry
+#        x: *ent
+       
+#      - name: hit_efficiency
+#        title: @plane@ hit efficiency IsProcessed
+#        x: *isprocessed
+#      - name: tracking_efficiency
+#        title: @plane@ tracking efficiency
+#        x: *isgood
+#      - name: ssr
+#        title: @plane@ sum of squared residue
+#        x: *ssr
+#      - name: x1_residual
+#        title: @plane@ X1 residual
+#        x: *res
+

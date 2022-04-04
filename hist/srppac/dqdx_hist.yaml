@@ -1,0 +1,16 @@
+anchor: 
+  - &@sr@xq0q1 ["(@sr@_x_cal[0].fCharge - @sr@_x_cal[1].fCharge) / (@sr@_x_cal[0].fCharge + @sr@_x_cal[1].fCharge)", 250,0,0.25]
+  - &@sr@yq0q1 ["(@sr@_y_cal[0].fCharge - @sr@_y_cal[1].fCharge) / (@sr@_y_cal[0].fCharge + @sr@_y_cal[1].fCharge)", 400,0,0.4]
+
+group:
+  - name: srppacdqdx
+    title: SR-PPAC dqdx
+    contents:
+      - name: @sr@_x_q0q1
+        title: @sr@ X Q0Q1
+        x: *@sr@xq0q1
+      - name: @sr@_y_q0q1
+        title: @sr@ Y Q0Q1
+        x: *@sr@yq0q1
+
+

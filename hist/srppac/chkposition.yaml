@@ -1,0 +1,19 @@
+anchor:
+  - &@sr@_xc0 ["@sr@_xc0.fPosition",200,-20,20]
+  - &@sr@_yc0 ["@sr@_yc0.fPosition",200,-20,20]
+
+group:
+  - name: srppac_position
+    title: SR-PPAC Position
+    contents:
+      - name: @sr@_xc0
+        title: SR-PPAC @sr@ XC0
+        x: *@sr@_xc0
+      - name:
+        title: SR-PPAC @sr@ YC0
+        x: *@sr@_yc0
+
+        
+
+
+
