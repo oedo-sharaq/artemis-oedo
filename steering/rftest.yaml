@@ -19,21 +19,20 @@ Processor:
     parameter:
       OutputTransparency: 1
 
-# cp from chkoptics.tmpl
 
-  - include: tref.inc.yaml
+#  - include: tref.inc.yaml
   - include: bld/srppac/srppac.yaml
 
 
-#  - name: projectioncorrelation
-#    type: art::TTreeProjectionProcessor
-#    parameter:
-#      FileName: hist/srppac/rfhist.yaml
-#      OutputFilename: *histout
-#      Replace: |
-#        sr: sr91        
-#      Type:     art::TTreeProjection
-#         
+  - name: projectioncorrelation
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/srppac/chksrppac.yaml
+      OutputFilename: *histout
+      Replace: |
+        sr: sr92        
+      Type:     art::TTreeProjection
+         
   - name: outputtree
     type: art::TOutputTreeProcessor
     parameter:
