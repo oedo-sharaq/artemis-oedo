@@ -1,127 +1,27 @@
 Processor:
- 
-##### F3
-#####
-#  - include: 
-#      name: time2dt.inc.yaml
-#      replace: 
-#        CATID: 20
-#        NAME: dc31
-#        TREDET: f3pla
-#        TREFID: 0
-#  - include: 
-#      name: time2dt.inc.yaml
-#      replace: 
-#        CATID: 21    
-#        NAME: dc32
-#        TREDET: f3pla
-#        TREFID: 0
-#  - include:
-#      name:  xxyyxxyy_tref.inc.yaml
-#      replace:
-#        NAME: dc31
-#  - include:
-#      name:  xxyy_tref.inc.yaml
-#      replace:
-#        NAME: dc32
-#  - name: proc_dc31_geo
-#    type: art::TParameterLoader
-#    parameter:
-#      Name:     dc31
-#      Type:     art::TMWDCParameter
-#      FileName: prm/mwdc/dc31/geometry.yaml
-#  - name: proc_dc31_dt
-#    type: art::TTimingSubtractionProcessor
-#    parameter:
-#      InputCollection:       dc31_cal
-#      OutputCollection:      dc31_dt2
-#      StartTimingCollection: dc32tref
-#      StartTimingDetID:   -1
-#      OutputTransparency:   0
-#  - name: proc_dc31x_plane
-#    type: art::TMWDCPlaneProcessor
-#    parameter:
-#      InputCollection: dc31_dt2
-#      MWDCName:        dc31
-#      ConverterList:
-#        - prm_dc31_dxdt_x1
-#        - prm_dc31_dxdt_x2
-#        - prm_dc31_dxdt_y1
-#        - prm_dc31_dxdt_y2
-#        - prm_dc31_dxdt_x3
-#        - prm_dc31_dxdt_x4
-#        - prm_dc31_dxdt_y3
-#        - prm_dc31_dxdt_y4
-#      OutputTransparency: 0
-#  - name: proc_dc31_track
-#    type: art::TMWDCTrackingProcessor
-#    parameter:
-#      InputCollection:
-#        - dc31_x1
-#        - dc31_x2
-#        - dc31_y1
-#        - dc31_y2
-#      OutputCollection:   dc31
-#      OutputTransparency: 0
-#  - name: proc_dc32_geo
-#    type: art::TParameterLoader
-#    parameter:
-#      Name:     dc32
-#      Type:     art::TMWDCParameter
-#      FileName: prm/mwdc/dc32/geometry.yaml
-#  - name: proc_dc32_dt
-#    type: art::TTimingSubtractionProcessor
-#    parameter:
-#      InputCollection:       dc32_cal
-#      OutputCollection:      dc32_dt2
-#      StartTimingCollection: dc31tref
-#      StartTimingDetID:   -1
-#      OutputTransparency:   0
-#  - name: proc_dc32x_plane
-#    type: art::TMWDCPlaneProcessor
-#    parameter:
-#      InputCollection: dc32_dt2
-#      MWDCName:        dc32
-#      ConverterList:
-#        - prm_dc32_dxdt_x1
-#        - prm_dc32_dxdt_x2
-#        - prm_dc32_dxdt_y1
-#        - prm_dc32_dxdt_y2
-#      OutputTransparency: 0
-#  - name: proc_dc32_track
-#    type: art::TMWDCTrackingProcessor
-#    parameter:
-#      InputCollection:
-#        - dc32_x1
-#        - dc32_x2
-#        - dc32_y1
-#        - dc32_y2
-#      OutputCollection:   dc32
-#      OutputTransparency: 0
 
-
-##### FE7
+##### FE10
 #####
   - include: 
       name: time2dt.inc.yaml
       replace: 
         CATID: 22
-        NAME: dc71
+        NAME: dca1
         TREDET: f3pla
         TREFID: 0
   - include: 
       name: time2dt.inc.yaml
       replace: 
         CATID: 23    
-        NAME: dc72
+        NAME: dca2
         TREDET: f3pla
         TREFID: 0
-  - name: proc_dc71_geo
+  - name: proc_dca1_geo
     type: art::TParameterLoader
     parameter:
-      Name:     dc71
+      Name:     dca1
       Type:     art::TMWDCParameter
-      FileName: prm/mwdc/dc71/geometry.yaml
+      FileName: prm/mwdc/dca1/geometry.yaml
 #  - name: proc_dc71_dt
 #    type: art::TTimingSubtractionProcessor
 #    parameter:
@@ -133,266 +33,67 @@ Processor:
   - include:
       name:  xuy_load.inc.yaml
       replace:
-        NAME: dc71
-  - name: proc_dc71_plane
+        NAME: dca1
+  - name: proc_dca1_plane
     type: art::TMWDCPlaneProcessor
     parameter:
-      InputCollection: dc71_dt
-      MWDCName:        dc71
+      InputCollection: dca1_dt
+      MWDCName:        dca1
       ConverterList:
-        - prm_dc71_dxdt_x
-        - prm_dc71_dxdt_u
-        - prm_dc71_dxdt_y
+        - prm_dca1_dxdt_x
+        - prm_dca1_dxdt_u
+        - prm_dca1_dxdt_y
       OutputTransparency: 0      
-  - name: proc_dc71_track
+  - name: proc_dca1_track
     type: art::TMWDCTrackingProcessor
     parameter:
       InputCollection:
-        - dc71_x
-        - dc71_u
-        - dc71_y
-      OutputCollection:   dc71
+        - dca1_x
+        - dca1_u
+        - dca1_y
+      OutputCollection:   dca1
       OutputTransparency: 0
-  - name: proc_dc72_geo
+  - name: proc_dca2_geo
     type: art::TParameterLoader
     parameter:
-      Name:     dc72
+      Name:     dca2
       Type:     art::TMWDCParameter
-      FileName: prm/mwdc/dc72/geometry.yaml
-# - name: proc_dc72_dt
+      FileName: prm/mwdc/dca2/geometry.yaml
+# - name: proc_dca2_dt
 #   type: art::TTimingSubtractionProcessor
 #   parameter:
-#     InputCollection:       dc72_cal
-#     OutputCollection:      dc72_dt2
+#     InputCollection:       dca2_cal
+#     OutputCollection:      dca2_dt2
 #     StartTimingCollection: dcc1tref
 #     StartTimingDetID:   -1
 #     OutputTransparency:   0
   - include:
       name:  xuy_load.inc.yaml
       replace:
-        NAME: dc72
-  - name: proc_dc72_plane
+        NAME: dca2
+  - name: proc_dca2_plane
     type: art::TMWDCPlaneProcessor
     parameter:
-      InputCollection: dc72_dt
-      MWDCName:        dc72
+      InputCollection: dca2_dt
+      MWDCName:        dca2
       ConverterList:
-        - prm_dc72_dxdt_x
-        - prm_dc72_dxdt_u
-        - prm_dc72_dxdt_y
+        - prm_dca2_dxdt_x
+        - prm_dca2_dxdt_u
+        - prm_dca2_dxdt_y
       OutputTransparency: 0            
-  - name: proc_dc72_track
+  - name: proc_dca2_track
     type: art::TMWDCTrackingProcessor
     parameter:
       InputCollection:
-        - dc72_x
-        - dc72_u
-        - dc72_y
-      OutputCollection:   dc72
+        - dca2_x
+        - dca2_u
+        - dca2_y
+      OutputCollection:   dca2
       OutputTransparency: 0
-
-###### FE10
-######
-#  - include: 
-#      name: time2dt.inc.yaml
-#      replace: 
-#        CATID: 24
-#        NAME: dca1
-#        TREDET: f3pla
-#        TREFID: 0
-#  - include: 
-#      name: time2dt.inc.yaml
-#      replace: 
-#        CATID: 25    
-#        NAME: dca2
-#        TREDET: f3pla
-#        TREFID: 0
-#  - name: proc_dca1_geo
-#    type: art::TParameterLoader
-#    parameter:
-#      Name:     dca1
-#      Type:     art::TMWDCParameter
-#      FileName: prm/mwdc/dca1/geometry.yaml
-#  - name: proc_dca1_dt
-#    type: art::TTimingSubtractionProcessor
-#    parameter:
-#      InputCollection:       dca1_cal
-#      OutputCollection:      dca1_dt2
-#      StartTimingCollection: dcc2tref
-#      StartTimingDetID:   -1
-#      OutputTransparency:   0
-#  - include:
-#      name:  xxuv_load.inc.yaml
-#      replace:
-#        NAME: dca1
-#  - name: proc_dca1_plane
-#    type: art::TMWDCPlaneProcessor
-#    parameter:
-#      InputCollection: dca1_dt2
-#      MWDCName:        dca1
-#      ConverterList:
-#        - prm_dca1_dxdt_x1
-#        - prm_dca1_dxdt_x2        
-#        - prm_dca1_dxdt_u
-#        - prm_dca1_dxdt_v
-#      OutputTransparency: 0            
-#  - name: proc_dca1_track
-#    type: art::TMWDCTrackingProcessor
-#    parameter:
-#      InputCollection:
-#        - dca1_x1
-#        - dca1_x2        
-#        - dca1_u
-##        - dca1_v
-#      OutputCollection:   dca1
-#      OutputTransparency: 0
-#  - name: proc_dca2_geo
-#    type: art::TParameterLoader
-#    parameter:
-#      Name:     dca2
-#      Type:     art::TMWDCParameter
-#      FileName: prm/mwdc/dca2/geometry.yaml
-#  - name: proc_dca2_dt
-#    type: art::TTimingSubtractionProcessor
-#    parameter:
-#      InputCollection:       dca2_cal
-#      OutputCollection:      dca2_dt2
-#      StartTimingCollection: dcc2tref
-#      StartTimingDetID:   -1
-#      OutputTransparency:   0
-#  - include:
-#      name:  xxuv_load.inc.yaml
-#      replace:
-#        NAME: dca2
-#  - name: proc_dca2_plane
-#    type: art::TMWDCPlaneProcessor
-#    parameter:
-#      InputCollection: dca2_dt2
-#      MWDCName:        dca2
-#      ConverterList:
-#        - prm_dca2_dxdt_x1
-#        - prm_dca2_dxdt_x2        
-#        - prm_dca2_dxdt_u
-#        - prm_dca2_dxdt_v
-#      OutputTransparency: 0            
-#  - name: proc_dca2_track
-#    type: art::TMWDCTrackingProcessor
-#    parameter:
-#      InputCollection:
-#        - dca2_x1
-#        - dca2_x2        
-#        - dca2_u
-#        - dca2_v
-#      OutputCollection:   dca2
-#      OutputTransparency: 0
-      
-
-##### FE12
-#####
-  - include: 
-      name: time2dt.inc.yaml
-      replace: 
-        CATID: 26
-        NAME: dcc1
-        TREDET: f3pla
-        TREFID: 0
-  - include: 
-      name: time2dt.inc.yaml
-      replace: 
-        CATID: 27    
-        NAME: dcc2
-        TREDET: f3pla
-        TREFID: 0
-  - include:
-      name:  xxyyxxyy_tref.inc.yaml
-      replace:
-        NAME: dcc1
-  - include:
-      name:  xxyy_tref.inc.yaml
-      replace:
-        NAME: dcc2
-  - name: proc_dcc1_geo
-    type: art::TParameterLoader
-    parameter:
-      Name:     dcc1
-      Type:     art::TMWDCParameter
-      FileName: prm/mwdc/dcc1/geometry.yaml
-  - name: proc_dcc1_dt
-    type: art::TTimingSubtractionProcessor
-    parameter:
-      InputCollection:       dcc1_cal
-      OutputCollection:      dcc1_dt2
-      StartTimingCollection: dcc2tref
-      StartTimingDetID:   -1
-      OutputTransparency:   0
-  - name: proc_dcc1x_plane
-    type: art::TMWDCPlaneProcessor
-    parameter:
-      InputCollection: dcc1_dt2
-      MWDCName:        dcc1
-      ConverterList:
-        - prm_dcc1_dxdt_x1
-        - prm_dcc1_dxdt_x2
-        - prm_dcc1_dxdt_y1
-        - prm_dcc1_dxdt_y2
-        - prm_dcc1_dxdt_x3
-        - prm_dcc1_dxdt_x4
-        - prm_dcc1_dxdt_y3
-        - prm_dcc1_dxdt_y4
-      OutputTransparency: 0
-  - name: proc_dcc1_track
-    type: art::TMWDCTrackingProcessor
-    parameter:
-      InputCollection:
-        - dcc1_x1
-        - dcc1_x2
-        - dcc1_y1
-        - dcc1_y2
-      OutputCollection:   dcc1
-      OutputTransparency: 0
-  - name: proc_dcc2_geo
-    type: art::TParameterLoader
-    parameter:
-      Name:     dcc2
-      Type:     art::TMWDCParameter
-      FileName: prm/mwdc/dcc2/geometry.yaml
-  - name: proc_dcc2_dt
-    type: art::TTimingSubtractionProcessor
-    parameter:
-      InputCollection:       dcc2_cal
-      OutputCollection:      dcc2_dt2
-      StartTimingCollection: dcc1tref
-      StartTimingDetID:   -1
-      OutputTransparency:   0
-  - name: proc_dcc2x_plane
-    type: art::TMWDCPlaneProcessor
-    parameter:
-      InputCollection: dcc2_dt2
-      MWDCName:        dcc2
-      ConverterList:
-        - prm_dcc2_dxdt_x1
-        - prm_dcc2_dxdt_x2
-        - prm_dcc2_dxdt_y1
-        - prm_dcc2_dxdt_y2
-      OutputTransparency: 0
-  - name: proc_dcc2_track
-    type: art::TMWDCTrackingProcessor
-    parameter:
-      InputCollection:
-        - dcc2_x1
-        - dcc2_x2
-        - dcc2_y1
-        - dcc2_y2
-      OutputCollection:   dcc2
-      OutputTransparency: 0
-    
 
 
 ########
       
-#  - include: f3mwdctrack.yaml
-  - include: fe7mwdctrack.yaml
-#  - include: fe10mwdctrack.yaml
-  - include: fe12mwdctrack.yaml    
+  - include: fe10mwdctrack.yaml
 
  
