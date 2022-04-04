@@ -52,7 +52,7 @@ Processor:
       TrailingComesFirst: 1
       OutputCollection: @NAME@_x_raw
 
-  - name: proc:ppac:@NAME@y:raw
+  - name: proc:ppac:@NAME@x:raw
     type: art::TTimingChargeMappingProcessor
     parameter:
       CatID: @CATIDy@
