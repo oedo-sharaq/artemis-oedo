@@ -21,6 +21,20 @@ Processor:
       Type: art::TAffineConverter
       FileName: prm/srppac/ch2ns_a.dat
 
+#prm geometry
+  - name: proc:ppac:geometry
+    type: art::TParameterLoader
+    parameter:
+      Name:     geometry_srppac_x
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/srppac/@NAME@/geometry_x.yaml
+  - name: proc:ppac:geometry
+    type: art::TParameterLoader
+    parameter:
+      Name:     geometry_srppac_y
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/srppac/@NAME@/geometry_y.yaml
+
 #prm dqdx0
   - name: proc_dqdx_xc0
     type: art::TParameterLoader
@@ -116,7 +130,7 @@ Processor:
     parameter:
       InputCollection: @NAME@_x_cal
       OutputCollection: @NAME@_x
-#      srppacparameter: prm:ppac:geo:x    
+#      srppacparameter: geometry_srppac_x
       Verbose: 0
       nStrip: 94
       stripWidth: 2.55
@@ -130,7 +144,7 @@ Processor:
     parameter:
       InputCollection: @NAME@_y_cal
       OutputCollection: @NAME@_y
-#      srppacparameter: prm:ppac:geo:y
+#      srppacparameter: geometry_srppac_y
       Verbose: 0
       nStrip: 58
       stripWidth: 2.58
@@ -147,7 +161,7 @@ Processor:
       InputCollection: @NAME@_x
       OutputCollection: @NAME@_xc0
       Converter: dqdx_srppac_xc0
- #     SRPPACParameter: prm:ppac:geo:x
+#      SRPPACParameter: geometry_srppac_x
       nStrip: 94
       stripWidth: 2.55
       center: 46.5
@@ -162,7 +176,7 @@ Processor:
       InputCollection: @NAME@_y
       OutputCollection: @NAME@_yc0
       Converter: dqdx_srppac_yc0
- #     SRPPACParameter: prm:ppac:geo:y
+#      SRPPACParameter: geometry_srppac_y
       nStrip: 58
       stripWidth: 2.58
       center: 28.5
