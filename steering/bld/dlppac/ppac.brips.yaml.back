@@ -1,0 +1,43 @@
+Processor:
+  - name: proc:ppacbrips:ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm:ppacbrips:ch2ns
+      Type: art::TAffineConverter
+      FileName: prm/ppac/ch2ns.brips.prm
+# ---------------------------------------
+  - name: proc:ppacbrips:param
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm:ppacbrips
+      Type: art::TPPACParameter
+      FileName: prm/ppac/ppac.prm.brips.yaml
+      FileFormat: yaml
+# ---------------------------------------
+  - name: proc:ppacbrips
+    type: art::TPPACProcessor
+    parameter:
+      CatID: 1
+      TimingConverterArray: prm:ppacbrips:ch2ns
+      PPACParameter: prm:ppacbrips
+      HasEachChConverter: 1
+      DoSeparatePPACs: 1
+      OutputTransparency: 0
+      ListOfPPACNames:
+        # --------- F3
+        - f3ppacbrips1a
+        - f3ppacbrips1b
+        - f3ppacbrips2a
+        - f3ppacbrips2b
+# ---------------------------------------
+  - name: prc:ppactrackbrips:f3track
+    type: art::TPPACTrackingProcessor
+    parameter:
+      InputColName:
+        - f3ppacbrips1a
+        - f3ppacbrips1b
+        - f3ppacbrips2a
+        - f3ppacbrips2b
+      OutputColName:
+        - f3trackbrips
+      OutputTransparency: 0
