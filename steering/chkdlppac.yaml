@@ -28,13 +28,13 @@ Processor:
     type: art::TTreeProjectionProcessor
     parameter:
       Type: art::TTreeProjection
-      FileName:  hist/fe7_dlppac.yaml 
+      FileName:  hist/dlppac/fe7_dlppac.yaml 
 
   - name: projectiontpccorrelation
     type: art::TTreeProjectionProcessor
     parameter:
       Type: art::TTreeProjection
-      FileName:  hist/fe8_dlppac.yaml 
+      FileName:  hist/dlppac/fe8_dlppac.yaml 
 
 ##  - name: projection
 ##    type: art::TTreeProjectionProcessor
