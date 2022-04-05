@@ -1,0 +1,348 @@
+anchor:
+  - &x3 ["f3.fX",100,-10,10]
+  - &y3 ["f3.fY",100,-10,10]
+  - &a3 ["1000*f3.fA",200,-20,20]
+  - &b3 ["1000*f3.fB",500,-50,50]
+
+  - &x4 ["-f4ppac.fX",100,-10,10]
+  - &y4 ["f4ppac.fY",100,-10,10]
+
+  - &x5 ["f5track.fX",600,-60,60]
+  - &y5 ["f5track.fY",600,-60,60]
+
+  - &x6 ["f6ppac.fX",300,-30,30]
+  - &y6 ["f6ppac.fY",200,-20,20]
+  - &x6c4 ["f6ppac.fX + 0.1 * f4ppac.fX",300,-30,30 ]
+
+  - &x7 ["fe7.GetX(2500)",400,-40,40]
+  - &x70 ["fe7.fX",400,-40,40]
+  - &y7 ["fe7.fY",200,-20,20]
+  - &x7c6 ["fe7.GetX(2500) - 0.1 * f6ppac.fX",300,-40,40 ]
+
+  - &x10 ["fe10.GetX(1750)",1000,-100,100]
+  - &y10 ["fe10.GetY(1750)",200,-20,20]
+  - &a10 ["1000*fe10.fA",200,-20,20]
+  - &b10 ["1000*fe10.fB",200,-20,20]
+  - &x10c7 ["fe10.GetX(1750) - 0.1 * fe7.GetX(2500)",1000,-100,100 ]
+
+  - &xs0 ["s0.GetX(200)",500,-50,50]
+  - &ys0 ["s0.GetY(200)",200,-20,20]
+  - &as0 ["1000*s0.fA",200,-20,20]
+  - &bs0 ["1000*s0.fB",200,-20,20]
+  - &xs0c10 ["s0.GetX(200) - 0.1 * fe10.GetX(1750)",1000,-100,100 ]
+
+  - &xs2 ["s2.GetX(-100)",500,-50,50]
+  - &ys2 ["s2.GetY(-100)",100,-20,20]
+  - &as2 ["1000*s2.fA",200,-20,20]
+  - &xs2cs0 ["s2.GetX(-100) - 0.1 * s0.GetX(200)",500,-50,50 ]
+
+
+
+alias:
+  gf3x: fabs(f3.fX)< 1
+  gf3y: fabs(f3.fY)< 1
+  gf3a: fabs(1000*f3.fA)< 2
+  gf3b: fabs(1000*f3.fB)< 2
+  gf3xf3a: fabs(f3.fX) < 1 && fabs(1000*f3.fA) < 2
+  gf3xfe10x: fabs(f3.fX) < 1 && fabs(fe10.GetX(1750)) < 1
+  gdp: fabs(f5track.fX) < 1
+
+
+group:
+  - name: f3tuning
+    title: F3 tuning
+    contents:
+      - name: f3_x_a
+        title: F3 XA
+        x: *a3
+        y: *x3
+      - name: f3_y_b
+        title: F3 YB
+        x: *b3
+        y: *y3
+
+  - name: f4tuning
+    title: F4 tuning
+    contents:
+      - name: f4_x_f3_a
+        title: F4 X VS F3 A
+        x: *a3
+        y: *x4
+      - name: f4_y_f3_b
+        title: F4 Y VS F3 B
+        x: *b3
+        y: *y4
+      - name: f4_y_f3_y
+        title: F4 Y VS F3 Y
+        x: *y3
+        y: *y4
+
+      - name: f4_x_f3_a_gate
+        title: F4 X VS F3 A gated w/ F3X
+        cut: gf3x
+        x: *a3
+        y: *x4
+      - name: f4_y_f3_b_gate
+        title: F4 Y VS F3 B gated w/ F3Y
+        cut: gf3y
+        x: *b3
+        y: *y4
+      - name: f4_y_f3_y_gate
+        title: F4 Y VS F3 Y gated w/ F3B
+        cut: gf3b
+        x: *y3
+        y: *y4
+
+  - name: f56tuning
+    title: F56 tuning
+    contents:
+      - name: f5_y_f3_b
+        title: F5 Y VS F3 B
+        x: *b3
+        y: *y5
+      - name: f6xc4_f3_a
+        title: F6 XC4 VS F3 A
+        x: *a3
+        y: *x6c4
+      - name: f6_y_f3_b
+        title: F6 Y VS F3 B
+        x: *b3
+        y: *y6
+      - name: f6_x_f4_x
+        title: F6 X VS F4 X
+        x: *x4
+        y: *x6
+
+      - name: f5_y_f3_b_gate
+        title: F5 Y VS F3 B gated w/ F3Y
+        cut: gf3y
+        x: *b3
+        y: *y5
+      - name: f6xc4_f3_a_gate
+        title: F6 XC4 VS F3 A gated w/ F3X
+        cut: gf3x
+        x: *a3
+        y: *x6c4
+      - name: f6_y_f3_b_gate
+        title: F6 Y VS F3 B gated w/ F3Y
+        cut: gf3y
+        x: *b3
+        y: *y6
+      - name: f6_x_f4_x_gate
+        title: F6 X VS F4 X gated w/ F3XF3A
+        cut: gf3xf3a
+        x: *x4
+        y: *x6
+
+  - name: fe7tuning
+    title: FE7 tuning
+    contents:
+      - name: f6_x_fe7_x
+        title: F6 X VS FE7 X
+        x: *x6
+        y: *x7
+      - name: fe7xc6_f3_a
+        title: FE7 XC6 VS F3 A
+        x: *a3
+        y: *x7c6
+      - name: f7_y_f3_b
+        title: FE7 Y VS F3 B
+        x: *b3
+        y: *y7
+
+      - name: f6_x_fe7_x_gate
+        title: F6 X VS FE7 X gated w/ F3XF3A
+        cut: gf3xf3a
+        x: *x6
+        y: *x7
+      - name: fe7xc6_f3_a_gate
+        title: FE7 XC6 VS F3 A gated w/ F3B
+        cut: gf3x
+        x: *a3
+        y: *x7c6
+      - name: f7_y_f3_b_gate
+        title: FE7 Y VS F3 B gated w/ F3Y
+        cut: gf3y
+        x: *b3
+        y: *y7
+      - name: f70_x
+        title: FE70 X 
+#        cut: gf3y
+        x: *x70
+   
+  - name: fe10tuning
+    title: FE10 tuning
+    contents:
+      - name: f10_x_fe7_x
+        title: FE10 X VS FE7 X
+        x: *x7
+        y: *x10
+      - name: fe10xc7_f3_a
+        title: FE10 XC7 VS F3 A
+        x: *a3
+        y: *x10c7
+      - name: fe10_a_f3_a
+        title: FE10 A VS F3 A
+        x: *a3
+        y: *a10
+      - name: fe10_y_f3_b
+        title: FE10 Y VS F3 B
+        x: *b3
+        y: *y10
+      - name: fe10_b_f3_b
+        title: FE10 B VS F3 B 
+        x: *b3
+        y: *b10
+      - name: fe10_a_fe7_x
+        title: FE10 A VS FE7 X 
+        x: *x7
+        y: *a10
+
+      - name: f10_x_fe7_x_gate
+        title: FE10 X VS FE7 X gated w/ F3XF3A
+        cut: gf3xf3a
+        x: *x7
+        y: *x10
+      - name: fe10xc7_f3_a_gate
+        title: FE10 XC7 VS F3 A gated w/ F3X
+        cut: gf3x
+        x: *a3
+        y: *x10c7
+      - name: fe10_a_f3_a_gate
+        title: FE10 A VS F3 A gated w/ F3X
+        cut: gf3x
+        x: *a3
+        y: *a10
+      - name: fe10_y_f3_b_gate
+        title: FE10 Y VS F3 B gated w/ F3Y
+        cut: gf3y
+        x: *b3
+        y: *y10
+      - name: fe10_b_f3_b_gate
+        title: FE10 B VS F3 B gated w/ F3Y
+        cut: gf3y
+        x: *b3
+        y: *b10
+      - name: fe10_a_fe7_x_gate
+        title: FE10 A VS FE7 X gated w/ F3XF3A
+        cut: gf3xf3a
+        x: *x7
+        y: *a10
+
+
+  - name: s0tuning
+    title: S0 tuning
+    contents:
+      - name: s0_x_fe10_x
+        title: S0 X VS FE10 X
+        x: *x10
+        y: *xs0
+      - name: s0_A_fe10_x
+        title: S0 A VS FE10 X
+        x: *x10
+        y: *as0
+      - name: s0xc10_f3_a
+        title: S0 XC10 VS F3 A
+        x: *a3
+        y: *xs0c10
+      - name: s0_y_f3_b
+        title: S0 Y VS F3 B
+        x: *b3
+        y: *ys0
+      - name: s0_a_f3_a
+        title: S0 A VS F3 A
+        x: *a3
+        y: *as0
+      - name: s0_b_f3_b
+        title: S0 B VS F3 B
+        x: *b3
+        y: *bs0
+
+
+      - name: s0_x_fe10_x_gate
+        title: S0 X VS FE10 X gated w/ F3XF3A
+        cut: gf3xf3a
+        x: *x10
+        y: *xs0
+      - name: s0_A_fe10_x_gate
+        title: S0 A VS FE10 X gated w/ F3XF3A
+        cut: gf3xf3a
+        x: *x10
+        y: *as0
+      - name: s0xc10_f3_a_gate
+        title: S0 XC10 VS F3 A gated w/ F3X
+        cut: gf3x
+        x: *a3
+        y: *xs0c10
+      - name: s0_y_f3_b_gate
+        title: S0 Y VS F3 B gated w/ F3Y
+        cut: gf3y
+        x: *b3
+        y: *ys0
+      - name: s0_a_f3_a_gate
+        title: S0 A VS F3 A gated w/ F3XFE10X
+        cut: gf3xfe10x
+        x: *a3
+        y: *as0
+      - name: s0_b_f3_b_gate
+        title: S0 B VS F3 B gated w/ F3Y
+        cut: gf3y
+        x: *b3
+        y: *bs0
+
+      - name: s0_a_f3_a_gate_dp
+        title: S0 A VS F3 A gated w/ F3XFE10X dp cut
+        clone: s0_a_f3_a_gate
+        cut: gdp
+
+  - name: s2tuning
+    title: S2 tuning
+    contents:
+      - name: s2_x_s0_x
+        title: S2 X VS S0 X
+        x: *xs0
+        y: *xs2
+      - name: s2xcs0_f3_a
+        title: S2 XCS0 VS F3 A
+        x: *a3
+        y: *xs2cs0
+      - name: s2_y_f3_b
+        title: S2 Y VS F3 B
+        x: *b3
+        y: *ys2
+      - name: s2_x_s0_x
+        title: S2 X VS S0 X 
+        x: *xs0
+        y: *xs2
+      - name: s2_a_s0_x
+        title: S0 A VS S0 X
+        x: *xs0
+        y: *as2
+
+      - name: s2_x_s0_x_gate
+        title: S2 X VS S0 X gated w/ F3XF3A
+        cut: gf3xf3a
+        x: *xs0
+        y: *xs2
+      - name: s2xcs0_f3_a_gate
+        title: S2 XCS0 VS F3 A gated w/ F3X
+        cut: gf3x
+        x: *a3
+        y: *xs2cs0
+      - name: s2_y_f3_b_gate
+        title: S2 Y VS F3 B gated w/ F3Y
+        cut: gf3y
+        x: *b3
+        y: *ys2
+      - name: s2_x_s0_x_gate
+        title: S2 X VS S0 X gated w/ F3XF3A
+        cut: gf3xf3a
+        x: *xs0
+        y: *xs2
+      - name: s2_a_s0_x_gate
+        title: S0 A VS S0 X gated w/ F3XF3A
+        cut: gf3xf3a
+        x: *xs0
+        y: *as2
+
+
