@@ -1,0 +1,9 @@
+Type: art::TSRPPACParameter
+Contents:
+  nStrip: 94
+  stripWidth: 2.55
+#  displacement: 0.15
+  z: 542.25
+  center: 46.5
+  detoffset: 0.
+  turned: 1
