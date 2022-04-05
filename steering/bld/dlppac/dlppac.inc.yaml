@@ -1,27 +1,29 @@
 Processor:
-  - name: proc:ppac:ch2ns
+  - name: proc:fe7fe8:ppac:ch2ns
     type: art::TParameterArrayLoader
     parameter:
-      Name: prm:ppac:ch2ns
+      Name: prm:fe7fe8:ppac:ch2ns
       Type: art::TAffineConverter
       FileName: prm/ppac/ch2ns.prm
 # ---------------------------------------
-  - name: proc:ppac:param
+  - name: proc:fe7fe8:ppac:param
     type: art::TParameterArrayLoader
     parameter:
-      Name: prm:ppac
+      Name: prm:fe7fe8:ppac
       Type: art::TPPACParameter
       #FileName: prm/ppac/ppac.prm.yaml
       FileName: prm/dlppac/dlppac.prm.user.yaml
       FileFormat: yaml
 # ---------------------------------------
-  - name: proc:ppac
+  - name: proc:fe7fe8:ppac
     type: art::TPPACProcessor
     parameter:
       CatID: 13
-      TimingConverterArray: prm:ppac:ch2ns
+      PPACParameter: prm:fe7fe8:ppac
+      TimingConverterArray: prm:fe7fe8:ppac:ch2ns
       HasEachChConverter: 1
       DoSeparatePPACs: 1
+      OutputCollection: fe7fe8ppac
       OutputTransparency: 0
       ListOfPPACNames:
         # --------- F3
