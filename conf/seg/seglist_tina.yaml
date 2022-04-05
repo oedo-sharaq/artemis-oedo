@@ -1,13 +1,13 @@
 TDC_V1190:
 #  # [[dev], [fp], [det]]
-  segid: [0,0,0]
+  segid: [11,22,7]
   type: V1190
   modules:
     # id: [geo]
     - id: 0
 
 ADC_V785:
-  segid: [0,0,0]
+  segid: [11,22,6]
   type : V785
   modules:
     - id: 4
