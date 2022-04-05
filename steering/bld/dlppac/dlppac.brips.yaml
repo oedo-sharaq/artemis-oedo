@@ -1,0 +1,128 @@
+Processor:
+  - name: proc:ppac:ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm:ppac:ch2ns
+      Type: art::TAffineConverter
+      FileName: prm/dlppac/ch2ns.brips.prm
+# ---------------------------------------
+  - name: proc:ppac:param
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm:ppac
+      Type: art::TPPACParameter
+      FileName: prm/dlppac/dlppac.prm.brips.sakura01.yaml
+      FileFormat: yaml
+# ---------------------------------------
+  - name: proc:ppac
+    type: art::TPPACProcessor
+    parameter:
+      CatID: 11
+      TimingConverterArray: prm:ppac:ch2ns
+      HasEachChConverter: 1
+      DoSeparatePPACs: 1
+      OutputTransparency: 0
+      ListOfPPACNames:
+        # --------- F3
+        - f3ppac1a
+        - f3ppac1b
+        - f3ppac2a
+        - f3ppac2b
+
+        # --------- F4
+        - f4ppac
+
+        # --------- F5
+        - f5ppac1a
+        - f5ppac1b
+        - f5ppac2a
+        - f5ppac2b
+
+        # --------- F6
+        - f6ppac
+
+        # --------- F7
+#        - f7ppac1a
+#        - f7ppac1b
+#        - f7ppac2a
+#        - f7ppac2b
+        # --------- F8
+#        - f8ppac1a
+#        - f8ppac1b
+#        - f8ppac2a
+#        - f8ppac2b
+# ---------------------------------------
+  - name: prc:ppactrack:f3track
+    type: art::TPPACTrackingProcessor
+    parameter:
+      InputColName:
+        - f3ppac1a
+        - f3ppac1b
+        - f3ppac2a
+        - f3ppac2b
+      OutputColName:
+        - f3track
+      OutputTransparency: 0
+# ---------------------------------------
+
+# ---------------------------------------
+  - name: prc:ppactrack:f4track
+    type: art::TPPACTrackingProcessor
+    parameter:
+      InputColName:
+        - f4ppac
+      OutputColName:
+        - f4track
+      OutputTransparency: 0
+# ---------------------------------------
+
+# ---------------------------------------
+  - name: prc:ppactrack:f5track
+    type: art::TPPACTrackingProcessor
+    parameter:
+      InputColName:
+        - f5ppac1a
+        - f5ppac1b
+        - f5ppac2a
+        - f5ppac2b
+      OutputColName:
+        - f5track
+      OutputTransparency: 0
+# ---------------------------------------
+
+# ---------------------------------------
+  - name: prc:ppactrack:f6track
+    type: art::TPPACTrackingProcessor
+    parameter:
+      InputColName:
+        - f6ppac
+      OutputColName:
+        - f6track
+      OutputTransparency: 0
+# ---------------------------------------
+
+
+
+#  - name: prc:ppactrack:f7track
+#    type: art::TPPACTrackingProcessor
+#    parameter:
+#      InputColName:
+#        - f7ppac1a
+#        - f7ppac1b
+#        - f7ppac2a
+#        - f7ppac2b
+#      OutputColName:
+#        - f7track
+#      OutputTransparency: 0
+## ---------------------------------------
+#  - name: prc:ppactrack:f8track
+#    type: art::TPPACTrackingProcessor
+#    parameter:
+#      InputColName:
+#        - f8ppac1a
+#        - f8ppac1b
+#        - f8ppac2a
+#        - f8ppac2b
+#      OutputColName:
+#        - f8track
+#      OutputTransparency: 0

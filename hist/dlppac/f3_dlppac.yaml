@@ -1,0 +1,91 @@
+group:
+  - name: F3PPAC
+    title: dlppac
+    contents:
+      - name: f3ppac1a_anode
+        title: f3ppac1a Anode
+        x: ["f3ppac1a.fTAnode", 200, -80, -60]
+      - name: f3ppac1a_x1_x2
+        title: f3ppac1a X1 Vs X2
+        x: ["f3ppac1a.fTX2",100,-50,50]
+        y: ["f3ppac1a.fTX1",100,-50,50]
+      - name: f3ppac1a_y1_y2
+        title: f3ppac1a Y1 Vs Y2
+        x: ["f3ppac1a.fTY2",100,-50,50]
+        y: ["f3ppac1a.fTY1",100,-50,50]
+      - name: f3ppac1a_xdiff
+        title: f3ppac1a XDiff
+        x: ["f3ppac1a.fTXDiff",200,-100.,100.]
+      - name: f3ppac1a_ydiff
+        title: f3ppac1a YDiff
+        x: ["f3ppac1a.fTYDiff",200,-100.,100.]
+      - name: f3ppac1a_y_x
+        title: f3ppac1a GetY Vs GetX
+        x: ["f3ppac1a.GetX()",200,-10.,10.]
+        y: ["f3ppac1a.GetY()",200,-10.,10.]
+     
+      - name: f3ppac1b_anode
+        title: f3ppac1b Anode
+        x: ["f3ppac1b.fTAnode", 200, -80, -60]
+      - name: f3ppac1b_x1_x2
+        title: f3ppac1b X1 Vs X2
+        x: ["f3ppac1b.fTX2",100,-50,50]
+        y: ["f3ppac1b.fTX1",100,-50,50]
+      - name: f3ppac1b_y1_y2
+        title: f3ppac1b Y1 Vs Y2
+        x: ["f3ppac1b.fTY2",100,-50,50]
+        y: ["f3ppac1b.fTY1",100,-50,50]
+      - name: f3ppac1b_xdiff
+        title: f3ppac1b XDiff
+        x: ["f3ppac1b.fTXDiff",200,-100.,100.]
+      - name: f3ppac1b_ydiff
+        title: f3ppac1b YDiff
+        x: ["f3ppac1b.fTYDiff",200,-100.,100.]
+      - name: f3ppac1b_y_x
+        title: f3ppac1b GetY Vs GetX
+        x: ["f3ppac1b.GetX()",200,-10.,10.]
+        y: ["f3ppac1b.GetY()",200,-10.,10.]
+
+      - name: f3ppac2a_anode
+        title: f3ppac2a Anode
+        x: ["f3ppac2a.fTAnode", 200, -80, -60]
+      - name: f3ppac2a_x1_x2
+        title: f3ppac2a X1 Vs X2
+        x: ["f3ppac2a.fTX2",200,0,100]
+        y: ["f3ppac2a.fTX1",200,0,100]
+      - name: f3ppac2a_y1_y2
+        title: f3ppac2a Y1 Vs Y2
+        x: ["f3ppac2a.fTY2",100,-50,50]
+        y: ["f3ppac2a.fTY1",100,-50,50]
+      - name: f3ppac2a_xdiff
+        title: f3ppac2a XDiff
+        x: ["f3ppac2a.fTXDiff",200,-100.,100.]
+      - name: f3ppac2a_ydiff
+        title: f3ppac2a YDiff
+        x: ["f3ppac2a.fTYDiff",200,-100.,100.]
+      - name: f3ppac2a_y_x
+        title: f3ppac2a GetY Vs GetX
+        x: ["f3ppac2a.GetX()",200,-10.,10.]
+        y: ["f3ppac2a.GetY()",200,-10.,10.]
+
+      - name: f3ppac2b_anode
+        title: f3ppac2b Anode
+        x: ["f3ppac2b.fTAnode", 200, -80, -60]
+      - name: f3ppac2b_x1_x2
+        title: f3ppac2b X1 Vs X2
+        x: ["f3ppac2b.fTX2",200,0,100]
+        y: ["f3ppac2b.fTX1",200,0,100]
+      - name: f3ppac2b_y1_y2
+        title: f3ppac2b Y1 Vs Y2
+        x: ["f3ppac2b.fTY2",100,-50,50]
+        y: ["f3ppac2b.fTY1",100,-50,50]
+      - name: f3ppac2b_xdiff
+        title: f3ppac2b XDiff
+        x: ["f3ppac2b.fTXDiff",200,-100.,100.]
+      - name: f3ppac2b_ydiff
+        title: f3ppac2b YDiff
+        x: ["f3ppac2b.fTYDiff",200,-100.,100.]
+      - name: f3ppac2b_y_x
+        title: f3ppac2b GetY Vs GetX
+        x: ["f3ppac2b.GetX()",200,-10.,10.]
+        y: ["f3ppac2b.GetY()",200,-10.,10.]

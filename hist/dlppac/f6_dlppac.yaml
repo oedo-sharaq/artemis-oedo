@@ -1,0 +1,25 @@
+group:
+  - name: F6PPAC
+    title: dlppac
+    contents:
+      - name: f6ppac_anode
+        title: f6ppac Anode
+        x: ["f6ppac.fTAnode", 200, -100, 0]
+      - name: f6ppac_x1_x2
+        title: f6ppac X1 Vs X2
+        x: ["f6ppac.fTX2",150,-50,100]
+        y: ["f6ppac.fTX1",150,-50,100]
+      - name: f6ppac_y1_y2
+        title: f6ppac Y1 Vs Y2
+        x: ["f6ppac.fTY2",100,-50,50]
+        y: ["f6ppac.fTY1",100,-50,50]
+      - name: f6ppac_xdiff
+        title: f6ppac XDiff
+        x: ["f6ppac.fTXDiff",300,-250.,250.]
+      - name: f6ppac_ydiff
+        title: f6ppac YDiff
+        x: ["f6ppac.fTYDiff",200,-100.,100.]
+      - name: f6ppac_y_x
+        title: f6ppac GetY Vs GetX
+        x: ["f6ppac.GetX()",300,-15.,15.]
+        y: ["f6ppac.GetY()",200,-10.,10.]

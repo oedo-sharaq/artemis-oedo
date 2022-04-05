@@ -1,0 +1,25 @@
+group:
+  - name: F4PPAC
+    title: dlppac
+    contents:
+      - name: f4ppac_anode
+        title: f4ppac Anode
+        x: ["f4ppac.fTAnode", 200, 6920, 7020]
+      - name: f4ppac_x1_x2
+        title: f4ppac X1 Vs X2
+        x: ["f4ppac.fTX2",200,6800,7200]
+        y: ["f4ppac.fTX1",200,6800,7200]
+      - name: f4ppac_y1_y2
+        title: f4ppac Y1 Vs Y2
+        x: ["f4ppac.fTY2",200,6800,7200]
+        y: ["f4ppac.fTY1",200,6800,7200]
+      - name: f4ppac_xdiff
+        title: f4ppac XDiff
+        x: ["f4ppac.fTXDiff",300,-250.,400.]
+      - name: f4ppac_ydiff
+        title: f4ppac YDiff
+        x: ["f4ppac.fTYDiff",200,-100.,100.]
+      - name: f4ppac_y_x
+        title: f4ppac GetY Vs GetX
+        x: ["f4ppac.GetX()",300,-10.,20.]
+        y: ["f4ppac.GetY()",200,-10.,10.]
