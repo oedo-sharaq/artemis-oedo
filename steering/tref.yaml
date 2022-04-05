@@ -1,10 +1,17 @@
 Processor:
-  - name: proc_tref_v1190_sva03
+  - name: proc_tref_v1190_sva03_1
     type: art::TTimeReferenceProcessor
     parameter:
       # [[device] [focus] [detector] [geo] [ch]]
       RefConfig: [0, 63,  1, 7, 0]
       SegConfig: [0, 63,  1, 7]
+
+  - name: proc_tref_v1190_sva03_2
+    type: art::TTimeReferenceProcessor
+    parameter:
+      # [[device] [focus] [detector] [geo] [ch]]
+      RefConfig: [0, 63,  1, 8, 0]
+      SegConfig: [0, 63,  1, 8]
 
   - name: proc_tref_v1290_sva03
     type: art::TTimeReferenceProcessor
@@ -17,20 +24,102 @@ Processor:
     type: art::TTimeReferenceProcessor
     parameter:
       # [[device] [focus] [detector] [geo] [ch]]
-      RefConfig: [0, 11, 31, 0, 0]
-      SegConfig: [0, 11, 31, 0]
-
-  - name: proc_tref_v1190_f3_0
-    type: art::TTimeReferenceProcessor
-    parameter:
-      # [[device] [focus] [detector] [geo] [ch]]
-      RefConfig: [0, 3, 31, 0, 0]
-      SegConfig: [0, 3, 31, 0]
+      RefConfig: [11, 3, 31, 0, 0]
+      SegConfig: [11, 3, 31, 0]
 
   - name: proc_tref_v1190_f3_1
     type: art::TTimeReferenceProcessor
     parameter:
       # [[device] [focus] [detector] [geo] [ch]]
-      RefConfig: [0, 3, 31, 1, 0]
-      SegConfig: [0, 3, 31, 1]
+      RefConfig: [11, 3, 31, 1, 0]
+      SegConfig: [11, 3, 31, 1]
+
+  - name: proc_tref_v1190_f3_2
+    type: art::TTimeReferenceProcessor
+    parameter:
+      # [[device] [focus] [detector] [geo] [ch]]
+      RefConfig: [11, 3, 31, 2, 0]
+      SegConfig: [11, 3, 31, 2]
   
+### FE7 FE8 to be added
+#  - name: proc_tref_v1190_fe7
+#    type: art::TTimeReferenceProcessor
+#    parameter:
+#      RefConfig: [11,7,31,1,0]
+#      SegConfig: [11,7,31,1]
+#  - name: proc_tref_v1190_fe8
+#    type: art::TTimeReferenceProcessor
+#    parameter:
+#      RefConfig: [11,8,31,1,0]
+#      SegConfig: [11,8,31,1]
+  - name: proc_tref_v1190_fe9_0
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [11,9,31,0,0]
+      SegConfig: [11,9,31,0]
+  - name: proc_tref_v1190_fe9_1
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [11,9,31,1,0]
+      SegConfig: [11,9,31,1]
+  - name: proc_tref_v1190_fe9_2
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [11,9,31,2,0]
+      SegConfig: [11,9,31,2]
+  - name: proc_tref_v1190_fe9_3
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [11,9,31,3,0]
+      SegConfig: [11,9,31,3]
+  - name: proc_tref_v1190_fe10_0
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [11,10,31,0,0]
+      SegConfig: [11,10,31,0]
+  - name: proc_tref_v1190_fe10_1
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [11,10,31,1,0]
+      SegConfig: [11,10,31,1]
+  - name: proc_tref_v1190_fe12_0
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [11,12,31,0,0]
+      SegConfig: [11,12,31,0]
+  - name: proc_tref_v1190_fe12_1
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [11,12,31,1,0]
+      SegConfig: [11,12,31,1]
+  - name: proc_tref_v1190_fe12_2
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [11,12,31,2,0]
+      SegConfig: [11,12,31,2]
+  - name: proc_tref_v1290_fe12_3
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [11,12,31,3,0]
+      SegConfig: [11,12,31,3]
+  - name: proc_tref_v1190_s1_0
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [11,21,31,0,0]
+      SegConfig: [11,21,31,0]
+  - name: proc_tref_v1190_s1_1
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [11,21,31,1,0]
+      SegConfig: [11,21,31,1]
+  - name: proc_tref_v1190_s1_2
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [11,21,31,2,0]
+      SegConfig: [11,21,31,2]
+  - name: proc_tref_v1290_s1_3
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [11,21,31,3,0]
+      SegConfig: [11,21,31,3]
+
