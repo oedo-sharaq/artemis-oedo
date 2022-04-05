@@ -15,7 +15,6 @@ Processor:
       Type:     art::TMonotoneTableConverter
       FileName: prm/mwdc/@NAME@/dt2dl/current/u.dat
 
-
   - name: proc_@NAME@_dxdt_y
     type: art::TParameterLoader
     parameter:

@@ -3,12 +3,12 @@ Processor:
     type: art::TMWDCTrackingProcessor
     parameter:
       InputCollection:
-        - dc71_x
-        - dc71_u
-        - dc71_y
-        - dc72_x
-        - dc72_u
-        - dc72_y
-      OutputCollection:   fe7
+        - dca1_x
+        - dca1_u
+        - dca1_y
+        - dca2_x
+        - dca2_u
+        - dca2_y
+      OutputCollection:   trackdca
 #      UseGlobalPos:       1
       OutputTransparency: 0
