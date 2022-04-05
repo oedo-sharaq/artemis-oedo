@@ -1,3 +1,23 @@
+alias:
+  fe9x: (345*sr91_x.fPosition + 100*sr92_x.fPosition)/(100+345)
+  fe9y: (345*sr91_y.fPosition + 100*sr92_y.fPosition)/(100+345)
+  fe9xres: TMath::Abs(sr91_x.fPosition-sr92_x.fPosition)
+  fe9yres: TMath::Abs(sr91_y.fPosition-sr92_y.fPosition)
+  fe9a: 445/fe9xres
+  fe9b: 445/fe9yres
+  k9c8: 1.0
+#  X9c8: fe9-k9c8*fe8x
+
+  gf3x: fabs(f3.fX)< 1
+  gf3y: fabs(f3.fY)< 1
+  gf3a: fabs(1000*f3.fA)< 2
+  gf3b: fabs(1000*f3.fB)< 2
+  gf3xf3a: fabs(f3.fX) < 1 && fabs(1000*f3.fA) < 2
+  gf3xfe10x: fabs(f3.fX) < 1 && fabs(fe10.GetX(1750)) < 1
+  gdp: fabs(f5track.fX) < 1
+
+
+
 anchor:
   - &x3 ["f3.fX",100,-10,10]
   - &y3 ["f3.fY",100,-10,10]
@@ -19,6 +39,12 @@ anchor:
   - &y7 ["fe7.fY",200,-20,20]
   - &x7c6 ["fe7.GetX(2500) - 0.1 * f6ppac.fX",300,-40,40 ]
 
+  - &x9 ["fe9x",100,-50,50]
+  - &y9 ["fe9y",100,-50,50]
+  - &a9 ["fe9a*1000 ",40,-20,20]
+  - &b9 ["fe9b*1000",40,-20,20]
+  - &x9c8 ["X9c8",1000,-100,100 ]
+
   - &x10 ["fe10.GetX(1750)",1000,-100,100]
   - &y10 ["fe10.GetY(1750)",200,-20,20]
   - &a10 ["1000*fe10.fA",200,-20,20]
@@ -35,17 +61,6 @@ anchor:
   - &ys2 ["s2.GetY(-100)",100,-20,20]
   - &as2 ["1000*s2.fA",200,-20,20]
   - &xs2cs0 ["s2.GetX(-100) - 0.1 * s0.GetX(200)",500,-50,50 ]
-
-
-
-alias:
-  gf3x: fabs(f3.fX)< 1
-  gf3y: fabs(f3.fY)< 1
-  gf3a: fabs(1000*f3.fA)< 2
-  gf3b: fabs(1000*f3.fB)< 2
-  gf3xf3a: fabs(f3.fX) < 1 && fabs(1000*f3.fA) < 2
-  gf3xfe10x: fabs(f3.fX) < 1 && fabs(fe10.GetX(1750)) < 1
-  gdp: fabs(f5track.fX) < 1
 
 
 group:
@@ -169,7 +184,33 @@ group:
         title: FE70 X 
 #        cut: gf3y
         x: *x70
-   
+
+### FE9 S.Hanai
+  - name: fe9tuning
+    title: FE9 tuning
+    contents:
+      - name: fe9_xc8_f3_a
+        title: FE9 XC8 VS F3 A
+        x: *a3
+        y: *x9c8
+      - name: fe9_y_f3_b
+        title: FE9 Y VS F3 B
+        x: *b3
+        y: *y9
+      - name: fe9_a_f3_a
+        title: FE9 A VS F3 A
+        x: *a3
+        y: *a9
+      - name: fe9_b_f3_b
+        title: FE9 B VS F3 B 
+        x: *b3
+        y: *b9
+      - name: fe9x_fe8_x
+        title: FE9 VS FE8 X
+        x: *x8
+        y: *x9
+
+
   - name: fe10tuning
     title: FE10 tuning
     contents:
