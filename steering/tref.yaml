@@ -13,6 +13,13 @@ Processor:
       RefConfig: [0, 63,  3, 6, 15]
       SegConfig: [0, 63,  3, 6]
 
+  - name: proc_tref_v1290_f3_0
+    type: art::TTimeReferenceProcessor
+    parameter:
+      # [[device] [focus] [detector] [geo] [ch]]
+      RefConfig: [0, 11, 31, 0, 0]
+      SegConfig: [0, 11, 31, 0]
+
   - name: proc_tref_v1190_f3_0
     type: art::TTimeReferenceProcessor
     parameter:

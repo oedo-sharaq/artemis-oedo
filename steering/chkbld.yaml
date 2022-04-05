@@ -1,7 +1,7 @@
 Anchor:
- - &input ridf/@NAME@@NUM@.ridf
+ - &input ridf_rftest/@NAME@@NUM@.ridf
  - &output output/@NAME@/@NUM@/chk@NAME@@NUM@.root
- - &histout output/@NAME@/@NUM@/chk@NAME@@NUM@.hist.root
+# - &histout output/@NAME@/@NUM@/chk@NAME@@NUM@.hist.root
 
 Processor:
   - name: timer

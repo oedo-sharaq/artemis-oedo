@@ -22,12 +22,12 @@
 #    - id: 0
 #
 
-#F3_V1190:
-#  segid: [0, 3, 31]
-#  type: V1190
-#  modules:
-#    - id: 0
-#    - id: 1
+F3_V1290:
+  segid: [11, 3, 31]
+  type: V1290
+  modules:
+    - id: 0
+
 #
 #F5_V1190:
 #  segid: [0, 5, 50]

@@ -1,0 +1,95 @@
+Processor:
+  # dia pad  1 anode ch
+  - name: proc_diapad_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm_diapad_ch2ns
+      Type: art::TAffineConverter
+      FileName: prm/dia/diapad_ch2ns.dat
+
+  - name: proc_diapad_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: 5
+      TimingTypeID: 0
+      TrailingComesFirst: 0
+      OutputCollection: diapad_raw
+      OutputTransparency: 1
+
+  - name: proc_diapad
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: diapad_raw
+      OutputCollection: diapad
+      TimingConverterArray: prm_diapad_ch2ns
+      OutputTransparency: 1
+
+#  - name: proc_diapad_sep
+#    type: art::TSeparateOutputProcessor
+#    parameter:
+#      InputCollection: diapad
+#      OutputCollections:
+#        - f3dia
+##        - f3dia_sva03
+##        - f3dia_mtdc
+
+  # dia strip 4 strip
+  - name: proc_diastrip_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm_diastrip_ch2ns
+      Type: art::TAffineConverter
+      FileName: prm/dia/diastrip_ch2ns.dat
+
+  - name: proc_diastrip_l_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: 6
+      TimingTypeID: 0
+      TrailingComesFirst: 0
+      OutputCollection: diastrip_l_raw
+      OutputTransparency: 1
+
+  - name: proc_diastrip_l
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: diastrip_l_raw
+      OutputCollection: diastrip_l
+      TimingConverterArray: prm_diastrip_ch2ns
+      OutputTransparency: 1
+
+  - name: proc_diastrip_r_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: 6
+      TimingTypeID: 1
+      TrailingComesFirst: 0
+      OutputCollection: diastrip_r_raw
+      OutputTransparency: 1
+
+  - name: proc_diastrip_l
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: diastrip_r_raw
+      OutputCollection: diastrip_r
+      TimingConverterArray: prm_diastrip_ch2ns
+      OutputTransparency: 1
+      
+  - name: proc_dia
+    type: art::TTwoSidedPlasticCalibrationProcessor
+    parameter:
+      InputCollection1: diastrip_l
+      InputCollection2: diastrip_r
+      OutputCollection: diastrip
+      DetIDRange: [0,10]
+      OutputTransparency: 1
+
+
+  - name: proc_diastrip_sep
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: diastrip
+      OutputCollections:
+        - f3dia1
+        - f3dia2
+      OutputTransparency: 1
