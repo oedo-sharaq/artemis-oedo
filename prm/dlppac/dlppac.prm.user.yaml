@@ -8,7 +8,7 @@ Contents:
     - 0.92
     - 1.58
     linecalib:
-    - 10.948
+    - -9.119
     - 2.9301
     exchange: 0
     reflectx: 0
@@ -30,8 +30,8 @@ Contents:
     - 0.05
     - 0.04
     linecalib:
-    - -6.8188
-    - 0.64
+    - 4.02
+    - 0.661
     exchange: 0
     reflectx: 0
     geometry:
@@ -52,8 +52,8 @@ Contents:
     - 0.75
     - 0.63
     linecalib:
-    - 1.2593
-    - 2.1633
+    - 0.21
+    - 2.17
     exchange: 0
     reflectx: 0
     geometry:
