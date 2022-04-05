@@ -1,5 +1,5 @@
 Anchor:
- - &input ridf_rftest/@NAME@@NUM@.ridf
+ - &input ridf/@NAME@@NUM@.ridf
  - &output output/@NAME@/@NUM@/chk@NAME@@NUM@.root
 # - &histout output/@NAME@/@NUM@/chk@NAME@@NUM@.hist.root
 
@@ -23,6 +23,7 @@ Processor:
 #  - include: bld/ppac/ppac.yaml
 #  - include: bld/ppac/ppac.brips.yaml
   - include: bld/pla/pla_os22s.yaml
+  - include: bld/dlppac/dlppac.brips.yaml
 #  - include: bld/mwdc/chkmwdc_treff7.yaml
          
 #  - name: projection

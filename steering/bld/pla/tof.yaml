@@ -3,7 +3,7 @@ Processor:
     type: art::TTimingSubtractionProcessor
     parameter:
       StartTimingCollection: f3pla
-      InputCollection: f51pla
+      InputCollection: f52pla
       OutputCollection: tof35
       StartTimingDetID: 0
       UseMultipleStartTiming: 1
@@ -16,32 +16,32 @@ Processor:
       OutputCollection: tof57
       StartTimingDetID: 0
       UseMultipleStartTiming: 1
-  - name: proc_tof78_multi
-    type: art::TTimingSubtractionProcessor
-    parameter:
-      StartTimingCollection: f71pla
-      InputCollection: f8pla
-      OutputCollection: tof78
-      StartTimingDetID: 0
-      UseMultipleStartTiming: 1
-  - name: proc_tof38_multi
-    type: art::TTimingSubtractionProcessor
-    parameter:
-      StartTimingCollection: f3pla
-      InputCollection: f8pla
-      OutputCollection: tof38
-      StartTimingDetID: 0
-      UseMultipleStartTiming: 1
-
-  - name: proc_tof58_multi
-    type: art::TTimingSubtractionProcessor
-    parameter:
-      StartTimingCollection: f51pla
-      InputCollection: f8pla
-      OutputCollection: tof58
-      StartTimingDetID: 0
-      UseMultipleStartTiming: 1
-
+#  - name: proc_tof78_multi
+#    type: art::TTimingSubtractionProcessor
+#    parameter:
+#      StartTimingCollection: f71pla
+#      InputCollection: f8pla
+#      OutputCollection: tof78
+#      StartTimingDetID: 0
+#      UseMultipleStartTiming: 1
+#  - name: proc_tof38_multi
+#    type: art::TTimingSubtractionProcessor
+#    parameter:
+#      StartTimingCollection: f3pla
+#      InputCollection: f8pla
+#      OutputCollection: tof38
+#      StartTimingDetID: 0
+#      UseMultipleStartTiming: 1
+#
+#  - name: proc_tof58_multi
+#    type: art::TTimingSubtractionProcessor
+#    parameter:
+#      StartTimingCollection: f51pla
+#      InputCollection: f8pla
+#      OutputCollection: tof58
+#      StartTimingDetID: 0
+#      UseMultipleStartTiming: 1
+#
   - name: proc_tof37_multi
     type: art::TTimingSubtractionProcessor
     parameter:
