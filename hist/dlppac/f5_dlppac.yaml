@@ -1,5 +1,5 @@
 group:
-  - name: F5PPAC
+  - name: f5
     title: dlppac
     contents:
       - name: f5ppac1a_anode

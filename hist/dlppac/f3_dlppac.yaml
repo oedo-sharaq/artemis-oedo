@@ -1,5 +1,5 @@
 group:
-  - name: F3PPAC
+  - name: f3
     title: dlppac
     contents:
       - name: f3ppac1a_anode
@@ -89,3 +89,5 @@ group:
         title: f3ppac2b GetY Vs GetX
         x: ["f3ppac2b.GetX()",200,-10.,10.]
         y: ["f3ppac2b.GetY()",200,-10.,10.]
+
+

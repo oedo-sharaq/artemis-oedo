@@ -1,5 +1,5 @@
 group:
-  - name: F4PPAC
+  - name: f4
     title: dlppac
     contents:
       - name: f4ppac_anode
@@ -23,3 +23,4 @@ group:
         title: f4ppac GetY Vs GetX
         x: ["f4ppac.GetX()",300,-10.,20.]
         y: ["f4ppac.GetY()",200,-10.,10.]
+

@@ -46,12 +46,12 @@ Processor:
 #        - f7ppac1b
 #        - f7ppac2a
 #        - f7ppac2b
-        # --------- F8
+#        # --------- F8
 #        - f8ppac1a
 #        - f8ppac1b
 #        - f8ppac2a
 #        - f8ppac2b
-# ---------------------------------------
+## ---------------------------------------
   - name: prc:ppactrack:f3track
     type: art::TPPACTrackingProcessor
     parameter:
@@ -114,7 +114,7 @@ Processor:
 #      OutputColName:
 #        - f7track
 #      OutputTransparency: 0
-## ---------------------------------------
+### ---------------------------------------
 #  - name: prc:ppactrack:f8track
 #    type: art::TPPACTrackingProcessor
 #    parameter:
