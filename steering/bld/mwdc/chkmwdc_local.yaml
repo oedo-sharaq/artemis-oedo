@@ -84,3 +84,4 @@ Processor:
       OutputTransparency: 0
 ########
   - include: fe10mwdctrack.yaml
+  - include: mwdc_calib_local.yaml
