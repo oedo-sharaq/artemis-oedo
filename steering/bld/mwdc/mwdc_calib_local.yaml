@@ -28,7 +28,7 @@ Processor:
       replace:
         NAME: dca2
         TGATE: [-250.,-10.]
-        QGATE: [0,1400]
+        QGATE: [500,1400]
 
 ## FE10
 #  - include: 
