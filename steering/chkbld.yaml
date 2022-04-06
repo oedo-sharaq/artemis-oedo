@@ -1,6 +1,6 @@
 Anchor:
-   
  - &input ridf/@NAME@@NUM@.ridf
+# - &output output/@NAME@/@NUM@/chk@NAME@@NUM@.root
 # - &histout output/@NAME@/@NUM@/chk@NAME@@NUM@.hist.root
  - &output output/@NAME@/@NUM@/chkbld@NAME@@NUM@.root
  - &histout output/@NAME@/@NUM@/chkbld@NAME@@NUM@.hist.root
