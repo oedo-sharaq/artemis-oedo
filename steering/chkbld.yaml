@@ -1,5 +1,6 @@
 Anchor:
- - &output output/@NAME@/@NUM@/chk@NAME@@NUM@.root
+   
+ - &input ridf/@NAME@@NUM@.ridf
 # - &histout output/@NAME@/@NUM@/chk@NAME@@NUM@.hist.root
  - &output output/@NAME@/@NUM@/chkbld@NAME@@NUM@.root
  - &histout output/@NAME@/@NUM@/chkbld@NAME@@NUM@.hist.root
@@ -21,9 +22,9 @@ Processor:
       OutputTransparency: 1
 
   - include: tref.yaml
-  - include: bld/pla/pla.yaml
+  - include: bld/pla/pla_os22s.yaml
   - include: bld/dlppac/ppac.brips.yaml
-#  - include: bld/dlppac/dlppac.inc.yaml
+  - include: bld/dlppac/dlppac.inc.yaml
   - include: bld/srppac/srppac.yaml
   - include: bld/mwdc/chkmwdc_local.yaml
 
