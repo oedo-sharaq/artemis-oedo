@@ -1,5 +1,5 @@
 Anchor:
- - &input ridf_rftest/@NAME@@NUM@.ridf
+ - &input ridf/@NAME@@NUM@.ridf
  - &output output/@NAME@/@NUM@/chk@NAME@@NUM@.root
 # - &histout output/@NAME@/@NUM@/chk@NAME@@NUM@.hist.root
 

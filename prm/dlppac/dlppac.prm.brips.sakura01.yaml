@@ -92,8 +92,10 @@ Contents:
     - 800.0
   f3ppac1a:
     ns2mm:
-    - 0.1218
-    - -0.1248
+#    - 0.1218
+#    - -0.1248
+    - 1.218
+    - -1.248
     delayoffset:
     - 0.6
     - -1.04
@@ -114,8 +116,8 @@ Contents:
     - 800.0
   f3ppac1b:
     ns2mm:
-    - 0.1244
-    - -0.1221
+    - 1.244
+    - -1.221
     delayoffset:
     - 0.55
     - -0.59
@@ -136,8 +138,8 @@ Contents:
     - 800.0
   f3ppac2a:
     ns2mm:
-    - 0.1226
-    - -0.1234
+    - 1.226
+    - -1.234
     delayoffset:
     - 1.4
     - -0.53
@@ -158,8 +160,8 @@ Contents:
     - 800.0
   f3ppac2b:
     ns2mm:
-    - 0.1225
-    - -0.1224
+    - 1.225
+    - -1.224
     delayoffset:
     - 1.04
     - -0.93
@@ -202,8 +204,8 @@ Contents:
     - 800.0
   f5ppac1a:
     ns2mm:
-    - 0.1228
-    - -0.123
+    - 1.228
+    - -1.23
     delayoffset:
     - 0.95
     - -0.35
@@ -211,7 +213,7 @@ Contents:
     - 0.0
     - 0.0
     exchange: 0
-    reflectx: 0
+    reflectx: 1
     geometry:
     - 0.0
     - 0.0
@@ -224,8 +226,8 @@ Contents:
     - 800.0
   f5ppac1b:
     ns2mm:
-    - 0.1231
-    - -0.1243
+    - 1.231
+    - -1.243
     delayoffset:
     - 1.18
     - -0.41
@@ -233,7 +235,7 @@ Contents:
     - 0.0
     - 0.0
     exchange: 0
-    reflectx: 0
+    reflectx: 1
     geometry:
     - 0.0
     - 0.0
@@ -246,8 +248,8 @@ Contents:
     - 800.0
   f5ppac2a:
     ns2mm:
-    - 0.1214
-    - -0.1221
+    - 1.214
+    - -1.221
     delayoffset:
     - 1.37
     - -0.58
@@ -255,7 +257,7 @@ Contents:
     - 0.0
     - 0.0
     exchange: 0
-    reflectx: 0
+    reflectx: 1
     geometry:
     - -0.15
     - 0.0
@@ -268,8 +270,8 @@ Contents:
     - 800.0
   f5ppac2b:
     ns2mm:
-    - 0.122
-    - -0.123
+    - 1.22
+    - -1.23
     delayoffset:
     - 1.52
     - -0.33
@@ -277,7 +279,7 @@ Contents:
     - 0.0
     - 0.0
     exchange: 0
-    reflectx: 0
+    reflectx: 1
     geometry:
     - 0.0
     - 0.0
@@ -290,8 +292,8 @@ Contents:
     - 800.0
   f6ppac:
     ns2mm:
-    - 0.122
-    - -0.1219
+    - 1.22
+    - -1.219
     delayoffset:
     - 0.92
     - -0.62

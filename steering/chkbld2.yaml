@@ -23,6 +23,7 @@ Processor:
 #  - include: bld/ppac/ppac.yaml
 #  - include: bld/ppac/ppac.brips.yaml
   - include: bld/pla/pla_os22s.yaml
+  - include: bld/dia/dia.yaml
   - include: bld/dlppac/dlppac.brips.yaml
 #  - include: bld/mwdc/chkmwdc_treff7.yaml
          

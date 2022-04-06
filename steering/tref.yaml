@@ -17,14 +17,14 @@ Processor:
     type: art::TTimeReferenceProcessor
     parameter:
       # [[device] [focus] [detector] [geo] [ch]]
-      RefConfig: [0, 63,  3, 6, 15]
+      RefConfig: [0, 63,  3, 6, 31]
       SegConfig: [0, 63,  3, 6]
 
   - name: proc_tref_v1290_f3_0
     type: art::TTimeReferenceProcessor
     parameter:
       # [[device] [focus] [detector] [geo] [ch]]
-      RefConfig: [11, 3, 31, 0, 0]
+      RefConfig: [11, 3, 31, 0, 31]
       SegConfig: [11, 3, 31, 0]
 
   - name: proc_tref_v1190_f3_1

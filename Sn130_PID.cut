@@ -1,0 +1,22 @@
+{
+//========= Macro generated from object: Sn130/Graph
+//========= by ROOT version6.14/08
+   
+   TCutG *cutg = new TCutG("Sn130",11);
+   cutg->SetVarX("f5pla.fTiming-diapad.fTiming-1250");
+   cutg->SetVarY("f5track.fX");
+   cutg->SetTitle("Graph");
+   cutg->SetFillStyle(1000);
+   cutg->SetPoint(0,-12.322,18.7236);
+   cutg->SetPoint(1,-12.6873,10.8122);
+   cutg->SetPoint(2,-12.2915,-1.58228);
+   cutg->SetPoint(3,-11.9871,-15.0316);
+   cutg->SetPoint(4,-11.5609,-28.7447);
+   cutg->SetPoint(5,-10.7693,-25.8439);
+   cutg->SetPoint(6,-10.4649,-15.2954);
+   cutg->SetPoint(7,-10.8302,1.58228);
+   cutg->SetPoint(8,-11.2564,17.1414);
+   cutg->SetPoint(9,-11.774,20.5696);
+   cutg->SetPoint(10,-12.322,18.7236);
+   cutg->Draw("");
+}
