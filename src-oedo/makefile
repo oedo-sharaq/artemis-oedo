@@ -23,6 +23,9 @@ OBJ += TTOF2BetaProcessor.o
 #OBJ += TBrhoReconstructProcessor.o
 OBJ += TPIDSingleSectionProcessor.o
 #OBJ += TCmdPadZoom.o
+OBJ += TRawDataTriggeredList.o
+OBJ += TModuleDecoderA3100FreeRunTSI.o
+OBJ += TTimingChargeTriggeredListMappingProcessor.o
 
 UNAME = $(shell uname)
 ifeq ($(UNAME),Darwin)

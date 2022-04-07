@@ -1,0 +1,45 @@
+Processor:
+  
+  - name: proc_trigraw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: 52
+      TimingTypeID: 0
+      TrailingComesFirst: 0
+      OutputCollection: trig_raw
+      OutputTransparency: 0
+
+  - name: proc_trig_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: trig_prm
+      Type: art::TAffineConverter
+      FileName: prm/trig_ch2ns.dat
+      
+  - name: proc_trig_cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: trig_raw
+      OutputCollection: trig_cal
+      TimingConverterArray: trig_prm
+      OutputTransparency: 0
+      
+  - name: proc_trig_valid
+    type: art::TTimeValidator
+    parameter:
+      InputCollection: trig_cal
+      ValidTimeRange: [-60,-55,0]
+      OutputCollection: ge_coin
+      OutputTransparency: 0
+
+  - name: proc_sep_trig
+    type: TSepatateOutputProcessor
+    parameter:
+      InputCollection: trig_cal
+      OutputCollections:
+        - "beam_ge_coin"
+        - "beam_ds"
+        - "ge_ds"
+        - "asterisq"
+        
+      

@@ -1,0 +1,7 @@
+Processor:
+  - name: proc_tref_v1190_ge
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [32,32,31,5,0]
+      SegConfig: [32,32,31,5]
+

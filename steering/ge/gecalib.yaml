@@ -1,0 +1,115 @@
+Processor:
+
+  - include: v1190_tref.yaml
+  
+  - name: gemap
+    type: art::TTimingChargeTriggeredListMappingProcessor
+# type: art::TSimpleDataMappingProcessor
+    parameter:
+      CatID:                 53
+      OutputCollection:      geraw
+      TimingTypeID:          0
+
+  # - name: gepedprmloader
+  #   type: art::TParameterArrayLoader
+  #   parameter:
+  #     Name:     gepedprm
+  #     Type:     art::TAffineConverter
+  #     FileName: prm/ge/ped.prm
+
+  - name: geenecalloader
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: ge_ch2MeV
+      Type: art::TAffineConverter
+      FileName: prm/ge/ge_ch2MeV.dat
+
+  - name: geenecalloader
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: ge_ch2MeV2
+      Type: art::TAffineConverter
+      FileName: prm/ge/ge_ch2MeVcal2.dat
+
+  # - name: gecalprmloader
+  #   type: art::TParameterArrayLoader
+  #   parameter:
+  #     Name:     gecalprm
+  #     Type:     art::TAffineConverter
+  #     FileName: prm/ge/cal.prm
+
+  - name: getcalproc
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     getcalprm
+      Type:     art::TAffineConverter
+      FileName: prm/ge/ge_ch2ns.dat
+
+      
+  - name: getsicalproc
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: getsicalprm
+      Type: art::TAffineConverter
+      FileName: prm/ge/ge_ch2ns_tsi.dat
+
+      
+  - name: gecalproc
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      geraw
+      OutputCollection:     ge2
+      ChargeConverterArray: ge_ch2MeV
+      TimingConverterArray: getsicalprm
+      OutputTransparency:   0
+
+  - name: gecalproc
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      ge2
+      OutputCollection:     ge
+      ChargeConverterArray: ge_ch2MeV2
+      TimingConverterArray: getsicalprm
+      InputIsDigital: 0
+      OutputTransparency:   0
+
+
+  # - name: gecalproc
+  #   type: art::TTimingChargeCalibrationProcessor
+  #   parameter:
+  #     InputCollection:      geped
+  #     OutputCollection:     ge
+  #     ChargeConverterArray: gecalprm
+
+  - name: getmapping
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              54
+      TimingTypeID:       0
+      OutputCollection:   geraw_t
+
+  - name: getcal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      geraw_t
+      OutputCollection:     ge_t
+      TimingConverterArray: getcalprm
+      OutputTransparency:   0
+
+
+  - name: proc_sep_ge
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: ge
+      OutputCollections:
+        - "ge_l"
+        - "ge_r"
+        
+  - name: proc_sep_get
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: ge_t
+      OutputCollections:
+        - "ge_t_l"
+        - "ge_t_r"
+        

@@ -1,0 +1,66 @@
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+  - name: ridfevent
+    type: art::TRIDFEventStore
+    parameter:
+      InputFiles:
+        - data/GE_phys2089.ridf
+
+  - name: map
+    type: art::TMappingProcessor
+    parameter:
+      MapConfig: mapper.conf
+
+  - name: gemap
+    type: art::TSimpleDataMappingProcessor
+    parameter:
+      CatID:                 53
+      OutputCollection:      geraw
+
+  - name: gecalprmloader
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     gecalprm
+      Type:     art::TAffineConverter
+      FileName: prm/ge/cal.prm
+
+  - name: gecalproc
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      geraw
+      OutputCollection:     ge
+      ChargeConverterArray: gecalprm
+
+  - name: getcalproc
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     getcalprm
+      Type:     art::TAffineConverter
+      FileName: prm/ge/ge_ch2ns.dat
+
+  - name: getmapping
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              54
+      TimingTypeID:       0
+      OutputCollection:   geraw_t
+
+  - name: getcal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      geraw_t
+      OutputCollection:     ge_t
+      TimingConverterArray: getcalprm
+      OutputTransparency:   0
+
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      Type: art::TTreeProjection
+#      FileName: hist/ge/chkge.yaml
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: chkge.root

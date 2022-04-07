@@ -1,0 +1,80 @@
+Processor:
+## ge daq
+#  - name: getcalproc
+#    type: art::TParameterArrayLoader
+#    parameter:
+#      Name:     ge_t_ch2ns
+#      Type:     art::TAffineConverter
+#      FileName: prm/ge/ge_ch2ns.dat
+#
+#  - name: ge_tsi_ch2MeV_loader
+#    type: art::TParameterArrayLoader
+#    parameter:
+#      Name: ge_tsi_ch2MeV
+#      Type: art::TAffineConverter
+#      FileName: prm/ge/ge_tsi_ch2MeV.dat
+#
+#  - name: ge_tsi_MeVcor_loader
+#    type: art::TParameterArrayLoader
+#    parameter:
+#      Name: ge_tsi_MeVcor
+#      Type: art::TAffineConverter
+#      FileName: prm/ge/ge_tsi_MeVcor.dat
+#
+#  - name: ge_tsi_ch2sec_loader
+#    type: art::TParameterArrayLoader
+#    parameter:
+#      Name: ge_tsi_ch2sec
+#      Type: art::TAffineConverter
+#      FileName: prm/ge/ge_tsi_ch2sec.dat
+
+  - name: ge_tsi_map_proc
+    type: art::TTimingChargeTriggeredListMappingProcessor
+    parameter:
+      CatID:                 63
+      OutputCollection:      ge_tsi_raw
+      TimingTypeID:          0
+
+#  - name: ge_tsi_t_map_proc
+#    type: art::TTimingChargeMappingProcessor
+#    parameter:
+#      CatID:              62
+#      TimingTypeID:       0
+#      OutputCollection:   ge_tsi_t_raw
+
+#  - name: ge_tsi_cal_proc
+#    type: art::TTimingChargeCalibrationProcessor
+#    parameter:
+#      InputCollection:      ge_tsi_raw
+#      OutputCollection:     ge_tsi
+#      ChargeConverterArray: ge_tsi_ch2MeV
+#      TimingConverterArray: ge_tsi_ch2sec
+#      OutputTransparency:   0
+
+#  - name: ge_tsi_t_cal_proc
+#    type: art::TTimingChargeCalibrationProcessor
+#    parameter:
+#      InputCollection:      ge_tsi_t_raw
+#      OutputCollection:     ge_tsi_t
+#      TimingConverterArray: ge_t_ch2ns
+#      OutputTransparency:   0
+
+#  - name: proc_sep_ge_tsi
+#    type: art::TSeparateOutputProcessor
+#    parameter:
+#      InputCollection: ge_tsi
+#      OutputCollections:
+#        - "ge_tsi_1"
+#        - "ge_tsi_2"
+#        - "ge_tsi_3"
+#        - "ge_tsi_4"
+        
+#  - name: proc_sep_ge_tsi_t
+#    type: art::TSeparateOutputProcessor
+#    parameter:
+#      InputCollection: ge_tsi_t
+#      OutputCollections:
+#        - "ge_tsi_t_1"
+#        - "ge_tsi_t_2"
+#        - "ge_tsi_t_3"
+#        - "ge_tsi_t_4"

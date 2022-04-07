@@ -1,0 +1,65 @@
+Processor:
+# bld daq
+  - name: geenecalloader
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: ge_ch2MeV
+      Type: art::TAffineConverter
+      FileName: prm/ge/ge_ch2MeV.dat
+
+  - name: getcalproc
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     ge_t_ch2ns
+      Type:     art::TAffineConverter
+      FileName: prm/ge/ge_ch2ns.dat
+
+  - name: getmapping
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              60
+      TimingTypeID:       0
+      OutputCollection:   ge_t_raw
+
+  - name: getcal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      ge_t_raw
+      OutputCollection:     ge_t
+      TimingConverterArray: ge_t_ch2ns
+      OutputTransparency:   0
+
+  - name: gemap
+    type: art::TSimpleDataMappingProcessor
+    parameter:
+      CatID:                 61
+      OutputCollection:      ge_raw
+      DataTypeID:          0
+
+  - name: gecalproc
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      ge_raw
+      OutputCollection:     ge
+      ChargeConverterArray: ge_ch2MeV
+      OutputTransparency:   0
+
+  - name: proc_sep_ge
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: ge
+      OutputCollections:
+        - "ge_1"
+        - "ge_2"
+        - "ge_3"
+        - "ge_4"
+        
+  - name: proc_sep_get
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: ge_t
+      OutputCollections:
+        - "ge_t_1"
+        - "ge_t_2"
+        - "ge_t_3"
+        - "ge_t_4"
