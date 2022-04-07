@@ -23,6 +23,7 @@ Processor:
 
   - include: tref.yaml
   - include: bld/pla/pla_os22s.yaml
+  - include: bld/dia/dia.yaml
   - include: bld/dlppac/ppac.brips.yaml
   - include: bld/dlppac/dlppac.inc.yaml
   - include: bld/srppac/srppac.yaml
