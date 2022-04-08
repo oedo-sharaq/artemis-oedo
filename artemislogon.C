@@ -2,28 +2,27 @@
   TString dypath = gSystem->GetDynamicPath();
   TString incpath = gSystem->GetIncludePath();
   dypath.Append(":src");
-//  dypath.Append(":/home/ota/repos/artemis-cat-src/");
-//  incpath.Append(gSystem->GetFromPipe("artemis-config --cflags"));
-//  incpath.Append(" -Isrc");
-//  incpath.Append(" -I/home/ota/repos/artemis-cat-src");
-//  incpath.Append(" -I/opt/local/artemis_share/include");
-//   dypath.Append(":sr-src");
-   incpath.Append(gSystem->GetFromPipe("artemis-config --cflags"));
-//   incpath.Append(" -I${ARTEMIS_WORKDIR}/sr-src");
-   incpath.Append(" -I${ARTEMIS_WORKDIR}/share/include");
+  //  dypath.Append(":/home/ota/repos/artemis-cat-src/");
+  //  incpath.Append(gSystem->GetFromPipe("artemis-config --cflags"));
+  //  incpath.Append(" -Isrc");
+  //  incpath.Append(" -I/home/ota/repos/artemis-cat-src");
+  //  incpath.Append(" -I/opt/local/artemis_share/include");
+  //   dypath.Append(":sr-src");
+  incpath.Append(gSystem->GetFromPipe("artemis-config --cflags"));
+  //   incpath.Append(" -I${ARTEMIS_WORKDIR}/sr-src");
+  dypath.Append(":${ARTEMIS_WORKDIR}/share/src");
+  incpath.Append(" -I${ARTEMIS_WORKDIR}/share/src");
 
   dypath.Append(":/home/ota/repos/artemis-cat-src/");
   incpath.Append(gSystem->GetFromPipe("artemis-config --cflags"));
   incpath.Append(" -Isrc");
   incpath.Append(" -I/home/ota/repos/artemis-cat-src");
 
-
   dypath.Append(":/opt/local/GETDecoder/lib");
   incpath.Append(" -I/opt/local/GETDecoder/include");
 
-
-  dypath.Append(":src-oedo");
-  incpath.Append(" -I src-oedo");
+  dypath.Append(":${ARTEMIS_WORKDIR}/src-oedo");
+  incpath.Append(" -I${ARTEMIS_WORKDIR}/src-oedo");
 
   gStyle->SetOptStat(1111111);
   gStyle->SetOptFit(1111);
@@ -36,7 +35,7 @@
   gSystem->Load("libuser");
   gSystem->Load("libCAT");
   gSystem->Load("liboedo");
-//  gSystem->Load("libsrppac");
+  //  gSystem->Load("libsrppac");
   TCatCmdFactory *cf = TCatCmdFactory::Instance();
   cf->SetOptExactName(kFALSE);
   cf->Register(TCatCmdHelp::Instance());
@@ -53,12 +52,12 @@
   cf->Register(TCatCmdAvy::Instance());
   cf->Register(TCatCmdBnx::Instance());
   cf->Register(TCatCmdBny::Instance());
-  cf->Register(new TCatCmdLg(TCatCmdLg::kX,0));
-  cf->Register(new TCatCmdLg(TCatCmdLg::kX,1));
-  cf->Register(new TCatCmdLg(TCatCmdLg::kY,0));
-  cf->Register(new TCatCmdLg(TCatCmdLg::kY,1));
-  cf->Register(new TCatCmdLg(TCatCmdLg::kZ,0));
-  cf->Register(new TCatCmdLg(TCatCmdLg::kZ,1));
+  cf->Register(new TCatCmdLg(TCatCmdLg::kX, 0));
+  cf->Register(new TCatCmdLg(TCatCmdLg::kX, 1));
+  cf->Register(new TCatCmdLg(TCatCmdLg::kY, 0));
+  cf->Register(new TCatCmdLg(TCatCmdLg::kY, 1));
+  cf->Register(new TCatCmdLg(TCatCmdLg::kZ, 0));
+  cf->Register(new TCatCmdLg(TCatCmdLg::kZ, 1));
   cf->Register(TCatCmdSly::Instance());
   cf->Register(TCatCmdLoopAdd::Instance());
   cf->Register(TCatCmdLoopResume::Instance());
@@ -67,10 +66,10 @@
   cf->Register(new TCatCmdHstore);
   cf->Register(TCatCmdXval::Instance());
   cf->Register(art::TCatCmdListg::Instance());
-//   cf->Register(art::TCmdMWDCCalib::Instance());
-//   cf->Register(art::TCmdMWDCConfig::Instance());
-//   cf->Register(new art::TCmdFiga);
-//   cf->Register(TCmdXsta::Instance());
+  //   cf->Register(art::TCmdMWDCCalib::Instance());
+  //   cf->Register(art::TCmdMWDCConfig::Instance());
+  //   cf->Register(new art::TCmdFiga);
+  //   cf->Register(TCmdXsta::Instance());
   cf->Register(new art::TCmdBranchInfo);
   cf->Register(new art::TCmdClassInfo);
   cf->Register(new art::TCmdHdel);
@@ -91,31 +90,30 @@
   cf->Register(new art::TCmdUnZoom);
   cf->Register(new art::TCmdComment);
   cf->Register(new art::TCmdGlobalComment);
-  art::TCmdSave * cmdsave = art::TCmdSave::Instance();
+  art::TCmdSave *cmdsave = art::TCmdSave::Instance();
   cmdsave->SetDefaultDirectory("figs");
   cmdsave->SetAddDateDir(kTRUE);
   cmdsave->SetAutoName(kTRUE);
   cmdsave->AddFormat("png");
   cmdsave->AddFormat("root");
-  cmdsave->AddFormat("pdf",1);
+  cmdsave->AddFormat("pdf", 1);
   cf->Register(cmdsave);
   art::TCmdPrint *pri = new art::TCmdPrint;
   pri->SetOption("-o fit-to-page");
   cf->Register(pri);
 
   {
-//      TString path = gSystem->GetIncludePath();
-//      path.Append("-I./processors");
-//      gSystem->SetIncludePath(path);
-  }
-  {
+      //      TString path = gSystem->GetIncludePath();
+      //      path.Append("-I./processors");
+      //      gSystem->SetIncludePath(path);
+  } {
     art::TModuleDecoderFactory *df = art::TModuleDecoderFactory::Instance();
     // mod ID 0 : Fixed16
     const Int_t digits0 = 16;
-    df->Register(new art::TModuleDecoderFixed<unsigned short>(0,digits0) );
+    df->Register(new art::TModuleDecoderFixed<unsigned short>(0, digits0));
     // mod ID 1 : Fixed24
     const Int_t digits1 = 24;
-    df->Register(new art::TModuleDecoderFixed<unsigned int>(1,digits1) );
+    df->Register(new art::TModuleDecoderFixed<unsigned int>(1, digits1));
     // mod ID 21 : V7XX
     df->Register(new art::TModuleDecoderV7XX);
     // mod ID 23 : V767
@@ -136,18 +134,20 @@
     df->Register(new art::TModuleDecoderSIS3820);
     df->Register(new art::TModuleDecoderSIS3610);
     df->Register(new art::TModuleDecoderMXDC32);
-    
+
     df->Register(new art::TModuleDecoderSkip(42));
 
     df->Register(new art::TModuleDecoderSkip(8));
     // mod ID 59 : AMTTDC
-//    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderAMTTDC);");
+    //    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderAMTTDC);");
     //    df->Register(new art::TModuleDecoderAMTTDC);
 
+    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderA3100FreeRunTSI);");
+	
     // Skip for r3_2021
     df->Register(new art::TModuleDecoderSkip(9));
     df->Register(new art::TModuleDecoderSkip(30));
     df->Register(new art::TModuleDecoderSkip(33));
     df->Register(new art::TModuleDecoderSkip(30));
-  }   
+  }
 }
