@@ -24,7 +24,8 @@
 #pragma link C++ class art::TTinaData;
 #pragma link C++ class art::TDaliProcessor;
 #pragma link C++ class art::TDaliData;
-#pragma link C++ class art::TModuleDecoderA3100;
+//#pragma link C++ class art::TModuleDecoderA3100;
+#pragma link C++ class art::TModuleDecoderA3100FreeRunTSI;
 #pragma link C++ class art::TModuleDecoderSIS3301;
 #pragma link C++ class art::TSimpleDataMappingProcessor;
 #pragma link C++ class art::TIonChamberProcessor;
