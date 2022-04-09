@@ -55,6 +55,12 @@ FE7_V1190:
   modules:
     - id: 1
 
+FE10_V1190:
+  segid: [11, 10, 31]
+  type: V1190
+  modules:
+    - id: 0
+    - id: 1
 
 #B3F_V1190:
   segid: [0, 63, 1]
@@ -104,3 +110,21 @@ B3F_V1290:
 #   type: V1290
 #   modules:
 #     - id: 1
+#
+
+TINA_V1190:
+  segid: [11,22,7]
+  type: V1190
+  modules:
+    - id: 0
+
+TINA_V785:
+  segid: [11,22,6]
+  #segid: [11,22,6]
+  type : V785
+  modules:
+    - id: 4
+    - id: 5
+    - id: 6
+    - id: 7
+    - id: 8
