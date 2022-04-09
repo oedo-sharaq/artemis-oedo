@@ -4,7 +4,7 @@ Processor:
     parameter:
       Name:     prm_ic_ch2V
       Type:     art::TAffineConverter
-      FileName: prm/ic/ch2MeV.dat
+      FileName: prm/ic/ch2V.dat
 
   - name: proc_icraw
     type: art::TSimpleDataMappingProcessor
@@ -14,12 +14,12 @@ Processor:
       Sparse:        0
       OutputCollection: icraw
 
-#  - name: proc_icqcal
-#    type: art::TTimingChargeCalibrationProcessor
-#    parameter:
-#      InputCollection: icraw
-#      OutputCollection: ic
-#      ChargeConverterArray: prm_ic_ch2V
+  - name: proc_icqcal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: icraw
+      OutputCollection: ic
+      ChargeConverterArray: prm_ic_ch2V
 #
 #  - name: proc_icde
 #    type: art::TIonChamberProcessor
