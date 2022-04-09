@@ -1,0 +1,90 @@
+Processor:
+
+  - name: proc_yy1fraw
+    type: art::TSimpleDataMappingProcessor
+    parameter:
+      CatID:            90
+      DataTypeID:       0
+      Sparse:           1
+      OutputCollection: yy1fraw_pre
+  - name: proc_csiraw
+    type: art::TSimpleDataMappingProcessor
+    parameter:
+      CatID:            92
+      DataTypeID:       0
+      Sparse:           1
+      OutputCollection: csiraw_pre
+
+  - name: proc_yy1fraw_validate
+    type: art::TChargeValidateProcessor
+    parameter:
+      InputCollection: yy1fraw_pre
+      OutputCollection: yy1fraw
+      Range:            [200., 4000.]
+  - name: proc_csiraw_validate
+    type: art::TChargeValidateProcessor
+    parameter:
+      InputCollection: csiraw_pre
+      OutputCollection: csiraw
+      Range:            [200., 4000.]
+
+  - name: proc_yy1fqcal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      yy1fraw
+      OutputCollection:     yy1f
+      ChargeConverterArray: prm_yy1f_ch2MeV
+  - name: proc_csiqcal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      csiraw
+      OutputCollection:     csi
+      ChargeConverterArray: prm_csi_ch2MeV
+
+  - name: proc_tina
+    type: art::TTinaProcessor
+    parameter:
+      SiName: yy1f
+      CsIName: csi
+      OutputName: tina
+
+  - name: proc_csi_sep
+    type: art::TSeparateOutputProcessor
+    parameter:
+#      InputCollection: csiraw_pre
+      InputCollection: csi
+      OutputCollections:
+        - CsI01
+        - CsI02
+        - CsI03
+        - CsI04
+        - CsI05
+        - CsI06
+        - CsI07
+        - CsI08
+        - CsI09
+        - CsI10
+        - CsI11
+        - CsI12
+        - CsI13
+        - CsI14
+        - CsI15
+        - CsI16
+        - CsI17
+        - CsI18
+        - CsI19
+        - CsI20
+        - CsI21
+        - CsI22
+        - CsI23
+        - CsI24
+        - CsI25
+        - CsI26
+        - CsI27
+        - CsI28
+        - CsI29
+        - CsI30
+        - CsI31
+        - CsI32
+
+

@@ -1,0 +1,47 @@
+Processor:
+  - name: proc_tdc_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+       CatID: 93
+       TimingTypeID: 0
+       TrailingComesFirst: 0
+       OutputCollection: tdcraw
+       OutputTransparency: 1
+
+#  - name: proc_tdc_sep
+#    type: art::TSeparateOutputProcessor
+#    parameter:
+#       InputCollection: tdcraw
+#       OutputCollections:
+#         - tgated
+#         - tungated
+#         - tTTT
+#         - tCsISQ
+#         - tCsITR
+#         - tyy11
+#         - tyy12
+#         - tyy13
+#         - tyy14
+#         - tyy15
+#         - tyy16
+#         - tyy1sum
+#         - tdummy1
+#         - tdummy2
+#         - tdummy3
+#         - tdummy4
+#         - tdummy5
+#         - tdummy6
+#         - tdummy7
+#         - tdummy8
+#         - tdummy9
+#         - tdummy10
+#         - tdummy11
+#         - tdummy12
+#         - tdummy13
+#         - tdummy14
+#         - tdummy15
+#         - tdummy16
+#         - tdummy17
+#         - tdummy18
+#         - tdummy19
+#         - tdummy20

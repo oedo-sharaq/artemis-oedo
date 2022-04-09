@@ -1,0 +1,14 @@
+Processor:
+
+  - include:
+      name: ttt/pulse.inc.yaml
+      replace:
+        CATID: 200
+        BRNAME: ttt_back
+        ISNEG: 0
+  - include:
+      name: ttt/pulse.inc.yaml
+      replace:
+        CATID: 201
+        BRNAME: ttt_front
+        ISNEG: 1

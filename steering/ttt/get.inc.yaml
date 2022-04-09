@@ -1,0 +1,23 @@
+Anchor:
+ - &input_GET /home/data/getdaq01/get/sakura2022/run/run_@NUM@   
+ - &seg0 segdataGET0
+
+Processor:
+### S0 TTT
+  - name: get
+    type: art::TGetEventStore
+    parameter:
+      InputFiles: *input_GET
+      EventHeaderName: evtheaderGET0
+      SegmentedData: *seg0
+      OutputTransparency: 1
+      ValidBucket: [5., 510.]
+      SubtractFPN: 1
+
+  - name: categorized
+    type: art::TMappingProcessor
+    parameter:
+      InputCollection: [*seg0]
+      CategorizedData: @CATDATA@
+      OutputTransparency: 1
+      MapConfig: mapper.conf

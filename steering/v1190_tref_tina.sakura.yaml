@@ -1,0 +1,8 @@
+Processor:
+  - name: proc_tref_v1190_tina
+    type: art::TTimeReferenceProcessor
+    parameter:
+      # [[device] [focus] [detector] [geo] [ch]]
+      #RefConfig: [0, 0, 0, 0, 1, 24]
+      RefConfig: [ 0, 0, 0, 1, 24]
+      SegConfig: [0, 0, 0, 0]
