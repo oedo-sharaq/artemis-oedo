@@ -13,8 +13,10 @@ anchor:
   - &res4 ["@plane@.GetResidual(4)",200,-2.,2.]
   - &res5 ["@plane@.GetResidual(5)",200,-2.,2.]
 
-  - &trackX ["@plane@.GetTrack().GetX()",400,-160.,40.]
+  - &trackX ["@plane@.GetTrack().GetX()",400,-120.,80.]
   - &trackY ["@plane@.GetTrack().GetY()",400,-100.,100.]
+  - &trackA ["@plane@.GetTrack().GetA()",300,-0.03,0.03]
+  - &trackB ["@plane@.GetTrack().GetB()",300,-0.03,0.03]
 #alias:
 ##  pidgate: gate.Test("54Sc")
 #  qcut_x1: dc31_x1.fCharge >  300 && dc31_x1.fCharge < 500
@@ -109,6 +111,23 @@ group:
       - name: y2_residual
         title: @plane@ Y2 residual
         x: *res5
+        cut:  "src1_a_raw@.GetEntries() == 1"
+
+      - name: trackresult_x_z0
+        title: @plane@ Tracking Position X at Z=0
+        x: *trackX
+        cut:  "src1_a_raw@.GetEntries() == 1"
+      - name: trackresult_y_z0
+        title: @plane@ Tracking Position Y at Z=0
+        x: *trackY
+        cut:  "src1_a_raw@.GetEntries() == 1"
+      - name: trackresult_a_z0
+        title: @plane@ Tracking Position A at Z=0
+        x: *trackA
+        cut:  "src1_a_raw@.GetEntries() == 1"
+      - name: trackresult_b_z0
+        title: @plane@ Tracking Position B at Z=0
+        x: *trackB
         cut:  "src1_a_raw@.GetEntries() == 1"
 
       - name: trackresult_z0
