@@ -1,0 +1,38 @@
+anchor: 
+  - &sr91_x_ent ["sr91_x_raw@.GetEntriesFast()",8,-0.5,7.5]
+  - &sr91_y_ent ["sr91_y_raw@.GetEntriesFast()",8,-0.5,7.5]
+  - &sr92_x_ent ["sr92_x_raw@.GetEntriesFast()",8,-0.5,7.5]
+  - &sr92_y_ent ["sr92_y_raw@.GetEntriesFast()",8,-0.5,7.5]
+
+alias:
+# sr9cut: dca1_x@.GetEntriesFast() > 0
+ sr9cut: src1_x_raw@.GetEntriesFast() > 0
+
+group:
+  - name: srppaceffFE9
+    title: SR-PPAC Efficiency FE9
+    contents:
+      - name: sr91_x_ent
+        title: sr91 X Entry
+        cut: sr9cut
+        x: *sr91_x_ent
+      - name: sr91_y_ent
+        title: sr91 Y Entry
+        cut: sr9cut
+        x: *sr91_y_ent
+      - name: sr92_x_ent
+        title: sr92 X Entry
+        cut: sr9cut
+        x: *sr92_x_ent
+      - name: sr92_y_ent
+        title: sr92 Y Entry
+        cut: sr9cut
+        x: *sr92_y_ent
+
+
+
+
+
+
+
+
