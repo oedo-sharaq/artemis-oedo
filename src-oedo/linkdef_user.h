@@ -39,6 +39,7 @@
 #pragma link C++ class art::TCmdPrint;
 #pragma link C++ class art::TPPACProcessorQTC;
 #pragma link C++ class art::TBrhoReconstructProcessor;
+#pragma link C++ class art::TBrhoReconstructProcessorS1;
 #pragma link C++ class art::TPIDSingleSectionProcessor;
 #pragma link C++ class art::TCmdPadZoom;
 #endif // __CINT__
