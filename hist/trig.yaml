@@ -1,0 +1,11 @@
+group:
+  - name: trig
+    title: trigger
+    contents:
+      - name: coin_reg
+        title: coinsidence register
+        x: ["coin.fID",5,-0.5,4.5]
+        y: ["coin.fTiming",100,0,1e5]
+      - name: coin_reg_1D
+        title: coinsidence register 1D
+        x: ["coin.fID",5,-0.5,4.5]

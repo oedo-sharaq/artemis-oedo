@@ -1,0 +1,41 @@
+Processor:
+  - name: proc_trig_map
+    type: art::TTimingChargeMappingProcessor
+    parameter: 
+      CatID: 0
+      #InputCollection: @CATDATA@
+      TimingTypeID: 0
+      TrailingComesFirst: 1
+      OutputCollection: coin_raw
+  - name: proc_trig_validate
+    type: art::TTimeValidator
+    parameter:
+      InputCollection: coin_raw
+      OutputCollection: coin
+      ValidTimeRange: [0, 7e4,0]
+  - name: proc_coinsep
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: coin
+      OutputCollections: 
+        - coin_f3
+        - coin_f3ds
+        - coin_s0
+        - coin_s1
+        - coin_fe12
+
+  - name: gate_array_init
+    type: art::TGateArrayInitializer
+    parameter:
+      OutputTransparency: 1
+     
+  - name: trigger_gates
+    type: art::TTreeFormulaGateProcessor
+    parameter:
+      Definitions:
+        - "gateF3; (coin_f3.fTiming > 0 && coin_f3.fTiming < 1000000)"
+        - "gateF3DS; (coin_f3ds.fTiming > 0 && coin_f3ds.fTiming < 1000000)"
+        - "gateS0; (coin_s0.fTiming > 0 || coin_s0.fTiming < 1000000)"
+        - "gateS1; (coin_s1.fTiming > 0 || coin_s1.fTiming < 1000000)"
+        - "gateFE12; (coin_fe12.fTiming > 0 || coin_fe12.fTiming < 1000000)"
+
