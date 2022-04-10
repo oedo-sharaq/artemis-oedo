@@ -26,6 +26,7 @@ OBJ += TPIDSingleSectionProcessor.o
 OBJ += TRawDataTriggeredList.o
 OBJ += TModuleDecoderA3100FreeRunTSI.o
 OBJ += TTimingChargeTriggeredListMappingProcessor.o
+OBJ += TTimingAverageProcessor.o
 
 UNAME = $(shell uname)
 ifeq ($(UNAME),Darwin)
