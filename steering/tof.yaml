@@ -1,5 +1,12 @@
 Processor:
 
+  - name: loader_tof39_off
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm_tof39_off
+      Type: art::TAffineConverter
+      FileName: prm/tof/tof39_off.dat
+
   - name: loader_tof912_off
     type: art::TParameterArrayLoader
     parameter:
@@ -23,7 +30,6 @@ Processor:
       OutputCollection: fe9timing
       OutputTransparency: 0
 
-
   - name: proc_time_ave_fe12
     type: art::TTimingAverageProcessor
     parameter:
@@ -41,6 +47,26 @@ Processor:
         - sr12_a_cal
       OutputCollection: s1timing
       OutputTransparency: 0
+
+  - name: proc_tof39
+    type: art::TTimingSubtractionProcessor
+    parameter:
+      InputCollection:        fe9timing
+      OutputCollection:       tof39_pre
+#      StartTimingCollection:  f3pla
+      StartTimingCollection:  diapad
+      StartTimingDetID:       0
+      MaxDetID:               1
+      UseMultipleStartTiming: 1
+      OutputTransparency: 0
+
+  - name: proc_tof39_calib
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: tof39_pre
+      OutputCollection: tof39
+      TimingConverterArray: prm_tof39_off
+      InputIsDigital: 0
 
 
   - name: proc_tof912
