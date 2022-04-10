@@ -3,7 +3,7 @@
 *.so
 *.d
 *dict.cc
-src/*.pcm
+*.pcm
 src/1l
 src/compile.log
 .vncdisplay
