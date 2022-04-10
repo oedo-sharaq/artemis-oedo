@@ -111,7 +111,7 @@ Processor:
   - name: projection
     type: art::TTreeProjectionProcessor
     parameter:
-      FileName: hist/mwdc/chkmwdc.tmpl.yaml
+      FileName: hist/mwdc/chkmwdc.sakura.yaml
       Type:     art::TTreeProjection
       Replace: |
         plane: dca1   
@@ -119,13 +119,29 @@ Processor:
   - name: projection
     type: art::TTreeProjectionProcessor
     parameter:
-      FileName: hist/mwdc/chkmwdc.tmpl.yaml
+      FileName: hist/mwdc/chkmwdc.sakura.yaml
       OutputFilename: *histout
       Type:     art::TTreeProjection
       Replace: |
         plane: dca2   
 
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/mwdc/chkmwdc.sakura.yaml
+      OutputFilename: *histout
+      Type:     art::TTreeProjection
+      Replace: |
+        plane: trackdca   
+###
 
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/optics/chkoptics.sakura01.yaml
+      Type:     art::TTreeProjection
+      Replace: |
+        plane: opt   
           
   - name: outputtree
     type: art::TOutputTreeProcessor
