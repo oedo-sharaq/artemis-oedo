@@ -1,0 +1,306 @@
+anchor:
+  - &nbin   150
+  - &xmin  -200
+  - &xmax   200
+  - &xminz  -75
+  - &xmaxz   75
+  - &amin  -150
+  - &amax   150
+  - &aminz  -20
+  - &amaxz   20
+  - &ymin  -100
+  - &ymax   100
+  - &yminz  -40
+  - &ymaxz   40
+  - &bmin  -50
+  - &bmax   50
+  - &tof12s1min   1180
+  - &tof12s1max   1200
+  - &tof0305min   150
+  - &tof0305max   180
+  - &tof0512min  1100.
+  - &tof0512max  1700.
+  - &demin  10.
+  - &demax  120.
+  - &totemin   300.
+  - &totemax  4000.
+  - &betamin  0.18
+  - &betamax  0.22
+
+
+group:
+  - name: s1tuning
+    title: S1 Tuning
+    contents:
+      - name : pid_1d
+        title: pid 1d
+        x: [tof35,*nbin,*tof35min,*tof35max]
+      - name : pid
+        title: pid
+        x: [tof35,*nbin,*tof35min,*tof35max]
+        y: [tof0512,*nbin,*tof0512min,*tof0512max]
+      - name : s0x_tof35
+        title: s0x vs tof35
+        x: [tof35,*nbin,*tof35min,*tof35max]
+        y: [s0x,*nbin,*xmin,*xmax]
+      - name : s0x_tof512
+        title: s0x vs tof512
+        x: [tof0512,*nbin,*tof0512min,*tof0512max]
+        y: [s0x,*nbin,*xmin,*xmax]
+      - name : s0x_1d
+        title: S0X 1D
+        x: [s0x,*nbin,*xmin,*xmax]
+      - name : s0a_1d
+        title: S0A 1D
+        x: [s0a,*nbin,*amin,*amax]
+      - name : s0y_1d
+        title: S0Y 1D
+        x: [s0y,*nbin,*ymin,*ymax]
+      - name : s0b_1d
+        title: S0B 1D
+        x: [s0b,*nbin,*bmin,*bmax]
+      - name : s0x_vs_s0y
+        title: S0X vs S0Y
+        x: [s0x,*nbin,*xmin,*xmax]
+        y: [s0y,*nbin,*ymin,*ymax]        
+      - name : s0a_vs_s0b
+        title: S0A vs S0B
+        x: [s0a,*nbin,*amin,*amax]
+        y: [s0b,*nbin,*bmin,*bmax]        
+      - name : s0x_vs_s0a
+        title: S0X vs S0A
+        x: [s0x,*nbin,*xmin,*xmax]
+        y: [s0a,*nbin,*amin,*amax]        
+      - name : s0y_vs_s0b
+        title: S0Y vs S0B
+        x: [s0y,*nbin,*ymin,*ymax]
+        y: [s0b,*nbin,*bmin,*bmax]        
+      - name : s1x_1d
+        title: S1X 1D
+        x: [s1x,*nbin,*xmin,*xmax]
+      - name : s1a_1d
+        title: S1A 1D
+        x: [s1a,*nbin,*amin,*amax]
+      - name : s1y_1d
+        title: S1Y 1D
+        x: [s1y,*nbin,*ymin,*ymax]
+      - name : s1b_1d
+        title: S1B 1D
+        x: [s1b,*nbin,*bmin,*bmax]
+      - name : s1x_vs_s1y
+        title: S1X vs S1Y
+        x: [s1x,*nbin,*xmin,*xmax]
+        y: [s1y,*nbin,*ymin,*ymax]        
+      - name : s1a_vs_s1b
+        title: S1A vs S1B
+        x: [s1a,*nbin,*amin,*amax]
+        y: [s1b,*nbin,*bmin,*bmax]        
+      - name : s1x_vs_s1a
+        title: S1X vs S1A
+        x: [s1x,*nbin,*xmin,*xmax]
+        y: [s1a,*nbin,*amin,*amax]        
+      - name : s1y_vs_s1b
+        title: S1Y vs S1B
+        x: [s1y,*nbin,*ymin,*ymax]
+        y: [s1b,*nbin,*bmin,*bmax]        
+      - name : s0x_vs_s1x
+        title: S0X vs S1X
+        x: [s0x,*nbin,*xminz,*xmaxz]
+        y: [s1x,*nbin,*xmin,*xmax]        
+      - name : s0a_vs_s1x
+        title: S0A vs S1X
+        x: [s0a,*nbin,*aminz,*amaxz]
+        y: [s1x,*nbin,*xmin,*xmax]        
+      - name : tof12s1_vs_s1x
+        title: TOF(12-S1) vs S1X
+        x: [tof12s1val,*nbin,*tof12s1min,*tof12s1max]
+        y: [s1x,*nbin,*xmin,*xmax]        
+      - name : s0x_vs_s1xctof
+        title: S0X vs S1Xctof
+        x: [s0x,*nbin,*xminz,*xmaxz]
+        y: [s1xctof,*nbin,*xmin,*xmax]        
+      - name : s0a_vs_s1xctof
+        title: S0A vs S1Xctof
+        x: [s0a,*nbin,*aminz,*amaxz]
+        y: [s1xctof,*nbin,*xmin,*xmax]        
+      - name : tof12s1_vs_s1xctof
+        title: TOF(12-S1) vs S1Xctof
+        x: [tof12s1val,*nbin,*tof12s1min,*tof12s1max]
+        y: [s1xctof,*nbin,*xmin,*xmax]        
+      - name : s0x_vs_s1xctofs0x
+        title: S0X vs S1Xctofs0x
+        x: [s0x,*nbin,*xminz,*xmaxz]
+        y: [s1xctofs0x,*nbin,*xmin,*xmax]        
+      - name : s0a_vs_s1xctofs0x
+        title: S0A vs S1Xctofs0x
+        x: [s0a,*nbin,*aminz,*amaxz]
+        y: [s1xctofs0x,*nbin,*xmin,*xmax]        
+      - name : tof12s1_vs_s1xctofs0x
+        title: TOF(12-S1) vs S1Xctofs0x
+        x: [tof12s1val,*nbin,*tof12s1min,*tof12s1max]
+        y: [s1xctofs0x,*nbin,*xmin,*xmax]        
+
+#      - name : s0x_vs_s1a
+#        title: S0X vs S1A
+#        x: [s0x,*nbin,*xminz,*xmaxz]
+#        y: [s1a,*nbin,*amin,*amax]        
+#      - name : s0a_vs_s1a
+#        title: S0A vs S1A
+#        x: [s0a,*nbin,*aminz,*amaxz]
+#        y: [s1a,*nbin,*amin,*amax]        
+#      - name : tof12s1_vs_s1a
+#        title: TOF(12-S1) vs S1A
+#        x: [tof12s1val,*nbin,*tof12s1min,*tof12s1max]
+#        y: [s1a,*nbin,*amin,*amax]        
+#      - name : s0x_vs_s1actof
+#        title: S0X vs S1Actof
+#        x: [s0x,*nbin,*xminz,*xmaxz]
+#        y: [s1actof,*nbin,*amin,*amax]        
+#      - name : s0a_vs_s1actof
+#        title: S0A vs S1Actof
+#        x: [s0a,*nbin,*aminz,*amaxz]
+#        y: [s1actof,*nbin,*amin,*amax]        
+#      - name : tof12s1_vs_s1actof
+#        title: TOF(12-S1) vs S1Actof
+#        x: [tof12s1val,*nbin,*tof12s1min,*tof12s1max]
+#        y: [s1actof,*nbin,*amin,*amax]        
+#      - name : s0x_vs_s1actofs0x
+#        title: S0X vs S1Actofs0x
+#        x: [s0x,*nbin,*xminz,*xmaxz]
+#        y: [s1actofs0x,*nbin,*amin,*amax]        
+#      - name : s0a_vs_s1actofs0x
+#        title: S0A vs S1Actofs0x
+#        x: [s0a,*nbin,*aminz,*amaxz]
+#        y: [s1actofs0x,*nbin,*amin,*amax]        
+#      - name : tof12s1_vs_s1actofs0x
+#        title: TOF(12-S1) vs S1Actofs0x
+#        x: [tof12s1val,*nbin,*tof12s1min,*tof12s1max]
+#        y: [s1actofs0x,*nbin,*amin,*amax]        
+      - name : s0y_vs_s1y
+        title: S0Y vs S1Y
+        x: [s0y,*nbin,*yminz,*ymaxz]
+        y: [s1y,*nbin,*ymin,*ymax]        
+      - name : s0b_vs_s1y
+        title: S0B vs S1Y
+        x: [s0b,*nbin,*bmin,*bmax]
+        y: [s1y,*nbin,*ymin,*ymax]        
+
+#      - name : beta12s1
+#        title: beta12s1
+#        x: [beta12s1,*nbin,*betamin,*betamax]
+#      - name : s1x_vs_de
+#        title: S1X vs DeltaE
+#        cut: gs0x && gs1x && gs1y
+#        x: [s1x,*nbin,*xmin,*xmax]        
+#        y: [de,*nbin,*demin,*demax]
+#      - name : s1x_vs_decor
+#        title: S1X vs DeltaEc
+#        cut: gs0x && gs1x && gs1y
+#        x: [s1x,*nbin,*xmin,*xmax]        
+#        y: [decor,*nbin,*demin,*demax]
+#      - name : s1y_vs_de
+#        title: S1Y vs DeltaE
+#        cut: gs0x && gs1x && gs1y
+#        x: [s1y,*nbin,*ymin,*ymax]        
+#        y: [de,*nbin,*demin,*demax]
+#      - name : s1y_vs_decor
+#        title: S1Y vs DeltaEc
+#        cut: gs0x && gs1x && gs1y
+#        x: [s1y,*nbin,*ymin,*ymax]        
+#        y: [decor,*nbin,*demin,*demax]
+#      - name : beta12s1_vs_de
+#        title: Beta(12-S1) vs DeltaE
+#        cut: gs0x && gs1x && gs1y
+#        x: [beta12s1,*nbin,*betamin,*betamax]        
+#        y: [de,*nbin,*demin,*demax]
+#      - name : beta12s1_vs_decor
+#        title: Beta(12-S1) vs DeltaEc
+#        cut: gs0x && gs1x && gs1y
+#        x: [beta12s1,*nbin,*betamin,*betamax]        
+#        y: [decor,*nbin,*demin,*demax]
+#      - name : niseaq_vs_decor
+#        title: A/Q(nanchatte) vs DeltaEc
+#        cut: gs0x && gs1x && gs1y
+#        x: [niseaq,*nbin,*xmin,*xmax]        
+#        y: [decor,*nbin,*demin,*demax]
+#      - name : niseaq_vs_totecor
+#        title: A/Q(nanchatte) vs Total Ec
+#        cut: gs0x && gs1x && gs1y
+#        x: [niseaq,*nbin,*xmin,*xmax]        
+#        y: [totecor,*nbin,*totemin,*totemax]
+
+#      - name : tof12s1_vs_s1y
+#        title: TOF(12-S1) vs S1Y
+#        x: [tof12s1val,*nbin,*tof12s1min,*tof12s1max]
+#        y: [s1y,*nbin,*ymin,*ymax]        
+#      - name : s0y_vs_s1ycs0y
+#        title: S0Y vs S1Ycs0y
+#        x: [s0y,*nbin,*yminz,*ymaxz]
+#        y: [s1ycs0y,*nbin,*ymin,*ymax]        
+#      - name : s0b_vs_s1ycs0y
+#        title: S0B vs S1Ycs0y
+#        x: [s0b,*nbin,*bmin,*bmax]
+#        y: [s1ycs0y,*nbin,*ymin,*ymax]        
+#      - name : tof12s1_vs_s1ycs0y
+#        title: TOF(12-S1) vs S1Ycs0y
+#        x: [tof12s1val,*nbin,*tof12s1min,*tof12s1max]
+#        y: [s1ycs0y,*nbin,*ymin,*ymax]        
+
+#      - name : f5x_vs_s1x
+#        title: F5X vs S1X
+#        x: [f5x,*nbin,*xmin,*xmax]
+#        y: [s1x,*nbin,*xmin,*xmax]        
+#      - name : f5x_vs_s1a
+#        title: F5X vs S1A
+#        x: [f5x,*nbin,*xmin,*xmax]
+#        y: [s1a,*nbin,*amin,*amax]
+
+
+
+
+
+        
+#  - name: s1tuning_gs0x
+#    title: S1 tuning (g S0X)
+#    clone: s1tuning
+#    cut: gs0x
+#
+#  - name: s1tuning_gs0y
+#    title: S1 tuning (g S0Y)
+#    clone: s1tuning
+#    cut: gs0y
+#
+#  - name: s1tuning_gs0a
+#    title: S1 tuning (g S0A)
+#    clone: s1tuning
+#    cut: gs0a
+#    
+#  - name: s1tuning_gs0b
+#    title: S1 tuning (g S0B)
+#    clone: s1tuning
+#    cut: gs0b
+#
+#  - name: s1tuning_gs0xs0a
+#    title: S1 tuning (g S0X S0A)
+#    clone: s1tuning
+#    cut: gs0x && gs0a
+
+
+  - name: s1tuning_gpid
+    title: S1 tuning (g pid)
+    clone: s1tuning
+    cut: g77se
+
+  - name: s1tuning_gpids0x
+    title: S1 tuning (g pid s0x)
+    clone: s1tuning
+    cut: g77se && gs0x
+
+  - name: s1tuning_gs1xs1y
+    title: S1 tuning (g S1X S1Y)
+    clone: s1tuning
+    cut: gs1x && gs1y
+
+
+
+    

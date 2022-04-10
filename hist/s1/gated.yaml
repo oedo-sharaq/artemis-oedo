@@ -1,0 +1,16 @@
+group:
+
+- name: ic_cut_pid
+  title: ic cut
+  clone: ic
+  cut: "abs(tof35[0].fTiming-162.9)<1.0 && abs(fe12ppac_ta[0].fTiming-f5dia[0].fTiming-1398.)<50."
+
+#
+#
+#
+#ia[0].fTiming)<1400"
+#
+#
+#
+#
+#ia[0].fTiming)<1400"

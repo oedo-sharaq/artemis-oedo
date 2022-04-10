@@ -1,0 +1,161 @@
+alias:
+  f3x: "f3track.fX"
+  f3a: "f3track.fA*1000."
+  f3y: "f3track.fY"
+  f3b: "f3track.fB*1000."
+  f4x: "f4ppac.fX"
+  f4y: "f4ppac.fY"
+  f5x1a: "f5ppac1a.fX"
+  f5x: "f5track.fX"
+  f5a: "f5track.fA*1000"
+  f5y: "f5track.fY"
+  f5b: "f5track.fB*1000"
+  f6x: "f6ppac.fX"
+  f6y: "f6ppac.fY"
+  fe7x: "fe7.fX"
+  fe7y: "fe7.fY"
+  fe8x: "fe8.fX"
+  fe8y: "fe8.fY"
+  fe9x: "fe9track.fX"
+  fe9a: "fe9track.fA*1000"
+  fe9y: "fe9track.fY"
+  fe9b: "fe9track.fB*1000"
+  fe10x: "fe10.fX"
+  fe10a: "fe10.fA*1000"
+  fe10y: "fe10.fY"
+  fe10b: "fe10.fB*1000"
+  fe11x: "fe11track.fX"
+  fe11a: "fe11track.fA*1000"
+  fe11y: "fe11track.fY"
+  fe11b: "fe11track.fB*1000"
+  s0x: "fe12track.fX"
+  s0a: "fe12track.fA*1000."
+  s0y: "fe12track.fY"
+  s0b: "fe12track.fB*1000."
+  s1x: "s1track.fX"
+  s1a: "s1track.fA*1000."
+  s1y: "s1track.fY"
+  s1b: "s1track.fB*1000."
+  tof311: "fe11pla_t.fTiming-f3pla_t.fTiming"
+  tof911: "fe11pla_t.fTiming-fe9ppac1.fTAnode"
+  tof10: "(fe11pla_t.fTiming+fe9ppac1.fTAnode)/2-rfd.fT"
+  dx911: "fe11track.fX+fe9.fX"
+  tofs0s1: ""
+
+#  aq35: "aq35.fValue"
+#  z35: "z35.fValue"
+
+# for vertical focus tuning at large vertical magnification f.p.
+  yy34: +0.0
+  yy35: +0.0
+  yy36: -4.0
+  yy37: +0.0
+  yy38: +0.0
+  yy39: +0.0
+  yy310: +0.0
+  yy311: +0.0
+  yy3s0: +0.0
+  yy3s1: +0.0
+  yy56: -4.0
+  yy57: +0.0
+  yy58: +0.0
+  yy59: +0.0
+  yy910: +0.0
+  yy911: +0.0
+  yy9s0: +0.0
+  yys0s1: +0.0
+  f4yc3y: "f4y-yy34*f3y"
+  f5yc3y: "f5y-yy35*f3y"
+  f6yc3y: "f6y-yy36*f3y"
+  fe7yc3y: "fe7y-yy37*f3y"
+  fe8yc3y: "fe8y-yy38*f3y"      
+  fe9yc3y: "fe9y-yy39*f3y"      
+  fe10yc3y: "fe10y-yy310*f3y"      
+  fe11yc3y: "fe11y-yy311*f3y"      
+  s0yc3y: "s0y-yy3s0*f3y"
+  s1yc3y: "s1y-yy3s1*f3y"
+  f6yc5y: "f6y-yy56*f5y"
+  fe7yc5y: "fe7y-yy57*f5y"
+  fe8yc5y: "fe8y-yy58*f5y"      
+  fe9yc5y: "fe9y-yy59*f5y"      
+  fe10yc9y: "fe10y-yy910*fe9y"
+  fe11yc9y: "fe11y-yy911*fe9y"
+  s0yc9y: "s0y-yy9s0*fe9y"
+  s1ycs0y: "s1y-yys0s1*s0y"
+
+# for momentum independent tuning procedure  
+  c45: -1.268
+  c56: -0.777 
+  c58: -1.375 # x of dc8 is inverted
+  c59: -0.446
+  f5xc4x: "f5x-c45*f4x"
+  f6xc5x: "f6x-c56*f5x"
+  fe8xc5x: "fe8x-c58*f5x"
+  fe9xc5x: "fe9x-c59*f5x"
+
+# gates on each f.p.
+# F3
+  gf3x: "abs(f3x) < 1."
+  gf3a: "abs(f3a) < 3."
+  gf3y: "abs(f3y) < 1."
+  gf3b: "abs(f3b) < 3."  
+# F4
+  gf4x: "abs(f4x+0) < 1."
+  gf4y: "abs(f4y+2.58) < 1."
+# F5
+  gf5x: "abs(f5x-0.0) < 1."
+  gf5a: "abs(f5a) < 1."
+  gf5y: "abs(f5y-0.0) < 1."
+  gf5b: "abs(f5b) < 1."
+# FE9
+  gfe9x: "abs(fe9x-0.0) < 3."
+  gfe9x2: "abs(fe9x-6.0) < 3."
+  gfe9x3: "abs(fe9x+6.0) < 3."  
+  gfe9a: "abs(fe9a) < 1."
+  gfe9a2: "abs(fe9a-6.) < 3."
+  gfe9a3: "abs(fe9a+6.) < 3."    
+  gfe9y: "abs(fe9y-0.0) < 3."
+  gfe9y2: "abs(fe9y-6.0) < 3."
+  gfe9y3: "abs(fe9y+6.0) < 3."  
+  gfe9b: "abs(fe9b) < 3."
+  gfe9b2: "abs(fe9b-6.) < 3."  
+  gfe9b3: "abs(fe9b+6.) < 3."
+  # FE9
+  gfe10x: "abs(fe10x-0.0) < 1."
+  gfe10a: "abs(fe10a) < 1."
+  gfe10y: "abs(fe10y-0.0) < 1."
+  gfe10b: "abs(fe10b) < 1."
+# S0
+  gs0x: "abs(s0x-0.0) < 1."
+  gs0a: "abs(s0a) < 1."
+  gs0y: "abs(s0y-0.0) < 1."
+  gs0b: "abs(s0b) < 1."
+
+# pid gate
+#  g79se: gate.Test("se79")
+#  g93zr: gate.Test("zr93")
+  g93zr: "abs(tof35_sva03.fTiming-157.)<1.0"
+#  g79se: "abs(aq35.fValue-2.36) < 0.02 && abs(z35.fValue-33.8) < 0.4"
+
+ 
+#  pidgate: gate.Test("54Sc")
+
+include:
+#  - optics/chkpi.yaml
+#  - optics/beamimage.yaml
+#  - optics/f4tuning.yaml
+#  - optics/f5tuning.yaml
+#  - optics/f6tuning.yaml
+#  - optics/fe7tuning.yaml
+#  - optics/fe8tuning.yaml
+#  - optics/fe9tuning.yaml
+#  - optics/fe10tuning.yaml
+#  - optics/fe11tuning.yaml
+  - optics/s0tuning.yaml
+#  - optics/s1tuning.yaml
+#  - optics/degtuning.yaml
+#  - optics/rfdtuning.yaml
+#  - optics/f5f6tuning.yaml
+#  - optics/f5fe8tuning.yaml
+#  - optics/f5fe9tuning.yaml
+
