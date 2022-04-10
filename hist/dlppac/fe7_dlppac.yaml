@@ -21,8 +21,8 @@ group:
         x: ["fe7ppac1.fTYDiff",500,-100.,100.]
       - name: fe7ppac1_y_x
         title: PPAC1 GetY Vs GetX
-        x: ["fe7ppac1.GetX()",500,-50.,50.]
-        y: ["fe7ppac1.GetY()",500,-50.,50.]
+        x: ["fe7ppac1.GetX()",500,-100.,100.]
+        y: ["fe7ppac1.GetY()",500,-100.,100.]
      
       - name: fe7ppac2_anode
         title: PPAC2 Anode
@@ -43,5 +43,9 @@ group:
         x: ["fe7ppac2.fTYDiff",500,-100.,100.]
       - name: fe7ppac2_y_x
         title: PPAC2 GetY Vs GetX
-        x: ["fe7ppac2.GetX()",500,-50.,50.]
-        y: ["fe7ppac2.GetY()",500,-50.,50.]
+        x: ["fe7ppac2.GetX()",500,-100.,100.]
+        y: ["fe7ppac2.GetY()",500,-100.,100.]
+      - name: extra_fe8
+        title: Extrapolation FE8 GetY Vs GetX
+        x: ["1500*(fe7ppac1.GetX()-fe7ppac2.GetX())/500.5",500,-100.,100.]
+        y: ["1500*(fe7ppac1.GetY()-fe7ppac2.GetY())/500.5",500,-100.,100.]

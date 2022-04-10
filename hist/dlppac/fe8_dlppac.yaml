@@ -21,5 +21,5 @@ group:
         x: ["fe8ppac.fTYDiff",500,-100.,100.]
       - name: fe8ppac_y_x
         title: PPAC1 GetY Vs GetX
-        x: ["fe8ppac.GetX()",500,-50.,50.]
-        y: ["fe8ppac.GetY()",500,-50.,50.]
+        x: ["fe8ppac.GetX()",500,-100.,100.]
+        y: ["fe8ppac.GetY()",500,-100.,100.]

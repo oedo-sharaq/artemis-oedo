@@ -21,7 +21,7 @@ Processor:
 
 ##  - include: tref.yaml
   - include: bld/dlppac/dlppac.inc.yaml
-#  - include: bld/ppac/ppac.brips.yaml
+  #- include: bld/ppac/ppac.brips.yaml
 #  - include: bld/dlppac/ppac.yaml
 
   - name: projectiontpccorrelation

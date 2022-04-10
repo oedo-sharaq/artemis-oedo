@@ -21,7 +21,7 @@ Processor:
       replace:
         NAME: dca1
         TGATE: [-250.,-10.]
-        QGATE: [0,800]
+        QGATE: [100,1200]
 
   - include: 
       name: xuy_calib.inc.yaml

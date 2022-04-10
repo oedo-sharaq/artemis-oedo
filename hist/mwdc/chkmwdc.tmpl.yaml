@@ -6,7 +6,7 @@ anchor:
   - &isgood ["@plane@.IsGood()",2,-0.5,1.5]
   - &entry ["@plane@.GetEntriesFast()",8,-0.5,7.5]
   - &ssr ["@plane@.GetSSR()",100,0,10]
-  - &residual ["@plane@.GetResidual(0)",200,-2.,2.]
+  - &res ["@plane@.GetResidual(0)",200,-2.,2.]
 
 #alias:
 ##  pidgate: gate.Test("54Sc")
@@ -30,7 +30,6 @@ anchor:
 #  x1x2hit: dc31_x1@.GetEntriesFast()>=1 && dc31_x2@.GetEntriesFast()>=1  
 #  f7pla: f71pla@.GetEntriesFast() > 0
 #  pid: abs(tof37-10)<10
-
 
 group:
   - name: @plane@
@@ -65,17 +64,21 @@ group:
 #      - name: entry
 #        title: @plane@ Entry
 #        x: *ent
-       
-#      - name: hit_efficiency
-#        title: @plane@ hit efficiency IsProcessed
-#        x: *isprocessed
-#      - name: tracking_efficiency
-#        title: @plane@ tracking efficiency
-#        x: *isgood
-#      - name: ssr
-#        title: @plane@ sum of squared residue
-#        x: *ssr
-#      - name: x1_residual
-#        title: @plane@ X1 residual
-#        x: *res
+
+      - name: hit_efficiency
+        title: @plane@ hit efficiency IsProcessed
+        x: *isprocessed
+        cut:  "src1_a_raw@.GetEntries() == 1"
+      - name: tracking_efficiency
+        title: @plane@ tracking efficiency
+        x: *isgood
+        cut:  "src1_a_raw@.GetEntries() == 1"
+      - name: ssr
+        title: @plane@ sum of squared residue
+        x: *ssr
+        cut:  "src1_a_raw@.GetEntries() == 1"
+      - name: x1_residual
+        title: @plane@ X1 residual
+        x: *res
+        cut:  "src1_a_raw@.GetEntries() == 1"
 

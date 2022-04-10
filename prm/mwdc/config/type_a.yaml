@@ -5,13 +5,13 @@
     nWire:   24
     cellSize: 9.
     angle:    0.
-    center: 12.5
+    center:   12.
 - u:
     z:        0.
     nWire:   24
     cellSize: 9.
     angle:   30.
-    center: 12.5
+    center:   12.5
 - y:
     z:       -9.
     nWire:   16
