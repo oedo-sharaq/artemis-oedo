@@ -82,3 +82,11 @@ Processor:
       TimingConverterArray: prm_tof12s1_off
       InputIsDigital: 0
 
+#  - name: proc_beta12s1
+#    type: art::TTOF2BetaProcessor
+#    parameter:
+#      FlightLength: 7810
+#      Input: tof12s1
+#      Output: beta12s1
+
+
