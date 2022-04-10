@@ -30,6 +30,7 @@
 #pragma link C++ class art::TSimpleDataMappingProcessor;
 #pragma link C++ class art::TIonChamberProcessor;
 #pragma link C++ class art::TS1IonChamberProcessor;
+#pragma link C++ class art::TIonChamberProcessor;
 #pragma link C++ class art::TPPACAnodeTimingProcessor;
 #pragma link C++ class art::TTimingAverageProcessor;
 #pragma link C++ class art::TSingleTOFProcessor;

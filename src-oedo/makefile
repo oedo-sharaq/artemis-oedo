@@ -14,6 +14,7 @@ OBJ += TDaliData.o
 #OBJ += TSimpleDataMappingProcessor.o
 OBJ += TIonChamberProcessor.o
 OBJ += TS1IonChamberProcessor.o
+OBJ += TIonChamberProcessor.o
 #OBJ += TPPACAnodeTimingProcessor.o
 OBJ += TSingleTOFProcessor.o
 OBJ += TTOF2BetaProcessor.o
