@@ -31,8 +31,8 @@ alias:
 #  dcut: srppacd_a_raw@.GetEntriesFast() > 0
 
 group:
-  - name: srppac
-    title: SR-PPAC 
+  - name: chksrppac@sr@
+    title: Check SR-PPAC @sr@
     contents:
       - name: @sr@_x_id
         title: @sr@ X ID
