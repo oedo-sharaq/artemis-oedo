@@ -1,16 +1,26 @@
 anchor: 
-  - &@sr@xq0q1 ["(@sr@_x_cal[0].fCharge - @sr@_x_cal[1].fCharge) / (@sr@_x_cal[0].fCharge + @sr@_x_cal[1].fCharge)", 250,0,0.25]
-  - &@sr@yq0q1 ["(@sr@_y_cal[0].fCharge - @sr@_y_cal[1].fCharge) / (@sr@_y_cal[0].fCharge + @sr@_y_cal[1].fCharge)", 400,0,0.4]
+  - &@sru@xq0q1 ["(@sru@_x_cal[0].fCharge - @sru@_x_cal[1].fCharge) / (@sru@_x_cal[0].fCharge + @sru@_x_cal[1].fCharge)", 250,0,0.25]
+  - &@sru@yq0q1 ["(@sru@_y_cal[0].fCharge - @sru@_y_cal[1].fCharge) / (@sru@_y_cal[0].fCharge + @sru@_y_cal[1].fCharge)", 400,0,0.4]
+  - &@srd@xq0q1 ["(@srd@_x_cal[0].fCharge - @srd@_x_cal[1].fCharge) / (@srd@_x_cal[0].fCharge + @srd@_x_cal[1].fCharge)", 250,0,0.25]
+  - &@srd@yq0q1 ["(@srd@_y_cal[0].fCharge - @srd@_y_cal[1].fCharge) / (@srd@_y_cal[0].fCharge + @srd@_y_cal[1].fCharge)", 400,0,0.4]
+
 
 group:
-  - name: srppacdqdx
-    title: SR-PPAC dqdx
+  - name: sruppacdqdx@fp@
+    title: SR-PPAC dqdx @fp@
     contents:
-      - name: @sr@_x_q0q1
-        title: @sr@ X Q0Q1
-        x: *@sr@xq0q1
-      - name: @sr@_y_q0q1
-        title: @sr@ Y Q0Q1
-        x: *@sr@yq0q1
+      - name: @sru@_x_q0q1
+        title: @sru@ X Q0Q1
+        x: *@sru@xq0q1
+      - name: @sru@_y_q0q1
+        title: @sru@ Y Q0Q1
+        x: *@sru@yq0q1
+      - name: @srd@_x_q0q1
+        title: @srd@ X Q0Q1
+        x: *@srd@xq0q1
+      - name: @srd@_y_q0q1
+        title: @srd@ Y Q0Q1
+        x: *@srd@yq0q1
+
 
 
