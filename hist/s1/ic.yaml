@@ -38,6 +38,12 @@ group:
      x: *icch
      y: [qraw, *div1, *qmin, *qmax]
 
+   - name: s1ic_charge
+     title: s1ic charge XYgate
+     cut: "abs(s1x)<5 && abs(s1y)<5"
+     x: *icch
+     y: [qraw, *div1, *qmin, *qmax]
+
    - name: s1ic_chargecal
      title: s1ic charge cal
      x: *icch
@@ -53,6 +59,157 @@ group:
      title: TOF(S1-FE12) vs S1X
      x: [t12s1, *div1, *tmin, *tmax]
      y: [s1x, *div1, *xmin, *xmax]
+
+   - name: ic0_xygate
+     title: ic0 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[0].fCharge", 500, 0, 2000]
+
+   - name: ic1_xygate
+     title: ic1 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[1].fCharge", 500, 0, 2000]
+
+   - name: ic2_xygate
+     title: ic2 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[2].fCharge", 500, 0, 2000]
+
+   - name: ic3_xygate
+     title: ic3 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[3].fCharge", 500, 0, 2000]
+
+   - name: ic4_xygate
+     title: ic4 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[4].fCharge", 500, 0, 2000]
+
+   - name: ic5_xygate
+     title: ic5 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[5].fCharge", 500, 0, 2000]
+
+   - name: ic6_xygate
+     title: ic6 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[6].fCharge", 500, 0, 2000]
+
+   - name: ic7_xygate
+     title: ic7 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[7].fCharge", 500, 0, 2000]
+
+   - name: ic8_xygate
+     title: ic8 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[8].fCharge", 500, 0, 2000]
+
+   - name: ic9_xygate
+     title: ic9 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[9].fCharge", 500, 0, 2000]
+
+   - name: ic10_xygate
+     title: ic10 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[10].fCharge", 500, 0, 2000]
+
+   - name: ic11_xygate
+     title: ic11 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[11].fCharge", 500, 0, 2000]
+
+   - name: ic12_xygate
+     title: ic12 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[12].fCharge", 500, 0, 2000]
+
+   - name: ic13_xygate
+     title: ic13 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[13].fCharge", 500, 0, 2000]
+
+   - name: ic14_xygate
+     title: ic14 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[14].fCharge", 500, 0, 2000]
+
+   - name: ic15_xygate
+     title: ic15 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[15].fCharge", 500, 0, 2000]
+
+   - name: ic16_xygate
+     title: ic16 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[16].fCharge", 500, 0, 2000]
+
+   - name: ic17_xygate
+     title: ic17 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[17].fCharge", 500, 0, 2000]
+
+   - name: ic18_xygate
+     title: ic18 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[18].fCharge", 500, 0, 2000]
+
+   - name: ic19_xygate
+     title: ic19 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[19].fCharge", 500, 0, 2000]
+
+   - name: ic20_xygate
+     title: ic20 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[20].fCharge", 500, 0, 2000]
+
+   - name: ic21_xygate
+     title: ic21 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[21].fCharge", 500, 0, 2000]
+
+   - name: ic22_xygate
+     title: ic22 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[22].fCharge", 500, 0, 2000]
+
+   - name: ic23_xygate
+     title: ic23 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[23].fCharge", 500, 0, 2000]
+
+   - name: ic24_xygate
+     title: ic24 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[24].fCharge", 500, 0, 2000]
+
+   - name: ic25_xygate
+     title: ic25 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[25].fCharge", 500, 0, 2000]
+
+   - name: ic26_xygate
+     title: ic26 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[26].fCharge", 500, 0, 2000]
+
+   - name: ic27_xygate
+     title: ic27 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[27].fCharge", 500, 0, 2000]
+
+   - name: ic28_xygate
+     title: ic28 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[28].fCharge", 500, 0, 2000]
+
+   - name: ic29_xygate
+     title: ic29 XYgate
+     cut: "abs(s1x)<20 && abs(s1y)<5"
+     x: ["icraw[29].fCharge", 500, 0, 2000]
+
 
 #   - name: deltaE
 #     title: delta E

@@ -40,7 +40,7 @@ alias:
   s1actof: "s1a-9.66*(t12s1-128.)"
   s1actofs0x: "s1a-9.66*(t12s1-128)+0.88*(s0x-0.47)"
 #  s1ycs0y: "s1y+8.0*(s0y-6.6)"
-  s1ycs0y: "s1y+4.5*(s0y-5.55)"
+  s1ycs0y: "s1y+7.0*(s0y-5.55)"
 
 # gates on each f.p.
 ## F5

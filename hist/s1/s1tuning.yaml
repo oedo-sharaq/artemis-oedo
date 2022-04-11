@@ -181,6 +181,11 @@ group:
     clone: s1tuning
     cut: gpid && gs0y
 
+  - name: s1tuning_gpids0y
+    title: S1 tuning (g pid S1X)
+    clone: s1tuning
+    cut: gpid && gs1x
+
 #  - name: s1tuning_gpids0b
 #    title: S1 tuning (g pid S0B)
 #    clone: s1tuning
