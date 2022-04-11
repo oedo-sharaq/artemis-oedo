@@ -4,7 +4,7 @@ Processor:
     parameter:
       Name:     prm_ic_ch2V
       Type:     art::TAffineConverter
-      FileName: prm/ic/ch2V.dat
+      FileName: prm/ic/ch2MeV.prm
 
   - name: proc_icraw
     type: art::TSimpleDataMappingProcessor
