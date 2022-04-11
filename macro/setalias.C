@@ -11,10 +11,10 @@ tree->SetAlias("sr9.fA","(sr92_x[0].fPosition-sr91_x[0].fPosition)/419.75");
 tree->SetAlias("sr9.fY","(542.25*sr91_y[0].fPosition-122.5*sr92_y[0].fPosition)/419.75");
 tree->SetAlias("sr9.fB","(sr92_y[0].fPosition-sr91_y[0].fPosition)/419.75");
 //
-//tree->SetAlias("src.fX","(1972*src2_x[0].fPosition-1452*src1_x[0].fPosition)/520.");
-//tree->SetAlias("src.fA","(src2_x[0].fPosition-src1_x[0].fPosition)/520.");
-//tree->SetAlias("src.fY","(1972*src2_y[0].fPosition-1452*src1_y[0].fPosition)/520.");
-//tree->SetAlias("src.fB","(src2_y[0].fPosition-src1_y[0].fPosition)/520");
+tree->SetAlias("src.fX","(1972*src2_x[0].fPosition-1452*src1_x[0].fPosition)/520.");
+tree->SetAlias("src.fA","(src2_x[0].fPosition-src1_x[0].fPosition)/520.");
+tree->SetAlias("src.fY","(1972*src2_y[0].fPosition-1452*src1_y[0].fPosition)/520.");
+tree->SetAlias("src.fB","(src2_y[0].fPosition-src1_y[0].fPosition)/520");
 
 //tree->SetAlias("sr1.fX","(560.8*sr12_x[0].fPosition-210.8*sr11_x[0].fPosition)/350.";)
 //tree->SetAlias("sr1.fA","(sr12_x[0].fPosition-sr11_x[0].fPosition)/350.");
