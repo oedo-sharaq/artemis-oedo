@@ -143,7 +143,8 @@
     //    df->Register(new art::TModuleDecoderAMTTDC);
 
     gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderA3100FreeRunTSI);");
-	
+    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderV1740_mod);");
+
     // Skip for r3_2021
     df->Register(new art::TModuleDecoderSkip(9));
     df->Register(new art::TModuleDecoderSkip(30));
