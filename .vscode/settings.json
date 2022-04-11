@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "ChkEffF5mwdc.C": "cpp",
+        "artemislogon.C": "cpp"
+    },
+    "cmake.buildEnvironment": {
+        "ARTEMIS_WORKDIR": "${PWD}",
+        "YAML_CPP_DIR": "/opt/local/yaml-cpp"
+    }
+}
