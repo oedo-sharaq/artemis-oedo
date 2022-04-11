@@ -21,21 +21,21 @@ Processor:
       OutputCollection: ic
       ChargeConverterArray: prm_ic_ch2V
 
-  - name: proc_icde
-    type: art::TIonChamberProcessor
-    parameter:
-      InputName: ic
-      OutputName: icde
-      NumChannel: 4
-      DropRatio: 0.0
-
-  - name: proc_icave
-    type: art::TIonChamberProcessor
-    parameter:
-      InputName: ic
-      OutputName: icave
-      NumChannel: 30
-      DropRatio: 0.0
+#  - name: proc_icde
+#    type: art::TIonChamberProcessor
+#    parameter:
+#      InputName: ic
+#      OutputName: icde
+#      NumChannel: 4
+#      DropRatio: 0.0
+#
+#  - name: proc_icave
+#    type: art::TIonChamberProcessor
+#    parameter:
+#      InputName: ic
+#      OutputName: icave
+#      NumChannel: 30
+#      DropRatio: 0.0
 #
 #  - name: proc_ic_sep
 #    type: art::TSeparateOutputProcessor

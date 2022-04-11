@@ -1,11 +1,11 @@
 anchor:
-  - &nbin   150
-  - &xmin  -200
-  - &xmax   200
+  - &nbin   200
+  - &xmin  -250
+  - &xmax   250
   - &xminz  -30
   - &xmaxz   30
-  - &amin  -150
-  - &amax   150
+  - &amin  -200
+  - &amax   200
   - &aminz  -20
   - &amaxz   20
   - &ymin  -100
@@ -18,10 +18,10 @@ anchor:
   - &bmaxz   20
   - &t39min   1050
   - &t39max   1090
-  - &t912min  0
-  - &t912max  200
-  - &t12s1min  50
-  - &t12s1max 150
+  - &t912min  40
+  - &t912max  80
+  - &t12s1min 40
+  - &t12s1max 80
   - &demin  10.
   - &demax  120.
   - &totemin   300.

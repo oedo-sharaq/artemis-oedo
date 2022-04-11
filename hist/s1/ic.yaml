@@ -54,13 +54,13 @@ group:
      x: [t12s1, *div1, *tmin, *tmax]
      y: [s1x, *div1, *xmin, *xmax]
 
-   - name: deltaE
-     title: delta E
-     x: [icde.fValue, *div1, *cmin, *cmax]
+#   - name: deltaE
+#     title: delta E
+#     x: [icde.fValue, *div1, *cmin, *cmax]
 
-   - name: totalE
-     title: total E
-     x: [icave.fValue, *div1, *cmin, *cmax]
+#   - name: totalE
+#     title: total E
+#     x: [icave.fValue, *div1, *cmin, *cmax]
 
 
 - name: ic_gpid
