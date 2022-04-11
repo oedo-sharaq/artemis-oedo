@@ -1,54 +1,46 @@
 alias:
-#  f3x: "f3track.fX"
-#  f3a: "f3track.fA*1000."
-#  f3y: "f3track.fY"
-#  f3b: "f3track.fB*1000."
-  f5x: "f5track.fX"
-  f5a: "f5track.fA*1000"
-  f5y: "f5track.fY"
-  f5b: "f5track.fB*1000"
-#  fe9x: "fe9track.fX"
-#  fe9a: "fe9track.fA*1000"
-#  fe9y: "fe9track.fY"
-#  fe9b: "fe9track.fB*1000"
-  s0x: "fe12track.fX*-1."
-  s0a: "fe12track.fA*1000.*-1."
-  s0y: "fe12track.fY"
-  s0b: "fe12track.fB*1000."
-  s1x: "s1track.fX"
-  s1a: "s1track.fA*1000."
-  s1y: "s1track.fY"
-  s1b: "s1track.fB*1000."
-  tof35: "tof35.fTiming"
-  tof912: "tof12s1.fTiming"
-  tof12s1: "tof12s1.fTiming"
-  tof12s1val: "tof12s1.fTiming"
-  de: "icde.fValue"
-  decor: "de-(-0.151*s1y-0.002211*s1y*s1y)-(-2087*(beta12s1-0.2))-0.013*s1x"
-  tote: "icave.fValue*30."
-  totecor: "(icave.fValue-(-0.151*s1y-0.002211*s1y*s1y)-(-2087*(beta12s1-0.2))-0.013*s1x)*30."
+
+  f5x: "f5track[0].fX"
+  f5a: "f5track[0].fA*1000"
+  f5y: "f5track[0].fY"
+  f5b: "f5track[0].fB*1000"
+
+  fe9x: "(542.25*sr91_x[0].fPosition-122.5*sr92_x[0].fPosition)/419.75"
+  fe9a: "(sr92_x[0].fPosition-sr91_x[0].fPosition)/419.75*1000."
+  fe9y: "(542.25*sr91_y[0].fPosition-122.5*sr92_y[0].fPosition)/419.75"
+  fe9b: "(sr92_y[0].fPosition-sr91_y[0].fPosition)/419.75*1000."
+
+  s0x: "(1972*src2_x[0].fPosition-1452*src1_x[0].fPosition)/520."
+  s0a: "(src2_x[0].fPosition-src1_x[0].fPosition)/520.*1000."
+  s0y: "(1972*src2_y[0].fPosition-1452*src1_y[0].fPosition)/520."
+  s0b: "(src2_y[0].fPosition-src1_y[0].fPosition)/520.*1000."
+
+  s1x: "(560.8*sr12_x[0].fPosition-210.8*sr11_x[0].fPosition)/350."
+  s1a: "(sr12_x[0].fPosition-sr11_x[0].fPosition)/350.*1000."
+  s1y: "(560.8*sr12_y[0].fPosition-210.8*sr11_y[0].fPosition)/350."
+  s1b: "(sr12_y[0].fPosition-sr11_y[0].fPosition)/350.*1000."
+
+  t35: "tof35[0].fTiming"
+  t39: "tof39[0].fTiming"
+  t912: "tof912[0].fTiming"
+  t12s1: "tof12s1[0].fTiming"
+
+  de: "icde[0].fValue"
+  tote: "icave[0].fValue*30."
+
 
 
 #  aq35: "aq35.fValue"
 #  z35: "z35.fValue"
 
 # for vertical focus tuning at large vertical magnification f.p.
-  s1xctof: "s1x-19.3*(tof12s1val-128.)"
-  s1xctofs0x: "s1x-19.3*(tof12s1val-128.)+0.26*s0x"
-  s1actof: "s1a-9.66*(tof12s1val-128.)"
-  s1actofs0x: "s1a-9.66*(tof12s1val-128)+0.88*(s0x-0.47)"
-#  s1ycs0y: "s1y+7.2*(s0y-1.68)"
+  s1xctof: "s1x-19.3*(t12s1-128.)"
+  s1xctofs0x: "s1x-19.3*(t12s1-128.)+0.26*s0x"
+  s1actof: "s1a-9.66*(t12s1-128.)"
+  s1actofs0x: "s1a-9.66*(t12s1-128)+0.88*(s0x-0.47)"
   s1ycs0y: "s1y+8.0*(s0y-6.6)"
 
 # gates on each f.p.
-## F3
-#  gf3x: "abs(f3x) < 1."
-#  gf3a: "abs(f3a) < 3."
-#  gf3y: "abs(f3y) < 1."
-#  gf3b: "abs(f3b) < 3."  
-## F4
-#  gf4x: "abs(f4x+0) < 1."
-#  gf4y: "abs(f4y+2.58) < 1."
 ## F5
 #  gf5x: "abs(f5x-0.0) < 1."
 #  gf5a: "abs(f5a) < 1."
@@ -56,37 +48,28 @@ alias:
 #  gf5b: "abs(f5b) < 1."
 ## FE9
 #  gfe9x: "abs(fe9x-0.0) < 3."
-#  gfe9x2: "abs(fe9x-6.0) < 3."
-#  gfe9x3: "abs(fe9x+6.0) < 3."  
 #  gfe9a: "abs(fe9a) < 1."
-#  gfe9a2: "abs(fe9a-6.) < 3."
-#  gfe9a3: "abs(fe9a+6.) < 3."    
 #  gfe9y: "abs(fe9y-0.0) < 3."
-#  gfe9y2: "abs(fe9y-6.0) < 3."
-#  gfe9y3: "abs(fe9y+6.0) < 3."  
 #  gfe9b: "abs(fe9b) < 3."
-#  gfe9b2: "abs(fe9b-6.) < 3."  
-#  gfe9b3: "abs(fe9b+6.) < 3."
-#  # FE9
-#  gfe10x: "abs(fe10x-0.0) < 1."
-#  gfe10a: "abs(fe10a) < 1."
-#  gfe10y: "abs(fe10y-0.0) < 1."
-#  gfe10b: "abs(fe10b) < 1."
 # S0
-  gs0x: "abs(s0x-0.0) < 15."
-  gs0a: "abs(s0a) < 1."
+  gs0x: "abs(s0x-0.0) < 1."
+  gs0a: "abs(s0a-0.0) < 1."
   gs0y: "abs(s0y-0.0) < 1."
-  gs0b: "abs(s0b) < 1."
+  gs0b: "abs(s0b-0.0) < 1."
 
 # S1
-  gs1x: "abs(s1x) < 90."
-  gs1y: "abs(s1y) < 70."
+  gs1x: "abs(s1x) < 5."
+  gs1y: "abs(s1y) < 5."
+
+# tof
+  gt39: "abs(t39-1060.) < 1."
+  gt912: "abs(t912) < 1."
 
 # pid gate
-  g77se: "abs(tof35-162.9)<1.0 && abs(tof0512-1398.)<50."
+  gpid: "abs(fe9x)<10.&&abs(t39+0.15*fe9x-1060.)<1.5"
 
 
 include:
-  - s1tuning.yaml
-  - ic.yaml
-  - gated.yaml
+  - hist/s1/s1tuning.yaml
+  - hist/s1/ic.yaml
+

@@ -30,6 +30,11 @@ Processor:
   - include: tof.yaml
   - include: ic/ic.yaml
 
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type:     art::TTreeProjection
+      FileName: hist/s1/s1.yaml
 
           
   - name: outputtree
