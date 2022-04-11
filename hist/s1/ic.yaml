@@ -62,10 +62,6 @@ group:
      title: total E
      x: [icave.fValue, *div1, *cmin, *cmax]
 
-   - name: s1tuning_gpidt912
-     title: S1 tuning (g pid TOF912)
-     clone: s1tuning
-     cut: gpid && gt912
 
 - name: ic_gpid
   title: IC (g pid)

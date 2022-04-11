@@ -33,7 +33,7 @@ group:
     contents:
       - name : pid
         title: pid
-        x: [t39,*nbin,*t39min,t39max]    
+        x: [t39,*nbin,*t39min,*t39max]    
         y: [fe9x,200,-50,50]    
 
       - name : s0x_tof39
