@@ -1,3 +1,3 @@
 # Map file for SR-PPAC X Plane at F5 upstream
 #[cat][id][Tlead][Ttrail]{SH,fp,det,geo,ch}
-52,  0,  11,21,31,0,1
+52,  0,  11,21,31,1,1
