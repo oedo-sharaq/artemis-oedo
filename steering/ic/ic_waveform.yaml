@@ -1,0 +1,7 @@
+Processor:
+  - name: ic_waveformmapping
+    type: art::TCatAtMappingProcessor
+    parameter:
+      CatID: 13
+      OutputCollection: ic_waveform
+      OutputTransparency: 0
