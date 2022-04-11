@@ -12,7 +12,8 @@ alias:
 
   s0x: "(1972*src2_x[0].fPosition-1452*src1_x[0].fPosition)/520."
   s0a: "(src2_x[0].fPosition-src1_x[0].fPosition)/520.*1000."
-  s0y: "(1972*src2_y[0].fPosition-1452*src1_y[0].fPosition)/520."
+#  s0y: "(1972*src2_y[0].fPosition-1452*src1_y[0].fPosition)/520."
+  s0y: "(1972*src2_y[0].fPosition-1452*src1_y[0].fPosition)/520.-30."
   s0b: "(src2_y[0].fPosition-src1_y[0].fPosition)/520.*1000."
 
   s1x: "(560.8*sr12_x[0].fPosition-210.8*sr11_x[0].fPosition)/350."
@@ -38,7 +39,8 @@ alias:
   s1xctofs0x: "s1x-19.3*(t12s1-128.)+0.26*s0x"
   s1actof: "s1a-9.66*(t12s1-128.)"
   s1actofs0x: "s1a-9.66*(t12s1-128)+0.88*(s0x-0.47)"
-  s1ycs0y: "s1y+8.0*(s0y-6.6)"
+#  s1ycs0y: "s1y+8.0*(s0y-6.6)"
+  s1ycs0y: "s1y+4.5*(s0y-5.55)"
 
 # gates on each f.p.
 ## F5
@@ -66,7 +68,7 @@ alias:
   gt912: "abs(t912) < 1."
 
 # pid gate
-  gpid: "abs(fe9x)<10.&&abs(t39+0.15*fe9x-1060.)<1.5"
+  gpid: "abs(fe9x)<10.&&abs(t39+0.10*fe9x-1071.)<1.5"
 
 
 include:

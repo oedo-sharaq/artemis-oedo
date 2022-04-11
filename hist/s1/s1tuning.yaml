@@ -16,8 +16,10 @@ anchor:
   - &bmax   50
   - &bminz  -20
   - &bmaxz   20
-  - &t39min   1040
-  - &t39max   1080
+  - &t39min   1050
+  - &t39max   1090
+  - &t912min  0
+  - &t912max  200
   - &t12s1min  50
   - &t12s1max 150
   - &demin  10.
@@ -134,8 +136,12 @@ group:
       - name : tof12s1_vs_s1xctofs0x
         title: TOF(12-S1) vs S1Xctofs0x
         x: [t12s1,*nbin,*t12s1min,*t12s1max]
-        y: [s1xctofs0x,*nbin,*xmin,*xmax]        
+        y: [s1xctofs0x,*nbin,*xmin,*xmax] 
 
+      - name : tof912_vs_s1x
+        title: TOF(FE9-FE12) vs S1X
+        x: [t912,*nbin,*t912min,*t912max]
+        y: [s1x,*nbin,*xmin,*xmax]              
 
       - name : s0y_vs_s1y
         title: S0Y vs S1Y
