@@ -5,7 +5,7 @@ anchor:
   - &sr92_y_ent ["sr92_y_raw@.GetEntriesFast()",8,-0.5,7.5]
 
 alias:
- sr9cut: dca1_x@.GetEntriesFast() > 0 dca2_x@.GetEntriesFast() > 0 && TMath::Abs(f5track.fX+26.6*((f5ppac1a.fTAnode+f5ppac2a.fTAnode)/2-diapad[0].fTiming-1250)-37606) < 10 
+ sr9cut: src1_a_cal@.GetEntriesFast() > 0 && src2_a_cal@.GetEntriesFast() > 0  
 # sr9cut: dca1_x@.GetEntriesFast() > 0 && dca2_x@.GetEntriesFast() > 0
 
 group:
