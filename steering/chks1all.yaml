@@ -29,6 +29,7 @@ Processor:
 #  - include: bld/mwdc/chkmwdc_local.yaml
   - include: tof.yaml
   - include: ic/ic.yaml
+#  - include: ic/ic_waveform.yaml
 
   - name: projection
     type: art::TTreeProjectionProcessor
