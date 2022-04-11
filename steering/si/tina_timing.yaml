@@ -1,0 +1,46 @@
+Processor:
+  - name: proc_tina_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_tina_ch2ns
+      Type:     art::TAffineConverter
+      FileName: prm/tina/ch2ns.dat
+
+  - name: proc_tina_traw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:        93
+      TimingTypeID: 0
+      OutputCollection: tinatraw
+      OutputTransparency: 0
+
+  - name: proc_tinatcal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: tinatraw
+      OutputCollection: tinat
+      TimingConverterArray: prm_tina_ch2ns
+
+  - name: proc_tinat_sep
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: tinat
+      OutputCollections:
+        - yy1T1
+        - yy1T2
+        - yy1T3
+        - yy1T4
+        - yy1T5
+        - yy1T6
+	- TTT
+        - csiST1
+        - csiST2
+        - csiST3
+        - csiST4
+        - csiTT1
+        - csiTT2
+        - csiTT3
+        - csiTT4
+	- gated
+
+

@@ -1,0 +1,46 @@
+Processor:
+  - name: proc_vf3dia
+    type: art::TTimeValidator
+    parameter:
+      InputCollection:        f3dia
+      OutputCollection:       vf3dia
+# for tina trigger
+#      ValidTimeRange:         [-2750.0, -2650.0, 0.0]
+# for DSB triger
+      ValidTimeRange:         [-2600.0, -2550.0, 0.0]
+
+  - name: proc_vf_fe9
+    type: art::TTimeValidator
+    parameter:
+      InputCollection:        fe9T
+      OutputCollection:       vfe9T
+# for tina trigger
+#      ValidTimeRange:         [-2800.0, -2700.0, 0.0]
+# for DSB trigger
+      ValidTimeRange:         [-2700.0, -2600.0, 0.0]
+
+  - name: proc_vtof39
+    type: art::TTimingSubtractionProcessor
+    parameter:
+      InputCollection:        vf3dia
+      OutputCollection:       vtof39_pre
+      StartTimingCollection:  vf3dia
+      StartTimingDetID:       0
+      MaxDetID:               1
+      UseMultipleStartTiming: 1
+
+  - name: loader_vtof39_off
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_vtof39_off
+      Type:     art::TAffineConverter
+      FileName: prm/tof/f3fe9_off.dat
+
+  - name: proc_vtof_calib39
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: vtof39_pre
+      OutputCollection: vtof39
+      TimingConverterArray: prm_vtof39_off
+      InputIsDigital: 0
+

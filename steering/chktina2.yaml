@@ -1,0 +1,53 @@
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+#        - ridf/optics3125.ridf.gz # empty
+
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+
+  - include: v1190_tref_tina.sakura.yaml
+  - include: tina/tina_timing.yaml
+
+  - name: proc_gateinits1
+    type: art::TGateArrayInitializer
+
+#  - name: proc_iccalib
+#    type: art::TTreeFormulaGateProcessor
+#    parameter:
+#      Definitions:
+#        - "s0trig; s0coin_tina@.GetEntriesFast()>0"
+#
+#  - name: stop_proc
+#    type: art::TGateStopProcessor
+#    parameter:
+#      GateName: "s0trig"
+
+  - include: bld/dia/dia.yaml
+  - include: bld/srppac/srppac.yaml
+  - include: bld/dlppac/dlppac.inc.yaml
+  - include: vtof.yaml
+  - include: tof.yaml
+  - include: ic.yaml
+  - include: si/tina2.yaml
+#  - include: bcfit.yaml
+
+
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      Type:     art::TTreeProjection
+#      FileName: hist/s1/s1.yaml
+          
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: ./root/chk_130Sndo.root

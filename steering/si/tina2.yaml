@@ -1,0 +1,106 @@
+Processor:
+  - name: proc_yy1f_ch2MeV
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_yy1f_ch2MeV
+      Type:     art::TAffineConverter
+      FileName: prm/tina/yy1f_ch2MeV_20181209_2.dat
+  - name: proc_yy1b_ch2MeV
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_yy1b_ch2MeV
+      Type:     art::TAffineConverter
+      FileName: prm/tina/yy1b_ch2MeV.dat
+  - name: proc_csi_ch2MeV
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_csi_ch2MeV
+      Type:     art::TAffineConverter
+      FileName: prm/tina/csi_ch2MeV.dat
+
+  - name: proc_yy1fraw
+    type: art::TSimpleDataMappingProcessor
+    parameter:
+      CatID:            90
+      DataTypeID:       0
+      Sparse:           1
+      OutputCollection: yy1fraw_pre
+  - name: proc_yy1braw
+    type: art::TSimpleDataMappingProcessor
+    parameter:
+      CatID:            91
+      DataTypeID:       0
+      Sparse:           1
+      OutputCollection: yy1braw
+  - name: proc_csiraw
+    type: art::TSimpleDataMappingProcessor
+    parameter:
+      CatID:            92
+      DataTypeID:       0
+      Sparse:           1
+      OutputCollection: csiraw_pre
+
+  - name: proc_yy1fraw_validate
+    type: art::TChargeValidateProcessor
+    parameter:
+      InputCollection: yy1fraw_pre
+      OutputCollection: yy1fraw
+      Range:            [100., 4000.]
+  - name: proc_csiraw_validate
+    type: art::TChargeValidateProcessor
+    parameter:
+      InputCollection: csiraw_pre
+      OutputCollection: csiraw
+      Range:            [100., 4000.]
+
+  - name: proc_yy1fqcal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      yy1fraw
+      OutputCollection:     yy1f
+      ChargeConverterArray: prm_yy1f_ch2MeV
+  - name: proc_yy1bqcal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      yy1braw
+      OutputCollection:     yy1b
+      ChargeConverterArray: prm_yy1b_ch2MeV
+  - name: proc_csiqcal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      csiraw
+      OutputCollection:     csi
+      ChargeConverterArray: prm_csi_ch2MeV
+
+  - name: proc_tina
+    type: art::TTinaProcessor
+    parameter:
+      SiName: yy1f
+      CsIName: csi
+      OutputName: tina
+
+  - name: proc_tina2
+    type: art::TTinaProcessor2
+    parameter:
+      SiName: yy1f
+      CsIName: csi
+      TinaTName: tinat
+      OutputName: tina2
+
+  - name: proc_csi_sep
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: csi
+      OutputCollections:
+        - csis1
+        - csis2
+        - csis3
+        - csis4
+        - csis5
+        - csis6
+        - csil1
+        - csil2
+        - csil3
+        - csil4
+        - csil5
+        - csil6
