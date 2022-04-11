@@ -48,6 +48,14 @@ Processor:
       CsIName: csi
       OutputName: tina
 
+  - name: proc_tina2
+    type: art::TTinaProcessor2
+    parameter:
+      SiName: yy1f
+      CsIName: csi
+      TinaTName: tinat
+      OutputName: tina2
+
   - name: proc_csi_sep
     type: art::TSeparateOutputProcessor
     parameter:
