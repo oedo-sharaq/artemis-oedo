@@ -1,5 +1,5 @@
 Anchor:
- - &input_GET /home/data/getdaq01/get/sakura2022/run/run_@NUM@   
+ - &input_GET /home/data/getdaq01/tina/cobo00/run_@NUM@   
  - &seg0 segdataGET0
 
 Processor:
