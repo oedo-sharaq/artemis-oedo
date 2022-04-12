@@ -1,3 +1,9 @@
+Anchor:
+   
+ - &input ridf/@NAME@@NUM@.ridf
+ - &output output/@NAME@/@NUM@/chks1all@NAME@@NUM@.root
+# - &histout output/@NAME@/@NUM@/chks1all@NAME@@NUM@.hist.root
+
 Processor:
   - name: timer
     type: art::TTimerProcessor
@@ -8,6 +14,7 @@ Processor:
       OutputTransparency: 1
       InputFiles:
 #        - ridf/optics3125.ridf.gz # empty
+        - *input
 
   - name: mapper
     type: art::TMappingProcessor
@@ -15,10 +22,8 @@ Processor:
       OutputTransparency: 1
 
   - include: v1190_tref_tina.sakura.yaml
-  - include: tina/tina_timing.yaml
+  - include: si/tina_timing.yaml
 
-  - name: proc_gateinits1
-    type: art::TGateArrayInitializer
 
 #  - name: proc_iccalib
 #    type: art::TTreeFormulaGateProcessor
@@ -26,17 +31,22 @@ Processor:
 #      Definitions:
 #        - "s0trig; s0coin_tina@.GetEntriesFast()>0"
 #
-#  - name: stop_proc
-#    type: art::TGateStopProcessor
-#    parameter:
-#      GateName: "s0trig"
 
+  - include: trig_select/trig.yaml
+  - name: stop_proc
+    type: art::TGateStopProcessor
+    parameter:
+      GateName: "gateS0"
+
+
+  - include: tref.yaml
+  - include: bld/pla/pla_os22s.yaml
   - include: bld/dia/dia.yaml
   - include: bld/srppac/srppac.yaml
-  - include: bld/dlppac/dlppac.inc.yaml
+  - include: ic/ic.yaml
+#  - include: ic/ic_waveform.yaml
   - include: vtof.yaml
-  - include: tof.yaml
-  - include: ic.yaml
+#  - include: tof.yaml
   - include: si/tina2.yaml
 #  - include: bcfit.yaml
 

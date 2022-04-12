@@ -22,12 +22,12 @@
 #    - id: 0
 #
 
-F3_V1290:
-  segid: [11, 3, 31]
-  type: V1290
-  modules:
-    - id: 0
-
+#F3_V1290:
+#  segid: [11, 3, 31]
+#  type: V1290
+#  modules:
+#    - id: 0
+##
 #
 #F5_V1190:
 #  segid: [0, 5, 50]
@@ -49,32 +49,32 @@ F3_V1290:
 #    - id: 0
 #    - id: 1
 
-FE7_V1190:
-  segid: [11, 7, 31]
-  type: V1190
-  modules:
-    - id: 1
-
-FE10_V1190:
-  segid: [11, 10, 31]
-  type: V1190
-  modules:
-    - id: 0
-    - id: 1
-
+#FE7_V1190:
+#  segid: [11, 7, 31]
+#  type: V1190
+#  modules:
+#    - id: 1
+#
+#FE10_V1190:
+#  segid: [11, 10, 31]
+#  type: V1190
+#  modules:
+#    - id: 0
+#    - id: 1
+#
 #B3F_V1190:
-  segid: [0, 63, 1]
-  type: V1190
-  modules:
-    - id: 7
-    - id: 8
-
-B3F_V1290:
-  segid: [0, 63, 3]
-  type: V1290
-  modules:
-    - id: 6
-
+#  segid: [0, 63, 1]
+#  type: V1190
+#  modules:
+#    - id: 7
+#    - id: 8
+#
+#B3F_V1290:
+#  segid: [0, 63, 3]
+#  type: V1290
+#  modules:
+#    - id: 6
+#
 #DALI_V785:
 #  segid: [20, 8, 21]
 #  type: V785DALI
@@ -114,17 +114,17 @@ B3F_V1290:
 
 TINA_V1190:
   segid: [11,22,7]
-  type: V1190
+  type: V1190B
   modules:
     - id: 0
 
-TINA_V785:
-  segid: [11,22,6]
-  #segid: [11,22,6]
-  type : V785
-  modules:
-    - id: 4
-    - id: 5
-    - id: 6
-    - id: 7
-    - id: 8
+#TINA_V785:
+#  segid: [11,22,6]
+#  #segid: [11,22,6]
+#  type : V7XX
+#  modules:
+#    - id: 4
+#    - id: 5
+#    - id: 6
+##    - id: 7
+#    - id: 8

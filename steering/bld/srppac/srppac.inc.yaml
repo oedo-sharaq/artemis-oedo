@@ -80,7 +80,7 @@ Processor:
     parameter:
       InputCollection: @NAME@_a_raw
       OutputCollection: @NAME@_a_val
-      ValidTimeRange: [-100000,100000,0]  # temporary
+      ValidTimeRange: [-20000,-16000,0]  # temporary
 #      ValidTimeRange: [190000,200000,0]  # run3176
 
   - name: proc:ppac:@NAME@x:val
@@ -88,7 +88,7 @@ Processor:
     parameter:
       InputCollection: @NAME@_x_raw
       OutputCollection: @NAME@_x_val
-      ValidTimeRange: [-100000,100000,0]  # temporary
+      ValidTimeRange: [-20000,-16000,0]  # temporary
 #      ValidTimeRange: [190000,200000,0]  # run3176
 
   - name: proc:ppac:@NAME@y:val
@@ -96,7 +96,7 @@ Processor:
     parameter:
       InputCollection: @NAME@_y_raw
       OutputCollection: @NAME@_y_val
-      ValidTimeRange: [-100000,100000,0]  # temporary
+      ValidTimeRange: [-20000,-16000,0]  # temporary
 #      ValidTimeRange: [190000,200000,0]  # run3176
 
 # calib ch to ns

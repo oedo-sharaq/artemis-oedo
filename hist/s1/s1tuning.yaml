@@ -1,7 +1,7 @@
 anchor:
   - &nbin   200
-  - &xmin  -250
-  - &xmax   250
+  - &xmin  -200
+  - &xmax   500
   - &xminz  -30
   - &xmaxz   30
   - &amin  -200

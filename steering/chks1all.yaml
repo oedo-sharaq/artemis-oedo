@@ -27,6 +27,7 @@ Processor:
 #  - include: bld/dlppac/dlppac.inc.yaml
   - include: bld/srppac/srppac.yaml
 #  - include: bld/mwdc/chkmwdc_local.yaml
+#  - include: vtof.yaml
   - include: tof.yaml
   - include: ic/ic.yaml
 #  - include: ic/ic_waveform.yaml

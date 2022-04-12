@@ -37,4 +37,4 @@ Processor:
   - name: outputtree
     type: art::TOutputTreeProcessor
     parameter:
-#      FileName: chk.root
+      FileName: chk.root
