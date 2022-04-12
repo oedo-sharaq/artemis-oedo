@@ -16,20 +16,19 @@ tree->SetAlias("src.fA","(src2_x[0].fPosition-src1_x[0].fPosition)/520.");
 tree->SetAlias("src.fY","(1972*(src2_y[0].fPosition-31)-1452*(src1_y[0].fPosition-31))/520.");
 tree->SetAlias("src.fB","((src2_yc0[0].fPosition-31)-(src1_yc0[0].fPosition-31))/520");
 
-//tree->SetAlias("sr1.fX","(560.8*sr12_x[0].fPosition-210.8*sr11_x[0].fPosition)/350.";)
-//tree->SetAlias("sr1.fA","(sr12_x[0].fPosition-sr11_x[0].fPosition)/350.");
-//tree->SetAlias("sr1.fY","(560.8*sr12_y[0].fPosition-210.8*sr11_y[0].fPosition)/350.");
-//tree->SetAlias("sr1.fB","(sr12_y[0].fPosition-sr11_y[0].fPosition)/350.");
+tree->SetAlias("sr1.fX","(560.8*sr12_x[0].fPosition-210.8*sr11_x[0].fPosition)/350.");
+tree->SetAlias("sr1.fA","(sr12_x[0].fPosition-sr11_x[0].fPosition)/350.");
+tree->SetAlias("sr1.fY","(560.8*sr12_y[0].fPosition-210.8*sr11_y[0].fPosition)/350.");
+tree->SetAlias("sr1.fB","(sr12_y[0].fPosition-sr11_y[0].fPosition)/350.");
 
-//tree->SetAlias("tof3c","(src1_a_raw.fTiming+src2_a_raw.fTiming)/2-diapad.fTiming");
-tree->SetAlias("tof39_4avx","(sr91_a_cal.fTiming+sr92_a_cal.fTiming+sr91_x_cal.fTiming+sr92_x_cal.fTiming)/4.-diapad.fTiming");
-tree->SetAlias("tof39_4avy","(sr91_a_cal.fTiming+sr92_a_cal.fTiming+sr91_y_cal.fTiming+sr92_y_cal.fTiming)/4.-diapad.fTiming");
-//tree->SetAlias("tof9c","(src1_a_raw.fTiming+src2_a_raw.fTiming)/2-(sr91_a_raw.fTiming+sr92_a_raw.fTiming)/2");
-//tree->SetAlias("tof9s","(sr11_a_raw.fTiming+sr12_a_raw.fTiming)/2-(sr91_a_raw.fTiming+sr92_a_raw.fTiming)/2");
+tree->SetAlias("fe9.fT","(sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2");
+tree->SetAlias("fe12.fT","(src1_a_cal[0].fTiming+src2_a_cal[0].fTiming)/2");
+
 //tree->SetAlias("tof3c","(src1_a_cal[0].fTiming+src2_a_cal[0].fTiming)/2-fdiapad[0].fTiming");
-//tree->SetAlias("tof39","(sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-diapad[0].fTiming");
-//tree->SetAlias("tof9c","(src1_a_cal[0].fTiming+src2_a_cal[0].fTiming)/2-(sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2");
+tree->SetAlias("tof39","(sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-diapad[0].fTiming");
+tree->SetAlias("tof9c","(src1_a_cal[0].fTiming+src2_a_cal[0].fTiming)/2-(sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2");
 //tree->SetAlias("tof8s","(sr11_a_cal[0].fTiming+sr12_a_cal[0].fTiming)/2-(sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2");
+tree->SetAlias("fe10.fT","fe9.fT+(fe12.fT-fe9.fT)*4753.75/(4753.75+9687.93)");
 
 }
 
