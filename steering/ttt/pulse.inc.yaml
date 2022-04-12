@@ -17,7 +17,7 @@ Processor:
     type: art::TCatAtMappingProcessor
     parameter:
       CatID: @CATID@
-      InputCollection: catdata
+      InputCollection: tttdata
       OutputCollection: @BRNAME@
       MaxDetID: 512
       #MaxDetID: 256
