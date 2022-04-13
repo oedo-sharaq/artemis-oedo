@@ -23,6 +23,11 @@ Processor:
 #  - include: chktina.param.yaml 
   - include: trig_select/trig.yaml
 
+#  - name: stop_proc
+#    type: art::TGateStopProcessor
+#    parameter:
+#      GateName: "gateS0"
+
   - include: tref.yaml
   - include: bld/pla/pla_os22s.yaml
   - include: bld/dia/dia.yaml
@@ -35,7 +40,7 @@ Processor:
 #  - include: vtof.yaml
   - include: tof.yaml
   - include: ic/ic.yaml
-  - include: ic/ic_waveform.yaml
+#  - include: ic/ic_waveform.yaml
 #  - include: chktina.online.yaml
 #
   - include: v1190_tref_tina.sakura.yaml
