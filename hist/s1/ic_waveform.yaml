@@ -1,0 +1,205 @@
+alias:
+    wf_s:   ic_waveform.fSample	
+    wf_c:   ic_waveform.fClock
+
+anchors:
+  - &wsdiv   500
+  - &wsmin   500
+  - &wsmax   1500
+  - &wcdiv   500
+  - &wcmin   0
+  - &wcmax   1500
+
+
+
+group:
+- name: ic_waveform
+  title: IC waveform
+  contents:
+
+   - name: s1ic_waveform
+     title: s1ic waveform all ch
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+
+   - name: s1ic_waveform_0
+     title: s1ic waveform ch 0
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 0)"
+
+   - name: s1ic_waveform_1
+     title: s1ic waveform ch 1
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 1)"
+
+   - name: s1ic_waveform_2
+     title: s1ic waveform ch 2
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 2)"
+
+   - name: s1ic_waveform_3
+     title: s1ic waveform ch 3
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 3)"
+
+   - name: s1ic_waveform_4
+     title: s1ic waveform ch 4
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 4)"
+
+   - name: s1ic_waveform_5
+     title: s1ic waveform ch 5
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 5)"
+
+   - name: s1ic_waveform_6
+     title: s1ic waveform ch 6
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 6)"
+
+   - name: s1ic_waveform_7
+     title: s1ic waveform ch 7
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 7)"
+
+   - name: s1ic_waveform_8
+     title: s1ic waveform ch 8
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 8)"
+
+   - name: s1ic_waveform_9
+     title: s1ic waveform ch 9
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 9)"
+
+   - name: s1ic_waveform_10
+     title: s1ic waveform ch 10
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 10)"
+
+   - name: s1ic_waveform_11
+     title: s1ic waveform ch 11
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 11)"
+
+   - name: s1ic_waveform_12
+     title: s1ic waveform ch 12
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 12)"
+
+   - name: s1ic_waveform_13
+     title: s1ic waveform ch 13
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 13)"
+
+   - name: s1ic_waveform_14
+     title: s1ic waveform ch 14
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 14)"
+
+   - name: s1ic_waveform_15
+     title: s1ic waveform ch 15
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 15)"
+
+   - name: s1ic_waveform_16
+     title: s1ic waveform ch 16
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 16)"
+
+   - name: s1ic_waveform_17
+     title: s1ic waveform ch 17
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 17)"
+
+   - name: s1ic_waveform_18
+     title: s1ic waveform ch 18
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 18)"
+
+   - name: s1ic_waveform_19
+     title: s1ic waveform ch 19
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 19)"
+
+   - name: s1ic_waveform_20
+     title: s1ic waveform ch 20
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 20)"
+
+   - name: s1ic_waveform_21
+     title: s1ic waveform ch 21
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 21)"
+
+   - name: s1ic_waveform_22
+     title: s1ic waveform ch 22
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 22)"
+
+   - name: s1ic_waveform_23
+     title: s1ic waveform ch 23
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 23)"
+
+   - name: s1ic_waveform_24
+     title: s1ic waveform ch 24
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 24)"
+
+   - name: s1ic_waveform_25
+     title: s1ic waveform ch 25
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 25)"
+
+   - name: s1ic_waveform_26
+     title: s1ic waveform ch 26
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 26)"
+
+   - name: s1ic_waveform_27
+     title: s1ic waveform ch 27
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 27)"
+
+   - name: s1ic_waveform_28
+     title: s1ic waveform ch 28
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID ==28)"
+
+   - name: s1ic_waveform_29
+     title: s1ic waveform ch 29
+     x: [wf_c, *wcdiv, *wcmin, *wcmax]
+     y: [wf_s, *wsdiv, *wsmin, *wsmax]
+     cut: "(ic_waveform.fID == 29)"
+
+
