@@ -64,8 +64,8 @@ alias:
   gs1y: "abs(s1y) < 5."
 
 # tof
-  gt39: "abs(t39-1060.) < 1."
-  gt912: "abs(t912) < 1."
+  gt39: "abs(t39-428.51) < 1."
+  gt912: "abs(t912-239.63) < 1."
 
 # pid gate
   gpid: "abs(fe9x)<10.&&abs(t39+0.10*fe9x-1071.)<1.5"
