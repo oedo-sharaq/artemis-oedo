@@ -1,33 +1,84 @@
 anchor: 
-  - &@ttt@_id ["@ttt@.fID",512,-0.5,511.5] 
-  - &@ttt@_clock ["@ttt@_x.fClock",500,-0.5,499.5]
-  - &@ttt@_sample ["@ttt@.fSample",500,-100.,3900.]
-  - &@ttt@_charge ["@ttt@.fCharge",500.,-0.5,399.5] 
-  - &@ttt@_multi ["@ttt@@.GetEntries()",10,-0.5,9.5]
-  - &@ttt@_maxsample ["@ttt@.fMaxSample",500,0.,4000]
-
+  - &ttt_front_id ["ttt_front.fID",512,-0.5,511.5] 
+  - &ttt_front_clock ["ttt_front.fClock",500,-0.5,499.5]
+  - &ttt_front_sample ["ttt_front.fSample",500,-100.,3900.]
+  - &ttt_front_charge ["ttt_front_pulse.fCharge",500,-0.5,10000.] 
+  - &ttt_front_multi ["ttt_front@.GetEntries()",10,-0.5,9.5]
+  - &ttt_front_maxsample ["ttt_front.fMaxSample",500,0.,4000]
+  - &ttt_back_id ["ttt_back.fID",512,-0.5,511.5] 
+  - &ttt_back_clock ["ttt_back.fClock",500,-0.5,499.5]
+  - &ttt_back_sample ["ttt_back.fSample",500,-100.,3900.]
+  - &ttt_back_charge ["ttt_back_pulse.fCharge",500,-0.5,10000.] 
+  - &ttt_back_multi ["ttt_back@.GetEntries()",10,-0.5,9.5]
+  - &ttt_back_maxsample ["ttt_back.fMaxSample",500,0.,4000]
+  - &ttt_front_sub_clock ["ttt_front_sub.fClock",500,-0.5,399.5]
+  - &ttt_front_sub_sample ["ttt_front_sub.fSample",500,-100.,3900.]
+  - &ttt_back_sub_clock ["ttt_back_sub.fClock",500,-0.5,399.5]
+  - &ttt_back_sub_sample ["ttt_back_sub.fSample",500,-100.,3900.]
 group:
-  - name: chk@ttt@
-    title: Check TTT @ttt@
+  - name: chk_ttt
+    title: Check TTT
     contents:
-      - name: @ttt@_id
-        title: @ttt@ ID
-        x: *@ttt@_id
+      - name: ttt_front_id
+        title: ttt_front ID
+        x: *ttt_front_id
 
-      - name: @ttt@_m
-        title: @ttt@ M
-        x: *@ttt@_multi
+      - name: ttt_front_m
+        title: ttt_front M
+        x: *ttt_front_multi
 
-      - name: @ttt@_sample_clock
-        title: @ttt@ Pulse
-        x: *@ttt@_clock
-        y: *@ttt@_sample
+      - name: ttt_front_sample_clock
+        title: ttt_front Pulse
+        x: *ttt_front_clock
+        y: *ttt_front_sample
 
-      - name: @ttt@_charge
-        title: @ttt@ Charge
-        x: *@ttt@_charge
+      - name: ttt_front_charge
+        title: ttt_front Charge
+        x: *ttt_front_charge
         
-      - name: @ttt@_maxsample_charge
-        title: @ttt@ Charge vs MaxSample
-        x: *@ttt@_maxsample
-        y: *@ttt@_charge
+      - name: ttt_front_maxsample_charge
+        title: ttt_front Charge vs MaxSample
+        x: *ttt_front_maxsample
+        y: *ttt_front_charge
+
+      - name: ttt_back_id
+        title: ttt_back ID
+        x: *ttt_back_id
+
+      - name: ttt_back_m
+        title: ttt_back M
+        x: *ttt_back_multi
+
+      - name: ttt_back_sample_clock
+        title: ttt_back Pulse
+        x: *ttt_back_clock
+        y: *ttt_back_sample
+
+      - name: ttt_back_charge
+        title: ttt_back Charge
+        x: *ttt_back_charge
+        
+      - name: ttt_back_maxsample_charge
+        title: ttt_back Charge vs MaxSample
+        x: *ttt_back_maxsample
+        y: *ttt_back_charge
+
+      - name: ttt_front_id:ttt_back_id
+        title: ttt_id front vs back
+        x: *ttt_back_id
+        y: *ttt_front_id
+
+      - name: ttt_front_charge:ttt_back_charge
+        title: ttt_charge front vs back
+        x: *ttt_back_charge
+        y: *ttt_front_charge
+      
+      - name: ttt_front_sub_sample_clock
+        title: ttt_front_sub Pulse
+        x: *ttt_front_sub_clock
+        y: *ttt_front_sub_sample
+      
+      - name: ttt_back_sub_sample_clock
+        title: ttt_back_sub Pulse
+        x: *ttt_back_sub_clock
+        y: *ttt_back_sub_sample

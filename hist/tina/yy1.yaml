@@ -4,7 +4,7 @@ anchor:
   - &yy1fraw_charge ["yy1fraw.fCharge",500,-0.5,4095.5] 
   - &yy1f_charge ["yy1f.fCharge",500,-0.5,9.5] 
 group:
-  - name: raw_id
+  - name: chk_yy1
     title: Check YY1
     contents:
       - name: yy1fraw_id

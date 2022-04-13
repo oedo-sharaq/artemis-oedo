@@ -89,6 +89,19 @@ Processor:
       Replace: |
         sr: src2       
 
+### S0 TiNA Hist
+  
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/tina/yy1.yaml
+      Type:     art::TTreeProjection
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/tina/ttt.yaml
+      Type:     art::TTreeProjection
 
 ### S1 SR-PPAC Hist
 
