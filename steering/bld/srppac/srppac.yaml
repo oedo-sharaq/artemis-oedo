@@ -1,8 +1,8 @@
 Processor:
 #### FE9
-####sr91
+####
   - include: 
-      name: srppac.raw.inc.yaml
+      name: srppac.inc.yaml
       replace:
         NAME: sr91
         CATIDa: 40 
@@ -11,44 +11,8 @@ Processor:
         VALIDTIME: [-14000,-10000,0]
 
 
-# time validate
-  - name: proc:ppac:sr91a:val
-    type: art::TTimeValidator
-    parameter:
-      InputCollection: sr91_a_raw
-      OutputCollection: sr91_a_val
-      ValidTimeRange: [-100000,100000,0]  # temporary
-#      ValidTimeRange: [-16900,-16300,0]  # optics0100
-
-  - name: proc:ppac:sr91x:val
-    type: art::TTimeValidator
-    parameter:
-      InputCollection: sr91_x_raw
-      OutputCollection: sr91_x_val
-      ValidTimeRange: [-100000,100000,0]  # temporary
-#      ValidTimeRange: [190000,200000,0]  # run3176
-#      ValidTimeRange: [-16900,-16300,0]  # optics0100
-#      ValidTimeRange: [118000,119000,0]  # optics0134
-
-  - name: proc:ppac:sr91y:val
-    type: art::TTimeValidator
-    parameter:
-      InputCollection: sr91_y_raw
-      OutputCollection: sr91_y_val
-      ValidTimeRange: [-100000,100000,0]  # temporary
-#      ValidTimeRange: [190000,200000,0]  # run3176
-#      ValidTimeRange: [118000,119000,0]  # optics0134
-
-  - include: 
-      name: srppac.calib.inc.yaml
-      replace:
-        NAME: sr91
-
-
-####sr92
-
   - include:
-      name: srppac.raw.inc.yaml
+      name: srppac.inc.yaml
       replace:
         NAME: sr92
         CATIDa: 43 
@@ -57,47 +21,13 @@ Processor:
         VALIDTIME: [-14000,-10000,0]
 
 
-# time validate
-  - name: proc:ppac:sr92a:val
-    type: art::TTimeValidator
-    parameter:
-      InputCollection: sr92_a_raw
-      OutputCollection: sr92_a_val
-      ValidTimeRange: [-100000,100000,0]  # temporary
-#      ValidTimeRange: [-16900,-16300,0]  # optics0100
-
-  - name: proc:ppac:sr92x:val
-    type: art::TTimeValidator
-    parameter:
-      InputCollection: sr92_x_raw
-      OutputCollection: sr92_x_val
-      ValidTimeRange: [-100000,100000,0]  # temporary
-#      ValidTimeRange: [190000,200000,0]  # run3176
-#      ValidTimeRange: [-16900,-16300,0]  # optics0100
-#      ValidTimeRange: [118000,119000,0]  # optics0134
-
-  - name: proc:ppac:sr92y:val
-    type: art::TTimeValidator
-    parameter:
-      InputCollection: sr92_y_raw
-      OutputCollection: sr92_y_val
-      ValidTimeRange: [-100000,100000,0]  # temporary
-#      ValidTimeRange: [190000,200000,0]  # run3176
-#      ValidTimeRange: [118000,119000,0]  # optics0134
-
-  - include: 
-      name: srppac.calib.inc.yaml
-      replace:
-        NAME: sr92
-
-
 ### calib LR
 #  - include: 
-#      name: srppac.calib.lr.inc.yaml
+#      name: srppac.calib.lr.yaml
 #      replace: 
 #        NAME: sr91
 #  - include: 
-#      name: srppac.calib.lr.inc.yaml
+#      name: srppac.calib.lr.yaml
 #      replace: 
 #        NAME: sr92
 
@@ -105,9 +35,9 @@ Processor:
 
  
 #### FE12
-###src1
+####
   - include: 
-      name: srppac.raw.inc.yaml
+      name: srppac.inc.yaml
       replace:
         NAME: src1
         CATIDa: 46 
@@ -116,45 +46,8 @@ Processor:
         VALIDTIME: [-12000,-8000,0]
 
 
-# time validate
-  - name: proc:ppac:src1a:val
-    type: art::TTimeValidator
-    parameter:
-      InputCollection: src1_a_raw
-      OutputCollection: src1_a_val
-      ValidTimeRange: [-100000,100000,0]  # temporary
-#      ValidTimeRange: [-16900,-16300,0]  # optics0100
-
-  - name: proc:ppac:src1x:val
-    type: art::TTimeValidator
-    parameter:
-      InputCollection: src1_x_raw
-      OutputCollection: src1_x_val
-      ValidTimeRange: [-100000,100000,0]  # temporary
-#      ValidTimeRange: [190000,200000,0]  # run3176
-#      ValidTimeRange: [-16900,-16300,0]  # optics0100
-#      ValidTimeRange: [118000,119000,0]  # optics0134
-
-  - name: proc:ppac:src1y:val
-    type: art::TTimeValidator
-    parameter:
-      InputCollection: src1_y_raw
-      OutputCollection: src1_y_val
-      ValidTimeRange: [-100000,100000,0]  # temporary
-#      ValidTimeRange: [190000,200000,0]  # run3176
-#      ValidTimeRange: [118000,119000,0]  # optics0134
-
   - include: 
-      name: srppac.calib.inc.yaml
-      replace:
-        NAME: src1
-
-
-
-###src2
-
-  - include: 
-      name: srppac.raw.inc.yaml
+      name: srppac.inc.yaml
       replace:
         NAME: src2
         CATIDa: 49 
@@ -163,57 +56,24 @@ Processor:
         VALIDTIME: [-12000,-8000,0]
 
 
-# time validate
-  - name: proc:ppac:src2a:val
-    type: art::TTimeValidator
-    parameter:
-      InputCollection: src2_a_raw
-      OutputCollection: src2_a_val
-      ValidTimeRange: [-100000,100000,0]  # temporary
-#      ValidTimeRange: [-16900,-16300,0]  # optics0100
-
-  - name: proc:ppac:src2x:val
-    type: art::TTimeValidator
-    parameter:
-      InputCollection: src2_x_raw
-      OutputCollection: src2_x_val
-      ValidTimeRange: [-100000,100000,0]  # temporary
-#      ValidTimeRange: [190000,200000,0]  # run3176
-#      ValidTimeRange: [-16900,-16300,0]  # optics0100
-#      ValidTimeRange: [118000,119000,0]  # optics0134
-
-  - name: proc:ppac:src2y:val
-    type: art::TTimeValidator
-    parameter:
-      InputCollection: src2_y_raw
-      OutputCollection: src2_y_val
-      ValidTimeRange: [-100000,100000,0]  # temporary
-#      ValidTimeRange: [190000,200000,0]  # run3176
-#      ValidTimeRange: [118000,119000,0]  # optics0134
-
-  - include: 
-      name: srppac.calib.inc.yaml
-      replace:
-        NAME: src2
-
 
 ### calib LR
 # 
 #  - include:
-#      name: srppac.calib.lr.inc.yaml
+#      name: srppac.calib.lr.yaml
 #      replace: 
 #        NAME: src1
 #  - include:
-#      name: srppac.calib.lr.inc.yaml
+#      name: srppac.calib.lr.yaml
 #      replace: 
 #        NAME: src2
 
 
 
 #### S1
-####sr11
+####
   - include: 
-      name: srppac.raw.inc.yaml
+      name: srppac.inc.yaml
       replace:
         NAME: sr11
         CATIDa: 52 
@@ -222,43 +82,8 @@ Processor:
         VALIDTIME: [-100000,100000,0]
 
 
-# time validate
-  - name: proc:ppac:sr11a:val
-    type: art::TTimeValidator
-    parameter:
-      InputCollection: sr11_a_raw
-      OutputCollection: sr11_a_val
-      ValidTimeRange: [-100000,100000,0]  # temporary
-#      ValidTimeRange: [-16900,-16300,0]  # optics0100
-
-  - name: proc:ppac:sr11x:val
-    type: art::TTimeValidator
-    parameter:
-      InputCollection: sr11_x_raw
-      OutputCollection: sr11_x_val
-      ValidTimeRange: [-100000,100000,0]  # temporary
-#      ValidTimeRange: [190000,200000,0]  # run3176
-#      ValidTimeRange: [-16900,-16300,0]  # optics0100
-#      ValidTimeRange: [118000,119000,0]  # optics0134
-
-  - name: proc:ppac:sr11y:val
-    type: art::TTimeValidator
-    parameter:
-      InputCollection: sr11_y_raw
-      OutputCollection: sr11_y_val
-      ValidTimeRange: [-100000,100000,0]  # temporary
-#      ValidTimeRange: [190000,200000,0]  # run3176
-#      ValidTimeRange: [118000,119000,0]  # optics0134
-
   - include: 
-      name: srppac.calib.inc.yaml
-      replace:
-        NAME: sr11
-
-
-####sr12
-  - include: 
-      name: srppac.raw.inc.yaml
+      name: srppac.inc.yaml
       replace:
         NAME: sr12
         CATIDa: 55 
@@ -267,49 +92,16 @@ Processor:
         VALIDTIME: [-100000,100000,0]
 
 
-# time validate
-  - name: proc:ppac:sr12a:val
-    type: art::TTimeValidator
-    parameter:
-      InputCollection: sr12_a_raw
-      OutputCollection: sr12_a_val
-      ValidTimeRange: [-100000,100000,0]  # temporary
-#      ValidTimeRange: [-16900,-16300,0]  # optics0100
-
-  - name: proc:ppac:sr12x:val
-    type: art::TTimeValidator
-    parameter:
-      InputCollection: sr12_x_raw
-      OutputCollection: sr12_x_val
-      ValidTimeRange: [-100000,100000,0]  # temporary
-#      ValidTimeRange: [190000,200000,0]  # run3176
-#      ValidTimeRange: [-16900,-16300,0]  # optics0100
-#      ValidTimeRange: [118000,119000,0]  # optics0134
-
-  - name: proc:ppac:sr12y:val
-    type: art::TTimeValidator
-    parameter:
-      InputCollection: sr12_y_raw
-      OutputCollection: sr12_y_val
-      ValidTimeRange: [-100000,100000,0]  # temporary
-#      ValidTimeRange: [190000,200000,0]  # run3176
-#      ValidTimeRange: [118000,119000,0]  # optics0134
-
-  - include: 
-      name: srppac.calib.inc.yaml
-      replace:
-        NAME: sr12
-
 
 ### calib LR
 # 
 #  - include:
-#      name: srppac.calib.lr.inc.yaml
+#      name: srppac.calib.lr.yaml
 #      replace: 
 #        NAME: sr11
 #
 #  - include:
-#      name: srppac.calib.lr.inc.yaml
+#      name: srppac.calib.lr.yaml
 #      replace: 
 #        NAME: sr12
 
