@@ -8,6 +8,8 @@ Processor:
         CATIDa: 40 
         CATIDx: 41
         CATIDy: 42
+        VALIDTIME: [-14000,-10000,0]
+
 
 # time validate
   - name: proc:ppac:sr91a:val
@@ -52,6 +54,8 @@ Processor:
         CATIDa: 43 
         CATIDx: 44
         CATIDy: 45
+        VALIDTIME: [-14000,-10000,0]
+
 
 # time validate
   - name: proc:ppac:sr92a:val
@@ -109,6 +113,8 @@ Processor:
         CATIDa: 46 
         CATIDx: 47
         CATIDy: 48
+        VALIDTIME: [-12000,-8000,0]
+
 
 # time validate
   - name: proc:ppac:src1a:val
@@ -154,6 +160,8 @@ Processor:
         CATIDa: 49 
         CATIDx: 50
         CATIDy: 51
+        VALIDTIME: [-12000,-8000,0]
+
 
 # time validate
   - name: proc:ppac:src2a:val
@@ -211,6 +219,8 @@ Processor:
         CATIDa: 52 
         CATIDx: 53
         CATIDy: 54
+        VALIDTIME: [-100000,100000,0]
+
 
 # time validate
   - name: proc:ppac:sr11a:val
@@ -254,6 +264,8 @@ Processor:
         CATIDa: 55 
         CATIDx: 56
         CATIDy: 57
+        VALIDTIME: [-100000,100000,0]
+
 
 # time validate
   - name: proc:ppac:sr12a:val
