@@ -32,7 +32,7 @@ Processor:
     parameter:
       InputCollection: yy1fraw_pre
       OutputCollection: yy1fraw
-      Range:            [100., 4000.]
+      Range:            [150., 4000.]
   - name: proc_csiraw_validate
     type: art::TChargeValidateProcessor
     parameter:

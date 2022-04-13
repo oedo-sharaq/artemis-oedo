@@ -117,6 +117,11 @@ Processor:
     parameter:
       RefConfig: [11,21,31,2,0]
       SegConfig: [11,21,31,2]
+  - name: proc_tref_v1190_s1_IC
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [11,21,31,2,0]
+      SegConfig: [11,21,31,4]
   - name: proc_tref_v1290_s1_3
     type: art::TTimeReferenceProcessor
     parameter:

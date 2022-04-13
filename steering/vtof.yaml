@@ -5,7 +5,7 @@ Processor:
       InputCollection:        diapad
       OutputCollection:       vf3dia
 # for S0 triger
-      ValidTimeRange:         [-2800.0, -2600.0, 0.0]
+      ValidTimeRange:         [-2400.0, -2000.0, 0.0]
 
 #  - name: proc_vtof39
 #    type: art::TTimingSubtractionProcessor
