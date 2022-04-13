@@ -1,0 +1,33 @@
+anchor: 
+  - &@ttt@_id ["@ttt@.fID",512,-0.5,511.5] 
+  - &@ttt@_clock ["@ttt@_x.fClock",500,-0.5,499.5]
+  - &@ttt@_sample ["@ttt@.fSample",500,-100.,3900.]
+  - &@ttt@_charge ["@ttt@.fCharge",500.,-0.5,399.5] 
+  - &@ttt@_multi ["@ttt@@.GetEntries()",10,-0.5,9.5]
+  - &@ttt@_maxsample ["@ttt@.fMaxSample",500,0.,4000]
+
+group:
+  - name: chk@ttt@
+    title: Check TTT @ttt@
+    contents:
+      - name: @ttt@_id
+        title: @ttt@ ID
+        x: *@ttt@_id
+
+      - name: @ttt@_m
+        title: @ttt@ M
+        x: *@ttt@_multi
+
+      - name: @ttt@_sample_clock
+        title: @ttt@ Pulse
+        x: *@ttt@_clock
+        y: *@ttt@_sample
+
+      - name: @ttt@_charge
+        title: @ttt@ Charge
+        x: *@ttt@_charge
+        
+      - name: @ttt@_maxsample_charge
+        title: @ttt@ Charge vs MaxSample
+        x: *@ttt@_maxsample
+        y: *@ttt@_charge

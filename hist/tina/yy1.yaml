@@ -1,0 +1,24 @@
+anchor: 
+  - &yy1fraw_id ["yy1fraw.fID",96,-0.5,95.5] 
+  - &yy1f_id ["yy1f.fID",96,-0.5,95.5] 
+  - &yy1fraw_charge ["yy1fraw.fCharge",500,-0.5,4095.5] 
+  - &yy1f_charge ["yy1f.fCharge",500,-0.5,9.5] 
+group:
+  - name: raw_id
+    title: Check YY1
+    contents:
+      - name: yy1fraw_id
+        title: yy1fraw ID
+        x: *yy1fraw_id
+      - name: yy1fraw_charge
+        title: yy1fraw Charge
+        x: *yy1fraw_charge
+      - name: yy1fraw_id_q
+        title: yy1fraw ID Charge
+        x: *yy1fraw_id
+        y: *yy1fraw_charge
+        
+      - name: yy1f_id_q
+        title: yy1f ID vs Charge
+        x: *yy1f_id
+        y: *yy1f_charge
