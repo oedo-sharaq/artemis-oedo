@@ -30,17 +30,22 @@ alias:
   tote: "icave[0].fValue*30."
 
 
+  beta: "7813./299.79/t12s1"
+  gamma: "1./TMath::Sqrt(1.-beta*beta)"
+  tke: "(gamma-1)*931.49406"
 
 #  aq35: "aq35.fValue"
 #  z35: "z35.fValue"
 
 # for vertical focus tuning at large vertical magnification f.p.
-  s1xctof: "s1x-19.3*(t12s1-128.)"
+#  s1xctof: "s1x-19.3*(t12s1-128.)"
+  s1xctof: "s1x-17.53*(t12s1-116.)"
   s1xctofs0x: "s1x-19.3*(t12s1-128.)+0.26*s0x"
   s1actof: "s1a-9.66*(t12s1-128.)"
   s1actofs0x: "s1a-9.66*(t12s1-128)+0.88*(s0x-0.47)"
 #  s1ycs0y: "s1y+8.0*(s0y-6.6)"
-  s1ycs0y: "s1y+7.0*(s0y-5.55)"
+#  s1ycs0y: "s1y+7.5*(s0y-5.55)"
+  s1ycs0y: "s1y+8.5*(s0y-5.55)"
 
 # gates on each f.p.
 ## F5
@@ -54,9 +59,9 @@ alias:
 #  gfe9y: "abs(fe9y-0.0) < 3."
 #  gfe9b: "abs(fe9b) < 3."
 # S0
-  gs0x: "abs(s0x-0.0) < 1."
+  gs0x: "abs(s0x-0.0) < 5."
   gs0a: "abs(s0a-0.0) < 1."
-  gs0y: "abs(s0y-0.0) < 1."
+  gs0y: "abs(s0y-0.0) < 5."
   gs0b: "abs(s0b-0.0) < 1."
 
 # S1
@@ -64,11 +69,13 @@ alias:
   gs1y: "abs(s1y) < 5."
 
 # tof
+
   gt39: "abs(t39-428.51) < 1."
   gt912: "abs(t912-239.63) < 1."
 
 # pid gate
-  gpid: "abs(fe9x)<10.&&abs(t39+0.10*fe9x-1071.)<1.5"
+#  gpid: "abs(fe9x)<10.&&abs(t39+0.10*fe9x-1071.)<1.5"
+  gpid: "abs(fe9x)<30.&&abs(t39+0.127*fe9x-428.5)<1.5"
 
 
 include:
