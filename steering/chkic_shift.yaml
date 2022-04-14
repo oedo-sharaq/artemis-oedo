@@ -25,11 +25,12 @@ Processor:
   - include: bld/dia/dia.yaml
 #  - include: bld/dlppac/ppac.brips.yaml
 #  - include: bld/dlppac/dlppac.inc.yaml
-  - include: bld/srppac/srppac.yaml
+#  - include: bld/srppac/srppac.yaml
+  - include: bld/srppac/srppac_novalidtime.yaml
 #  - include: bld/mwdc/chkmwdc_local.yaml
-#  - include: tof.yaml
+  - include: tof.yaml
   - include: ic/ic.yaml
-  - include: ic/ic_waveform.yaml
+#  - include: ic/ic_waveform.yaml
 #  - include: ge/ge_tsi.yaml
 
 
@@ -37,13 +38,13 @@ Processor:
     type: art::TTreeProjectionProcessor
     parameter:
       Type:     art::TTreeProjection
-      FileName: hist/s1/ic_shift.yaml
+      FileName: hist/s1/ic_shift_deb.yaml
 
-  - name: projection
-    type: art::TTreeProjectionProcessor
-    parameter:
-      Type:     art::TTreeProjection
-      FileName: hist/s1/ic_waveform.yaml
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      Type:     art::TTreeProjection
+#      FileName: hist/s1/ic_waveform.yaml
           
   - name: outputtree
     type: art::TOutputTreeProcessor

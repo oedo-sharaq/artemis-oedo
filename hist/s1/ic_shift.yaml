@@ -5,6 +5,24 @@ alias:
     ped:    +30
     tcal:   ict.fTiming
 
+
+    f5x: "f5track[0].fX"
+    f5a: "f5track[0].fA*1000"
+    f5y: "f5track[0].fY"
+    f5b: "f5track[0].fB*1000"
+
+    fe9x: "(542.25*sr91_x[0].fPosition-122.5*sr92_x[0].fPosition)/419.75"
+    fe9a: "(sr92_x[0].fPosition-sr91_x[0].fPosition)/419.75*1000."
+    fe9y: "(542.25*sr91_y[0].fPosition-122.5*sr92_y[0].fPosition)/419.75"
+    fe9b: "(sr92_y[0].fPosition-sr91_y[0].fPosition)/419.75*1000."
+
+    s0x: "(1972*src2_x[0].fPosition-1452*src1_x[0].fPosition)/520.*-1."
+    s0a: "(src2_x[0].fPosition-src1_x[0].fPosition)/520.*1000.*-1."
+#    s0y: "(1972*src2_y[0].fPosition-1452*src1_y[0].fPosition)/520."
+    s0y: "(1972*src2_y[0].fPosition-1452*src1_y[0].fPosition)/520.-30."
+    s0b: "(src2_y[0].fPosition-src1_y[0].fPosition)/520.*1000."
+
+
     s1y: "(560.8*sr12_y[0].fPosition-210.8*sr11_y[0].fPosition)/350."
 
     t12s1: "tof12s1[0].fTiming"
@@ -49,6 +67,23 @@ group:
      title: s1ic id
      x: *icch
 
+   - name: s1y
+     title: s1y
+     x: [s1y, 400, -200, 200]
+
+#   - name: tof12s1
+#     title: tof12s1
+#     x: [tof12s1[0].fTiming, 200, 100, 150]
+
+   - name: t12s1
+     title: t12s1
+     x: [t12s1, 200, 100, 200]
+
+   - name: TKE
+     title: TKE
+     x: [tke, 100, 0, 50]
+
+
    - name: s1ic_charge
      title: s1ic charge
      x: *icch
@@ -60,17 +95,23 @@ group:
 #     x: *icch
 #     y: [qraw, *div1, *qmin, *qmax]
 #
+   - name: s1ic_chargecal_cut
+     title: s1ic charge cal cut
+     cut: "gpid && abs(tke-24.)<1. && abs(s1y)<5."
+#     cut: gpid
+#     cut: abs(tke-24.)<5.
+#     cut: abs(s1y)<5.
+     x: *icch
+     y: [qcal, *div1, *cmin, *cmax]
+
    - name: s1ic_chargecal
      title: s1ic charge cal
      x: *icch
      y: [qcal, *div1, *cmin, *cmax]
 
+
    - name: s1ic_timing
      title: s1ic timing
-#     cut: "gpid && abs(tke-24.)<5. && abs(s1y)<5."
-#     cut: gpid
-#     cut: abs(tke-24.)<5.
-#     cut: abs(s1y)<5.
      x: *icch
      y: [tcal, *tdiv, *tmin, *tmax]
 
