@@ -18,7 +18,7 @@ Processor:
   - name: proc:fe7fe8:ppac
     type: art::TPPACProcessor
     parameter:
-      CatID: 13
+      CatID: 15
       PPACParameter: prm:fe7fe8:ppac
       TimingConverterArray: prm:fe7fe8:ppac:ch2ns
       HasEachChConverter: 1
