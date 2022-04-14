@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/run_artemis",
-            "args": ["steering/chks1all.yaml","optics","0133"],
+            "args": ["steering/chkbld.yaml","optics","0154"],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],

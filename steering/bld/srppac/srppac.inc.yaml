@@ -91,7 +91,6 @@ Processor:
       OutputCollection: @NAME@_x_val
       ValidTimeRange: @VALIDTIME@
 #      ValidTimeRange: [-20000,-16000,0]  # temporary
-#      ValidTimeRange: [190000,200000,0]  # run3176
 
   - name: proc:ppac:@NAME@y:val
     type: art::TTimeValidator
@@ -100,7 +99,7 @@ Processor:
       OutputCollection: @NAME@_y_val
       ValidTimeRange: @VALIDTIME@
 #      ValidTimeRange: [-20000,-16000,0]  # temporary
-#      ValidTimeRange: [190000,200000,0]  # run3176
+
 
 # calib ch to ns
   - name: proc:ppac:@NAME@a:cal
