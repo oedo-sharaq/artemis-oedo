@@ -75,7 +75,8 @@ alias:
 
 # pid gate
 #  gpid: "abs(fe9x)<10.&&abs(t39+0.10*fe9x-1071.)<1.5"
-  gpid: "abs(fe9x)<30.&&abs(t39+0.127*fe9x-428.5)<1.5"
+#  gpid: "abs(fe9x)<30.&&abs(t39+0.127*fe9x-428.5)<1.5" # 130Sn beam
+  gpid: "abs(fe9x)<30.&&abs(t39+0.156*fe9x-433.6)<1.5" # 124Sn beam
 
 
 include:

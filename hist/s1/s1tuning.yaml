@@ -2,8 +2,8 @@ anchor:
   - &nbin   200
   - &xmin  -200
   - &xmax   200
-  - &xminz  -30
-  - &xmaxz   30
+  - &xminz  -40
+  - &xmaxz   40
   - &amin  -200
   - &amax   200
   - &aminz  -20
@@ -16,12 +16,12 @@ anchor:
   - &bmax   50
   - &bminz  -20
   - &bmaxz   20
-  - &t39min   410
-  - &t39max   450
+  - &t39min   400
+  - &t39max   460
   - &t912min  200
-  - &t912max  280
-  - &t12s1min 40
-  - &t12s1max 80
+  - &t912max  300
+  - &t12s1min 100
+  - &t12s1max 140
   - &demin  10.
   - &demax  120.
   - &totemin   300.
@@ -37,6 +37,33 @@ group:
         title: pid
         x: [t39,*nbin,*t39min,*t39max]    
         y: [fe9x,200,-50,50]    
+
+      - name : tof912
+        title: TOF(9-12)
+        x: [t912,*nbin,*t912min,*t912max]
+
+      - name : tof12s1
+        title: TOF(12-S1)
+        x: [t12s1,*nbin,*t12s1min,*t12s1max]
+
+      - name : test
+        title: TOF(12-S1)
+        x: [tof12s1.fTiming,*nbin,*t12s1min,*t12s1max]
+
+      - name : tke
+        title: TKE
+        x: [tke,*nbin,18,30]
+
+      - name : tke_vs_s1x
+        title: TKE VS S1X
+        x: [tke,*nbin,18,30]
+        y: [s1x,*nbin,*xmin,*xmax]
+
+      - name : tof12s1_vs_tof912
+        title: TOF(12-S1) vs TOF(9-12)
+        x: [t912,*nbin,*t912min,*t912max]
+        y: [t12s1,*nbin,*t12s1min,*t12s1max]
+
 
       - name : s0x_tof39
         title: s0x vs tof39
@@ -58,6 +85,13 @@ group:
         title: S0X vs S0Y
         x: [s0x,*nbin,*xminz,*xmaxz]
         y: [s0y,*nbin,*yminz,*ymaxz]        
+
+      - name : s0x_vs_s0y_gs1xs1y
+        title: S0X vs S0Y gate S1X S1Y
+        cut: "abs(s1x)<200. && abs(s1y)<100."
+        x: [s0x,*nbin,*xminz,*xmaxz]
+        y: [s0y,*nbin,*yminz,*ymaxz]        
+
       - name : s0a_vs_s0b
         title: S0A vs S0B
         x: [s0a,*nbin,*aminz,*amaxz]
@@ -180,6 +214,11 @@ group:
     title: S1 tuning (g pid S0Y)
     clone: s1tuning
     cut: gpid && gs0y
+
+  - name: s1tuning_gpids0xs0y
+    title: S1 tuning (g pid S0X S0Y)
+    clone: s1tuning
+    cut: gpid && gs0x && gs0y
 
   - name: s1tuning_gpids0y
     title: S1 tuning (g pid S1X)
