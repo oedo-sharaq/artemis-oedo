@@ -146,9 +146,10 @@ group:
      x: *icch
      y: [tcal_a, *tdiv, *tmin, *tmax] 
 
-
-
-
+   - name: s1ic_tdc_s1y
+     title: s1 IC TDC vs S1Y 
+     x: [s1y,    *div1, *ymin, *ymax]
+     y: [tcal_a, *tdiv, *tmin, *tmax] 
 
 #   - name: s1y
 #     title: s1y

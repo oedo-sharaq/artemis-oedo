@@ -7,10 +7,10 @@
   //gSystem->mkdir(TString(gSystem->DirName(filename)),kTRUE);
  
   gROOT->ProcessLine("zone 2 2");
-  gROOT->ProcessLine("ht 0/0 col");
+  //  gROOT->ProcessLine("ht 0/0 col");
   gROOT->ProcessLine("ht 0/1 col");
   gROOT->ProcessLine("ht 0/3 col");
-  gROOT->ProcessLine("ht 0/5 col");
-  
+  gROOT->ProcessLine("ht 0/4 col");
+  gROOT->ProcessLine("ht 0/6 col");  
 
 }
