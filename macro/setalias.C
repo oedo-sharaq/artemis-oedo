@@ -5,7 +5,13 @@
 //tree->SetAlias("pidgate","abs(f5track.fX+26.6*((f5ppac1a.fTAnode+f5ppac2a.fTAnode)/2-diapad.fTiming-1250)-37595)<10");
 //tree->SetAlias("pidgate","abs(f5track.fX+26.6*((f5ppac1a.fTAnode+f5ppac2a.fTAnode)/2-diapad.fTiming-1250)-37611)<10");
 //tree->SetAlias("pidgate","abs(f5track.fX+26.6*((f5ppac1a.fTAnode+f5ppac2a.fTAnode)/2-diapad[0].fTiming-1250)-37606)<10");
-tree->SetAlias("pidgate","abs(sr9.fX+7.5*((sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-diapad[0].fTiming-1073.2))<10");
+//tree->SetAlias("pidgate","abs(sr9.fX+7.5*((sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-diapad[0].fTiming-1073.2))<10"); // physics 130Sn
+//tree->SetAlias("pidgate","abs(sr9.fX+7.5*((sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-diapad[0].fTiming-1071))<10"); // optics0419
+//tree->SetAlias("pidgate","abs(f5track.fX+26.6*((f5ppac1a.fTAnode+f5ppac2a.fTAnode)/2-diapad[0].fTiming-1250)-37636)<10"); // optics0419
+//tree->SetAlias("pidgate","abs(sr9.fX+7.5*((sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-diapad[0].fTiming-1074))<10"); //optics0439 124Sn FE9
+//tree->SetAlias("pidgate","abs(sr9.fX+7.5*((sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-diapad[0].fTiming-1075.8))<10"); //optics0439 124Sn FE9
+//tree->SetAlias("pidgate","abs(sr9.fX+7.5*((sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-diapad[0].fTiming-1078.2))<10");// physics 124Sn
+tree->SetAlias("pidgate","abs(sr9.fX+7.5*((sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-diapad[0].fTiming-1064))<10");
 tree->SetAlias("sr9.fX","(542.25*sr91_x[0].fPosition-122.5*sr92_x[0].fPosition)/419.75");
 tree->SetAlias("sr9.fA","(sr92_x[0].fPosition-sr91_x[0].fPosition)/419.75");
 tree->SetAlias("sr9.fY","(542.25*sr91_y[0].fPosition-122.5*sr92_y[0].fPosition)/419.75");
@@ -26,8 +32,9 @@ tree->SetAlias("fe12.fT","(src1_a_cal[0].fTiming+src2_a_cal[0].fTiming)/2");
 
 //tree->SetAlias("tof3c","(src1_a_cal[0].fTiming+src2_a_cal[0].fTiming)/2-fdiapad[0].fTiming");
 tree->SetAlias("tof39","(sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-vf3dia[0].fTiming-1073");
- tree->SetAlias("pid","tof39*0.99+0.12*sr9.fX");
+tree->SetAlias("pid","tof39*0.99+0.12*sr9.fX");
 tree->SetAlias("tof9c","(src1_a_cal[0].fTiming+src2_a_cal[0].fTiming)/2-(sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2");
+tree->SetAlias("tofcs","(sr11_a_cal[0].fTiming+sr12_a_cal[0].fTiming)/2-(src1_a_cal[0].fTiming+src2_a_cal[0].fTiming)/2-579.06");
 //tree->SetAlias("tof8s","(sr11_a_cal[0].fTiming+sr12_a_cal[0].fTiming)/2-(sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2");
 tree->SetAlias("fe10.fT","fe9.fT+(fe12.fT-fe9.fT)*4753.75/(4753.75+9687.93)");
 
