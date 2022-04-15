@@ -1,13 +1,13 @@
 anchor: 
   - &ttt_front_id ["ttt_front.fID",512,-0.5,511.5] 
   - &ttt_front_clock ["ttt_front.fClock",500,-0.5,499.5]
-  - &ttt_front_sample ["ttt_front.fSample",500,-100.,3900.]
+  - &ttt_front_sample ["ttt_front.fSample",500,-100.,4500.]
   - &ttt_front_charge ["ttt_front_pulse.fCharge",500,-0.5,10000.] 
   - &ttt_front_multi ["ttt_front@.GetEntries()",10,-0.5,9.5]
   - &ttt_front_maxsample ["ttt_front_pulse.fMaxSample",500,0.,4000]
   - &ttt_back_id ["ttt_back.fID",512,-0.5,511.5] 
   - &ttt_back_clock ["ttt_back.fClock",500,-0.5,499.5]
-  - &ttt_back_sample ["ttt_back.fSample",500,-100.,3900.]
+  - &ttt_back_sample ["ttt_back.fSample",500,-100.,4500.]
   - &ttt_back_charge ["ttt_back_pulse.fCharge",500,-0.5,10000.] 
   - &ttt_back_multi ["ttt_back@.GetEntries()",10,-0.5,9.5]
   - &ttt_back_maxsample ["ttt_back_pulse.fMaxSample",500,0.,4000]
@@ -82,3 +82,13 @@ group:
         title: ttt_back_sub Pulse
         x: *ttt_back_sub_clock
         y: *ttt_back_sub_sample
+
+      - name: ttt_front_sample_id
+        title: ttt_front Pulse vs ID
+        x: *ttt_front_id
+        y: *ttt_front_sample
+        
+      - name: ttt_back_sample_id
+        title: ttt_back Pulse vs ID
+        x: *ttt_back_id
+        y: *ttt_back_sample
