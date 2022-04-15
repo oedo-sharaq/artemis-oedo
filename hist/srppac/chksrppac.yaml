@@ -7,9 +7,9 @@ anchor:
   - &@sr@_x_valq ["@sr@_x_val.fCharge",100,0,1000]
   - &@sr@_x_calid ["@sr@_x_cal.fID",94,-0.5,93.5] 
   - &@sr@_x_calt ["@sr@_x_cal.fTiming",1000,-10000,10000]
-  - &@sr@_x_calq0 ["@sr@_x_cal[0].fCharge",100,0,1000]
-  - &@sr@_x_calq1 ["@sr@_x_cal[1].fCharge",100,0,1000]
-  - &@sr@_x_calq2 ["@sr@_x_cal[2].fCharge",100,0,1000]
+  - &@sr@_x_calq0 ["@sr@_x_cal[0].fCharge",100,0,100]
+  - &@sr@_x_calq1 ["@sr@_x_cal[1].fCharge",100,0,100]
+  - &@sr@_x_calq2 ["@sr@_x_cal[2].fCharge",100,0,100]
   - &@sr@_x_ent ["@sr@_x_cal@.GetEntriesFast()",8,-0.5,7.5]
  
   - &@sr@_y_rawid ["@sr@_y_raw.fID",58,-0.5,57.5] 
@@ -20,9 +20,9 @@ anchor:
   - &@sr@_y_valq ["@sr@_y_val.fCharge",100,0,1000]
   - &@sr@_y_calid ["@sr@_y_cal.fID",94,-0.5,93.5] 
   - &@sr@_y_calt ["@sr@_y_cal.fTiming",1000,-10000,10000]
-  - &@sr@_y_calq0 ["@sr@_y_cal[0].fCharge",100,0,1000]
-  - &@sr@_y_calq1 ["@sr@_y_cal[1].fCharge",100,0,1000]
-  - &@sr@_y_calq2 ["@sr@_y_cal[2].fCharge",100,0,1000]
+  - &@sr@_y_calq0 ["@sr@_y_cal[0].fCharge",100,0,100]
+  - &@sr@_y_calq1 ["@sr@_y_cal[1].fCharge",100,0,100]
+  - &@sr@_y_calq2 ["@sr@_y_cal[2].fCharge",100,0,100]
   - &@sr@_y_ent ["@sr@_y_cal@.GetEntriesFast()",8,-0.5,7.5]
 
 
@@ -47,6 +47,17 @@ group:
         title: @sr@ X ID vs Charge
         x: *@sr@_x_rawid
         y: *@sr@_x_rawq
+      - name: @sr@_x_q0
+        title: @sr@ X Q0 Charge
+        x: *@sr@_x_calq0
+      - name: @sr@_x_q1
+        title: @sr@ X Q1 Charge
+        x: *@sr@_x_calq1
+      - name: @sr@_x_q2
+        title: @sr@ X Q2 Charge
+        x: *@sr@_x_calq2
+
+
 
       - name: @sr@_y_id
         title: @sr@ Y ID
@@ -61,6 +72,16 @@ group:
         title: @sr@ Y ID vs Charge
         x: *@sr@_y_rawid
         y: *@sr@_y_rawq
+      - name: @sr@_y_q0
+        title: @sr@ Y Q0 Charge
+        x: *@sr@_y_calq0
+      - name: @sr@_y_q1
+        title: @sr@ Y Q1 Charge
+        x: *@sr@_y_calq1
+      - name: @sr@_y_q2
+        title: @sr@ Y Q2 Charge
+        x: *@sr@_y_calq2
+
 
 
 #      - name: @sr@_a_t
