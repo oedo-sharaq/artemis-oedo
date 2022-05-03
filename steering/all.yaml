@@ -41,85 +41,88 @@ Processor:
   - include: ic/ic_waveform.yaml
   - include: ttt.sakura.yaml
 #  - include: chktina.online.yaml
+  - include: vtof.yaml
+
 #
   - include: v1190_tref_tina.sakura.yaml
   - include: si/tina_timing.yaml
   - include: si/tina2.yaml
+#  - include: si/separe.sakura.yaml 
 #  
-  - name: projection
-    type: art::TTreeProjectionProcessor
-    parameter:
-      Type:     art::TTreeProjection
-      FileName: hist/s1/s1.yaml
-
-### FE9 SR-PPAC Hist
-
-  - name: projection
-    type: art::TTreeProjectionProcessor
-    parameter:
-      FileName: hist/srppac/chksrppac.yaml
-      Type:     art::TTreeProjection
-      Replace: |
-        sr: sr91       
-
-  - name: projection
-    type: art::TTreeProjectionProcessor
-    parameter:
-      FileName: hist/srppac/chksrppac.yaml
-      Type:     art::TTreeProjection
-      Replace: |
-        sr: sr92       
-
-
-### FE12 SR-PPAC Hist
-
-  - name: projection
-    type: art::TTreeProjectionProcessor
-    parameter:
-      FileName: hist/srppac/chksrppac.yaml
-      Type:     art::TTreeProjection
-      Replace: |
-        sr: src1       
-
-  - name: projection
-    type: art::TTreeProjectionProcessor
-    parameter:
-      FileName: hist/srppac/chksrppac.yaml
-      Type:     art::TTreeProjection
-      Replace: |
-        sr: src2       
-
-### S0 TiNA Hist
-  
-  - name: projection
-    type: art::TTreeProjectionProcessor
-    parameter:
-      FileName: hist/tina/yy1.yaml
-      Type:     art::TTreeProjection
-
-  - name: projection
-    type: art::TTreeProjectionProcessor
-    parameter:
-      FileName: hist/tina/ttt.yaml
-      Type:     art::TTreeProjection
-
-### S1 SR-PPAC Hist
-
-  - name: projection
-    type: art::TTreeProjectionProcessor
-    parameter:
-      FileName: hist/srppac/chksrppac.yaml
-      Type:     art::ttreeprojection
-      Replace: |
-        sr: sr11      
-
-  - name: projection
-    type: art::TTreeProjectionProcessor
-    parameter:
-      FileName: hist/srppac/chksrppac.yaml
-      Type:     art::TTreeProjection
-      Replace: |
-        sr: sr12       
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      Type:     art::TTreeProjection
+#      FileName: hist/s1/s1.yaml
+#
+#### FE9 SR-PPAC Hist
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/chksrppac.yaml
+#      Type:     art::TTreeProjection
+#      Replace: |
+#        sr: sr91       
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/chksrppac.yaml
+#      Type:     art::TTreeProjection
+#      Replace: |
+#        sr: sr92       
+#
+#
+#### FE12 SR-PPAC Hist
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/chksrppac.yaml
+#      Type:     art::TTreeProjection
+#      Replace: |
+#        sr: src1       
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/chksrppac.yaml
+#      Type:     art::TTreeProjection
+#      Replace: |
+#        sr: src2       
+#
+#### S0 TiNA Hist
+#  
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/tina/yy1.yaml
+#      Type:     art::TTreeProjection
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/tina/ttt.yaml
+#      Type:     art::TTreeProjection
+#
+#### S1 SR-PPAC Hist
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/chksrppac.yaml
+#      Type:     art::ttreeprojection
+#      Replace: |
+#        sr: sr11      
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/chksrppac.yaml
+#      Type:     art::TTreeProjection
+#      Replace: |
+#        sr: sr12       
 
           
   - name: outputtree

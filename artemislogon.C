@@ -10,6 +10,10 @@
   //   dypath.Append(":sr-src");
   incpath.Append(gSystem->GetFromPipe("artemis-config --cflags"));
   //   incpath.Append(" -I${ARTEMIS_WORKDIR}/sr-src");
+  //dypath.Append(":${ARTEMIS_WORKDIR}/share/src");
+  //incpath.Append(" -I${ARTEMIS_WORKDIR}/share/src");
+  dypath.Append(":${ARTEMIS_WORKDIR}/src-test");
+  incpath.Append(" -I${ARTEMIS_WORKDIR}/src-test ");
   dypath.Append(":${ARTEMIS_WORKDIR}/share/src");
   incpath.Append(" -I${ARTEMIS_WORKDIR}/share/src");
 
@@ -29,6 +33,7 @@
 
   gSystem->SetDynamicPath(dypath);
   gSystem->SetIncludePath(incpath);
+  gSystem->Load("libsakura");
   gSystem->Load("libGETDecoder");
   gSystem->Load("libMinuit");
   gSystem->Load("libGenetic");

@@ -4,13 +4,13 @@ Processor:
     parameter:
       Name:     prm_yy1f_ch2MeV
       Type:     art::TAffineConverter
-      FileName: prm/tina/yy1f_ch2MeV.dat
+      FileName: prm/tina/yy1_param.txt
   - name: proc_csi_ch2MeV
     type: art::TParameterArrayLoader
     parameter:
       Name:     prm_csi_ch2MeV
       Type:     art::TAffineConverter
-      FileName: prm/tina/csi_ch2MeV.dat
+      FileName: prm/tina/csi_ch2MeV2.dat
 
   - name: proc_yy1fraw
     type: art::TSimpleDataMappingProcessor

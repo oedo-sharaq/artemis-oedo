@@ -1,5 +1,5 @@
 Anchor:
- - &input /home/data/getdaq01/get/sakura2022/run/run_@NUM@
+ - &input /home/data/getdaq01/tina/cobo00/run_@NUM@
  - &output output/get/@NUM@/chkget@NUM@.root
 # - &ridf /media/cnsdaq/2020TiNACom/tinacom@NUM@.ridf
 Processor:
@@ -12,8 +12,9 @@ Processor:
     type: art::TAffineConverterArrayGenerator
     parameter:
       ParameterList:
-        - [ttt_front_prm, prm/tina/ttt_param.front.txt]
+        #- [ttt_front_prm, prm/tina/ttt_param.front.txt]
         - [ttt_back_prm,  prm/tina/ttt_param.back.txt]        
+        - [ttt_front_prm, text/ttt_param.txt]
 # ======================================================================
   - name: timer
     type: art::TTimerProcessor
