@@ -1,0 +1,23 @@
+anchor:
+  - &yy1fraw_id ["yy1fraw.fID",96,-0.5,95.5]
+  - &ttt_front_id ["ttt_front.fID",512,-0.5,511.5]
+  - &ttt_back_id ["ttt_back.fID",512,-0.5,511.5]
+  - &csiraw_id ["csiraw.fID",32,-0.5,31.5]
+  - &csiraw_charge ["csiraw.fCharge",1000,0,4000]
+group:
+  - name: missing_ID
+    title: missing ID
+    contents:
+      - name: yy1fraw_id
+        title: yy1fraw ID
+        x: *yy1fraw_id
+      - name: tttt_front_id
+        title: ttt_front ID
+        x: *ttt_front_id
+      - name: tttt_back_id
+        title: ttt_back ID
+        x: *ttt_back_id
+      - name: csiraw_id_q
+        title: csiraw ID vs Charge
+        x: *csiraw_id
+        y: *csiraw_charge

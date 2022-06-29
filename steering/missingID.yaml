@@ -1,0 +1,47 @@
+Anchor:
+   
+ - &input ridf/@NAME@@NUM@.ridf
+ - &output output/@NAME@/@NUM@/missingID@NAME@@NUM@.root
+ - &histout output/@NAME@/@NUM@/missingID@NAME@@NUM@.hist.root
+ - &maxevt 2000000
+
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+        - *input
+      MaxEventNum: *maxevt
+        
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+
+  - include:
+      name: ttt/get.inc.yaml
+      replace:
+        NUM: @GET@
+        CATDATA: tttdata
+
+  - include: chktina.param.yaml 
+  - include: ttt.sakura.yaml
+  - include: si/tina_timing.yaml
+  - include: si/tina2.yaml
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/tina/tina.yaml
+      OutputFilename: *histout
+      Type:     art::TTreeProjection
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: 
+        - *output

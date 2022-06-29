@@ -1,0 +1,89 @@
+anchor: 
+  - &ttt_front_hit_cahrge ["ttt_front_hit.fCharge",100,-0.5,21.5] 
+  - &csi_s1_cahrge ["csiS1.fCharge",100,-0.5,29.5] 
+  - &csi_s2_cahrge ["csiS2.fCharge",100,-0.5,29.5] 
+  - &csi_s3_cahrge ["csiS3.fCharge",100,-0.5,29.5] 
+  - &csi_s4_cahrge ["csiS4.fCharge",100,-0.5,29.5] 
+  - &csi_s5_cahrge ["csiS5.fCharge",100,-0.5,29.5] 
+  - &csi_s6_cahrge ["csiS6.fCharge",100,-0.5,29.5] 
+  - &csi_s7_cahrge ["csiS7.fCharge",100,-0.5,29.5] 
+  - &csi_s8_cahrge ["csiS8.fCharge",100,-0.5,29.5] 
+  - &csi_s9_cahrge ["csiS9.fCharge",100,-0.5,29.5] 
+  - &csi_s10_cahrge ["csiS10.fCharge",100,-0.5,29.5] 
+  - &csi_s11_cahrge ["csiS11.fCharge",100,-0.5,29.5] 
+  - &csi_s12_cahrge ["csiS12.fCharge",100,-0.5,29.5] 
+  - &csi_s13_cahrge ["csiS13.fCharge",100,-0.5,29.5] 
+  - &csi_s14_cahrge ["csiS14.fCharge",100,-0.5,29.5] 
+  - &csi_s15_cahrge ["csiS15.fCharge",100,-0.5,29.5] 
+  - &csi_s16_cahrge ["csiS16.fCharge",100,-0.5,29.5] 
+
+
+
+group:
+  - name: chk_correlation_ttt_csi
+    title: Check TTT CsI Correlation
+    contents:
+      - name: t_c1_qq
+        title: TTT Charge vs CsI S1 Charge
+        x: *csi_s1_cahrge
+        y: *ttt_front_hit_cahrge
+      - name: t_c2_qq
+        title: TTT Charge vs CsI S2 Charge
+        x: *csi_s2_cahrge
+        y: *ttt_front_hit_cahrge
+      - name: t_c3_qq
+        title: TTT Charge vs CsI S3 Charge
+        x: *csi_s3_cahrge
+        y: *ttt_front_hit_cahrge
+      - name: t_c4_qq
+        title: TTT Charge vs CsI S4 Charge
+        x: *csi_s4_cahrge
+        y: *ttt_front_hit_cahrge
+      - name: t_c5_qq
+        title: TTT Charge vs CsI S5 Charge
+        x: *csi_s5_cahrge
+        y: *ttt_front_hit_cahrge
+      - name: t_c6_qq
+        title: TTT Charge vs CsI S6 Charge
+        x: *csi_s6_cahrge
+        y: *ttt_front_hit_cahrge
+      - name: t_c7_qq
+        title: TTT Charge vs CsI S7 Charge
+        x: *csi_s7_cahrge
+        y: *ttt_front_hit_cahrge
+      - name: t_c8_qq
+        title: TTT Charge vs CsI S8 Charge
+        x: *csi_s8_cahrge
+        y: *ttt_front_hit_cahrge
+      - name: t_c9_qq
+        title: TTT Charge vs CsI S9 Charge
+        x: *csi_s9_cahrge
+        y: *ttt_front_hit_cahrge
+      - name: t_c10_qq
+        title: TTT Charge vs CsI S10 Charge
+        x: *csi_s10_cahrge
+        y: *ttt_front_hit_cahrge
+      - name: t_c11_qq
+        title: TTT Charge vs CsI S11 Charge
+        x: *csi_s11_cahrge
+        y: *ttt_front_hit_cahrge
+      - name: t_c12_qq
+        title: TTT Charge vs CsI S12 Charge
+        x: *csi_s12_cahrge
+        y: *ttt_front_hit_cahrge
+      - name: t_c13_qq
+        title: TTT Charge vs CsI S13 Charge
+        x: *csi_s13_cahrge
+        y: *ttt_front_hit_cahrge
+      - name: t_c14_qq
+        title: TTT Charge vs CsI S14 Charge
+        x: *csi_s14_cahrge
+        y: *ttt_front_hit_cahrge
+      - name: t_c15_qq
+        title: TTT Charge vs CsI S15 Charge
+        x: *csi_s15_cahrge
+        y: *ttt_front_hit_cahrge
+      - name: t_c16_qq
+        title: TTT Charge vs CsI S16 Charge
+        x: *csi_s16_cahrge
+        y: *ttt_front_hit_cahrge
