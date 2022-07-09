@@ -1,5 +1,6 @@
 Anchor:
- - &input /home/data/getdaq01/tina/cobo00/run_@NUM@
+ #- &input /mnt/data/getdaq01/tina/cobo00/run_@NUM@
+ - &input getdata/run_@NUM@
  - &output output/get/@NUM@/chkget@NUM@.root
 # - &ridf /media/cnsdaq/2020TiNACom/tinacom@NUM@.ridf
 Processor:
@@ -12,9 +13,8 @@ Processor:
     type: art::TAffineConverterArrayGenerator
     parameter:
       ParameterList:
-        #- [ttt_front_prm, prm/tina/ttt_param.front.txt]
-        - [ttt_back_prm,  prm/tina/ttt_param.back.txt]        
-        - [ttt_front_prm, text/ttt_param.txt]
+        - [ttt_front_prm, prm/tina/TTT_param.front.txt]
+        - [ttt_back_prm,  prm/tina/TTT_param.back.txt]        
 # ======================================================================
   - name: timer
     type: art::TTimerProcessor
@@ -24,7 +24,8 @@ Processor:
     parameter:
       InputFiles: *input
       EventHeaderName: evtheaderGET0
-      SegmentedData: segdata0
+      #SegmentedData: segdata0
+      SegmentedData: segdataGET0
       OutputTransparency: 1
 #      MaxEventNum: 10
       ValidBucket: [5., 510.]
@@ -41,8 +42,10 @@ Processor:
     type: art::TMappingProcessor
     parameter:
 ##      InputCollection: [segdata0,segdata]
-      InputCollection: [segdata0]
-      CategorizedData: catdata
+      #InputCollection: [segdata0]
+      #CategorizedData: catdata
+      InputCollection: [segdataGET0]
+      CategorizedData: tttdata
       OutputTransparency: 1
       MapConfig: mapper.conf
 
