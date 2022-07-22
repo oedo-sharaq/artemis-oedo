@@ -4,13 +4,13 @@ Processor:
     parameter:
       Name:     prm_yy1f_ch2MeV
       Type:     art::TAffineConverter
-      FileName: prm/tina/yy1_param.txt
+      FileName: prm/tina/YY1_param.txt
   - name: proc_csi_ch2MeV
     type: art::TParameterArrayLoader
     parameter:
       Name:     prm_csi_ch2MeV
       Type:     art::TAffineConverter
-      FileName: prm/tina/csi_ch2MeV2.dat
+      FileName: prm/tina/csi_ch2MeV.dat
 
   - name: proc_yy1fraw
     type: art::TSimpleDataMappingProcessor
@@ -68,21 +68,62 @@ Processor:
       TinaTName: tinat
       OutputName: tina2
 
+  - name: proc_tinat
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: tinat 
+      OutputCollections:
+        - tinat1
+        - tinat2
+        - tinat3
+        - tinat4
+        - tinat5
+        - tinat6
+        - tinat7
+        - tinat8
+        - tinat9
+        - tinat10
+        - tinat11
+        - tinat12
+        - tinat13
+        - tinat14
+        - tinat15
+        - tinat16
 
-#  - name: proc_csi_sep
-#    type: art::TSeparateOutputProcessor
-#    parameter:
-#      InputCollection: csi
-#      OutputCollections:
-#        - csis1
-#        - csis2
-#        - csis3
-#        - csis4
-#        - csis5
-#        - csis6
-#        - csil1
-#        - csil2
-#        - csil3
-#        - csil4
-#        - csil5
-#        - csil6
+  - name: proc_csi_sep
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: csi
+      OutputCollections:
+        - csiS1
+        - csiS2
+        - csiS3
+        - csiS4
+        - csiS5
+        - csiS6
+        - csiS7
+        - csiS8
+        - csiS9
+        - csiS10
+        - csiS11
+        - csiS12
+        - csiS13
+        - csiS14
+        - csiS15
+        - csiS16
+        - csiT1
+        - csiT2
+        - csiT3
+        - csiT4
+        - csiT5
+        - csiT6
+        - csiT7
+        - csiT8
+        - csiT9
+        - csiT10
+        - csiT11
+        - csiT12
+        - csiT13
+        - csiT14
+        - csiT15
+        - csiT16

@@ -40,7 +40,7 @@ TTinaProcessor2::TTinaProcessor2()
 			   fTinaTName,TString("tinat"),
 			   &fTinaT,TClonesArray::Class_Name(),art::ICharge::Class_Name());
    RegisterOutputCollection("OutputName","name of output collection",
-			    fOutputName,TString("tina"),
+			    fOutputName,TString("tina2"),
 			    &fOutput,TClonesArray::Class_Name(),art::TTinaData2::Class_Name());
 }
 
@@ -51,22 +51,22 @@ TTinaProcessor2::~TTinaProcessor2()
 void TTinaProcessor2::Process()
 {
 //ch    strip   theta   coverage 
-//15	0	150.6	3.4	
-//13	1	147.1	3.5	
-//11	2	143.6	3.6	
-//9	3	140	3.5	
-//14	4	136.5	3.6	
-//12	5	133	3.5	
-//10	6	129.5	3.4	
-//8	7	126.1	3.4	
-//6	8	122.8	3.2	
-//4	9	119.6	3.2	
-//2	10	116.5	3.0	
-//0	11	113.6	2.8	
-//7	12	110.8	2.7	
-//5	13	108.1	2.6	
-//3	14	105.6	2.5	
-//1	15	103.3	2.2	
+//15	0   	150.6	3.4	
+//13	1   	147.1	3.5	
+//11	2   	143.6	3.6	
+//9   	3   	140 	3.5	
+//14	4   	136.5	3.6	
+//12	5   	133 	3.5	
+//10	6   	129.5	3.4	
+//8 	7   	126.1	3.4	
+//6 	8   	122.8	3.2	
+//4 	9   	119.6	3.2	
+//2 	10  	116.5	3.0	
+//0 	11  	113.6	2.8	
+//7 	12   	110.8	2.7	
+//5 	13  	108.1	2.6	
+//3 	14  	105.6	2.5	
+//1 	15  	103.3	2.2	
    // id-angle conversion tables
    static double thetaconv[] =
    {
@@ -75,9 +75,13 @@ void TTinaProcessor2::Process()
      162.3, 161.2, 160.0, 158.9,
      157.7, 156.5, 154.2, 154.0
    };
+   //static double phiconv[] =
+   //{
+   //   75.0, 135.0, 195.0, 255.0, 315.0, 375.0
+   //};
    static double phiconv[] =
    {
-      75.0, 135.0, 195.0, 255.0, 315.0, 375.0
+      90.0, 30.0, 330.0, 270.0, 210.0, 150.0
    };
    // angular coverage tables
    static double thetacoverage[] =
@@ -87,9 +91,13 @@ void TTinaProcessor2::Process()
      1.1, 1.1, 1.2, 1.2,
      1.2, 1.2, 1.2, 1.2
    };
+   //static double phicoverage[] =
+   //{
+   //   60.0, 60.0, 60.0, 60.0, 60.0, 60.0
+   //};
    static double phicoverage[] =
    {
-      60.0, 60.0, 60.0, 60.0, 60.0, 60.0
+      42.0, 42.0, 42.0, 42.0, 42.0, 42.0
    };
 
    fOutput->Clear("C");
@@ -148,12 +156,12 @@ void TTinaProcessor2::Process()
    // look for csi max
    if ((*fCsI)->GetEntriesFast() == 0) return;
 
-   std::vector<Double_t> csiarr(6*2, 0);
+   std::vector<Double_t> csiarr(16, 0);
    for(Int_t i = 0, n = (*fCsI)->GetEntriesFast(); i!=n; ++i) {
       const Int_t id = dynamic_cast<art::TDataObject*>((*fCsI)->At(i))->GetID();
-      if(id < 6*2){
+      if(id >= 16){
 	 const art::ICharge* const ic = dynamic_cast<art::ICharge*>((*fCsI)->At(i));
-	 csiarr[id] = ic->GetCharge();
+	 csiarr[id-16] = ic->GetCharge();
       }
    }
    if (csiarr.empty()) return;
@@ -164,5 +172,5 @@ void TTinaProcessor2::Process()
    if(*csimaxit > 4000) return;
 
    out->SetEnergy(siarr[0].val + *csimaxit);
-   out->SetEid(csimaxidx);
+   out->SetEid(csimaxidx+16);
 }
