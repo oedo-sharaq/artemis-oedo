@@ -24,6 +24,8 @@
 #pragma link C++ class art::TTinaData;
 #pragma link C++ class art::TTinaProcessor2;
 #pragma link C++ class art::TTinaData2;
+#pragma link C++ class art::TTinaProcessor3;
+#pragma link C++ class art::TTinaData3;
 #pragma link C++ class art::TDaliProcessor;
 #pragma link C++ class art::TDaliData;
 //#pragma link C++ class art::TModuleDecoderA3100;
