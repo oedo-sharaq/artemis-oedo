@@ -97,20 +97,20 @@ void TTinaProcessor3::Process()
    Double_t hitx,hity,hitz;
 
    if(detid==0){
-     hitx = -55.1;
+     hitx = -55.;
      hity = x_stripid*0.76+(gRandom->Uniform())*0.70-48.61;
    }if(detid==1){
      hitx = -(x_stripid*0.76+(gRandom->Uniform())*0.70)+48.61;
-     hity = -55.1;
+     hity = -55.;
    }if(detid==2){
      hitx = x_stripid*0.76+(gRandom->Uniform())*0.70-48.61;
-     hity = 55.1;
+     hity = 55.;
    }if(detid==3){
-     hitx = 55.1;
+     hitx = 55.;
      hity = -(x_stripid*0.76+(gRandom->Uniform())*0.70)+48.61;
    }
 
-     hitz = -(z_stripid*0.76+(gRandom->Uniform())*0.70)-14.14;
+     hitz = -(z_stripid*0.76+(gRandom->Uniform())*0.70)-13.5;
 
    //   out->SetTheta(thetaconv[stripid]+(gRandom->Uniform()-0.5)*thetacoverage[stripid]);
    //   out->SetPhi(phiconv[detid]+(gRandom->Uniform()-0.5)*phicoverage[detid]);
