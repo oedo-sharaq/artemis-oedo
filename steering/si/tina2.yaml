@@ -90,6 +90,44 @@ Processor:
         - tinat15
         - tinat16
 
+  - name: proc_csiraw_sep
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: csiraw
+      OutputCollections:
+        - csirawS1
+        - csirawS2
+        - csirawS3
+        - csirawS4
+        - csirawS5
+        - csirawS6
+        - csirawS7
+        - csirawS8
+        - csirawS9
+        - csirawS10
+        - csirawS11
+        - csirawS12
+        - csirawS13
+        - csirawS14
+        - csirawS15
+        - csirawS16
+        - csirawT1
+        - csirawT2
+        - csirawT3
+        - csirawT4
+        - csirawT5
+        - csirawT6
+        - csirawT7
+        - csirawT8
+        - csirawT9
+        - csirawT10
+        - csirawT11
+        - csirawT12
+        - csirawT13
+        - csirawT14
+        - csirawT15
+        - csirawT16
+  
   - name: proc_csi_sep
     type: art::TSeparateOutputProcessor
     parameter:
