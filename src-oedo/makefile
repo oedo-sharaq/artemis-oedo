@@ -26,7 +26,9 @@ OBJ += TTOF2BetaProcessor.o
 #OBJ += TCmdPrint.o
 #OBJ += TPPACProcessorQTC.o
 #OBJ += TBrhoReconstructProcessor.o
-OBJ += TBrhoReconstructProcessorS1.o
+OBJ += TBrhoReconstructProcessor2.o
+#OBJ += TBrhoReconstructProcessor3.o
+#OBJ += TBrhoReconstructProcessorS1.o
 OBJ += TPIDSingleSectionProcessor.o
 #OBJ += TCmdPadZoom.o
 OBJ += TRawDataTriggeredList.o
@@ -48,6 +50,7 @@ TARGET = $(LIBNAME).$(SOEXT)
 # local include directories
 INCLUDE = $(addprefix -I../share/src/, $(VPATH))
 INCLUDE += -I../share/src
+INCLUDE += -I/opt/artemis-cat-src
 # depends
 DEPDIR = .deps
 DEPENDS = $(addprefix $(DEPDIR)/, $(notdir $(OBJ:.o=.d)))

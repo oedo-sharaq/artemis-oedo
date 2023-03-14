@@ -48,8 +48,8 @@ public:
    static const int kShiftEdgeType     = 26;
 */
    static const unsigned int kHeaderMask             = 0xe0000000;
-   static const unsigned int kRecordingDataStatus    = 0xa0000000;
-   static const unsigned int kStartStopTime          = 0xc0000000;
+   static const int kRecordingDataStatus    = 0xa0000000;
+   static const int kStartStopTime          = 0xc0000000;
    static const unsigned int kHitData                = 0x00000000;
    static const unsigned int kErrorReport            = 0x60000000;
    static const unsigned int kEndOfData              = 0x40000000;

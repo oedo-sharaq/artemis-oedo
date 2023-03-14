@@ -10,20 +10,16 @@
   //   dypath.Append(":sr-src");
   incpath.Append(gSystem->GetFromPipe("artemis-config --cflags"));
   //   incpath.Append(" -I${ARTEMIS_WORKDIR}/sr-src");
-  //dypath.Append(":${ARTEMIS_WORKDIR}/share/src");
-  //incpath.Append(" -I${ARTEMIS_WORKDIR}/share/src");
-  dypath.Append(":${ARTEMIS_WORKDIR}/src-test");
-  incpath.Append(" -I${ARTEMIS_WORKDIR}/src-test ");
   dypath.Append(":${ARTEMIS_WORKDIR}/share/src");
   incpath.Append(" -I${ARTEMIS_WORKDIR}/share/src");
 
-  dypath.Append(":/home/ota/repos/artemis-cat-src/");
+  dypath.Append(":/opt/artemis-cat-src/");
   incpath.Append(gSystem->GetFromPipe("artemis-config --cflags"));
   incpath.Append(" -Isrc");
-  incpath.Append(" -I/home/ota/repos/artemis-cat-src");
+  incpath.Append(" -I/opt/artemis-cat-src");
 
-  dypath.Append(":/opt/local/GETDecoder/lib");
-  incpath.Append(" -I/opt/local/GETDecoder/include");
+  dypath.Append(":/opt/GETDecoder/lib");
+  incpath.Append(" -I/opt/GETDecoder/include");
 
   dypath.Append(":${ARTEMIS_WORKDIR}/src-oedo");
   incpath.Append(" -I${ARTEMIS_WORKDIR}/src-oedo");
@@ -33,13 +29,14 @@
 
   gSystem->SetDynamicPath(dypath);
   gSystem->SetIncludePath(incpath);
-  gSystem->Load("libsakura");
-  gSystem->Load("libGETDecoder");
+//  gSystem->Load("libGETDecoder");
   gSystem->Load("libMinuit");
   gSystem->Load("libGenetic");
   gSystem->Load("libuser");
   gSystem->Load("libCAT");
   gSystem->Load("liboedo");
+  //gSystem->Load("macro-thomas/libanaoedo");
+  //gSystem->Load("macro-thomas/NuFo/libNuFo");
   //  gSystem->Load("libsrppac");
   TCatCmdFactory *cf = TCatCmdFactory::Instance();
   cf->SetOptExactName(kFALSE);
@@ -142,18 +139,22 @@
 
     df->Register(new art::TModuleDecoderSkip(42));
 
-    df->Register(new art::TModuleDecoderSkip(8));
+    //df->Register(new art::TModuleDecoderSkip(8));
     // mod ID 59 : AMTTDC
     //    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderAMTTDC);");
     //    df->Register(new art::TModuleDecoderAMTTDC);
 
-    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderA3100FreeRunTSI);");
-    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderV1740_mod);");
+//    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderA3100FreeRunTSI);");
+    //gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderTC842);");
+//    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderV1740_mod);");
+//    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderAPV8008);");
+//    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderTimestamp);");
 
     // Skip for r3_2021
     df->Register(new art::TModuleDecoderSkip(9));
-    df->Register(new art::TModuleDecoderSkip(30));
     df->Register(new art::TModuleDecoderSkip(33));
-    df->Register(new art::TModuleDecoderSkip(30));
+    df->Register(new art::TModuleDecoderSkip(8));
+    df->Register(new art::TModuleDecoderSkip(63));
   }
 }
+

@@ -1,7 +1,16 @@
 {
     "files.associations": {
-        "ChkEffF5mwdc.C": "cpp",
-        "artemislogon.C": "cpp"
+      "*.fox": "fortran-modern",
+      "ChkEffF5mwdc.C": "cpp",
+      "artemislogon.C": "cpp",
+      "setalias.C": "cpp",
+      "rootMake.C": "cpp",
+      "runShift.C": "cpp",
+      "addRoot.C": "cpp",
+      "load.C": "cpp",
+      "deque": "cpp",
+      "vector": "cpp",
+      "ch2v2.C": "cpp"
     },
     "cmake.buildEnvironment": {
         "ARTEMIS_WORKDIR": "${PWD}",

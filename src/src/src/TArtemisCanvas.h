@@ -14,6 +14,7 @@
 
 #include "TNamed.h"
 #include <TThreadPool.h>
+#include "TSystem.h"
 namespace art {
    class TArtemisCanvas;
 }
