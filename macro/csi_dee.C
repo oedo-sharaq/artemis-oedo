@@ -1,0 +1,90 @@
+{
+  gStyle->SetStatX(0.3);
+  gStyle->SetStatY(0.9);
+
+  tree->SetAlias("s1","csirawS1.fCharge");
+  tree->SetAlias("s2","csirawS2.fCharge");
+  tree->SetAlias("s3","csirawS3.fCharge");
+  tree->SetAlias("s4","csirawS4.fCharge");
+  tree->SetAlias("s5","csirawS5.fCharge");
+  tree->SetAlias("s6","csirawS6.fCharge");
+  tree->SetAlias("s7","csirawS7.fCharge");
+  tree->SetAlias("s8","csirawS8.fCharge");
+  tree->SetAlias("s9","csirawS9.fCharge");
+  tree->SetAlias("s10","csirawS10.fCharge");
+  tree->SetAlias("s11","csirawS11.fCharge");
+  tree->SetAlias("s12","csirawS12.fCharge");
+  tree->SetAlias("s13","csirawS13.fCharge");
+  tree->SetAlias("s14","csirawS14.fCharge");
+  tree->SetAlias("s15","csirawS15.fCharge");
+  tree->SetAlias("s16","csirawS16.fCharge");
+
+  tree->Draw("ecsi:s1>>S01(16,0,4000,20,0.75,14.75)","tttgate&&csiid==0","colz");
+  tree->Draw("ecsi:s2>>S02(16,0,4000,20,0.75,14.75)","tttgate&&csiid==1","colz");
+  tree->Draw("ecsi:s3>>S03(16,0,4000,20,0.75,14.75)","tttgate&&csiid==2","colz");
+  tree->Draw("ecsi:s4>>S04(16,0,4000,20,0.75,14.75)","tttgate&&csiid==3","colz");
+  tree->Draw("ecsi:s5>>S05(16,0,4000,20,0.75,14.75)","tttgate&&csiid==4","colz");
+  tree->Draw("ecsi:s6>>S06(16,0,4000,20,0.75,14.75)","tttgate&&csiid==5","colz");
+  tree->Draw("ecsi:s7>>S07(16,0,4000,20,0.75,14.75)","tttgate&&csiid==6","colz");
+  tree->Draw("ecsi:s8>>S08(16,0,4000,20,0.75,14.75)","tttgate&&csiid==7","colz");
+  tree->Draw("ecsi:s9>>S09(16,0,4000,20,0.75,14.75)","tttgate&&csiid==8","colz");
+  tree->Draw("ecsi:s10>>S10(16,0,4000,20,0.75,14.75)","tttgate&&csiid==9","colz");
+  tree->Draw("ecsi:s11>>S11(16,0,4000,20,0.75,14.75)","tttgate&&csiid==10","colz");
+  tree->Draw("ecsi:s12>>S12(16,0,4000,20,0.75,14.75)","tttgate&&csiid==11","colz");
+  tree->Draw("ecsi:s13>>S13(16,0,4000,20,0.75,14.75)","tttgate&&csiid==12","colz");
+  tree->Draw("ecsi:s14>>S14(16,0,4000,20,0.75,14.75)","tttgate&&csiid==13","colz");
+  tree->Draw("ecsi:s15>>S15(16,0,4000,20,0.75,14.75)","tttgate&&csiid==14","colz");
+  tree->Draw("ecsi:s16>>S16(16,0,4000,20,0.75,14.75)","tttgate&&csiid==15","colz");
+  
+  //tree->Draw("s1>>raws1(80,0,4000)","csiid!=0");
+  //tree->Draw("s2>>raws2(80,0,4000)","csiid!=1");
+  //tree->Draw("s3>>raws3(80,0,4000)","csiid!=2");
+  //tree->Draw("s4>>raws4(80,0,4000)","csiid!=3");
+  //tree->Draw("s5>>raws5(80,0,4000)","csiid!=4");
+  //tree->Draw("s6>>raws6(80,0,4000)","csiid!=5");
+  //tree->Draw("s7>>raws7(80,0,4000)","csiid!=6");
+  //tree->Draw("s8>>raws8(80,0,4000)","csiid!=7");
+  //tree->Draw("s9>>raws9(80,0,4000)","csiid!=8");
+  //tree->Draw("s10>>raws10(80,0,4000)","csiid!=9");
+  //tree->Draw("s11>>raws11(80,0,4000)","csiid!=10");
+  //tree->Draw("s12>>raws12(80,0,4000)","csiid!=11");
+  //tree->Draw("s13>>raws13(80,0,4000)","csiid!=12");
+  //tree->Draw("s14>>raws14(80,0,4000)","csiid!=13");
+  //tree->Draw("s15>>raws15(80,0,4000)","csiid!=14");
+  //tree->Draw("s16>>raws16(80,0,4000)","csiid!=15");
+
+  //tree->Draw("de:s1>>#DeltaE_{TTT} vs S1(80,0,4000,220,0,11)","tttgate&&csiid==0","colz");
+  //tree->Draw("de:s2>>#DeltaE_{TTT} vs S2(80,0,4000,220,0,11)","tttgate&&csiid==1","colz");
+  //tree->Draw("de:s3>>#DeltaE_{TTT} vs S3(80,0,4000,220,0,11)","tttgate&&csiid==2","colz");
+  //tree->Draw("de:s4>>#DeltaE_{TTT} vs S4(80,0,4000,220,0,11)","tttgate&&csiid==3","colz");
+  //tree->Draw("de:s5>>#DeltaE_{TTT} vs S5(80,0,4000,220,0,11)","tttgate&&csiid==4","colz");
+  //tree->Draw("de:s6>>#DeltaE_{TTT} vs S6(80,0,4000,220,0,11)","tttgate&&csiid==5","colz");
+  //tree->Draw("de:s7>>#DeltaE_{TTT} vs S7(80,0,4000,220,0,11)","tttgate&&csiid==6","colz");
+  //tree->Draw("de:s8>>#DeltaE_{TTT} vs S8(80,0,4000,220,0,11)","tttgate&&csiid==7","colz");
+  //tree->Draw("de:s9>>#DeltaE_{TTT} vs S9(80,0,4000,220,0,11)","tttgate&&csiid==8","colz");
+  //tree->Draw("de:s10>>#DeltaE_{TTT} vs S10(80,0,4000,220,0,11)","tttgate&&csiid==9","colz");
+  //tree->Draw("de:s11>>#DeltaE_{TTT} vs S11(80,0,4000,220,0,11)","tttgate&&csiid==10","colz");
+  //tree->Draw("de:s12>>#DeltaE_{TTT} vs S12(80,0,4000,220,0,11)","tttgate&&csiid==11","colz");
+  //tree->Draw("de:s13>>#DeltaE_{TTT} vs S13(80,0,4000,220,0,11)","tttgate&&csiid==12","colz");
+  //tree->Draw("de:s14>>#DeltaE_{TTT} vs S14(80,0,4000,220,0,11)","tttgate&&csiid==13","colz");
+  //tree->Draw("de:s15>>#DeltaE_{TTT} vs S15(80,0,4000,220,0,11)","tttgate&&csiid==14","colz");
+  //tree->Draw("de:s16>>#DeltaE_{TTT} vs S16(80,0,4000,220,0,11)","tttgate&&csiid==15","colz");
+  
+  //tree->Draw("de:ecsi>>deeS1(300,0,15,220,0,11)","tttgate&&csiid==0","colz");
+  //tree->Draw("de:ecsi>>deeS2(300,0,15,220,0,11)","tttgate&&csiid==1","colz");
+  //tree->Draw("de:ecsi>>deeS3(300,0,15,220,0,11)","tttgate&&csiid==2","colz");
+  //tree->Draw("de:ecsi>>deeS4(300,0,15,220,0,11)","tttgate&&csiid==3","colz");
+  //tree->Draw("de:ecsi>>deeS5(300,0,15,220,0,11)","tttgate&&csiid==4","colz");
+  //tree->Draw("de:ecsi>>deeS6(300,0,15,220,0,11)","tttgate&&csiid==5","colz");
+  //tree->Draw("de:ecsi>>deeS7(300,0,15,220,0,11)","tttgate&&csiid==6","colz");
+  //tree->Draw("de:ecsi>>deeS8(300,0,15,220,0,11)","tttgate&&csiid==7","colz");
+  //tree->Draw("de:ecsi>>deeS9(300,0,15,220,0,11)","tttgate&&csiid==8","colz");
+  //tree->Draw("de:ecsi>>deeS10(300,0,15,220,0,11)","tttgate&&csiid==9","colz");
+  //tree->Draw("de:ecsi>>deeS11(300,0,15,220,0,11)","tttgate&&csiid==10","colz");
+  //tree->Draw("de:ecsi>>deeS12(300,0,15,220,0,11)","tttgate&&csiid==11","colz");
+  //tree->Draw("de:ecsi>>deeS13(300,0,15,220,0,11)","tttgate&&csiid==12","colz");
+  //tree->Draw("de:ecsi>>deeS14(300,0,15,220,0,11)","tttgate&&csiid==13","colz");
+  //tree->Draw("de:ecsi>>deeS15(300,0,15,220,0,11)","tttgate&&csiid==14","colz");
+  //tree->Draw("de:ecsi>>deeS16(300,0,15,220,0,11)","tttgate&&csiid==15","colz");
+
+}

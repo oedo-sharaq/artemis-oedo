@@ -1,11 +1,11 @@
 Processor:
 
-  - name: loader_tof39_off
-    type: art::TParameterArrayLoader
-    parameter:
-      Name: prm_tof39_off
-      Type: art::TAffineConverter
-      FileName: prm/tof/tof39_off.dat
+#  - name: loader_tof39_off
+#    type: art::TParameterArrayLoader
+#    parameter:
+#      Name: prm_tof39_off
+#      Type: art::TAffineConverter
+#      FileName: prm/tof/tof39_off.dat
 
   - name: loader_tof912_off
     type: art::TParameterArrayLoader
@@ -14,12 +14,12 @@ Processor:
       Type: art::TAffineConverter
       FileName: prm/tof/tof912_off.dat
 
-  - name: loader_tof12s1_off
-    type: art::TParameterArrayLoader
-    parameter:
-      Name: prm_tof12s1_off
-      Type: art::TAffineConverter
-      FileName: prm/tof/tof12s1_off.dat
+#  - name: loader_tof12s1_off
+#    type: art::TParameterArrayLoader
+#    parameter:
+#      Name: prm_tof12s1_off
+#      Type: art::TAffineConverter
+#      FileName: prm/tof/tof12s1_off.dat
 
   - name: proc_time_ave_fe9
     type: art::TTimingAverageProcessor
@@ -28,7 +28,7 @@ Processor:
         - sr91_a_cal
         - sr92_a_cal
       OutputCollection: fe9timing
-      OutputTransparency: 0
+      OutputTransparency: 1
 
   - name: proc_time_ave_fe12
     type: art::TTimingAverageProcessor
@@ -37,16 +37,16 @@ Processor:
         - src1_a_cal
         - src2_a_cal
       OutputCollection: fe12timing
-      OutputTransparency: 0
+      OutputTransparency: 1
 
-  - name: proc_time_ave_s1
-    type: art::TTimingAverageProcessor
-    parameter:
-      InputCollections:
-        - sr11_a_cal
-        - sr12_a_cal
-      OutputCollection: s1timing
-      OutputTransparency: 0
+#  - name: proc_time_ave_s1
+#    type: art::TTimingAverageProcessor
+#    parameter:
+#      InputCollections:
+#        - sr11_a_cal
+#        - sr12_a_cal
+#      OutputCollection: s1timing
+#      OutputTransparency: 1
 
   - name: proc_tof39
     type: art::TTimingSubtractionProcessor
@@ -54,19 +54,20 @@ Processor:
       InputCollection:        fe9timing
       OutputCollection:       tof39_pre
 #      StartTimingCollection:  f3pla
-      StartTimingCollection:  diapad
+#      StartTimingCollection:  diapad
+      StartTimingCollection:  vf3dia
       StartTimingDetID:       0
       MaxDetID:               1
       UseMultipleStartTiming: 1
-      OutputTransparency: 0
+      OutputTransparency: 0 
 
-  - name: proc_tof39_calib
-    type: art::TTimingChargeCalibrationProcessor
-    parameter:
-      InputCollection: tof39_pre
-      OutputCollection: tof39
-      TimingConverterArray: prm_tof39_off
-      InputIsDigital: 0
+#  - name: proc_tof39_calib
+#    type: art::TTimingChargeCalibrationProcessor
+#    parameter:
+#      InputCollection: tof39_pre
+#      OutputCollection: tof39
+#      TimingConverterArray: prm_tof39_off
+#      InputIsDigital: 0
 
 
   - name: proc_tof912
@@ -78,7 +79,7 @@ Processor:
       StartTimingDetID:       0
       MaxDetID:               1
       UseMultipleStartTiming: 1
-      OutputTransparency: 0
+      OutputTransparency: 1 
 
   - name: proc_tof912_calib
     type: art::TTimingChargeCalibrationProcessor
@@ -88,25 +89,31 @@ Processor:
       TimingConverterArray: prm_tof912_off
       InputIsDigital: 0
 
+#  - name: proc_beta912
+#    type: art::TTOF2BetaProcessor
+#    parameter:
+#      FlightLength: 14539.93 
+#      Input: tof912
+#      Output: beta912
 
-  - name: proc_toffe12s1
-    type: art::TTimingSubtractionProcessor
-    parameter:
-      InputCollection:        s1timing
-      OutputCollection:       tof12s1_pre
-      StartTimingCollection:  fe12timing
-      StartTimingDetID:       0
-      MaxDetID:               1
-      UseMultipleStartTiming: 1
-      OutputTransparency: 0
+#  - name: proc_toffe12s1
+#    type: art::TTimingSubtractionProcessor
+#    parameter:
+#      InputCollection:        s1timing
+#      OutputCollection:       tof12s1_pre
+#      StartTimingCollection:  fe12timing
+#      StartTimingDetID:       0
+#      MaxDetID:               1
+#      UseMultipleStartTiming: 1
+#      OutputTransparency: 0
 
-  - name: proc_tof12s1_calib
-    type: art::TTimingChargeCalibrationProcessor
-    parameter:
-      InputCollection: tof12s1_pre
-      OutputCollection: tof12s1
-      TimingConverterArray: prm_tof12s1_off
-      InputIsDigital: 0
+#  - name: proc_tof12s1_calib
+#    type: art::TTimingChargeCalibrationProcessor
+#    parameter:
+#      InputCollection: tof12s1_pre
+#      OutputCollection: tof12s1
+#      TimingConverterArray: prm_tof12s1_off
+#      InputIsDigital: 0
 
 #  - name: proc_beta12s1
 #    type: art::TTOF2BetaProcessor
@@ -114,5 +121,4 @@ Processor:
 #      FlightLength: 7810
 #      Input: tof12s1
 #      Output: beta12s1
-
 

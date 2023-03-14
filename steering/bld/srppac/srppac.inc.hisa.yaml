@@ -1,0 +1,273 @@
+Processor:
+#prm ch2ns
+  - name: proc:ppac:ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm:ppac:ch2ns_x
+      Type: art::TAffineConverter
+      FileName: prm/srppac/ch2ns_x.dat
+
+  - name: proc:ppac:ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm:ppac:ch2ns_y
+      Type: art::TAffineConverter
+      FileName: prm/srppac/ch2ns_y.dat
+
+  - name: proc:ppac:ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm:ppac:ch2ns_a
+      Type: art::TAffineConverter
+      FileName: prm/srppac/ch2ns_a.dat
+
+#prm chargecalib
+  - name: proc:ppac:@NAME@:chargecalib
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm:ppac:@NAME@:chargecalib_x
+      Type: art::TAffineConverter
+      FileName: prm/srppac/@NAME@/chargecalib_x.dat
+
+  - name: proc:ppac:@NAME@:chargecalib
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm:ppac:@NAME@:chargecalib_y
+      Type: art::TAffineConverter
+      FileName: prm/srppac/@NAME@/chargecalib_y.dat
+
+#prm geometry
+  - name: proc:ppac:geometry
+    type: art::TParameterLoader
+    parameter:
+      Name:     geometry_srppac_x
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/srppac/@NAME@/geometry_x.yaml
+  - name: proc:ppac:geometry
+    type: art::TParameterLoader
+    parameter:
+      Name:     geometry_srppac_y
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/srppac/@NAME@/geometry_y.yaml
+
+#prm dqdx0
+  - name: proc_dqdx_xc0
+    type: art::TParameterLoader
+    parameter:
+      Name:     dqdx_srppac_xc0
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/srppac/@NAME@/dq2dx/current/xc0.dat
+  - name: proc_dqdx_yc0
+    type: art::TParameterLoader
+    parameter:
+      Name:     dqdx_srppac_yc0
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/srppac/@NAME@/dq2dx/current/yc0.dat
+ 
+# raw data
+  - name: proc:ppac:@NAME@a:raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: @CATIDa@
+      TimingTypeID: 0
+      TrailingComesFirst: 0
+      OutputCollection: @NAME@_a_raw
+
+  - name: proc:ppac:@NAME@x:raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: @CATIDx@
+      TimingTypeID: 0
+      TrailingComesFirst: 1
+      OutputCollection: @NAME@_x_raw
+
+  - name: proc:ppac:@NAME@x:raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: @CATIDy@
+      TimingTypeID: 0
+      TrailingComesFirst: 1
+      OutputCollection: @NAME@_y_raw
+
+# time validate
+  - name: proc:ppac:@NAME@a:val
+    type: art::TTimeValidator
+    parameter:
+      InputCollection: @NAME@_a_raw
+      OutputCollection: @NAME@_a_val
+      ValidTimeRange: @VALIDTIME@
+#      ValidTimeRange: [-20000,-16000,0]  # temporary
+#      ValidTimeRange: [190000,200000,0]  # run3176
+  - name: proc:ppac:@NAME@x:val
+    type: art::TTimeValidator
+    parameter:
+      InputCollection: @NAME@_x_raw
+      OutputCollection: @NAME@_x_val
+      ValidTimeRange: @VALIDTIME@
+#      ValidTimeRange: [-20000,-16000,0]  # temporary
+  - name: proc:ppac:@NAME@y:val
+    type: art::TTimeValidator
+    parameter:
+      InputCollection: @NAME@_y_raw
+      OutputCollection: @NAME@_y_val
+      ValidTimeRange: @VALIDTIME@
+#      ValidTimeRange: [-20000,-16000,0]  # temporary
+
+# calib ch to ns
+  - name: proc:ppac:@NAME@a:cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: @NAME@_a_val
+      OutputCollection: @NAME@_a_cal
+      TimingConverterArray: prm:ppac:ch2ns_a
+      ChargeConverterArray: prm:ppac:ch2ns_a
+
+  - name: proc:ppac:@NAME@x:cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: @NAME@_x_val
+      OutputCollection: @NAME@_x_cal
+      TimingConverterArray: prm:ppac:ch2ns_x
+      ChargeConverterArray: prm:ppac:ch2ns_x
+
+  - name: proc:ppac:@NAME@y:cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: @NAME@_y_val
+      OutputCollection: @NAME@_y_cal
+      TimingConverterArray: prm:ppac:ch2ns_y
+      ChargeConverterArray: prm:ppac:ch2ns_y
+
+#calib ch to ns & charge
+  - name: proc:ppac:@NAME@x:cal2
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: @NAME@_x_val
+      OutputCollection: @NAME@_x_cal2
+      TimingConverterArray: prm:ppac:ch2ns_x
+      ChargeConverterArray: prm:ppac:@NAME@:chargecalib_x
+
+  - name: proc:ppac:@NAME@y:cal2
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: @NAME@_y_val
+      OutputCollection: @NAME@_y_cal2
+      TimingConverterArray: prm:ppac:ch2ns_y
+      ChargeConverterArray: prm:ppac:@NAME@:chargecalib_y
+
+# position 
+  - name: planeproc:@NAME@x
+    type: art::TSRPPACPlaneProcessor
+    parameter:
+      InputCollection: @NAME@_x_cal
+      OutputCollection: @NAME@_x
+#      srppacparameter: geometry_srppac_x
+      Verbose: 0
+      nStrip: 94
+      stripWidth: 2.55
+      center: 46.5
+      z: -174.
+      detoffset: 0
+      turned: 1
+
+  - name: planeproc:@NAME@y
+    type: art::TSRPPACPlaneProcessor
+    parameter:
+      InputCollection: @NAME@_y_cal
+      OutputCollection: @NAME@_y
+#      srppacparameter: geometry_srppac_y
+      Verbose: 0
+      nStrip: 58
+      stripWidth: 2.58
+      center: 28.5
+      z: -166.
+      detoffset: 0
+      turned: 1
+
+# position charge calibrated
+  - name: planeproc:@NAME@x2
+    type: art::TSRPPACPlaneProcessor
+    parameter:
+      InputCollection: @NAME@_x_cal2
+      OutputCollection: @NAME@_x2
+#      srppacparameter: geometry_srppac_x
+      Verbose: 0
+      nStrip: 94
+      stripWidth: 2.55
+      center: 46.5
+      z: -174.
+      detoffset: 0
+      turned: 1
+
+  - name: planeproc:@NAME@y2
+    type: art::TSRPPACPlaneProcessor
+    parameter:
+      InputCollection: @NAME@_y_cal2
+      OutputCollection: @NAME@_y2
+#      srppacparameter: geometry_srppac_y
+      Verbose: 0
+      nStrip: 58
+      stripWidth: 2.58
+      center: 28.5
+      z: -166.
+      detoffset: 0
+      turned: 1
+
+
+# dqdx calib
+  - name: proc:ppac:@NAME@dqdx
+    type: art::TSRPPACPlaneDqdxProcessor
+    parameter:
+      InputCollection: @NAME@_x
+      OutputCollection: @NAME@_xc0
+      Converter: dqdx_srppac_xc0
+#      SRPPACParameter: geometry_srppac_x
+      nStrip: 94
+      stripWidth: 2.55
+      center: 46.5
+      z: -4.
+      detoffset: 0
+      turned: 1
+ 
+  - name: proc:ppac:@NAME@dqdy
+    type: art::TSRPPACPlaneDqdxProcessor
+    parameter:
+      InputCollection: @NAME@_y
+      OutputCollection: @NAME@_yc0
+      Converter: dqdx_srppac_yc0
+#      SRPPACParameter: geometry_srppac_y
+      nStrip: 58
+      stripWidth: 2.58
+      center: 28.5
+      z: -4.
+      detoffset: 0
+      turned: 1
+
+# dqdx calib charge calibrated
+  - name: proc:ppac:@NAME@dqdx2
+    type: art::TSRPPACPlaneDqdxProcessor
+    parameter:
+      InputCollection: @NAME@_x2
+      OutputCollection: @NAME@_xc02
+      Converter: dqdx_srppac_xc0
+#      SRPPACParameter: geometry_srppac_x
+      nStrip: 94
+      stripWidth: 2.55
+      center: 46.5
+      z: -4.
+      detoffset: 0
+      turned: 1
+
+  - name: proc:ppac:@NAME@dqdy2
+    type: art::TSRPPACPlaneDqdxProcessor
+    parameter:
+      InputCollection: @NAME@_y2
+      OutputCollection: @NAME@_yc02
+      Converter: dqdx_srppac_yc0
+#      SRPPACParameter: geometry_srppac_y
+      nStrip: 58
+      stripWidth: 2.58
+      center: 28.5
+      z: -4.
+      detoffset: 0
+      turned: 1

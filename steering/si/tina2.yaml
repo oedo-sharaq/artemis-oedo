@@ -10,7 +10,8 @@ Processor:
     parameter:
       Name:     prm_csi_ch2MeV
       Type:     art::TAffineConverter
-      FileName: prm/tina/csi_ch2MeV.dat
+      #FileName: prm/tina/csi_ch2MeV.dat
+      FileName: prm/tina/CsI_ch2MeV.dat
 
   - name: proc_yy1fraw
     type: art::TSimpleDataMappingProcessor
@@ -32,13 +33,15 @@ Processor:
     parameter:
       InputCollection: yy1fraw_pre
       OutputCollection: yy1fraw
-      Range:            [150., 4000.]
+      #Range:            [150., 4000.]
+      Range:            [400., 4000.]
   - name: proc_csiraw_validate
     type: art::TChargeValidateProcessor
     parameter:
       InputCollection: csiraw_pre
       OutputCollection: csiraw
-      Range:            [100., 4000.]
+      Range:            [0., 4000.]
+      #Range:            [300., 4000.]
 
   - name: proc_yy1fqcal
     type: art::TTimingChargeCalibrationProcessor
@@ -66,6 +69,10 @@ Processor:
       SiName: yy1f
       CsIName: csi
       TinaTName: tinat
+      X1Name:  src1_xc0_strip2 
+      Y1Name:  src1_yc0_strip2 
+      X2Name:  src2_xc0_strip2 
+      Y2Name:  src2_yc0_strip2 
       OutputName: tina2
 
   - name: proc_tinat

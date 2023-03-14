@@ -10,14 +10,14 @@ Processor:
   - name: proc_dqdx_xcr
     type: art::TParameterLoader
     parameter:
-      Name:     dqdx_srppac_xcru
+      Name:     dqdx_srppac_xcr
       Type:     art::TMonotoneTableConverter
       FileName: prm/srppac/@NAME@/dq2dx/current/xcr.dat
 
   - name: proc_dqdx_ycl
     type: art::TParameterLoader
     parameter:
-      Name:     dqdx_srppac_yclu
+      Name:     dqdx_srppac_ycl
       Type:     art::TMonotoneTableConverter
       FileName: prm/srppac/@NAME@/dq2dx/current/ycl.dat
 
@@ -29,35 +29,35 @@ Processor:
       FileName: prm/srppac/@NAME@/dq2dx/current/ycr.dat
 
 
- - name: proc:ppac:@NAME@xw
-   type: art::TSRPPACPlaneSideDqdxProcessor
-   parameter:
-     InputCollection: @NAME@_x
-     OutputCollection: @NAME@_xcw
-     Converter1: dqdx_srppac_xcl
-     Converter2: dqdx_srppac_xc
+  - name: proc:ppac:@NAME@xw
+    type: art::TSRPPACPlaneSideDqdxProcessor
+    parameter:
+      InputCollection: @NAME@_x
+      OutputCollection: @NAME@_xcw
+      Converter1: dqdx_srppac_xcl
+      Converter2: dqdx_srppac_xcr
 #      SRPPACParameter: prm:ppac:geo:x
-     Combination: 0
-     nStrip: 94
-     stripWidth: 2.55
-     center: 46.5
-     z: -4.
-     detoffset: -2.099
-     turned: 1
-
- - name: proc:ppac:@NAME@yw
-   type: art::TSRPPACPlaneSideDqdxProcessor
-   parameter:
-     InputCollection: @NAME@_y
-     OutputCollection: @NAME@_ycw
-     Converter1: dqdx_srppac_ycl
-     Converter2: dqdx_srppac_ycr
-#     SRPPACParameter: prm:ppac:geo:y
-     Combination: 0
-     nStrip: 58
-     stripWidth: 2.58
-     center: 28.5
-     z: -4.
-     detoffset: -2.099
-     turned: 1
+      Combination: 0
+      nStrip: 94
+      stripWidth: 2.55
+      center: 46.5
+      z: -4.
+      detoffset: 0 
+      turned: 1
+ 
+  - name: proc:ppac:@NAME@yw
+    type: art::TSRPPACPlaneSideDqdxProcessor
+    parameter:
+      InputCollection: @NAME@_y
+      OutputCollection: @NAME@_ycw
+      Converter1: dqdx_srppac_ycl
+      Converter2: dqdx_srppac_ycr
+#      SRPPACParameter: prm:ppac:geo:y
+      Combination: 0
+      nStrip: 58
+      stripWidth: 2.58
+      center: 28.5
+      z: -4.
+      detoffset: 0
+      turned: 1
 

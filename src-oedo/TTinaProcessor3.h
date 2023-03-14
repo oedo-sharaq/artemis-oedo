@@ -20,6 +20,14 @@ protected:
    TClonesArray **fSib;
    TString        fCsIName;
    TClonesArray **fCsI;
+   TString        fX1Name;
+   TClonesArray **fX1;
+   TString        fY1Name;
+   TClonesArray **fY1;
+   TString        fX2Name;
+   TClonesArray **fX2;
+   TString        fY2Name;
+   TClonesArray **fY2;
    TString        fOutputName;
    TClonesArray  *fOutput;
 

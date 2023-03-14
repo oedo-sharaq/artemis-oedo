@@ -1,0 +1,70 @@
+Anchor:
+ - &input ridf/physics@NUM@.ridf
+ - &output output/physics/@NUM@/yy1_tghphysics@NUM@.root
+
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+        - *input
+        
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+
+  - name: proc_gateinit
+    type: art::TGateArrayInitializer
+    parameter:
+      OutputTransparency: 1
+
+  # - include:
+  #     name: ttt/get.inc.yaml
+  #     replace:
+  #       NUM: @GET@
+  #       CATDATA: tttdata
+
+  - include: chktina.param.yaml 
+  - include: tref.yaml
+  - include: trig_select/trig.yaml
+  - include: bld/dia/dia.yaml
+  - include: vtof.yaml
+  - include: bld/srppac/srppac_yy1.yaml
+  - include: tof.yaml
+#  - include: ic/ic.yaml
+#  - include: ic/ic_waveform.yaml
+#  - include: ttt.sakura.yaml
+  - include: v1190_tref_tina.sakura.yaml
+  - include: si/tina_timing.yaml
+  - include: si/tina2.yaml
+#  - include: si/tina3.yaml
+
+  - name: s0coin_gate_formula
+    type: art::TTreeFormulaGateProcessor
+    parameter:
+      Definitions:
+        # - "s0coin; abs(coin_s0.fTiming-43065.)<135."  
+        # - "s0coin; coin_s0.fTiming>43400"  
+        - "tgate; abs(vf3dia.fTiming+2150.)<200.&&abs(sr91_a_val.fTiming+11500.)<2000.&&abs(sr92_a_val.fTiming+11500.)<2000&&abs(src1_a_val.fTiming+10000)<2000.&&abs(src2_a_val.fTiming+10000)<2000."
+        # - "tgate; abs(vf3dia.fTiming+2260.)<40.&&abs(sr91_a_val.fTiming+12300.)<400.&&abs(sr92_a_val.fTiming+12300.)<400.&&abs(src1_a_val.fTiming+11000)<400.&&abs(src2_a_val.fTiming+11000)<400."
+      OutputTransparency: 0
+      Verbose: 1
+  
+  - name: s0coin_gatestop
+    type: art::TGateStopProcessor
+    parameter:
+      GateName: tgate
+      StopIf: 0
+      OutputTransparency: 0
+      Verbose: 1
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: 
+        - *output
