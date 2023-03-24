@@ -26,8 +26,8 @@ OBJ += TTOF2BetaProcessor.o
 #OBJ += TCmdPrint.o
 #OBJ += TPPACProcessorQTC.o
 #OBJ += TBrhoReconstructProcessor.o
-OBJ += TBrhoReconstructProcessor2.o
-#OBJ += TBrhoReconstructProcessor3.o
+#OBJ += TBrhoReconstructProcessor2.o
+OBJ += TBrhoReconstructProcessor3.o
 #OBJ += TBrhoReconstructProcessorS1.o
 OBJ += TPIDSingleSectionProcessor.o
 #OBJ += TCmdPadZoom.o
@@ -35,6 +35,8 @@ OBJ += TRawDataTriggeredList.o
 OBJ += TModuleDecoderA3100FreeRunTSI.o
 OBJ += TTimingChargeTriggeredListMappingProcessor.o
 OBJ += TTimingAverageProcessor.o
+OBJ += TSRPPACPlaneStripDqdxProcessor.o
+OBJ += TTreeCopyProcessor.o
 
 UNAME = $(shell uname)
 ifeq ($(UNAME),Darwin)

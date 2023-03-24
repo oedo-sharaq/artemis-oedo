@@ -44,10 +44,12 @@
 #pragma link C++ class art::TPPACProcessorQTC;
 //#pragma link C++ class art::TBrhoReconstructProcessor;
 #pragma link C++ class art::TBrhoReconstructProcessor2;
-//#pragma link C++ class art::TBrhoReconstructProcessor3;
+#pragma link C++ class art::TBrhoReconstructProcessor3;
 //#pragma link C++ class art::TBrhoReconstructProcessorS1;
 #pragma link C++ class art::TPIDSingleSectionProcessor;
 #pragma link C++ class art::TCmdPadZoom;
+#pragma link C++ class art::TSRPPACPlaneStripDqdxProcessor;
+#pragma link C++ class art::TTreeCopyProcessor;
 #endif // __CINT__
 
 #endif // LINKDEF_USER_H
