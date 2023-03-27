@@ -33,7 +33,7 @@ Processor:
   - include: tref.yaml
   - include: trig_select/trig.yaml
   - include: bld/dia/dia.yaml
-  - include: vtof.yaml
+  - include: vtof_yy1.yaml
   - include: bld/srppac/srppac_yy1.yaml
   - include: tof.yaml
 #  - include: ic/ic.yaml
