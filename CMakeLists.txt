@@ -12,6 +12,9 @@ set(CMAKE_INSTALL_PREFIX ${CMAKE_SOURCE_DIR}/install/ CACHE PATH "install dir" F
 
 # path definitions
 find_package(artemis HINTS ${TARTSYS} REQUIRED)
+if(NOT ${ARTEMIS_BUILD_GET})
+    message(ERROR "artemis is not built with GETDecoder which is required by src-oedo. Rebuild artemis with BUILD_GET=ON")
+endif()
 
 #---Locate the ROOT package and defines a number of variables (e.g. ROOT_INCLUDE_DIRS)
 find_package(ROOT REQUIRED COMPONENTS RIO Net Physics Minuit Minuit2 Geom Gui Genetic)
