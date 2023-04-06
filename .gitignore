@@ -17,3 +17,6 @@ figs
 current/
 share
 s0test
+build
+install
+artemislogon.C

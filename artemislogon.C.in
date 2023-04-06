@@ -4,8 +4,8 @@
   incpath.Append(gSystem->GetFromPipe("artemis-config --cflags"));
   dypath.Append(gSystem->GetFromPipe("artemis-config --dypaths"));
 
-  dypath.Append(":/home/ryokoyam/work/artemis-SAKURA01/install/lib");
-  incpath.Append(" -I/home/ryokoyam/work/artemis-SAKURA01/install/include");
+  dypath.Append(":@CMAKE_INSTALL_PREFIX@/lib");
+  incpath.Append(" -I@CMAKE_INSTALL_PREFIX@/include");
 
   gStyle->SetOptStat(1111111);
   gStyle->SetOptFit(1111);
