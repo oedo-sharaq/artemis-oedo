@@ -1,0 +1,82 @@
+# @file xxxvvvuuu_calib.inc.yaml
+# @brief calibration for xxxuuuvvv
+# 
+# @date Create        : 2021.05.20 15:11
+#       Last Modified : 2021.05.20 15:11
+# @author:  Yuto HIJIKATA
+
+Processor:
+  - name: proc_@NAME@_x1_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: @NAME@_x1
+      TimingGate:      @TGATE@ # CHANGE HERE
+      ChargeGate:      @QGATE@ # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_@NAME@_x2_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: @NAME@_x2
+      TimingGate:      @TGATE@ # CHANGE HERE
+      ChargeGate:      @QGATE@ # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_@NAME@_x3_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: @NAME@_x3
+      TimingGate:      @TGATE@ # CHANGE HERE
+      ChargeGate:      @QGATE@ # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_@NAME@_u1_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: @NAME@_u1
+      TimingGate:      @TGATE@ # CHANGE HERE
+      ChargeGate:      @QGATE@ # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_@NAME@_u2_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: @NAME@_u2
+      TimingGate:      @TGATE@ # CHANGE HERE
+      ChargeGate:      @QGATE@ # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_@NAME@_u3_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: @NAME@_u3
+      TimingGate:      @TGATE@ # CHANGE HERE
+      ChargeGate:      @QGATE@ # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_@NAME@_v1_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: @NAME@_v1
+      TimingGate:      @TGATE@ # CHANGE HERE
+      ChargeGate:      @QGATE@ # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_@NAME@_v2_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: @NAME@_v2
+      TimingGate:      @TGATE@ # CHANGE HERE
+      ChargeGate:      @QGATE@ # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_@NAME@_v3_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: @NAME@_v3
+      TimingGate:      @TGATE@ # CHANGE HERE
+      ChargeGate:      @QGATE@ # CHANGE HERE
+      UseMax: 1
+
+---
+# end of xxxvvvuuu_calib.inc.yaml

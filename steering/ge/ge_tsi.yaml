@@ -5,7 +5,7 @@ Processor:
     parameter:
       Name: ge_tsi_ch2MeV
       Type: art::TAffineConverter
-      FileName: prm/ge/ge_tsi_ch2MeV.dat
+      FileName: prm/ge/ge_tsi_ch2MeV_eurysis.dat
 
   - name: ge_tsi_ch2sec_loader
     type: art::TParameterArrayLoader

@@ -8,20 +8,8 @@ Processor:
         CATIDa: 40 
         CATIDx: 41
         CATIDy: 42
-        # 130Te Analysis
-        #VALIDTIME: [-14000,-10000,0] # for yy1
-        #VALIDTIME: [-17000,-16000,0] # run 579
-        #VALIDTIME: [-22000,-10000,0] # run 581-594
-        #VALIDTIME: [-24000,-10000,0] # run 598-602
-        #VALIDTIME: [-24000,-19000,0] # run all
-        #VALIDTIME: [-22000,-18000,0] # Al
-        #VALIDTIME: [-25000,-5000,0] # Al 
-
-        # 130Sn analysis
-        #VALIDTIME: [-14000,-10000,0] 
-        #VALIDTIME: [-18500, -14500, 0] # optics 0239
-        VALIDTIME: [-18500, 36500, 0]  # optics 0239 - extend to see sr91 Y
-
+    ##    VALIDTIME: [-16700,-16400,0]
+        VALIDTIME: [-100000,100000,0]
 
   - include:
       name: srppac.inc.yaml
@@ -30,28 +18,16 @@ Processor:
         CATIDa: 43 
         CATIDx: 44
         CATIDy: 45
-        # 130Te Analysis
-        #VALIDTIME: [-14000,-10000,0] # for yy1
-        #VALIDTIME: [-17000,-16000,0] # run 579
-        #VALIDTIME: [-22000,-10000,0] # run 581-594
-        #VALIDTIME: [-24000,-10000,0] # run 598-602
-        #VALIDTIME: [-24000,-19000,0] # run all
-        #VALIDTIME: [-22000,-18000,0] # Al
-        #VALIDTIME: [-25000,-5000,0] # Al
-
-        # 130Sn Analysis
-        #VALIDTIME: [-14000,-10000,0]
-        VALIDTIME: [-18500, -14000, 0] # optics 0239
-
+      ##  VALIDTIME: [-16500,-16200,0]
+        VALIDTIME: [-100000,100000,0]
 
 ### calib LR
-
 #  - include: 
-#      name: srppac.calib.lr.inc.yaml
+#      name: srppac.calib.lr.yaml
 #      replace: 
 #        NAME: sr91
 #  - include: 
-#      name: srppac.calib.lr.inc.yaml
+#      name: srppac.calib.lr.yaml
 #      replace: 
 #        NAME: sr92
 
@@ -61,60 +37,34 @@ Processor:
 #### FE12
 ####
   - include: 
-      #name: srppac.inc.yaml
-      #name: srppac.inc.hisa.yaml
-      name: srppac.inc.ishio.yaml
+      name: srppac.inc.yaml
       replace:
         NAME: src1
         CATIDa: 46 
         CATIDx: 47
         CATIDy: 48
-        # 130Te Analysis
-        #VALIDTIME: [-12000,-8000,0] # for yy1
-        #VALIDTIME: [-17000,-14000,0] # run 579
-        #VALIDTIME: [-21000,-9000,0] # run 581-594
-        #VALIDTIME: [-23000,-9000,0] # run 598-602
-        #VALIDTIME: [-22500,-17500,0] # run all
-        #VALIDTIME: [-21000,-17000,0] # Al
-        #VALIDTIME: [-25000,-5000,0] # Al
-
-        # 130Sn Analysis
-        # VALIDTIME: [-12000,-8000,0]
-        VALIDTIME: [-18500, -10000, 0] # optics 0239 
-
+      ##  VALIDTIME: [-16000,-14000,0]
+        VALIDTIME: [-100000,100000,0]
 
   - include: 
-      #name: srppac.inc.yaml
-      #name: srppac.inc.hisa.yaml
-      name: srppac.inc.ishio.yaml
+      name: srppac.inc.yaml
       replace:
         NAME: src2
         CATIDa: 49 
-        CATIDx: 50
+        CATIDx: 10
         CATIDy: 51
-        # 130Te Analysis
-        #VALIDTIME: [-12000,-8000,0] # for yy1
-        #VALIDTIME: [-17000,-14000,0] # run 579
-        #VALIDTIME: [-21000,-9000,0] # run 581-594
-        #VALIDTIME: [-23000,-9000,0] # run 598-602
-        #VALIDTIME: [-22500,-17500,0] # run all
-        #VALIDTIME: [-21000,-17000,0] # Al
-        #VALIDTIME: [-25000,-5000,0] # Al
-
-        # 130Sn Analysis
-        # VALIDTIME: [-12000,-8000,0]
-        VALIDTIME: [-18500, -10000, 0] # optics 0239
-
+      ##  VALIDTIME: [-16000,-14000,0]
+        VALIDTIME: [-100000,100000,0]
 
 
 ### calib LR
- 
+# 
 #  - include:
-#      name: srppac.calib.lr.inc.yaml
+#      name: srppac.calib.lr.yaml
 #      replace: 
 #        NAME: src1
 #  - include:
-#      name: srppac.calib.lr.inc.yaml
+#      name: srppac.calib.lr.yaml
 #      replace: 
 #        NAME: src2
 
@@ -129,15 +79,8 @@ Processor:
         CATIDa: 52 
         CATIDx: 53
         CATIDy: 54
-        # 130Te Analysis
-        #VALIDTIME: [-9000,-7000,0] # run 579
-        #VALIDTIME: [-15000,0,0] # run 581-594
-        #VALIDTIME: [-17000,0,0] # run 598-602
-        #VALIDTIME: [-140000,30000,0] # for yy1
-
-        # 130Sn Analysis
-        # VALIDTIME: [-100000,100000,0]
-        VALIDTIME: [-11500, -4500, 0] # optics 0239
+      ##  VALIDTIME: [-9000,-7000,0]
+        VALIDTIME: [-100000,100000,0]
 
 
   - include: 
@@ -147,27 +90,19 @@ Processor:
         CATIDa: 55 
         CATIDx: 56
         CATIDy: 57
-        # 130Te Analysis
-        #VALIDTIME: [-9000,-7000,0] # run 579
-        #VALIDTIME: [-15000,0,0] # run 581-594
-        #VALIDTIME: [-17000,0,0] # run 598-602
-        #VALIDTIME: [-140000,30000,0] # for yy1
-
-        # 130Sn Analysis
-        # VALIDTIME: [-100000,100000,0]
-        VALIDTIME: [-11000, -5000, 0] # optics 0239
-
+      ##  VALIDTIME: [-9000,-7000,0]
+        VALIDTIME: [-100000,100000,0]
 
 
 ### calib LR
- 
+# 
 #  - include:
-#      name: srppac.calib.lr.inc.yaml
+#      name: srppac.calib.lr.yaml
 #      replace: 
 #        NAME: sr11
 #
 #  - include:
-#      name: srppac.calib.lr.inc.yaml
+#      name: srppac.calib.lr.yaml
 #      replace: 
 #        NAME: sr12
 

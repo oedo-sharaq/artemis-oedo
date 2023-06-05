@@ -64,7 +64,7 @@ group:
         x: *@sr@_y_rawid
       - name: @sr@_y_t
         title: @sr@ Y Timing
-        x: *@sr@_x_rawt
+        x: *@sr@_y_rawt
       - name: @sr@_y_q
         title: @sr@ Y Charge
         x: *@sr@_y_rawq

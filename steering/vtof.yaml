@@ -5,23 +5,7 @@ Processor:
       InputCollection:        diapad
       OutputCollection:       vf3dia
 # for S0 triger
-      #ValidTimeRange:         [-2400.0, -2000.0, 0.0] # for yy1 before
-      ValidTimeRange:         [-2350.0, -1950.0, 0.0] # for yy1 now
-      #ValidTimeRange:         [-2300.0, -2220.0, 0.0] # for yy1
-      #ValidTimeRange:         [-2680.0, -2660.0, 0.0] # run 579
-      #ValidTimeRange:         [-3200.0, -2000.0, 0.0] # run 581~597
-      #ValidTimeRange:         [-3500.0, -2000.0, 0.0] # run 598~602
-      #ValidTimeRange:         [-3400.0, -1900.0, 0.0] # run all
-      #ValidTimeRange:         [-3300.0, -2900.0, 0.0] # for TTT now
-      #ValidTimeRange:         [-3200.0, -2800.0, 0.0] # for Al
-
-#  - name: proc_vf3diayy1
-#    type: art::TTimeValidator
-#    parameter:
-#      InputCollection:        diapad
-#      OutputCollection:       vf3diayy1
-## for YY1 triger
-#      ValidTimeRange:         [-2400.0, -2000.0, 0.0]
+      ValidTimeRange:         [-2400.0, -2000.0, 0.0]
 
 #  - name: proc_vtof39
 #    type: art::TTimingSubtractionProcessor

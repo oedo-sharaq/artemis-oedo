@@ -1,5 +1,5 @@
 Anchor:
- - &input /home/SAKURA01/cnsdaq_data/os22stest@NUM@.ridf
+ - &input ridf_tina/os22stest@NUM@.ridf
  - &output output/yy/@NUM@/chkni@NUM@.root
 
 Processor:

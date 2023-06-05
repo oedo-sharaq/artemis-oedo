@@ -3,7 +3,7 @@ Anchor:
  - &input ridf/@NAME@@NUM@.ridf
  - &output output/@NAME@/@NUM@/missingID@NAME@@NUM@.root
  - &histout output/@NAME@/@NUM@/missingID@NAME@@NUM@.hist.root
- - &maxevt 2000000
+ - &maxevt 200000
 
 Processor:
   - name: timer

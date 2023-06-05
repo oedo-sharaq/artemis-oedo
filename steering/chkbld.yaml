@@ -28,7 +28,8 @@ Processor:
   - include: bld/dlppac/dlppac.inc.yaml
   - include: bld/srppac/srppac.yaml
   - include: bld/mwdc/chkmwdc_local.yaml
-  - include: tof.yaml
+  - include: rf.yaml
+
 
 
 ### FE7 DL-PPAC Hist

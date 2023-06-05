@@ -1,0 +1,25 @@
+# steering file for DC7X analysis
+# Load bld-plastic steering file before.
+Processor:
+  - name: proc_@NAME@_dxdt_x
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_@NAME@_dxdt_x
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/@NAME@/dt2dl/current/x.dat
+
+  - name: proc_@NAME@_dxdt_u
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_@NAME@_dxdt_u
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/@NAME@/dt2dl/current/u.dat
+
+
+  - name: proc_@NAME@_dxdt_y
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_@NAME@_dxdt_y
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/@NAME@/dt2dl/current/y.dat
+

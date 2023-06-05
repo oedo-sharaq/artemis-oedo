@@ -1,0 +1,65 @@
+Processor:
+ 
+## F3
+#  - include: 
+#      name: xxyyxxyy_calib.inc.yaml
+#      replace:
+#        NAME: dc31
+#        TGATE: [-50.,50.]
+#        QGATE: [0,10000]
+#
+#  - include: 
+#      name: xxyy_calib.inc.yaml
+#      replace:
+#        NAME: dc32
+#        TGATE: [-50.,100.]
+#        QGATE: [0,10000]
+
+# FE7
+  - include: 
+      name: xuy_calib.inc.yaml
+      replace:
+        NAME: dc71
+        TGATE: [-50.,50.]
+        QGATE: [0,10000]
+
+  - include: 
+      name: xuy_calib.inc.yaml
+      replace:
+        NAME: dc72
+        TGATE: [-50.,50.]
+        QGATE: [0,10000]
+
+## FE10
+#  - include: 
+#      name: xxuv_calib.inc.yaml
+#      replace:
+#        NAME: dca1
+#        TGATE: [-50.,100.]
+#        QGATE: [0,10000]
+#
+#  - include: 
+#      name: xxuv_calib.inc.yaml
+#      replace:
+#        NAME: dca2
+#        TGATE: [-50.,100.]
+#        QGATE: [0,10000]
+        
+        
+# FE12
+  - include: 
+      name: xxyyxxyy_calib.inc.yaml
+      replace:
+        NAME: dcc1
+        TGATE: [-50.,50.]
+        QGATE: [0,10000]
+
+  - include: 
+      name: xxyy_calib.inc.yaml
+      replace:
+        NAME: dcc2
+        TGATE: [-50.,100.]
+        QGATE: [0,10000]
+        
+
+ 

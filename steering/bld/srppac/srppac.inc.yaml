@@ -36,18 +36,18 @@ Processor:
       FileName: prm/srppac/@NAME@/geometry_y.yaml
 
 #prm dqdx0
-#  - name: proc_dqdx_xc0
-#    type: art::TParameterLoader
-#    parameter:
-#      Name:     dqdx_srppac_xc0
-#      Type:     art::TMonotoneTableConverter
-#      FileName: prm/srppac/@NAME@/dq2dx/current/xc0.dat
-#  - name: proc_dqdx_yc0
-#    type: art::TParameterLoader
-#    parameter:
-#      Name:     dqdx_srppac_yc0
-#      Type:     art::TMonotoneTableConverter
-#      FileName: prm/srppac/@NAME@/dq2dx/current/yc0.dat
+  - name: proc_dqdx_xc0
+    type: art::TParameterLoader
+    parameter:
+      Name:     dqdx_srppac_xc0
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/srppac/@NAME@/dq2dx/current/xc0.dat
+  - name: proc_dqdx_yc0
+    type: art::TParameterLoader
+    parameter:
+      Name:     dqdx_srppac_yc0
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/srppac/@NAME@/dq2dx/current/yc0.dat
 
 # raw data
   - name: proc:ppac:@NAME@a:raw
@@ -98,13 +98,6 @@ Processor:
       ValidTimeRange: @VALIDTIME@
 #      ValidTimeRange: [-20000,-16000,0]  # temporary
 
-#  - name: proc:ppac:@NAME@a:valyy1
-#    type: art::TTimeValidator
-#    parameter:
-#      InputCollection: @NAME@_a_raw
-#      OutputCollection: @NAME@_a_valyy1
-#      ValidTimeRange: [-13000,-9000] 
-
 # calib ch to ns
   - name: proc:ppac:@NAME@a:cal
     type: art::TTimingChargeCalibrationProcessor
@@ -129,13 +122,6 @@ Processor:
       OutputCollection: @NAME@_y_cal
       TimingConverterArray: prm:ppac:ch2ns_y
       ChargeConverterArray: prm:ppac:ch2ns_y
-
-#  - name: proc:ppac:@NAME@a:calyy1
-#    type: art::TTimingChargeCalibrationProcessor
-#    parameter:
-#      InputCollection: @NAME@_a_valyy1
-#      OutputCollection: @NAME@_a_calyy1
-#      TimingConverterArray: prm:ppac:ch2ns_a
 
 # position 
   - name: planeproc:@NAME@x
@@ -168,32 +154,33 @@ Processor:
 
 
 # dqdx calib
-#  - name: proc:ppac:@NAME@dqdx
-#    type: art::TSRPPACPlaneDqdxProcessor
-#    parameter:
-#      InputCollection: @NAME@_x
-#      OutputCollection: @NAME@_xc0
-#      Converter: dqdx_srppac_xc0
-##      SRPPACParameter: geometry_srppac_x
-#      nStrip: 94
-#      stripWidth: 2.55
-#      center: 46.5
-#      z: -4.
-#      detoffset: 0
-#      turned: 1
-# 
-# 
-#  - name: proc:ppac:@NAME@dqdy
-#    type: art::TSRPPACPlaneDqdxProcessor
-#    parameter:
-#      InputCollection: @NAME@_y
-#      OutputCollection: @NAME@_yc0
-#      Converter: dqdx_srppac_yc0
-##      SRPPACParameter: geometry_srppac_y
-#      nStrip: 58
-#      stripWidth: 2.58
-#      center: 28.5
-#      z: -4.
-#      detoffset: 0
-#      turned: 1
+  - name: proc:ppac:@NAME@dqdx
+    type: art::TSRPPACPlaneDqdxProcessor
+    parameter:
+      InputCollection: @NAME@_x
+      OutputCollection: @NAME@_xc0
+      Converter: dqdx_srppac_xc0
+#      SRPPACParameter: geometry_srppac_x
+      nStrip: 94
+      stripWidth: 2.55
+      center: 46.5
+      z: -4.
+      detoffset: 0
+      turned: 1
+ 
+ 
+  - name: proc:ppac:@NAME@dqdy
+    type: art::TSRPPACPlaneDqdxProcessor
+    parameter:
+      InputCollection: @NAME@_y
+      OutputCollection: @NAME@_yc0
+      Converter: dqdx_srppac_yc0
+#      SRPPACParameter: geometry_srppac_y
+      nStrip: 58
+      stripWidth: 2.58
+      center: 28.5
+      z: -4.
+      detoffset: 0
+      turned: 1
+
 

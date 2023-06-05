@@ -1,0 +1,10 @@
+total 76
+drwxr-xr-x  2 sakura01 SAKURA01   229 Apr  6 13:00 ./
+drwxr-xr-x 19 sakura01 SAKURA01   320 Mar 24 15:43 ../
+-rw-r--r--  1 sakura01 SAKURA01   798 Apr  6 07:38 ch2ns.brips.prm
+-rwxr-xr-x  1 sakura01 SAKURA01  1136 Mar 24 15:43 ch2ns.prm*
+-rw-r--r--  1 sakura01 SAKURA01   265 Mar 24 15:43 ch2ns_v1190.prm
+-rw-r--r--  1 sakura01 SAKURA01 24113 Apr  6 13:00 dlppac.prm.brips.sakura01.yaml
+-rw-r--r--  1 sakura01 SAKURA01 24135 Mar 24 15:43 dlppac.prm.brips.yaml
+-rw-r--r--  1 sakura01 SAKURA01   893 Apr  6 13:00 dlppac.prm.user.yaml
+-rw-r--r--  1 sakura01 SAKURA01 12288 Mar 24 15:43 .dlppac.prm.user.yaml.swp

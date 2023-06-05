@@ -29,15 +29,15 @@ Processor:
   - include:
       name: ttt/get.inc.yaml
       replace:
-        NUM: @GET@
-        CATDATA: catdata
+        NUM: @NUM@
+        CATDATA: tttdata
 #### Set Detector 
 
   - include: tref.yaml
   - include: bld/pla/pla_os22s.yaml
   - include: bld/dia/dia.yaml
-#  - include: bld/dlppac/ppac.brips.yaml
-#  - include: bld/dlppac/dlppac.inc.yaml
+  - include: bld/dlppac/ppac.brips.yaml
+  - include: bld/dlppac/dlppac.inc.yaml
   - include: bld/srppac/srppac.yaml
 #  - include: bld/mwdc/chkmwdc_local.yaml
   - include: chktina.online.yaml

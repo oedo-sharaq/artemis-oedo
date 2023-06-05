@@ -1,0 +1,25 @@
+Processor:
+  - name: proc_@NAME@_x_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: @NAME@_x
+      TimingGate:      @TGATE@ # CHANGE HERE
+      ChargeGate:      @QGATE@ # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_@NAME@_u_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: @NAME@_u
+      TimingGate:      @TGATE@ # CHANGE HERE
+      ChargeGate:      @QGATE@ # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_@NAME@_y_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: @NAME@_y
+      TimingGate:      @TGATE@ # CHANGE HERE
+      ChargeGate:      @QGATE@ # CHANGE HERE
+      UseMax: 1
+      

@@ -20,15 +20,15 @@ Processor:
       name: xuy_calib.inc.yaml
       replace:
         NAME: dca1
-        TGATE: [-250.,-10.]
-        QGATE: [100,1200]
+        TGATE: [900.,1300.]
+        QGATE: [0,800]
 
   - include: 
       name: xuy_calib.inc.yaml
       replace:
         NAME: dca2
-        TGATE: [-250.,-10.]
-        QGATE: [500,1400]
+        TGATE: [900.,1300.]
+        QGATE: [100,1200]
 
 ## FE10
 #  - include: 

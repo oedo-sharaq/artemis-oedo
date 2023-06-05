@@ -1,0 +1,80 @@
+Processor:
+ 
+# F3
+  - include: 
+      name: time2dt.inc.yaml
+      replace: 
+        CATID: 20    
+        NAME: dc31
+        TREDET: f3pla
+        TREFID: 0
+  - include: 
+      name: xxyyxxyy.inc.yaml
+      replace:
+        NAME: dc31
+  - include: 
+      name: xxyyxxyy_calib.inc.yaml
+      replace:
+        NAME: dc31
+        TGATE: [-1320.,-1260.]
+        QGATE: [0,1000]
+
+  - include: 
+      name: time2dt.inc.yaml
+      replace: 
+        CATID: 21    
+        NAME: dc32
+        TREDET: f3pla
+        TREFID: 0
+  - include: 
+      name: xxyy.inc.yaml
+      replace:
+        NAME: dc32
+  - include: 
+      name: xxyy_calib.inc.yaml
+      replace:
+        NAME: dc32
+        TGATE: [-1300.,-1200.]
+        QGATE: [0,1000]
+
+#f5
+  - include: 
+      name: time2dt.inc.yaml
+      replace: 
+        CATID: 25    
+        NAME: dc51
+        TREDET: f51pla
+        TREFID: 0
+  - include: 
+      name: xxxuuuvvv.inc.yaml
+      replace:
+        NAME: dc51
+  - include: 
+      name: xxxuuuvvv_calib.inc.yaml
+      replace:
+        NAME: dc51
+        TGATE: [-1100.,-800.]
+        QGATE: [0,1000]
+
+  - include: 
+      name: time2dt.inc.yaml
+      replace: 
+        CATID: 26    
+        NAME: dc52
+        TREDET: f51pla
+        TREFID: 0
+  - include: 
+      name: xxxuuuvvv.inc.yaml
+      replace:
+        NAME: dc52
+  - include: 
+      name: xxxuuuvvv_calib.inc.yaml
+      replace:
+        NAME: dc52
+        TGATE: [-1110.,-800.]
+        QGATE: [0,1000]
+
+
+  - include: f3mwdctrack.yaml
+  - include: f5mwdctrack.yaml
+ 

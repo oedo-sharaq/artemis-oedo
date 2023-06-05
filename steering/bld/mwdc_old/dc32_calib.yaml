@@ -1,0 +1,45 @@
+# for calibration of DC32
+#
+# * include after dc32.yaml
+# * prepare pid gate (sample: pidgate.yaml)
+# mod with run:beam2203 2019/11/20
+
+alias:
+  - &pid_gate 54Sc  # CHANGE HERE
+
+Processor:
+  - name: proc_dc32_x1_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dc32_x1
+#      Gate:            *pid_gate
+      TimingGate:      [-1500,-1000] # CHANGE HERE
+      ChargeGate:      [0,1000.] # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_dc32_x2_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dc32_x2
+#      Gate:            *pid_gate
+      TimingGate:      [-1500,-1000] # CHANGE HERE
+      ChargeGate:      [0,1000.] # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_dc32_y1_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dc32_y1
+#      Gate:            *pid_gate
+      TimingGate:      [-1500,-1000] # CHANGE HERE
+      ChargeGate:      [0,1000.] # CHANGE HERE
+      UseMax: 1
+
+  - name: proc_dc32_y2_calib
+    type: art::TMWDCCalibrationProcessor
+    parameter:
+      InputCollection: dc32_y2
+#      Gate:            *pid_gate
+      TimingGate:      [-1500,-1000] # CHANGE HERE
+      ChargeGate:      [0,1000.] # CHANGE HERE
+      UseMax: 1

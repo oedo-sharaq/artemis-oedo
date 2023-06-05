@@ -4,7 +4,6 @@ alias:
   qcal:   ic.fCharge
   ped:    +30
   tcal:   ict.fTiming
-  tcal_a: "ict.fTiming-sr11_a_cal.fTiming[0]"
 
   fe9x: "(542.25*sr91_x[0].fPosition-122.5*sr92_x[0].fPosition)/419.75"
   fe9a: "(sr92_x[0].fPosition-sr91_x[0].fPosition)/419.75*1000."
@@ -106,8 +105,9 @@ anchors:
   - &bmax   0.4
   - &nbin   150
   - &tdiv   200
-  - &tmin   -1000
-  - &tmax   5000
+  - &tmin   -500
+  - &tmax   20000
+
 
 group:
 - name: ic
@@ -118,15 +118,43 @@ group:
      title: s1ic id
      x: *icch
 
-   - name: s1ic_charge_cal
-     title: s1ic charge 
+   - name: s1y
+     title: s1y
+     x: [s1y, 400, -200, 200]
+
+#   - name: tof12s1
+#     title: tof12s1
+#     x: [tof12s1[0].fTiming, 200, 100, 150]
+
+   - name: t12s1
+     title: t12s1
+     x: [t12s1, 200, 100, 200]
+
+   - name: TKE
+     title: TKE
+     x: [tke, 100, 0, 50]
+
+
+   - name: s1ic_charge
+     title: s1ic charge
+     x: *icch
+     y: [qraw, *div1, *qmin, *qmax]
+
+   - name: s1ic_chargecal
+     title: s1ic charge cal
      x: *icch
      y: [qcal, *div1, *cmin, *cmax]
 
-   - name: s1ic_charge_raw
-     title: s1ic charge raw
+   - name: s1ic_timing
+     title: s1ic timing
      x: *icch
-     y: [qraw, *div1, *qmin, *qmax]
+     y: [tcal, *tdiv, *tmin, *tmax]
+
+   - name: s1ic_chargecal_xy
+     title: s1ic charge XYgate
+     cut: "abs(s1x)<10 && abs(s1y)<10"
+     x: *icch
+     y: [qcal, *div1, *cmin, *cmax]
 
    - name: s1ic_chargecal_gtke
      title: s1ic charge cal tke gate
@@ -134,76 +162,23 @@ group:
      x: *icch
      y: [qcal, *div1, *cmin, *cmax]
 
-   - name: s1ic_tdc_ch
-     title: s1 IC TDC
-     x: *icch
-     y: [tcal_a, *tdiv, *tmin, *tmax] 
-#     y: [tcal_a, 200, -1000, 5000] 
+   - name: s1_pos
+     title: s1 position for debug
+     x: [s1x, 200, -200, 200]
+     y: [s1y, 200, -200, 200]
 
-   - name: s1ic_tdc_ch_ygate
-     title: s1 IC TDC Ygate
-     cut: "abs(s1y) < 5"
-     x: *icch
-     y: [tcal_a, *tdiv, *tmin, *tmax] 
+   - name: tof_12s1
+     title: tof FE12-S1 for debug
+     x: [t12s1, 200, 100, 200]
 
-   - name: s1ic_tdc_s1y
-     title: s1 IC TDC vs S1Y 
-     x: [s1y,    *div1, *ymin, *ymax]
-     y: [tcal_a, *tdiv, *tmin, *tmax] 
+   - name: tke
+     title: tke by tof for debug
+     x: [tke, 200, 0, 50]
 
-#   - name: s1y
-#     title: s1y
-#     x: [s1y, 400, -200, 200]
-#
-#   - name: tof12s1
-#     title: tof12s1
-#     x: [tof12s1[0].fTiming, 200, 100, 150]
-#
-#   - name: t12s1
-#     title: t12s1
-#     x: [t12s1, 200, 100, 200]
-#
-#   - name: TKE
-#     title: TKE
-#     x: [tke, 100, 0, 50]
-#
-#
-#
-#   - name: s1ic_chargecal
-#     title: s1ic charge cal
-#     x: *icch
-#     y: [qcal, *div1, *cmin, *cmax]
-#
-#   - name: s1ic_timing
-#     title: s1ic timing
-#     x: *icch
-#     y: [tcal, *tdiv, *tmin, *tmax]
-#
-#   - name: s1ic_chargecal_xy
-#     title: s1ic charge XYgate
-#     cut: "abs(s1x)<10 && abs(s1y)<10"
-#     x: *icch
-#     y: [qcal, *div1, *cmin, *cmax]
-#
-#   - name: s1_pos
-#     title: s1 position for debug
-#     x: [s1x, 200, -200, 200]
-#     y: [s1y, 200, -200, 200]
-#
-#   - name: tof_12s1
-#     title: tof FE12-S1 for debug
-#     x: [t12s1, 200, 100, 200]
-#
-#   - name: tke
-#     title: tke by tof for debug
-#     x: [tke, 200, 0, 50]
-#
-#   - name: pid
-#     title: pid for debug
-#     x: [fe9x, 200, -50, 50]
-#     y: [t39, 200, 410, 450]
-#
-
+   - name: pid
+     title: pid for debug
+     x: [fe9x, 200, -50, 50]
+     y: [t39, 200, 410, 450]
 
 #   - name: s1ic_chargecal_xygate
 #     title: s1ic charge cal XYgate

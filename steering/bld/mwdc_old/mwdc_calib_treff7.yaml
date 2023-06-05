@@ -1,0 +1,36 @@
+Processor:
+ 
+# F3
+  - include: 
+      name: xxyyxxyy_calib.inc.yaml
+      replace:
+        NAME: dc31
+        TGATE: [-1260.,-1190.]
+        QGATE: [0,1200]
+
+  - include: 
+      name: xxyy_calib.inc.yaml
+      replace:
+        NAME: dc32
+        TGATE: [-1260.,-1160.]
+        QGATE: [0,1200]
+
+#f5
+  - include: 
+      name: xxxuuuvvv_calib.inc.yaml
+      replace:
+        NAME: dc51
+        TGATE: [-1100.,-800.]
+        QGATE: [0,300]
+
+  - include: 
+      name: xxxuuuvvv_calib.inc.yaml
+      replace:
+        NAME: dc52
+        TGATE: [-1110.,-800.]
+        QGATE: [0,1000]
+
+
+#  - include: f3mwdctrack.yaml
+#  - include: f5mwdctrack.yaml
+ 

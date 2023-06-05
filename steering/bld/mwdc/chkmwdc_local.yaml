@@ -1,4 +1,31 @@
 Processor:
+##### F3
+#####
+  - include: 
+      name: time2dt.inc.yaml
+      replace: 
+        CATID: 20    
+        NAME: dc31
+        TREDET: f3pla
+        TREFID: 0
+  - include:
+      name:  xxyyxxyy.inc.yaml
+      replace:
+        NAME: dc31
+
+  - include: 
+      name: time2dt.inc.yaml
+      replace: 
+        CATID: 21    
+        NAME: dc32
+        TREDET: f3pla
+        TREFID: 0
+  - include:
+      name:  xxyy.inc.yaml
+      replace:
+        NAME: dc32
+
+
 ##### FE10
 #####
   - include: 
@@ -6,7 +33,7 @@ Processor:
       replace: 
         CATID: 22
         NAME: dca1
-        TREDET: f3pla
+        TREDET: diapad
         TREFID: 0
 
   - include: 
@@ -14,7 +41,7 @@ Processor:
       replace: 
         CATID: 23    
         NAME: dca2
-        TREDET: f3pla
+        TREDET: diapad
         TREFID: 0
 
   - name: proc_dca1_geo
@@ -83,6 +110,6 @@ Processor:
       OutputCollection:   dca2
       OutputTransparency: 0
 ########
+  - include: f3mwdctrack.yaml
   - include: fe10mwdctrack.yaml
-#  - include: fe10mwdctrackreso.yaml
   - include: mwdc_calib_local.yaml

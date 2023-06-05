@@ -1,0 +1,12 @@
+# steering file for DC52 decoder test
+# Load bld-plastic steering file before.
+
+Processor:
+
+  - name: proc_dc52_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              26
+      TimingTypeID:       0
+      OutputCollection:   dc52_raw
+      OutputTransparency: 0

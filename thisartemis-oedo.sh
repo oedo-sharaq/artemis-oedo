@@ -1,2 +1,2 @@
-export $PATH=/home/ryokoyam/work/artemis-SAKURA01/install/bin:$PATH
-export $LD_LIBRARY_PATH=/home/ryokoyam/work/artemis-SAKURA01/install/lib:$LD_LIBRARY_PATH
+export $PATH=/home/ryokoyam/work/artemis-oedo/install/bin:$PATH
+export $LD_LIBRARY_PATH=/home/ryokoyam/work/artemis-oedo/install/lib:$LD_LIBRARY_PATH

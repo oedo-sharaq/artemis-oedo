@@ -1,0 +1,14 @@
+Processor:
+  - name: proc_FE7_tracking
+    type: art::TMWDCTrackingProcessor
+    parameter:
+      InputCollection:
+        - dc71_x
+        - dc71_u
+        - dc71_y
+        - dc72_x
+        - dc72_u
+        - dc72_y
+      OutputCollection:   fe7
+#      UseGlobalPos:       1
+      OutputTransparency: 0

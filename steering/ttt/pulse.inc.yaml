@@ -35,9 +35,9 @@ Processor:
     type: art::TPulseFinder
     parameter:
       ChargeRiseCompensation: []  # [vector<Double_t>] 3 parameters for charge compensation with rise time
-      ClockPeriod: 80 #20  # [Double_t] clock priod in ns
+      ClockPeriod: 20  # [Double_t] clock priod in ns
       DoKeepInvalid: 0  # [Bool_t] keep invalid pulse shape if 1 (default 0)
-      FallingThreshold: 30 #100 # [Float_t] threshold for falling edge
+      FallingThreshold: 30 # [Float_t] threshold for falling edge
       InputCollection: @BRNAME@_sub  # [StringVec_t] pulse data (TCatPulseShape)
       MaxLength: 150  # [Int_t] maximum length to be valid
       NumAvgPoints: 5  # [Int_t] number of average points
@@ -45,9 +45,9 @@ Processor:
       OffsetRange: [-10000, 10000]  # [FloatVec_t] minimum and maximum range of offset
       OutputCollection: @BRNAME@_pulse  # [TString] output pulse data (TCatPulseShape)
       OutputTransparency: 0  # [Bool_t] Output is persistent if false (default)
-      PostPulse: 10 #50  # [Int_t] the number of sampling for pre-pulse
-      PrePulse: 10 #50  # [Int_t] the number of sampling for pre-pulse
-      RisingThreshold: 30 #100 # [Float_t] threshold for rising edge
+      PostPulse: 20  # [Int_t] the number of sampling for pre-pulse
+      PrePulse: 20  # [Int_t] the number of sampling for pre-pulse
+      RisingThreshold: 30 # [Float_t] threshold for rising edge
       SavePulse: 1  # [Bool_t] flag to save pulse
       Sparse: 0  # [Bool_t] sparse mode (first hist is stored)
       Time2Drift: 3  # [Int_t] type of time to calculate drift length (0: offset, 1: cfd (0.5), 2: peak

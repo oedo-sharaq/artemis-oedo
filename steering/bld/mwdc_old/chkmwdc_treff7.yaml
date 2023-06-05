@@ -1,0 +1,52 @@
+Processor:
+ 
+# F3
+  - include: 
+      name: time2dt.inc.yaml
+      replace: 
+        CATID: 20    
+        NAME: dc31
+        TREDET: f71pla
+        TREFID: 0
+  - include: 
+      name: xxyyxxyy.inc.yaml
+      replace:
+        NAME: dc31
+  - include: 
+      name: time2dt.inc.yaml
+      replace: 
+        CATID: 21    
+        NAME: dc32
+        TREDET: f71pla
+        TREFID: 0
+  - include: 
+      name: xxyy.inc.yaml
+      replace:
+        NAME: dc32
+#f5
+  - include: 
+      name: time2dt.inc.yaml
+      replace: 
+        CATID: 25    
+        NAME: dc51
+        TREDET: f71pla
+        TREFID: 0
+  - include: 
+      name: xxxuuuvvv.inc.yaml
+      replace:
+        NAME: dc51
+  - include: 
+      name: time2dt.inc.yaml
+      replace: 
+        CATID: 26    
+        NAME: dc52
+        TREDET: f71pla
+        TREFID: 0
+  - include: 
+      name: xxxuuuvvv.inc.yaml
+      replace:
+        NAME: dc52
+
+  - include: f3mwdctrack.yaml
+  - include: f5mwdctrack.yaml
+ 

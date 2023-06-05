@@ -17,7 +17,6 @@ anchor:
   - &trackY ["@plane@.GetTrack().GetY()",400,-100.,100.]
   - &trackA ["@plane@.GetTrack().GetA()",300,-0.03,0.03]
   - &trackB ["@plane@.GetTrack().GetB()",300,-0.03,0.03]
-
 #alias:
 ##  pidgate: gate.Test("54Sc")
 #  qcut_x1: dc31_x1.fCharge >  300 && dc31_x1.fCharge < 500

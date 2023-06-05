@@ -1,0 +1,100 @@
+Processor:
+
+##### FE10
+#####
+  - include: 
+      name: time2dt.inc.yaml
+      replace: 
+        CATID: 22
+        NAME: dca1
+        TREDET: f3pla
+        TREFID: 0
+  - include: 
+      name: time2dt.inc.yaml
+      replace: 
+        CATID: 23    
+        NAME: dca2
+        TREDET: f3pla
+        TREFID: 0
+  - name: proc_dca1_geo
+    type: art::TParameterLoader
+    parameter:
+      Name:     dca1
+      Type:     art::TMWDCParameter
+      FileName: prm/mwdc/dca1/geometry.yaml
+#  - name: proc_dc71_dt
+#    type: art::TTimingSubtractionProcessor
+#    parameter:
+#      InputCollection:       dc71_cal
+#      OutputCollection:      dc71_dt2
+#      StartTimingCollection: dcc2tref
+#      StartTimingDetID:   -1
+#      OutputTransparency:   0
+  - include:
+      name:  xuy_load.inc.yaml
+      replace:
+        NAME: dca1
+  - name: proc_dca1_plane
+    type: art::TMWDCPlaneProcessor
+    parameter:
+      InputCollection: dca1_dt
+      MWDCName:        dca1
+      ConverterList:
+        - prm_dca1_dxdt_x
+        - prm_dca1_dxdt_u
+        - prm_dca1_dxdt_y
+      OutputTransparency: 0      
+  - name: proc_dca1_track
+    type: art::TMWDCTrackingProcessor
+    parameter:
+      InputCollection:
+        - dca1_x
+        - dca1_u
+        - dca1_y
+      OutputCollection:   dca1
+      OutputTransparency: 0
+  - name: proc_dca2_geo
+    type: art::TParameterLoader
+    parameter:
+      Name:     dca2
+      Type:     art::TMWDCParameter
+      FileName: prm/mwdc/dca2/geometry.yaml
+# - name: proc_dca2_dt
+#   type: art::TTimingSubtractionProcessor
+#   parameter:
+#     InputCollection:       dca2_cal
+#     OutputCollection:      dca2_dt2
+#     StartTimingCollection: dcc1tref
+#     StartTimingDetID:   -1
+#     OutputTransparency:   0
+  - include:
+      name:  xuy_load.inc.yaml
+      replace:
+        NAME: dca2
+  - name: proc_dca2_plane
+    type: art::TMWDCPlaneProcessor
+    parameter:
+      InputCollection: dca2_dt
+      MWDCName:        dca2
+      ConverterList:
+        - prm_dca2_dxdt_x
+        - prm_dca2_dxdt_u
+        - prm_dca2_dxdt_y
+      OutputTransparency: 0            
+  - name: proc_dca2_track
+    type: art::TMWDCTrackingProcessor
+    parameter:
+      InputCollection:
+        - dca2_x
+        - dca2_u
+        - dca2_y
+      OutputCollection:   dca2
+      OutputTransparency: 0
+
+
+########
+      
+  - include: fe7mwdctrack.yaml
+#  - include: fe10mwdctrack.yaml
+
+ 
