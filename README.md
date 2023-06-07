@@ -2,7 +2,7 @@
 artemis working directory for OEDO/SHARAQ experiments
 
 ## Installation
-- Install cmake version of artemis (currently available at https://github.com/artemis/artemis.git -b develop).
+- Install cmake version of artemis (currently available at https://github.com/artemis-dev/artemis.git -b develop).
 - Set artemis environment.
 ```
 source thisartemis.sh
