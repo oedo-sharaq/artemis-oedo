@@ -1,5 +1,6 @@
 Anchor:
- - &input_GET /mnt/data/getdaq01/tina/cobo00/run_@NUM@   
+# - &input_GET /mnt/data/getdaq01/tina/cobo00/run_@NUM@   
+ - &input_GET getdata/run_4102.dat.13-05-22_11h53m12s.2
  - &seg0 segdataGET0
 
 Processor:
