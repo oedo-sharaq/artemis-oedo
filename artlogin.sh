@@ -65,9 +65,6 @@ done
 
 git clone $reposdir $userdir
 cd $userdir
-yes '' | git flow init > /dev/null
-git submodule init
-git submodule update
 
 while true; do
     echo -n "input fullname: "
@@ -107,8 +104,6 @@ else
 	echo Warning: directory ${ART_DATA_DIR} does not exist
     fi
 fi
-
-ln -s $ART_SHARE_DIR share
 
 echo -n "compiling sources .."
 mkdir build
