@@ -17,5 +17,18 @@ Processor:
         CID: 107
         FP: f7
 
+  - include: 
+      name: tmpl.yaml
+      replace: 
+        CID: 108
+        FP: s2
+
+  - include: 
+      name: tmpl.yaml
+      replace: 
+        CID: 109
+        FP: veto
+
+
   - include: tof.yaml 
 

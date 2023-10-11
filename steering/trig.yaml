@@ -1,0 +1,27 @@
+Processor:
+#  - name: proc_si_ch2MeV
+#    type: art::TParameterArrayLoader
+#    parameter:
+#      Name: prm_si_ch2MeV
+#      Type: art::TAffineConverter
+#      FileName: prm/si/ch2MeV.dat
+
+
+  - name: proc_trig_raw
+    type: art::TSimpleDataMappingProcessor
+#    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      CatID:            100
+      DataTypeID:       0
+      Sparse:           0
+      OutputCollection: trig_raw
+
+
+#  - name: proc_trig
+#    type: art::TTimingChargeCalibrationProcessor
+#    parameter:
+#      InputCollection:      trig_raw
+#      OutputCollection:     trig_cal
+#      ChargeConverterArray:
+
+

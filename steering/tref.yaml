@@ -26,6 +26,9 @@ Processor:
       # [[device] [focus] [detector] [geo] [ch]]
       RefConfig: [11, 3, 31, 0, 31]
       SegConfig: [11, 3, 31, 0]
+#      RefConfig: [11, 22, 35, 0, 17]
+#      SegConfig: [11, 22, 35, 0]
+
 
   - name: proc_tref_v1190_f3_1
     type: art::TTimeReferenceProcessor
@@ -42,16 +45,16 @@ Processor:
       SegConfig: [11, 3, 31, 2]
   
 ### FE7 FE8 to be added
-#  - name: proc_tref_v1190_fe7
-#    type: art::TTimeReferenceProcessor
-#    parameter:
-#      RefConfig: [11,7,31,1,0]
-#      SegConfig: [11,7,31,1]
-#  - name: proc_tref_v1190_fe8
-#    type: art::TTimeReferenceProcessor
-#    parameter:
-#      RefConfig: [11,8,31,1,0]
-#      SegConfig: [11,8,31,1]
+  - name: proc_tref_v1190_fe7
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [11,7,31,1,0]
+      SegConfig: [11,7,31,1]
+  - name: proc_tref_v1190_fe8
+    type: art::TTimeReferenceProcessor
+    parameter:
+      RefConfig: [11,8,31,1,0]
+      SegConfig: [11,8,31,1]
   - name: proc_tref_v1190_fe9_0
     type: art::TTimeReferenceProcessor
     parameter:
@@ -102,34 +105,35 @@ Processor:
     parameter:
       RefConfig: [11,12,31,3,0]
       SegConfig: [11,12,31,3]
-  - name: proc_tref_v1190_s1_0
+  - name: proc_tref_v1190_s0_0
     type: art::TTimeReferenceProcessor
     parameter:
-      RefConfig: [11,21,31,0,0]
-      SegConfig: [11,21,31,0]
-  - name: proc_tref_v1190_s1_1
+      RefConfig: [11,20,31,0,0]
+      SegConfig: [11,20,31,0]
+  - name: proc_tref_v1190_s0_1
     type: art::TTimeReferenceProcessor
     parameter:
-      RefConfig: [11,21,31,1,0]
-      SegConfig: [11,21,31,1]
-  - name: proc_tref_v1190_s1_2
+      RefConfig: [11,20,31,1,0]
+      SegConfig: [11,20,31,1]
+  - name: proc_tref_v1190_s2_0
     type: art::TTimeReferenceProcessor
     parameter:
-      RefConfig: [11,21,31,2,0]
-      SegConfig: [11,21,31,2]
-  - name: proc_tref_v1190_s1_IC
+      RefConfig: [11,22,31,0,16]
+      SegConfig: [11,22,31,0]
+  - name: proc_tref_v1190_s2_1
     type: art::TTimeReferenceProcessor
     parameter:
-      RefConfig: [11,21,31,2,0]
-      SegConfig: [11,21,31,4]
-  - name: proc_tref_v1290_s1_3
+      RefConfig: [11,22,31,1,0]
+      SegConfig: [11,22,31,1]
+  - name: proc_tref_v1190_s2_2
     type: art::TTimeReferenceProcessor
     parameter:
-      RefConfig: [11,21,31,3,0]
-      SegConfig: [11,21,31,3]
-  - name: proc_tref_v1290_s1_4
+      RefConfig: [11,22,31,2,0]
+      SegConfig: [11,22,31,2]
+  - name: proc_tref_v1190_s2_3
     type: art::TTimeReferenceProcessor
     parameter:
-      RefConfig: [11,21,31,4,0]
-      SegConfig: [11,21,31,4]
+      RefConfig: [11,22,31,3,0]
+      SegConfig: [11,22,31,3]
+
 

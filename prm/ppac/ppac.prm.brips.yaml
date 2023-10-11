@@ -25,39 +25,62 @@ Type: art::TPPACParameter
 Contents:  
 # F3
   f3ppac1a:
-    ns2mm: [1.244, -1.235]
-    delayoffset: [ 0.47, -1.3 ]
+#    ns2mm: [1.244, -1.235]
+#    delayoffset: [ 0.47, -1.3 ]
+#    linecalib: [ -1.239, 4.155 ]
+# for SH13 
+    ns2mm: [1.242, -1.231]
+    delayoffset: [ 0.46, -1.06 ]
+#    linecalib: [ -4.91, -3.63 ]
     linecalib: [ -1.239, 4.155 ]
     exchange: 0
     reflectx: 1
-    geometry: [ 1.05, 0.0, -14.4 ]
+#    geometry: [ 1.05, 0.0, -14.4 ]
+    geometry: [ 1.05, 0.0, 235.6 ]
     TXSumLimit: [-1000000., 1000000.]
     TYSumLimit: [-1000000., 1000000.]
   f3ppac1b:
-    ns2mm: [1.244, -1.221]
-    delayoffset: [ 0.67, -0.39 ]
+#    ns2mm: [1.244, -1.221]
+#    delayoffset: [ 0.67, -0.39 ]
+#    linecalib: [ 1.7112, 2.467 ]
+# for SH13 
+    ns2mm: [1.259, -1.246]
+    delayoffset: [ 1.07, -0.51 ]
+#    linecalib: [ -11.51, 16.34 ]
     linecalib: [ 1.7112, 2.467 ]
     exchange: 0.
     reflectx: 1
-    geometry: [ 0.57, 0, 14.4 ]
+#    geometry: [ 0.57, 0, 14.4 ]
+    geometry: [ 0.57, 0, 264.4 ]
     TXSumLimit: [-1000000., 1000000.]
     TYSumLimit: [-1000000., 1000000.]
   f3ppac2a:
-    ns2mm: [ 1.226, -1.234 ]
-    delayoffset: [ 1.4 , -0.53 ]
+#    ns2mm: [ 1.226, -1.234 ]
+#    delayoffset: [ 1.4 , -0.53 ]
+#    linecalib: [ -1.5519, 0.49759 ]
+# SH13
+    ns2mm: [ 1.214, -1.213 ]
+    delayoffset: [ 1.301 , -0.574 ]
+#    linecalib: [ 9.64, 9.86 ]
     linecalib: [ -1.5519, 0.49759 ]
     exchange: 0.
     reflectx: 1
-    geometry: [ 1.98, 0, 875.6 ]
+#    geometry: [ 1.98, 0, 875.6 ]
+    geometry: [ 1.98, 0, 695.6 ]
     TXSumLimit: [-1000000., 1000000.]
     TYSumLimit: [-1000000., 1000000.]
   f3ppac2b:
-    ns2mm: [ 1.225, -1.224 ]
-    delayoffset: [ 1.04, -0.93 ]
-    linecalib: [ 0.6495, 2.0694 ]
+#    ns2mm: [ 1.225, -1.224 ]
+#    delayoffset: [ 1.04, -0.93 ]
+#    linecalib: [ 0.6495, 2.0694 ]
+    ns2mm: [ 1.219, -1.214 ]
+    delayoffset: [ 0.625, -0.737 ]
+#    linecalib: [ 6.88, 8.08 ]
+    linecalib: [ 0.6495,2.0694 ]
     exchange: 0.
     reflectx: 1
-    geometry: [ 1.76, 0, 904.4 ]
+#    geometry: [ 1.76, 0, 904.4 ]
+    geometry: [ 1.76, 0, 724.4 ]
     TXSumLimit: [-1000000., 1000000.]
     TYSumLimit: [-1000000., 1000000.]
 # F4
@@ -72,8 +95,8 @@ Contents:
     TYSumLimit: [-1000000., 1000000.]
 # F5
   f5ppac1a:
-    ns2mm: [1.214, -1.221]
-    delayoffset: [ 1.37, -0.58 ]
+    ns2mm: [1.228, -1.23]
+    delayoffset: [ 0.95, -0.35 ]
     linecalib: [ 0.7579, 3.457 ]
     exchange: 0
     reflectx: 1
@@ -81,8 +104,8 @@ Contents:
     TXSumLimit: [-1000000., 1000000.]
     TYSumLimit: [-1000000., 1000000.]
   f5ppac1b:
-    ns2mm: [1.22, -1.23]
-    delayoffset: [ 1.52, -0.33 ]
+    ns2mm: [1.231, -1.243]
+    delayoffset: [ 1.18, -0.41 ]
     linecalib: [ 0.3287, -1.131 ]
     exchange: 0.
     reflectx: 1
@@ -90,8 +113,8 @@ Contents:
     TXSumLimit: [-1000000., 1000000.]
     TYSumLimit: [-1000000., 1000000.]
   f5ppac2a:
-    ns2mm: [ 1.23, -1.233 ]
-    delayoffset: [ 1.24 , -0.62 ]
+    ns2mm: [ 1.214, -1.221 ]
+    delayoffset: [ 1.37 , -0.58 ]
     linecalib: [ 2.945, 4.306 ]
     exchange: 0.
     reflectx: 1
@@ -99,8 +122,8 @@ Contents:
     TXSumLimit: [-1000000., 1000000.]
     TYSumLimit: [-1000000., 1000000.]
   f5ppac2b:
-    ns2mm: [ 1.235, -1.218 ]
-    delayoffset: [ 1.15, -0.22 ]
+    ns2mm: [ 1.22, -1.23 ]
+    delayoffset: [ 1.52, -0.33 ]
     linecalib: [ -3.985, -2.241 ]
     exchange: 0.
     reflectx: 1

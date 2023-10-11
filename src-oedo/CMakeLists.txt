@@ -1,12 +1,6 @@
 set(LIB_NAME oedo)
 
 set(SOURCES
-    TTinaProcessor.cc
-    TTinaData.cc
-    TTinaProcessor2.cc
-    TTinaData2.cc
-    TTinaProcessor3.cc
-    TTinaData3.cc
     TDaliProcessor.cc
     TDaliData.cc
     TIonChamberProcessor.cc
@@ -14,23 +8,23 @@ set(SOURCES
     TIonChamberProcessor.cc
     TSingleTOFProcessor.cc
     TTOF2BetaProcessor.cc
-    TBrhoReconstructProcessor3.cc
+    TBrhoReconstructProcessorS1.cc
     TPIDSingleSectionProcessor.cc
     TRawDataTriggeredList.cc
     TModuleDecoderA3100FreeRunTSI.cc
     TTimingChargeTriggeredListMappingProcessor.cc
     TTimingAverageProcessor.cc
-    TSRPPACPlaneStripDqdxProcessor.cc
-    TTreeCopyProcessor.cc
+    TModuleDecoderTC842.cc
+    TModuleDecoderAPV8008.cc
+    TRawDataTimestampCharge.cc
+    TTimingChargeAPV8008Processor.cc
+    TAPV8008Data.cc
+    #TMergerData.cc
+    #TMergerProcessor.cc
+    TModuleDecoderTimestamp.cc
 )
 
 set(HEADERS
-    TTinaProcessor.h
-    TTinaData.h
-    TTinaProcessor2.h
-    TTinaData2.h
-    TTinaProcessor3.h
-    TTinaData3.h
     TDaliProcessor.h
     TDaliData.h
     TIonChamberProcessor.h
@@ -38,14 +32,20 @@ set(HEADERS
     TIonChamberProcessor.h
     TSingleTOFProcessor.h
     TTOF2BetaProcessor.h
-    TBrhoReconstructProcessor3.h
+    TBrhoReconstructProcessorS1.h
     TPIDSingleSectionProcessor.h
     TRawDataTriggeredList.h
     TModuleDecoderA3100FreeRunTSI.h
     TTimingChargeTriggeredListMappingProcessor.h
     TTimingAverageProcessor.h
-    TSRPPACPlaneStripDqdxProcessor.h
-    TTreeCopyProcessor.h   
+    TModuleDecoderTC842.h
+    TModuleDecoderAPV8008.h
+    TRawDataTimestampCharge.h
+    TTimingChargeAPV8008Processor.h
+    TAPV8008Data.h
+    #TMergerData.h
+    #TMergerProcessor.h
+    TModuleDecoderTimestamp.h
 )
 
 add_library(${LIB_NAME} SHARED ${SOURCES})

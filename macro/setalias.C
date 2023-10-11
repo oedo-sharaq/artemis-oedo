@@ -1,50 +1,98 @@
 {
 
-tree->SetAlias("tof39","(sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-diapad[0].fTiming");
-//tree->SetAlias("pidgate","abs(f5track.fX+23.9*((f5ppac1a.fTAnode+f5ppac2a.fTAnode)/2-diapad.fTiming-1250)-1414-32369)<9");
-//tree->SetAlias("pidgate","abs(f5track.fX+25.5*((f5ppac1a.fTAnode+f5ppac2a.fTAnode)/2-diapad.fTiming-1250)-36040)<10");
-//tree->SetAlias("pidgate","abs(f5track.fX+26.6*((f5ppac1a.fTAnode+f5ppac2a.fTAnode)/2-diapad.fTiming-1250)-37595)<10");
-//tree->SetAlias("pidgate","abs(f5track.fX+26.6*((f5ppac1a.fTAnode+f5ppac2a.fTAnode)/2-diapad.fTiming-1250)-37611)<10");
-//tree->SetAlias("pidgate","abs(f5track.fX+26.6*((f5ppac1a.fTAnode+f5ppac2a.fTAnode)/2-diapad[0].fTiming-1250)-37606)<10");
-//tree->SetAlias("pidgate","abs(sr9.fX+7.5*((sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-diapad[0].fTiming-1073.2))<10"); // physics 130Sn
-//tree->SetAlias("pidgate","abs(sr9.fX+7.5*((sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-diapad[0].fTiming-1071))<10"); // optics0419
-//tree->SetAlias("pidgate","abs(f5track.fX+26.6*((f5ppac1a.fTAnode+f5ppac2a.fTAnode)/2-diapad[0].fTiming-1250)-37636)<10"); // optics0419
-//tree->SetAlias("pidgate","abs(sr9.fX+7.5*((sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-diapad[0].fTiming-1074))<10"); //optics0439 124Sn FE9
-//tree->SetAlias("pidgate","abs(sr9.fX+7.5*((sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-diapad[0].fTiming-1075.8))<10"); //optics0439 124Sn FE9
-//tree->SetAlias("pidgate","abs(sr9.fX+7.5*((sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-diapad[0].fTiming-1078.2))<10");// physics 124Sn
-  tree->SetAlias("f5.fT","(f5ppac1a.fTAnode+f5ppac1b.fTAnode+f5ppac2a.fTAnode+f5ppac2b.fTAnode)/4.");
-  tree->SetAlias("f5.pid","0.0427*f5track.fX+0.999*(f5.fT-2709)+2720-3.6");
-// tree->SetAlias("fe9.pid","0.1463*sr9.fX+0.999*fe9.fT+1500+53");
-// tree->SetAlias("fe9.pid","0.1463*sr9.fX+0.999*fe9.fT+1500+53-11"); // tuning F3 ting
-// tree->SetAlias("fe9.pid","0.1463*sr9.fX+0.999*fe9.fT+1500+53-11+4.3"); // phys S0 ting
- tree->SetAlias("fe9.pid","sr9.fX+4.086*fe9.fT+6335-2.6-43+11.35-1.342"); // tuning Ni58 0195
-//tree->SetAlias("pidgate","abs(sr9.fX+7.5*((sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-diapad[0].fTiming-1064))<10");
-tree->SetAlias("pidgate","abs(fe9.pid)<8");
+// definition of tracking and timing
 tree->SetAlias("sr9.fX","(542.25*sr91_x[0].fPosition-122.5*sr92_x[0].fPosition)/419.75");
 tree->SetAlias("sr9.fA","(sr92_x[0].fPosition-sr91_x[0].fPosition)/419.75");
 tree->SetAlias("sr9.fY","(542.25*sr91_y[0].fPosition-122.5*sr92_y[0].fPosition)/419.75");
 tree->SetAlias("sr9.fB","(sr92_y[0].fPosition-sr91_y[0].fPosition)/419.75");
-//
-tree->SetAlias("src.fX","(1972*src2_x[0].fPosition-1452*src1_x[0].fPosition)/520.");
-tree->SetAlias("src.fA","(src2_x[0].fPosition-src1_x[0].fPosition)/520.");
-tree->SetAlias("src.fY","(1972*(src2_y[0].fPosition-31)-1452*(src1_y[0].fPosition-31))/520.");
-tree->SetAlias("src.fB","((src2_y[0].fPosition-31)-(src1_y[0].fPosition-31))/520.");
 
-tree->SetAlias("sr1.fX","(560.8*sr12_x[0].fPosition-210.8*sr11_x[0].fPosition)/350.");
-tree->SetAlias("sr1.fA","(sr12_x[0].fPosition-sr11_x[0].fPosition)/350.");
-tree->SetAlias("sr1.fY","(560.8*sr12_y[0].fPosition-210.8*sr11_y[0].fPosition)/350.");
-tree->SetAlias("sr1.fB","(sr12_y[0].fPosition-sr11_y[0].fPosition)/350.");
+tree->SetAlias("src.fX","(1810*src2_x[0].fPosition-1290*src1_x[0].fPosition)/520.");
+tree->SetAlias("src.fA","(src2_x[0].fPosition-src1_x[0].fPosition)/520.");
+tree->SetAlias("src.fY","(1810*(src2_y[0].fPosition-31)-1290*(src1_y[0].fPosition-31))/520.");
+tree->SetAlias("src.fB","((src2_yc0[0].fPosition-1)-(src1_yc0[0].fPosition-1))/520");
 
 tree->SetAlias("fe9.fT","(sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2");
 tree->SetAlias("fe12.fT","(src1_a_cal[0].fTiming+src2_a_cal[0].fTiming)/2");
-
-//tree->SetAlias("tof3c","(src1_a_cal[0].fTiming+src2_a_cal[0].fTiming)/2-fdiapad[0].fTiming");
-tree->SetAlias("tof39","(sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-vf3dia[0].fTiming-1073");
-tree->SetAlias("pid","tof39*0.99+0.12*sr9.fX");
-tree->SetAlias("tof9c","(src1_a_cal[0].fTiming+src2_a_cal[0].fTiming)/2-(sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2");
-tree->SetAlias("tofcs","(sr11_a_cal[0].fTiming+sr12_a_cal[0].fTiming)/2-(src1_a_cal[0].fTiming+src2_a_cal[0].fTiming)/2-579.95");
-//tree->SetAlias("tof8s","(sr11_a_cal[0].fTiming+sr12_a_cal[0].fTiming)/2-(sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2");
 tree->SetAlias("fe10.fT","fe9.fT+(fe12.fT-fe9.fT)*4753.75/(4753.75+9687.93)");
+
+
+// for pid
+tree->SetAlias("tof35.fT","f5pla[0].fTiming-dia3pad[0].fTiming)");
+//tree->SetAlias("tof36.fT","f6ppac.fTAnode-dia3pad[0].fTiming");
+//tree->SetAlias("tof39.fT","(sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-dia3pad[0].fTiming");
+//tree->SetAlias("tof30.fT","sr0_a_cal[0].fTiming-dia3pad[0].fTiming");
+tree->SetAlias("tof32","dias2pad[0].fTiming-dia3pad[0].fTiming");
+
+tree->SetAlias("pidgate","abs(sr0_x[0].fPosition+50-25*(sr0_a_cal.fTiming-dia3pad[0].fTiming-1066))<30"); // optics0058
+
+//tree->SetAlias("f5.brho","B_0*(1-f5track.fX/14600) "); //B_0, D
+//tree->SetAlias("f5.beta","23283.19/(300*(tof35+t_off)) "); // L,t_off
+//tree->SetAlias("f5.gamma","1/TMath::Sqrt(1-(f5.beta)*(f5.beta)) "); 
+//tree->SetAlias("f5.aq","f5.brho / (f5.gamma * f5.beta * 300) ");
+
+//tree->SetAlias("fe9.brho","B_0*(1-sr9_x[0].fPosition/14600) "); //B_0, D
+//tree->SetAlias("fe9.beta","68543.07./(tof39+t_off) "); // L, t_off
+//tree->SetAlias("fe9.gamma","1/TMath::Sqrt(1-(fe9.beta)*(fe9.beta)) ");
+//tree->SetAlias("fe9.aq","fe9.brho / (fe9.gamma * fe9.beta * 300) ");
+//
+//tree->SetAlias("s0.brho","B_0*(1-sr0_x[0].fPosition/14600) "); //B_0, D
+//tree->SetAlias("s0.beta","84764.75./(tof30+t_off) "); //L, t_off
+//tree->SetAlias("s0.gamma","1/TMath::Sqrt(1-(s0.beta)*(s0.beta)) ");
+//tree->SetAlias("s0.aq","s0.brho / (s0.gamma * s0.beta * 300) ");
+//
+tree->SetAlias("s2brho","4.4147*(1-sr0_x[0].fPosition/14856) "); //B_0, D
+tree->SetAlias("s2beta","103499.78/(tof32-1455.)/299.79"); //L, t_off
+tree->SetAlias("s2gamma","1/TMath::Sqrt(1-(s2beta)*(s2beta)) ");
+tree->SetAlias("s2aq","s2brho * 299.79 / (s2gamma * s2beta * 931.49) ");
+
+
+//tree->SetAlias("fe7.fX","(2894.75+250.)*(fe7ppac1.GetX()-fe7ppac2.GetX())/500.");  
+//tree->SetAlias("fe7.fY","(2894.75+250.)*(fe7ppac1.GetY()-fe7ppac2.GetY())/500.");  
+//tree->SetAlias("fe7.fX","(2894.75+250.)*(fe7ppac1.GetX()-fe7ppac2.GetX())/500.");  
+//tree->SetAlias("fe7.fY","(2894.75+250.)*(fe7ppac1.GetY()-fe7ppac2.GetY())/500.");  
+tree->SetAlias("s0.fX","sr0_xc0[0].fPosition+49.28");  
+tree->SetAlias("s0.fY","sr0_yc0[0].fPosition");  
+tree->SetAlias("tof30","sr0_a_cal.fTiming-dia3pad[0].fTiming");  
+//tree->SetAlias("pidgate","abs(s0.fX)<20&&abs(tof30-1066)<2");  
+//tree->SetAlias("pidgate","abs(s0.fX)<60&&abs(tof30-1066)<2");  
+
+tree->SetAlias("pidfe","abs(s0.fX)<60&&abs(tof30-1066)<2");  
+tree->SetAlias("pidv","abs(s0.fX)<60&&abs(tof30-1093)<3");  
+
+tree->SetAlias("s0xc","s0.fX-24.0*(tof30-1066.)");  
+
+// tree->SetAlias("s2de","S2ssd.fEx");
+//// tree->SetAlias("s2de","-144.158 + 1.53178 * S2ssd.fEx");
+// tree->SetAlias("s2de","(S2ssd.fEx-7.1)*0.9783"); // optics0097
+ tree->SetAlias("s2de","1.03827*S2ssd.fEx*0.866"); // optics0111
+ tree->SetAlias("de_v","TMath::Log(5907.5*s2beta*s2beta)-TMath::Log(1.-s2beta*s2beta)-s2beta*s2beta");
+
+ //tree->SetAlias("s2z","TMath::Sqrt(s2de/de_v) * s2beta");
+ //// tree->SetAlias("s2z","7.2379 + 5.38095*TMath::Sqrt(s2de/de_v) * s2beta");
+ // tree->SetAlias("s2z","1.08678 + 7.29327*TMath::Sqrt(s2de/de_v) * s2beta"); // optics0097
+ tree->SetAlias("s2z","-0.0513 + 7.451*TMath::Sqrt(s2de/de_v) * s2beta"); // optics0111
+
+//tree->SetAlias("fe7.fX","(2894.75+250.)*(fe7ppac1.GetX()-fe7ppac2.GetX())/500.");  
+//tree->SetAlias("fe7.fY","(2894.75+250.)*(fe7ppac1.GetY()-fe7ppac2.GetY())/500.");  
+tree->SetAlias("fe7.fX","(2894.75+250.)*(fe7ppac1.GetX()-fe7ppac2.GetX())/500.");  
+tree->SetAlias("fe7.fY","(2894.75+250.)*(fe7ppac1.GetY()-fe7ppac2.GetY())/500.");  
+tree->SetAlias("s0.fX","sr0_xc0[0].fPosition+49.28");  
+tree->SetAlias("tof30","sr0_a_cal.fTiming-dia3pad[0].fTiming");  
+//tree->SetAlias("pidgate","abs(s0.fX)<20&&abs(tof30-1066)<2");  
+tree->SetAlias("triggate","abs(trig_raw.fCharge-254000)<500"); // optics0058
+
+// added by mtanaka
+ tree->SetAlias("pltof","s2pla.GetTAve()-dia3pad[0].fTiming");
+ tree->SetAlias("pltofvalid","2020 < s2pla.GetTAve()-dia3pad[0].fTiming && s2pla.GetTAve()-dia3pad[0].fTiming < 2150");
+ tree->SetAlias("gpltof2","2020 < s2pla.GetTAve()-dia3pad[0].fTiming && s2pla.GetTAve()-dia3pad[0].fTiming < 2080");
+ tree->SetAlias("plz","S2ssd.GetEx()-(0.60*pltof-1061.49)");
+ tree->SetAlias("gs2xy","-5<s2.fX&&s2.fX<5 && 5<s2.fY && s2.fY<45");
+ tree->SetAlias("gs2xy_2","-5<s2.fX&&s2.fX<-1 && 5<s2.fY && s2.fY<45");
+
+ tree->SetAlias("g1","2065<pltof&&pltof<2070 && 170<S2ssd.GetEx()&&S2ssd.GetEx()<180"); // 39Ca on TOF(F3Dia-S2PL) vs dE(Si)
+ tree->SetAlias("g2","2040<pltof&&pltof<2043 && 180<S2ssd.GetEx()&&S2ssd.GetEx()<210"); // 40Ti on TOF(F3Dia-S2PL) vs dE(Si)
+ tree->SetAlias("g3","2034<pltof&&pltof<2039 && 220<S2ssd.GetEx()&&S2ssd.GetEx()<240"); // 43Cr on TOF(F3Dia-S2PL) vs dE(Si)
+ tree->SetAlias("g4","2037<pltof&&pltof<2041 && 265<S2ssd.GetEx()&&S2ssd.GetEx()<290"); // 47Fe on TOF(F3Dia-S2PL) vs dE(Si)
 
 }
 

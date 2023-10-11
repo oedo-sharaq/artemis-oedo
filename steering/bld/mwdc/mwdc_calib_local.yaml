@@ -16,34 +16,35 @@ Processor:
 #        QGATE: [0,10000]
 
 # FE7
-  - include: 
-      name: xuy_calib.inc.yaml
-      replace:
-        NAME: dca1
-        TGATE: [900.,1300.]
-        QGATE: [0,800]
-
-  - include: 
-      name: xuy_calib.inc.yaml
-      replace:
-        NAME: dca2
-        TGATE: [900.,1300.]
-        QGATE: [100,1200]
-
-## FE10
 #  - include: 
-#      name: xxuv_calib.inc.yaml
+#      name: xuy_calib.inc.yaml
 #      replace:
 #        NAME: dca1
-#        TGATE: [-50.,100.]
-#        QGATE: [0,10000]
+#        TGATE: [-250.,-10.]
+#        QGATE: [100,1200]
 #
 #  - include: 
-#      name: xxuv_calib.inc.yaml
+#      name: xuy_calib.inc.yaml
 #      replace:
 #        NAME: dca2
-#        TGATE: [-50.,100.]
-#        QGATE: [0,10000]
+#        TGATE: [-250.,-10.]
+#        QGATE: [500,1400]
+
+## FE10
+  - include: 
+      name: xxuv_calib.inc.yaml
+      replace:
+        NAME: dc21
+#        TGATE: [2000.,2100.]
+        TGATE: [940.,1050.]
+        QGATE: [600,900]
+
+  - include: 
+      name: xxuv_calib.inc.yaml
+      replace:
+        NAME: dc22
+        TGATE: [940.,1050.]
+        QGATE: [400,1200]
         
 
  

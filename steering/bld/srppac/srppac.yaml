@@ -8,8 +8,8 @@ Processor:
         CATIDa: 40 
         CATIDx: 41
         CATIDy: 42
-    ##    VALIDTIME: [-16700,-16400,0]
         VALIDTIME: [-100000,100000,0]
+
 
   - include:
       name: srppac.inc.yaml
@@ -18,8 +18,8 @@ Processor:
         CATIDa: 43 
         CATIDx: 44
         CATIDy: 45
-      ##  VALIDTIME: [-16500,-16200,0]
         VALIDTIME: [-100000,100000,0]
+
 
 ### calib LR
 #  - include: 
@@ -43,18 +43,18 @@ Processor:
         CATIDa: 46 
         CATIDx: 47
         CATIDy: 48
-      ##  VALIDTIME: [-16000,-14000,0]
         VALIDTIME: [-100000,100000,0]
+
 
   - include: 
       name: srppac.inc.yaml
       replace:
         NAME: src2
         CATIDa: 49 
-        CATIDx: 10
+        CATIDx: 50
         CATIDy: 51
-      ##  VALIDTIME: [-16000,-14000,0]
         VALIDTIME: [-100000,100000,0]
+
 
 
 ### calib LR
@@ -70,39 +70,28 @@ Processor:
 
 
 
-#### S1
+#### S0
 ####
   - include: 
       name: srppac.inc.yaml
       replace:
-        NAME: sr11
+        NAME: sr0
         CATIDa: 52 
         CATIDx: 53
         CATIDy: 54
-      ##  VALIDTIME: [-9000,-7000,0]
         VALIDTIME: [-100000,100000,0]
-
-
-  - include: 
-      name: srppac.inc.yaml
-      replace:
-        NAME: sr12
-        CATIDa: 55 
-        CATIDx: 56
-        CATIDy: 57
-      ##  VALIDTIME: [-9000,-7000,0]
-        VALIDTIME: [-100000,100000,0]
-
 
 ### calib LR
 # 
 #  - include:
 #      name: srppac.calib.lr.yaml
 #      replace: 
-#        NAME: sr11
+#        NAME: sr01
 #
 #  - include:
 #      name: srppac.calib.lr.yaml
 #      replace: 
-#        NAME: sr12
+#        NAME: sr02
+
+
 

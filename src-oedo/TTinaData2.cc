@@ -7,9 +7,7 @@ ClassImp(art::TTinaData2)
 
 TTinaData2::TTinaData2()
    : fEnergy(kInvalidD), fDeltaE(kInvalidD),
-     fTheta(kInvalidD), fPhi(kInvalidD), 
-	 fDeid(kInvalidD), fEid(kInvalidD),
-    fX(kInvalidD), fY(kInvalidD)
+  fTheta(kInvalidD), fPhi(kInvalidD), fDeid(kInvalidD),fEid(kInvalidD)
 {
    TDataObject::SetID(kInvalidI);
 }
@@ -21,8 +19,7 @@ TTinaData2::TTinaData2(const TTinaData2& rhs)
      fEnergy(rhs.fEnergy), fDeltaE(rhs.fDeltaE),
      fTiming(rhs.fTiming),
      fTheta(rhs.fTheta), fPhi(rhs.fPhi),
-     fDeid(rhs.fDeid), fEid(rhs.fEid),
-     fX(rhs.fX), fY(rhs.fY)
+     fDeid(rhs.fDeid),fEid(rhs.fEid)
 {}
 
 TTinaData2& TTinaData2::operator=(const TTinaData2& rhs)
@@ -44,8 +41,6 @@ void TTinaData2::Copy(TObject& dest) const
    cobj.fPhi    = this->GetPhi();
    cobj.fDeid   = this->GetDeid();
    cobj.fEid    = this->GetEid();
-   cobj.fX      = this->GetX();
-   cobj.fY      = this->GetY();
 }
 
 void TTinaData2::Clear(Option_t *opt)
@@ -59,7 +54,5 @@ void TTinaData2::Clear(Option_t *opt)
    fPhi    = kInvalidD;
    fDeid   = kInvalidD;
    fEid    = kInvalidD;
-   fX      = kInvalidD;
-   fY      = kInvalidD;
 }
 

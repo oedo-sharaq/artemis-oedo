@@ -103,15 +103,7 @@ Processor:
       FileName: hist/srppac/chksrppac.yaml
       Type:     art::ttreeprojection
       Replace: |
-        sr: sr11      
-
-  - name: projection
-    type: art::TTreeProjectionProcessor
-    parameter:
-      FileName: hist/srppac/chksrppac.yaml
-      Type:     art::TTreeProjection
-      Replace: |
-        sr: sr12       
+        sr: sr0     
 
   - name: projection
     type: art::TTreeProjectionProcessor
@@ -120,9 +112,9 @@ Processor:
       Type:     art::TTreeProjection
       OutputFilename: *histout
       Replace: |
-        fp: s1       
-        sru: sr11       
-        srd: sr12       
+        fp: s0      
+        sru: sr0       
+        srd: sr0      
 
   - name: outputtree
     type: art::TOutputTreeProcessor

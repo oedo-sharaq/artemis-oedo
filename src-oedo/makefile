@@ -5,12 +5,10 @@ VPATH = hist cat coin command converter cont decoder mwdc plastic ppac scaler ga
 
 #OBJ += TChargeValidateProcessor.o
 #OBJ += TTimeValidator.o
-OBJ += TTinaProcessor.o
-OBJ += TTinaData.o
+OBJ += TDssdProcessor.o
+OBJ += TDssdData.o
 OBJ += TTinaProcessor2.o
 OBJ += TTinaData2.o
-OBJ += TTinaProcessor3.o
-OBJ += TTinaData3.o
 OBJ += TDaliProcessor.o
 OBJ += TDaliData.o
 #OBJ += TModuleDecoderA3100.o
@@ -26,17 +24,21 @@ OBJ += TTOF2BetaProcessor.o
 #OBJ += TCmdPrint.o
 #OBJ += TPPACProcessorQTC.o
 #OBJ += TBrhoReconstructProcessor.o
-#OBJ += TBrhoReconstructProcessor2.o
-OBJ += TBrhoReconstructProcessor3.o
-#OBJ += TBrhoReconstructProcessorS1.o
+OBJ += TBrhoReconstructProcessorS1.o
 OBJ += TPIDSingleSectionProcessor.o
 #OBJ += TCmdPadZoom.o
 OBJ += TRawDataTriggeredList.o
 OBJ += TModuleDecoderA3100FreeRunTSI.o
 OBJ += TTimingChargeTriggeredListMappingProcessor.o
 OBJ += TTimingAverageProcessor.o
-OBJ += TSRPPACPlaneStripDqdxProcessor.o
-OBJ += TTreeCopyProcessor.o
+OBJ += TModuleDecoderTC842.o
+OBJ += TModuleDecoderAPV8008.o
+OBJ += TRawDataTimestampCharge.o
+OBJ += TTimingChargeAPV8008Processor.o
+OBJ += TAPV8008Data.o
+OBJ += TMergerData.o
+OBJ += TMergerProcessor.o
+OBJ += TModuleDecoderTimestamp.o
 
 UNAME = $(shell uname)
 ifeq ($(UNAME),Darwin)
@@ -52,7 +54,7 @@ TARGET = $(LIBNAME).$(SOEXT)
 # local include directories
 INCLUDE = $(addprefix -I../share/src/, $(VPATH))
 INCLUDE += -I../share/src
-INCLUDE += -I/opt/artemis-cat-src
+INCLUDE += -I../src/src
 # depends
 DEPDIR = .deps
 DEPENDS = $(addprefix $(DEPDIR)/, $(notdir $(OBJ:.o=.d)))

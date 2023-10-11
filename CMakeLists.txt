@@ -12,9 +12,9 @@ set(CMAKE_INSTALL_PREFIX ${CMAKE_SOURCE_DIR}/install/ CACHE PATH "install dir" F
 
 # path definitions
 find_package(artemis HINTS ${TARTSYS} REQUIRED)
-if(NOT ${ARTEMIS_BUILD_GET})
-    message(SEND_ERROR "artemis is not built with GETDecoder which is required by src-oedo. Rebuild artemis with BUILD_GET=ON")
-endif()
+#if(NOT ${ARTEMIS_BUILD_GET})
+#    message(SEND_ERROR "artemis is not built with GETDecoder which is required by src-oedo. Rebuild artemis with BUILD_GET=ON")
+#endif()
 
 #---Locate the ROOT package and defines a number of variables (e.g. ROOT_INCLUDE_DIRS)
 find_package(ROOT REQUIRED COMPONENTS RIO Net Physics Minuit Minuit2 Geom Gui Genetic)
@@ -26,7 +26,7 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 #---Define useful ROOT functions and macros (e.g. ROOT_GENERATE_DICTIONARY)
 include(${ROOT_USE_FILE})
 
-link_directories(${ARTEMIS_GET_LIB_DIR})
+#link_directories(${ARTEMIS_GET_LIB_DIR})
 
 add_subdirectory(src-oedo)
 
@@ -37,7 +37,8 @@ target_include_directories(run_artemis PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src-o
 target_link_libraries(run_artemis ${ROOT_LIBRARIES} ${YAML_CPP_LIBRARIES}
     artemis::catcmd artemis::catloop artemis::catcore artemis::artcont artemis::catmc
     artemis::artdecoder artemis::artridf artemis::artrdf artemis::arthist
-    artemis::artparam artemis::artshare artemis::CAT GETDecoder oedo
+    artemis::artparam artemis::artshare artemis::CAT oedo
+    #GETDecoder 
 )
 
 install(TARGETS run_artemis

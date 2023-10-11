@@ -1,6 +1,7 @@
 #position: [0.,0.,196.4]
 #position: [0,0.,710.0]
-position: [0,0.,635.0]
+#position: [0,0.,210.0]
+position: [-8.55,-7.47,995.0]
 angle: 0.
 turned: 0
 plane_config: prm/mwdc/config/xxyy.yaml

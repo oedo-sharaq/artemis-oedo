@@ -1,0 +1,19 @@
+Processor:
+
+  - include: ../tref.yaml
+  - include: bld/pla/pla_os22s.yaml
+  - include: bld/dia/dia.yaml
+  - include: bld/srppac/srppac.yaml
+  - include: bld/si/ssd.yaml
+
+  - name: for_creating_merge_rootfile+TS
+    type: art::TMergerProcessor
+    parameter:
+      InputCollection1: vetopla
+      InputCollection2: dia3pad
+      InputCollection3: dias2pad
+      InputCollection4: sr0_x
+      InputCollection5: S2ssd
+      Output: pid_data
+      CatID: 150
+

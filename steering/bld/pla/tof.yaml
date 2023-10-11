@@ -8,21 +8,12 @@ Processor:
       StartTimingDetID: 0
       UseMultipleStartTiming: 1
 
-  - name: proc_tof57_multi
-    type: art::TTimingSubtractionProcessor
-    parameter:
-      StartTimingCollection: f5pla
-      InputCollection: f7pla
-      OutputCollection: tof57
-      StartTimingDetID: 0
-      UseMultipleStartTiming: 1
-
-  - name: proc_tof37_multi
+  - name: proc_tof3s2_multi
     type: art::TTimingSubtractionProcessor
     parameter:
       StartTimingCollection: f3pla
-      InputCollection: f7pla
-      OutputCollection: tof37
+      InputCollection: s2pla
+      OutputCollection: tof3s2
       StartTimingDetID: 0
       UseMultipleStartTiming: 1
 

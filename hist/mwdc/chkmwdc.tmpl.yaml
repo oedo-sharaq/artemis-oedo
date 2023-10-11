@@ -1,14 +1,15 @@
 anchor:
   - &idraw ["@plane@_raw.fID",128,-0.5,127.5]
-  - &traw ["@plane@_raw.fTiming",1000,-20000.,10000.]
-  - &qraw ["@plane@_raw.fCharge",100,-1.,4000.]
+  - &traw ["@plane@_raw.fTiming",200,-32000,-30000]
+  - &qraw ["@plane@_raw.fCharge",200,0.,4000.]
   - &isprocessed ["@plane@.IsProcessed()",2,-0.5,1.5]
   - &isgood ["@plane@.IsGood()",2,-0.5,1.5]
   - &entry ["@plane@.GetEntriesFast()",8,-0.5,7.5]
   - &ssr ["@plane@.GetSSR()",100,0,10]
   - &res ["@plane@.GetResidual(0)",200,-2.,2.]
 
-#alias:
+alias:
+  pidgate: "abs(f5pla[0].fTiming-dia3strip[0].fTiming-1242.0)<1.0 && abs(f5pla[0].fCharge-18200.)<900."
 ##  pidgate: gate.Test("54Sc")
 #  qcut_x1: dc31_x1.fCharge >  300 && dc31_x1.fCharge < 500
 #  qcut_x2: dc31_x2.fCharge >  300 && dc31_x2.fCharge < 500
@@ -35,6 +36,11 @@ group:
   - name: @plane@
     title: @plane@
     contents:
+      - name: pid
+        title: PID
+        x: ["f5pla[0].fTiming-dia3strip[0].fTiming",200,1210,1270]
+        y: ["f5pla[0].fCharge",200,0,25000.]
+
       - name: id
         title: @plane@ ID
         x: *idraw
@@ -57,6 +63,7 @@ group:
         title: @plane@ t_{raw} vs charge
         x: *traw
         y: *qraw
+
       - name: id_tcal
         title: @plane@ ID vs t_{raw}
         x: *idraw
@@ -68,17 +75,23 @@ group:
       - name: hit_efficiency
         title: @plane@ hit efficiency IsProcessed
         x: *isprocessed
-        cut:  "src1_a_raw@.GetEntries() == 1"
+#        cut:  "src1_a_raw@.GetEntries() == 1"
       - name: tracking_efficiency
         title: @plane@ tracking efficiency
         x: *isgood
-        cut:  "src1_a_raw@.GetEntries() == 1"
+#        cut:  "src1_a_raw@.GetEntries() == 1"
       - name: ssr
         title: @plane@ sum of squared residue
         x: *ssr
-        cut:  "src1_a_raw@.GetEntries() == 1"
+#        cut:  "src1_a_raw@.GetEntries() == 1"
       - name: x1_residual
         title: @plane@ X1 residual
         x: *res
-        cut:  "src1_a_raw@.GetEntries() == 1"
+#        cut:  "src1_a_raw@.GetEntries() == 1"
+
+  - name: @plane@_pidgate
+    title: @plane@ (g pid)
+    clone: @plane@
+    cut: pidgate
+    suffix: _pidgate
 

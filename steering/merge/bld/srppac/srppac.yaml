@@ -1,0 +1,24 @@
+Processor:
+#### S0
+####
+  - include: 
+      name: srppac.inc.yaml
+      replace:
+        NAME: sr0
+        CATIDa: 52 
+        CATIDx: 53
+        CATIDy: 54
+        VALIDTIME: [-100000,100000,0]
+
+### calib LR
+# 
+#  - include:
+#      name: srppac.calib.lr.yaml
+#      replace: 
+#        NAME: sr01
+#
+#  - include:
+#      name: srppac.calib.lr.yaml
+#      replace: 
+#        NAME: sr02
+

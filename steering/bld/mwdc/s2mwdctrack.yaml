@@ -1,0 +1,16 @@
+Processor:
+  - name: proc_s2_tracking
+    type: art::TMWDCTrackingProcessor
+    parameter:
+      InputCollection:
+        - dc21_x1
+        - dc21_x2
+        - dc21_u
+        - dc21_v
+        - dc22_x1
+        - dc22_x2
+        - dc22_u
+        - dc22_v
+      OutputCollection:   s2
+#      UseGlobalPos:       1
+      OutputTransparency: 0

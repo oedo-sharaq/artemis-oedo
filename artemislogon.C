@@ -4,8 +4,8 @@
   incpath.Append(gSystem->GetFromPipe("artemis-config --cflags"));
   dypath.Append(gSystem->GetFromPipe("artemis-config --dypaths"));
 
-  dypath.Append(":/home/ryokoyam/work/artemis-oedo/install/lib");
-  incpath.Append(" -I/home/ryokoyam/work/artemis-oedo/install/include");
+  dypath.Append(":/home/ryokoyam/test/artemis-oedo/install/lib");
+  incpath.Append(" -I/home/ryokoyam/test/artemis-oedo/install/include");
 
   gStyle->SetOptStat(1111111);
   gStyle->SetOptFit(1111);
@@ -89,7 +89,8 @@
       //      TString path = gSystem->GetIncludePath();
       //      path.Append("-I./processors");
       //      gSystem->SetIncludePath(path);
-  } {
+  }
+  {
     art::TModuleDecoderFactory *df = art::TModuleDecoderFactory::Instance();
     // mod ID 0 : Fixed16
     const Int_t digits0 = 16;
@@ -120,21 +121,20 @@
 
     df->Register(new art::TModuleDecoderSkip(42));
 
-    // df->Register(new art::TModuleDecoderSkip(8));
-    //  mod ID 59 : AMTTDC
-    //     gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderAMTTDC);");
-    //     df->Register(new art::TModuleDecoderAMTTDC);
+    //df->Register(new art::TModuleDecoderSkip(8));
+    // mod ID 59 : AMTTDC
+    //    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderAMTTDC);");
+    //    df->Register(new art::TModuleDecoderAMTTDC);
 
-    //    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderA3100FreeRunTSI);");
-    // gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderTC842);");
-    //    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderV1740_mod);");
-    //    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderAPV8008);");
-    //    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderTimestamp);");
+    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderA3100FreeRunTSI);");
+    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderTC842);");
+    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderV1740_mod);");
+    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderAPV8008);");
+    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderTimestamp);");
 
     // Skip for r3_2021
     df->Register(new art::TModuleDecoderSkip(9));
     df->Register(new art::TModuleDecoderSkip(33));
-    df->Register(new art::TModuleDecoderSkip(8));
-    df->Register(new art::TModuleDecoderSkip(63));
   }
 }
+

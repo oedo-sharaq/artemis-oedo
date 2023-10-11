@@ -1,0 +1,56 @@
+group:
+  - name: pla
+    title: pla
+    contents:
+      - name: s2pla_lq_rq
+        title: s2pla LQ vs RQ
+        x: ["s2pla_l.fCharge", 350, -1000, 34000]
+        y: ["s2pla_r.fCharge", 350, -1000, 34000]
+      - name: s2pla_lt
+        title: s2pla LT
+        x: ["s2pla_l.fTiming", 400, -2000, 1000]
+      - name: s2pla_rt
+        title: s2pla RT
+        x: ["s2pla_r.fTiming", 400, -2000, 1000]
+      - name: vetopla_lq
+        title: vetopla LQ
+        x: ["vetopla_l.fCharge", 400, 0, 40000]
+      - name: vetopla_rq
+        title: vetopla RQ
+        x: ["vetopla_r.fCharge", 400, 0, 40000]
+      - name: vetopla_lt
+        title: vetopla LT
+        x: ["vetopla_l.fTiming", 400, -2000, 1000]
+      - name: vetopla_rt
+        title: vetopla RT
+        x: ["vetopla_r.fTiming", 400, -2000, 1000]
+
+      - name: s2pla_lt_rt
+        title: s2pla LT vs RT
+        x: ["s2pla_l.fTiming", 400, -2000, 1000]
+        y: ["s2pla_r.fTiming", 400, -2000, 1000]
+      - name: s2pla_lq_lt
+        title: s2pla LQ vs LT
+        x: ["s2pla_l.fCharge", 350, -1000, 34000]
+        y: ["s2pla_l.fTiming", 400, -2000, 1000]
+      - name: s2pla_rq_rt
+        title: s2pla RQ vs RT
+        x: ["s2pla_r.fCharge", 350, -1000, 34000]
+        y: ["s2pla_r.fTiming", 400, -2000, 1000]
+
+      - name: vetopla_lq_rq
+        title: vetopla LQ vs RQ
+        x: ["vetopla_l.fCharge", 350, -1000, 34000]
+        y: ["vetopla_r.fCharge", 350, -1000, 34000]
+      - name: vetopla_lt_rt
+        title: vetopla LT vs RT
+        x: ["vetopla_l.fTiming", 400, -2000, 1000]
+        y: ["vetopla_r.fTiming", 400, -2000, 1000]
+      - name: vetopla_lq_lt
+        title: vetopla LQ vs LT
+        x: ["vetopla_l.fCharge", 350, -1000, 34000]
+        y: ["vetopla_l.fTiming", 400, -2000, 1000]
+      - name: vetopla_rq_rt
+        title: vetopla RQ vs RT
+        x: ["vetopla_r.fCharge", 350, -1000, 34000]
+        y: ["vetopla_r.fTiming", 400, -2000, 1000]

@@ -14,6 +14,9 @@
 #include "TModuleDecoderSkip.h"
 #include "TModuleDecoderA3100FreeRunTSI.h"
 #include "TModuleDecoderV1740_mod.h"
+#include "TModuleDecoderTC842.h"
+#include "TModuleDecoderAPV8008.h"
+#include "TModuleDecoderTimestamp.h"
 
 int main(int argc, char** argv){
     std::string filename = argv[1];
@@ -60,6 +63,9 @@ int main(int argc, char** argv){
 
     df->Register(new art::TModuleDecoderA3100FreeRunTSI);
     df->Register(new art::TModuleDecoderV1740_mod);
+    df->Register(new art::TModuleDecoderTC842);
+    df->Register(new art::TModuleDecoderAPV8008);
+    df->Register(new art::TModuleDecoderTimestamp);
 
     // Skip for r3_2021
     df->Register(new art::TModuleDecoderSkip(9));

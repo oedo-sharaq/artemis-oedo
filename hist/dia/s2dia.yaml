@@ -1,0 +1,134 @@
+alias:
+  gst0: dias2strip_l.fID==0 && dias2strip_r.fID==0
+  gst1: dias2strip_l.fID==1 && dias2strip_r.fID==1
+  gst2: dias2strip_l.fID==2 && dias2strip_r.fID==2
+  gst3: dias2strip_l.fID==3 && dias2strip_r.fID==3
+  gst0_l: dias2strip_l.fID==0
+  gst0_r: dias2strip_r.fID==0
+  gst1_l: dias2strip_l.fID==1
+  gst1_r: dias2strip_r.fID==1
+  gst2_l: dias2strip_l.fID==2
+  gst2_r: dias2strip_r.fID==2
+  gst3_l: dias2strip_l.fID==3
+  gst3_r: dias2strip_r.fID==3
+
+
+group:
+  - name: dias2
+    title: dias2
+    contents:
+      - name: strip_id_id
+        title: dias2strip L-ID vs R-ID
+        x: ["dias2strip_l.fID", 4, 0, 4]
+        y: ["dias2strip_r.fID", 4, 0, 4]
+      - name: strip_id_lq
+        title: dias2strip ID vs LQ
+        x: ["dias2strip_l.fID", 4, 0, 4]
+        y: ["dias2strip_l.fCharge", 410, -1000, 40000]
+      - name: strip_id_rq
+        title: dias2strip ID vs RQ
+        x: ["dias2strip_r.fID", 4, 0, 4]
+        y: ["dias2strip_r.fCharge", 410, -1000, 40000]
+      - name: strip_id_lt
+        title: dias2strip ID vs LT
+        x: ["dias2strip_l.fID", 4, 0, 4]
+        y: ["dias2strip_l.fTiming", 400, -2000, 1000]
+      - name: strip_id_rt
+        title: dias2strip ID vs RT
+        x: ["dias2strip_r.fID", 4, 0, 4]
+        y: ["dias2strip_r.fTiming", 400, -2000, 1000]
+      - name: pad_q
+        title: dias2pad Q
+        x: ["dias2pad.fCharge", 410, -1000, 40000]
+      - name: pad_t
+        title: dias2pad T
+        x: ["dias2pad.fTiming", 400, -2000, 1000]
+
+      - name: strip_lq_rq_0
+        title: dias2strip LQ vs RQ strip0
+        cut: gst0
+        x: ["dias2strip_l.fCharge", 410, -1000, 40000]
+        y: ["dias2strip_r.fCharge", 410, -1000, 40000]
+      - name: strip_lq_rq_1
+        title: dias2strip LQ vs RQ strip1
+        cut: gst1
+        x: ["dias2strip_l.fCharge", 410, -1000, 40000]
+        y: ["dias2strip_r.fCharge", 410, -1000, 40000]
+      - name: strip_lq_rq_2
+        title: dias2strip LQ vs RQ strip2
+        cut: gst2
+        x: ["dias2strip_l.fCharge", 410, -1000, 40000]
+        y: ["dias2strip_r.fCharge", 410, -1000, 40000]
+      - name: strip_lq_rq_3
+        title: dias2strip LQ vs RQ strip3
+        cut: gst3
+        x: ["dias2strip_l.fCharge", 410, -1000, 40000]
+        y: ["dias2strip_r.fCharge", 410, -1000, 40000]
+
+      - name: strip_lt_rt_0
+        title: dias2strip LT vs RT strip0
+        cut: gst0
+        x: ["dias2strip_l.fTiming", 400, -2000, 1000]
+        y: ["dias2strip_r.fTiming", 400, -2000, 1000]
+      - name: strip_lt_rt_1
+        title: dias2strip LT vs RT strip1
+        cut: gst1
+        x: ["dias2strip_l.fTiming", 400, -2000, 1000]
+        y: ["dias2strip_r.fTiming", 400, -2000, 1000]
+      - name: strip_lt_rt_2
+        title: dias2strip LT vs RT strip2
+        cut: gst2
+        x: ["dias2strip_l.fTiming", 400, -2000, 1000]
+        y: ["dias2strip_r.fTiming", 400, -2000, 1000]
+      - name: strip_lt_rt_3
+        title: dias2strip LT vs RT strip3
+        cut: gst3
+        x: ["dias2strip_l.fTiming", 400, -2000, 1000]
+        y: ["dias2strip_r.fTiming", 400, -2000, 1000]
+
+      - name: strip_lq_lt_0l
+        title: dias2strip LQ vs LT strip0
+        cut: gst0_l
+        x: ["dias2strip_l.fCharge", 400, -1000, 40000]
+        y: ["dias2strip_l.fTiming", 400, -2000, 1000]
+      - name: strip_rq_rt_0r
+        title: dias2strip RQ vs RT strip0
+        cut: gst0_r
+        x: ["dias2strip_r.fCharge", 400, -1000, 40000]
+        y: ["dias2strip_r.fTiming", 400, -2000, 1000]
+      - name: strip_lq_lt_1l
+        title: dias2strip LQ vs LT strip1
+        cut: gst1_l
+        x: ["dias2strip_l.fCharge", 400, -1000, 40000]
+        y: ["dias2strip_l.fTiming", 400, -2000, 1000]
+      - name: strip_rq_rt_1r
+        title: dias2strip RQ vs RT strip1
+        cut: gst1_r
+        x: ["dias2strip_r.fCharge", 400, -1000, 40000]
+        y: ["dias2strip_r.fTiming", 400, -2000, 1000]
+      - name: strip_lq_lt_2l
+        title: dias2strip LQ vs LT strip2
+        cut: gst2_l
+        x: ["dias2strip_l.fCharge", 400, -1000, 40000]
+        y: ["dias2strip_l.fTiming", 400, -2000, 1000]
+      - name: strip_rq_rt_2r
+        title: dias2strip RQ vs RT strip2
+        cut: gst2_r
+        x: ["dias2strip_r.fCharge", 400, -1000, 40000]
+        y: ["dias2strip_r.fTiming", 400, -2000, 1000]
+      - name: strip_lq_lt_3l
+        title: dias2strip LQ vs LT strip3
+        cut: gst3_l
+        x: ["dias2strip_l.fCharge", 400, -1000, 40000]
+        y: ["dias2strip_l.fTiming", 400, -2000, 1000]
+      - name: strip_rq_rt_3r
+        title: dias2strip RQ vs RT strip3
+        cut: gst3_r
+        x: ["dias2strip_r.fCharge", 400, -1000, 40000]
+        y: ["dias2strip_r.fTiming", 400, -2000, 1000]
+
+
+      - name: pad_q_t
+        title: dias2pad Q vs T
+        x: ["dias2pad.fCharge", 400, -1000, 40000]
+        y: ["dias2pad.fTiming", 400, -2000, 1000]

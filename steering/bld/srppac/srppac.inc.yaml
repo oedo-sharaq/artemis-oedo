@@ -22,18 +22,18 @@ Processor:
       FileName: prm/srppac/ch2ns_a.dat
 
 #prm geometry
-  - name: proc:ppac:geometry
-    type: art::TParameterLoader
-    parameter:
-      Name:     geometry_srppac_x
-      Type:     art::TMonotoneTableConverter
-      FileName: prm/srppac/@NAME@/geometry_x.yaml
-  - name: proc:ppac:geometry
-    type: art::TParameterLoader
-    parameter:
-      Name:     geometry_srppac_y
-      Type:     art::TMonotoneTableConverter
-      FileName: prm/srppac/@NAME@/geometry_y.yaml
+#  - name: proc:ppac:geometry
+#    type: art::TParameterLoader
+#    parameter:
+#      Name:     geometry_srppac_x
+#      Type:     art::TMonotoneTableConverter
+#      FileName: prm/srppac/@NAME@/geometry_x.yaml
+#  - name: proc:ppac:geometry
+#    type: art::TParameterLoader
+#    parameter:
+#      Name:     geometry_srppac_y
+#      Type:     art::TMonotoneTableConverter
+#      FileName: prm/srppac/@NAME@/geometry_y.yaml
 
 #prm dqdx0
   - name: proc_dqdx_xc0
@@ -81,22 +81,20 @@ Processor:
       InputCollection: @NAME@_a_raw
       OutputCollection: @NAME@_a_val
       ValidTimeRange: @VALIDTIME@
-#      ValidTimeRange: [-20000,-16000,0]  # temporary
-#      ValidTimeRange: [190000,200000,0]  # run3176
+
   - name: proc:ppac:@NAME@x:val
     type: art::TTimeValidator
     parameter:
       InputCollection: @NAME@_x_raw
       OutputCollection: @NAME@_x_val
       ValidTimeRange: @VALIDTIME@
-#      ValidTimeRange: [-20000,-16000,0]  # temporary
+
   - name: proc:ppac:@NAME@y:val
     type: art::TTimeValidator
     parameter:
       InputCollection: @NAME@_y_raw
       OutputCollection: @NAME@_y_val
       ValidTimeRange: @VALIDTIME@
-#      ValidTimeRange: [-20000,-16000,0]  # temporary
 
 # calib ch to ns
   - name: proc:ppac:@NAME@a:cal

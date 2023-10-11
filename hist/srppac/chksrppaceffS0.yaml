@@ -1,0 +1,44 @@
+anchor: 
+  - &sr0_x_ent ["sr0_x_raw@.GetEntriesFast()",10,-0.5,9.5]
+  - &sr0_y_ent ["sr0_y_raw@.GetEntriesFast()",10,-0.5,9.5]
+
+alias:
+# s2cut : dias2pad@.GetEntriesFast() > 0 
+ tof30 : sr0_a_cal.fTiming - dia3pad[0].fTiming;
+ tof32 : dias2pad[0].fTiming - dia3pad[0].fTiming;
+ s0.fX : sr0_xc0[0].fPosition + 49.28;
+ s0xc  : s0.fX-24.0*(tof30-1066.);
+ s2de  : 1.03827*S2ssd.fEx*0.866;
+ s2brho: 4.4147*(1-sr0_x[0].fPosition/14856);
+ s2beta: 103499.78 / ( 299.79 * tof32 - 299.79 * 1455. );
+ s2gamma: 1/TMath::Sqrt(1-(s2beta)*(s2beta)); 
+ s2aq  : s2brho * 299.79 / (s2gamma * s2beta * 931.49);
+ de_v  : TMath::Log(5907.5*s2beta*s2beta)-TMath::Log(1.-s2beta*s2beta)-s2beta*s2beta; 
+ s2z   : -0.0513 + 7.451*TMath::Sqrt(s2de/de_v) * s2beta; 
+# vcut: TMath::Abs(s2z-20)<0.74;
+ vcut: TMath::Abs(s2z-23)<0.74;
+
+# vcut: dias2pad@.GetEntriesFast() > 0 && abs(sr0_x[0].fPosition+50-32.7*(sr0_a_cal.fTiming-dia3pad[0].fTiming-1092.5))<50;
+# vcut: dias2pad@.GetEntriesFast() > 0 && abs(sr0_x[0].fPosition+50-28*(sr0_a_cal.fTiming-dia3pad[0].fTiming-1063.8))<50;
+# vcut: dias2pad@.GetEntriesFast() > 0 && abs(s2z-20)<0.74;
+
+
+group:
+  - name: srppaceffS0
+    title: SR-PPAC Efficiency S0
+    contents:
+      - name: sr0_x_ent
+        title: sr0 X Entry
+        cut: vcut
+        x: *sr0_x_ent
+      - name: sr0_y_ent
+        title: sr0 Y Entry
+        cut: vcut
+        x: *sr0_y_ent
+
+
+
+
+
+
+

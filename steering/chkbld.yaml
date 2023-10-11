@@ -28,8 +28,7 @@ Processor:
   - include: bld/dlppac/dlppac.inc.yaml
   - include: bld/srppac/srppac.yaml
   - include: bld/mwdc/chkmwdc_local.yaml
-  - include: rf.yaml
-
+  - include: bld/si/ssd.yaml
 
 
 ### FE7 DL-PPAC Hist
@@ -88,7 +87,7 @@ Processor:
         sr: src2       
 
 
-### S1 SR-PPAC Hist
+### S0 SR-PPAC Hist
 
   - name: projection
     type: art::TTreeProjectionProcessor
@@ -96,16 +95,7 @@ Processor:
       FileName: hist/srppac/chksrppac.yaml
       Type:     art::ttreeprojection
       Replace: |
-        sr: sr11      
-
-  - name: projection
-    type: art::TTreeProjectionProcessor
-    parameter:
-      FileName: hist/srppac/chksrppac.yaml
-      Type:     art::TTreeProjection
-      Replace: |
-        sr: sr12       
-
+        sr: sr0      
 
 ### FE10 MWDC Hist
 
@@ -121,10 +111,59 @@ Processor:
     type: art::TTreeProjectionProcessor
     parameter:
       FileName: hist/mwdc/chkmwdc.tmpl.yaml
-      OutputFilename: *histout
       Type:     art::TTreeProjection
       Replace: |
         plane: dca2   
+
+### S2 MWDC Hist
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/mwdc/chkmwdc.tmpl.yaml
+      Type:     art::TTreeProjection
+      Replace: |
+        plane: dc21   
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/mwdc/chkmwdc.tmpl.yaml
+      OutputFilename: *histout
+      Type:     art::TTreeProjection
+      Replace: |
+        plane: dc22   
+
+### S2 Pla& VETO Hist
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type:     art::TTreeProjection
+      FileName: hist/pla/s2_pla.yaml
+
+### F3 Dia Hist
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type:     art::TTreeProjection
+      FileName: hist/dia/f3dia.yaml
+
+### S2 Dia Hist
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type:     art::TTreeProjection
+      FileName: hist/dia/s2dia.yaml
+
+## S2 SSD
+  - name: projection_s2_ssd
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type:     art::TTreeProjection
+      FileName: hist/si/s2ssd.yaml
 
 
           

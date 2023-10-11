@@ -4,21 +4,21 @@ group:
     contents:
       - name: f5ppac1a_anode
         title: f5ppac1a Anode
-        x: ["f5ppac1a.fTAnode", 200, -150, -50]
+        x: ["f5ppac1a.fTAnode", 100, -350, -300]
       - name: f5ppac1a_x1_x2
         title: f5ppac1a X1 Vs X2
-        x: ["f5ppac1a.fTX2",150,-50,100]
-        y: ["f5ppac1a.fTX1",150,-50,100]
+        x: ["f5ppac1a.fTX2",200,-350,-150]
+        y: ["f5ppac1a.fTX1",200,-350,-150]
       - name: f5ppac1a_y1_y2
         title: f5ppac1a Y1 Vs Y2
-        x: ["f5ppac1a.fTY2",100,-50,50]
-        y: ["f5ppac1a.fTY1",100,-50,50]
+        x: ["f5ppac1a.fTY2",200,-350,-150]
+        y: ["f5ppac1a.fTY1",200,-350,-150]
       - name: f5ppac1a_xdiff
         title: f5ppac1a XDiff
-        x: ["f5ppac1a.fTXDiff",500,-500.,500.]
+        x: ["f5ppac1a.fTXDiff",200,-200.,200.]
       - name: f5ppac1a_ydiff
         title: f5ppac1a YDiff
-        x: ["f5ppac1a.fTYDiff",200,-100.,100.]
+        x: ["f5ppac1a.fTYDiff",100,-100.,100.]
       - name: f5ppac1a_y_x
         title: f5ppac1a GetY Vs GetX
         x: ["f5ppac1a.GetX()",300,-15.,15.]
@@ -26,21 +26,21 @@ group:
      
       - name: f5ppac1b_anode
         title: f5ppac1b Anode
-        x: ["f5ppac1b.fTAnode", 200, -150, -50]
+        x: ["f5ppac1b.fTAnode", 100,-350,-300]
       - name: f5ppac1b_x1_x2
         title: f5ppac1b X1 Vs X2
-        x: ["f5ppac1b.fTX2",200,-100,100]
-        y: ["f5ppac1b.fTX1",200,-100,100]
+        x: ["f5ppac1b.fTX2",200,-350,-150]
+        y: ["f5ppac1b.fTX1",200,-350,-150]
       - name: f5ppac1b_y1_y2
         title: f5ppac1b Y1 Vs Y2
-        x: ["f5ppac1b.fTY2",100,-50,50]
-        y: ["f5ppac1b.fTY1",100,-50,50]
+        x: ["f5ppac1b.fTY2",200,-350,-150]
+        y: ["f5ppac1b.fTY1",200,-350,-150]
       - name: f5ppac1b_xdiff
         title: f5ppac1b XDiff
-        x: ["f5ppac1b.fTXDiff",500,-500.,500.]
+        x: ["f5ppac1b.fTXDiff",200,-200,200]
       - name: f5ppac1b_ydiff
         title: f5ppac1b YDiff
-        x: ["f5ppac1b.fTYDiff",200,-100.,100.]
+        x: ["f5ppac1b.fTYDiff",200,-200.,200.]
       - name: f5ppac1b_y_x
         title: f5ppac1b GetY Vs GetX
         x: ["f5ppac1b.GetX()",300,-15.,15.]
@@ -48,15 +48,15 @@ group:
 
       - name: f5ppac2a_anode
         title: f5ppac2a Anode
-        x: ["f5ppac2a.fTAnode", 200, -150, -50]
+        x: ["f5ppac2a.fTAnode", 100,-350,-300]
       - name: f5ppac2a_x1_x2
         title: f5ppac2a X1 Vs X2
-        x: ["f5ppac2a.fTX2",200,-100,100]
-        y: ["f5ppac2a.fTX1",200,-100,100]
+        x: ["f5ppac2a.fTX2",200,-350,-150]
+        y: ["f5ppac2a.fTX1",200,-350,-150]
       - name: f5ppac2a_y1_y2
         title: f5ppac2a Y1 Vs Y2
-        x: ["f5ppac2a.fTY2",100,-50,50]
-        y: ["f5ppac2a.fTY1",100,-50,50]
+        x: ["f5ppac2a.fTY2",200,-350,-150]
+        y: ["f5ppac2a.fTY1",200,-350,-150]
       - name: f5ppac2a_xdiff
         title: f5ppac2a XDiff
         x: ["f5ppac2a.fTXDiff",300,-250.,250.]
@@ -70,15 +70,15 @@ group:
 
       - name: f5ppac2b_anode
         title: f5ppac2b Anode
-        x: ["f5ppac2b.fTAnode", 200, -150, -50]
+        x: ["f5ppac2b.fTAnode", 100,-350,-300]
       - name: f5ppac2b_x1_x2
         title: f5ppac2b X1 Vs X2
-        x: ["f5ppac2b.fTX2",200,-100,100]
-        y: ["f5ppac2b.fTX1",100,-100,100]
+        x: ["f5ppac2b.fTX2",200,-350,-150]
+        y: ["f5ppac2b.fTX1",100,-350,-150]
       - name: f5ppac2b_y1_y2
         title: f5ppac2b Y1 Vs Y2
-        x: ["f5ppac2b.fTY2",100,-50,50]
-        y: ["f5ppac2b.fTY1",100,-50,50]
+        x: ["f5ppac2b.fTY2",200,-350,-150]
+        y: ["f5ppac2b.fTY1",200,-350,-150]
       - name: f5ppac2b_xdiff
         title: f5ppac2b XDiff
         x: ["f5ppac2b.fTXDiff",300,-250.,250.]

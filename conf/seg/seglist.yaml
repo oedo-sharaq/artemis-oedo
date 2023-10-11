@@ -22,19 +22,52 @@
 #    - id: 0
 #
 
-F3_V1290:
-  segid: [11, 3, 31]
-  type: V1290
+#F3_V1290:
+#  segid: [11, 3, 31]
+#  type: V1290
+#  modules:
+#    - id: 0
+#F3_V1190:
+#  segid: [11, 3, 31]
+#  type: V1190
+#  modules:
+#    - id: 1
+#    - id: 2
+#FS0 V1190:
+#  segid: [11, 20, 31]
+#  type: V1190
+#  modules:
+#    - id: 0
+#    - id: 1
+#FS2 V1290:
+#  segid: [11, 22, 31]
+#  type: V1290
+#  modules:
+#    - id: 0
+
+#S2_V1190:
+#  segid: [11, 22, 31]
+#  type: V1190
+#  modules:
+#    - id: 1
+#    - id: 2
+#    - id: 3
+#
+
+MADC32_S2:
+  # [[dev], [fp], [det]]
+  segid: [11, 22, 33]
+  type: MADC32
   modules:
     - id: 0
-F3_V1190:
-  segid: [11, 3, 31]
-  type: V1190
+TC842:
+  # [[dev], [fp], [det]]
+  segid: [11, 22, 35]
+  type: TC842
   modules:
-    - id: 1
-    - id: 2
+    - id: 0
 
-##
+
 #
 #F5_V1190:
 #  segid: [0, 5, 50]
@@ -49,15 +82,12 @@ F3_V1190:
 #    - id: 6
 #    - id: 7
 
-FE12_V1190:
-  segid: [11, 12, 31]
-  type: V1190
-  modules:
-    - id: 0
-    - id: 1
-    - id: 2
-    - id: 3
-
+#FE12_V1190:
+#  segid: [11, 12, 1]
+#  type: V1190
+#  modules:
+#    - id: 0
+#    - id: 1
 
 #FE7_V1190:
 #  segid: [11, 7, 31]

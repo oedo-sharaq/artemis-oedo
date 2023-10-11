@@ -1,0 +1,86 @@
+Processor:
+  # dia pad  1 anode ch
+  - name: proc_diapad_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm_diapad_ch2ns
+      Type: art::TAffineConverter
+      FileName: prm/dia/diapad_ch2ns.dat
+
+  - name: proc_diapad_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: @CATa@
+      TimingTypeID: 0
+      TrailingComesFirst: 0
+      OutputCollection: @FP@pad_raw
+      OutputTransparency: 0
+
+  - name: proc_diapad
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: @FP@pad_raw
+      OutputCollection: @FP@pad
+      TimingConverterArray: prm_diapad_ch2ns
+      OutputTransparency: 0
+
+  # dia strip 4 strip
+  - name: proc_diastrip_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm_diastrip_ch2ns
+      Type: art::TAffineConverter
+      FileName: prm/dia/diastrip_ch2ns.dat
+
+  - name: proc_diastrip_l_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: @CATs@
+      TimingTypeID: 0
+      TrailingComesFirst: 0
+      OutputCollection: @FP@strip_l_raw
+      OutputTransparency: 0
+
+  - name: proc_diastrip_l
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: @FP@strip_l_raw
+      OutputCollection: @FP@strip_l
+      TimingConverterArray: prm_diastrip_ch2ns
+      OutputTransparency: 0
+
+  - name: proc_diastrip_r_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: @CATs@
+      TimingTypeID: 1
+      TrailingComesFirst: 0
+      OutputCollection: @FP@strip_r_raw
+      OutputTransparency: 0
+
+  - name: proc_diastrip_l
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: @FP@strip_r_raw
+      OutputCollection: @FP@strip_r
+      TimingConverterArray: prm_diastrip_ch2ns
+      OutputTransparency: 0
+      
+  - name: proc_dia
+    type: art::TTwoSidedPlasticCalibrationProcessor
+    parameter:
+      InputCollection1: @FP@strip_l
+      InputCollection2: @FP@strip_r
+      OutputCollection: @FP@strip
+      DetIDRange: [0,10]
+      OutputTransparency: 0
+
+
+  - name: proc_diastrip_sep
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: @FP@strip
+      OutputCollections:
+        - @FP@1
+        - @FP@2
+      OutputTransparency: 0
