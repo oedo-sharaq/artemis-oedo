@@ -1,3 +1,6 @@
+** This branch is for shara-13 isomer analysis only **
+
+(No GET analysis support)
 # artemis-oedo
 artemis working directory for OEDO/SHARAQ experiments
 
