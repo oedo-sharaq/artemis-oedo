@@ -31,20 +31,6 @@ link_directories(${ARTEMIS_GET_LIB_DIR})
 add_subdirectory(src-oedo)
 add_subdirectory(analysis)
 
-add_executable(run_artemis run_artemis.cpp)
-
-target_include_directories(run_artemis PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src-oedo)
-
-target_link_libraries(run_artemis ${ROOT_LIBRARIES} ${YAML_CPP_LIBRARIES}
-    artemis::catcmd artemis::catloop artemis::catcore artemis::artcont artemis::catmc
-    artemis::artdecoder artemis::artridf artemis::artrdf artemis::arthist
-    artemis::artparam artemis::artshare artemis::CAT GETDecoder oedo
-)
-
-install(TARGETS run_artemis
-    RUNTIME DESTINATION bin
-)
-
 configure_file(
     "${CMAKE_CURRENT_SOURCE_DIR}/thisartemis-oedo.sh.in"
     "${CMAKE_SOURCE_DIR}/thisartemis-oedo.sh"
