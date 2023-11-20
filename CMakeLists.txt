@@ -29,6 +29,7 @@ include(${ROOT_USE_FILE})
 link_directories(${ARTEMIS_GET_LIB_DIR})
 
 add_subdirectory(src-oedo)
+add_subdirectory(analysis)
 
 add_executable(run_artemis run_artemis.cpp)
 
