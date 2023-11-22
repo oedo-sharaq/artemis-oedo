@@ -8,7 +8,6 @@ list(APPEND CMAKE_PREFIX_PATH $ENV{ROOTSYS})
 set(CMAKE_INSTALL_PREFIX ${CMAKE_SOURCE_DIR}/install/ CACHE PATH "install dir" FORCE)
 
 # Build options
-#option(BUILD_IDAQ2ROOT "Build and install Isobe DAQ data to ROOT converter" ON)
 
 # path definitions
 find_package(artemis HINTS ${TARTSYS} REQUIRED)
