@@ -4,8 +4,8 @@
   incpath.Append(gSystem->GetFromPipe("artemis-config --cflags"));
   dypath.Append(gSystem->GetFromPipe("artemis-config --dypaths"));
 
-  dypath.Append(":/home/ryokoyam/work/artemis-oedo/install/lib");
-  incpath.Append(" -I/home/ryokoyam/work/artemis-oedo/install/include");
+  dypath.Append(":/home/sharaq/art_analysis/user/kojima/install/lib");
+  incpath.Append(" -I/home/sharaq/art_analysis/user/kojima/install/include");
 
   gStyle->SetOptStat(1111111);
   gStyle->SetOptFit(1111);

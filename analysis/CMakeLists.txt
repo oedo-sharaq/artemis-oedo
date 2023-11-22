@@ -14,5 +14,7 @@ install(TARGETS ${exec_name}
 )
 endfunction()
 
+# Add filenames without their .cpp extension to compile and generate executables. 
 addExec(run_artemis)
 addExec(RDataFrameAnalysis)
+addExec(srppacRDataFrameAna)
