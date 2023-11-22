@@ -10,15 +10,18 @@
   gStyle->SetOptStat(1111111);
   gStyle->SetOptFit(1111);
 
+  dypath.Append(":@ARTEMIS_GET_LIB_DIR@");
+  incpath.Append(" -I@ARTEMIS_GET_INCLUDE_DIR@");
+
   gSystem->SetDynamicPath(dypath);
   gSystem->SetIncludePath(incpath);
-  //  gSystem->Load("libGETDecoder");
+  gSystem->Load("libGETDecoder");
   gSystem->Load("libMinuit");
   gSystem->Load("libGenetic");
   gSystem->Load("libartshare");
   gSystem->Load("libCAT");
   gSystem->Load("liboedo");
-
+  gSystem->Load("libartget_sh12");
   TCatCmdFactory *cf = TCatCmdFactory::Instance();
   cf->SetOptExactName(kFALSE);
   cf->Register(TCatCmdHelp::Instance());
@@ -120,21 +123,18 @@
 
     df->Register(new art::TModuleDecoderSkip(42));
 
-    // df->Register(new art::TModuleDecoderSkip(8));
-    //  mod ID 59 : AMTTDC
-    //     gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderAMTTDC);");
-    //     df->Register(new art::TModuleDecoderAMTTDC);
+    df->Register(new art::TModuleDecoderSkip(8));
+    // mod ID 59 : AMTTDC
+    //    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderAMTTDC);");
+    //    df->Register(new art::TModuleDecoderAMTTDC);
 
-    //    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderA3100FreeRunTSI);");
-    // gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderTC842);");
-    //    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderV1740_mod);");
-    //    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderAPV8008);");
-    //    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderTimestamp);");
+    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderA3100FreeRunTSI);");
+    gInterpreter->ProcessLine("art::TModuleDecoderFactory::Instance()->Register(new art::TModuleDecoderV1740_mod);");
 
     // Skip for r3_2021
     df->Register(new art::TModuleDecoderSkip(9));
+    df->Register(new art::TModuleDecoderSkip(30));
     df->Register(new art::TModuleDecoderSkip(33));
-    df->Register(new art::TModuleDecoderSkip(8));
-    df->Register(new art::TModuleDecoderSkip(63));
+    df->Register(new art::TModuleDecoderSkip(30));
   }
 }

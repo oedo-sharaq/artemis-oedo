@@ -35,7 +35,7 @@ Processor:
     type: art::TPulseFinder
     parameter:
       ChargeRiseCompensation: []  # [vector<Double_t>] 3 parameters for charge compensation with rise time
-      ClockPeriod: 20  # [Double_t] clock priod in ns
+      ClockPeriod: 80  # [Double_t] clock priod in ns
       DoKeepInvalid: 0  # [Bool_t] keep invalid pulse shape if 1 (default 0)
       FallingThreshold: 30 # [Float_t] threshold for falling edge
       InputCollection: @BRNAME@_sub  # [StringVec_t] pulse data (TCatPulseShape)

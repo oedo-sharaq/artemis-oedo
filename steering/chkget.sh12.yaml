@@ -1,0 +1,31 @@
+Anchor:
+   
+ - &output output/@NAME@/@NUM@/chkget@NAME@@NUM@.root
+ - &histout output/@NAME@/@NUM@/chkget@NAME@@NUM@.hist.root
+
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+
+  - include:
+      name: ttt/get.inc.yaml
+      replace:
+        NUM: @GET@
+        CATDATA: tttdata
+
+  - include: chktina.param.yaml 
+  - include: ttt.sakura.yaml
+#
+### S0 TiNA Hist
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/tina/ttt.yaml
+      Type:     art::TTreeProjection
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: 
+        - *output

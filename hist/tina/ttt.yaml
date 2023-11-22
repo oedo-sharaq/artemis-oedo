@@ -1,5 +1,6 @@
 anchor: 
   - &ttt_front_id ["ttt_front.fID",512,-0.5,511.5] 
+  - &ttt_front_hit_id ["ttt_front_hit.fID",512,-0.5,511.5] 
   - &ttt_front_multi ["ttt_front@.GetEntries()",10,-0.5,9.5]
   - &ttt_front_hit_c ["ttt_front_hit.fCharge",100,-0.5,10.]
   - &ttt_front_clock ["ttt_front.fClock",500,-0.5,499.5]
@@ -9,6 +10,7 @@ anchor:
   - &ttt_front_charge ["ttt_front_pulse.fCharge",500,-0.5,10000.] 
   - &ttt_front_maxsample ["ttt_front_pulse.fMaxSample",500,0.,2000.]
   - &ttt_back_id ["ttt_back.fID",512,-0.5,511.5] 
+  - &ttt_back_hit_id ["ttt_back_hit.fID",512,-0.5,511.5] 
   - &ttt_back_multi ["ttt_back@.GetEntries()",10,-0.5,9.5]
   - &ttt_back_hit_c ["ttt_back_hit.fCharge",100,-0.5,10.]
   - &ttt_back_clock ["ttt_back.fClock",500,-0.5,499.5]
@@ -76,9 +78,9 @@ group:
         y: *ttt_back_pulse_sample
 
       - name: ttt_front_id_vs_ttt_back_id
-        title: ttt_id front vs back
-        x: *ttt_back_id
-        y: *ttt_front_id
+        title: ttt_id front vs back (Pulse)
+        x: *ttt_back_hit_id
+        y: *ttt_front_hit_id
 
       - name: ttt_front_m_vs_ttt_back_m
         title: ttt M front vs back

@@ -29,6 +29,7 @@ include(${ROOT_USE_FILE})
 link_directories(${ARTEMIS_GET_LIB_DIR})
 
 add_subdirectory(src-oedo)
+add_subdirectory(src-get)
 add_subdirectory(analysis)
 
 configure_file(

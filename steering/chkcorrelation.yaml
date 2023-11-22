@@ -1,0 +1,42 @@
+Anchor:
+# - &input ridf_rftest/@NAME@@NUM@.ridf
+ - &input ridf/@NAME@@NUM@.ridf
+# - &input sakura01/@NAME@@NUM@.ridf
+ - &output output/@NAME@/@NUM@/chkcorrelation@NAME@@NUM@.root
+ - &histout output/@NAME@/@NUM@/chkcorrelation@NAME@@NUM@.hist.root
+
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+        - *input
+        
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+
+  - include: tref.yaml
+  - include: bld/dia/dia.yaml
+  - include: bld/dlppac/ppac.brips.yaml
+  - include: bld/srppac/srppac.yaml
+
+
+### FE9, FE12, and S1 SR-PPAC Hist
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/srppac/chkcorrelation.yaml
+      Type:     art::TTreeProjection    
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: 
+        - *output

@@ -11,7 +11,7 @@ Processor:
     parameter:
       Name: prm:ppac
       Type: art::TPPACParameter
-      FileName: prm/ppac/ppac.prm.brips.yaml
+      FileName: /home/sh12/repos/shscripts/ppac_prm/ppac.prm.yaml
       FileFormat: yaml
 # ---------------------------------------
   - name: proc:ppac

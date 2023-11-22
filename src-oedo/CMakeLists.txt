@@ -1,51 +1,44 @@
 set(LIB_NAME oedo)
 
 set(SOURCES
-    TTinaProcessor.cc
-    TTinaData.cc
-    TTinaProcessor2.cc
-    TTinaData2.cc
-    TTinaProcessor3.cc
-    TTinaData3.cc
-    TDaliProcessor.cc
-    TDaliData.cc
-    TIonChamberProcessor.cc
-    TS1IonChamberProcessor.cc
-    TIonChamberProcessor.cc
-    TSingleTOFProcessor.cc
-    TTOF2BetaProcessor.cc
-    TBrhoReconstructProcessor3.cc
-    TPIDSingleSectionProcessor.cc
-    TRawDataTriggeredList.cc
-    TModuleDecoderA3100FreeRunTSI.cc
-    TTimingChargeTriggeredListMappingProcessor.cc
-    TTimingAverageProcessor.cc
-    TSRPPACPlaneStripDqdxProcessor.cc
-    TTreeCopyProcessor.cc
+TTinaProcessor.cc
+TTinaData.cc
+TTinaProcessor2.cc
+TTinaData2.cc
+TDaliProcessor.cc
+TDaliData.cc
+TIonChamberProcessor.cc
+TS1IonChamberProcessor.cc
+TIonChamberProcessor.cc
+TSingleTOFProcessor.cc
+TTOF2BetaProcessor.cc
+TBrhoReconstructProcessorS1.cc
+TPIDSingleSectionProcessor.cc
+TRawDataTriggeredList.cc
+TModuleDecoderA3100FreeRunTSI.cc
+TTimingChargeTriggeredListMappingProcessor.cc
+TTimingAverageProcessor.cc
 )
 
+
 set(HEADERS
-    TTinaProcessor.h
-    TTinaData.h
-    TTinaProcessor2.h
-    TTinaData2.h
-    TTinaProcessor3.h
-    TTinaData3.h
-    TDaliProcessor.h
-    TDaliData.h
-    TIonChamberProcessor.h
-    TS1IonChamberProcessor.h
-    TIonChamberProcessor.h
-    TSingleTOFProcessor.h
-    TTOF2BetaProcessor.h
-    TBrhoReconstructProcessor3.h
-    TPIDSingleSectionProcessor.h
-    TRawDataTriggeredList.h
-    TModuleDecoderA3100FreeRunTSI.h
-    TTimingChargeTriggeredListMappingProcessor.h
-    TTimingAverageProcessor.h
-    TSRPPACPlaneStripDqdxProcessor.h
-    TTreeCopyProcessor.h   
+TTinaProcessor.h
+TTinaData.h
+TTinaProcessor2.h
+TTinaData2.h
+TDaliProcessor.h
+TDaliData.h
+TIonChamberProcessor.h
+TS1IonChamberProcessor.h
+TIonChamberProcessor.h
+TSingleTOFProcessor.h
+TTOF2BetaProcessor.h
+TBrhoReconstructProcessorS1.h
+TPIDSingleSectionProcessor.h
+TRawDataTriggeredList.h
+TModuleDecoderA3100FreeRunTSI.h
+TTimingChargeTriggeredListMappingProcessor.h
+TTimingAverageProcessor.h
 )
 
 add_library(${LIB_NAME} SHARED ${SOURCES})
