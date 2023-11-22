@@ -17,7 +17,9 @@ figs
 current/
 share
 s0test
-build
-install
+build/
+install/
 artemislogon.C
 thisartemis-oedo.sh
+.vscode/launch.json
+.display
