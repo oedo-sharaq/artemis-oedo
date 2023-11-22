@@ -37,6 +37,7 @@ if [ -d $userdir ] ; then
     cd $userdir
     export ART_USER_FULLNAME="`git config user.name`"
     export ART_USER_EMAIL=`git config user.email`
+    source thisartemis-oedo.sh
     return 0
 #    exec zsh
 #    exit 0
