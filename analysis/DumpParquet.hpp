@@ -1,3 +1,13 @@
+/**
+ * @file DumpParquet.hpp
+ * @author Rin Yokoyama (yokoyama@cns.s.u-tokyo.ac.jp)
+ * @brief Definition of data builder classes for artemis objects
+ * @version 0.1
+ * @date 2024-01-17
+ *
+ * @copyright Copyright (c) 2024
+ *
+ */
 #ifndef __DUMP_PARQUET_HPP__
 #define __DUMP_PARQUET_HPP__
 #include "TClonesArray.h"
@@ -11,6 +21,10 @@
 #include <parquet/arrow/writer.h>
 #include <vector>
 
+/**
+ * @brief Data builder base class for an artemis object
+ *
+ */
 class TDataBuilderBase
 {
 public:
@@ -26,6 +40,10 @@ protected:
     std::string name_;
 };
 
+/**
+ * @brief Data builder class for art::TTimingChargeData objects
+ *
+ */
 class TTimingChargeDataBuilder : public TDataBuilderBase
 {
 public:
@@ -40,7 +58,7 @@ public:
     }
     ~TTimingChargeDataBuilder() {}
 
-    // A function to loop over TClonesArray and fill a data by getfunc
+    // A function to loop over TClonesArray and fill object to a vector
     const std::vector<art::TTimingChargeData *> GetVector(const TClonesArray &input)
     {
         std::vector<art::TTimingChargeData *> vec;
@@ -66,6 +84,12 @@ public:
         }
     };
 
+    /**
+     * @brief Finalize arrow builders and append fields and arrays
+     *
+     * @param fields reference to the FieldVector for generating data schema
+     * @param arrays reference to the ArrayVector for generating data table
+     */
     void Finalize(arrow::FieldVector &fields, arrow::ArrayVector &arrays)
     {
         std::shared_ptr<arrow::Array> list_tot_array;

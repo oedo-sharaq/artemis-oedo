@@ -1,6 +1,13 @@
-// DumpParquet.cpp created by Rin Yokoyama on \date April 18, 2023
-// This program generates root files with a tree containing a branch of the ExampleTwoDataClass.
-// named "ExampleData". ExampleData.data1_ and data2_ will be filled with random Gaussian events.
+/**
+ * @file DumpParquet.cpp
+ * @author Rin Yokoyama (yokoyama@cns.s.u-tokyo.ac.jp)
+ * @brief Dump artemis output objects to a parquet file
+ * @version 0.1
+ * @date 2024-01-17
+ *
+ * @copyright Copyright (c) 2024
+ *
+ */
 #include <iostream>
 #include "TROOT.h"
 #include "ROOT/RDataFrame.hxx"
@@ -54,15 +61,23 @@ int main(int argc, char **argv)
         }
     }
 
+    if (input_file_name.empty())
+    {
+        usage(argv[0]);
+        return 1;
+    }
+
     // Enable multithreading
     // ROOT::EnableImplicitMT(n_workers);
 
-    // Create RDataFrame from a tree, "exampleTree" in the "example.root" file.
+    // Create RDataFrame from a tree.
     ROOT::RDataFrame d("tree", input_file_name);
 
+    // Define builder objects
     TTimingChargeDataBuilder sr91x("sr91x");
     TTimingChargeDataBuilder sr91y("sr91y");
     TTimingChargeDataBuilder diapad("diapad");
+
     // Define the memory pool
     auto pool = arrow::default_memory_pool();
 
