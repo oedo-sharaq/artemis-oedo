@@ -62,6 +62,7 @@ int main(int argc, char **argv)
 
     TTimingChargeDataBuilder sr91x("sr91x");
     TTimingChargeDataBuilder sr91y("sr91y");
+    TTimingChargeDataBuilder diapad("diapad");
     // Define the memory pool
     auto pool = arrow::default_memory_pool();
 
@@ -71,19 +72,26 @@ int main(int argc, char **argv)
                            {"sr91_x_cal"})
                       .Define("sr91y_vec", [&](const TClonesArray &input)
                               { return sr91y.GetVector(input); },
-                              {"sr91_y_cal"});
+                              {"sr91_y_cal"})
+                      .Define("diapad_vec", [&](const TClonesArray &input)
+                              { return diapad.GetVector(input); },
+                              {"diapad"});
     output.Foreach([&](const std::vector<art::TTimingChargeData *> &input)
                    { sr91x.FillArrow(input); },
                    {"sr91x_vec"});
     output.Foreach([&](const std::vector<art::TTimingChargeData *> &input)
                    { sr91y.FillArrow(input); },
                    {"sr91y_vec"});
+    output.Foreach([&](const std::vector<art::TTimingChargeData *> &input)
+                   { diapad.FillArrow(input); },
+                   {"diapad_vec"});
 
     // Finalize the arrays
     arrow::FieldVector fieldVector;
     arrow::ArrayVector arrayVector;
     sr91x.Finalize(fieldVector, arrayVector);
     sr91y.Finalize(fieldVector, arrayVector);
+    diapad.Finalize(fieldVector, arrayVector);
 
     // Create the table
     std::shared_ptr<arrow::Schema> schema = arrow::schema(fieldVector);
