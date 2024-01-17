@@ -13,6 +13,7 @@ figs
 *.root
 *.ps
 *.pdf
+*.parquet
 .root_hist
 current/
 share
