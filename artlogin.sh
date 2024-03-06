@@ -1,4 +1,4 @@
-#!/bin/sh 
+#!/bin/bash 
 
 if [ _$1 = _ ] ; then
     echo "usage: artlogin username"
