@@ -37,6 +37,7 @@ OBJ += TTimingChargeTriggeredListMappingProcessor.o
 OBJ += TTimingAverageProcessor.o
 OBJ += TSRPPACPlaneStripDqdxProcessor.o
 OBJ += TTreeCopyProcessor.o
+OBJ += TTimingChargeCorrectionProcessorIC.o
 
 UNAME = $(shell uname)
 ifeq ($(UNAME),Darwin)

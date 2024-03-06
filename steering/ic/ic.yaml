@@ -1,10 +1,267 @@
 Processor:
+  #- name: proc_ic_ch2MeV
+  #  type: art::TParameterArrayLoader
+  #  parameter:
+  #    Name:     prm_ic_ch2MeV
+  #    Type:     art::TAffineConverter
+  #    FileName: prm/ic/ch2MeV.prm
+
+#ch to MeV
   - name: proc_ic_ch2MeV
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2MeV
+      Type:     art::TAffineConverter
+      FileName: prm/ic/ch2MeVsakura02.dat
+
+#ch to V
+  - name: proc_ic_ch2V
     type: art::TParameterArrayLoader
     parameter:
       Name:     prm_ic_ch2V
       Type:     art::TAffineConverter
-      FileName: prm/ic/ch2MeV.prm
+      FileName: prm/ic/ch2Vsakura02.dat
+
+#ch cal
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal1
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y-85-80.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal2
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y-80-75.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal3
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y-75-70.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal4
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y-70-65.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal5
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y-65-60.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal6
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y-60-55.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal7
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y-55-50.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal8
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y-50-45.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal9
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y-45-40.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal10
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y-40-35.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal11
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y-35-30.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal12
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y-30-25.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal13
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y-25-20.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal14
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y-20-15.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal15
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y-15-10.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal16
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y-10-5.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal17
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y-50.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal18
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y05.dat
+
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal19
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y510.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal20
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y1015.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal21
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y1520.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal22
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y2025.dat
+
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal23
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y2530.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal24
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y3035.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal25
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y3540.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal26
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y4045.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal27
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y4550.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal28
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y5055.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal29
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y5560.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal30
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y6065.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal31
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y6570.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal32
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y7075.dat
+  
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal33
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y7580.dat
+
+  - name: proc_ic_ch2chcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_ic_ch2chcal34
+      Type:     art::TAffineConverter
+      FileName: prm/ic/gain/ch2chcal_y8085.dat
+
+#
 
   - name: proc_icraw
     type: art::TSimpleDataMappingProcessor
@@ -13,65 +270,123 @@ Processor:
       DataTypeID:    0
       Sparse:        0
       OutputCollection: icraw
+      OutputTransparency: 0
+
+  - name: proc_icq2qcal
+    type: art::TTimingChargeCorrectionProcessorIC
+    parameter:
+      InputCollection: icraw
+      InputCollection1: sr11_xc0
+      InputCollection2: sr11_yc0
+      InputCollection3: sr12_xc0
+      InputCollection4: sr12_yc0
+      OutputCollection: icqcal
+      ChargeConverterArray1: prm_ic_ch2chcal1
+      ChargeConverterArray2: prm_ic_ch2chcal2
+      ChargeConverterArray3: prm_ic_ch2chcal3
+      ChargeConverterArray4: prm_ic_ch2chcal4
+      ChargeConverterArray5: prm_ic_ch2chcal5
+      ChargeConverterArray6: prm_ic_ch2chcal6
+      ChargeConverterArray7: prm_ic_ch2chcal7
+      ChargeConverterArray8: prm_ic_ch2chcal8
+      ChargeConverterArray9: prm_ic_ch2chcal9
+      ChargeConverterArray10: prm_ic_ch2chcal10
+      ChargeConverterArray11: prm_ic_ch2chcal11
+      ChargeConverterArray12: prm_ic_ch2chcal12
+      ChargeConverterArray13: prm_ic_ch2chcal13
+      ChargeConverterArray14: prm_ic_ch2chcal14
+      ChargeConverterArray15: prm_ic_ch2chcal15
+      ChargeConverterArray16: prm_ic_ch2chcal16
+      ChargeConverterArray17: prm_ic_ch2chcal17
+      ChargeConverterArray18: prm_ic_ch2chcal18
+      ChargeConverterArray19: prm_ic_ch2chcal19
+      ChargeConverterArray20: prm_ic_ch2chcal20
+      ChargeConverterArray21: prm_ic_ch2chcal21
+      ChargeConverterArray22: prm_ic_ch2chcal22
+      ChargeConverterArray23: prm_ic_ch2chcal23
+      ChargeConverterArray24: prm_ic_ch2chcal24
+      ChargeConverterArray25: prm_ic_ch2chcal25
+      ChargeConverterArray26: prm_ic_ch2chcal26
+      ChargeConverterArray27: prm_ic_ch2chcal27
+      ChargeConverterArray28: prm_ic_ch2chcal28
+      ChargeConverterArray29: prm_ic_ch2chcal29
+      ChargeConverterArray30: prm_ic_ch2chcal30
+      ChargeConverterArray31: prm_ic_ch2chcal31
+      ChargeConverterArray32: prm_ic_ch2chcal32
+      ChargeConverterArray33: prm_ic_ch2chcal33
+      ChargeConverterArray34: prm_ic_ch2chcal34
+      OutputTransparency: 1
+
+
+
+  #- name: proc_icq2V
+  #  type: art::TTimingChargeCalibrationProcessor
+  #  parameter:
+  #    InputCollection: icqcal
+  #    OutputCollection: icV
+  #    ChargeConverterArray: prm_ic_ch2V
+  #    OutputTransparency: 1
 
   - name: proc_icqcal
     type: art::TTimingChargeCalibrationProcessor
     parameter:
-      InputCollection: icraw
+      InputCollection: icqcal
       OutputCollection: ic
-      ChargeConverterArray: prm_ic_ch2V
+      ChargeConverterArray: prm_ic_ch2MeV
 
-#  - name: proc_icde
-#    type: art::TIonChamberProcessor
-#    parameter:
-#      InputName: ic
-#      OutputName: icde
-#      NumChannel: 4
-#      DropRatio: 0.0
+  - name: proc_icde
+    type: art::TIonChamberProcessor
+    parameter:
+      InputName: ic
+      OutputName: icde
+      NumChannel: 3
+      DropRatio: 0.0
+
+  - name: proc_icave
+    type: art::TIonChamberProcessor
+    parameter:
+      InputName: ic
+      OutputName: icave
+      NumChannel: 30
+      DropRatio: 0.0
+      OutputTransparency: 1
 #
-#  - name: proc_icave
-#    type: art::TIonChamberProcessor
-#    parameter:
-#      InputName: ic
-#      OutputName: icave
-#      NumChannel: 30
-#      DropRatio: 0.0
-#
-#  - name: proc_ic_sep
-#    type: art::TSeparateOutputProcessor
-#    parameter:
-#      InputCollection: ic
-#      OutputCollections:
-#        - ic_0
-#        - ic_1
-#        - ic_2
-#        - ic_3
-#        - ic_4
-#        - ic_5
-#        - ic_6
-#        - ic_7
-#        - ic_8
-#        - ic_9
-#        - ic_10
-#        - ic_11
-#        - ic_12
-#        - ic_13
-#        - ic_14
-#        - ic_15
-#        - ic_16
-#        - ic_17
-#        - ic_18
-#        - ic_19
-#        - ic_20
-#        - ic_21
-#        - ic_22
-#        - ic_23
-#        - ic_24
-#        - ic_25
-#        - ic_26
-#        - ic_27
-#        - ic_28
-#        - ic_29
+  #- name: proc_ic_sep
+  #  type: art::TSeparateOutputProcessor
+  #  parameter:
+  #    InputCollection: ic
+  #    OutputCollections:
+  #      - ic_0
+  #      - ic_1
+  #      - ic_2
+  #      - ic_3
+  #      - ic_4
+  #      - ic_5
+  #      - ic_6
+  #      - ic_7
+  #      - ic_8
+  #      - ic_9
+  #      - ic_10
+  #      - ic_11
+  #      - ic_12
+  #      - ic_13
+  #      - ic_14
+  #      - ic_15
+  #      - ic_16
+  #      - ic_17
+  #      - ic_18
+  #      - ic_19
+  #      - ic_20
+  #      - ic_21
+  #      - ic_22
+  #      - ic_23
+  #      - ic_24
+  #      - ic_25
+  #      - ic_26
+  #      - ic_27
+  #      - ic_28
+  #      - ic_29
+  #    OutputTransparency: 1
 
 #-----------Timing-----------------------
   - name: proc_ic_ch2ns
@@ -88,6 +403,7 @@ Processor:
       TimingTypeID: 0
       OutputCollection: ictraw
       OutputTransparency: 0
+      OutputTransparency: 1
 
 
 #  - name: proc_ictcal
@@ -125,6 +441,7 @@ Processor:
       OutputCollection: ict
       DataClass:        ITiming
       ConverterArray:   prm_ic_ch2ns
+      OutputTransparency: 0
 
 #  - name: proc_ic_drift
 #    type: art::TTimingSubtractionProcessor

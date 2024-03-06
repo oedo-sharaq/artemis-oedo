@@ -2,24 +2,43 @@ Processor:
 #### FE9
 ####
   - include: 
-      name: srppac.inc.yaml
+      #name: srppac.inc.yaml
+      name: srppac.strip.inc.yaml
       replace:
         NAME: sr91
+        updown: sru
         CATIDa: 40 
         CATIDx: 41
         CATIDy: 42
-    ##    VALIDTIME: [-16700,-16400,0]
-        VALIDTIME: [-100000,100000,0]
+        #VALIDTIME: [-16300,-15600,0] #run0045
+        #VALIDTIME: [-16500,-15400,0] #run0048
+        #VALIDTIME: [-16400,-15700,0] #run0134-0174F3DS
+        #VALIDTIME: [-16600,-16000,0] #run0175-0193F3DS
+        VALIDTIME: [-22500,-19500,0] #TTT
+        #VALIDTIME: [-14500,-12500,0] #YY1
+        #VALIDTIME: [-16500,-15500,0] #F3DS
+        #VALIDTIME: [-16200,-15400,0] #run0194
+        #VALIDTIME: [-100000,100000,0]
 
   - include:
-      name: srppac.inc.yaml
+      #name: srppac.inc.yaml
+      name: srppac.strip.inc.yaml
       replace:
         NAME: sr92
+        updown: srd
         CATIDa: 43 
         CATIDx: 44
         CATIDy: 45
-      ##  VALIDTIME: [-16500,-16200,0]
-        VALIDTIME: [-100000,100000,0]
+        #VALIDTIME: [-16300,-15400,0] #run0045
+        #VALIDTIME: [-16500,-15400,0] #run0048
+        #VALIDTIME: [-16400,-15500,0] #run0134-0174F3DS
+        #VALIDTIME: [-16600,-15800,0] #run0175-0193F3DS
+        VALIDTIME: [-22500,-19500,0] #TTT
+        #VALIDTIME: [-14500,-12500,0] #YY1
+        #VALIDTIME: [-16500,-15500,0] #F3DS
+        #VALIDTIME: [-16200,-15400,0] #run0194
+        #VALIDTIME: [-100000,100000,0]
+
 
 ### calib LR
 #  - include: 
@@ -32,29 +51,46 @@ Processor:
 #        NAME: sr92
 
 
-
  
 #### FE12
 ####
   - include: 
-      name: srppac.inc.yaml
+      #name: srppac.inc.yaml
+      name: srppac.strip.inc.yaml
       replace:
         NAME: src1
+        updown: sru
         CATIDa: 46 
         CATIDx: 47
         CATIDy: 48
-      ##  VALIDTIME: [-16000,-14000,0]
-        VALIDTIME: [-100000,100000,0]
+        #VALIDTIME: [-14500,-12500,0] #run0045
+        #VALIDTIME: [-16000,-14800,0] #run0048
+        #VALIDTIME: [-14800,-13000,0] #run0134-0174F3DS
+        #VALIDTIME: [-15000,-13400,0] #run0175-0193F3DS
+        VALIDTIME: [-20000,-17000,0] #TTT
+        #VALIDTIME: [-12000,-10500,0] #YY1
+        #VALIDTIME: [-14500,-13000,0] #F3DS
+        #VALIDTIME: [-15500,-12000,0] #run0194
+        #VALIDTIME: [-100000,100000,0]
 
   - include: 
-      name: srppac.inc.yaml
+      #name: srppac.inc.yaml
+      name: srppac.strip.inc.yaml
       replace:
         NAME: src2
+        updown: srd
         CATIDa: 49 
         CATIDx: 10
         CATIDy: 51
-      ##  VALIDTIME: [-16000,-14000,0]
-        VALIDTIME: [-100000,100000,0]
+        #VALIDTIME: [-14500,-12300,0] #run0045
+        #VALIDTIME: [-16000,-14800,0] #run0048
+        #VALIDTIME: [-14800,-13000,0] #run0134-0174F3DS
+        #VALIDTIME: [-15000,-13400,0] #run0175-0193F3DS
+        VALIDTIME: [-20000,-17000,0] #TTT
+        #VALIDTIME: [-12000,-10500,0] #YY1
+        #VALIDTIME: [-14500,-13000,0] #F3DS
+        #VALIDTIME: [-100000,100000,0]
+
 
 
 ### calib LR
@@ -72,26 +108,39 @@ Processor:
 
 #### S1
 ####
-  - include: 
-      name: srppac.inc.yaml
+  - include:
+      #name: srppac.inc.yaml
+      name: srppac.strip.inc.yaml
       replace:
         NAME: sr11
+        updown: sru
         CATIDa: 52 
         CATIDx: 53
         CATIDy: 54
-      ##  VALIDTIME: [-9000,-7000,0]
-        VALIDTIME: [-100000,100000,0]
+        #VALIDTIME: [-6800,-5200,0] #run0045
+        #VALIDTIME: [-9400,-8400,0] #run0048
+        #VALIDTIME: [-7500,-5800,0] #run0148-0193F3DS,run0134-0143F3DS
+        #VALIDTIME: [-4000,-3000] # YY1
+        VALIDTIME: [-16000,-10000] # TTT
+        #VALIDTIME: [-7100,-5500,0] #run0194
+        #VALIDTIME: [-140000,100000,0]
 
 
   - include: 
-      name: srppac.inc.yaml
+      #name: srppac.inc.yaml
+      name: srppac.strip.inc.yaml
       replace:
         NAME: sr12
+        updown: srd
         CATIDa: 55 
         CATIDx: 56
         CATIDy: 57
-      ##  VALIDTIME: [-9000,-7000,0]
-        VALIDTIME: [-100000,100000,0]
+        #VALIDTIME: [-6800,-5200,0] #run0045
+        #VALIDTIME: [-9400,-8400,0] #run0048
+        #VALIDTIME: [-7500,-5800,0] #run0148-run0193F3DS,run0134-0143F3DS
+        VALIDTIME: [-4000,-3000] # YY1
+        #VALIDTIME: [-7100,-5500,0] #0194
+        #VALIDTIME: [-140000,100000,0]
 
 
 ### calib LR

@@ -28,7 +28,9 @@ Processor:
   - include: bld/dlppac/dlppac.inc.yaml
   - include: bld/srppac/srppac.yaml
   - include: bld/mwdc/chkmwdc_local.yaml
-  - include: rf.yaml
+  - include: tof.yaml
+  - include: vtof.yaml
+#  - include: rf.yaml
 
 
 
@@ -41,92 +43,92 @@ Processor:
       FileName: hist/dlppac/fe7_dlppac.yaml
 
 
-### FE8 DL-PPAC Hist
-
-  - name: projection
-    type: art::TTreeProjectionProcessor
-    parameter:
-      Type:     art::TTreeProjection
-      FileName: hist/dlppac/fe8_dlppac.yaml
-
-
-### FE9 SR-PPAC Hist
-
-  - name: projection
-    type: art::TTreeProjectionProcessor
-    parameter:
-      FileName: hist/srppac/chksrppac.yaml
-      Type:     art::TTreeProjection
-      Replace: |
-        sr: sr91       
-
-  - name: projection
-    type: art::TTreeProjectionProcessor
-    parameter:
-      FileName: hist/srppac/chksrppac.yaml
-      Type:     art::TTreeProjection
-      Replace: |
-        sr: sr92       
-
-
-### FE12 SR-PPAC Hist
-
-  - name: projection
-    type: art::TTreeProjectionProcessor
-    parameter:
-      FileName: hist/srppac/chksrppac.yaml
-      Type:     art::TTreeProjection
-      Replace: |
-        sr: src1       
-
-  - name: projection
-    type: art::TTreeProjectionProcessor
-    parameter:
-      FileName: hist/srppac/chksrppac.yaml
-      Type:     art::TTreeProjection
-      Replace: |
-        sr: src2       
-
-
-### S1 SR-PPAC Hist
-
-  - name: projection
-    type: art::TTreeProjectionProcessor
-    parameter:
-      FileName: hist/srppac/chksrppac.yaml
-      Type:     art::ttreeprojection
-      Replace: |
-        sr: sr11      
-
-  - name: projection
-    type: art::TTreeProjectionProcessor
-    parameter:
-      FileName: hist/srppac/chksrppac.yaml
-      Type:     art::TTreeProjection
-      Replace: |
-        sr: sr12       
-
-
-### FE10 MWDC Hist
-
-  - name: projection
-    type: art::TTreeProjectionProcessor
-    parameter:
-      FileName: hist/mwdc/chkmwdc.tmpl.yaml
-      Type:     art::TTreeProjection
-      Replace: |
-        plane: dca1   
-
-  - name: projection
-    type: art::TTreeProjectionProcessor
-    parameter:
-      FileName: hist/mwdc/chkmwdc.tmpl.yaml
-      OutputFilename: *histout
-      Type:     art::TTreeProjection
-      Replace: |
-        plane: dca2   
-
-
+#### FE8 DL-PPAC Hist
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      Type:     art::TTreeProjection
+#      FileName: hist/dlppac/fe8_dlppac.yaml
+#
+#
+#### FE9 SR-PPAC Hist
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/chksrppac.yaml
+#      Type:     art::TTreeProjection
+#      Replace: |
+#        sr: sr91       
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/chksrppac.yaml
+#      Type:     art::TTreeProjection
+#      Replace: |
+#        sr: sr92       
+#
+#
+#### FE12 SR-PPAC Hist
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/chksrppac.yaml
+#      Type:     art::TTreeProjection
+#      Replace: |
+#        sr: src1       
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/chksrppac.yaml
+#      Type:     art::TTreeProjection
+#      Replace: |
+#        sr: src2       
+#
+#
+#### S1 SR-PPAC Hist
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/chksrppac.yaml
+#      Type:     art::ttreeprojection
+#      Replace: |
+#        sr: sr11      
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/chksrppac.yaml
+#      Type:     art::TTreeProjection
+#      Replace: |
+#        sr: sr12       
+#
+#
+#### FE10 MWDC Hist
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/mwdc/chkmwdc.tmpl.yaml
+#      Type:     art::TTreeProjection
+#      Replace: |
+#        plane: dca1   
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/mwdc/chkmwdc.tmpl.yaml
+#      OutputFilename: *histout
+#      Type:     art::TTreeProjection
+#      Replace: |
+#        plane: dca2   
+#
+#
           
   - name: outputtree
     type: art::TOutputTreeProcessor

@@ -22,6 +22,7 @@ set(SOURCES
     TTimingAverageProcessor.cc
     TSRPPACPlaneStripDqdxProcessor.cc
     TTreeCopyProcessor.cc
+    TTimingChargeCorrectionProcessorIC.cc
 )
 
 set(HEADERS
@@ -46,6 +47,7 @@ set(HEADERS
     TTimingAverageProcessor.h
     TSRPPACPlaneStripDqdxProcessor.h
     TTreeCopyProcessor.h   
+    TTimingChargeCorrectionProcessorIC.h
 )
 
 add_library(${LIB_NAME} SHARED ${SOURCES})

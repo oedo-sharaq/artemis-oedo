@@ -1,0 +1,36 @@
+
+{
+  TChain *mychain = new TChain("tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0148.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0149.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0150.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0151.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0152.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0153.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0154.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0155.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0156.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0163.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0164.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0165.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0166.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0167.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0168.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0169.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0170.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0174.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0176.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0181.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0182.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0183.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0184.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0185.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0186.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0187.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0188.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0189.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0190.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0191.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0192.root/tree");
+  mychain->Add("output/rootMake/ttt_ni56phys0193.root/tree");
+}

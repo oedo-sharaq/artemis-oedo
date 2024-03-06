@@ -32,7 +32,8 @@ Processor:
     parameter:
       InputCollection: yy1fraw_pre
       OutputCollection: yy1fraw
-      Range:            [150., 4000.]
+#      Range:            [150., 4000.]
+      Range:            [200., 4000.]
   - name: proc_csiraw_validate
     type: art::TChargeValidateProcessor
     parameter:
@@ -66,8 +67,34 @@ Processor:
       SiName: yy1f
       CsIName: csi
       TinaTName: tinat
+      X1Name:  src1_xc0 
+      Y1Name:  src1_yc0 
+      X2Name:  src2_xc0 
+      Y2Name:  src2_yc0 
       OutputName: tina2
 
+
+  - name: proc_tinat
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: tinat
+      OutputCollections:
+        - tinat1
+        - tinat2
+        - tinat3
+        - tinat4
+        - tinat5
+        - tinat6
+        - tinat7
+        - tinat8
+        - tinat9
+        - tinat10
+        - tinat11
+        - tinat12
+        - tinat13
+        - tinat14
+        - tinat15
+        - tinat16
 
   - name: proc_csi_sep
     type: art::TSeparateOutputProcessor
@@ -106,3 +133,40 @@ Processor:
         - csiT14
         - csiT15
         - csiT16
+  - name: proc_csiraw_sep
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: csiraw
+      OutputCollections:
+        - csirawS1
+        - csirawS2
+        - csirawS3
+        - csirawS4
+        - csirawS5
+        - csirawS6
+        - csirawS7
+        - csirawS8
+        - csirawS9
+        - csirawS10
+        - csirawS11
+        - csirawS12
+        - csirawS13
+        - csirawS14
+        - csirawS15
+        - csirawS16
+        - csirawT1
+        - csirawT2
+        - csirawT3
+        - csirawT4
+        - csirawT5
+        - csirawT6
+        - csirawT7
+        - csirawT8
+        - csirawT9
+        - csirawT10
+        - csirawT11
+        - csirawT12
+        - csirawT13
+        - csirawT14
+        - csirawT15
+        - csirawT16

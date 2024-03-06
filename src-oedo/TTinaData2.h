@@ -36,6 +36,13 @@ public:
    void SetX(Double_t arg) { fX = arg; }
    Double_t GetY() const {return fY;}
    void SetY(Double_t arg) { fY = arg; }
+   Double_t GetCsIE() const {return fCsIE;}
+   void SetCsIE(Double_t arg) {fCsIE = arg;}
+   Double_t GetTrack() const {return fTrack;}
+   void SetTrack(Double_t arg) { fTrack = arg; }
+   Double_t GetScat() const {return fScat;}
+   void SetScat(Double_t arg) { fScat = arg; }
+
 
    virtual void Copy(TObject& dest) const;
    virtual void Clear(Option_t *opt="");
@@ -50,8 +57,12 @@ protected:
    Int_t fEid;
    Double_t fX;
    Double_t fY;
+   Double_t fCsIE;
+   Double_t fTrack;
+   Double_t fScat; // scattering angle between proton and beam particle
 
-   ClassDef(TTinaData2,1)
+   // ClassDef(TTinaData2,2)
+   ClassDef(TTinaData2,4)
 };
 
 #endif // TTinaDATA2_H

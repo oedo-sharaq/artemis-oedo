@@ -1,6 +1,9 @@
 Anchor:
- - &input ridf_tina/os22stest@NUM@.ridf
- - &output output/yy/@NUM@/chkni@NUM@.root
+# - &input cnsdaq/os22stest@NUM@.ridf
+# - &input ridf/@NAME@@NUM@.ridf
+# - &output output/yy/@NUM@/chkni@NUM@.root
+ - &output output/yy/merge08.root
+# - &output output/Al/Al.yy.raw.root
 
 Processor:
   - name: timer
@@ -11,44 +14,87 @@ Processor:
     parameter:
       OutputTransparency: 1
       InputFiles:
-        - *input  # YY1 1~3->1001 4~6->1008 for alpha test
-
-
-  - name: modlistloader
-    type: art::TParameterArrayLoader
-    parameter:
-      Name: modlist
-      Type: art::TModuleType
-      FileName: conf/seg/modulelist_tina.yaml
-      FileFormat: yaml
-
-  - name: seglistloader
-    type: art::TParameterArrayLoader
-    parameter:
-      Name: seglist
-      Type: art::TSegmentInfo
-      FileName: conf/seg/seglist_tina.yaml
-      FileFormat: yaml
-
-  - name: MyTSegmentCheckProcessor
-    type: art::TSegmentCheckProcessor
-    parameter:
-      Ignore:  # [StringVec_t] ignore segment list
-        - ""
-      ModuleList: modlist  # [TString] name of the module list
-      OutputTransparency: 1  # [Bool_t] Output is persistent if false (default)
-      SegmentList: seglist  # [TString] name of the segment list
-      SegmentedDataName: segdata  # [TString] name of the segmented data
-      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
-
+#        - *input  # YY1 1~3->1001 4~6->1008 for alpha test
+#        - ridf/ni56phys0145.ridf
+#        - ridf/ni56phys0146.ridf
+#        - ridf/ni56phys0147.ridf
+        - ridf/ni56phys0115.ridf
+        - ridf/ni56phys0116.ridf
+        - ridf/ni56phys0117.ridf
+        - ridf/ni56phys0118.ridf
+        - ridf/ni56phys0119.ridf
+#       - ridf/ni56phys0120.ridf
+#       - ridf/ni56phys0121.ridf
+#       - ridf/ni56phys0122.ridf
+#       - ridf/ni56phys0123.ridf
+#       - ridf/ni56phys0124.ridf
+        - ridf/ni56phys0125.ridf
+        - ridf/ni56phys0126.ridf
+        - ridf/ni56phys0127.ridf
+        - ridf/ni56phys0128.ridf
+        - ridf/ni56phys0129.ridf
+        - ridf/ni56phys0130.ridf
+        - ridf/ni56phys0131.ridf
+        - ridf/ni56phys0132.ridf
+        - ridf/ni56phys0133.ridf
+        - ridf/ni56phys0134.ridf
+#       - ridf/ni56phys0135.ridf
+        - ridf/ni56phys0136.ridf
+        - ridf/ni56phys0137.ridf
+        - ridf/ni56phys0138.ridf
+        - ridf/ni56phys0139.ridf
+        - ridf/ni56phys0140.ridf
+        - ridf/ni56phys0141.ridf
+        - ridf/ni56phys0142.ridf
+        - ridf/ni56phys0143.ridf
+#  - name: modlistloader
+#    type: art::TParameterArrayLoader
+#    parameter:
+#      Name: modlist
+#      Type: art::TModuleType
+#      FileName: conf/seg/modulelist_tina.yaml
+#      FileFormat: yaml
+#
+#  - name: seglistloader
+#    type: art::TParameterArrayLoader
+#    parameter:
+#      Name: seglist
+#      Type: art::TSegmentInfo
+#      FileName: conf/seg/seglist_tina.yaml
+#      FileFormat: yaml
+#
+#  - name: MyTSegmentCheckProcessor
+#    type: art::TSegmentCheckProcessor
+#    parameter:
+#      Ignore:  # [StringVec_t] ignore segment list
+#        - ""
+#      ModuleList: modlist  # [TString] name of the module list
+#      OutputTransparency: 1  # [Bool_t] Output is persistent if false (default)
+#      SegmentList: seglist  # [TString] name of the segment list
+#      SegmentedDataName: segdata  # [TString] name of the segmented data
+#      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
+#
   - name: mapper
     type: art::TMappingProcessor
     parameter:
       OutputTransparency: 1
 
+  - include: trig_select/trig_yy1.yaml
+#  - name: stop_proc
+#    type: art::TGateStopProcessor
+#    parameter:
+#      GateName: "gateS0"
+
+
+  - include: tref.yaml
+  - include: bld/srppac/srppac.yy1.yaml
   - include: v1190_tref_tina.yaml
   - include: si/tdc.yaml
-  - include: si/tina.yaml
+  - include: si/tina_timing.yaml
+  - include: si/tina2.yaml
+  - include: bld/dia/dia.yaml
+  - include: tof.yaml
+  - include: vtof_yy1.yaml
 
 #  - include: proj.yaml
 

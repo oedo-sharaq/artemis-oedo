@@ -1,0 +1,62 @@
+Anchor:
+   
+ - &input ridf/@NAME@@NUM@.ridf
+ - &output output/rootMake/icpulser0001.root
+# - &histout output/@NAME@/@NUM@/chkic@NAME@@NUM@.hist.root
+
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+#        - *input
+        - ridf/s1test0664.ridf       
+        - ridf/s1test0665.ridf       
+        - ridf/s1test0666.ridf      
+        - ridf/s1test0667.ridf       
+        - ridf/s1test0668.ridf       
+        - ridf/s1test0669.ridf       
+        - ridf/s1test0670.ridf      
+        - ridf/s1test0671.ridf       
+        - ridf/s1test0672.ridf       
+        - ridf/s1test0673.ridf       
+        - ridf/s1test0674.ridf      
+        - ridf/s1test0675.ridf       
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+
+  - include: trig_select/trig.yaml
+#  - include: tref.yaml
+#  - include: bld/pla/pla_os22s.yaml
+#  - include: bld/dia/dia.yaml
+#  - include: bld/dlppac/ppac.brips.yaml
+#  - include: bld/dlppac/dlppac.inc.yaml
+#  - include: bld/srppac/srppac.yaml
+#  - include: bld/srppac/srppac_novalidtime.yaml
+#  - include: bld/mwdc/chkmwdc_local.yaml
+#  - include: vtof.yaml
+#  - include: tof.yaml
+#  - include: ic/ic.yaml
+  - include: ic.yaml
+#  - include: ic/ic_waveform.yaml
+#  - include: ge/ge_tsi.yaml
+
+
+
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      Type:     art::TTreeProjection
+#      FileName: hist/s1/ic_waveform.yaml
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: 
+        - *output

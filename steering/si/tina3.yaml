@@ -1,0 +1,12 @@
+Processor:
+  - name: proc_tina3
+    type: art::TTinaProcessor3
+    parameter:
+      SifName: ttt_front_hit
+      SibName: ttt_back_hit
+      CsIName: csi
+      X1Name:  src1_xc0 
+      Y1Name:  src1_yc0 
+      X2Name:  src2_xc0 
+      Y2Name:  src2_yc0 
+      OutputName: tina3

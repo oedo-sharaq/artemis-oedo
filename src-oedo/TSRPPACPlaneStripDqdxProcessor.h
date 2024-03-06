@@ -1,8 +1,3 @@
-/*
- * @file   TSRPPACPlaneStripDqdxProcessor.h
- * @brief  divide SRPPAC TimingChargeData into collection for each plane
- */
-
 #ifndef TSRPPACPLANESTRIPDQDXPROCESSOR_H
 #define TSRPPACPLANESTRIPDQDXPROCESSOR_H
 

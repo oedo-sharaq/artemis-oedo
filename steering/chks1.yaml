@@ -10,14 +10,14 @@ Processor:
 #        - ridf_prep/s1test0004.ridf
 #        - ridf_prep/s1test0005.ridf
         - ridf_prep/s1test0006.ridf
-        - ridf_prep/s1test0007.ridf
-        - ridf_prep/s1test0008.ridf
-        - ridf_prep/s1test0009.ridf
+#        - ridf_prep/s1test0007.ridf
+#        - ridf_prep/s1test0008.ridf
+#        - ridf_prep/s1test0009.ridf
 #        - ridf_prep/s1test0010.ridf
-        - ridf_prep/s1test0011.ridf
-        - ridf_prep/s1test0012.ridf
-        - ridf_prep/s1test0013.ridf
-#
+#        - ridf_prep/s1test0011.ridf
+#        - ridf_prep/s1test0012.ridf
+#        - ridf_prep/s1test0013.ridf
+##
   - name: mapper
     type: art::TMappingProcessor
     parameter:

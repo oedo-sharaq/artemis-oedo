@@ -1,6 +1,6 @@
 Anchor:
  - &input ridf/@NAME@@NUM@.ridf
- - &output output/@NAME@/@NUM@/chk@NAME@@NUM@.root
+ - &output output/dia/@NUM@/chkdia@NUM@.root
 # - &histout output/@NAME@/@NUM@/chk@NAME@@NUM@.hist.root
 
 Processor:
@@ -14,39 +14,40 @@ Processor:
       InputFiles:
         - *input
 
-  - name: modlistloader
-    type: art::TParameterArrayLoader
-    parameter:
-      Name: modlist
-      Type: art::TModuleType
-      FileName: conf/seg/modulelist.yaml
-      FileFormat: yaml
-
-  - name: seglistloader
-    type: art::TParameterArrayLoader
-    parameter:
-      Name: seglist
-      Type: art::TSegmentInfo
-      FileName: conf/seg/seglist.yaml
-      FileFormat: yaml
-
-  - name: MyTSegmentCheckProcessor
-    type: art::TSegmentCheckProcessor
-    parameter:
-      Ignore:  # [StringVec_t] ignore segment list
-        - ""
-      ModuleList: modlist  # [TString] name of the module list
-      OutputTransparency: 1  # [Bool_t] Output is persistent if false (default)
-      SegmentList: seglist  # [TString] name of the segment list
-      SegmentedDataName: segdata  # [TString] name of the segmented data
-      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
-        
+#  - name: modlistloader
+#    type: art::TParameterArrayLoader
+#    parameter:
+#      Name: modlist
+#      Type: art::TModuleType
+#      FileName: conf/seg/modulelist.yaml
+#      FileFormat: yaml
+#
+#  - name: seglistloader
+#    type: art::TParameterArrayLoader
+#    parameter:
+#      Name: seglist
+#      Type: art::TSegmentInfo
+#      FileName: conf/seg/seglist.yaml
+#      FileFormat: yaml
+#
+#  - name: MyTSegmentCheckProcessor
+#    type: art::TSegmentCheckProcessor
+#    parameter:
+#      Ignore:  # [StringVec_t] ignore segment list
+#        - ""
+#      ModuleList: modlist  # [TString] name of the module list
+#      OutputTransparency: 1  # [Bool_t] Output is persistent if false (default)
+#      SegmentList: seglist  # [TString] name of the segment list
+#      SegmentedDataName: segdata  # [TString] name of the segmented data
+#      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
+#        
   - name: mapper
     type: art::TMappingProcessor
     parameter:
       OutputTransparency: 1
 
   - include: tref.yaml
+  - include: bld/dia/dia.yaml
 #  - include: bld/ppac/ppac.yaml
 #  - include: bld/ppac/ppac.brips.yaml
 #  - include: bld/pla/pla.yaml

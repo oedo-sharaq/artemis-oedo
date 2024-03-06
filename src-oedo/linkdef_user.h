@@ -23,11 +23,15 @@
 #pragma link C++ class art::TTinaProcessor;
 #pragma link C++ class art::TTinaData;
 #pragma link C++ class art::TTinaProcessor2;
-#pragma link C++ class art::TTinaData2;
+#pragma link C++ class art::TTinaData2+;
 #pragma link C++ class art::TTinaProcessor3;
-#pragma link C++ class art::TTinaData3;
+#pragma link C++ class art::TTinaData3+;
 #pragma link C++ class art::TDaliProcessor;
 #pragma link C++ class art::TDaliData;
+#pragma link C++ class art::TSRPPACPlaneStripDqdxProcessor;
+#pragma link C++ class art::TTimingChargeCorrectionProcessorIC;
+// #pragma link C++ class art::TTimingChargeCorrectionProcessor;
+
 //#pragma link C++ class art::TModuleDecoderA3100;
 #pragma link C++ class art::TModuleDecoderA3100FreeRunTSI;
 #pragma link C++ class art::TModuleDecoderSIS3301;
@@ -50,6 +54,8 @@
 #pragma link C++ class art::TCmdPadZoom;
 #pragma link C++ class art::TSRPPACPlaneStripDqdxProcessor;
 #pragma link C++ class art::TTreeCopyProcessor;
+
+
 #endif // __CINT__
 
 #endif // LINKDEF_USER_H

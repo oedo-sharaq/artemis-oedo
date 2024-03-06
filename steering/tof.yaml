@@ -54,7 +54,7 @@ Processor:
       InputCollection:        fe9timing
       OutputCollection:       tof39_pre
 #      StartTimingCollection:  f3pla
-      StartTimingCollection:  diapad
+      StartTimingCollection:  vf3dia
       StartTimingDetID:       0
       MaxDetID:               1
       UseMultipleStartTiming: 1

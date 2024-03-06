@@ -1,0 +1,47 @@
+Anchor:
+# - &input ridf/@NAME@@NUM@.ridf
+# - &output output/@NAME@/@NUM@/chktina3.@NUM@.root
+ - &output output/Al/Al.ttt.root
+
+
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+#        - *input
+        - ridf/ni56phys0145.ridf
+        - ridf/ni56phys0146.ridf
+        - ridf/ni56phys0147.ridf
+       
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+
+  - include:
+      name: ttt/get.inc.yaml
+      replace:
+#        NUM: @GET@
+        CATDATA: tttdata
+
+  - include: chktina.param.yaml 
+  - include: ttt.sakura.yaml
+#  - include: chktina.online.yaml
+#
+  - include: v1190_tref_tina.sakura.yaml
+  - include: si/tdc.yaml
+  - include: si/tina_timing.yaml
+  - include: si/tina2.yaml
+  - include: si/tina3.yaml
+
+
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: *output

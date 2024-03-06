@@ -9,7 +9,8 @@ TTinaData2::TTinaData2()
    : fEnergy(kInvalidD), fDeltaE(kInvalidD),
      fTheta(kInvalidD), fPhi(kInvalidD), 
 	 fDeid(kInvalidD), fEid(kInvalidD),
-    fX(kInvalidD), fY(kInvalidD)
+    fX(kInvalidD), fY(kInvalidD), fCsIE(kInvalidD), 
+    fTrack(kInvalidD), fScat(kInvalidD)
 {
    TDataObject::SetID(kInvalidI);
 }
@@ -22,7 +23,8 @@ TTinaData2::TTinaData2(const TTinaData2& rhs)
      fTiming(rhs.fTiming),
      fTheta(rhs.fTheta), fPhi(rhs.fPhi),
      fDeid(rhs.fDeid), fEid(rhs.fEid),
-     fX(rhs.fX), fY(rhs.fY)
+     fX(rhs.fX), fY(rhs.fY), fCsIE(rhs.fCsIE),
+     fTrack(rhs.fTrack), fScat(rhs.fScat)
 {}
 
 TTinaData2& TTinaData2::operator=(const TTinaData2& rhs)
@@ -46,6 +48,9 @@ void TTinaData2::Copy(TObject& dest) const
    cobj.fEid    = this->GetEid();
    cobj.fX      = this->GetX();
    cobj.fY      = this->GetY();
+   cobj.fCsIE   = this->GetCsIE();
+   cobj.fTrack  = this->GetTrack();
+   cobj.fScat   = this->GetScat();
 }
 
 void TTinaData2::Clear(Option_t *opt)
@@ -61,5 +66,8 @@ void TTinaData2::Clear(Option_t *opt)
    fEid    = kInvalidD;
    fX      = kInvalidD;
    fY      = kInvalidD;
+   fCsIE   = kInvalidD;
+   fTrack  = kInvalidD;
+   fScat   = kInvalidD;
 }
 

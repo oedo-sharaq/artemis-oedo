@@ -21,8 +21,11 @@ Processor:
       OutputTransparency: 1
 
   - include: tref.yaml
+  - include: bld/dia/dia.yaml
   - include: bld/srppac/srppac.yaml
-
+  - include: trig_select/trig.yaml
+  - include: vtof.yaml
+  - include: tof.yaml
 
 ### FE9 SR-PPAC Hist
 

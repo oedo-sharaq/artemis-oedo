@@ -1,6 +1,25 @@
 {
-
-tree->SetAlias("tof39","(sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-diapad[0].fTiming");
+//  tree->SetAlias("sr91a","sr91_a_cal");
+//  tree->SetAlias("sr92a","sr92_a_cal");
+//  tree->SetAlias("src1a","src1_a_cal");
+//  tree->SetAlias("src2a","src2_a_cal");
+//  tree->SetAlias("dia","abs(diapad.fTiming+3200)<200");
+//  tree->SetAlias("sr9a","abs(sr91a.fTiming+2000)<200&&abs(sr92a.fTiming+2000)<200");
+//  tree->SetAlias("srca","abs(src1a.fTiming+1850)<150&&abs(src2a.fTiming+1850)<150");
+//  tree->SetAlias("srcaraw","abs(src1_a_raw.fTiming+18500)<1500&&abs(src2_a_raw.fTiming+18500)<1500");
+//  tree->SetAlias("sr9araw","abs(sr91_a_raw.fTiming+20500)<1500&&abs(sr92_a_raw.fTiming+20500)<1500");
+//  tree->SetAlias("timinggate","dia&&sr9a&&srca");
+//  //tree->SetAlias("tof39","(sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-vf3dia[0].fTiming");
+//  //tree->SetAlias("tof39","tof39.fTiming");
+//  tree->SetAlias("tof39a","(sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-diapad[0].fTiming");
+//  tree->SetAlias("fe9.fT","(sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2");
+  tree->SetAlias("sr9.fX","(541*sr91_xc0[0].fPosition-122.5*sr92_xc0[0].fPosition)/418.5");
+  tree->SetAlias("sr9.fY","(541*sr91_yc0[0].fPosition-122.5*sr92_yc0[0].fPosition)/418.5");
+  tree->SetAlias("src.fA","(src2_xc0[0].fPosition-src1_xc0[0].fPosition)/500.");
+  tree->SetAlias("src.fY","(1972*(src2_y[0].fPosition-31)-1452*(src1_y[0].fPosition-31))/520.");
+  tree->SetAlias("src.fB","(src2_yc0[0].fPosition-src1_yc0[0].fPosition)/500.");
+  //tree->SetAlias("fe9.pid","0.9986*tof39_pre.fTiming+0.05165*sr9.fX");
+  //tree->SetAlias("pidgate","abs(fe9.pid-1180)<15");
 //tree->SetAlias("pidgate","abs(f5track.fX+23.9*((f5ppac1a.fTAnode+f5ppac2a.fTAnode)/2-diapad.fTiming-1250)-1414-32369)<9");
 //tree->SetAlias("pidgate","abs(f5track.fX+25.5*((f5ppac1a.fTAnode+f5ppac2a.fTAnode)/2-diapad.fTiming-1250)-36040)<10");
 //tree->SetAlias("pidgate","abs(f5track.fX+26.6*((f5ppac1a.fTAnode+f5ppac2a.fTAnode)/2-diapad.fTiming-1250)-37595)<10");
@@ -12,7 +31,7 @@ tree->SetAlias("tof39","(sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-diapad[0
 //tree->SetAlias("pidgate","abs(sr9.fX+7.5*((sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-diapad[0].fTiming-1074))<10"); //optics0439 124Sn FE9
 //tree->SetAlias("pidgate","abs(sr9.fX+7.5*((sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-diapad[0].fTiming-1075.8))<10"); //optics0439 124Sn FE9
 //tree->SetAlias("pidgate","abs(sr9.fX+7.5*((sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-diapad[0].fTiming-1078.2))<10");// physics 124Sn
-  tree->SetAlias("f5.fT","(f5ppac1a.fTAnode+f5ppac1b.fTAnode+f5ppac2a.fTAnode+f5ppac2b.fTAnode)/4.");
+  /*tree->SetAlias("f5.fT","(f5ppac1a.fTAnode+f5ppac1b.fTAnode+f5ppac2a.fTAnode+f5ppac2b.fTAnode)/4.");
   tree->SetAlias("f5.pid","0.0427*f5track.fX+0.999*(f5.fT-2709)+2720-3.6");
 // tree->SetAlias("fe9.pid","0.1463*sr9.fX+0.999*fe9.fT+1500+53");
 // tree->SetAlias("fe9.pid","0.1463*sr9.fX+0.999*fe9.fT+1500+53-11"); // tuning F3 ting
@@ -45,6 +64,8 @@ tree->SetAlias("tof9c","(src1_a_cal[0].fTiming+src2_a_cal[0].fTiming)/2-(sr91_a_
 tree->SetAlias("tofcs","(sr11_a_cal[0].fTiming+sr12_a_cal[0].fTiming)/2-(src1_a_cal[0].fTiming+src2_a_cal[0].fTiming)/2-579.95");
 //tree->SetAlias("tof8s","(sr11_a_cal[0].fTiming+sr12_a_cal[0].fTiming)/2-(sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2");
 tree->SetAlias("fe10.fT","fe9.fT+(fe12.fT-fe9.fT)*4753.75/(4753.75+9687.93)");
+*/
 
+  
 }
 

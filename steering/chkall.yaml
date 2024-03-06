@@ -1,0 +1,127 @@
+Anchor:
+ - &input ridf/@NAME@@NUM@.ridf
+ - &output output/@NAME@/@NUM@/chkall@NUM@.root
+# - &output output/Al/Al.all.raw4.root
+# - &output output/ttt/merge06.root
+
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+        - *input
+#        - ridf/ni56phys0145.ridf
+#        - ridf/ni56phys0146.ridf
+#        - ridf/ni56phys0147.ridf
+#        - ridf/ni56phys0115.ridf
+#        - ridf/ni56phys0116.ridf
+#        - ridf/ni56phys0117.ridf
+#        - ridf/ni56phys0118.ridf
+#        - ridf/ni56phys0119.ridf
+##        - ridf/ni56phys0120.ridf
+##        - ridf/ni56phys0121.ridf
+##        - ridf/ni56phys0122.ridf
+##        - ridf/ni56phys0123.ridf
+##        - ridf/ni56phys0124.ridf
+#        - ridf/ni56phys0125.ridf
+#        - ridf/ni56phys0126.ridf
+#        - ridf/ni56phys0127.ridf
+#        - ridf/ni56phys0128.ridf
+#        - ridf/ni56phys0129.ridf
+#        - ridf/ni56phys0130.ridf
+#        - ridf/ni56phys0131.ridf
+#        - ridf/ni56phys0132.ridf
+#        - ridf/ni56phys0133.ridf
+#        - ridf/ni56phys0134.ridf
+##        - ridf/ni56phys0135.ridf
+#        - ridf/ni56phys0136.ridf
+#        - ridf/ni56phys0137.ridf
+#        - ridf/ni56phys0138.ridf
+#        - ridf/ni56phys0139.ridf
+#        - ridf/ni56phys0140.ridf
+#        - ridf/ni56phys0141.ridf
+#        - ridf/ni56phys0142.ridf
+#        - ridf/ni56phys0143.ridf
+#        - ridf/ni56phys0148.ridf
+#        - ridf/ni56phys0149.ridf
+#        - ridf/ni56phys0150.ridf
+#        - ridf/ni56phys0151.ridf
+#        - ridf/ni56phys0152.ridf
+#        - ridf/ni56phys0153.ridf
+#        - ridf/ni56phys0154.ridf
+#        - ridf/ni56phys0155.ridf
+#        - ridf/ni56phys0156.ridf
+##        - ridf/ni56phys0157.ridf
+#        - ridf/ni56phys0163.ridf
+#        - ridf/ni56phys0164.ridf
+#        - ridf/ni56phys0165.ridf
+#        - ridf/ni56phys0166.ridf
+#        - ridf/ni56phys0167.ridf
+#        - ridf/ni56phys0168.ridf
+#        - ridf/ni56phys0169.ridf
+#        - ridf/ni56phys0170.ridf
+##        - ridf/ni56phys0171.ridf
+##        - ridf/ni56phys0172.ridf
+##        - ridf/ni56phys0173.ridf
+#        - ridf/ni56phys0174.ridf
+#        - ridf/ni56phys0175.ridf
+#        - ridf/ni56phys0176.ridf
+##        - ridf/ni56phys0177.ridf
+#        - ridf/ni56phys0181.ridf
+#        - ridf/ni56phys0182.ridf
+#        - ridf/ni56phys0183.ridf
+#        - ridf/ni56phys0184.ridf
+#        - ridf/ni56phys0185.ridf
+#        - ridf/ni56phys0186.ridf
+#        - ridf/ni56phys0187.ridf
+#        - ridf/ni56phys0188.ridf
+#        - ridf/ni56phys0189.ridf
+#        - ridf/ni56phys0190.ridf
+#        - ridf/ni56phys0191.ridf
+#        - ridf/ni56phys0192.ridf
+#        - ridf/ni56phys0193.ridf
+
+       
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+
+  - include:
+      name: ttt/get.inc.yaml
+      replace:
+        NUM: @GET@
+        CATDATA: tttdata
+
+  - include: chktina.param.yaml 
+  - include: trig_select/trig_ttt.yaml
+  - include: tref.yaml
+  - include: bld/pla/pla_os22s.yaml
+  - include: bld/dia/dia.yaml
+  - include: bld/dlppac/ppac.brips.yaml
+#  - include: bld/dlppac/dlppac.inc.yaml
+  - include: bld/srppac/srppac.ttt.yaml
+#  - include: bld/mwdc/chkmwdc_local.yaml
+  - include: vtof_ttt.yaml
+  - include: tof.yaml
+  - include: ic/ic.yaml
+  - include: ic/ic_waveform.yaml
+  - include: ttt.sakura.yaml
+#  - include: chktina.online.yaml
+#
+  - include: v1190_tref_tina.sakura.yaml
+  - include: si/tdc.yaml
+  - include: si/tina_timing.yaml
+  - include: si/tina2.yaml
+  - include: si/tina3.yaml
+
+
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: *output

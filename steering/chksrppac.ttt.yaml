@@ -1,0 +1,54 @@
+Anchor:
+   
+ - &input ridf/@NAME@@NUM@.ridf
+ - &output output/@NAME@/@NUM@/chksrppac@NAME@@NUM@.root
+ - &histout output/@NAME@/@NUM@/chkic@NAME@@NUM@.hist.root
+
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+        - *input
+        
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+
+  - include: trig_select/trig.yaml
+  - include: tref.yaml
+  - include: bld/pla/pla_os22s.yaml
+  - include: bld/dia/dia.yaml
+  - include: bld/dlppac/ppac.brips.yaml
+#  - include: bld/dlppac/dlppac.inc.yaml
+  - include: bld/srppac/srppac.ttt.yaml
+#  - include: bld/srppac/srppac_novalidtime.yaml
+#  - include: bld/mwdc/chkmwdc_local.yaml
+  - include: vtof_ttt.yaml
+  - include: tof.yaml
+  - include: ic/ic.yaml
+#  - include: ic/ic_waveform.yaml
+#  - include: ge/ge_tsi.yaml
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type:     art::TTreeProjection
+      FileName: hist/s1/ic_shift.yaml
+
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      Type:     art::TTreeProjection
+#      FileName: hist/s1/ic_waveform.yaml
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: 
+        - *output

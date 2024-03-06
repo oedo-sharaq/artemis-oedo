@@ -1,10 +1,5 @@
 Processor:
-  - name: proc_ic_ch2MeV
-    type: art::TParameterArrayLoader
-    parameter:
-      Name:     prm_ic_ch2V
-      Type:     art::TAffineConverter
-      FileName: prm/ic/ch2MeV.dat
+
 
   - name: proc_icraw
     type: art::TSimpleDataMappingProcessor
@@ -14,17 +9,17 @@ Processor:
       Sparse:       0
       OutputCollection: icraw
 
-  - name: proc_icqcal
-    type: art::TTimingChargeCalibrationProcessor
-    parameter:
-      InputCollection: icraw
-      OutputCollection: ic
-      ChargeConverterArray: prm_ic_ch2V
-
+#  - name: proc_icqcal
+#    type: art::TTimingChargeCalibrationProcessor
+#    parameter:
+#      InputCollection: icraw
+#      OutputCollection: ic
+#      ChargeConverterArray: prm_ic_ch2MeV
+#
 #  - name: proc_icde
 #    type: art::TIonChamberProcessor
 #    parameter:
-#      InputName: ic
+#      InputName: icraw
 #      OutputName: icde
 #      NumChannel: 5
 #      DropRatio: 0.0

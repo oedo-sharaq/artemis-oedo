@@ -1,6 +1,6 @@
 Anchor:
    
- - &input ridf/@NAME@@NUM@.ridf
+ - &input ridf_prep/@NAME@@NUM@.ridf
  - &output output/@NAME@/@NUM@/chks1all@NAME@@NUM@.root
  - &histout output/@NAME@/@NUM@/chks1all@NAME@@NUM@.hist.root
 
@@ -44,8 +44,8 @@ Processor:
 #  - include: chktina.online.yaml
 #
   - include: v1190_tref_tina.sakura.yaml
-  - include: si/tina_timing.yaml
-  - include: si/tina2.yaml
+#  - include: si/tina_timing.yaml
+#  - include: si/tina2.yaml
 #  
   - name: projection
     type: art::TTreeProjectionProcessor

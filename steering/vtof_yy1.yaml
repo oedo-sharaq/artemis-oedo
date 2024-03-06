@@ -1,0 +1,37 @@
+Processor:
+  - name: proc_vf3dia
+    type: art::TTimeValidator
+    parameter:
+#      InputCollection:        diapad
+      InputCollection:        f3dia2
+      OutputCollection:       vf3dia
+# for S0 triger
+#      ValidTimeRange:         [-2400.0, -2000.0, 0.0]
+#      ValidTimeRange:         [-3400.0, -3000.0, 0.0] # TTT
+      ValidTimeRange:         [-2550.0, -2300.0, 0.0] # YY1 
+#      ValidTimeRange:         [-2800.0, -2600.0, 0.0] # F3DS
+#  - name: proc_vtof39
+#    type: art::TTimingSubtractionProcessor
+#    parameter:
+#      InputCollection:        vf3dia
+#      OutputCollection:       vtof39_pre
+#      StartTimingCollection:  vf3dia
+#      StartTimingDetID:       0
+#      MaxDetID:               1
+#      UseMultipleStartTiming: 1
+#
+#  - name: loader_vtof39_off
+#    type: art::TParameterArrayLoader
+#    parameter:
+#      Name:     prm_vtof39_off
+#      Type:     art::TAffineConverter
+#      FileName: prm/tof/f3fe9_off.dat
+#
+#  - name: proc_vtof_calib39
+#    type: art::TTimingChargeCalibrationProcessor
+#    parameter:
+#      InputCollection: vtof39_pre
+#      OutputCollection: vtof39
+#      TimingConverterArray: prm_vtof39_off
+#      InputIsDigital: 0
+#

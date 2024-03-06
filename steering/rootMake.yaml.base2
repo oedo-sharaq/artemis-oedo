@@ -1,0 +1,55 @@
+Anchor:
+   
+ - &input ridf/ni58phys0280.ridf
+ - &output output/rootMake/ttt_ni58phys0280.root
+# - &histout output/@NAME@/@NUM@/all@NAME@@NUM@.hist.root
+
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+        - *input
+        
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+
+  - include:
+      name: ttt/get.inc.yaml
+      replace:
+        NUM: GETNum
+        CATDATA: tttdata
+
+  - include: chktina.param.yaml 
+  - include: trig_select/trig_ttt.yaml
+  - include: tref.yaml
+  - include: bld/pla/pla_os22s.yaml
+  - include: bld/dia/dia.yaml
+  - include: bld/dlppac/ppac.brips.yaml
+#  - include: bld/dlppac/dlppac.inc.yaml
+  - include: bld/srppac/srppac.ttt.yaml
+#  - include: bld/mwdc/chkmwdc_local.yaml
+  - include: vtof_ttt.yaml
+  - include: tof.yaml
+  - include: ic/ic.yaml
+  - include: ic/ic_waveform.yaml
+  - include: ttt.sakura.yaml
+#  - include: chktina.online.yaml
+#
+  - include: v1190_tref_tina.sakura.yaml
+  - include: si/tdc.yaml
+  - include: si/tina_timing.yaml
+  - include: si/tina2.yaml
+  - include: si/tina3.yaml
+           
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: 
+        - *output

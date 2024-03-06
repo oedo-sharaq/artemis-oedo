@@ -1,0 +1,50 @@
+Anchor:
+   
+ - &input ridf/ni56phys0135.ridf
+ - &output output/rootMake/yy1_ni56phys0135.root
+# - &histout output/@NAME@/@NUM@/all@NAME@@NUM@.hist.root
+
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+        - *input
+        
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+
+#  - include:
+#      name: ttt/get.inc.yaml
+#      replace:
+#        NUM: GETNum
+#        CATDATA: tttdata
+
+  - include: trig_select/trig_yy1.yaml
+#  - name: stop_proc
+#    type: art::TGateStopProcessor
+#    parameter:
+#      GateName: "gateS0"
+
+
+  - include: tref.yaml
+  - include: bld/srppac/srppac.yy1.yaml
+  - include: v1190_tref_tina.yaml
+  - include: si/tdc.yaml
+  - include: si/tina_timing.yaml
+  - include: si/tina2.yaml
+  - include: bld/dia/dia.yaml
+  - include: tof.yaml
+  - include: vtof_yy1.yaml
+           
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: 
+        - *output

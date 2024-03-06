@@ -1,5 +1,8 @@
 Anchor:
- - &input_GET /mnt/data/getdaq01/tina/cobo00/run_@NUM@   
+# - &input_GET getdata_test/run_@NUM@   
+ - &input_GET getdata/run_@NUM@   
+# - &input_GET getdata/run_1166.dat.15-04-22_11h12m18s.1   
+# - &input_GET getdata/run_4102.dat.13-05-22_11h53m12s.2   
  - &seg0 segdataGET0
 
 Processor:
@@ -8,6 +11,80 @@ Processor:
     type: art::TGetEventStore
     parameter:
       InputFiles: *input_GET
+#      InputFiles:
+#        - getdata/run_1301.dat.17-05-22_19h27m53s
+#        - getdata/run_1302.dat.17-05-22_20h19m29s
+#        - getdata/run_1303.dat.17-05-22_20h37m02s
+#        - getdata/run_1304.dat.17-05-22_20h40m54s
+#        - getdata/run_1306.dat.17-05-22_21h17m02s
+#        - getdata/run_1307.dat.17-05-22_22h03m19s
+#        - getdata/run_1308.dat.17-05-22_22h09m13s
+#        - getdata/run_1309.dat.17-05-22_22h12m23s
+#        - getdata/run_1310.dat.17-05-22_22h18m39s
+#        - getdata/run_1311.dat.17-05-22_22h21m04s
+#       - getdata/run_1312.dat.17-05-22_23h07m42s
+#       - getdata/run_1313.dat.18-05-22_00h05m09s
+#       - getdata/run_1314.dat.18-05-22_01h08m14s
+#       - getdata/run_1315.dat.18-05-22_02h08m34s
+#       - getdata/run_1316.dat.18-05-22_03h10m03s
+#       - getdata/run_1317.dat.18-05-22_04h11m40s
+#       - getdata/run_1318.dat.18-05-22_05h12m40s
+#       - getdata/run_1319.dat.18-05-22_06h13m43s
+#       - getdata/run_1320.dat.18-05-22_07h14m36s
+#       - getdata/run_1321.dat.18-05-22_08h10m18s
+#        - getdata/run_1322.dat.18-05-22_08h48m14s
+#       - getdata/run_1323.dat.18-05-22_09h02m27s
+#        - getdata/run_1324.dat.18-05-22_09h57m36s
+#        - getdata/run_1325.dat.18-05-22_10h57m54s
+#        - getdata/run_1326.dat.18-05-22_12h11m20s
+#        - getdata/run_1327.dat.18-05-22_13h12m40s
+#        - getdata/run_1328.dat.18-05-22_14h14m04s
+#        - getdata/run_1329.dat.18-05-22_15h13m01s
+#        - getdata/run_1330.dat.18-05-22_16h13m32s
+#        - getdata/run_1331.dat.18-05-22_18h14m23s
+#        - getdata/run_1332.dat.18-05-22_19h16m14s
+#        - getdata/run_1334.dat.18-05-22_20h17m17s
+
+
+#        - getdata/run_1335.dat.18-05-22_21h15m51s
+#        - getdata/run_1336.dat.18-05-22_22h16m24s
+#        - getdata/run_1337.dat.18-05-22_23h19m00s
+#        - getdata/run_1338.dat.19-05-22_00h21m59s
+#        - getdata/run_1339.dat.19-05-22_01h26m35s
+#        - getdata/run_1340.dat.19-05-22_02h30m36s
+#        - getdata/run_1341.dat.19-05-22_03h35m10s
+#        - getdata/run_1342.dat.19-05-22_04h36m23s
+#        - getdata/run_1343.dat.19-05-22_05h39m57s
+##        - getdata/run_1344.dat.19-05-22_06h41m25s
+#        - getdata/run_1345.dat.19-05-22_10h46m13s
+#        - getdata/run_1346.dat.19-05-22_11h16m48s
+#        - getdata/run_1347.dat.19-05-22_12h18m04s
+#        - getdata/run_1348.dat.19-05-22_13h21m39s
+#        - getdata/run_1349.dat.19-05-22_14h22m14s
+#        - getdata/run_1350.dat.19-05-22_15h05m29s
+#        - getdata/run_1351.dat.19-05-22_16h08m13s
+#        - getdata/run_1352.dat.19-05-22_17h09m27s
+##        - getdata/run_1353.dat.19-05-22_17h38m30s
+##        - getdata/run_1354.dat.19-05-22_18h04m19s
+##        - getdata/run_1355.dat.19-05-22_18h08m55s
+#        - getdata/run_1356.dat.19-05-22_18h12m13s
+#        - getdata/run_1357.dat.19-05-22_19h15m01s
+#        - getdata/run_1358.dat.19-05-22_20h17m19s
+##        - getdata/run_1359.dat.19-05-22_21h18m05s
+#        - getdata/run_1360.dat.19-05-22_23h14m45s
+#        - getdata/run_1361.dat.20-05-22_00h17m33s
+#        - getdata/run_1362.dat.20-05-22_01h18m54s
+#        - getdata/run_1363.dat.20-05-22_02h19m20s
+#        - getdata/run_1364.dat.20-05-22_03h20m12s
+#        - getdata/run_1365.dat.20-05-22_04h21m11s
+#        - getdata/run_1366.dat.20-05-22_05h22m39s
+#        - getdata/run_1367.dat.20-05-22_06h23m44s
+#        - getdata/run_1368.dat.20-05-22_07h25m05s
+#        - getdata/run_1369.dat.20-05-22_07h29m34s
+#        - getdata/run_1370.dat.20-05-22_08h35m55s
+#        - getdata/run_1371.dat.20-05-22_09h37m22s
+#        - getdata/run_1372.dat.20-05-22_10h38m51s
+
       EventHeaderName: evtheaderGET0
       SegmentedData: *seg0
       OutputTransparency: 1
