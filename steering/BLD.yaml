@@ -1,0 +1,65 @@
+Anchor:
+ - &input ridf/physics@NUM@.ridf
+# - &output sh13_analysis/hanai/phys/bld_file/BLD.@NUM@.all.root
+ - &output sh13_analysis/hanai/phys/bld_file/BLD.@NUM@_2nd.all.root
+# - &histout sh13_analysis/hanai/phys/bld_fiel/BLD.@NUM@.all.hist.root
+ - &histout sh13_analysis/hanai/phys/bld_fiel/BLD.@NUM@_2nd.all.hist.root
+
+
+Processor:
+  - name: ridfevent
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      InputFiles:
+        - *input
+
+
+  - name: timer
+    type: art::TTimerProcessor
+      
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+  - name: proc_gateinit
+    type: art::TGateArrayInitializer
+    parameter:
+      OutputTransparency: 1
+
+  - include: tref.yaml
+  - include: trig.yaml
+  - include: bld/dia/dia.yaml         # dia v1290
+  - include: bld/dia/dia_tc842_strip.yaml
+#  - include: ../../steering/bld/dia/dia_tc842_strip.yaml # dia tc842 using strip
+  - include:
+      name: bld/dia/dia_tc842_strip_each.yaml # dia tc842 using strip
+      replace: 
+        RUN: @NUM@
+  - include: bld/pla/pla_tc842.yaml
+  - include: 
+      name: bld/pla/pla_sh13.yaml
+      replace: 
+        CID: 108
+        FP: s2
+        RUN: @NUM@ 
+  - include: bld/srppac/srppac.yaml
+  - include: bld/si/ssd.yaml
+  - include: pi/pid.yaml
+  - include: bld/mwdc/chkmwdc_local.yaml
+
+  - name: projection_chkpid
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/pid/chkpid_ssdplacor.yaml
+      Type:     art::TTreeprojection
+      OutputFilename: *histout
+       
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: 
+        - *output
+
+
+

@@ -58,5 +58,6 @@ Processor:
         - @NAME@_x2
         - @NAME@_y1
         - @NAME@_y2
+      UseLocalPos: 1
       OutputCollection:   @NAME@
       OutputTransparency: 0

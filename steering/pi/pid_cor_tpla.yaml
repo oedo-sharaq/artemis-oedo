@@ -1,0 +1,33 @@
+Processor:
+  - name: proc_pid_cor_tpla
+    type: art::TMassCalibrationConverter
+    parameter:
+      S0PPAC: sr0_xcw
+      MWDC1: f3
+      TofName: diapla_tof32
+      CalibOrder: 3
+      ParameterFile: output/mass/theta_tpla.dat
+      OutputName: mass_cor_tpla
+      OutputTransparency: 0
+
+#  - name: proc_pid_corst1_BLD_3rd
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      MWDC2: s2
+#      UsetwoMWDCs: 1
+#      TofName: dia_tof32st1
+#      CalibOrder: 4
+#      ParameterFile: output/mass/theta_st1_ref1_3step.dat
+#      OutputName: mass_corst1_BLD_3rd
+#      OutputTransparency: 0
+
+
+
+
+
+
+
+
+

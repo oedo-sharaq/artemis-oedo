@@ -1,0 +1,37 @@
+Anchor:
+   
+ - &input ridf_prep/@NAME@@NUM@.ridf
+ - &output output/@NAME@/@NUM@/chks2ssd@NAME@@NUM@.root
+ - &histout output/@NAME@/@NUM@/chks2ssd@NAME@@NUM@.hist.root
+
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+        - *input
+
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+
+  - include: bld/si/ssd.yaml
+          
+# S2SSD Hist
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/si/s2ssd.yaml
+      OutputFilename: *histout
+      Type:     art::TTreeProjection
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: 
+        - *output

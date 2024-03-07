@@ -1,0 +1,7 @@
+Processor:
+  - include: 
+      name: tmpl.yaml
+      replace: 
+        CID: 109
+        FP: veto
+

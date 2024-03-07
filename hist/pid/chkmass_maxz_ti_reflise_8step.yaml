@@ -1,0 +1,48 @@
+anchor: 
+  - &mass_stm_ti_a ["mass_corstm_BLD_8th_maxz.fAq",5000,1.77,1.79]
+  - &mass_stm_ti_b ["mass_corstm_BLD_8th_maxz.fAq",5000,1.80,1.82]
+  - &mass_stm_ti_c ["mass_corstm_BLD_8th_maxz.fAq",5000,1.85,1.87]
+  - &mass_stm_ti_d ["mass_corstm_BLD_8th_maxz.fAq",5000,1.89,1.91]
+  - &mass_stm_ti_e ["mass_corstm_BLD_8th_maxz.fAq",5000,1.94,1.96]
+  - &mass_stm_ti_aa ["mass_corstm_BLD_8th_maxz.fAq",1000,1.79,1.81]
+  - &mass_stm_ti_bb ["mass_corstm_BLD_8th_maxz.fAq",1000,1.84,1.86]
+  - &mass_stm_ti_cc ["mass_corstm_BLD_8th_maxz.fAq",1000,1.89,1.91]
+  - &mass_stm_ti_dd ["mass_corstm_BLD_8th_maxz.fAq",1000,1.94,1.96]
+  - &mass_stm_ti_ee ["mass_corstm_BLD_8th_maxz.fAq",1000,1.94,1.96]
+
+group:
+  - name: chkmass_stm_ti
+    title: chkMASS_stm_Ti
+    contents:
+      - name: mass_stm_ti_a
+        title: Mass  Ti a SVD4th 8step
+        x: *mass_stm_ti_a
+      - name: mass_stm_ti_b
+        title: Mass  Ti b SVD4th 8step
+        x: *mass_stm_ti_b
+      - name: mass_stm_ti_c
+        title: Mass  Ti c SVD4th 8step
+        x: *mass_stm_ti_c
+      - name: mass_stm_ti_d
+        title: Mass  Ti d SVD4th 8step
+        x: *mass_stm_ti_d
+      - name: mass_stm_ti_e
+        title: Mass  Ti e SVD4th 8step
+        x: *mass_stm_ti_e
+      - name: mass_stm_ti_aa
+        title: Mass  Ti aa SVD4th 8step
+        x: *mass_stm_ti_aa
+      - name: mass_stm_ti_bb
+        title: Mass  Ti bb SVD4th 8step
+        x: *mass_stm_ti_bb
+      - name: mass_stm_ti_cc
+        title: Mass  Ti cc SVD4th 8step
+        x: *mass_stm_ti_cc
+      - name: mass_stm_ti_dd
+        title: Mass  Ti dd SVD4th 8step
+        x: *mass_stm_ti_dd
+      - name: mass_stm_ti_ee
+        title: Mass  Ti ee SVD4th 8step
+        x: *mass_stm_ti_ee
+
+

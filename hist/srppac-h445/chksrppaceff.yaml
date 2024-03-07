@@ -1,0 +1,41 @@
+anchor: 
+  - &srppacu_x_ent ["srppacu_x_raw@.GetEntriesFast()",8,-0.5,7.5]
+  - &srppacu_y_ent ["srppacu_y_raw@.GetEntriesFast()",8,-0.5,7.5]
+  - &srppacu_a_ent ["srppacu_a_raw@.GetEntriesFast()",8,-0.5,7.5]
+  - &srppacd_x_ent ["srppacd_x_raw@.GetEntriesFast()",8,-0.5,7.5]
+  - &srppacd_y_ent ["srppacd_y_raw@.GetEntriesFast()",8,-0.5,7.5]
+  - &srppacd_a_ent ["srppacd_a_raw@.GetEntriesFast()",8,-0.5,7.5]
+
+
+alias:
+  ucut: srppacu_a_raw@.GetEntriesFast() > 0
+  dcut: srppacd_a_raw@.GetEntriesFast() > 0
+
+group:
+  - name: srppaceff
+    title: SR-PPAC Efficiency 
+    contents:
+      - name: srppacu_x_ent
+        title: SRPPACU X Entry
+        cut: dcut
+        x: *srppacu_x_ent
+      - name: srppacu_y_ent
+        title: SRPPACU Y Entry
+        cut: dcut
+        x: *srppacu_y_ent
+      - name: srppacd_x_ent
+        title: SRPPACD X Entry
+        cut: ucut
+        x: *srppacd_x_ent
+      - name: srppacd_y_ent
+        title: SRPPACD Y Entry
+        cut: ucut
+        x: *srppacd_y_ent
+ 
+
+
+
+
+
+
+

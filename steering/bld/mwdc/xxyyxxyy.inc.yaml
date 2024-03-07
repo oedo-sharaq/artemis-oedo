@@ -87,9 +87,10 @@ Processor:
         - @NAME@_x2
         - @NAME@_y1
         - @NAME@_y2
-#        - @NAME@_x3
-#        - @NAME@_x4
-#        - @NAME@_y3
-#        - @NAME@_y4
+        - @NAME@_x3
+        - @NAME@_x4
+        - @NAME@_y3
+        - @NAME@_y4
+#      UseAllCombination: 1
       OutputCollection:   @NAME@
       OutputTransparency: 0

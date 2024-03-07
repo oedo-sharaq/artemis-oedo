@@ -1,0 +1,50 @@
+Processor:
+  - name: proc_dia_timing_s2_merge
+    type: art::TDiaStripTimingEachMergeProcessor
+    parameter:
+      InputCollection1  : dia_tof32st1
+      InputCollection2  : dia_tof32st2
+      OutputCollection  : dia_tof32stm
+      TimeValidRange    : [1900,2120]
+      Timeoffset        : [0,0.55151]
+      UseYvalid         : 0
+#      MWDC              : s2
+
+  - name: proc_dia_timing_s2_merge_toffset
+    type: art::TDiaStripTimingEachMergeToffsetProcessor
+    parameter:
+      InputCollection1  : dia_tof32st1
+      InputCollection2  : dia_tof32st2
+      OutputCollection  : dia_tof32stm_toff
+      TimeValidRange    : [1900,2120]
+      Timeoffset        : [0,0.55151]
+      UseYvalid         : 0
+      RunNumber         : @RUN@
+      ParameterFile     : prm/dia/tofoffset_run.dat
+#      MWDC              : s2
+
+
+#  - name: proc_dia_timing_s2_merge_yval
+#    type: art::TDiaStripTimingEachMergeProcessor
+#    parameter:
+#      InputCollection1  : dia_tof32st1
+#      InputCollection2  : dia_tof32st2
+#      OutputCollection  : dia_tof32stmy
+#      TimeValidRange    : [1900,2120]
+#      Timeoffset        : [0,0.55]
+#      UseYvalid         : 1
+#      MWDC              : s2
+
+
+#  - name: proc_dia_timing_s2_merge
+#    type: art::TDiaStripTimingEachMergeProcessor
+#    parameter:
+#      InputCollection1  : dia_tof32st1_toff
+#      InputCollection2  : dia_tof32st2_toff
+#      OutputCollection  : dia_tof32stm_toff
+#      TimeValidRange    : [1900,2120]
+#      Timeoffset        : [0,0.55151]
+#      UseYvalid         : 0
+##      MWDC              : s2
+
+

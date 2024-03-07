@@ -1,0 +1,12 @@
+#position: [0.,0.,-1268.97] # center is the center of RFD
+position: [-10.,0.,-754] # sh13
+angle: 0
+turned: 0
+#plane_config: prm/mwdc/config/type_bprime_v30.yaml
+#plane_config: prm/mwdc/config/type_bprime_v45.yaml
+plane_config: prm/mwdc/config/type_bprime_v45_sh13.yaml
+#plane_config: prm/mwdc/config/type_dc21_sh13.yaml
+#plane_config: /home/sh13/art_analysis/user/hanai/type_bprime_v45.yaml
+
+
+

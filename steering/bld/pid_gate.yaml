@@ -1,0 +1,38 @@
+#anchor: 
+#   - &pidgate ["pid;abs(s2z-24.9)<0.4"]
+
+#alias:
+#  tof32 : ((dias2pad_tc842.fCharge-dia3pad_tc842.fCharge)+5.0e4)*1.e-3+2441.31;
+#  s2de  : 1.03827*S2ssd.fEx*0.866;
+#  s2beta: 103499.78 / ( 299.79 * tof32 - 299.79 * 1455. );
+#  de_v  : TMath::Log(5907.5*s2beta*s2beta)-TMath::Log(1.-s2beta*s2beta)-s2beta*s2beta; 
+#  s2z   : -0.0513 + 7.451*TMath::Sqrt(s2de/de_v) * s2beta; 
+
+anchor: 
+  - &tof32 ((dias2pad_tc842.fCharge-dia3pad_tc842.fCharge)+5.0e4)*1.e-3+2441.31;
+  - &s2de 1.03827*S2ssd.fEx*0.866;
+  - &s2beta 103499.78 / ( 299.79 * *tof32 - 299.79 * 1455. );
+  - &de_v TMath::Log(5907.5* *s2beta * *s2beta)-TMath::Log(1.- *s2beta * *s2beta)- *s2beta * *s2beta; 
+  - &s2z -0.0513 + 7.451*TMath::Sqrt( *s2de / *de_v) * *s2beta; 
+
+#  - &pidgate ["pid;abs( *s2z - 24.9)<0.4"]
+
+
+
+Processor:
+  - name: proc_gateinit
+    type: art::TGateArrayInitializer
+
+  - name: pidgate_def
+    type: art::TTreeFormulaGateProcessor
+    parameter:
+      Definitions:
+        - "pid ; abs( s2z - 24) < 0.5"
+
+  - name: pidgatestop
+    type: art::TGateStopProcessor
+    parameter:
+      Gatename: "pid"
+      Outputtransparency: 0
+      StopIf: 0
+      Verbose: 1

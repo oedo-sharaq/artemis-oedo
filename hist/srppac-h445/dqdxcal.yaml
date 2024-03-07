@@ -1,0 +1,29 @@
+anchor: 
+  - &srdyq0q1cal ["(srppacd_y_qcal[0].fCharge - srppacd_y_qcal[1].fCharge) / (srppacd_y_qcal[0].fCharge + srppacd_y_qcal[1].fCharge)", 200,0,0.2]
+  - &srdyq0q1qcal ["(srppacd_y_qqcal[0].fCharge - srppacd_y_qqcal[1].fCharge) / (srppacd_y_qqcal[0].fCharge + srppacd_y_qqcal[1].fCharge)", 200,0,0.2]
+
+  - &srdyq0q1calaxin ["(srppacd_y_qcalaxin[0].fCharge - srppacd_y_qcalaxin[1].fCharge) / (srppacd_y_qcalaxin[0].fCharge + srppacd_y_qcalaxin[1].fCharge)", 200,0,0.2]
+
+group:
+  - name: srppacdqdxcal
+    title: SR-PPAC dqdxcal
+    contents:
+      - name: srppacd_y_q0q1cal
+        title: srppacd Y Q0Q1 cal
+        x: *srdyq0q1cal
+
+  - name: srppacdqdxqcal
+    title: SR-PPAC dqdxqcal
+    contents:
+      - name: srppacd_y_q0q1qcal
+        title: srppacd Y Q0Q1 qcal
+        x: *srdyq0q1qcal
+
+  - name: srppacdqdxqcalaxin
+    title: SR-PPAC dqdxqcalaxin
+    contents:
+      - name: srppacd_y_q0q1qcalaxin
+        title: srppacd Y Q0Q1 qcalaxin
+        x: *srdyq0q1qcal
+
+

@@ -1,0 +1,50 @@
+Processor:
+  - name: proc_s2_tracking
+    type: art::TMWDCTrackingProcessor
+    parameter:
+      InputCollection:
+        - dc21_x1
+        - dc21_x2
+#        - dc21_u
+        - dc21_v
+        - dc22_x1
+        - dc22_x2
+#        - dc22_u
+        - dc22_v
+      OutputCollection:   s2
+      OutputTransparency: 0
+
+  - name: proc_s2_tracking_typeA
+    type: art::TMWDCTrackingProcessor
+    parameter:
+      InputCollection:
+        - dc21_x1
+        - dc21_x2
+        - dc21_u
+        - dc21_v
+        - dc22_x1
+        - dc22_x2
+#        - dc22_u
+        - dc22_v
+      OutputCollection:   s2_a
+      OutputTransparency: 0
+
+
+#  - name: proc_s2_tracking_typeX
+#    type: art::TMWDCTrackingProcessor
+#    parameter:
+#      InputCollection:
+#        - dc21_x1
+#        - dc21_x2
+##        - dc21_u
+##        - dc21_v
+#        - dc22_x1
+#        - dc22_x2
+##        - dc22_u
+##        - dc22_v
+#      OutputCollection:   s2_x
+#      OutputTransparency: 0
+
+
+
+

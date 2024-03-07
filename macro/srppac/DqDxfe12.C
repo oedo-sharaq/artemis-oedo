@@ -29,10 +29,10 @@ void DqDxfe12(){
 //     double asrux =    0.4/400 *i;
 //     outfilesrux << asrux << " " << tsrux << "\n";
 //   }
-  outfilesrux << 300 << "\n";
-  for(int i=1;i<301;i++){
+  outfilesrux << 400 << "\n";
+  for(int i=1;i<401;i++){
      double tsrux = hsrux->Integral(1,i);
-     double asrux =    0.3/300 *i;
+     double asrux =    0.4/400 *i;
      outfilesrux << asrux << " " << tsrux << "\n";
    }
  
@@ -89,10 +89,10 @@ void DqDxfe12(){
 //     double asrdx =    0.4/400 *i;
 //     outfilesrdx << asrdx << " " << tsrdx << "\n";
 //   }
-  outfilesrdx << 300 << "\n";
-  for(int i=1;i<301;i++){
+  outfilesrdx << 400 << "\n";
+  for(int i=1;i<401;i++){
      double tsrdx = hsrdx->Integral(1,i);
-     double asrdx =    0.3/300 *i;
+     double asrdx =    0.4/400 *i;
      outfilesrdx << asrdx << " " << tsrdx << "\n";
    }
  

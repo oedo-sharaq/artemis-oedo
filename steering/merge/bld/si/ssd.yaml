@@ -1,0 +1,114 @@
+Processor:
+  - name: proc_si_ch2MeV
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm_si_ch2MeV
+      Type: art::TAffineConverter
+      FileName: prm/si/ch2MeV.dat
+
+
+  - name: proc_ssdraw
+    type: art::TSimpleDataMappingProcessor
+    parameter:
+      CatID:         64
+      DataTypeID:    0
+      Sparse:        1
+      OutputCollection: si_raw
+
+
+  - name: proc_s2_sssd
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      si_raw
+      OutputCollection:     si_cal
+      ChargeConverterArray: prm_si_ch2MeV
+
+
+# max search in SSSD
+  - name: proc_sssd_max
+    type: art::TDssdProcessor
+    parameter:
+      SiXName: si_cal 
+      OutputName: S2ssd
+
+##prm ch2ns
+#  - name: proc_si_ch2ns
+#    type: art::TParameterArrayLoader
+#    parameter:
+#      Name: prm_si_ch2ns_x
+#      Type: art::TAffineConverter
+#      FileName: prm/si/ch2ns.dat
+#
+#  - name: proc_si_ecl_raw
+#    type: art::TTimingChargeMappingProcessor
+#    parameter:
+#      CatID:            65
+#      TimingTypeID:       0
+#      OutputCollection: si_ecl_raw
+#      OutputTransparency: 0
+#
+##  - name: proc_s2_sssd_ecl
+##    type: art::TTimingChargeCalibrationProcessor
+##    parameter:
+##      InputCollection:      si_ecl_raw
+##      OutputCollection:     si_ecl_cal
+##      ChargeConverterArray: prm_si_ch2ns_x
+#
+## For individual channels
+##  - name: proc_si_raw_sep
+##    type: art::TSeparateOutputProcessor
+##    parameter:
+##      InputCollection: si_raw
+##      OutputCollections:
+##        - si_raw_0
+##        - si_raw_1
+##        - si_raw_2
+##        - si_raw_3
+##        - si_raw_4
+##        - si_raw_5
+##        - si_raw_6
+##        - si_raw_7
+##        - si_raw_8
+##        - si_raw_9
+##        - si_raw_10
+##        - si_raw_11
+##        - si_raw_12
+##        - si_raw_13
+##        - si_raw_14
+##        - si_raw_15
+#
+#  - name: proc_si_cal_sep
+#    type: art::TSeparateOutputProcessor
+#    parameter:
+#      InputCollection: si_cal
+#      OutputCollections:
+#        - si_cal_0
+#        - si_cal_1
+#        - si_cal_2
+#        - si_cal_3
+#        - si_cal_4
+#        - si_cal_5
+#        - si_cal_6
+#        - si_cal_7
+#        - si_cal_8
+#        - si_cal_9
+#        - si_cal_10
+#        - si_cal_11
+#        - si_cal_12
+#        - si_cal_13
+#        - si_cal_14
+#        - si_cal_15
+#
+##  - name: proc_si_ecl_cal
+##    type: art::TTimingChargeCalibrationProcessor
+##    parameter:
+##      InputCollection: si_ecl_raw
+##      OutputCollection: si_ecl_cal
+##      TimingConverterArray: prm:si:ch2ns_x
+##
+#
+
+
+
+
+

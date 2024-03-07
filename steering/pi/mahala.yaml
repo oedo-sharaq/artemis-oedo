@@ -1,0 +1,15 @@
+Processor:
+  - name: proc_mahala
+    type: art::TMahalanobisDistance
+    parameter:
+      S0PPAC: sr0_xcw
+      MWDC1: f3
+      MWDC2: s2
+      UnitOrientation: 4
+      TofName: dia_tof32stm
+      ParameterFile: prm/mass/mahala/mahalaRi_stm_reflise.dat
+#      ParameterFile: prm/mass/mahala/mahalaRi_calib7step_stm_ref7.dat
+      OutputName: mahala
+      OutputTransparency: 0
+
+

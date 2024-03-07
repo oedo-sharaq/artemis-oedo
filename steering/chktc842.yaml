@@ -1,0 +1,121 @@
+Anchor:
+ - &input ridf/@NAME@@NUM@.ridf
+ - &output output/@NAME@/@NUM@/chk@NAME@@NUM@.root
+# - &histout output/@NAME@/@NUM@/chk@NAME@@NUM@.hist.root
+
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+        - *input
+
+#  - name: modlistloader
+#    type: art::TParameterArrayLoader
+#    parameter:
+#      Name: modlist
+#      Type: art::TModuleType
+#      FileName: conf/seg/modulelist.yaml
+#      FileFormat: yaml
+#
+#  - name: seglistloader
+#    type: art::TParameterArrayLoader
+#    parameter:
+#      Name: seglist
+#      Type: art::TSegmentInfo
+#      FileName: conf/seg/seglist.yaml
+#      FileFormat: yaml
+#
+#  - name: MyTSegmentCheckProcessor
+#    type: art::TSegmentCheckProcessor
+#    parameter:
+#      Ignore:  # [StringVec_t] ignore segment list
+#        - ""
+#      ModuleList: modlist  # [TString] name of the module list
+#      OutputTransparency: 1  # [Bool_t] Output is persistent if false (default)
+#      SegmentList: seglist  # [TString] name of the segment list
+#      SegmentedDataName: segdata  # [TString] name of the segmented data
+#      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
+        
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+
+#  - include: tref.yaml
+#  - include: bld/ppac/ppac.yaml
+#  - include: bld/ppac/ppac.brips.yaml
+#  - include: bld/pla/pla.yaml
+#  - include: bld/mwdc/chkmwdc_treff7.yaml
+         
+  - name: proc_tc842_raw
+    type: art::TSimpleDataMappingProcessor
+    parameter:
+      CatID:            217
+      DataTypeID:       0
+      Sparse:           1
+      OutputCollection: tc842_raw
+
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      Type:     art::TTreeProjection
+#      FileName: hist/chkpla_tof.yaml
+#      Replace: |
+#        fp: f3pla       #f3 mwdc track   
+#          
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      Type:     art::TTreeProjection
+#      FileName: hist/f3mwdc.yaml
+#      OutputFilename: *histout
+##      Replace: |
+##        det: dc31       #f3 mwdc 
+##        det: dc32       #f3 mwdc 
+##        det: dc51       #f3 mwdc 
+##        det: dc52       #f3 mwdc 
+#         
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/chkcorrelation.yaml
+#      OutputFilename: *histout
+#      Type:     art::TTreeProjection
+#      Replace: |
+#        track: f3       #f3 mwdc 
+##        det: dc32       #f3 mwdc 
+##        det: dc51       #f3 mwdc 
+##        det: dc52       #f3 mwdc 
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/chkcorrelation.yaml
+#      OutputFilename: *histout
+#      Type:     art::TTreeProjection
+#      Replace: |
+##        track: f3       #f3 mwdc 
+#        track: f7track       #f7 ppac 
+##        track: f5       #f5 mwdc 
+# 
+#
+#          
+
+### TC842 Hist
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type:     art::TTreeProjection
+      FileName: hist/tc842/tc842.yaml
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: 
+        - *output

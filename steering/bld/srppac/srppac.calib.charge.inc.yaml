@@ -1,0 +1,141 @@
+Processor:
+#prm ch2ns
+  - name: proc:ppac:qcal
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm:ppac:qcal
+      Type: art::TPolynomialConverter
+      FileName: prm/srppac/qcal.dat
+
+  - name: proc:ppac:qcalZAQ
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm:ppac:qcalZAQ
+      Type: art::TPolynomialConverter
+      FileName: prm/srppac/qcalZAQ.dat
+
+#prm dqdx01
+#  - name: proc_dqdx_xc0
+#    type: art::TParameterLoader
+#    parameter:
+#      Name:     dqdx_srppac_xc0
+#      Type:     art::TMonotoneTableConverter
+#      FileName: prm/srppac/@NAME@/dq2dx/current/xc0.dat
+#  - name: proc_dqdx_xc0_fe
+#    type: art::TParameterLoader
+#    parameter:
+#      Name:     dqdx_srppac_xc0_fe
+#      Type:     art::TMonotoneTableConverter
+#      FileName: prm/srppac/@NAME@/dq2dx/current/xc0.dat
+
+#prm dqdxlr qcal
+  - name: proc_dqdx_xcl_qcal
+    type: art::TParameterLoader
+    parameter:
+      Name:     dqdx_srppac_xcl_qcal
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/srppac/@NAME@/dq2dx/current/xcl_qcal.dat
+
+  - name: proc_dqdx_xcr_qcal
+    type: art::TParameterLoader
+    parameter:
+      Name:     dqdx_srppac_xcr_qcal
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/srppac/@NAME@/dq2dx/current/xcr_qcal.dat
+
+
+
+# calib charge
+  - name: proc:ppac:@NAME@x:qcal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: @NAME@_x_cal
+      OutputCollection: @NAME@_x_qcal
+      TimingConverterArray: prm:ppac:qcal
+      ChargeConverterArray: prm:ppac:qcal
+
+  - name: proc:ppac:@NAME@x:qcalZAQ
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: @NAME@_x_cal
+      OutputCollection: @NAME@_x_qcalZAQ
+      TimingConverterArray: prm:ppac:qcalZAQ
+      ChargeConverterArray: prm:ppac:qcalZAQ
+
+# position 
+  - name: planeproc:@NAME@x
+    type: art::TSRPPACPlaneProcessor
+    parameter:
+      InputCollection: @NAME@_x_qcal
+      OutputCollection: @NAME@_xqcal
+#      srppacparameter: geometry_srppac_x
+      Verbose: 0
+      nStrip: 94
+      stripWidth: 2.55
+      center: 46.5
+      z: -174.
+      detoffset: 0
+      turned: 1
+
+#  - name: planeproc:@NAME@y
+#    type: art::TSRPPACPlaneProcessor
+#    parameter:
+#      InputCollection: @NAME@_y_cal
+#      OutputCollection: @NAME@_y
+##      srppacparameter: geometry_srppac_y
+#      Verbose: 0
+#      nStrip: 58
+#      stripWidth: 2.58
+#      center: 28.5
+#      z: -166.
+#      detoffset: 0
+#      turned: 1
+
+
+# dqdx calib
+#  - name: proc:ppac:@NAME@dqdxqcal
+#    type: art::TSRPPACPlaneDqdxProcessor
+#    parameter:
+#      InputCollection: @NAME@_x_qcal
+#      OutputCollection: @NAME@_xc0_qcal
+#      Converter: dqdx_srppac_xc0_qcal
+##      SRPPACParameter: geometry_srppac_x
+#      nStrip: 94
+#      stripWidth: 2.55
+#      center: 46.5
+#      z: -4.
+#      detoffset: 0
+#      turned: 1
+# 
+# 
+#  - name: proc:ppac:@NAME@dqdxqcalZAQ
+#    type: art::TSRPPACPlaneDqdxProcessor
+#    parameter:
+#      InputCollection: @NAME@_x_qcalZAQ
+#      OutputCollection: @NAME@_xc0ZAQ
+#      Converter: dqdx_srppac_xc0_qcalZAQ
+##      SRPPACParameter: geometry_srppac_y
+#      nStrip: 58
+#      stripWidth: 2.58
+#      center: 28.5
+#      z: -4.
+#      detoffset: 0
+#      turned: 1
+
+# dqdxlr calib
+  - name: proc:ppac:@NAME@xw
+    type: art::TSRPPACPlaneSideDqdxProcessor
+    parameter:
+      InputCollection: @NAME@_xqcal
+      OutputCollection: @NAME@_xcw_qcal
+      Converter1: dqdx_srppac_xcl_qcal
+      Converter2: dqdx_srppac_xcr_qcal
+ #      SRPPACParameter: prm:ppac:geo:x
+      Combination: 0
+      nStrip: 94
+      stripWidth: 2.55
+      center: 46.5
+      z: -4.
+      detoffset: -2.099
+      turned: 1
+ 

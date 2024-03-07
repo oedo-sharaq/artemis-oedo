@@ -1,0 +1,62 @@
+anchor: 
+  - &srppacu_xc0 ["srppacu_xc0.fPosition",200,-20,20] 
+  - &srppacu_yc0 ["srppacu_yc0.fPosition",200,-20,20]
+  - &srppacd_xc0 ["srppacd_xc0.fPosition",200,-20,20] 
+  - &srppacd_yc0 ["srppacd_yc0.fPosition",200,-20,20]
+
+  - &srppacu_xcw ["srppacu_xcw.fPosition",200,-20,20]
+  - &srppacu_ycw ["srppacu_ycw.fPosition",200,-20,20]
+  - &srppacd_xcw ["srppacd_xcw.fPosition",200,-20,20]
+  - &srppacd_ycw ["srppacd_ycw.fPosition",200,-20,20]
+
+
+
+group:
+  - name: srppac_position
+    title: SR-PPAC Position
+    contents:
+      - name: srppacu_xc0
+        title: SR-PPAC XC0 UP
+        x: *srppacu_xc0
+      - name: srppacu_yc0
+        title: SR-PPAC YC0 UP
+        x: *srppacu_yc0
+      - name: srppacd_xc0
+        title: SR-PPAC XC0 Down
+        x: *srppacd_xc0
+      - name: srppacd_yc0
+        title: SR-PPAC YC0 Down
+        x: *srppacd_yc0
+      - name: srppacu_xc0yc0
+        title: SR-PPAC YC0 vs XC0 UP
+        x: *srppacu_xc0
+        y: *srppacu_yc0
+      - name: srppacd_xc0yc0
+        title: SR-PPAC YC0 vs XC0 DOWN
+        x: *srppacd_xc0
+        y: *srppacd_yc0
+
+      - name: srppacu_xcw
+        title: SR-PPAC XCW UP
+        x: *srppacu_xcw
+      - name: srppacu_ycw
+        title: SR-PPAC YCW UP
+        x: *srppacu_ycw
+      - name: srppacd_xcw
+        title: SR-PPAC XCW Down
+        x: *srppacd_xcw
+      - name: srppacd_ycw
+        title: SR-PPAC YCW Down
+        x: *srppacd_ycw
+      - name: srppacu_xcwycw
+        title: SR-PPAC YCW vs XCW UP
+        x: *srppacu_xcw
+        y: *srppacu_ycw
+      - name: srppacd_xcwycw
+        title: SR-PPAC YCW vs XCW DOWN
+        x: *srppacd_xcw
+        y: *srppacd_ycw
+ 
+
+
+

@@ -1,0 +1,27 @@
+anchor: 
+  - &sruxq0q1 ["(srppacu_x_cal[0].fCharge - srppacu_x_cal[1].fCharge) / (srppacu_x_cal[0].fCharge + srppacu_x_cal[1].fCharge)", 200,0,0.2]
+  - &sruyq0q1 ["(srppacu_y_cal[0].fCharge - srppacu_y_cal[1].fCharge) / (srppacu_y_cal[0].fCharge + srppacu_y_cal[1].fCharge)", 200,0,0.2]
+  - &srdxq0q1 ["(srppacd_x_cal[0].fCharge - srppacd_x_cal[1].fCharge) / (srppacd_x_cal[0].fCharge + srppacd_x_cal[1].fCharge)", 200,0,0.2]
+  - &srdyq0q1 ["(srppacd_y_cal[0].fCharge - srppacd_y_cal[1].fCharge) / (srppacd_y_cal[0].fCharge + srppacd_y_cal[1].fCharge)", 200,0,0.2]
+
+
+
+group:
+  - name: srppacdqdx
+    title: SR-PPAC dqdx
+    contents:
+      - name: srppacu_x_q0q1
+        title: srppacu X Q0Q1
+        x: *sruxq0q1
+      - name: srppacu_y_q0q1
+        title: srppacu Y Q0Q1
+        x: *sruyq0q1
+
+      - name: srppacd_x_q0q1
+        title: srppacd X Q0Q1
+        x: *srdxq0q1
+      - name: srppacd_y_q0q1
+        title: srppacd Y Q0Q1
+        x: *srdyq0q1
+
+

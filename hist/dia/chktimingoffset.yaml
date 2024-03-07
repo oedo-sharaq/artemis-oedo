@@ -1,0 +1,650 @@
+anchor: 
+  - &tf3st1run ["tcal_dia_strip[1].fTiming",300,323,330]
+  - &ts2st1run ["tcal_dia_strip[3].fTiming",300,223,227]
+  - &ts2st2run ["tcal_dia_strip[4].fTiming",300,223,227]
+  - &tofrun ["dia_tof32stm.fTiming",300,2020,2030]
+  - &aqrun ["mass_corstm_BLD_7th.fAq",500,1.86,1.865]
+
+alias:
+ run170: eventheader.fRunNumber == 170 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run171: eventheader.fRunNumber == 171 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run172: eventheader.fRunNumber == 172 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run173: eventheader.fRunNumber == 173 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run174: eventheader.fRunNumber == 174 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run175: eventheader.fRunNumber == 175 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run176: eventheader.fRunNumber == 176 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run177: eventheader.fRunNumber == 177 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run178: eventheader.fRunNumber == 178 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run179: eventheader.fRunNumber == 179 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run180: eventheader.fRunNumber == 180 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run181: eventheader.fRunNumber == 181 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run182: eventheader.fRunNumber == 182 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run183: eventheader.fRunNumber == 183 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run184: eventheader.fRunNumber == 184 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run185: eventheader.fRunNumber == 185 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run186: eventheader.fRunNumber == 186 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run187: eventheader.fRunNumber == 187 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run188: eventheader.fRunNumber == 188 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run189: eventheader.fRunNumber == 189 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run190: eventheader.fRunNumber == 190 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run191: eventheader.fRunNumber == 191 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run192: eventheader.fRunNumber == 192 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run193: eventheader.fRunNumber == 193 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run194: eventheader.fRunNumber == 194 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run195: eventheader.fRunNumber == 195 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run196: eventheader.fRunNumber == 196 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run197: eventheader.fRunNumber == 197 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run198: eventheader.fRunNumber == 198 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run199: eventheader.fRunNumber == 199 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run200: eventheader.fRunNumber == 200 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run201: eventheader.fRunNumber == 201 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run202: eventheader.fRunNumber == 202 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run203: eventheader.fRunNumber == 203 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run204: eventheader.fRunNumber == 204 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run205: eventheader.fRunNumber == 205 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run206: eventheader.fRunNumber == 206 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run207: eventheader.fRunNumber == 207 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run208: eventheader.fRunNumber == 208 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run209: eventheader.fRunNumber == 209 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run210: eventheader.fRunNumber == 210 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run211: eventheader.fRunNumber == 211 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run212: eventheader.fRunNumber == 212 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run213: eventheader.fRunNumber == 213 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run214: eventheader.fRunNumber == 214 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run215: eventheader.fRunNumber == 215 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run216: eventheader.fRunNumber == 216 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run217: eventheader.fRunNumber == 217 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run218: eventheader.fRunNumber == 218 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run219: eventheader.fRunNumber == 219 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run220: eventheader.fRunNumber == 220 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run221: eventheader.fRunNumber == 221 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run222: eventheader.fRunNumber == 222 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run223: eventheader.fRunNumber == 223 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run224: eventheader.fRunNumber == 224 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run225: eventheader.fRunNumber == 225 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run226: eventheader.fRunNumber == 226 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run227: eventheader.fRunNumber == 227 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run228: eventheader.fRunNumber == 228 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run229: eventheader.fRunNumber == 229 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run230: eventheader.fRunNumber == 230 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run231: eventheader.fRunNumber == 231 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run232: eventheader.fRunNumber == 232 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run233: eventheader.fRunNumber == 233 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run234: eventheader.fRunNumber == 234 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run235: eventheader.fRunNumber == 235 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run236: eventheader.fRunNumber == 236 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run237: eventheader.fRunNumber == 237 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run238: eventheader.fRunNumber == 238 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run239: eventheader.fRunNumber == 239 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run240: eventheader.fRunNumber == 240 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run241: eventheader.fRunNumber == 241 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run242: eventheader.fRunNumber == 242 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run243: eventheader.fRunNumber == 243 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run244: eventheader.fRunNumber == 244 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run245: eventheader.fRunNumber == 245 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run246: eventheader.fRunNumber == 246 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run247: eventheader.fRunNumber == 247 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run248: eventheader.fRunNumber == 248 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run249: eventheader.fRunNumber == 249 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run250: eventheader.fRunNumber == 250 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run251: eventheader.fRunNumber == 251 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run252: eventheader.fRunNumber == 252 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run253: eventheader.fRunNumber == 253 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run254: eventheader.fRunNumber == 254 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run255: eventheader.fRunNumber == 255 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run256: eventheader.fRunNumber == 256 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run257: eventheader.fRunNumber == 257 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run258: eventheader.fRunNumber == 258 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run259: eventheader.fRunNumber == 259 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run260: eventheader.fRunNumber == 260 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run261: eventheader.fRunNumber == 261 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run262: eventheader.fRunNumber == 262 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run263: eventheader.fRunNumber == 263 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run264: eventheader.fRunNumber == 264 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run265: eventheader.fRunNumber == 265 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run266: eventheader.fRunNumber == 266 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run267: eventheader.fRunNumber == 267 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run268: eventheader.fRunNumber == 268 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run269: eventheader.fRunNumber == 269 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run270: eventheader.fRunNumber == 270 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run271: eventheader.fRunNumber == 271 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+ run272: eventheader.fRunNumber == 272 && 1.86 < mass_corstm_BLD_7th.fAq && mass_corstm_BLD_7th.fAq < 1.865; 
+
+
+group:
+  - name: chktimeoffset
+    title: chkTimeOffset
+    contents:
+      - name: tofff3st1
+        title: Chk Toff f3st1
+        x: *tf3st1run
+      - name: toffs2st1
+        title: Chk Toff s2st1
+        x: *ts2st1run
+      - name: toffs2st2
+        title: Chk Toff s2st2
+        x: *ts2st2run
+      - name: tofrun
+        title: Chk Tof Run
+        x: *tofrun
+      - name: aqrun
+        title: Chk AoQ Run
+        x: *aqrun
+  
+  - name: chktimeoffset_run_170
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _170
+    cut: run170
+  - name: chktimeoffset_run_171
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _171
+    cut: run171
+  - name: chktimeoffset_run_172
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _172
+    cut: run172
+  - name: chktimeoffset_run_173
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _173
+    cut: run173
+  - name: chktimeoffset_run_174
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _174
+    cut: run174
+  - name: chktimeoffset_run_175
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _175
+    cut: run175
+  - name: chktimeoffset_run_176
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _176
+    cut: run176
+  - name: chktimeoffset_run_177
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _177
+    cut: run177
+  - name: chktimeoffset_run_178
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _178
+    cut: run178
+  - name: chktimeoffset_run_179
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _179
+    cut: run179
+  - name: chktimeoffset_run_180
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _180
+    cut: run180
+  - name: chktimeoffset_run_181
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _181
+    cut: run181
+  - name: chktimeoffset_run_182
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _182
+    cut: run182
+  - name: chktimeoffset_run_183
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _183
+    cut: run183
+  - name: chktimeoffset_run_184
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _184
+    cut: run184
+  - name: chktimeoffset_run_185
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _185
+    cut: run185
+  - name: chktimeoffset_run_186
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _186
+    cut: run186
+  - name: chktimeoffset_run_187
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _187
+    cut: run187
+  - name: chktimeoffset_run_188
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _188
+    cut: run188
+  - name: chktimeoffset_run_189
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _189
+    cut: run189
+  - name: chktimeoffset_run_190
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _190
+    cut: run190
+  - name: chktimeoffset_run_191
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _191
+    cut: run191
+  - name: chktimeoffset_run_192
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _192
+    cut: run192
+  - name: chktimeoffset_run_193
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _193
+    cut: run193
+  - name: chktimeoffset_run_194
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _194
+    cut: run194
+  - name: chktimeoffset_run_195
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _195
+    cut: run195
+  - name: chktimeoffset_run_196
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _196
+    cut: run196
+  - name: chktimeoffset_run_197
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _197
+    cut: run197
+  - name: chktimeoffset_run_198
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _198
+    cut: run198
+  - name: chktimeoffset_run_199
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _199
+    cut: run199
+  - name: chktimeoffset_run_200
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _200
+    cut: run200
+  - name: chktimeoffset_run_201
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _201
+    cut: run201
+  - name: chktimeoffset_run_202
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _202
+    cut: run202
+  - name: chktimeoffset_run_203
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _203
+    cut: run203
+  - name: chktimeoffset_run_204
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _204
+    cut: run204
+  - name: chktimeoffset_run_205
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _205
+    cut: run205
+  - name: chktimeoffset_run_206
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _206
+    cut: run206
+  - name: chktimeoffset_run_207
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _207
+    cut: run207
+  - name: chktimeoffset_run_208
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _208
+    cut: run208
+  - name: chktimeoffset_run_209
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _209
+    cut: run209
+  - name: chktimeoffset_run_210
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _210
+    cut: run210
+  - name: chktimeoffset_run_211
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _211
+    cut: run211
+  - name: chktimeoffset_run_212
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _212
+    cut: run212
+  - name: chktimeoffset_run_213
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _213
+    cut: run213
+  - name: chktimeoffset_run_214
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _214
+    cut: run214
+  - name: chktimeoffset_run_215
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _215
+    cut: run215
+  - name: chktimeoffset_run_216
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _216
+    cut: run216
+  - name: chktimeoffset_run_217
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _217
+    cut: run217
+  - name: chktimeoffset_run_218
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _218
+    cut: run218
+  - name: chktimeoffset_run_219
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _219
+    cut: run219
+  - name: chktimeoffset_run_220
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _220
+    cut: run220
+  - name: chktimeoffset_run_221
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _221
+    cut: run221
+  - name: chktimeoffset_run_222
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _222
+    cut: run222
+  - name: chktimeoffset_run_223
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _223
+    cut: run223
+  - name: chktimeoffset_run_224
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _224
+    cut: run224
+  - name: chktimeoffset_run_225
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _225
+    cut: run225
+  - name: chktimeoffset_run_226
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _226
+    cut: run226
+  - name: chktimeoffset_run_227
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _227
+    cut: run227
+  - name: chktimeoffset_run_228
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _228
+    cut: run228
+  - name: chktimeoffset_run_229
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _229
+    cut: run229
+  - name: chktimeoffset_run_230
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _230
+    cut: run230
+  - name: chktimeoffset_run_231
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _231
+    cut: run231
+  - name: chktimeoffset_run_232
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _232
+    cut: run232
+  - name: chktimeoffset_run_233
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _233
+    cut: run233
+  - name: chktimeoffset_run_234
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _234
+    cut: run234
+  - name: chktimeoffset_run_235
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _235
+    cut: run235
+  - name: chktimeoffset_run_236
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _236
+    cut: run236
+  - name: chktimeoffset_run_237
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _237
+    cut: run237
+  - name: chktimeoffset_run_238
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _238
+    cut: run238
+  - name: chktimeoffset_run_239
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _239
+    cut: run239
+  - name: chktimeoffset_run_240
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _240
+    cut: run240
+  - name: chktimeoffset_run_241
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _241
+    cut: run241
+  - name: chktimeoffset_run_242
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _242
+    cut: run242
+  - name: chktimeoffset_run_243
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _243
+    cut: run243
+  - name: chktimeoffset_run_244
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _244
+    cut: run244
+  - name: chktimeoffset_run_245
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _245
+    cut: run245
+  - name: chktimeoffset_run_246
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _246
+    cut: run246
+  - name: chktimeoffset_run_247
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _247
+    cut: run247
+  - name: chktimeoffset_run_248
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _248
+    cut: run248
+  - name: chktimeoffset_run_249
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _249
+    cut: run249
+  - name: chktimeoffset_run_250
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _250
+    cut: run250
+  - name: chktimeoffset_run_251
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _251
+    cut: run251
+  - name: chktimeoffset_run_252
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _252
+    cut: run252
+  - name: chktimeoffset_run_253
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _253
+    cut: run253
+  - name: chktimeoffset_run_254
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _254
+    cut: run254
+  - name: chktimeoffset_run_255
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _255
+    cut: run255
+  - name: chktimeoffset_run_256
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _256
+    cut: run256
+  - name: chktimeoffset_run_257
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _257
+    cut: run257
+  - name: chktimeoffset_run_258
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _258
+    cut: run258
+  - name: chktimeoffset_run_259
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _259
+    cut: run259
+  - name: chktimeoffset_run_260
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _260
+    cut: run260
+  - name: chktimeoffset_run_261
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _261
+    cut: run261
+  - name: chktimeoffset_run_262
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _262
+    cut: run262
+  - name: chktimeoffset_run_263
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _263
+    cut: run263
+  - name: chktimeoffset_run_264
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _264
+    cut: run264
+  - name: chktimeoffset_run_265
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _265
+    cut: run265
+  - name: chktimeoffset_run_266
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _266
+    cut: run266
+  - name: chktimeoffset_run_267
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _267
+    cut: run267
+  - name: chktimeoffset_run_268
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _268
+    cut: run268
+  - name: chktimeoffset_run_269
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _269
+    cut: run269
+  - name: chktimeoffset_run_270
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _270
+    cut: run270
+  - name: chktimeoffset_run_271
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _271
+    cut: run271
+  - name: chktimeoffset_run_272
+    title: chkTimeOffset
+    clone: chktimeoffset
+    suffix: _272
+    cut: run272
+
+

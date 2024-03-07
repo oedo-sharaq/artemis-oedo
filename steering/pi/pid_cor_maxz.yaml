@@ -1,0 +1,460 @@
+Processor:
+#  - name: proc_pid_cor
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      TofName: dia_tof32
+#      CalibOrder: 3
+#      ParameterFile: output/mass/theta.dat
+#      OutputName: mass_cor
+#      OutputTransparency: 0
+
+#  - name: proc_pid_corst0
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      TofName: dia_tof32st0
+#      CalibOrder: 3
+#      ParameterFile: output/mass/theta_st0.dat
+#      OutputName: mass_corst0
+#      OutputTransparency: 0
+
+#  - name: proc_pid_corst1
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      TofName: dia_tof32st1
+#      CalibOrder: 3
+#      ParameterFile: output/mass/theta_st1.dat
+##      ParameterFile: output/mass/dummy.dat
+#      OutputName: mass_corst1
+#      OutputTransparency: 0
+
+#  - name: proc_pid_corst2
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      TofName: dia_tof32st2
+#      CalibOrder: 3
+#      ParameterFile: output/mass/theta_st2.dat
+#      OutputName: mass_corst2
+#      OutputTransparency: 0
+
+#  - name: proc_pid_corst3
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      TofName: dia_tof32st3
+#      CalibOrder: 3
+#      ParameterFile: output/mass/theta_st3.dat
+#      OutputName: mass_corst3
+#      OutputTransparency: 0
+
+#  - name: proc_pid_corst2_2nd
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      TofName: dia_tof32st2
+#      CalibOrder: 3
+#      ParameterFile: output/mass/theta_st2_ref1_2step.dat
+#      OutputName: mass_corst2_2nd
+#      OutputTransparency: 0
+
+#  - name: proc_pid_corst1_2nd
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      TofName: dia_tof32st1
+#      CalibOrder: 3
+#      ParameterFile: output/mass/theta_st1_ref1_2step.dat
+#      OutputName: mass_corst1_2nd
+#      OutputTransparency: 0
+
+#  - name: proc_pid_corst3_2nd
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      MWDC2: s2
+#      UsetwoMWDCs: 0
+#      TofName: dia_tof32st3
+#      CalibOrder: 3
+#      ParameterFile: output/mass/theta_st3_ref1_2step.dat
+#      OutputName: mass_corst3_BLD_2nd
+#      OutputTransparency: 0
+
+#  - name: proc_pid_corst3_3rd
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      MWDC2: s2
+#      UsetwoMWDCs: 1
+#      TofName: dia_tof32st3
+#      CalibOrder: 4
+#      ParameterFile: output/mass/theta_st3_ref1_3step.dat
+#      OutputName: mass_corst3_BLD_3rd
+#      OutputTransparency: 0
+
+#  - name: proc_pid_corst0_2nd
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      TofName: dia_tof32st0
+#      CalibOrder: 3
+#      ParameterFile: output/mass/theta_st0_ref1_2step.dat
+#      OutputName: mass_corst0_2nd
+#      OutputTransparency: 0
+
+#  - name: proc_pid_corst1_2nd_forst2
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      TofName: dia_tof32st2
+#      CalibOrder: 3
+#      ParameterFile: output/mass/theta_st1_ref1_2step.dat
+#      OutputName: mass_corst2_2nd
+#      OutputTransparency: 0
+
+##### strip1 #####
+
+#  - name: proc_pid_corst1_BLD
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      MWDC2: s2
+#      UsetwoMWDCs: 0
+#      UnitOrientation: 0
+#      TofName: dia_tof32st1
+#      CalibOrder: 3
+#      ParameterFile: output/mass/theta_st1_BLD_ref4.dat
+#      OutputName: mass_corst1_BLD
+#      OutputTransparency: 0
+
+#  - name: proc_pid_corst1_BLD_2nd
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      MWDC2: s2
+#      UsetwoMWDCs: 0
+#      UnitOrientation: 0
+#      TofName: dia_tof32st1
+#      CalibOrder: 3
+#      ParameterFile: output/mass/theta_st1_ref1_2step_BLD_ref4.dat
+#      OutputName: mass_corst1_BLD_2nd
+#      OutputTransparency: 0
+
+#  - name: proc_pid_corst1_BLD_weight
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      TofName: dia_tof32st1
+#      CalibOrder: 3
+##      ParameterFile: output/mass/theta_st1_ref1_2step_BLD_weight.dat
+#      ParameterFile: output/mass/theta_dummy.dat
+#      OutputName: mass_corst1_BLD_w
+#      OutputTransparency: 0
+
+#  - name: proc_pid_corst1_BLD_3rd
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      MWDC2: s2
+#      UsetwoMWDCs: 1
+#      UnitOrientation: 2
+#      TofName: dia_tof32st1
+#      CalibOrder: 4
+#      ParameterFile: output/mass/theta_st1_ref5_3step_unit2_SSR.dat
+#      OutputName: mass_corst1_BLD_3rd
+#      OutputTransparency: 0
+
+#  - name: proc_pid_corst1_BLD_3rd
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      MWDC2: s2
+#      UsetwoMWDCs: 1
+#      TofName: dia_tof32st1
+#      CalibOrder: 4
+#      ParameterFile: output/mass/theta_st1_ref1_3step_unit.dat
+#      OutputName: mass_corst1_BLD_3rd
+#      OutputTransparency: 0
+
+#  - name: proc_pid_corst1_BLD_3rd
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      MWDC2: s2
+#      UsetwoMWDCs: 1
+#      TofName: dia_tof32st1
+#      CalibOrder: 4
+#      ParameterFile: output/mass/theta_st1_ref1_3step_unit2.dat
+#      OutputName: mass_corst1_BLD_3rd
+#      OutputTransparency: 0
+
+#  - name: proc_pid_corst1_BLD_3rd_ref2
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      MWDC2: s2
+#      UsetwoMWDCs: 1
+#      TofName: dia_tof32st1
+#      CalibOrder: 4
+#      ParameterFile: output/mass/theta_st1_ref2_3step_unit2.dat
+#      OutputName: mass_corst1_BLD_3rd
+#      OutputTransparency: 0
+
+#  - name: proc_pid_corst1_BLD_3rd_ref3
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      MWDC2: s2
+#      UsetwoMWDCs: 1
+#      TofName: dia_tof32st1
+#      CalibOrder: 4
+#      ParameterFile: output/mass/theta_st1_ref3_3step_unit2.dat
+#      OutputName: mass_corst1_BLD_3rd
+#      OutputTransparency: 0
+
+
+#  - name: proc_pid_corst1_BLD_4rh
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      MWDC2: s2
+#      UsetwoMWDCs: 1
+#      TofName: dia_tof32st1_off
+#      CalibOrder: 4
+#      ParameterFile: output/mass/theta_st1_ref2_4step.dat
+#      OutputName: mass_corst1_BLD_4th
+#      OutputTransparency: 0
+
+#  - name: proc_pid_corst1_BLD_4rh_nooff
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      MWDC2: s2
+#      UsetwoMWDCs: 1
+#      TofName: dia_tof32st1
+#      CalibOrder: 4
+#      ParameterFile: output/mass/theta_st1_ref2_4step_nooff.dat
+#      OutputName: mass_corst1_BLD_4th
+#      OutputTransparency: 0
+
+#  - name: proc_pid_corst1_BLD_4.5rh
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      MWDC2: s2
+#      UsetwoMWDCs: 1
+#      TofName: dia_tof32st1
+#      CalibOrder: 4
+#      ParameterFile: output/mass/theta_st1_ref2_4.5step_nooff.dat
+#      OutputName: mass_corst1_BLD_4.5th
+#      OutputTransparency: 0
+
+
+
+##### strip2 #####
+
+#  - name: proc_pid_corst2_BLD
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      MWDC2: s2
+#      UsetwoMWDCs: 0
+#      TofName: dia_tof32st2
+#      CalibOrder: 3
+#      ParameterFile: output/mass/theta_st2_BLD.dat
+#      OutputName: mass_corst2_BLD
+#      OutputTransparency: 0
+
+#  - name: proc_pid_corst2_BLD_2nd
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      MWDC2: s2
+#      UsetwoMWDCs: 0
+#      TofName: dia_tof32st2
+#      CalibOrder: 3
+#      ParameterFile: output/mass/theta_st2_ref1_2step_BLD.dat
+#      OutputName: mass_corst2_BLD_2nd
+#      OutputTransparency: 0
+
+#  - name: proc_pid_corst2_BLD_3rd
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      MWDC2: s2
+#      UsetwoMWDCs: 1
+#      TofName: dia_tof32st2
+#      CalibOrder: 4
+#      ParameterFile: output/mass/theta_st2_ref3_3step_unit2.dat
+#      OutputName: mass_corst2_BLD_2nd_3rd
+#      OutputTransparency: 0
+#
+
+### stm
+
+#  - name: proc_pid_corstm_BLD
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      MWDC2: s2
+#      UsetwoMWDCs: 0
+#      UnitOrientation: 0
+#      TofName: dia_tof32stm
+#      CalibOrder: 3
+#      ParameterFile: output/mass/theta_stm2_BLD_maxz_ref4.dat
+#      OutputName: mass_corstm_BLD
+#      OutputTransparency: 0
+
+#  - name: proc_pid_corstm_BLD_2nd
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      MWDC2: s2
+#      UsetwoMWDCs: 0
+#      UnitOrientation: 0
+#      TofName: dia_tof32stm
+#      CalibOrder: 3
+#      ParameterFile: output/mass/theta_stm2_ref4_2step_BLD_maxz.dat
+#      OutputName: mass_corstm_BLD_2nd
+#      OutputTransparency: 0
+
+#  - name: proc_pid_corstm_BLD_3rd
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      MWDC2: s2
+#      UsetwoMWDCs: 1
+#      UnitOrientation: 2
+#      TofName: dia_tof32stm
+#      CalibOrder: 4
+##      ParameterFile: output/mass/theta_stm2_ref4_3step_unit2_SSR.dat
+##      ParameterFile: output/mass/theta_stm2_ref4_3step_unit2_SSRBVar.dat
+##      ParameterFile: output/mass/theta_stm2_ref4_3step_unit2_SSRBVarY.dat
+##      ParameterFile: output/mass/theta_stm2_refv_3step_unit2_SSR.dat
+##      ParameterFile: output/mass/theta_stm2_refv_3step_unit2_SSR_Step0.dat
+##      ParameterFile: output/mass/theta_stm2_refv_3step_unit2_SSR_Step1.dat
+##      ParameterFile: output/mass/theta_stm2_refv_3step_unit2_SSR_Step2.dat
+##      ParameterFile: output/mass/theta_stm2_refv_3step_unit2_SSR_Step3.dat
+#      ParameterFile: output/mass/theta_stm2_refv_3step_unit2_SSR_Step4.dat
+#      OutputName: mass_corstm_BLD_3rd
+#      OutputTransparency: 0
+
+
+#  - name: proc_pid_corstm_BLD_4th
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      MWDC2: s2
+#      UsetwoMWDCs: 1
+#      UnitOrientation: 2
+#      TofName: dia_tof32stm
+#      CalibOrder: 4
+#      ParameterFile: output/mass/theta_stm2_ref4_4step_unit2_SSRBVarY.dat
+#      OutputName: mass_corstm_BLD_4th
+#      OutputTransparency: 0
+
+
+#  - name: proc_pid_corstm_BLD_6th
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+##      S0PPAC: sr0_xcw_qcal
+#      MWDC1: f3
+#      MWDC2: s2
+##      MWDC2: s2_a
+#      UsetwoMWDCs: 1
+#      UseS0Y: 0
+#      UnitOrientation: 2
+#      TofName: dia_tof32stm
+#      CalibOrder: 4
+##      ParameterFile: output/mass/theta_stm2_ref4_4step_unit2_SSRBVarY.dat
+##      ParameterFile: output/mass/theta_stm2_ref6_4step_unit2.5_SSR.dat
+##      ParameterFile: output/mass/theta_stm2_ref6_5step_unit2.5_SSR.dat
+#      ParameterFile: output/mass/theta_stm2_ref6_6step_unit2.5_SSR.dat
+##      ParameterFile: output/mass/theta_stm2_ref6_6step_unit2.5_SSR_posmod.dat
+##      ParameterFile: output/mass/theta_stm2_ref6_7step_unit2.5_SSR_posmod.dat
+##      ParameterFile: output/mass/theta_stm2_ref6_8step_unit2.5_SSR_posmod.dat
+##      ParameterFile: output/mass/theta_stm2_ref6_7step_unit2.5_SSR_qcal.dat
+##      ParameterFile: output/mass/theta_stm2_ref6_7step_unit2.5_SSR_qcal_toff.dat
+##      ParameterFile: output/mass/theta_stm2_ref6_7step_unit2.5_SSR_v2.dat
+##      ParameterFile: output/mass/theta_stm2_ref6_7step_unit2.5_toff.dat
+#      OutputName: mass_corstm_BLD_6th_maxz
+##      OutputName: mass_corstm_BLD_7th
+#      OutputTransparency: 0
+
+
+#  - name: proc_pid_corstm_BLD_7th
+#    type: art::TMassCalibrationConverter
+#    parameter:
+##      S0PPAC: sr0_xcw
+#      S0PPAC: sr0_xcw_qcal
+#      MWDC1: f3
+##      MWDC2: s2
+#      MWDC2: s2_a
+#      UsetwoMWDCs: 1
+#      UseS0Y: 0
+##      UnitOrientation: 2
+#      UnitOrientation: 3
+#      TofName: dia_tof32stm
+#      CalibOrder: 4
+##      ParameterFile: output/mass/theta_stm2_ref7_7step_maxz.dat 
+#      ParameterFile: output/mass/theta_stm2_ref7_7step_maxz_unit.dat
+#      OutputName: mass_corstm_BLD_7th_maxz
+#      OutputTransparency: 0
+
+
+  - name: proc_pid_corstm_BLD_8th
+    type: art::TMassCalibrationConverter
+    parameter:
+      S0PPAC: sr0_xcw
+#      S0PPAC: sr0_xcw_qcal
+      MWDC1: f3
+      MWDC2: s2
+#      MWDC2: s2_a
+      UsetwoMWDCs: 1
+      UseS0Y: 0
+      UnitOrientation: 4
+      TofName: dia_tof32stm
+      CalibOrder: 4
+      ParameterFile: output/mass/theta_stm2_reflise_8step_unitlise_SSR_mahala.dat
+      OutputName: mass_corstm_BLD_8th_maxz
+      OutputTransparency: 0
+
+
+
+
+
+
+
+

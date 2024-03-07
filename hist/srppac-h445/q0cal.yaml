@@ -1,0 +1,117 @@
+anchor: 
+  - &srppacu_xid ["srppacu_x_cal[0].fID",20,35.5,55.5] 
+  - &srppacu_yid ["srppacu_y_cal[0].fID",28,15.5,43.5]
+  - &srppacd_xid ["srppacd_x_cal[0].fID",20,35.5,55.5] 
+  - &srppacd_yid ["srppacd_y_cal[0].fID",28,15.5,43.5]
+
+  - &srppacu_xq ["srppacu_x_cal[0].fCharge",200,0,90] 
+  - &srppacu_yq ["srppacu_y_cal[0].fCharge",200,0,90]
+  - &srppacd_xq ["srppacd_x_cal[0].fCharge",200,0,90] 
+  - &srppacd_yq ["srppacd_y_cal[0].fCharge",200,0,90]
+
+
+
+alias:
+ 
+  xuid40: srppacu_x_cal[0].fID==40  
+  xuid41: srppacu_x_cal[0].fID==41  
+  xuid42: srppacu_x_cal[0].fID==42 
+  xuid43: srppacu_x_cal[0].fID==43  
+  xuid44: srppacu_x_cal[0].fID==44  
+  xuid45: srppacu_x_cal[0].fID==45  
+  xuid46: srppacu_x_cal[0].fID==46  
+  xuid47: srppacu_x_cal[0].fID==47  
+  xuid48: srppacu_x_cal[0].fID==48  
+  xuid49: srppacu_x_cal[0].fID==49  
+  xuid50: srppacu_x_cal[0].fID==50  
+  xuid51: srppacu_x_cal[0].fID==51  
+  xuid52: srppacu_x_cal[0].fID==52  
+
+
+
+group:
+  - name: srppacu_q0cal
+    title: SR-PPAC ID VS Charge DX fine
+    contents:
+      - name: srppacu_xqid40
+        title: SR-PPAC UX ID40
+        cut: xuid40
+        x: *srppacu_xid
+        y: *srppacu_xq
+      - name: srppacu_xqid41
+        title: SR-PPAC UX ID41
+        cut: xuid41
+        x: *srppacu_xid
+        y: *srppacu_xq
+      - name: srppacu_xqid42
+        title: SR-PPAC UX ID42
+        cut: xuid42
+        x: *srppacu_xid
+        y: *srppacu_xq
+
+      - name: srppacu_xqid43
+        title: SR-PPAC UX ID43
+        cut: xuid43
+        x: *srppacu_xid
+        y: *srppacu_xq
+
+      - name: srppacu_xqid44
+        title: SR-PPAC UX ID44
+        cut: xuid44
+        x: *srppacu_xid
+        y: *srppacu_xq
+
+      - name: srppacu_xqid45
+        title: SR-PPAC UX ID45
+        cut: xuid45
+        x: *srppacu_xid
+        y: *srppacu_xq
+
+      - name: srppacu_xqid46
+        title: SR-PPAC UX ID46
+        cut: xuid46
+        x: *srppacu_xid
+        y: *srppacu_xq
+
+      - name: srppacu_xqid47
+        title: SR-PPAC UX ID47
+        cut: xuid47
+        x: *srppacu_xid
+        y: *srppacu_xq
+
+
+      - name: srppacu_xqid48
+        title: SR-PPAC UX ID48
+        cut: xuid48
+        x: *srppacu_xid
+        y: *srppacu_xq
+
+
+      - name: srppacu_xqid49
+        title: SR-PPAC UX ID49
+        cut: xuid49
+        x: *srppacu_xid
+        y: *srppacu_xq
+
+
+      - name: srppacu_xqid50
+        title: SR-PPAC UX ID50
+        cut: xuid50
+        x: *srppacu_xid
+        y: *srppacu_xq
+
+
+      - name: srppacu_xqid51
+        title: SR-PPAC UX ID51
+        cut: xuid51
+        x: *srppacu_xid
+        y: *srppacu_xq
+
+
+      - name: srppacu_xqid52
+        title: SR-PPAC UX ID52
+        cut: xuid52
+        x: *srppacu_xid
+        y: *srppacu_xq
+
+

@@ -1,0 +1,50 @@
+anchor: 
+  - &sruxq0ql ["(srppacu_x_cal[0].fCharge - Max$(srppacu_x_cal.fCharge*(srppacu_x_cal.fID==srppacu_x_cal[0].fID+1))) / (srppacu_x_cal[0].fCharge + Max$(srppacu_x_cal.fCharge*(srppacu_x_cal.fID==srppacu_x_cal[0].fID+1)))", 600,0,0.6]
+  - &sruyq0ql ["(srppacu_y_cal[0].fCharge - Max$(srppacu_y_cal.fCharge*(srppacu_y_cal.fID==srppacu_y_cal[0].fID+1))) / (srppacu_y_cal[0].fCharge + Max$(srppacu_y_cal.fCharge*(srppacu_y_cal.fID==srppacu_y_cal[0].fID+1)))", 500,0,0.5]
+
+  - &sruxq0qr ["(srppacu_x_cal[0].fCharge - Max$(srppacu_x_cal.fCharge*(srppacu_x_cal.fID==srppacu_x_cal[0].fID-1))) / (srppacu_x_cal[0].fCharge + Max$(srppacu_x_cal.fCharge*(srppacu_x_cal.fID==srppacu_x_cal[0].fID-1)))", 600,0,0.6]
+  - &sruyq0qr ["(srppacu_y_cal[0].fCharge - Max$(srppacu_y_cal.fCharge*(srppacu_y_cal.fID==srppacu_y_cal[0].fID-1))) / (srppacu_y_cal[0].fCharge + Max$(srppacu_y_cal.fCharge*(srppacu_y_cal.fID==srppacu_y_cal[0].fID-1)))", 500,0,0.5]
+
+  - &srdxq0ql ["(srppacd_x_cal[0].fCharge - Max$(srppacd_x_cal.fCharge*(srppacd_x_cal.fID==srppacd_x_cal[0].fID+1))) / (srppacd_x_cal[0].fCharge + Max$(srppacd_x_cal.fCharge*(srppacd_x_cal.fID==srppacd_x_cal[0].fID+1)))", 600,0,0.6]
+  - &srdyq0ql ["(srppacd_y_cal[0].fCharge - Max$(srppacd_y_cal.fCharge*(srppacd_y_cal.fID==srppacd_y_cal[0].fID+1))) / (srppacd_y_cal[0].fCharge + Max$(srppacd_y_cal.fCharge*(srppacd_y_cal.fID==srppacd_y_cal[0].fID+1)))", 500,0,0.5]
+
+  - &srdxq0qr ["(srppacd_x_cal[0].fCharge - Max$(srppacd_x_cal.fCharge*(srppacd_x_cal.fID==srppacd_x_cal[0].fID-1))) / (srppacd_x_cal[0].fCharge + Max$(srppacd_x_cal.fCharge*(srppacd_x_cal.fID==srppacd_x_cal[0].fID-1)))", 600,0,0.6]
+  - &srdyq0qr ["(srppacd_y_cal[0].fCharge - Max$(srppacd_y_cal.fCharge*(srppacd_y_cal.fID==srppacd_y_cal[0].fID-1))) / (srppacd_y_cal[0].fCharge + Max$(srppacd_y_cal.fCharge*(srppacd_y_cal.fID==srppacd_y_cal[0].fID-1)))", 500,0,0.5]
+
+
+
+
+group:
+  - name: srppacdqdxlr
+    title: SR-PPAC dqdxLR
+    contents:
+      - name: srppacu_x_q0ql
+        title: srppacu X Q0QL
+        x: *sruxq0ql
+      - name: srppacu_y_q0ql
+        title: srppacu Y Q0Ql
+        x: *sruyq0ql
+      - name: srppacu_x_q0qr
+        title: srppacu X Q0QR
+        x: *sruxq0qr
+      - name: srppacu_y_q0qr
+        title: srppacu Y Q0QR
+        x: *sruyq0qr
+
+
+
+      - name: srppacd_x_q0ql
+        title: srppacd X Q0QL
+        x: *srdxq0ql
+      - name: srppacd_y_q0ql
+        title: srppacd Y Q0Ql
+        x: *srdyq0ql
+      - name: srppacd_x_q0qr
+        title: srppacd X Q0QR
+        x: *srdxq0qr
+      - name: srppacd_y_q0qr
+        title: srppacd Y Q0QR
+        x: *srdyq0qr
+
+
+

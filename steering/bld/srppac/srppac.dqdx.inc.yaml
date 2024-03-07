@@ -1,0 +1,21 @@
+Processor:
+#prm ch2ns
+  - name: proc:@NAME@_x:calib
+    type: art::TSRPPACCalibrationProcessor
+    parameter:
+      InputCollection: @NAME@_x
+      Combination: 0
+      TimingGate: @TGATE@
+      ChargeGate: @QGATE@
+      UseMax: 1
+
+  - name: proc:@NAME@_y:calib
+    type: art::TSRPPACCalibrationProcessor
+    parameter:
+      InputCollection: @NAME@_y
+      Combination: 0
+      TimingGate: @TGATE@
+      ChargeGate: @QGATE@
+      UseMax: 1
+
+

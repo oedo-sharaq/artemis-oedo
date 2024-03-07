@@ -1,0 +1,110 @@
+anchor: 
+  - &hoof25 ["Max$(srppacd_y_cal.fCharge*(srppacd_y_cal.fID==25))", 200,0,90]
+  - &hoof26 ["Max$(srppacd_y_cal.fCharge*(srppacd_y_cal.fID==26))", 200,0,90]
+  - &hoof27 ["Max$(srppacd_y_cal.fCharge*(srppacd_y_cal.fID==27))", 200,0,90]
+  - &hoof28 ["Max$(srppacd_y_cal.fCharge*(srppacd_y_cal.fID==28))", 200,0,90]
+  - &hoof29 ["Max$(srppacd_y_cal.fCharge*(srppacd_y_cal.fID==29))", 200,0,90]
+  - &hoof30 ["Max$(srppacd_y_cal.fCharge*(srppacd_y_cal.fID==30))", 200,0,90]
+  - &hoof31 ["Max$(srppacd_y_cal.fCharge*(srppacd_y_cal.fID==31))", 200,0,90]
+  - &hoof32 ["Max$(srppacd_y_cal.fCharge*(srppacd_y_cal.fID==32))", 200,0,90]
+  - &hoof33 ["Max$(srppacd_y_cal.fCharge*(srppacd_y_cal.fID==33))", 200,0,90]
+  - &hoof34 ["Max$(srppacd_y_cal.fCharge*(srppacd_y_cal.fID==34))", 200,0,90]
+
+  - &hoofcal25 ["Max$(srppacd_y_qcal.fCharge*(srppacd_y_qcal.fID==25))", 200,0,90]
+  - &hoofcal26 ["Max$(srppacd_y_qcal.fCharge*(srppacd_y_qcal.fID==26))", 200,0,90]
+  - &hoofcal27 ["Max$(srppacd_y_qcal.fCharge*(srppacd_y_qcal.fID==27))", 200,0,90]
+  - &hoofcal28 ["Max$(srppacd_y_qcal.fCharge*(srppacd_y_qcal.fID==28))", 200,0,90]
+  - &hoofcal29 ["Max$(srppacd_y_qcal.fCharge*(srppacd_y_qcal.fID==29))", 200,0,90]
+  - &hoofcal30 ["Max$(srppacd_y_qcal.fCharge*(srppacd_y_qcal.fID==30))", 200,0,90]
+  - &hoofcal31 ["Max$(srppacd_y_qcal.fCharge*(srppacd_y_qcal.fID==31))", 200,0,90]
+  - &hoofcal32 ["Max$(srppacd_y_qcal.fCharge*(srppacd_y_qcal.fID==32))", 200,0,90]
+  - &hoofcal33 ["Max$(srppacd_y_qcal.fCharge*(srppacd_y_qcal.fID==33))", 200,0,90]
+  - &hoofcal34 ["Max$(srppacd_y_qcal.fCharge*(srppacd_y_qcal.fID==34))", 200,0,90]
+
+
+
+
+group:
+  - name: srppacd_y_qcorrelation
+    title: SR-PPAC Y Down Qcorrelation
+    contents:
+      - name: srppacd_y_2526
+        title: srppacd Y q25q26
+        x: *hoof25
+        y: *hoof26
+      - name: srppacd_y_2627
+        title: srppacd Y q26q27
+        x: *hoof26
+        y: *hoof27
+      - name: srppacd_y_2728
+        title: srppacd Y q27q28
+        x: *hoof27
+        y: *hoof28
+      - name: srppacd_y_2829
+        title: srppacd Y q28q29
+        x: *hoof28
+        y: *hoof29
+      - name: srppacd_y_2930
+        title: srppacd Y q29q30
+        x: *hoof29
+        y: *hoof30
+      - name: srppacd_y_3031
+        title: srppacd Y q30q31
+        x: *hoof30
+        y: *hoof31
+      - name: srppacd_y_3132
+        title: srppacd Y q31q32
+        x: *hoof31
+        y: *hoof32
+      - name: srppacd_y_3233
+        title: srppacd Y q32q33
+        x: *hoof32
+        y: *hoof33
+      - name: srppacd_y_3334
+        title: srppacd Y q33q34
+        x: *hoof33
+        y: *hoof34
+
+  - name: srppacd_ycal_qcorrelation
+    title: SR-PPAC Y_cal Down Qcorrelation
+    contents:
+      - name: srppacd_ycal_2526
+        title: srppacd Y_cal q25q26
+        x: *hoofcal25
+        y: *hoofcal26
+      - name: srppacd_ycal_2627
+        title: srppacd Y_cal q26q27
+        x: *hoofcal26
+        y: *hoofcal27
+      - name: srppacd_ycal_2728
+        title: srppacd Y_cal q27q28
+        x: *hoofcal27
+        y: *hoofcal28
+      - name: srppacd_ycal_2829
+        title: srppacd Y_cal q28q29
+        x: *hoofcal28
+        y: *hoofcal29
+      - name: srppacd_ycal_2930
+        title: srppacd Y_cal q29q30
+        x: *hoofcal29
+        y: *hoofcal30
+      - name: srppacd_ycal_3031
+        title: srppacd Y_cal q30q31
+        x: *hoofcal30
+        y: *hoofcal31
+      - name: srppacd_ycal_3132
+        title: srppacd Y_cal q31q32
+        x: *hoofcal31
+        y: *hoofcal32
+      - name: srppacd_ycal_3233
+        title: srppacd Y_cal q32q33
+        x: *hoofcal32
+        y: *hoofcal33
+      - name: srppacd_ycal_3334
+        title: srppacd Y_cal q33q34
+        x: *hoofcal33
+        y: *hoofcal34
+
+
+
+

@@ -1,0 +1,104 @@
+Anchor:
+
+ - &tree0 sh13_analysis/hanai/phys/bld_file/BLD_tofoffset/ca/BLD_ssdpla_tofoffset.170272.ca.root
+# - &tree0 sh13_analysis/hanai/phys/bld_file/BLD_tofoffset/sc/BLD_ssdpla_tofoffset.170272.sc.root
+# - &tree0 sh13_analysis/hanai/phys/bld_file/BLD_tofoffset/ti/BLD_ssdpla_tofoffset.170272.ti.root
+# - &tree0 sh13_analysis/hanai/phys/bld_file/BLD_tofoffset/v/BLD_ssdpla_tofoffset.170272.v.root
+# - &tree0 sh13_analysis/hanai/phys/bld_file/BLD_tofoffset/cr/BLD_ssdpla_tofoffset.170272.cr.root
+# - &tree0 sh13_analysis/hanai/phys/bld_file/BLD_tofoffset/mn/BLD_ssdpla_tofoffset.170272.mn.root
+# - &tree0 sh13_analysis/hanai/phys/bld_file/BLD_tofoffset/fe/BLD_ssdpla_tofoffset.170272.fe.root
+
+Processor:
+
+  - name: timer
+    type: art::TTimerProcessor
+ 
+  - name: tree_store
+    type: art::TTreeEventStore
+    parameter:
+      OutputTransparency:  1
+      TreeName: tree
+      MaxEventNum: 0
+      FileName:
+        - *tree0
+     
+#  - include: ../../steering/bld/dlppac/ppac.brips.yaml
+#  - include: bld/dlppac/dlppac.inc.yaml
+#  - include: ../../steering/pi/pid_cor.yaml
+
+  - include: chkmwdc_local_for_each_z.yaml
+
+#  - name: projection_chkmass
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/pid/chkmass_st1_ca_3step.yaml
+#      Type:     art::TTreeprojection
+#      OutputFilename: sh13_analysis/hanai/phys/mass_calib/physics.chkmass_st1_3step_for4th_unit2.eventstore.170272.ca.root
+
+ 
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: sh13_analysis/hanai/phys/BLD_hadd_test.eventstore.170272.ca.hist_test.root
+
+
+
+
+
+#Anchor:
+#
+# - &input ridf/physics@NUM@.ridf
+#
+## - &output sh13_analysis/hanai/phys/bld_file/BLD_tofoffset/ca/BLD_ssdpla_tofoffset.@NUM@.ca.root
+# - &output sh13_analysis/hanai/phys/bld_file/BLD_tofoffset/ca/BLD_maxz_tofoffset.@NUM@.ca.root
+#
+#
+#Processor:
+#  - name: ridfevent
+#    type: art::TRIDFEventStore
+#    parameter:
+#      OutputTransparency:  1
+#      InputFiles:
+#        - *input
+#
+#
+#  - name: timer
+#    type: art::TTimerProcessor
+#      
+#  - name: mapper
+#    type: art::TMappingProcessor
+#    parameter:
+#      OutputTransparency: 1
+#  - name: proc_gateinit
+#    type: art::TGateArrayInitializer
+#    parameter:
+#      OutputTransparency: 1
+#
+#  - include: ../../steering/tref.yaml
+#  - include: ../../steering/trig.yaml
+#  - include: ../../steering/bld/dia/dia.yaml         # dia v1290
+#  - include: ../../steering/bld/dia/dia_tc842_strip.yaml # dia tc842 using strip
+#  - include: 
+#      name: ../../steering/bld/dia/dia_tc842_strip_each.yaml # dia tc842 using strip
+#      replace:
+#        RUN: @NUM@
+#  - include: ../../steering/bld/pla/pla_tc842.yaml
+#  - include: 
+#      name: ../../steering/bld/pla/pla_sh13.yaml
+#      replace: 
+#        CID: 108
+#        FP: s2
+#        RUN: @NUM@ 
+#  - include: srppac_for_each_z.yaml
+#  - include: ../../steering/bld/si/ssd.yaml
+#  - include: pid_ref_eachstrip_ssdpla_tofoffset_maxz.yaml
+#  - include: chkmwdc_local_for_each_z.yaml
+#      
+#  - name: outputtree
+#    type: art::TOutputTreeProcessor
+#    parameter:
+#      FileName: 
+#        - *output
+#
+
+

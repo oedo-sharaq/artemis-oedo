@@ -1,0 +1,60 @@
+Processor:
+  - name: s2w_gate_formula
+    type: art::TTreeFormulaGateProcessor
+    parameter:
+      Definitions:
+#        - "singlehit; dia3pad_raw@.GetEntriesFast()==1"
+#        - "srt; sr0_x_cal[0].fTiming < -1930"
+#        - "s2w; trig_s2w[0].fTiming > -4000. && trig_s2w[0].fTiming < -3000." #sh13bld0275
+       - "s2w; trig_s2w[0].fTiming > 9. && trig_s2w[0].fTiming< 15." #physics170
+#       - "s2wfe; trig_s2w[0].fTiming > 9. && trig_s2w[0].fTiming< 15. && abs(S2ssd.fEx-227.) < 7." #physics170
+
+  - name: s2w_gatestop
+    type: art::TGateStopProcessor
+    parameter:
+      GateName: "s2w"
+#      GateName: "s2wfe"
+
+#  - name: dcmulti_gate_formula
+#    type: art::TTreeFormulaGateProcessor
+#    parameter:
+#      Definitions:
+#       - "dc31singlehit; dc31_x1@.GetEntriesFast()==1 &&  dc31_x2@.GetEntriesFast()==1 && dc31_x3@.GetEntriesFast()==1 &&   dc31_x4@.GetEntriesFast()==1 &&   dc31_y1@.GetEntriesFast()==1 &&   dc31_y2@.GetEntriesFast()==1 &&  dc31_y3@.GetEntriesFast()==1 &&  dc31_y4@.GetEntriesFast()==1 " 
+#
+#  - name: s2w_gatestop
+#    type: art::TGateStopProcessor
+#    parameter:
+#      GateName: "dc31singlehit"
+
+
+
+#  - name: diaval_formula
+#    type: art::TTreeFormulaGateProcessor
+#    parameter:
+#      Definitions:
+#       - "dia3val; abs(dia3strip1_l_tc842_cal.fTiming - dia3strip1_r_tc842_cal.fTiming +0.5 ) < 0.2 || abs(dia3strip2_l_tc842_cal.fTiming - dia3strip2_r_tc842_cal.fTiming +1.2 ) < 0.3 " #physics170
+#
+#  - name: diaval_gatestop
+#    type: art::TGateStopProcessor
+#    parameter:
+#      GateName: "dia3val"
+
+
+#  - name: z_gate_formula
+#    type: art::TTreeFormulaGateProcessor
+#    parameter:
+#      Definitions:
+#       - "cr; abs(mass.fZ-23.84) < 0.4" #physics170
+##       - "ca; abs(mass.fZ-19.88) < 0.4" #physics170
+##       - "v; abs(mass.fZ-22.84) < 0.48" #physics170
+##       - "ti; abs(mass.fZ-21.86) < 0.51" #physics170
+#
+#  - name: z_gatestop
+#    type: art::TGateStopProcessor
+#    parameter:
+#      GateName: "cr"
+##      GateName: "ca"
+##      GateName: "v"
+##      GateName: "ti"
+
+

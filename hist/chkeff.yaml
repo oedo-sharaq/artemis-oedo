@@ -1,0 +1,145 @@
+anchor: 
+  - &sr0_x_ent ["sr0_x_raw@.GetEntriesFast()",10,-0.5,9.5]
+  - &sr0_y_ent ["sr0_y_raw@.GetEntriesFast()",10,-0.5,9.5]
+
+
+alias: 
+#  pidgate: "abs(f5pla[0].fTiming-dia3strip[0].fTiming-1242.0)<1.0 && abs(f5pla[0].fCharge-18200.)<900."
+#  piddc31: "abs(dc31_raw.fCharge-810.)<110.&&abs(f5ppac1a.fTAnode-dia3pad.fTiming-2658.5)<0.7"
+#  piddc32: "abs(dc32_raw.fCharge-750.)<80.&&abs(f5ppac1a.fTAnode-dia3pad.fTiming-2658.5)<0.7"
+#  pidgate: "abs(f5ppac1a[0].fTAnode-dia3pad[0].fTiming-2658.5)<0.7 && abs(dc31_raw[0].fCharge-1000.)<120."
+#  pidfe: "abs(sr0_xc0[0].fPosition+49.28)<60&&abs(sr0_a_cal.fTiming-dia3pad[0].fTiming-1066)<2"
+#  pidv: "abs(sr0_xc0[0].fPosition+49.28)<60&&abs(sr0_a_cal.fTiming-dia3pad[0].fTiming-1093)<3"
+#  dia3hit: "@dia3pad_raw.GetEntriesFast()>0"
+
+   tof32: "dias2pad[0].fTiming-dia3pad[0].fTiming"
+   s2brho: "4.4147*(1-sr0_x[0].fPosition/14856) "
+   s2beta: "103499.78/(tof32-1455.)/299.79"
+   s2gamma: "1/TMath::Sqrt(1-(s2beta)*(s2beta)) "
+   s2aq: "s2brho * 299.79 / (s2gamma * s2beta * 931.49)"
+   s2de: "1.03827*S2ssd.fEx*0.866"
+   de_v: "TMath::Log(5907.5*s2beta*s2beta)-TMath::Log(1.-s2beta*s2beta)-s2beta*s2beta"
+   s2z: "-0.0513 + 7.451*TMath::Sqrt(s2de/de_v) * s2beta"
+   pidgateZ23: "abs(s2z-23.)<0.5"
+   pidgateZ22: "abs(s2z-22.)<0.5"
+   pidgateZ21: "abs(s2z-21.)<0.5"
+   pidgateZ20: "abs(s2z-20.)<0.5"
+
+
+group:
+  - name: effcheck
+    title: Efficiency check
+    contents:
+      - name: pid
+        title: PID
+        x: [s2aq,200,1.7,2.3]
+        y: [s2z,200,10,30]
+
+      - name: eff_dc31_x1
+        title: Eff. DC31 X1
+        x: ["@dc31_x1.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_dc31_x2
+        title: Eff. DC31 X2
+        x: ["@dc31_x2.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_dc31_y1
+        title: Eff. DC31 Y1
+        x: ["@dc31_y1.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_dc31_y2
+        title: Eff. DC31 Y2
+        x: ["@dc31_y2.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_dc31_x3
+        title: Eff. DC31 X3
+        x: ["@dc31_x3.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_dc31_x4
+        title: Eff. DC31 X4
+        x: ["@dc31_x4.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_dc31_y3
+        title: Eff. DC31 Y3
+        x: ["@dc31_y3.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_dc31_y4
+        title: Eff. DC31 Y4
+        x: ["@dc31_y4.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_dc32_x1
+        title: Eff. DC32 X1
+        x: ["@dc32_x1.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_dc32_x2
+        title: Eff. DC32 X2
+        x: ["@dc32_x2.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_dc32_y1
+        title: Eff. DC32 Y1
+        x: ["@dc32_y1.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_dc32_y2
+        title: Eff. DC32 Y2
+        x: ["@dc32_y2.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_dc21_x1
+        title: Eff. DC21 X1
+        x: ["@dc21_x1.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_dc21_x2
+        title: Eff. DC21 X2
+        x: ["@dc21_x2.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_dc21_u
+        title: Eff. DC21 U
+        x: ["@dc21_u.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_dc21_v
+        title: Eff. DC21 V
+        x: ["@dc21_v.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_dc22_x1
+        title: Eff. DC22 X1
+        x: ["@dc22_x1.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_dc22_x2
+        title: Eff. DC22 X2
+        x: ["@dc22_x2.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_dc22_u
+        title: Eff. DC22 U
+        x: ["@dc22_u.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_dc22_v
+        title: Eff. DC22 V
+        x: ["@dc22_v.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: sr0_x_ent
+        title: sr0 X Entry
+        x: *sr0_x_ent
+
+      - name: sr0_y_ent
+        title: sr0 Y Entry        
+        x: *sr0_y_ent
+
+
+  - name: effcheck_pidgateZ23
+    title: Efficiency check w/ pidgate Z=23
+    clone: effcheck
+    cut: pidgateZ23
+
+  - name: effcheck_pidgateZ22
+    title: Efficiency check w/ pidgate Z=22
+    clone: effcheck
+    cut: pidgateZ22
+
+  - name: effcheck_pidgateZ21
+    title: Efficiency check w/ pidgate Z=21
+    clone: effcheck
+    cut: pidgateZ21
+
+  - name: effcheck_pidgateZ20
+    title: Efficiency check w/ pidgate Z=20
+    clone: effcheck
+    cut: pidgateZ20

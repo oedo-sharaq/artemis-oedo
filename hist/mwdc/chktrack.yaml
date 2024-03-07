@@ -1,0 +1,112 @@
+anchor:
+  - &@plane@x ["@plane@.fX",200,-50.,50.]
+  - &@plane@y ["@plane@.fY",200,-50.,50.]
+  - &@plane@a ["@plane@.fA*1000",200,-50.,50.]
+  - &@plane@b ["@plane@.fB*1000",200,-50.,50.]
+
+  - &@plane@var0 ["@plane@.GetVar(0)",200,0.,1.]
+  - &@plane@var1 ["@plane@.GetVar(1)",200,0.,1.]
+  - &@plane@var2 ["@plane@.GetVar(2)*1000000",200,0.,1.]
+  - &@plane@var3 ["@plane@.GetVar(3)*1000000",200,0.,1.]
+
+  - &@plane@res0 ["@plane@.GetResidual(0)",200,-1.,1.]
+  - &@plane@res1 ["@plane@.GetResidual(1)",200,-1.,1.]
+  - &@plane@res2 ["@plane@.GetResidual(2)",200,-1.,1.]
+  - &@plane@res3 ["@plane@.GetResidual(3)",200,-1.,1.]
+  - &@plane@res4 ["@plane@.GetResidual(4)",200,-1.,1.]
+  - &@plane@res5 ["@plane@.GetResidual(5)",200,-1.,1.]
+
+  - &@plane@getdl0 ["@plane@.GetDriftLengthAdopted(0)",500,0.,5.]
+  - &@plane@getdl1 ["@plane@.GetDriftLengthAdopted(1)",500,0.,5.]
+  - &@plane@getdl2 ["@plane@.GetDriftLengthAdopted(2)",500,0.,5.]
+  - &@plane@getdl3 ["@plane@.GetDriftLengthAdopted(3)",500,0.,5.]
+  - &@plane@getdl4 ["@plane@.GetDriftLengthAdopted(4)",500,0.,5.]
+  - &@plane@getdl5 ["@plane@.GetDriftLengthAdopted(5)",500,0.,5.]
+
+
+
+
+group:
+  - name: @plane@_track
+    title: @plane@_track
+    contents:
+      - name: @plane@_x
+        title: @plane@ X
+        x: *@plane@x
+      - name: @plane@_y
+        title: @plane@ Y
+        x: *@plane@y
+      - name: @plane@_a
+        title: @plane@ A
+        x: *@plane@a
+      - name: @plane@_b
+        title: @plane@ B
+        x: *@plane@b
+
+      - name: @plane@_var0
+        title: @plane@ Var0
+        x: *@plane@var0
+      - name: @plane@_var1
+        title: @plane@ Var1
+        x: *@plane@var1
+      - name: @plane@_var2
+        title: @plane@ Var2
+        x: *@plane@var2
+      - name: @plane@_var3
+        title: @plane@ Var3
+        x: *@plane@var3
+
+      - name: @plane@_res0
+        title: @plane@ Res0
+        x: *@plane@res0
+      - name: @plane@_res1
+        title: @plane@ Res1
+        x: *@plane@res1
+      - name: @plane@_res2
+        title: @plane@ Res2
+        x: *@plane@res2
+      - name: @plane@_res3
+        title: @plane@ Res3
+        x: *@plane@res3
+#      - name: @plane@_res4
+#        title: @plane@ Res4
+#        x: *@plane@res4
+#      - name: @plane@_res5
+#        title: @plane@ Res5
+#        x: *@plane@res5
+
+      - name: @plane@_getdl01
+        title: @plane@ DriftLength x1x2
+        x: *@plane@getdl1
+        y: *@plane@getdl0
+      - name: @plane@_getdl02
+        title: @plane@ DriftLength x1u 
+        x: *@plane@getdl2
+        y: *@plane@getdl0
+      - name: @plane@_getdl13
+        title: @plane@ DriftLength x2v 
+        x: *@plane@getdl1
+        y: *@plane@getdl3
+      - name: @plane@_getdl23
+        title: @plane@ DriftLength uv 
+        x: *@plane@getdl2
+        y: *@plane@getdl3
+
+#      - name: @plane@_getdl04
+#        title: @plane@ DriftLength x0x3 
+#        x: *@plane@getdl4
+#        y: *@plane@getdl0
+#      - name: @plane@_getdl15
+#        title: @plane@ DriftLength x2x4
+#        x: *@plane@getdl5
+#        y: *@plane@getdl1
+#      - name: @plane@_getdl45
+#        title: @plane@ DriftLength x3x4 
+#        x: *@plane@getdl5
+#        y: *@plane@getdl4
+
+
+
+
+
+

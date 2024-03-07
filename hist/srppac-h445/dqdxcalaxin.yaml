@@ -1,0 +1,13 @@
+anchor: 
+  - &srdyq0q1calaxin ["(srppacd_y_qcalaxin[0].fCharge - srppacd_y_qcalaxin[1].fCharge) / (srppacd_y_qcalaxin[0].fCharge + srppacd_y_qcalaxin[1].fCharge)", 200,0,0.2]
+
+group:
+  - name: srppacdqdxcalaxin
+    title: SR-PPAC dqdxcalaxin
+    contents:
+      - name: srppacd_y_q0q1calaxin
+        title: srppacd Y Q0Q1 calaxin
+        x: *srdyq0q1calaxin
+
+
+

@@ -7,6 +7,20 @@ Processor:
       Type:     art::TAffineConverter
       FileName: prm/plastic/ch2ns.dat      
 
+  - name: proc_pla_ns2MeV
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_pla_ns2MeV
+      Type:     art::TExpConverter
+      FileName: prm/plastic/ns2MeV.dat      
+
+  - name: proc_pla_ns2MeV_lise
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_pla_ns2MeV_lise
+      Type:     art::TAffineConverter
+      FileName: prm/plastic/ns2MeV_lise.dat      
+
   - name: proc_pla_l_raw
     type: art::TTimingChargeMappingProcessor
     parameter:
@@ -22,6 +36,7 @@ Processor:
       InputCollection:      @FP@pla_l_raw
       OutputCollection:     @FP@pla_l
       TimingConverterArray: prm_pla_ch2ns
+      ChargeConverterArray: prm_pla_ch2ns
       OutputTransparency:   0
 
   - name: proc_pla_r_raw
@@ -39,6 +54,7 @@ Processor:
       InputCollection:      @FP@pla_r_raw
       OutputCollection:     @FP@pla_r
       TimingConverterArray: prm_pla_ch2ns
+      ChargeConverterArray: prm_pla_ch2ns
       OutputTransparency:   0
 
   - name: proc_pla
@@ -48,5 +64,23 @@ Processor:
       InputCollection2: @FP@pla_r
       OutputCollection: @FP@pla
       DetIDRange:       [0,0]
+
+  - name: proc_pla_MeV
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      @FP@pla
+      OutputCollection:     @FP@pla_ecal
+      ChargeConverterArray: prm_pla_ns2MeV
+   #   ChargeConverterArray: prm_pla_ch2MeV
+      OutputTransparency:   0
+
+  - name: proc_pla_MeV_lise
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      @FP@pla
+      OutputCollection:     @FP@pla_ecallise
+      ChargeConverterArray: prm_pla_ns2MeV_lise
+   #   ChargeConverterArray: prm_pla_ch2MeV
+      OutputTransparency:   0
 
 

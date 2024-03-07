@@ -55,7 +55,7 @@ Processor:
       UseMax: 1
 
 
-  - name: proc_@NAME@_y1_calib
+  - name: proc_@NAME@_y3_calib
     type: art::TMWDCCalibrationProcessor
     parameter:
       InputCollection: @NAME@_y3
@@ -63,7 +63,7 @@ Processor:
       ChargeGate:      @QGATE@ # CHANGE HERE
       UseMax: 1
 
-  - name: proc_@NAME@_y2_calib
+  - name: proc_@NAME@_y4_calib
     type: art::TMWDCCalibrationProcessor
     parameter:
       InputCollection: @NAME@_y4

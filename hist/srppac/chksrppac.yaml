@@ -15,10 +15,10 @@ anchor:
   - &@sr@_y_rawid ["@sr@_y_raw.fID",58,-0.5,57.5] 
   - &@sr@_y_rawt ["@sr@_y_raw.fTiming",1000,-10000,10000]
   - &@sr@_y_rawq ["@sr@_y_raw.fCharge",100,0,1000]
-  - &@sr@_y_valid ["@sr@_y_val.fID",94,-0.5,93.5] 
+  - &@sr@_y_valid ["@sr@_y_val.fID",58,-0.5,57.5] 
   - &@sr@_y_valt ["@sr@_y_val.fTiming",1000,-10000,10000]
   - &@sr@_y_valq ["@sr@_y_val.fCharge",100,0,1000]
-  - &@sr@_y_calid ["@sr@_y_cal.fID",94,-0.5,93.5] 
+  - &@sr@_y_calid ["@sr@_y_cal.fID",58,-0.5,57.5] 
   - &@sr@_y_calt ["@sr@_y_cal.fTiming",1000,-10000,10000]
   - &@sr@_y_calq0 ["@sr@_y_cal[0].fCharge",100,0,100]
   - &@sr@_y_calq1 ["@sr@_y_cal[1].fCharge",100,0,100]
@@ -64,7 +64,7 @@ group:
         x: *@sr@_y_rawid
       - name: @sr@_y_t
         title: @sr@ Y Timing
-        x: *@sr@_y_rawt
+        x: *@sr@_x_rawt
       - name: @sr@_y_q
         title: @sr@ Y Charge
         x: *@sr@_y_rawq

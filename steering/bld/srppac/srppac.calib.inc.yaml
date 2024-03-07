@@ -83,12 +83,12 @@ Processor:
       InputCollection: @NAME@_x_cal
       OutputCollection: @NAME@_x
 #      srppacparameter: geometry_srppac_x
-      Verbose: 0
+      Verbose: 1
       nStrip: 94
       stripWidth: 2.55
       center: 46.5
       z: -174.
-      detoffset: 0
+      detoffset: 49.28
       turned: 1
 
   - name: planeproc:@NAME@y
@@ -118,7 +118,7 @@ Processor:
       stripWidth: 2.55
       center: 46.5
       z: -4.
-      detoffset: 0
+      detoffset: 49.28
       turned: 1
  
  

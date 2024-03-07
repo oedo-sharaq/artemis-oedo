@@ -1,0 +1,65 @@
+anchor: 
+  - &mass_stm_ni_a ["mass_corstm_BLD_8th_maxz.fAq",5000,1.70,1.72]
+  - &mass_stm_ni_b ["mass_corstm_BLD_8th_maxz.fAq",5000,1.74,1.76]
+  - &mass_stm_ni_c ["mass_corstm_BLD_8th_maxz.fAq",5000,1.78,1.80]
+  - &mass_stm_ni_d ["mass_corstm_BLD_8th_maxz.fAq",5000,1.81,1.83]
+  - &mass_stm_ni_e ["mass_corstm_BLD_8th_maxz.fAq",5000,1.85,1.87]
+  - &mass_stm_ni_f ["mass_corstm_BLD_8th_maxz.fAq",5000,1.89,1.91]
+  - &mass_stm_ni_g ["mass_corstm_BLD_8th_maxz.fAq",5000,1.91,1.93]
+  - &mass_stm_ni_aa ["mass_corstm_BLD_8th_maxz.fAq",1000,1.70,1.72]
+  - &mass_stm_ni_bb ["mass_corstm_BLD_8th_maxz.fAq",1000,1.74,1.76]
+  - &mass_stm_ni_cc ["mass_corstm_BLD_8th_maxz.fAq",1000,1.78,1.80]
+  - &mass_stm_ni_dd ["mass_corstm_BLD_8th_maxz.fAq",1000,1.81,1.83]
+  - &mass_stm_ni_ee ["mass_corstm_BLD_8th_maxz.fAq",1000,1.85,1.87]
+  - &mass_stm_ni_ff ["mass_corstm_BLD_8th_maxz.fAq",1000,1.89,1.91]
+  - &mass_stm_ni_gg ["mass_corstm_BLD_8th_maxz.fAq",1000,1.91,1.93]
+
+
+group:
+  - name: chkmass_stm_ni
+    title: chkMASS_stm_Ni
+    contents:
+      - name: mass_stm_ni_a
+        title: Mass  Ni a SNiD4th 8step
+        x: *mass_stm_ni_a
+      - name: mass_stm_ni_b
+        title: Mass  Ni b SNiD4th 8step
+        x: *mass_stm_ni_b
+      - name: mass_stm_ni_c
+        title: Mass  Ni c SNiD4th 8step
+        x: *mass_stm_ni_c
+      - name: mass_stm_ni_d
+        title: Mass  Ni d SNiD4th 8step
+        x: *mass_stm_ni_d
+      - name: mass_stm_ni_e
+        title: Mass  Ni e SNiD4th 8step
+        x: *mass_stm_ni_e
+      - name: mass_stm_ni_f
+        title: Mass  Ni f SNiD4th 8step
+        x: *mass_stm_ni_f
+      - name: mass_stm_ni_g
+        title: Mass  Ni g SNiD4th 8step
+        x: *mass_stm_ni_g
+      - name: mass_stm_ni_aa
+        title: Mass  Ni aa SNiD4th 8step
+        x: *mass_stm_ni_aa
+      - name: mass_stm_ni_bb
+        title: Mass  Ni bb SNiD4th 8step
+        x: *mass_stm_ni_bb
+      - name: mass_stm_ni_cc
+        title: Mass  Ni cc SNiD4th 8step
+        x: *mass_stm_ni_cc
+      - name: mass_stm_ni_dd
+        title: Mass  Ni dd SNiD4th 8step
+        x: *mass_stm_ni_dd
+      - name: mass_stm_ni_ee
+        title: Mass  Ni ee SNiD4th 8step
+        x: *mass_stm_ni_ee
+      - name: mass_stm_ni_ff
+        title: Mass  Ni ff SNiD4th 8step
+        x: *mass_stm_ni_ff
+      - name: mass_stm_ni_gg
+        title: Mass  Ni gg SNiD4th 8step
+        x: *mass_stm_ni_gg
+
+

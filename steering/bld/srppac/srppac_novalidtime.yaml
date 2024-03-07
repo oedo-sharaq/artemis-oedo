@@ -70,25 +70,25 @@ Processor:
 
 
 
-#### S1
+#### S0
 ####
   - include: 
       name: srppac.inc.yaml
       replace:
-        NAME: sr11
-        CATIDa: 52 
-        CATIDx: 53
-        CATIDy: 54
+        NAME: sr01
+#        CATIDa: 52 
+#        CATIDx: 53
+#        CATIDy: 54
         VALIDTIME: [-100000,100000,0]
 
 
   - include: 
       name: srppac.inc.yaml
       replace:
-        NAME: sr12
-        CATIDa: 55 
-        CATIDx: 56
-        CATIDy: 57
+        NAME: sr02
+#        CATIDa: 55 
+#        CATIDx: 56
+#        CATIDy: 57
         VALIDTIME: [-100000,100000,0]
 
 
@@ -98,10 +98,12 @@ Processor:
 #  - include:
 #      name: srppac.calib.lr.yaml
 #      replace: 
-#        NAME: sr11
+#        NAME: sr01
 #
 #  - include:
 #      name: srppac.calib.lr.yaml
 #      replace: 
-#        NAME: sr12
+#        NAME: sr02
+
+
 

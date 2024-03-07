@@ -1,0 +1,129 @@
+Processor:
+# Pad raw
+  - name: proc_dia3_tc842_pad
+    type: art::TDiaTimingDataMappingProcessor
+    parameter:
+      CatID:            
+      DataTypeID:       0
+      Sparse:           0
+      OutputCollection: traw_dia3_pad
+  - name: proc_dia2_tc842_pad
+    type: art::TDiaTimingDataMappingProcessor
+    parameter:
+      CatID:            
+      DataTypeID:       0
+      Sparse:           0
+      OutputCollection: traw_dia2_pad
+
+#F3Strip raw
+  - name: proc_dia3_tc842_l
+    type: art::TDiaTimingDataMappingProcessor
+    parameter:
+      CatID:            
+      DataTypeID:       0
+      Sparse:           0
+      OutputCollection: traw_dia3_l
+  - name: proc_dia3_tc842_r
+    type: art::TDiaTimingDataMappingProcessor
+    parameter:
+      CatID:            
+      DataTypeID:       1
+      Sparse:           0
+      OutputCollection: traw_dia3_r
+
+#S2Strip raw
+  - name: proc_dia2_tc842_l
+    type: art::TDiaTimingDataMappingProcessor
+    parameter:
+      CatID:            
+      DataTypeID:       0
+      Sparse:           0
+      OutputCollection: traw_dia2_l
+  - name: proc_dia2_tc842_r
+    type: art::TDiaTimingDataMappingProcessor
+    parameter:
+      CatID:            
+      DataTypeID:       1
+      Sparse:           0
+      OutputCollection: traw_dia2_r
+
+
+# Pad cal
+  - name: proc_dia3_tc842_pad_cal
+    type: art::TDiaTimingDataMappingProcessor
+    parameter:
+      InputCollection: traw_dia3_pad
+      OutputCollection: tcal_dia3_pad
+
+  - name: proc_dia2_tc842_pad_cal
+    type: art::TDiaTimingDataMappingProcessor
+    parameter:
+      InputCollection: traw_dia2_pad
+      OutputCollection: tcal_dia2_pad
+
+#F3Strip cal
+  - name: proc_dia3_tc842_strip
+    type: art::TDiaTimingDataMappingProcessor
+    parameter:
+      InputCollection1: traw_dia3_l
+      InputCollection2: traw_dia3_r
+      LRPadDiffConst: -372.
+      StartTimingCollection: tcal_dia3_pad
+      OutputCollection: tcal_dia3_strip
+
+#S2Strip cal
+  - name: proc_dia2_tc842_strip
+    type: art::TDiaTimingDataMappingProcessor
+    parameter:
+      InputCollection1: traw_dia2_l
+      InputCollection2: traw_dia2_r
+      LRPadDiffConst: 0.
+      StartTimingCollection: tcal_dia2_pad
+      OutputCollection: tcal_dia2_strip
+
+  - name: proc_dia3_timing
+    type: art::TDiaStripTimingProcessor
+    parameter:
+      InputCollection1  : tcal_dia3_strip
+      InputCollection2  : tcal_dia3_pad
+      QTCStripL         : dia3strip_l
+      QTCStripR         : dia3strip_r
+      OutputCollection  : dia_t_f3
+      DetIDRange_Strip  : 
+      DetID_Pad         : 
+      MultiStripAnalysis: 1
+      UseTDiffStripGate : 1
+      TDiffStrip2       : [-10.,10.]
+      TDiffStrip3       : [-10.,10.]
+      UseQGate          : 0
+#      QminStrip2        : 480.0
+#      QminStrip3        : 490.0
+
+
+  - name: proc_dia2_timing
+    type: art::TDiaStripTimingProcessor
+    parameter:
+      InputCollection1  : tcal_dia2_strip
+      InputCollection2  : tcal_dia2_pad
+      QTCStripL         : dias2strip_l
+      QTCStripR         : dias2strip_r
+      OutputCollection  : dia_t_s2
+      DetIDRange_Strip  : 
+      DetID_Pad         : 
+      MultiStripAnalysis: 1
+      UseTDiffStripGate : 1
+      TDiffStrip2       : [-10.,10.]
+      TDiffStrip3       : [-10.,10.]
+      UseQGate          : 0
+#      QminStrip2        : 480.0
+#      QminStrip3        : 490.0
+
+
+  - name: proc_dia_tof32
+    type: art::TDiaTimingSubtractionProcessor
+    parameter:
+      InputCollection1: dia_t_f3
+      InputCollection2: dia_t_s2
+      Toffset:          -2125.3
+      OutputCollection: dia_tof32
+

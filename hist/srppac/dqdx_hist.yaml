@@ -1,12 +1,38 @@
 anchor: 
-  - &@sru@xq0q1 ["(@sru@_x_cal[0].fCharge - @sru@_x_cal[1].fCharge) / (@sru@_x_cal[0].fCharge + @sru@_x_cal[1].fCharge)", 250,0,0.25]
+  - &@sru@xq0q1 ["(@sru@_x_cal[0].fCharge - @sru@_x_cal[1].fCharge) / (@sru@_x_cal[0].fCharge + @sru@_x_cal[1].fCharge)", 400,0,0.4]
   - &@sru@yq0q1 ["(@sru@_y_cal[0].fCharge - @sru@_y_cal[1].fCharge) / (@sru@_y_cal[0].fCharge + @sru@_y_cal[1].fCharge)", 400,0,0.4]
-  - &@srd@xq0q1 ["(@srd@_x_cal[0].fCharge - @srd@_x_cal[1].fCharge) / (@srd@_x_cal[0].fCharge + @srd@_x_cal[1].fCharge)", 250,0,0.25]
-  - &@srd@yq0q1 ["(@srd@_y_cal[0].fCharge - @srd@_y_cal[1].fCharge) / (@srd@_y_cal[0].fCharge + @srd@_y_cal[1].fCharge)", 400,0,0.4]
+
+  - &@sru@xq0q1qcal ["(@sru@_x_qcal[0].fCharge - @sru@_x_qcal[1].fCharge) / (@sru@_x_qcal[0].fCharge + @sru@_x_qcal[1].fCharge)", 300,0,0.3]
+  - &@sru@yq0q1qcal ["(@sru@_y_qcal[0].fCharge - @sru@_y_qcal[1].fCharge) / (@sru@_y_qcal[0].fCharge + @sru@_y_qcal[1].fCharge)", 300,0,0.3]
+
+
 
 alias: 
-# pidgate: TMath::Abs(f5track.fX+26.6*((f5ppac1a.fTAnode+f5ppac2a.fTAnode)/2-diapad[0].fTiming-1250)-37606)<10
-   
+##  s2wtrig: TMath::Abs(trig_s2w.fTiming-11)<10    
+#  tof32 : dias2pad[0].fTiming - dia3pad[0].fTiming;
+#  s2de  : 1.03827*S2ssd.fEx*0.866;
+#  s2beta: 103499.78/(tof32-1455.)/299.79;
+##  s2beta: 103499.78 / ( 299.79 * tof32 - 299.79 * 1455. );
+#  de_v  : TMath::Log(5907.5*s2beta*s2beta)-TMath::Log(1.-s2beta*s2beta)-s2beta*s2beta; 
+#  s2z   : -0.0513 + 7.451*TMath::Sqrt(s2de/de_v) * s2beta; 
+#  window: TMath::Abs(trig_s2w.fTiming-11)<10;
+#  s2zgate: TMath::Abs(s2z-24.9)<0.4    
+
+  tof30 : sr0_a_cal.fTiming - dia3pad[0].fTiming;
+ # tof32 : dias2pad_tc842.fCharge - dia3pad_tc842.fCharge;
+  tof32 : ((dias2pad_tc842.fCharge-dia3pad_tc842.fCharge)+5.0e4)*1.e-3+2441.31;
+  s0.fX : sr0_xc0[0].fPosition + 49.28;
+  s0xc  : s0.fX-24.0*(tof30-1066.);
+  s2de  : 1.03827*S2ssd.fEx*0.866;
+  s2brho: 4.4147*(1-sr0_xc0[0].fPosition/14856);
+  s2beta: 103499.78 / ( 299.79 * tof32 - 299.79 * 1455. );
+  s2gamma: 1./TMath::Sqrt(1-(s2beta)*(s2beta)); 
+  s2aq  : s2brho * 299.79 / (s2gamma * s2beta * 931.49);
+  de_v  : TMath::Log(5907.5*s2beta*s2beta)-TMath::Log(1.-s2beta*s2beta)-s2beta*s2beta; 
+  s2z   : -0.0513 + 7.451*TMath::Sqrt(s2de/de_v) * s2beta; 
+  window: TMath::Abs(trig_s2w.fTiming-11)<10;
+#  s2zgate: TMath::Abs(s2z-24.9)<0.4;    
+  s2zgate: TMath::Abs(s2z-20)<0.5;    
 
 group:
   - name: sruppacdqdx@fp@
@@ -14,20 +40,31 @@ group:
     contents:
       - name: @sru@_x_q0q1
         title: @sru@ X Q0Q1
-#        cut: pidgate
+#        cut: s2zgate
         x: *@sru@xq0q1
       - name: @sru@_y_q0q1
         title: @sru@ Y Q0Q1
-#        cut: pidgate
+#        cut: s2zgate
         x: *@sru@yq0q1
-      - name: @srd@_x_q0q1
-        title: @srd@ X Q0Q1
-#        cut: pidgate
-        x: *@srd@xq0q1
-      - name: @srd@_y_q0q1
-        title: @srd@ Y Q0Q1
- #       cut: pidgate
-        x: *@srd@yq0q1
+#      - name: @sru@_x_q0q1_s2w
+#        title: @sru@ X Q0Q1 s2w
+#        cut: s2wtrig
+#        x: *@sru@xq0q1
+#      - name: @sru@_y_q0q1_s2w
+#        title: @sru@ Y Q0Q1 s2w
+#        cut: s2wtrig
+#        x: *@sru@yq0q1
 
+  - name: sruppacdqdx@fp@qcal
+    title: SR-PPAC dqdx @fp@ qcal
+    contents:
+      - name: @sru@_x_q0q1qcal
+        title: @sru@ X Q0Q1 qcal
+#        cut: s2zgate
+        x: *@sru@xq0q1qcal
+      - name: @sru@_y_q0q1qcal
+        title: @sru@ Y Q0Q1 qcal
+#        cut: s2zgate
+        x: *@sru@yq0q1qcal
 
 

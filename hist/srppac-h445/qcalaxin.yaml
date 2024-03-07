@@ -1,0 +1,216 @@
+anchor: 
+
+  - &srppacu_x0id ["srppacu_x_cal[0].fID",20,35.5,55.5]
+  - &srppacu_x0q ["srppacu_x_cal[0].fCharge",200,0,60]
+
+  - &srppacu_x2id ["srppacu_x_cal[2].fID",20,35.5,55.5]
+  - &srppacu_x2q ["srppacu_x_cal[2].fCharge",200,0,60]
+
+
+alias:
+ 
+  xuidin40: srppacu_x_cal[2].fID==40  && fabs(srppacu_x_cal[0].fCharge-srppacu_x_cal[1].fCharge) < 2
+  xuidin41: srppacu_x_cal[2].fID==41  && fabs(srppacu_x_cal[0].fCharge-srppacu_x_cal[1].fCharge) < 2
+  xuidin42: srppacu_x_cal[2].fID==42  && fabs(srppacu_x_cal[0].fCharge-srppacu_x_cal[1].fCharge) < 2
+  xuidin43: srppacu_x_cal[2].fID==43  && fabs(srppacu_x_cal[0].fCharge-srppacu_x_cal[1].fCharge) < 2
+  xuidin44: srppacu_x_cal[2].fID==44  && fabs(srppacu_x_cal[0].fCharge-srppacu_x_cal[1].fCharge) < 2
+  xuidin45: srppacu_x_cal[2].fID==45  && fabs(srppacu_x_cal[0].fCharge-srppacu_x_cal[1].fCharge) < 2
+  xuidin46: srppacu_x_cal[2].fID==46  && fabs(srppacu_x_cal[0].fCharge-srppacu_x_cal[1].fCharge) < 2
+  xuidin47: srppacu_x_cal[2].fID==47  && fabs(srppacu_x_cal[0].fCharge-srppacu_x_cal[1].fCharge) < 2
+  xuidin48: srppacu_x_cal[2].fID==48  && fabs(srppacu_x_cal[0].fCharge-srppacu_x_cal[1].fCharge) < 2
+  xuidin49: srppacu_x_cal[2].fID==49  && fabs(srppacu_x_cal[0].fCharge-srppacu_x_cal[1].fCharge) < 2
+  xuidin50: srppacu_x_cal[2].fID==50  && fabs(srppacu_x_cal[0].fCharge-srppacu_x_cal[1].fCharge) < 2
+  xuidin51: srppacu_x_cal[2].fID==51  && fabs(srppacu_x_cal[0].fCharge-srppacu_x_cal[1].fCharge) < 2
+  xuidin52: srppacu_x_cal[2].fID==52  && fabs(srppacu_x_cal[0].fCharge-srppacu_x_cal[1].fCharge) < 2
+
+
+  xuidax40: srppacu_x_cal[0].fID==40  && fabs(srppacu_x_cal[2].fCharge-srppacu_x_cal[1].fCharge) < 2
+  xuidax41: srppacu_x_cal[0].fID==41  && fabs(srppacu_x_cal[2].fCharge-srppacu_x_cal[1].fCharge) < 2
+  xuidax42: srppacu_x_cal[0].fID==42  && fabs(srppacu_x_cal[2].fCharge-srppacu_x_cal[1].fCharge) < 2
+  xuidax43: srppacu_x_cal[0].fID==43  && fabs(srppacu_x_cal[2].fCharge-srppacu_x_cal[1].fCharge) < 2
+  xuidax44: srppacu_x_cal[0].fID==44  && fabs(srppacu_x_cal[2].fCharge-srppacu_x_cal[1].fCharge) < 2
+  xuidax45: srppacu_x_cal[0].fID==45  && fabs(srppacu_x_cal[2].fCharge-srppacu_x_cal[1].fCharge) < 2
+  xuidax46: srppacu_x_cal[0].fID==46  && fabs(srppacu_x_cal[2].fCharge-srppacu_x_cal[1].fCharge) < 2
+  xuidax47: srppacu_x_cal[0].fID==47  && fabs(srppacu_x_cal[2].fCharge-srppacu_x_cal[1].fCharge) < 2
+  xuidax48: srppacu_x_cal[0].fID==48  && fabs(srppacu_x_cal[2].fCharge-srppacu_x_cal[1].fCharge) < 2
+  xuidax49: srppacu_x_cal[0].fID==49  && fabs(srppacu_x_cal[2].fCharge-srppacu_x_cal[1].fCharge) < 2
+  xuidax50: srppacu_x_cal[0].fID==50  && fabs(srppacu_x_cal[2].fCharge-srppacu_x_cal[1].fCharge) < 2
+  xuidax51: srppacu_x_cal[0].fID==51  && fabs(srppacu_x_cal[2].fCharge-srppacu_x_cal[1].fCharge) < 2
+  xuidax52: srppacu_x_cal[0].fID==52  && fabs(srppacu_x_cal[2].fCharge-srppacu_x_cal[1].fCharge) < 2
+
+
+
+
+group:
+  - name: srppac_qid_dycalin
+    title: SR-PPAC ID VS Charge UX fine calin
+    contents:
+      - name: srppacu_xqid40calin
+        title: SR-PPAC UX ID40calin
+        cut: xuidin40
+        x: *srppacu_x2id
+        y: *srppacu_x2q
+      - name: srppacu_xqid41calin
+        title: SR-PPAC UX ID41calin
+        cut: xuidin41
+        x: *srppacu_x2id
+        y: *srppacu_x2q
+      - name: srppacu_xqid42calin
+        title: SR-PPAC UX ID42calin
+        cut: xuidin42
+        x: *srppacu_x2id
+        y: *srppacu_x2q
+      - name: srppacu_xqid43calin
+        title: SR-PPAC UX ID43calin
+        cut: xuidin43
+        x: *srppacu_x2id
+        y: *srppacu_x2q
+      - name: srppacu_xqid44calin
+        title: SR-PPAC UX ID44calin
+        cut: xuidin44
+        x: *srppacu_x2id
+        y: *srppacu_x2q
+      - name: srppacu_xqid45calin
+        title: SR-PPAC UX ID45calin
+        cut: xuidin45
+        x: *srppacu_x2id
+        y: *srppacu_x2q
+      - name: srppacu_xqid46calin
+        title: SR-PPAC UX ID46calin
+        cut: xuidin46
+        x: *srppacu_x2id
+        y: *srppacu_x2q
+      - name: srppacu_xqid47calin
+        title: SR-PPAC UX ID47calin
+        cut: xuidin47
+        x: *srppacu_x2id
+        y: *srppacu_x2q
+      - name: srppacu_xqid48calin
+        title: SR-PPAC UX ID48calin
+        cut: xuidin48
+        x: *srppacu_x2id
+        y: *srppacu_x2q
+      - name: srppacu_xqid49calin
+        title: SR-PPAC UX ID49calin
+        cut: xuidin49
+        x: *srppacu_x2id
+        y: *srppacu_x2q
+      - name: srppacu_xqid50calin
+        title: SR-PPAC UX ID50calin
+        cut: xuidin50
+        x: *srppacu_x2id
+        y: *srppacu_x2q
+      - name: srppacu_xqid51calin
+        title: SR-PPAC UX ID51calin
+        cut: xuidin51
+        x: *srppacu_x2id
+        y: *srppacu_x2q
+      - name: srppacu_xqid52calin
+        title: SR-PPAC UX ID52calin
+        cut: xuidin52
+        x: *srppacu_x2id
+        y: *srppacu_x2q
+
+
+
+  - name: srppac_qid_dycalax
+    title: SR-PPAC ID VS Charge UX faxe calax
+    contents:
+      - name: srppacu_xqid40calax
+        title: SR-PPAC UX ID40calax
+        cut: xuidax40
+        x: *srppacu_x0id
+        y: *srppacu_x0q
+      - name: srppacu_xqid41calax
+        title: SR-PPAC UX ID41calax
+        cut: xuidax41
+        x: *srppacu_x0id
+        y: *srppacu_x0q
+      - name: srppacu_xqid42calax
+        title: SR-PPAC UX ID42calax
+        cut: xuidax42
+        x: *srppacu_x0id
+        y: *srppacu_x0q
+      - name: srppacu_xqid43calax
+        title: SR-PPAC UX ID43calax
+        cut: xuidax43
+        x: *srppacu_x0id
+        y: *srppacu_x0q
+      - name: srppacu_xqid44calax
+        title: SR-PPAC UX ID44calax
+        cut: xuidax44
+        x: *srppacu_x0id
+        y: *srppacu_x0q
+      - name: srppacu_xqid45calax
+        title: SR-PPAC UX ID45calax
+        cut: xuidax45
+        x: *srppacu_x0id
+        y: *srppacu_x0q
+      - name: srppacu_xqid46calax
+        title: SR-PPAC UX ID46calax
+        cut: xuidax46
+        x: *srppacu_x0id
+        y: *srppacu_x0q
+      - name: srppacu_xqid47calax
+        title: SR-PPAC UX ID47calax
+        cut: xuidax47
+        x: *srppacu_x0id
+        y: *srppacu_x0q
+      - name: srppacu_xqid48alax
+        title: SR-PPAC UX ID48calax
+        cut: xuidax48
+        x: *srppacu_x0id
+        y: *srppacu_x0q
+      - name: srppacu_xqid49calax
+        title: SR-PPAC UX ID49calax
+        cut: xuidax49
+        x: *srppacu_x0id
+        y: *srppacu_x0q
+      - name: srppacu_xqid50calax
+        title: SR-PPAC UX ID50calax
+        cut: xuidax50
+        x: *srppacu_x0id
+        y: *srppacu_x0q
+      - name: srppacu_xqid51calax
+        title: SR-PPAC UX ID51calax
+        cut: xuidax51
+        x: *srppacu_x0id
+        y: *srppacu_x0q
+      - name: srppacu_xqid52calax
+        title: SR-PPAC UX ID52calax
+        cut: xuidax52
+        x: *srppacu_x0id
+        y: *srppacu_x0q
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

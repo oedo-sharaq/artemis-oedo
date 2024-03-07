@@ -1,0 +1,272 @@
+anchor:
+  - &ridf0 ridf/physics0170.ridf
+  - &ridf1 ridf/physics0171.ridf
+  - &ridf2 ridf/physics0172.ridf
+  - &ridf3 ridf/physics0173.ridf
+  - &ridf4 ridf/physics0174.ridf
+  - &ridf5 ridf/physics0175.ridf
+  - &ridf6 ridf/physics0176.ridf
+  - &ridf7 ridf/physics0177.ridf
+  - &ridf8 ridf/physics0178.ridf
+  - &ridf9 ridf/physics0179.ridf
+  - &ridf10 ridf/physics0180.ridf
+  - &ridf11 ridf/physics0181.ridf
+  - &ridf12 ridf/physics0182.ridf
+  - &ridf13 ridf/physics0183.ridf
+  - &ridf14 ridf/physics0184.ridf
+  - &ridf15 ridf/physics0185.ridf
+  - &ridf16 ridf/physics0186.ridf
+  - &ridf17 ridf/physics0187.ridf
+  - &ridf18 ridf/physics0188.ridf
+  - &ridf19 ridf/physics0189.ridf
+  - &ridf20 ridf/physics0190.ridf
+  - &ridf21 ridf/physics0191.ridf
+  - &ridf22 ridf/physics0192.ridf
+  - &ridf23 ridf/physics0193.ridf
+  - &ridf24 ridf/physics0194.ridf
+  - &ridf25 ridf/physics0195.ridf
+  - &ridf26 ridf/physics0196.ridf
+  - &ridf27 ridf/physics0197.ridf
+  - &ridf28 ridf/physics0198.ridf
+  - &ridf29 ridf/physics0199.ridf
+  - &ridf30 ridf/physics0200.ridf
+  - &ridf31 ridf/physics0201.ridf
+  - &ridf32 ridf/physics0202.ridf
+  - &ridf33 ridf/physics0203.ridf
+  - &ridf34 ridf/physics0204.ridf
+  - &ridf35 ridf/physics0205.ridf
+  - &ridf36 ridf/physics0206.ridf
+  - &ridf37 ridf/physics0207.ridf
+  - &ridf38 ridf/physics0208.ridf
+  - &ridf39 ridf/physics0209.ridf
+  - &ridf40 ridf/physics0210.ridf
+  - &ridf41 ridf/physics0211.ridf
+  - &ridf42 ridf/physics0212.ridf
+  - &ridf43 ridf/physics0213.ridf
+  - &ridf44 ridf/physics0214.ridf
+  - &ridf45 ridf/physics0215.ridf
+  - &ridf46 ridf/physics0216.ridf
+  - &ridf47 ridf/physics0217.ridf
+  - &ridf48 ridf/physics0218.ridf
+  - &ridf49 ridf/physics0219.ridf
+  - &ridf50 ridf/physics0220.ridf
+  - &ridf51 ridf/physics0221.ridf
+  - &ridf52 ridf/physics0222.ridf
+  - &ridf53 ridf/physics0223.ridf
+  - &ridf54 ridf/physics0224.ridf
+  - &ridf55 ridf/physics0225.ridf
+  - &ridf56 ridf/physics0226.ridf
+  - &ridf57 ridf/physics0227.ridf
+  - &ridf58 ridf/physics0228.ridf
+  - &ridf59 ridf/physics0229.ridf
+  - &ridf60 ridf/physics0230.ridf
+  - &ridf61 ridf/physics0231.ridf
+  - &ridf62 ridf/physics0232.ridf
+  - &ridf63 ridf/physics0233.ridf
+  - &ridf64 ridf/physics0234.ridf
+  - &ridf65 ridf/physics0235.ridf
+  - &ridf66 ridf/physics0236.ridf
+  - &ridf67 ridf/physics0237.ridf
+  - &ridf68 ridf/physics0238.ridf
+  - &ridf69 ridf/physics0239.ridf
+  - &ridf70 ridf/physics0240.ridf
+  - &ridf71 ridf/physics0241.ridf
+  - &ridf72 ridf/physics0242.ridf
+  - &ridf73 ridf/physics0243.ridf
+  - &ridf74 ridf/physics0244.ridf
+  - &ridf75 ridf/physics0245.ridf
+  - &ridf76 ridf/physics0246.ridf
+  - &ridf77 ridf/physics0247.ridf
+  - &ridf78 ridf/physics0248.ridf
+  - &ridf79 ridf/physics0249.ridf
+  - &ridf80 ridf/physics0250.ridf
+  - &ridf81 ridf/physics0251.ridf
+  - &ridf82 ridf/physics0252.ridf
+  - &ridf83 ridf/physics0253.ridf
+  - &ridf84 ridf/physics0254.ridf
+  - &ridf85 ridf/physics0255.ridf
+  - &ridf86 ridf/physics0256.ridf
+  - &ridf87 ridf/physics0257.ridf
+  - &ridf88 ridf/physics0258.ridf
+  - &ridf89 ridf/physics0259.ridf
+  - &ridf90 ridf/physics0260.ridf
+  - &ridf91 ridf/physics0261.ridf
+  - &ridf92 ridf/physics0262.ridf
+  - &ridf93 ridf/physics0263.ridf
+  - &ridf94 ridf/physics0264.ridf
+  - &ridf95 ridf/physics0265.ridf
+  - &ridf96 ridf/physics0266.ridf
+  - &ridf97 ridf/physics0267.ridf
+  - &ridf98 ridf/physics0268.ridf
+  - &ridf99 ridf/physics0269.ridf
+  - &ridf100 ridf/physics0270.ridf
+  - &ridf101 ridf/physics0271.ridf
+  - &ridf102 ridf/physics0272.ridf
+Anchor:
+ - &histout sh13_analysis/hanai/phys/merge/chks2pla_merge.247272.hist.root
+
+Processor:
+  - name: ridfevent
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      InputFiles:
+        - *ridf0
+        - *ridf1
+        - *ridf2
+        - *ridf3
+        - *ridf4
+        - *ridf5
+        - *ridf6
+        - *ridf7
+        - *ridf8
+        - *ridf9
+        - *ridf10
+        - *ridf11
+        - *ridf12
+        - *ridf13
+        - *ridf14
+        - *ridf15
+        - *ridf16
+        - *ridf17
+        - *ridf18
+        - *ridf19
+        - *ridf20
+        - *ridf21
+        - *ridf22
+        - *ridf23
+        - *ridf24
+        - *ridf25
+#        - *ridf26
+#        - *ridf27
+#        - *ridf28
+#        - *ridf29
+#        - *ridf30
+#        - *ridf31
+#        - *ridf32
+#        - *ridf33
+#        - *ridf34
+#        - *ridf35
+#        - *ridf36
+#        - *ridf37
+#        - *ridf38
+#        - *ridf39
+#        - *ridf40
+#        - *ridf41
+#        - *ridf42
+#        - *ridf43
+#        - *ridf44
+#        - *ridf45
+#        - *ridf46
+#        - *ridf47
+#        - *ridf48
+#        - *ridf49
+#        - *ridf50
+#        - *ridf51
+#        - *ridf52
+#        - *ridf53
+#        - *ridf54
+#        - *ridf55
+#        - *ridf56
+#        - *ridf57
+#        - *ridf58
+#        - *ridf59
+#        - *ridf60
+#        - *ridf61
+#        - *ridf62
+#        - *ridf63
+#        - *ridf64
+#        - *ridf65
+#        - *ridf66
+#        - *ridf67
+#        - *ridf68
+#        - *ridf69
+#        - *ridf70
+#        - *ridf71
+#        - *ridf72
+#        - *ridf73
+#        - *ridf74
+#        - *ridf75
+#        - *ridf76
+#        - *ridf77
+#        - *ridf78
+#        - *ridf79
+#        - *ridf80
+#        - *ridf81
+#        - *ridf82
+#        - *ridf83
+#        - *ridf84
+#        - *ridf85
+#        - *ridf86
+#        - *ridf87
+#        - *ridf88
+#        - *ridf89
+#        - *ridf90
+#        - *ridf91
+#        - *ridf92
+#        - *ridf93
+#        - *ridf94
+#        - *ridf95
+#        - *ridf96
+#        - *ridf97
+#        - *ridf98
+#        - *ridf99
+#        - *ridf100
+#        - *ridf101
+#        - *ridf102
+
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      MapConfig: mapper.conf
+
+  - name: proc_gateinit
+    type: art::TGateArrayInitializer
+    parameter:
+      OutputTransparency: 1
+
+  - include: tref.yaml
+  - include: trig.yaml
+  - include: bld/pla/pla_os22s.yaml
+#  - include: bld/dia/dia.yaml         # dia v1290
+#  - include: bld/dia/dia_tc842_strip.yaml # dia tc842 using strip
+#  - include: bld/srppac/srppac.yaml
+  - include: bld/si/ssd.yaml
+#  - include: pi/pid.yaml
+#  - include: bld/mwdc/chkmwdc_local.yaml
+
+# ||| CHANGE THE FILE NAME, PID GATE, AND  BLD PARAMETER BEFORE STARTING MACRO |||
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: 
+#        - sh13_analysis/hanai/phys/merge/chks2pla_merge.170272.root
+#        - sh13_analysis/hanai/phys/merge/chks2pla_merge.170221.root
+#        - sh13_analysis/hanai/phys/merge/chks2pla_merge.222246.root
+        - sh13_analysis/hanai/phys/merge/chks2pla_merge.247272.root
+#        - sh13_analysis/hanai/phys/merge/physics_merge.ca.170272.root
+#        - sh13_analysis/hanai/phys/merge/physics_merge.sc.170272.root
+#        - sh13_analysis/hanai/phys/merge/physics_merge.ti.170272.root
+#        - sh13_analysis/hanai/phys/merge/physics_merge.v.170272.root
+#        - sh13_analysis/hanai/phys/merge/physics_merge.cr.170272.root
+#        - sh13_analysis/hanai/phys/merge/physics_merge.mn.170272.root
+#        - sh13_analysis/hanai/phys/merge/physics_merge.fe.170272.root
+#        - sh13_analysis/hanai/phys/merge/physics_merge.co.170272.root
+#        - sh13_analysis/hanai/phys/merge/physics_merge.ni.170272.root
+#        - sh13_analysis/hanai/phys/merge/physics_merge.all.170272.root
+
+  - name: projection_chkpla
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/pla/chkpla.yaml
+      Type:     art::TTreeprojection
+      OutputFilename: *histout
+ 
+  - name: quit
+    type: art::TQuitProcessor
+
+

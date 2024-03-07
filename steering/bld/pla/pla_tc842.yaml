@@ -1,0 +1,41 @@
+Processor:
+  - name: proc_pla_tc842_l
+    type: art::TDiaTimingDataMappingProcessor
+    parameter:
+      CatID:            203
+      DataTypeID:       0
+      Sparse:           1
+      OutputCollection: traw_pla_l
+
+  - name: proc_pla_tc842_r
+    type: art::TDiaTimingDataMappingProcessor
+    parameter:
+      CatID:            204
+      DataTypeID:       0
+      Sparse:           1
+      OutputCollection: traw_pla_r
+
+  - name: proc_pla_tc842
+    type: art::TTc842TwoSidedCalibrationProcessor
+    parameter:
+      InputCollection1:  traw_pla_l
+      InputCollection2:  traw_pla_r
+      OutputCollection:  s2pla_tc842
+
+  - name: proc_diapla_tof32st3
+    type: art::TDiaTimingSubtractionProcessor
+    parameter:
+      InputCollection1: dia_t_f3
+      InputCollection2: s2pla_tc842
+      Toffset:          -2101.87
+      OutputCollection: diapla_tof32
+
+
+
+
+
+
+
+
+
+

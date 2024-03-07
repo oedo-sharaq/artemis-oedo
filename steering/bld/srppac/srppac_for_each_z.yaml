@@ -1,0 +1,56 @@
+#### S0
+####
+  - include: 
+      name: srppac.inc_for_each_z.yaml
+      replace:
+        NAME: sr0
+        CATIDa: 52 
+        CATIDx: 53
+        CATIDy: 54
+        VALIDTIME: [-11700,-11200,0] #phys0170
+        VALIDTIMEa: [-11200,-10800,0] #phys0170
+        PRM: phys170ca
+#        PRM: phys170sc
+#        PRM: phys170ti
+#        PRM: phys170v
+#        PRM: phys170cr
+#        PRM: phys170mn
+#        PRM: phys170fe
+#        PRM: phys170co
+#        PRM: phys170ni
+
+### calib gui
+ 
+  - include:
+      name: srppac.dqdx.inc.yaml
+      replace: 
+        NAME: sr0
+        TGATE: [0,1000]
+        QGATE: [0,100]
+ 
+
+### calib LR
+ 
+  - include:
+      name: srppac.calib.lr.inc_for_each_z.yaml
+      replace: 
+        NAME: sr0
+        PRM: phys170ca
+#        PRM: phys170sc
+#        PRM: phys170ti
+#        PRM: phys170v
+#        PRM: phys170cr
+#        PRM: phys170mn
+#        PRM: phys170fe
+#        PRM: phys170co
+#        PRM: phys170ni
+
+
+### charge calib 
+ 
+#  - include:
+#      name: srppac.calib.charge.inc.yaml
+#      replace: 
+#        NAME: sr0
+
+

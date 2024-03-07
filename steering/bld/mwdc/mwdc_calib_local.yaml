@@ -1,49 +1,68 @@
 Processor:
- 
-## F3
-#  - include: 
-#      name: xxyyxxyy_calib.inc.yaml
-#      replace:
-#        NAME: dc31
-#        TGATE: [-50.,50.]
-#        QGATE: [0,10000]
+#  - name: proc_gateinit
+#    type: art::TGateArrayInitializer
 #
-#  - include: 
-#      name: xxyy_calib.inc.yaml
-#      replace:
-#        NAME: dc32
-#        TGATE: [-50.,100.]
-#        QGATE: [0,10000]
+#  - name: trigger_selection
+#    type: art::TTreeFormulaGateProcessor
+#    parameter:
+#      Definitions:
+#        - "pid; abs(S2ssd.fEx-230.)<15.&&abs(dias2pad.fTiming-dia3pad.fTiming-2033.)<3.5"
 
-# FE7
+## F3
   - include: 
-      name: xuy_calib.inc.yaml
+      name: xxyyxxyy_calib.inc.yaml
       replace:
-        NAME: dca1
-        TGATE: [900.,1300.]
-        QGATE: [0,800]
+        NAME: dc31
+#        PIDGATE: pid
+        TGATE: [-53.,-10.]
+        QGATE: [0,1000]
 
   - include: 
-      name: xuy_calib.inc.yaml
+      name: xxyy_calib.inc.yaml
       replace:
-        NAME: dca2
-        TGATE: [900.,1300.]
-        QGATE: [100,1200]
+        NAME: dc32
+#        PIDGATE: pid
+        TGATE: [-45.,30.]
+        QGATE: [0,1000]
 
 ## FE10
 #  - include: 
-#      name: xxuv_calib.inc.yaml
+#      name: xuy_calib.inc.yaml
 #      replace:
 #        NAME: dca1
-#        TGATE: [-50.,100.]
-#        QGATE: [0,10000]
+#        TGATE: [-250.,-10.]
+#        QGATE: [100,1200]
 #
 #  - include: 
-#      name: xxuv_calib.inc.yaml
+#      name: xuy_calib.inc.yaml
 #      replace:
 #        NAME: dca2
-#        TGATE: [-50.,100.]
-#        QGATE: [0,10000]
+#        TGATE: [-250.,-10.]
+#        QGATE: [500,1400]
+
+
+## S2
+  - include: 
+      name: xxuv_calib.inc.yaml
+      replace:
+        NAME: dc21
+#        PIDGATE: pid
+#        TGATE: [900.,1100]
+#        TGATE: [-60.,70] #TREDID s2pla
+        TGATE: [-30.,100] #TREDID dias2pad
+        QGATE: [0,120]
+
+  - include: 
+      name: xxuv_calib.inc.yaml
+      replace:
+        NAME: dc22
+#        PIDGATE: pid
+#        TGATE: [900.,1100]
+#        TGATE: [-50.,110]
+#        TGATE: [-40.,70] #TREDID s2pla
+        TGATE: [-20.,90] #TREDID dias2pad
+        QGATE: [0,120]
+
         
 
  

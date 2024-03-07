@@ -1,0 +1,17 @@
+Processor:
+  - name: proc_pid_test
+    type: art::TPIDwTOFPPACSSDProcessor
+    parameter:
+      Brho0: 4.4147
+      Dispersion: 14856
+      DoCheckTimestamp: 0
+      Length: 103499.78
+      S0PPAC: sr0_xcw
+#      UseChargeDeltaE: 0
+      S2SSD: S2ssd
+      TofName: dia_tof32
+      Tofoffset: -1455
+      OutputName: mass_test
+      OutputTransparency: 0
+
+

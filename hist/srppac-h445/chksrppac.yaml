@@ -1,0 +1,88 @@
+anchor: 
+  - &@sr@_x_rawid ["@sr@_x_raw.fID",94,-0.5,93.5] 
+  - &@sr@_x_rawt ["@sr@_x_raw.fTiming",1000,-10000,10000]
+  - &@sr@_x_rawq ["@sr@_x_raw.fCharge",100,0,800]
+  - &@sr@_x_valid ["@sr@_x_val.fID",94,-0.5,93.5] 
+  - &@sr@_x_valt ["@sr@_x_val.fTiming",1000,-10000,10000]
+  - &@sr@_x_valq ["@sr@_x_val.fCharge",100,0,800]
+  - &@sr@_x_calid ["@sr@_x_cal.fID",94,-0.5,93.5] 
+  - &@sr@_x_calt ["@sr@_x_cal.fTiming",1000,-10000,10000]
+  - &@sr@_x_calq0 ["@sr@_x_cal[0].fCharge",100,0,1000]
+  - &@sr@_x_calq1 ["@sr@_x_cal[1].fCharge",100,0,1000]
+  - &@sr@_x_calq2 ["@sr@_x_cal[2].fCharge",100,0,1000]
+  - &@sr@_x_ent ["@sr@_x_cal@.GetEntriesFast()",8,-0.5,7.5]
+ 
+  - &@sr@_y_rawid ["@sr@_y_raw.fID",58,-0.5,57.5] 
+  - &@sr@_y_rawt ["@sr@_y_raw.fTiming",1000,-10000,10000]
+  - &@sr@_y_rawq ["@sr@_y_raw.fCharge",100,0,800]
+  - &@sr@_y_valid ["@sr@_y_val.fID",94,-0.5,93.5] 
+  - &@sr@_y_valt ["@sr@_y_val.fTiming",1000,-10000,10000]
+  - &@sr@_y_valq ["@sr@_y_val.fCharge",100,0,800]
+  - &@sr@_y_calid ["@sr@_y_cal.fID",94,-0.5,93.5] 
+  - &@sr@_y_calt ["@sr@_y_cal.fTiming",1000,-10000,10000]
+  - &@sr@_y_calq0 ["@sr@_y_cal[0].fCharge",100,0,1000]
+  - &@sr@_y_calq1 ["@sr@_y_cal[1].fCharge",100,0,1000]
+  - &@sr@_y_calq2 ["@sr@_y_cal[2].fCharge",100,0,1000]
+  - &@sr@_y_ent ["@sr@_y_cal@.GetEntriesFast()",8,-0.5,7.5]
+
+  - &@sr@_adisc_rawid ["@sr@_adisc_raw.fID",5,-0.5,4.5] 
+  - &@sr@_adisc_rawt ["@sr@_adisc_raw.fTiming",1000,-10000,10000]
+  - &@sr@_adisc_rawq ["@sr@_adisc_raw.fCharge",100,0,1000]
+  - &@sr@_adisc_valid ["@sr@_adisc_val.fID",94,-0.5,93.5] 
+  - &@sr@_adisc_valt ["@sr@_adisc_val.fTiming",1000,-10000,10000]
+  - &@sr@_adisc_valq ["@sr@_adisc_val.fCharge",100,0,1000]
+  - &@sr@_adisc_calid ["@sr@_adisc_cal.fID",94,-0.5,93.5] 
+  - &@sr@_adisc_calt ["@sr@_adisc_cal.fTiming",1000,-10000,10000]
+  - &@sr@_adisc_calq ["@sr@_adisc_cal.fCharge",100,0,1000]
+  - &@sr@_adisc_ent ["@sr@_adisc_cal@.GetEntriesFast()",8,-0.5,7.5]
+
+
+alias:
+  ucut: srppacu_a_raw@.GetEntriesFast() > 0
+  dcut: srppacd_a_raw@.GetEntriesFast() > 0
+
+group:
+  - name: srppac_@suffix@
+    title: SR-PPAC @suffix@
+    contents:
+      - name: @sr@_x_id
+        title: @sr@ X ID
+        x: *@sr@_x_rawid
+      - name: @sr@_x_t
+        title: @sr@ X Timing
+        x: *@sr@_x_rawt
+      - name: @sr@_x_q
+        title: @sr@ X Charge
+        x: *@sr@_x_rawq
+      - name: @sr@_x_idq
+        title: @sr@ X ID vs Charge
+        x: *@sr@_x_rawid
+        y: *@sr@_x_rawq
+
+      - name: @sr@_y_id
+        title: @sr@ Y ID
+        x: *@sr@_y_rawid
+      - name: @sr@_y_t
+        title: @sr@ Y Timing
+        x: *@sr@_x_rawt
+      - name: @sr@_y_q
+        title: @sr@ Y Charge
+        x: *@sr@_y_rawq
+      - name: @sr@_y_idq
+        title: @sr@ Y ID vs Charge
+        x: *@sr@_y_rawid
+        y: *@sr@_y_rawq
+
+
+      - name: @sr@_a_t
+        title: @sr@ A Timing
+        x: *@sr@_adisc_rawt
+      - name: @sr@_a_q
+        title: @sr@ a Charge
+        x: *@sr@_adisc_rawq
+      - name: @sr@_a_tq
+        title: @sr@ A Timing vs Charge
+        x: *@sr@_adisc_rawt
+        y: *@sr@_adisc_rawq
+ 
+    

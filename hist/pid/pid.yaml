@@ -1,0 +1,39 @@
+alias:
+  s2dscut: abs(trig_raw.fCharge-220000)<3000
+  s2windowcut:  abs(trig_raw.fCharge-254000)<500
+  tof30 : sr0_a_cal.fTiming - dia3pad[0].fTiming;                     
+  tof32 : dias2pad[0].fTiming - dia3pad[0].fTiming;
+  s0.fX : sr0_xc0[0].fPosition + 49.28;                               
+  s0xc  : s0.fX-24.0*(tof30-1066.);
+  s2de  : 1.03827*S2ssd.fEx*0.866;                                    
+  s2brho: 4.4147*(1-sr0_x[0].fPosition/14856);
+  s2beta: 103499.78 / ( 299.79 * tof32 - 299.79 * 1455. );            
+  s2gamma: 1/TMath::Sqrt(1-(s2beta)*(s2beta)); 
+  s2aq  : s2brho * 299.79 / (s2gamma * s2beta * 931.49);
+  de_v  : TMath::Log(5907.5*s2beta*s2beta)-TMath::Log(1.-s2beta*s2beta)-s2beta*s2beta; 
+  s2z   : -0.0513 + 7.451*TMath::Sqrt(s2de/de_v) * s2beta;            
+  z20cut: TMath::Abs(s2z-20)<0.74;
+  z21cut: TMath::Abs(s2z-21)<0.74;
+  z22cut: TMath::Abs(s2z-22)<0.74;                                    
+  z23cut: TMath::Abs(s2z-23)<0.74;
+  fecut: TMath::Abs(s2z-26)<0.74;                                     
+  vcut: TMath::Abs(s2z-25)<0.74;
+  ticut: TMath::Abs(s2z-24)<0.74;
+group:
+  - name: chkpid
+    title: PID 
+    contents:
+      - name: s0x_s2aq
+        title: Z vs A/Q
+        x: [s2aq,500,1.7,2.5]
+        y: [s2z,500,0,30]
+      - name: s0x_s2aq_dsbgate
+        title: Z vs A/Q S2DS Gate
+        cut: s2dscut
+        x: [s2aq,500,1.7,2.5]
+        y: [s2z,500,0,30]
+      - name: s0x_s2aq_windowgate
+        title: Z vs A/Q S2Window Gate
+        cut: s2windowcut
+        x: [s2aq,500,1.7,2.5]
+        y: [s2z,500,0,30]

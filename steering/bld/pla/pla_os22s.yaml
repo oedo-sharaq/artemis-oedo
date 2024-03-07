@@ -1,21 +1,34 @@
 Processor:
-  - include: 
-      name: tmpl.yaml
-      replace: 
-        CID: 103
-        FP: f3
+#  - include: 
+#      name: tmpl.yaml
+#      replace: 
+#        CID: 103
+#        FP: f3
+#
+#  - include: 
+#      name: tmpl.yaml
+#      replace: 
+#        CID: 105
+#        FP: f5
+#
+#  - include: 
+#      name: tmpl.yaml
+#      replace: 
+#        CID: 107
+#        FP: f7
 
   - include: 
       name: tmpl.yaml
       replace: 
-        CID: 105
-        FP: f5
+        CID: 108
+        FP: s2
 
   - include: 
       name: tmpl.yaml
       replace: 
-        CID: 107
-        FP: f7
+        CID: 109
+        FP: veto
 
-  - include: tof.yaml 
+
+#  - include: tof.yaml 
 

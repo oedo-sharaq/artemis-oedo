@@ -1,0 +1,20 @@
+Processor:
+  - name: proc_tc842_raw
+    type: art::TSimpleDataMappingProcessor
+    parameter:
+      CatID:            217
+      DataTypeID:       0
+      Sparse:           1
+      OutputCollection: tc842_raw
+
+
+
+
+
+
+
+
+
+
+
+

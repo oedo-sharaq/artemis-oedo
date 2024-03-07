@@ -1,0 +1,152 @@
+Processor:
+  - name: proc_pid
+    type: art::TPIDwTOFPPACSSDProcessor
+    parameter:
+      Brho0: 4.4147
+      Dispersion: 14856
+      DoCheckTimestamp: 0
+      Length: 103499.78
+      S0PPAC: sr0_xcw
+#      UseChargeDeltaE: 0
+      S2SSD: S2ssd
+      TofName: dia_tof32
+      Tofoffset: -1455
+      OutputName: mass
+      OutputTransparency: 0
+
+  - name: proc_pid_zcal
+    type: art::TPIDwTOFPPACSSDCalProcessor
+    parameter:
+      Brho0: 4.4147
+      Dispersion: 14856
+      DoCheckTimestamp: 0
+      Length: 103499.78
+      S0PPAC: sr0_xcw
+#      UseChargeDeltaE: 0
+      S2SSD: S2ssd_cal
+      TofName: dia_tof32
+      Tofoffset: -1455
+      OutputName: mass_zcal
+      OutputTransparency: 0
+
+
+  - name: proc_pid_pla
+    type: art::TPIDwTOFPPACSSDCalProcessor
+    parameter:
+      Brho0: 4.4147
+      Dispersion: 14856
+      DoCheckTimestamp: 0
+      Length: 103499.78
+      S0PPAC: sr0_xcw
+      UseChargeDeltaE: 1
+      S2PLA: s2pla_ecal
+      S2SSD: S2ssd_cal
+      TofName: dia_tof32
+      Tofoffset: -1455
+      OutputName: mass_pla
+      OutputTransparency: 0
+
+  - name: proc_pid_st0
+    type: art::TPIDwTOFPPACSSDProcessor
+    parameter:
+      Brho0: 4.4147
+      Dispersion: 14856
+      DoCheckTimestamp: 0
+      Length: 103499.78
+      S0PPAC: sr0_xcw
+#      UseChargeDeltaE: 0
+      S2SSD: S2ssd
+      TofName: dia_tof32st0
+      Tofoffset: -1455
+      OutputName: mass_st0
+      OutputTransparency: 0
+
+  - name: proc_pid_st1
+    type: art::TPIDwTOFPPACSSDProcessor
+    parameter:
+      Brho0: 4.4147
+      Dispersion: 14856
+      DoCheckTimestamp: 0
+      Length: 103499.78
+      S0PPAC: sr0_xcw
+#      UseChargeDeltaE: 0
+      S2SSD: S2ssd
+      TofName: dia_tof32st1
+      Tofoffset: -1455
+      OutputName: mass_st1
+      OutputTransparency: 0
+
+  - name: proc_pid_st2
+    type: art::TPIDwTOFPPACSSDProcessor
+    parameter:
+      Brho0: 4.4147
+      Dispersion: 14856
+      DoCheckTimestamp: 0
+      Length: 103499.78
+      S0PPAC: sr0_xcw
+#      UseChargeDeltaE: 0
+      S2SSD: S2ssd
+      TofName: dia_tof32st2
+      Tofoffset: -1455
+      OutputName: mass_st2
+      OutputTransparency: 0
+
+  - name: proc_pid_st3
+    type: art::TPIDwTOFPPACSSDProcessor
+    parameter:
+      Brho0: 4.4147
+      Dispersion: 14856
+      DoCheckTimestamp: 0
+      Length: 103499.78
+      S0PPAC: sr0_xcw
+#      UseChargeDeltaE: 0
+      S2SSD: S2ssd
+      TofName: dia_tof32st3
+      Tofoffset: -1455
+      OutputName: mass_st3
+      OutputTransparency: 0
+
+  - name: proc_pid_tpla
+    type: art::TPIDwTOFPPACSSDProcessor
+    parameter:
+      Brho0: 4.4147
+      Dispersion: 14856
+      DoCheckTimestamp: 0
+      Length: 103499.78
+      S0PPAC: sr0_xcw
+#      UseChargeDeltaE: 0
+      S2SSD: S2ssd
+      TofName: diapla_tof32
+      Tofoffset: -1455
+      OutputName: mass_tpla
+      OutputTransparency: 0
+
+
+#  - name: z_gate_formula
+#    type: art::TTreeFormulaGateProcessor
+#    parameter:
+#      Definitions:
+#       - "ca; abs(mass.fZ-19.88) < 0.4" #physics170
+##       - "sc; abs(mass.fZ-20.89) < 0.5" #physics170
+##       - "ti; abs(mass.fZ-21.86) < 0.51" #physics170
+##       - "v; abs(mass.fZ-22.84) < 0.48" #physics170
+##       - "cr; abs(mass.fZ-23.84) < 0.4" #physics170
+##       - "mn; abs(mass.fZ-24.89) < 0.51" #physics170
+##       - "fe; abs(mass.fZ-25.87) < 0.51" #physics170
+##       - "co; abs(mass.fZ-26.8) < 0.51" #physics170
+##       - "ni; abs(mass.fZ-27.8) < 0.51" #physics170
+#
+#  - name: z_gatestop
+#    type: art::TGateStopProcessor
+#    parameter:
+#      GateName: "ca"
+##      GateName: "sc"
+##      GateName: "ti"
+##      GateName: "v"
+##      GateName: "cr"
+##      GateName: "mn"
+##      GateName: "fe"
+##      GateName: "co"
+##      GateName: "ni"
+
+

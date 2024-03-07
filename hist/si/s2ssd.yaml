@@ -1,0 +1,161 @@
+anchor: 
+  - &si_raw_id ["si_raw.fID",16,-0.5,15.5] 
+  - &si_id ["si_cal.fID",16,-0.5,15.5] 
+  - &si_raw_charge ["si_raw.fCharge",500,-0.5,4095.5] 
+  - &si_charge ["si_cal.fCharge",500,0.,1000.] 
+  - &si_ecl_raw_id ["si_ecl_raw.fID",16,-0.5,15.5]	
+  - &si_ecl_raw_timing ["si_ecl_raw.fTiming",1000,-7000.,3000.]
+  - &si_max_id ["S2ssd.fXID",16,-0.5,15.5] 
+  - &si_max_charge ["S2ssd.fEx",500,0.,1000.] 
+  - &tf3s0 ["sr0_a_cal.fTiming - dia3pad[0].fTiming-1066",120,-10.,50.]
+group:
+  - name: s2ssd
+    title: S2SSD
+    contents:
+      - name: si_raw_id
+        title: si_raw ID
+        x: *si_raw_id
+      - name: si_raw_charge
+        title: si_raw Charge
+        x: *si_raw_charge
+      - name: si_charge
+        title: si_cal Charge
+        x: *si_charge
+      - name: si_max_charge
+        title: si_max Charge
+        x: *si_max_charge
+      - name: si_ecl_raw_timing
+        title: si_ecl_raw Timing
+        x: *si_ecl_raw_timing
+
+      - name: si_raw_id_q
+        title: si_raw ID vs. Charge
+        x: *si_raw_id
+        y: *si_raw_charge        
+      - name: si_id_q
+        title: si_cal ID vs. Charge
+        x: *si_id
+        y: *si_charge
+      - name: si_max_id_q
+        title: si max ID vs. Charge
+        x: *si_max_id
+        y: *si_max_charge
+      - name: si_ecl_raw_id_t
+        title: si_ecl_raw ID vs. Timing
+        x: *si_ecl_raw_id
+        y: *si_ecl_raw_timing
+      - name: si_ecl_raw_t_q
+        title: raw Timing vs. cal Charge
+        x: ["si_ecl_raw.fTiming",500,-5000.,0.]
+        y: ["si_cal.fCharge",500,0.,500.] 
+      - name: si_ecl_raw_t_q_max
+        title: raw Timing vs. max Charge
+        x: ["si_ecl_raw.fTiming",500,-5000.,0.]
+        y: ["S2ssd.fEx",500,0.,500.] 
+      - name: tf3s0_q_max
+        title: Tof F3 S0 vs. max Charge
+        x: *tf3s0
+        y: ["S2ssd.fEx",500,0.,500.] 
+      - name: tf3s0_q_max_center
+        title: Tof F3 S0 vs. max Charge center strips
+        x: *tf3s0
+        y: ["S2ssd.fEx",500,0.,500.] 
+        cut: "S2ssd.GetXID() >= 4 && S2ssd.GetXID() <= 13"
+
+#      - name: si_raw_charge_sep1
+#        title: si_raw Charge ch1
+#        x: ["si_raw_0.fCharge",500,-0.5,4095.5] 
+#      - name: si_raw_charge_sep2
+#        title: si_raw Charge ch2
+#        x: ["si_raw_1.fCharge",500,-0.5,4095.5] 
+#      - name: si_raw_charge_sep3
+#        title: si_raw Charge ch3
+#        x: ["si_raw_2.fCharge",500,-0.5,4095.5] 
+#      - name: si_raw_charge_sep4
+#        title: si_raw Charge ch4
+#        x: ["si_raw_3.fCharge",500,-0.5,4095.5] 
+#      - name: si_raw_charge_sep5
+#        title: si_raw Charge ch5
+#        x: ["si_raw_4.fCharge",500,-0.5,4095.5] 
+#      - name: si_raw_charge_sep6
+#        title: si_raw Charge ch6
+#        x: ["si_raw_5.fCharge",500,-0.5,4095.5] 
+#      - name: si_raw_charge_sep7
+#        title: si_raw Charge ch7
+#        x: ["si_raw_6.fCharge",500,-0.5,4095.5] 
+#      - name: si_raw_charge_sep8
+#        title: si_raw Charge ch8
+#        x: ["si_raw_7.fCharge",500,-0.5,4095.5] 
+#      - name: si_raw_charge_sep9
+#        title: si_raw Charge ch9
+#        x: ["si_raw_8.fCharge",500,-0.5,4095.5] 
+#      - name: si_raw_charge_sep10
+#        title: si_raw Charge ch10
+#        x: ["si_raw_9.fCharge",500,-0.5,4095.5] 
+#      - name: si_raw_charge_sep11
+#        title: si_raw Charge ch11
+#        x: ["si_raw_10.fCharge",500,-0.5,4095.5] 
+#      - name: si_raw_charge_sep12
+#        title: si_raw Charge ch12
+#        x: ["si_raw_11.fCharge",500,-0.5,4095.5] 
+#      - name: si_raw_charge_sep13
+#        title: si_raw Charge ch13
+#        x: ["si_raw_12.fCharge",500,-0.5,4095.5] 
+#      - name: si_raw_charge_sep14
+#        title: si_raw Charge ch14
+#        x: ["si_raw_13.fCharge",500,-0.5,4095.5] 
+#      - name: si_raw_charge_sep15
+#        title: si_raw Charge ch15
+#        x: ["si_raw_14.fCharge",500,-0.5,4095.5] 
+#      - name: si_raw_charge_sep16
+#        title: si_raw Charge ch16
+#        x: ["si_raw_15.fCharge",500,-0.5,4095.5] 
+
+      - name: si_cal_charge_sep1
+        title: si_cal Charge ch1
+        x: ["si_cal_0.fCharge",500,0.,500.] 
+      - name: si_cal_charge_sep2
+        title: si_cal Charge ch2
+        x: ["si_cal_1.fCharge",500,0.,500.] 
+      - name: si_cal_charge_sep3
+        title: si_cal Charge ch3
+        x: ["si_cal_2.fCharge",500,0.,500.] 
+      - name: si_cal_charge_sep4
+        title: si_cal Charge ch4
+        x: ["si_cal_3.fCharge",500,0.,500.] 
+      - name: si_cal_charge_sep5
+        title: si_cal Charge ch5
+        x: ["si_cal_4.fCharge",500,0.,500.] 
+      - name: si_cal_charge_sep6
+        title: si_cal Charge ch6
+        x: ["si_cal_5.fCharge",500,0.,500.] 
+      - name: si_cal_charge_sep7
+        title: si_cal Charge ch7
+        x: ["si_cal_6.fCharge",500,0.,500.] 
+      - name: si_cal_charge_sep8
+        title: si_cal Charge ch8
+        x: ["si_cal_7.fCharge",500,0.,500.] 
+      - name: si_cal_charge_sep9
+        title: si_cal Charge ch9
+        x: ["si_cal_8.fCharge",500,0.,500.] 
+      - name: si_cal_charge_sep10
+        title: si_cal Charge ch10
+        x: ["si_cal_9.fCharge",500,0.,500.] 
+      - name: si_cal_charge_sep11
+        title: si_cal Charge ch11
+        x: ["si_cal_10.fCharge",500,0.,500.] 
+      - name: si_cal_charge_sep12
+        title: si_cal Charge ch12
+        x: ["si_cal_11.fCharge",500,0.,500.] 
+      - name: si_cal_charge_sep13
+        title: si_cal Charge ch13
+        x: ["si_cal_12.fCharge",500,0.,500.] 
+      - name: si_cal_charge_sep14
+        title: si_cal Charge ch14
+        x: ["si_cal_13.fCharge",500,0.,500.] 
+      - name: si_cal_charge_sep15
+        title: si_cal Charge ch15
+        x: ["si_cal_14.fCharge",500,0.,500.] 
+      - name: si_cal_charge_sep16
+        title: si_cal Charge ch16
+        x: ["si_cal_15.fCharge",500,0.,500.] 

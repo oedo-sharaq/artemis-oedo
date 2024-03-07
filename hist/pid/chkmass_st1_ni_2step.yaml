@@ -1,0 +1,652 @@
+anchor: 
+  - &mass_st1_51ni ["mass_corst1_2nd.fAq",500,1.77,1.79]
+  - &mass_st1_50ni ["mass_corst1_2nd.fAq",500,1.74,1.76]
+  - &mass_st1_49ni ["mass_corst1_2nd.fAq",500,1.70,1.72]
+
+alias:
+ run170: eventheader.fRunNumber == 170 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run171: eventheader.fRunNumber == 171 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run172: eventheader.fRunNumber == 172 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run173: eventheader.fRunNumber == 173 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run174: eventheader.fRunNumber == 174 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run175: eventheader.fRunNumber == 175 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run176: eventheader.fRunNumber == 176 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run177: eventheader.fRunNumber == 177 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run178: eventheader.fRunNumber == 178 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run179: eventheader.fRunNumber == 179 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run180: eventheader.fRunNumber == 180 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run181: eventheader.fRunNumber == 181 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run182: eventheader.fRunNumber == 182 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run183: eventheader.fRunNumber == 183 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run184: eventheader.fRunNumber == 184 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run185: eventheader.fRunNumber == 185 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run186: eventheader.fRunNumber == 186 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run187: eventheader.fRunNumber == 187 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run188: eventheader.fRunNumber == 188 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run189: eventheader.fRunNumber == 189 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run190: eventheader.fRunNumber == 190 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run191: eventheader.fRunNumber == 191 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run192: eventheader.fRunNumber == 192 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run193: eventheader.fRunNumber == 193 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run194: eventheader.fRunNumber == 194 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run195: eventheader.fRunNumber == 195 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run196: eventheader.fRunNumber == 196 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run197: eventheader.fRunNumber == 197 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run198: eventheader.fRunNumber == 198 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run199: eventheader.fRunNumber == 199 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run200: eventheader.fRunNumber == 200 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run201: eventheader.fRunNumber == 201 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run202: eventheader.fRunNumber == 202 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run203: eventheader.fRunNumber == 203 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run204: eventheader.fRunNumber == 204 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run205: eventheader.fRunNumber == 205 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run206: eventheader.fRunNumber == 206 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run207: eventheader.fRunNumber == 207 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run208: eventheader.fRunNumber == 208 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run209: eventheader.fRunNumber == 209 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run210: eventheader.fRunNumber == 210 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run211: eventheader.fRunNumber == 211 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run212: eventheader.fRunNumber == 212 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run213: eventheader.fRunNumber == 213 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run214: eventheader.fRunNumber == 214 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run215: eventheader.fRunNumber == 215 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run216: eventheader.fRunNumber == 216 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run217: eventheader.fRunNumber == 217 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run218: eventheader.fRunNumber == 218 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run219: eventheader.fRunNumber == 219 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run220: eventheader.fRunNumber == 220 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run221: eventheader.fRunNumber == 221 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run222: eventheader.fRunNumber == 222 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run223: eventheader.fRunNumber == 223 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run224: eventheader.fRunNumber == 224 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run225: eventheader.fRunNumber == 225 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run226: eventheader.fRunNumber == 226 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run227: eventheader.fRunNumber == 227 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run228: eventheader.fRunNumber == 228 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run229: eventheader.fRunNumber == 229 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run230: eventheader.fRunNumber == 230 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run231: eventheader.fRunNumber == 231 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run232: eventheader.fRunNumber == 232 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run233: eventheader.fRunNumber == 233 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run234: eventheader.fRunNumber == 234 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run235: eventheader.fRunNumber == 235 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run236: eventheader.fRunNumber == 236 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run237: eventheader.fRunNumber == 237 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run238: eventheader.fRunNumber == 238 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run239: eventheader.fRunNumber == 239 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run240: eventheader.fRunNumber == 240 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run241: eventheader.fRunNumber == 241 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run242: eventheader.fRunNumber == 242 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run243: eventheader.fRunNumber == 243 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run244: eventheader.fRunNumber == 244 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run245: eventheader.fRunNumber == 245 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run246: eventheader.fRunNumber == 246 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run247: eventheader.fRunNumber == 247 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run248: eventheader.fRunNumber == 248 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run249: eventheader.fRunNumber == 249 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run250: eventheader.fRunNumber == 250 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run251: eventheader.fRunNumber == 251 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run252: eventheader.fRunNumber == 252 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run253: eventheader.fRunNumber == 253 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run254: eventheader.fRunNumber == 254 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run255: eventheader.fRunNumber == 255 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run256: eventheader.fRunNumber == 256 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run257: eventheader.fRunNumber == 257 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run258: eventheader.fRunNumber == 258 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run259: eventheader.fRunNumber == 259 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run260: eventheader.fRunNumber == 260 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run261: eventheader.fRunNumber == 261 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run262: eventheader.fRunNumber == 262 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run263: eventheader.fRunNumber == 263 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run264: eventheader.fRunNumber == 264 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run265: eventheader.fRunNumber == 265 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run266: eventheader.fRunNumber == 266 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run267: eventheader.fRunNumber == 267 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run268: eventheader.fRunNumber == 268 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run269: eventheader.fRunNumber == 269 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run270: eventheader.fRunNumber == 270 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run271: eventheader.fRunNumber == 271 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+ run272: eventheader.fRunNumber == 272 && 27.29 < mass.fZ && mass.fZ < 28.31; 
+
+
+group:
+  - name: chkmass_st1_ni
+    title: chkMASS_strip2_Ni
+    contents:
+      - name: mass_st1_49ni
+        title: Mass strip2 49Ni SVD3rd
+        x: *mass_st1_49ni
+      - name: mass_st1_50ni
+        title: Mass strip2 50Ni SVD3rd
+        x: *mass_st1_50ni
+      - name: mass_st1_51ni
+        title: Mass strip2 51Ni SVD3rd
+        x: *mass_st1_51ni
+  
+  - name: chkmass_st1_ni_run_170
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _170
+    cut: run170
+  - name: chkmass_st1_ni_run_171
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _171
+    cut: run171
+  - name: chkmass_st1_ni_run_172
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _172
+    cut: run172
+  - name: chkmass_st1_ni_run_173
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _173
+    cut: run173
+  - name: chkmass_st1_ni_run_174
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _174
+    cut: run174
+  - name: chkmass_st1_ni_run_175
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _175
+    cut: run175
+  - name: chkmass_st1_ni_run_176
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _176
+    cut: run176
+  - name: chkmass_st1_ni_run_177
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _177
+    cut: run177
+  - name: chkmass_st1_ni_run_178
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _178
+    cut: run178
+  - name: chkmass_st1_ni_run_179
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _179
+    cut: run179
+
+  - name: chkmass_st1_ni_run_180
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _180
+    cut: run180
+  - name: chkmass_st1_ni_run_181
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _181
+    cut: run181
+  - name: chkmass_st1_ni_run_182
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _182
+    cut: run182
+  - name: chkmass_st1_ni_run_183
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _183
+    cut: run183
+  - name: chkmass_st1_ni_run_184
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _184
+    cut: run184
+  - name: chkmass_st1_ni_run_185
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _185
+    cut: run185
+  - name: chkmass_st1_ni_run_186
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _186
+    cut: run186
+  - name: chkmass_st1_ni_run_187
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _187
+    cut: run187
+  - name: chkmass_st1_ni_run_188
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _188
+    cut: run188
+  - name: chkmass_st1_ni_run_189
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _189
+    cut: run189
+
+  - name: chkmass_st1_ni_run_190
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _190
+    cut: run190
+  - name: chkmass_st1_ni_run_191
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _191
+    cut: run191
+  - name: chkmass_st1_ni_run_192
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _192
+    cut: run192
+  - name: chkmass_st1_ni_run_193
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _193
+    cut: run193
+  - name: chkmass_st1_ni_run_194
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _194
+    cut: run194
+  - name: chkmass_st1_ni_run_195
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _195
+    cut: run195
+  - name: chkmass_st1_ni_run_196
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _196
+    cut: run196
+  - name: chkmass_st1_ni_run_197
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _197
+    cut: run197
+  - name: chkmass_st1_ni_run_198
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _198
+    cut: run198
+  - name: chkmass_st1_ni_run_199
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _199
+    cut: run199
+
+  - name: chkmass_st1_ni_run_200
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _200
+    cut: run200
+  - name: chkmass_st1_ni_run_201
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _201
+    cut: run201
+  - name: chkmass_st1_ni_run_202
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _202
+    cut: run202
+  - name: chkmass_st1_ni_run_203
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _203
+    cut: run203
+  - name: chkmass_st1_ni_run_204
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _204
+    cut: run204
+  - name: chkmass_st1_ni_run_205
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _205
+    cut: run205
+  - name: chkmass_st1_ni_run_206
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _206
+    cut: run206
+  - name: chkmass_st1_ni_run_207
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _207
+    cut: run207
+  - name: chkmass_st1_ni_run_208
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _208
+    cut: run208
+  - name: chkmass_st1_ni_run_209
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _209
+    cut: run209
+
+  - name: chkmass_st1_ni_run_210
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _210
+    cut: run210
+  - name: chkmass_st1_ni_run_211
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _211
+    cut: run211
+  - name: chkmass_st1_ni_run_212
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _212
+    cut: run212
+  - name: chkmass_st1_ni_run_213
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _213
+    cut: run213
+  - name: chkmass_st1_ni_run_214
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _214
+    cut: run214
+  - name: chkmass_st1_ni_run_215
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _215
+    cut: run215
+  - name: chkmass_st1_ni_run_216
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _216
+    cut: run216
+  - name: chkmass_st1_ni_run_217
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _217
+    cut: run217
+  - name: chkmass_st1_ni_run_218
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _218
+    cut: run218
+  - name: chkmass_st1_ni_run_219
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _219
+    cut: run219
+
+  - name: chkmass_st1_ni_run_220
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _220
+    cut: run220
+  - name: chkmass_st1_ni_run_221
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _221
+    cut: run221
+  - name: chkmass_st1_ni_run_222
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _222
+    cut: run222
+  - name: chkmass_st1_ni_run_223
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _223
+    cut: run223
+  - name: chkmass_st1_ni_run_224
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _224
+    cut: run224
+  - name: chkmass_st1_ni_run_225
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _225
+    cut: run225
+  - name: chkmass_st1_ni_run_226
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _226
+    cut: run226
+  - name: chkmass_st1_ni_run_227
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _227
+    cut: run227
+  - name: chkmass_st1_ni_run_228
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _228
+    cut: run228
+  - name: chkmass_st1_ni_run_229
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _229
+    cut: run229
+
+  - name: chkmass_st1_ni_run_230
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _230
+    cut: run230
+  - name: chkmass_st1_ni_run_231
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _231
+    cut: run231
+  - name: chkmass_st1_ni_run_232
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _232
+    cut: run232
+  - name: chkmass_st1_ni_run_233
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _233
+    cut: run233
+  - name: chkmass_st1_ni_run_234
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _234
+    cut: run234
+  - name: chkmass_st1_ni_run_235
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _235
+    cut: run235
+  - name: chkmass_st1_ni_run_236
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _236
+    cut: run236
+  - name: chkmass_st1_ni_run_237
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _237
+    cut: run237
+  - name: chkmass_st1_ni_run_238
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _238
+    cut: run238
+  - name: chkmass_st1_ni_run_239
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _239
+    cut: run239
+
+  - name: chkmass_st1_ni_run_240
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _240
+    cut: run240
+  - name: chkmass_st1_ni_run_241
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _241
+    cut: run241
+  - name: chkmass_st1_ni_run_242
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _242
+    cut: run242
+  - name: chkmass_st1_ni_run_243
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _243
+    cut: run243
+  - name: chkmass_st1_ni_run_244
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _244
+    cut: run244
+  - name: chkmass_st1_ni_run_245
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _245
+    cut: run245
+  - name: chkmass_st1_ni_run_246
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _246
+    cut: run246
+  - name: chkmass_st1_ni_run_247
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _247
+    cut: run247
+  - name: chkmass_st1_ni_run_248
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _248
+    cut: run248
+  - name: chkmass_st1_ni_run_249
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _249
+    cut: run249
+
+  - name: chkmass_st1_ni_run_250
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _250
+    cut: run250
+  - name: chkmass_st1_ni_run_251
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _251
+    cut: run251
+  - name: chkmass_st1_ni_run_252
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _252
+    cut: run252
+  - name: chkmass_st1_ni_run_253
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _253
+    cut: run253
+  - name: chkmass_st1_ni_run_254
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _254
+    cut: run254
+  - name: chkmass_st1_ni_run_255
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _255
+    cut: run255
+  - name: chkmass_st1_ni_run_256
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _256
+    cut: run256
+  - name: chkmass_st1_ni_run_257
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _257
+    cut: run257
+  - name: chkmass_st1_ni_run_258
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _258
+    cut: run258
+  - name: chkmass_st1_ni_run_259
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _259
+    cut: run259
+
+  - name: chkmass_st1_ni_run_260
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _260
+    cut: run260
+  - name: chkmass_st1_ni_run_261
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _261
+    cut: run261
+  - name: chkmass_st1_ni_run_262
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _262
+    cut: run262
+  - name: chkmass_st1_ni_run_263
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _263
+    cut: run263
+  - name: chkmass_st1_ni_run_264
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _264
+    cut: run264
+  - name: chkmass_st1_ni_run_265
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _265
+    cut: run265
+  - name: chkmass_st1_ni_run_266
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _266
+    cut: run266
+  - name: chkmass_st1_ni_run_267
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _267
+    cut: run267
+  - name: chkmass_st1_ni_run_268
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _268
+    cut: run268
+  - name: chkmass_st1_ni_run_269
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _269
+    cut: run269
+
+  - name: chkmass_st1_ni_run_270
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _270
+    cut: run270
+  - name: chkmass_st1_ni_run_271
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _271
+    cut: run271
+  - name: chkmass_st1_ni_run_272
+    title: chkMASS_strip2_Ni
+    clone: chkmass_st1_ni
+    suffix: _272
+    cut: run272
+
+

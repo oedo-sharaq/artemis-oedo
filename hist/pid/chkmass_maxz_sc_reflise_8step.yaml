@@ -1,0 +1,41 @@
+anchor: 
+  - &mass_stm_sc_a ["mass_corstm_BLD_8th_maxz.fAq",5000,1.79,1.81]
+  - &mass_stm_sc_b ["mass_corstm_BLD_8th_maxz.fAq",5000,1.84,1.86]
+  - &mass_stm_sc_c ["mass_corstm_BLD_8th_maxz.fAq",5000,1.89,1.91]
+  - &mass_stm_sc_d ["mass_corstm_BLD_8th_maxz.fAq",5000,1.94,1.96]
+  - &mass_stm_sc_aa ["mass_corstm_BLD_8th_maxz.fAq",1000,1.79,1.81]
+  - &mass_stm_sc_bb ["mass_corstm_BLD_8th_maxz.fAq",1000,1.84,1.86]
+  - &mass_stm_sc_cc ["mass_corstm_BLD_8th_maxz.fAq",1000,1.89,1.91]
+  - &mass_stm_sc_dd ["mass_corstm_BLD_8th_maxz.fAq",1000,1.94,1.96]
+                                                       
+
+group:
+  - name: chkmass_stm_sc
+    title: chkMASS_stm_Sc
+    contents:
+      - name: mass_stm_sc_a
+        title: Mass  Sc a SVD4th 8step
+        x: *mass_stm_sc_a
+      - name: mass_stm_sc_b
+        title: Mass  Sc b SVD4th 8step
+        x: *mass_stm_sc_b
+      - name: mass_stm_sc_c
+        title: Mass  Sc c SVD4th 8step
+        x: *mass_stm_sc_c
+      - name: mass_stm_sc_d
+        title: Mass  Sc d SVD4th 8step
+        x: *mass_stm_sc_d
+      - name: mass_stm_sc_aa
+        title: Mass  Sc aa SVD4th 8step
+        x: *mass_stm_sc_aa
+      - name: mass_stm_sc_bb
+        title: Mass  Sc bb SVD4th 8step
+        x: *mass_stm_sc_bb
+      - name: mass_stm_sc_cc
+        title: Mass  Sc cc SVD4th 8step
+        x: *mass_stm_sc_cc
+      - name: mass_stm_sc_dd
+        title: Mass  Sc dd SVD4th 8step
+        x: *mass_stm_sc_dd
+
+

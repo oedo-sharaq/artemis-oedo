@@ -1,0 +1,13 @@
+Processor:
+  - name: proc_dia_timing_s2_merge
+    type: art::TDiaStripTimingEachMergeProcessor
+    parameter:
+      InputCollection1  : dia_tof32st1
+      InputCollection2  : dia_tof32st2
+      OutputCollection  : dia_tof32stm
+      TimeValidRange    : [1900,2120]
+      Timeoffset        : [0,0.55151]
+      UseYvalid         : 0
+#      MWDC              : s2
+
+

@@ -1,0 +1,56 @@
+Processor:
+  - name: proc_si_ch2MeV
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm_si_ch2MeV
+      Type: art::TAffineConverter
+      FileName: prm/si/ch2MeV.dat
+
+  - name: proc_si_raw
+    type: art::TSimpleDataMappingProcessor
+    parameter:
+      CatID:            64
+      DataTypeID:       0
+      Sparse:           0
+      OutputCollection: si_raw
+
+
+#  - name: proc_s2_sssd
+#    type: art::TTimingChargeCalibrationProcessor
+#    parameter:
+#      InputCollection:      si_raw
+#      OutputCollection:     si_cal
+#      ChargeConverterArray: prm_si_ch2MeV
+#
+#
+##prm ch2ns
+#  - name: proc_si_ch2ns
+#    type: art::TParameterArrayLoader
+#    parameter:
+#      Name: prm_si_ch2ns_x
+#      Type: art::TAffineConverter
+#      FileName: prm/si/ch2ns.dat
+#
+#  - name: proc_si_ecl_raw
+#    type: art::TTimingChargeMappingProcessor
+#    parameter:
+#      CatID:            65
+#      TimingTypeID:       0
+#      OutputCollection: si_ecl_raw
+#      OutputTransparency: 0
+#
+
+
+#  - name: proc_si_ecl_cal
+#    type: art::TTimingChargeCalibrationProcessor
+#    parameter:
+#      InputCollection: si_ecl_raw
+#      OutputCollection: si_ecl_cal
+#      TimingConverterArray: prm:si:ch2ns_x
+#
+
+
+
+
+
+

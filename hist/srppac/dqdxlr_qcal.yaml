@@ -1,0 +1,31 @@
+anchor: 
+  - &sr0xmax 0.99
+  - &sr0ymax 0.5
+
+  - &sr0xq0ql ["(sr0_x_qcal[0].fCharge - Max$(sr0_x_qcal.fCharge*(sr0_x_qcal.fID==sr0_x_qcal[0].fID+1))) / (sr0_x_qcal[0].fCharge + Max$(sr0_x_qcal.fCharge*(sr0_x_qcal.fID==sr0_x_qcal[0].fID+1)))", 990,0,*sr0xmax]
+  - &sr0yq0ql ["(sr0_y_qcal[0].fCharge - Max$(sr0_y_qcal.fCharge*(sr0_y_qcal.fID==sr0_y_qcal[0].fID+1))) / (sr0_y_qcal[0].fCharge + Max$(sr0_y_qcal.fCharge*(sr0_y_qcal.fID==sr0_y_qcal[0].fID+1)))", 500,0,*sr0ymax]
+
+  - &sr0xq0qr ["(sr0_x_qcal[0].fCharge - Max$(sr0_x_qcal.fCharge*(sr0_x_qcal.fID==sr0_x_qcal[0].fID-1))) / (sr0_x_qcal[0].fCharge + Max$(sr0_x_qcal.fCharge*(sr0_x_qcal.fID==sr0_x_qcal[0].fID-1)))", 990,0,*sr0xmax]
+  - &sr0yq0qr ["(sr0_y_qcal[0].fCharge - Max$(sr0_y_qcal.fCharge*(sr0_y_qcal.fID==sr0_y_qcal[0].fID-1))) / (sr0_y_qcal[0].fCharge + Max$(sr0_y_qcal.fCharge*(sr0_y_qcal.fID==sr0_y_qcal[0].fID-1)))", 500,0,*sr0ymax]
+
+
+
+group:
+  - name: srppacdqdxlrcal
+    title: SR-PPAC dqdxLR qcal
+    contents:
+      - name: sr0_x_q0ql_qcal
+        title: sr0 X Q0QL
+        x: *sr0xq0ql
+#      - name: sr0_y_q0ql
+#        title: sr0 Y Q0Ql
+#        x: *sruyq0ql
+      - name: sr0_x_q0qr_qcal
+        title: sr0 X Q0QR
+        x: *sr0xq0qr
+#      - name: sr0_y_q0qr
+#        title: sr0 Y Q0QR
+#        x: *sruyq0qr
+#
+
+

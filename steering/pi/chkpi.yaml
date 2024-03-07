@@ -1,0 +1,64 @@
+Anchor:
+ - &input ridf/@NAME@@NUM@.ridf
+ - &output output/@NAME@/@NUM@/chkpi@NAME@@NUM@.root
+ - &histout output/@NAME@/@NUM@/chkpi@NAME@@NUM@.hist.root
+
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+        - *input
+        
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+
+  - include: ../tref.yaml
+  - include: ../trig.yaml
+  - include: ../bld/pla/pla_os22s.yaml
+  - include: ../bld/dia/dia.yaml
+  - include: ../bld/srppac/srppac.yaml
+  - include: ../bld/si/ssd.yaml
+  - include: ../bld/dia/tc842.yaml
+
+#  - name: proc_tc842_raw
+#    type: art::TSimpleDataMappingProcessor
+#    parameter:
+#      CatID:            217
+#      DataTypeID:       0
+#      Sparse:           1
+#      OutputCollection: tc842_raw
+#  - name: proc_dias25p_raw
+#    type: art::TSimpleDataMappingProcessor
+#    parameter:
+#      CatID:            219
+#      DataTypeID:       0
+#      Sparse:           1
+#      OutputCollection: dias2pad_5ps_raw
+
+
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/pi/chkpid.yaml
+      Type:     art::TTreeProjection
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/pi/chkpid2.yaml
+      OutputFilename: *histout
+      Type:     art::TTreeProjection
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: 
+        - *output

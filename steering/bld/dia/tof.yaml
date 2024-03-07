@@ -1,0 +1,19 @@
+Processor:
+
+  - name: loader_tof32_off
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm_tof32_off
+      Type: art::TAffineConverter
+      FileName: prm/tof/tof32_off.dat
+
+
+  - name: proc_toff3s2
+    type: art::TDiaTimingSubtractionProcessor
+    parameter:
+      InputCollection1: dia3pad_tc842_raw
+      InputCollection2: dias2pad_tc842_raw
+      Toffset:          -2491.3
+      OutputCollection: tof32
+
+

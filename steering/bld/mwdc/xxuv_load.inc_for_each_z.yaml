@@ -1,0 +1,31 @@
+# steering file for DCAX analysis
+# Load bld-plastic steering file before.
+Processor:
+  - name: proc_@NAME@_dxdt_x1
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_@NAME@_dxdt_x1
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/@DETNAME@/dt2dl/@PRM@/x1.dat
+
+  - name: proc_@NAME@_dxdt_x2
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_@NAME@_dxdt_x2
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/@DETNAME@/dt2dl/@PRM@/x2.dat
+      
+  - name: proc_@NAME@_dxdt_u
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_@NAME@_dxdt_u
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/@DETNAME@/dt2dl/@PRM@/u.dat
+
+  - name: proc_@NAME@_dxdt_v
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_@NAME@_dxdt_v
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/@DETNAME@/dt2dl/@PRM@/v.dat
+

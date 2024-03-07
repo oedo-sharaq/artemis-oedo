@@ -1,0 +1,136 @@
+anchor:
+  - &isprocessed ["@plane@.IsProcessed()",2,-0.5,1.5]
+  - &isgood ["@plane@.IsGood()",2,-0.5,1.5]
+  - &entry ["@plane@.GetEntriesFast()",8,-0.5,7.5]
+  - &ssr ["@plane@.GetSSR()",100,0,5]
+  - &res0 ["@plane@.GetResidual(0)",200,-2.,2.]
+  - &res1 ["@plane@.GetResidual(1)",200,-2.,2.]
+  - &res2 ["@plane@.GetResidual(2)",200,-2.,2.]
+  - &res3 ["@plane@.GetResidual(3)",200,-2.,2.]
+  - &res4 ["@plane@.GetResidual(4)",200,-2.,2.]
+  - &res5 ["@plane@.GetResidual(5)",200,-2.,2.]
+  - &res6 ["@plane@.GetResidual(6)",200,-2.,2.]
+  - &res7 ["@plane@.GetResidual(7)",200,-2.,2.]
+
+  - &var0 ["@plane@.GetVar(0)",200,0.,5.]
+  - &var1 ["@plane@.GetVar(1)",200,0.,5.]
+  - &var2 ["@plane@.GetVar(2)*1000",200,0.,5.]
+  - &var3 ["@plane@.GetVar(3)*1000",200,0.,5.]
+
+  - &ssr ["@plane@.GetSSR()",100,0,5]
+
+  - &qx1 ["@plane@_x1.fCharge",200,0,1500]
+  - &dE ["S2ssd.fEx",200,0,350]
+  - &driftlength1 ["@plane@_x1.GetDriftLength()",200,0.,3.]
+  - &driftlength2 ["@plane@_x2.GetDriftLength()",200,0.,3.]
+  - &driftlength3 ["@plane@_y1.GetDriftLength()",200,0.,3.]
+  - &driftlength4 ["@plane@_y2.GetDriftLength()",200,0.,3.]
+  - &driftlength5 ["@plane@_x3.GetDriftLength()",200,0.,3.]
+  - &driftlength6 ["@plane@_x4.GetDriftLength()",200,0.,3.]
+  - &driftlength7 ["@plane@_y3.GetDriftLength()",200,0.,3.]
+  - &driftlength8 ["@plane@_y4.GetDriftLength()",200,0.,3.]
+
+group:
+  - name: @plane@
+    title: @plane@
+    contents:
+      - name: hit_efficiency
+        title: @plane@ hit efficiency IsProcessed
+        x: *isprocessed
+      - name: tracking_efficiency
+        title: @plane@ tracking efficiency
+        x: *isgood
+
+      - name: ssr
+        title: @plane@ sum of squared residue
+        x: *ssr
+
+      - name: plane1_residual
+        title: @plane@ plane1 residual
+        x: *res0
+      - name: plane2_residual
+        title: @plane@ plane2 residual
+        x: *res1
+      - name: plane3_residual
+        title: @plane@ plane3 residual
+        x: *res2
+      - name: plane4_residual
+        title: @plane@ plane4 residual
+        x: *res3
+      - name: plane5_residual
+        title: @plane@ plane5 residual
+        x: *res4
+      - name: plane6_residual
+        title: @plane@ plane6 residual
+        x: *res5
+      - name: plane7_residual
+        title: @plane@ plane7 residual
+        x: *res6
+      - name: plane8_residual
+        title: @plane@ plane8 residual
+        x: *res7
+
+
+      - name: var0
+        title: @plane@ var0
+        x: *var0
+      - name: var1
+        title: @plane@ var1
+        x: *var1
+      - name: var2
+        title: @plane@ var2
+        x: *var2
+      - name: var3
+        title: @plane@ var3
+        x: *var3
+
+
+      - name: qx1dE
+        title: @plane@_x1 charge vs S2ssd
+        x: *dE
+        y: *qx1
+
+
+      - name: driftlength12
+        title: @plane@_x1 DriftLength vs @plane@_x2 DriftLength
+        x: *driftlength1
+        y: *driftlength2
+
+      - name: driftlength25
+        title: @plane@_x2 DriftLength vs @plane@_x3 DriftLength
+        x: *driftlength2
+        y: *driftlength5
+
+
+      - name: driftlength15
+        title: @plane@_x1 DriftLength vs @plane@_x3 DriftLength
+        x: *driftlength1
+        y: *driftlength5
+
+      - name: driftlength34
+        title: @plane@_y1 DriftLength vs @plane@_y2 DriftLength
+        x: *driftlength3
+        y: *driftlength4
+
+      - name: driftlength47
+        title: @plane@_y2 DriftLength vs @plane@_y3 DriftLength
+        x: *driftlength4
+        y: *driftlength7
+
+      - name: driftlength37
+        title: @plane@_y1 DriftLength vs @plane@_y3 DriftLength
+        x: *driftlength3
+        y: *driftlength7
+
+
+
+
+
+
+
+
+
+
+
+
+

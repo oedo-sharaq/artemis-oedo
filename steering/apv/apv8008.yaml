@@ -1,0 +1,50 @@
+Processor:
+## apv
+  - name: proc:ppac:@NAME@a:raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID: 300
+      TimingTypeID: 0
+      TrailingComesFirst: 0
+      OutputCollection: @NAME@_a_raw
+
+## ge daq
+#  - name: ge_tsi_ch2MeV_loader
+#    type: art::TParameterArrayLoader
+#    parameter:
+#      Name: ge_tsi_ch2MeV
+#      Type: art::TAffineConverter
+#      FileName: prm/ge/ge_tsi_ch2MeV.dat
+#
+#  - name: ge_tsi_ch2sec_loader
+#    type: art::TParameterArrayLoader
+#    parameter:
+#      Name: ge_tsi_ch2sec
+#      Type: art::TAffineConverter
+#      FileName: prm/ge/ge_tsi_ch2sec.dat
+#
+#  - name: ge_tsi_map_proc
+#    type: art::TTimingChargeTriggeredListMappingProcessor
+#    parameter:
+#      CatID:                 63
+#      OutputCollection:      ge_tsi_raw
+#      TimingTypeID:          0
+#
+#  - name: ge_tsi_cal_proc
+#    type: art::TTimingChargeCalibrationProcessor
+#    parameter:
+#      InputCollection:      ge_tsi_raw
+#      OutputCollection:     ge_tsi
+#      ChargeConverterArray: ge_tsi_ch2MeV
+#      TimingConverterArray: ge_tsi_ch2sec
+#      OutputTransparency:   0
+#
+#  - name: proc_sep_ge_tsi
+#    type: art::TSeparateOutputProcessor
+#    parameter:
+#      InputCollection: ge_tsi
+#      OutputCollections:
+#        - "ge_tsi_1"
+#        - "ge_tsi_2"
+#        - "ge_tsi_3"
+#        - "ge_tsi_4"

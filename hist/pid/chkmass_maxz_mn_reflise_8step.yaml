@@ -1,0 +1,42 @@
+anchor: 
+  - &mass_stm_mn_a ["mass_corstm_BLD_8th_maxz.fAq",5000,1.825,1.845]
+  - &mass_stm_mn_b ["mass_corstm_BLD_8th_maxz.fAq",5000,1.87,1.89]
+  - &mass_stm_mn_c ["mass_corstm_BLD_8th_maxz.fAq",5000,1.91,1.93]
+  - &mass_stm_mn_d ["mass_corstm_BLD_8th_maxz.fAq",5000,1.95,1.97]
+  - &mass_stm_mn_aa ["mass_corstm_BLD_8th_maxz.fAq",1000,1.825,1.845]
+  - &mass_stm_mn_bb ["mass_corstm_BLD_8th_maxz.fAq",1000,1.87,1.89]
+  - &mass_stm_mn_cc ["mass_corstm_BLD_8th_maxz.fAq",1000,1.91,1.93]
+  - &mass_stm_mn_dd ["mass_corstm_BLD_8th_maxz.fAq",1000,1.95,1.97]
+
+
+
+group:
+  - name: chkmass_stm_mn
+    title: chkMASS_stm_Mn
+    contents:
+      - name: mass_stm_mn_a
+        title: Mass  Mn a SMnD4th 8step
+        x: *mass_stm_mn_a
+      - name: mass_stm_mn_b
+        title: Mass  Mn b SMnD4th 8step
+        x: *mass_stm_mn_b
+      - name: mass_stm_mn_c
+        title: Mass  Mn c SMnD4th 8step
+        x: *mass_stm_mn_c
+      - name: mass_stm_mn_d
+        title: Mass  Mn d SMnD4th 8step
+        x: *mass_stm_mn_d
+      - name: mass_stm_mn_aa
+        title: Mass  Mn aa SMnD4th 8step
+        x: *mass_stm_mn_aa
+      - name: mass_stm_mn_bb
+        title: Mass  Mn bb SMnD4th 8step
+        x: *mass_stm_mn_bb
+      - name: mass_stm_mn_cc
+        title: Mass  Mn cc SMnD4th 8step
+        x: *mass_stm_mn_cc
+      - name: mass_stm_mn_dd
+        title: Mass  Mn dd SMnD4th 8step
+        x: *mass_stm_mn_dd
+
+

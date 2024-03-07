@@ -1,0 +1,68 @@
+# steering file for DC32 analysis
+# Load bld-plastic steering file before.
+Processor:
+  - name: proc_@NAME@_dxdt_x1
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_@NAME@_dxdt_x1
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/@NAME@/dt2dl/current/x1.dat
+
+  - name: proc_@NAME@_dxdt_x2
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_@NAME@_dxdt_x2
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/@NAME@/dt2dl/current/x2.dat
+
+
+  - name: proc_@NAME@_dxdt_y1
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_@NAME@_dxdt_y1
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/@NAME@/dt2dl/current/y1.dat
+
+  - name: proc_@NAME@_dxdt_y2
+    type: art::TParameterLoader
+    parameter:
+      Name:     prm_@NAME@_dxdt_y2
+      Type:     art::TMonotoneTableConverter
+      FileName: prm/mwdc/@NAME@/dt2dl/current/y2.dat
+
+  - name: proc_@NAME@_geo
+    type: art::TParameterLoader
+    parameter:
+      Name:     @NAME@
+      Type:     art::TMWDCParameter
+      FileName: prm/mwdc/@NAME@/geometry.yaml
+
+      
+  - name: proc_@NAME@_plane
+    type: art::TMWDCPlaneProcessor
+    parameter:
+      InputCollection: @NAME@_dtval
+      MWDCName:        @NAME@
+      ConverterList:
+        - prm_@NAME@_dxdt_x1
+        - prm_@NAME@_dxdt_x2
+        - prm_@NAME@_dxdt_y1
+        - prm_@NAME@_dxdt_y2
+      OutputTransparency: 0
+
+  - name: proc_@NAME@_track
+    type: art::TMWDCTrackingProcessor
+    parameter:
+      InputCollection:
+        - @NAME@_x1
+        - @NAME@_x2
+        - @NAME@_y1
+        - @NAME@_y2
+      UseLocalPos: 1
+      OutputCollection:   @NAME@
+      OutputTransparency: 0
+
+
+
+
+

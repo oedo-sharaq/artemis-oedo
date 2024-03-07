@@ -1,0 +1,1660 @@
+// constant
+     A(ievt,0) = 1.; 
+// 1st order
+     A(ievt,1)  = t;
+     A(ievt,2)  = x3;
+     A(ievt,3)  = a3;
+     A(ievt,4)  = y3;
+     A(ievt,5)  = b3;
+     A(ievt,6)  = x0;
+     A(ievt,7)  = x2;
+     A(ievt,8)  = a2;
+     A(ievt,9)  = y2;
+     A(ievt,10) = b2;
+     A(ievt,11) = y0;
+// 2nd order       
+     A(ievt,12) = t * t;
+     A(ievt,13) = x3 * x3;
+     A(ievt,14) = a3 * a3;
+     A(ievt,15) = y3 * y3;
+     A(ievt,16) = b3 * b3;
+     A(ievt,17) = x0 * x0;
+     A(ievt,18) = x2 * x2;
+     A(ievt,19) = a2 * a2;
+     A(ievt,20) = y2 * y2;
+     A(ievt,21) = b2 * b2;
+     A(ievt,22) = y0 * y0;
+ 
+     A(ievt,23) = t * x3;
+     A(ievt,24) = t * a3;
+     A(ievt,25) = t * y3;
+     A(ievt,26) = t * b3;
+     A(ievt,27) = t * x0;
+     A(ievt,28) = t * x2;
+     A(ievt,29) = t * a2;
+     A(ievt,30) = t * y2;
+     A(ievt,31) = t * b2;
+     A(ievt,32) = t * y0;
+ 
+     A(ievt,33) = x3 * a3;
+     A(ievt,34) = x3 * y3;
+     A(ievt,35) = x3 * b3;
+     A(ievt,36) = x3 * x0;
+     A(ievt,37) = x3 * x2;
+     A(ievt,38) = x3 * a2;
+     A(ievt,39) = x3 * y2;
+     A(ievt,40) = x3 * b2;
+     A(ievt,41) = x3 * y0;
+ 
+     A(ievt,42) = a3 * y3;
+     A(ievt,43) = a3 * b3;
+     A(ievt,44) = a3 * x0;
+     A(ievt,45) = a3 * x2;
+     A(ievt,46) = a3 * a2;
+     A(ievt,47) = a3 * y2;
+     A(ievt,48) = a3 * b2;
+     A(ievt,49) = a3 * y0;
+ 
+     A(ievt,50) = y3 * b3;
+     A(ievt,51) = y3 * x0;
+     A(ievt,52) = y3 * x2;
+     A(ievt,53) = y3 * a2;
+     A(ievt,54) = y3 * y2;
+     A(ievt,55) = y3 * b2;
+     A(ievt,56) = y3 * y0;
+
+     A(ievt,57) = b3 * x0;
+     A(ievt,58) = b3 * x2;
+     A(ievt,59) = b3 * a2;
+     A(ievt,60) = b3 * y2;
+     A(ievt,61) = b3 * b2;
+     A(ievt,62) = b3 * y0;
+ 
+     A(ievt,63) = x0 * x2;
+     A(ievt,64) = x0 * a2;
+     A(ievt,65) = x0 * y2;
+     A(ievt,66) = x0 * b2;
+     A(ievt,67) = x0 * y0;
+
+     A(ievt,68) = x2 * a2;
+     A(ievt,69) = x2 * y2;
+     A(ievt,70) = x2 * b2;
+     A(ievt,71) = x2 * y0;
+
+     A(ievt,72) = a2 * y2;
+     A(ievt,73) = a2 * b2;
+     A(ievt,74) = a2 * y0;
+ 
+     A(ievt,75) = y2 * b2;
+     A(ievt,76) = y2 * y0;
+
+     A(ievt,77) = b2 * y0;
+// 4th order
+     A(ievt,78) = t * t * t;
+     A(ievt,79) = x3 * x3 * x3;
+     A(ievt,80) = a3 * a3 * a3;
+     A(ievt,81) = y3 * y3 * y3;
+     A(ievt,82) = b3 * b3 * b3;
+     A(ievt,83) = x0 * x0 * x0;
+     A(ievt,84) = x2 * x2 * x2;
+     A(ievt,85) = a2 * a2 * a2;
+     A(ievt,86) = y2 * y2 * y2;
+     A(ievt,87) = b2 * b2 * b2;
+     A(ievt,88) = y0 * y0 * y0;
+ 
+     A(ievt,89) = t * t * x3;
+     A(ievt,90) = t * t * a3;
+     A(ievt,91) = t * t * y3;
+     A(ievt,92) = t * t * b3;
+     A(ievt,93) = t * t * x0;
+     A(ievt,94) = t * t * x2;
+     A(ievt,95) = t * t * a2;
+     A(ievt,96) = t * t * y2;
+     A(ievt,97) = t * t * b2;
+     A(ievt,98) = t * t * y0;
+ 
+     A(ievt,99) = x3 * x3 * t;
+     A(ievt,100) = x3 * x3 * a3;
+     A(ievt,101) = x3 * x3 * y3;
+     A(ievt,102) = x3 * x3 * b3;
+     A(ievt,103) = x3 * x3 * x0;
+     A(ievt,104) = x3 * x3 * x2;
+     A(ievt,105) = x3 * x3 * a2;
+     A(ievt,106) = x3 * x3 * y2;
+     A(ievt,107) = x3 * x3 * b2;
+     A(ievt,108) = x3 * x3 * y0;
+ 
+     A(ievt,109) = a3 * a3 * t;
+     A(ievt,110) = a3 * a3 * x3;
+     A(ievt,111) = a3 * a3 * y3;
+     A(ievt,112) = a3 * a3 * b3;
+     A(ievt,113) = a3 * a3 * x0;
+     A(ievt,114) = a3 * a3 * x2;
+     A(ievt,115) = a3 * a3 * a2;
+     A(ievt,116) = a3 * a3 * y2;
+     A(ievt,117) = a3 * a3 * b2;
+     A(ievt,118) = a3 * a3 * y0;
+ 
+     A(ievt,119) = y3 * y3 * t;
+     A(ievt,120) = y3 * y3 * x3;
+     A(ievt,121) = y3 * y3 * a3;
+     A(ievt,122) = y3 * y3 * b3;
+     A(ievt,123) = y3 * y3 * x0;
+     A(ievt,124) = y3 * y3 * x2;
+     A(ievt,125) = y3 * y3 * a2;
+     A(ievt,126) = y3 * y3 * y2;
+     A(ievt,127) = y3 * y3 * b2;
+     A(ievt,128) = y3 * y3 * y0;
+ 
+     A(ievt,129) = b3 * b3 * t;
+     A(ievt,130) = b3 * b3 * x3;
+     A(ievt,131) = b3 * b3 * a3;
+     A(ievt,132) = b3 * b3 * y3;
+     A(ievt,133) = b3 * b3 * x0;
+     A(ievt,134) = b3 * b3 * x2;
+     A(ievt,135) = b3 * b3 * a2;
+     A(ievt,136) = b3 * b3 * y2;
+     A(ievt,137) = b3 * b3 * b2;
+     A(ievt,138) = b3 * b3 * y0;
+ 
+     A(ievt,139) = x0 * x0 * t;
+     A(ievt,140) = x0 * x0 * x3;
+     A(ievt,141) = x0 * x0 * a3;
+     A(ievt,142) = x0 * x0 * y3;
+     A(ievt,143) = x0 * x0 * b3;
+     A(ievt,144) = x0 * x0 * x2;
+     A(ievt,145) = x0 * x0 * a2;
+     A(ievt,146) = x0 * x0 * y2;
+     A(ievt,147) = x0 * x0 * b2;
+     A(ievt,148) = x0 * x0 * y0;
+ 
+     A(ievt,149) = x2 * x2 * t;
+     A(ievt,150) = x2 * x2 * x3;
+     A(ievt,151) = x2 * x2 * a3;
+     A(ievt,152) = x2 * x2 * y3;
+     A(ievt,153) = x2 * x2 * b3;
+     A(ievt,154) = x2 * x2 * x0;
+     A(ievt,155) = x2 * x2 * a2;
+     A(ievt,156) = x2 * x2 * y2;
+     A(ievt,157) = x2 * x2 * b2;
+     A(ievt,158) = x2 * x2 * y0;
+ 
+     A(ievt,159) = a2 * a2 * t;
+     A(ievt,160) = a2 * a2 * x3;
+     A(ievt,161) = a2 * a2 * a3;
+     A(ievt,162) = a2 * a2 * y3;
+     A(ievt,163) = a2 * a2 * b3;
+     A(ievt,164) = a2 * a2 * x0;
+     A(ievt,165) = a2 * a2 * x2;
+     A(ievt,166) = a2 * a2 * y2;
+     A(ievt,167) = a2 * a2 * b2;
+     A(ievt,168) = a2 * a2 * y0;
+ 
+     A(ievt,169) = y2 * y2 * t;
+     A(ievt,170) = y2 * y2 * x3;
+     A(ievt,171) = y2 * y2 * a3;
+     A(ievt,172) = y2 * y2 * y3;
+     A(ievt,173) = y2 * y2 * b3;
+     A(ievt,174) = y2 * y2 * x0;
+     A(ievt,175) = y2 * y2 * x2;
+     A(ievt,176) = y2 * y2 * a2;
+     A(ievt,177) = y2 * y2 * b2;
+     A(ievt,178) = y2 * y2 * y0;
+ 
+     A(ievt,179) = b2 * b2 * t;
+     A(ievt,180) = b2 * b2 * x3;
+     A(ievt,181) = b2 * b2 * a3;
+     A(ievt,182) = b2 * b2 * y3;
+     A(ievt,183) = b2 * b2 * b3;
+     A(ievt,184) = b2 * b2 * x0;
+     A(ievt,185) = b2 * b2 * x2;
+     A(ievt,186) = b2 * b2 * a2;
+     A(ievt,187) = b2 * b2 * y2;
+     A(ievt,188) = b2 * b2 * y0;
+
+     A(ievt,189) = y0 * y0 * t;
+     A(ievt,190) = y0 * y0 * x3;
+     A(ievt,191) = y0 * y0 * a3;
+     A(ievt,192) = y0 * y0 * y3;
+     A(ievt,193) = y0 * y0 * b3;
+     A(ievt,194) = y0 * y0 * x0;
+     A(ievt,195) = y0 * y0 * x2;
+     A(ievt,196) = y0 * y0 * a2;
+     A(ievt,197) = y0 * y0 * y2;
+     A(ievt,198) = y0 * y0 * b2;
+ 
+     A(ievt,199) = t * x3 * a3;
+     A(ievt,200) = t * x3 * y3;
+     A(ievt,201) = t * x3 * b3;
+     A(ievt,202) = t * x3 * x0;
+     A(ievt,203) = t * x3 * x2;
+     A(ievt,204) = t * x3 * a2;
+     A(ievt,205) = t * x3 * y2;
+     A(ievt,206) = t * x3 * b2;
+     A(ievt,207) = t * x3 * y0;
+ 
+     A(ievt,208) = t * a3 * y3;
+     A(ievt,209) = t * a3 * b3;
+     A(ievt,210) = t * a3 * x0;
+     A(ievt,211) = t * a3 * x2;
+     A(ievt,212) = t * a3 * a2;
+     A(ievt,213) = t * a3 * y2;
+     A(ievt,214) = t * a3 * b2;
+     A(ievt,215) = t * a3 * y0;
+ 
+     A(ievt,216) = t * y3 * b3;
+     A(ievt,217) = t * y3 * x0;
+     A(ievt,218) = t * y3 * x2;
+     A(ievt,219) = t * y3 * a2;
+     A(ievt,220) = t * y3 * y2;
+     A(ievt,221) = t * y3 * b2;
+     A(ievt,222) = t * y3 * y0;
+ 
+     A(ievt,223) = t * b3 * x0;
+     A(ievt,224) = t * b3 * x2;
+     A(ievt,225) = t * b3 * a2;
+     A(ievt,226) = t * b3 * y2;
+     A(ievt,227) = t * b3 * b2;
+     A(ievt,228) = t * b3 * y0;
+ 
+     A(ievt,229) = t * x0 * x2;
+     A(ievt,230) = t * x0 * a2;
+     A(ievt,231) = t * x0 * y2;
+     A(ievt,232) = t * x0 * b2;
+     A(ievt,233) = t * x0 * y0;
+ 
+     A(ievt,234) = t * x2 * a2;
+     A(ievt,235) = t * x2 * y2;
+     A(ievt,236) = t * x2 * b2;
+     A(ievt,237) = t * x2 * y0;
+ 
+     A(ievt,238) = t * a2 * y2;
+     A(ievt,239) = t * a2 * b2;
+     A(ievt,240) = t * a2 * y0;
+ 
+     A(ievt,241) = t * y2 * b2;
+     A(ievt,242) = t * y2 * y0;
+
+     A(ievt,243) = t * b2 * y0;
+ 
+     A(ievt,244) = x3 * a3 * y3;
+     A(ievt,245) = x3 * a3 * b3;
+     A(ievt,246) = x3 * a3 * x0;
+     A(ievt,247) = x3 * a3 * x2;
+     A(ievt,248) = x3 * a3 * a2;
+     A(ievt,249) = x3 * a3 * y2;
+     A(ievt,250) = x3 * a3 * b2;
+     A(ievt,251) = x3 * a3 * y0;
+ 
+     A(ievt,252) = x3 * y3 * b3;
+     A(ievt,253) = x3 * y3 * x0;
+     A(ievt,254) = x3 * y3 * x2;
+     A(ievt,255) = x3 * y3 * a2;
+     A(ievt,256) = x3 * y3 * y2;
+     A(ievt,257) = x3 * y3 * b2;
+     A(ievt,258) = x3 * y3 * y0;
+ 
+     A(ievt,259) = x3 * b3 * x0;
+     A(ievt,260) = x3 * b3 * x2;
+     A(ievt,261) = x3 * b3 * a2;
+     A(ievt,262) = x3 * b3 * y2;
+     A(ievt,263) = x3 * b3 * b2;
+     A(ievt,264) = x3 * b3 * y0;
+ 
+     A(ievt,265) = x3 * x0 * x2;
+     A(ievt,266) = x3 * x0 * a2;
+     A(ievt,267) = x3 * x0 * y2;
+     A(ievt,268) = x3 * x0 * b2;
+     A(ievt,269) = x3 * x0 * y0;
+        
+     A(ievt,270) = x3 * x2 * a2;
+     A(ievt,271) = x3 * x2 * y2;
+     A(ievt,272) = x3 * x2 * b2;
+     A(ievt,273) = x3 * x2 * y0;
+        
+     A(ievt,274) = x3 * a2 * y2;
+     A(ievt,275) = x3 * a2 * b2;
+     A(ievt,276) = x3 * a2 * y0;
+ 
+     A(ievt,277) = x3 * y2 * b2;
+     A(ievt,278) = x3 * y2 * y0;
+ 
+     A(ievt,279) = x3 * b2 * y0;
+
+     A(ievt,280) = a3 * y3 * b3;
+     A(ievt,281) = a3 * y3 * x0;
+     A(ievt,282) = a3 * y3 * x2;
+     A(ievt,283) = a3 * y3 * a2;
+     A(ievt,284) = a3 * y3 * y2;
+     A(ievt,285) = a3 * y3 * b2;
+     A(ievt,286) = a3 * y3 * y0;
+ 
+     A(ievt,287) = a3 * b3 * x0;
+     A(ievt,288) = a3 * b3 * x2;
+     A(ievt,289) = a3 * b3 * a2;
+     A(ievt,290) = a3 * b3 * y2;
+     A(ievt,291) = a3 * b3 * b2;
+     A(ievt,292) = a3 * b3 * y0;
+ 
+     A(ievt,293) = a3 * x0 * x2;
+     A(ievt,294) = a3 * x0 * a2;
+     A(ievt,295) = a3 * x0 * y2;
+     A(ievt,296) = a3 * x0 * b2;
+     A(ievt,297) = a3 * x0 * y0;
+ 
+     A(ievt,298) = a3 * x2 * a2;
+     A(ievt,299) = a3 * x2 * y2;
+     A(ievt,300) = a3 * x2 * b2;
+     A(ievt,301) = a3 * x2 * y0;
+ 
+     A(ievt,302) = a3 * a2 * y2;
+     A(ievt,303) = a3 * a2 * b2;
+     A(ievt,304) = a3 * a2 * y0;
+ 
+     A(ievt,305) = a3 * y2 * b2;
+     A(ievt,306) = a3 * y2 * y0;
+ 
+     A(ievt,307) = a3 * b2 * y0;
+
+     A(ievt,308) = y3 * b3 * x0;
+     A(ievt,309) = y3 * b3 * x2;
+     A(ievt,310) = y3 * b3 * a2;
+     A(ievt,311) = y3 * b3 * y2;
+     A(ievt,312) = y3 * b3 * b2;
+     A(ievt,313) = y3 * b3 * y0;
+ 
+     A(ievt,314) = y3 * x0 * x2;
+     A(ievt,315) = y3 * x0 * a2;
+     A(ievt,316) = y3 * x0 * y2;
+     A(ievt,317) = y3 * x0 * b2;
+     A(ievt,318) = y3 * x0 * y0;
+ 
+     A(ievt,319) = y3 * x2 * a2;
+     A(ievt,320) = y3 * x2 * y2;
+     A(ievt,321) = y3 * x2 * b2;
+     A(ievt,322) = y3 * x2 * y0;
+ 
+     A(ievt,323) = y3 * a2 * y2;
+     A(ievt,324) = y3 * a2 * b2;
+     A(ievt,325) = y3 * a2 * y0;
+ 
+     A(ievt,326) = y3 * y2 * b2;
+     A(ievt,327) = y3 * y2 * y0;
+
+     A(ievt,328) = y3 * b2 * y0;
+
+     A(ievt,329) = b3 * x0 * x2;
+     A(ievt,330) = b3 * x0 * a2;
+     A(ievt,331) = b3 * x0 * y2;
+     A(ievt,332) = b3 * x0 * b2;
+     A(ievt,333) = b3 * x0 * y0;
+ 
+     A(ievt,334) = b3 * x2 * a2;
+     A(ievt,335) = b3 * x2 * y2;
+     A(ievt,336) = b3 * x2 * b2;
+     A(ievt,337) = b3 * x2 * y0;
+ 
+     A(ievt,338) = b3 * a2 * y2;
+     A(ievt,339) = b3 * a2 * b2;
+     A(ievt,340) = b3 * a2 * y0;
+ 
+     A(ievt,341) = b3 * y2 * b2;
+     A(ievt,342) = b3 * y2 * y0;
+ 
+     A(ievt,343) = b3 * b2 * y0;
+
+     A(ievt,344) = x0 * x2 * a2;
+     A(ievt,345) = x0 * x2 * y2;
+     A(ievt,346) = x0 * x2 * b2;
+     A(ievt,347) = x0 * x2 * y0;
+ 
+     A(ievt,348) = x0 * a2 * y2;
+     A(ievt,349) = x0 * a2 * b2;
+     A(ievt,350) = x0 * a2 * y0;
+ 
+     A(ievt,351) = x0 * y2 * b2;
+     A(ievt,352) = x0 * y2 * y0;
+
+     A(ievt,353) = x0 * b2 * y0;
+
+     A(ievt,354) = x2 * a2 * y2;
+     A(ievt,355) = x2 * a2 * b2;
+     A(ievt,356) = x2 * a2 * y0;
+ 
+     A(ievt,357) = x2 * y2 * b2;
+     A(ievt,358) = x2 * y2 * y0;
+
+     A(ievt,359) = x2 * b2 * y0;
+
+     A(ievt,360) = a2 * y2 * b2;
+     A(ievt,361) = a2 * y2 * y0;
+
+     A(ievt,362) = a2 * b2 * y0;
+
+     A(ievt,363) = y2 * b2 * y0;
+// 4th order
+     A(ievt,364) = t * t * t * t;
+     A(ievt,365) = x3 * x3 * x3 * x3;
+     A(ievt,366) = a3 * a3 * a3 * a3;
+     A(ievt,367) = y3 * y3 * y3 * y3;
+     A(ievt,368) = b3 * b3 * b3 * b3;
+     A(ievt,369) = x0 * x0 * x0 * x0;
+     A(ievt,370) = x2 * x2 * x2 * x2;
+     A(ievt,371) = a2 * a2 * a2 * a2;
+     A(ievt,372) = y2 * y2 * y2 * y2;
+     A(ievt,373) = b2 * b2 * b2 * b2;
+     A(ievt,374) = y0 * y0 * y0 * y0;
+
+     A(ievt,375) = t * t * t * x3;
+     A(ievt,376) = t * t * t * a3;
+     A(ievt,377) = t * t * t * y3;
+     A(ievt,378) = t * t * t * b3;
+     A(ievt,379) = t * t * t * x0;
+     A(ievt,380) = t * t * t * x2;
+     A(ievt,381) = t * t * t * a2;
+     A(ievt,382) = t * t * t * y2;
+     A(ievt,383) = t * t * t * b2;
+     A(ievt,384) = t * t * t * y0;
+
+     A(ievt,385) = x3 * x3 * x3 * t;
+     A(ievt,386) = x3 * x3 * x3 * a3;
+     A(ievt,387) = x3 * x3 * x3 * y3;
+     A(ievt,388) = x3 * x3 * x3 * b3;
+     A(ievt,389) = x3 * x3 * x3 * x0;
+     A(ievt,390) = x3 * x3 * x3 * x2;
+     A(ievt,391) = x3 * x3 * x3 * a2;
+     A(ievt,392) = x3 * x3 * x3 * y2;
+     A(ievt,393) = x3 * x3 * x3 * b2;
+     A(ievt,394) = x3 * x3 * x3 * y0;
+
+     A(ievt,395) = a3 * a3 * a3 * t;
+     A(ievt,396) = a3 * a3 * a3 * x3;
+     A(ievt,397) = a3 * a3 * a3 * y3;
+     A(ievt,398) = a3 * a3 * a3 * b3;
+     A(ievt,399) = a3 * a3 * a3 * x0;
+     A(ievt,400) = a3 * a3 * a3 * x2;
+     A(ievt,401) = a3 * a3 * a3 * a2;
+     A(ievt,402) = a3 * a3 * a3 * y2;
+     A(ievt,403) = a3 * a3 * a3 * b2;
+     A(ievt,404) = a3 * a3 * a3 * y0;
+
+     A(ievt,405) = y3 * y3 * y3 * t;
+     A(ievt,406) = y3 * y3 * y3 * x3;
+     A(ievt,407) = y3 * y3 * y3 * a3;
+     A(ievt,408) = y3 * y3 * y3 * b3;
+     A(ievt,409) = y3 * y3 * y3 * x0;
+     A(ievt,410) = y3 * y3 * y3 * x2;
+     A(ievt,411) = y3 * y3 * y3 * a2;
+     A(ievt,412) = y3 * y3 * y3 * y2;
+     A(ievt,413) = y3 * y3 * y3 * b2;
+     A(ievt,414) = y3 * y3 * y3 * y0;
+
+     A(ievt,415) = b3 * b3 * b3 * t;
+     A(ievt,416) = b3 * b3 * b3 * x3;
+     A(ievt,417) = b3 * b3 * b3 * a3;
+     A(ievt,418) = b3 * b3 * b3 * y3;
+     A(ievt,419) = b3 * b3 * b3 * x0;
+     A(ievt,420) = b3 * b3 * b3 * x2;
+     A(ievt,421) = b3 * b3 * b3 * a2;
+     A(ievt,422) = b3 * b3 * b3 * y2;
+     A(ievt,423) = b3 * b3 * b3 * b2;
+     A(ievt,424) = b3 * b3 * b3 * y0;
+
+     A(ievt,425) = x0 * x0 * x0 * t;
+     A(ievt,426) = x0 * x0 * x0 * x3;
+     A(ievt,427) = x0 * x0 * x0 * a3;
+     A(ievt,428) = x0 * x0 * x0 * y3;
+     A(ievt,429) = x0 * x0 * x0 * b3;
+     A(ievt,430) = x0 * x0 * x0 * x2;
+     A(ievt,431) = x0 * x0 * x0 * a2;
+     A(ievt,432) = x0 * x0 * x0 * y2;
+     A(ievt,433) = x0 * x0 * x0 * b2;
+     A(ievt,434) = x0 * x0 * x0 * y0;
+
+     A(ievt,435) = x2 * x2 * x2 * t;
+     A(ievt,436) = x2 * x2 * x2 * x3;
+     A(ievt,437) = x2 * x2 * x2 * a3;
+     A(ievt,438) = x2 * x2 * x2 * y3;
+     A(ievt,439) = x2 * x2 * x2 * b3;
+     A(ievt,440) = x2 * x2 * x2 * x0;
+     A(ievt,441) = x2 * x2 * x2 * a2;
+     A(ievt,442) = x2 * x2 * x2 * y2;
+     A(ievt,443) = x2 * x2 * x2 * b2;
+     A(ievt,444) = x2 * x2 * x2 * y0;
+
+     A(ievt,445) = a2 * a2 * a2 * t;
+     A(ievt,446) = a2 * a2 * a2 * x3;
+     A(ievt,447) = a2 * a2 * a2 * a3;
+     A(ievt,448) = a2 * a2 * a2 * y3;
+     A(ievt,449) = a2 * a2 * a2 * b3;
+     A(ievt,450) = a2 * a2 * a2 * x0;
+     A(ievt,451) = a2 * a2 * a2 * x2;
+     A(ievt,452) = a2 * a2 * a2 * y2;
+     A(ievt,453) = a2 * a2 * a2 * b2;
+     A(ievt,454) = a2 * a2 * a2 * y0;
+
+     A(ievt,455) = y2 * y2 * y2 * t;
+     A(ievt,456) = y2 * y2 * y2 * x3;
+     A(ievt,457) = y2 * y2 * y2 * a3;
+     A(ievt,458) = y2 * y2 * y2 * y3;
+     A(ievt,459) = y2 * y2 * y2 * b3;
+     A(ievt,460) = y2 * y2 * y2 * x0;
+     A(ievt,461) = y2 * y2 * y2 * x2;
+     A(ievt,462) = y2 * y2 * y2 * a2;
+     A(ievt,463) = y2 * y2 * y2 * b2;
+     A(ievt,464) = y2 * y2 * y2 * y0;
+
+     A(ievt,465) = b2 * b2 * b2 * t;
+     A(ievt,466) = b2 * b2 * b2 * x3;
+     A(ievt,467) = b2 * b2 * b2 * a3;
+     A(ievt,468) = b2 * b2 * b2 * y3;
+     A(ievt,469) = b2 * b2 * b2 * b3;
+     A(ievt,470) = b2 * b2 * b2 * x0;
+     A(ievt,471) = b2 * b2 * b2 * x2;
+     A(ievt,472) = b2 * b2 * b2 * a2;
+     A(ievt,473) = b2 * b2 * b2 * y2;
+     A(ievt,474) = b2 * b2 * b2 * y0;
+
+     A(ievt,475) = y0 * y0 * y0 * t;
+     A(ievt,476) = y0 * y0 * y0 * x3;
+     A(ievt,477) = y0 * y0 * y0 * a3;
+     A(ievt,478) = y0 * y0 * y0 * y3;
+     A(ievt,479) = y0 * y0 * y0 * b3;
+     A(ievt,480) = y0 * y0 * y0 * x0;
+     A(ievt,481) = y0 * y0 * y0 * x2;
+     A(ievt,482) = y0 * y0 * y0 * a2;
+     A(ievt,483) = y0 * y0 * y0 * y2;
+     A(ievt,484) = y0 * y0 * y0 * b2;
+
+     A(ievt,485) = t * t * x3 * x3;
+     A(ievt,486) = t * t * a3 * a3;
+     A(ievt,487) = t * t * y3 * y3;
+     A(ievt,488) = t * t * b3 * b3;
+     A(ievt,489) = t * t * x0 * x0;
+     A(ievt,490) = t * t * x2 * x2;
+     A(ievt,491) = t * t * a2 * a2;
+     A(ievt,492) = t * t * y2 * y2;
+     A(ievt,493) = t * t * b2 * b2;
+     A(ievt,494) = t * t * y0 * y0;
+
+     A(ievt,495) = x3 * x3 * a3 * a3;
+     A(ievt,496) = x3 * x3 * y3 * y3;
+     A(ievt,497) = x3 * x3 * b3 * b3;
+     A(ievt,498) = x3 * x3 * x0 * x0;
+     A(ievt,499) = x3 * x3 * x2 * x2;
+     A(ievt,500) = x3 * x3 * a2 * a2;
+     A(ievt,501) = x3 * x3 * y2 * y2;
+     A(ievt,502) = x3 * x3 * b2 * b2;
+     A(ievt,503) = x3 * x3 * y0 * y0;
+
+     A(ievt,504) = a3 * a3 * y3 * y3;
+     A(ievt,505) = a3 * a3 * b3 * b3;
+     A(ievt,506) = a3 * a3 * x0 * x0;
+     A(ievt,507) = a3 * a3 * x2 * x2;
+     A(ievt,508) = a3 * a3 * a2 * a2;
+     A(ievt,509) = a3 * a3 * y2 * y2;
+     A(ievt,510) = a3 * a3 * b2 * b2;
+     A(ievt,512) = a3 * a3 * y0 * y0;
+
+     A(ievt,513) = y3 * y3 * b3 * b3;
+     A(ievt,514) = y3 * y3 * x0 * x0;
+     A(ievt,515) = y3 * y3 * x2 * x2;
+     A(ievt,516) = y3 * y3 * a2 * a2;
+     A(ievt,517) = y3 * y3 * y2 * y2;
+     A(ievt,518) = y3 * y3 * b2 * b2;
+     A(ievt,519) = y3 * y3 * y0 * y0;
+
+     A(ievt,520) = b3 * b3 * x0 * x0;
+     A(ievt,521) = b3 * b3 * x2 * x2;
+     A(ievt,522) = b3 * b3 * a2 * a2;
+     A(ievt,523) = b3 * b3 * y2 * y2;
+     A(ievt,524) = b3 * b3 * b2 * b2;
+     A(ievt,525) = b3 * b3 * y0 * y0;
+
+     A(ievt,526) = x0 * x0 * x2 * x2;
+     A(ievt,527) = x0 * x0 * a2 * a2;
+     A(ievt,528) = x0 * x0 * y2 * y2;
+     A(ievt,529) = x0 * x0 * b2 * b2;
+     A(ievt,530) = x0 * x0 * y0 * y0;
+
+     A(ievt,531) = x2 * x2 * a2 * a2;
+     A(ievt,532) = x2 * x2 * y2 * y2;
+     A(ievt,533) = x2 * x2 * b2 * b2;
+     A(ievt,534) = x2 * x2 * y0 * y0;
+
+     A(ievt,535) = a2 * a2 * y2 * y2;
+     A(ievt,536) = a2 * a2 * b2 * b2;
+     A(ievt,537) = a2 * a2 * y0 * y0;
+
+     A(ievt,538) = y2 * y2 * b2 * b2;
+     A(ievt,539) = y2 * y2 * y0 * y0;
+
+     A(ievt,540) = b2 * b2 * y0 * y0;
+
+     A(ievt,541) = t * t * x3 * a3;
+     A(ievt,542) = t * t * x3 * y3;
+     A(ievt,543) = t * t * x3 * b3;
+     A(ievt,544) = t * t * x3 * x0;
+     A(ievt,545) = t * t * x3 * x2;
+     A(ievt,546) = t * t * x3 * a2;
+     A(ievt,547) = t * t * x3 * y2;
+     A(ievt,548) = t * t * x3 * b2;
+     A(ievt,549) = t * t * x3 * y0;
+
+     A(ievt,550) = t * t * a3 * y3;
+     A(ievt,551) = t * t * a3 * b3;
+     A(ievt,552) = t * t * a3 * x0;
+     A(ievt,553) = t * t * a3 * x2;
+     A(ievt,554) = t * t * a3 * a2;
+     A(ievt,555) = t * t * a3 * y2;
+     A(ievt,556) = t * t * a3 * b2;
+     A(ievt,557) = t * t * a3 * y0;
+
+     A(ievt,558) = t * t * y3 * b3;
+     A(ievt,559) = t * t * y3 * x0;
+     A(ievt,560) = t * t * y3 * x2;
+     A(ievt,561) = t * t * y3 * a2;
+     A(ievt,562) = t * t * y3 * y2;
+     A(ievt,563) = t * t * y3 * b2;
+     A(ievt,564) = t * t * y3 * y0;
+
+     A(ievt,565) = t * t * b3 * x0;
+     A(ievt,566) = t * t * b3 * x2;
+     A(ievt,567) = t * t * b3 * a2;
+     A(ievt,568) = t * t * b3 * y2;
+     A(ievt,569) = t * t * b3 * b2;
+     A(ievt,570) = t * t * b3 * y0;
+
+     A(ievt,571) = t * t * x0 * x2;
+     A(ievt,572) = t * t * x0 * a2;
+     A(ievt,573) = t * t * x0 * y2;
+     A(ievt,574) = t * t * x0 * b2;
+     A(ievt,575) = t * t * x0 * y0;
+
+     A(ievt,576) = t * t * x2 * a2;
+     A(ievt,577) = t * t * x2 * y2;
+     A(ievt,578) = t * t * x2 * b2;
+     A(ievt,579) = t * t * x2 * y0;
+
+     A(ievt,580) = t * t * a2 * y2;
+     A(ievt,581) = t * t * a2 * b2;
+     A(ievt,582) = t * t * a2 * y0;
+
+     A(ievt,583) = t * t * y2 * b2;
+     A(ievt,584) = t * t * y2 * y0;
+
+     A(ievt,585) = t * t * b2 * y0;
+
+     A(ievt,586) = x3 * x3 * t * a3;
+     A(ievt,587) = x3 * x3 * t * y3;
+     A(ievt,588) = x3 * x3 * t * b3;
+     A(ievt,589) = x3 * x3 * t * x0;
+     A(ievt,590) = x3 * x3 * t * x2;
+     A(ievt,591) = x3 * x3 * t * a2;
+     A(ievt,592) = x3 * x3 * t * y2;
+     A(ievt,593) = x3 * x3 * t * b2;
+     A(ievt,594) = x3 * x3 * t * y0;
+
+     A(ievt,595) = x3 * x3 * a3 * y3;
+     A(ievt,596) = x3 * x3 * a3 * b3;
+     A(ievt,597) = x3 * x3 * a3 * x0;
+     A(ievt,598) = x3 * x3 * a3 * x2;
+     A(ievt,599) = x3 * x3 * a3 * a2;
+     A(ievt,560) = x3 * x3 * a3 * y2;
+     A(ievt,561) = x3 * x3 * a3 * b2;
+     A(ievt,562) = x3 * x3 * a3 * y0;
+
+     A(ievt,563) = x3 * x3 * y3 * b3;
+     A(ievt,564) = x3 * x3 * y3 * x0;
+     A(ievt,565) = x3 * x3 * y3 * x2;
+     A(ievt,566) = x3 * x3 * y3 * a2;
+     A(ievt,567) = x3 * x3 * y3 * y2;
+     A(ievt,568) = x3 * x3 * y3 * b2;
+     A(ievt,569) = x3 * x3 * y3 * y0;
+
+     A(ievt,570) = x3 * x3 * b3 * x0;
+     A(ievt,571) = x3 * x3 * b3 * x2;
+     A(ievt,572) = x3 * x3 * b3 * a2;
+     A(ievt,573) = x3 * x3 * b3 * y2;
+     A(ievt,574) = x3 * x3 * b3 * b2;
+     A(ievt,575) = x3 * x3 * b3 * y0;
+
+     A(ievt,576) = x3 * x3 * x0 * x2;
+     A(ievt,577) = x3 * x3 * x0 * a2;
+     A(ievt,578) = x3 * x3 * x0 * y2;
+     A(ievt,579) = x3 * x3 * x0 * b2;
+     A(ievt,580) = x3 * x3 * x0 * y0;
+
+     A(ievt,581) = x3 * x3 * x2 * a2;
+     A(ievt,582) = x3 * x3 * x2 * y2;
+     A(ievt,583) = x3 * x3 * x2 * b2;
+     A(ievt,584) = x3 * x3 * x2 * y0;
+
+     A(ievt,585) = x3 * x3 * a2 * y2;
+     A(ievt,586) = x3 * x3 * a2 * b2;
+     A(ievt,587) = x3 * x3 * a2 * y0;
+
+     A(ievt,588) = x3 * x3 * y2 * b2;
+     A(ievt,589) = x3 * x3 * y2 * y0;
+
+     A(ievt,590) = x3 * x3 * b2 * y0;
+
+     A(ievt,591) = a3 * a3 * t * x3;
+     A(ievt,592) = a3 * a3 * t * y3;
+     A(ievt,593) = a3 * a3 * t * b3;
+     A(ievt,594) = a3 * a3 * t * x0;
+     A(ievt,595) = a3 * a3 * t * x2;
+     A(ievt,596) = a3 * a3 * t * a2;
+     A(ievt,597) = a3 * a3 * t * y2;
+     A(ievt,598) = a3 * a3 * t * b2;
+     A(ievt,599) = a3 * a3 * t * y0;
+
+     A(ievt,600) = a3 * a3 * x3 * y3;
+     A(ievt,601) = a3 * a3 * x3 * b3;
+     A(ievt,602) = a3 * a3 * x3 * x0;
+     A(ievt,603) = a3 * a3 * x3 * x2;
+     A(ievt,604) = a3 * a3 * x3 * a2;
+     A(ievt,605) = a3 * a3 * x3 * y2;
+     A(ievt,606) = a3 * a3 * x3 * b2;
+     A(ievt,607) = a3 * a3 * x3 * y0;
+
+     A(ievt,608) = a3 * a3 * y3 * b3;
+     A(ievt,609) = a3 * a3 * y3 * x0;
+     A(ievt,610) = a3 * a3 * y3 * x2;
+     A(ievt,612) = a3 * a3 * y3 * a2;
+     A(ievt,613) = a3 * a3 * y3 * y2;
+     A(ievt,614) = a3 * a3 * y3 * b2;
+     A(ievt,615) = a3 * a3 * y3 * y0;
+
+     A(ievt,616) = a3 * a3 * b3 * x0;
+     A(ievt,617) = a3 * a3 * b3 * x2;
+     A(ievt,618) = a3 * a3 * b3 * a2;
+     A(ievt,619) = a3 * a3 * b3 * y2;
+     A(ievt,620) = a3 * a3 * b3 * b2;
+     A(ievt,621) = a3 * a3 * b3 * y0;
+
+     A(ievt,622) = a3 * a3 * x0 * x2;
+     A(ievt,623) = a3 * a3 * x0 * a2;
+     A(ievt,624) = a3 * a3 * x0 * y2;
+     A(ievt,625) = a3 * a3 * x0 * b2;
+     A(ievt,626) = a3 * a3 * x0 * y0;
+
+     A(ievt,627) = a3 * a3 * x2 * a2;
+     A(ievt,628) = a3 * a3 * x2 * y2;
+     A(ievt,629) = a3 * a3 * x2 * b2;
+     A(ievt,630) = a3 * a3 * x2 * y0;
+
+     A(ievt,631) = a3 * a3 * a2 * y2;
+     A(ievt,632) = a3 * a3 * a2 * b2;
+     A(ievt,633) = a3 * a3 * a2 * y0;
+
+     A(ievt,634) = a3 * a3 * y2 * b2;
+     A(ievt,635) = a3 * a3 * y2 * y0;
+
+     A(ievt,636) = a3 * a3 * b2 * y0;
+
+     A(ievt,637) = y3 * y3 * t * x3;
+     A(ievt,638) = y3 * y3 * t * a3;
+     A(ievt,639) = y3 * y3 * t * b3;
+     A(ievt,640) = y3 * y3 * t * x0;
+     A(ievt,641) = y3 * y3 * t * x2;
+     A(ievt,642) = y3 * y3 * t * a2;
+     A(ievt,643) = y3 * y3 * t * y2;
+     A(ievt,644) = y3 * y3 * t * b2;
+     A(ievt,645) = y3 * y3 * t * y0;
+
+     A(ievt,646) = y3 * y3 * x3 * a3;
+     A(ievt,647) = y3 * y3 * x3 * b3;
+     A(ievt,648) = y3 * y3 * x3 * x0;
+     A(ievt,649) = y3 * y3 * x3 * x2;
+     A(ievt,650) = y3 * y3 * x3 * a2;
+     A(ievt,651) = y3 * y3 * x3 * y2;
+     A(ievt,652) = y3 * y3 * x3 * b2;
+     A(ievt,653) = y3 * y3 * x3 * y0;
+
+     A(ievt,654) = y3 * y3 * a3 * b3;
+     A(ievt,655) = y3 * y3 * a3 * x0;
+     A(ievt,656) = y3 * y3 * a3 * x2;
+     A(ievt,657) = y3 * y3 * a3 * a2;
+     A(ievt,658) = y3 * y3 * a3 * y2;
+     A(ievt,659) = y3 * y3 * a3 * b2;
+     A(ievt,660) = y3 * y3 * a3 * y0;
+
+     A(ievt,661) = y3 * y3 * b3 * x0;
+     A(ievt,662) = y3 * y3 * b3 * x2;
+     A(ievt,663) = y3 * y3 * b3 * a2;
+     A(ievt,664) = y3 * y3 * b3 * y2;
+     A(ievt,665) = y3 * y3 * b3 * b2;
+     A(ievt,666) = y3 * y3 * b3 * y0;
+
+     A(ievt,667) = y3 * y3 * x0 * x2;
+     A(ievt,668) = y3 * y3 * x0 * a2;
+     A(ievt,669) = y3 * y3 * x0 * y2;
+     A(ievt,670) = y3 * y3 * x0 * b2;
+     A(ievt,671) = y3 * y3 * x0 * y0;
+
+     A(ievt,672) = y3 * y3 * x2 * a2;
+     A(ievt,673) = y3 * y3 * x2 * y2;
+     A(ievt,674) = y3 * y3 * x2 * b2;
+     A(ievt,675) = y3 * y3 * x2 * y0;
+
+     A(ievt,678) = y3 * y3 * a2 * y2;
+     A(ievt,679) = y3 * y3 * a2 * b2;
+     A(ievt,680) = y3 * y3 * a2 * y0;
+
+     A(ievt,681) = y3 * y3 * y2 * b2;
+     A(ievt,682) = y3 * y3 * y2 * y0;
+
+     A(ievt,683) = y3 * y3 * b2 * y0;
+
+     A(ievt,684) = b3 * b3 * t * x3;
+     A(ievt,685) = b3 * b3 * t * a3;
+     A(ievt,686) = b3 * b3 * t * y3;
+     A(ievt,687) = b3 * b3 * t * x0;
+     A(ievt,688) = b3 * b3 * t * x2;
+     A(ievt,689) = b3 * b3 * t * a2;
+     A(ievt,690) = b3 * b3 * t * y2;
+     A(ievt,691) = b3 * b3 * t * b2;
+     A(ievt,692) = b3 * b3 * t * y0;
+
+     A(ievt,693) = b3 * b3 * x3 * a3;
+     A(ievt,694) = b3 * b3 * x3 * y3;
+     A(ievt,695) = b3 * b3 * x3 * x0;
+     A(ievt,696) = b3 * b3 * x3 * x2;
+     A(ievt,697) = b3 * b3 * x3 * a2;
+     A(ievt,698) = b3 * b3 * x3 * y2;
+     A(ievt,699) = b3 * b3 * x3 * b2;
+     A(ievt,700) = b3 * b3 * x3 * y0;
+
+     A(ievt,701) = b3 * b3 * a3 * y3;
+     A(ievt,702) = b3 * b3 * a3 * x0;
+     A(ievt,703) = b3 * b3 * a3 * x2;
+     A(ievt,704) = b3 * b3 * a3 * a2;
+     A(ievt,705) = b3 * b3 * a3 * y2;
+     A(ievt,706) = b3 * b3 * a3 * b2;
+     A(ievt,707) = b3 * b3 * a3 * y0;
+
+     A(ievt,708) = b3 * b3 * y3 * x0;
+     A(ievt,709) = b3 * b3 * y3 * x2;
+     A(ievt,710) = b3 * b3 * y3 * a2;
+     A(ievt,711) = b3 * b3 * y3 * y2;
+     A(ievt,712) = b3 * b3 * y3 * b2;
+     A(ievt,713) = b3 * b3 * y3 * y0;
+
+     A(ievt,714) = b3 * b3 * x0 * x2;
+     A(ievt,715) = b3 * b3 * x0 * a2;
+     A(ievt,716) = b3 * b3 * x0 * y2;
+     A(ievt,717) = b3 * b3 * x0 * b2;
+     A(ievt,718) = b3 * b3 * x0 * y0;
+
+     A(ievt,719) = b3 * b3 * x2 * a2;
+     A(ievt,720) = b3 * b3 * x2 * y2;
+     A(ievt,721) = b3 * b3 * x2 * b2;
+     A(ievt,722) = b3 * b3 * x2 * y0;
+
+     A(ievt,723) = b3 * b3 * a2 * y2;
+     A(ievt,724) = b3 * b3 * a2 * b2;
+     A(ievt,725) = b3 * b3 * a2 * y0;
+
+     A(ievt,726) = b3 * b3 * y2 * b2;
+     A(ievt,727) = b3 * b3 * y2 * y0;
+
+     A(ievt,728) = b3 * b3 * b2 * y0;
+
+     A(ievt,) = x0 * x0 * t * x3;
+     A(ievt,) = x0 * x0 * t * a3;
+     A(ievt,) = x0 * x0 * t * y3;
+     A(ievt,) = x0 * x0 * t * b3;
+     A(ievt,) = x0 * x0 * t * x2;
+     A(ievt,) = x0 * x0 * t * a2;
+     A(ievt,) = x0 * x0 * t * y2;
+     A(ievt,) = x0 * x0 * t * b2;
+     A(ievt,) = x0 * x0 * t * y0;
+
+     A(ievt,) = x0 * x0 * x3 * a3;
+     A(ievt,) = x0 * x0 * x3 * y3;
+     A(ievt,) = x0 * x0 * x3 * b3;
+     A(ievt,) = x0 * x0 * x3 * x2;
+     A(ievt,) = x0 * x0 * x3 * a2;
+     A(ievt,) = x0 * x0 * x3 * y2;
+     A(ievt,) = x0 * x0 * x3 * b2;
+     A(ievt,) = x0 * x0 * x3 * y0;
+
+     A(ievt,) = x0 * x0 * a3 * y3;
+     A(ievt,) = x0 * x0 * a3 * b3;
+     A(ievt,) = x0 * x0 * a3 * x2;
+     A(ievt,) = x0 * x0 * a3 * a2;
+     A(ievt,) = x0 * x0 * a3 * y2;
+     A(ievt,) = x0 * x0 * a3 * b2;
+     A(ievt,) = x0 * x0 * a3 * y0;
+
+     A(ievt,) = x0 * x0 * y3 * b3;
+     A(ievt,) = x0 * x0 * y3 * x2;
+     A(ievt,) = x0 * x0 * y3 * a2;
+     A(ievt,) = x0 * x0 * y3 * y2;
+     A(ievt,) = x0 * x0 * y3 * b2;
+     A(ievt,) = x0 * x0 * y3 * y0;
+
+     A(ievt,) = x0 * x0 * b3 * x2;
+     A(ievt,) = x0 * x0 * b3 * a2;
+     A(ievt,) = x0 * x0 * b3 * y2;
+     A(ievt,) = x0 * x0 * b3 * b2;
+     A(ievt,) = x0 * x0 * b3 * y0;
+
+     A(ievt,) = x0 * x0 * x2 * a2;
+     A(ievt,) = x0 * x0 * x2 * y2;
+     A(ievt,) = x0 * x0 * x2 * b2;
+     A(ievt,) = x0 * x0 * x2 * y0;
+
+     A(ievt,) = x0 * x0 * a2 * y2;
+     A(ievt,) = x0 * x0 * a2 * b2;
+     A(ievt,) = x0 * x0 * a2 * y0;
+
+     A(ievt,) = x0 * x0 * y2 * b2;
+     A(ievt,) = x0 * x0 * y2 * y0;
+
+     A(ievt,) = x0 * x0 * b2 * y0;
+
+     A(ievt,647) = x2 * x2 * t * x3;
+     A(ievt,648) = x2 * x2 * t * a3;
+     A(ievt,649) = x2 * x2 * t * y3;
+     A(ievt,650) = x2 * x2 * t * b3;
+     A(ievt,651) = x2 * x2 * t * x0;
+     A(ievt,652) = x2 * x2 * t * a2;
+     A(ievt,653) = x2 * x2 * t * y2;
+     A(ievt,654) = x2 * x2 * t * b2;
+     A(ievt,654) = x2 * x2 * t * y0;
+
+     A(ievt,655) = x2 * x2 * x3 * a3;
+     A(ievt,656) = x2 * x2 * x3 * y3;
+     A(ievt,657) = x2 * x2 * x3 * b3;
+     A(ievt,658) = x2 * x2 * x3 * x0;
+     A(ievt,659) = x2 * x2 * x3 * a2;
+     A(ievt,660) = x2 * x2 * x3 * y2;
+     A(ievt,661) = x2 * x2 * x3 * b2;
+     A(ievt,661) = x2 * x2 * x3 * y0;
+
+     A(ievt,662) = x2 * x2 * a3 * y3;
+     A(ievt,663) = x2 * x2 * a3 * b3;
+     A(ievt,664) = x2 * x2 * a3 * x0;
+     A(ievt,665) = x2 * x2 * a3 * a2;
+     A(ievt,666) = x2 * x2 * a3 * y2;
+     A(ievt,667) = x2 * x2 * a3 * b2;
+     A(ievt,667) = x2 * x2 * a3 * y0;
+
+     A(ievt,668) = x2 * x2 * y3 * b3;
+     A(ievt,669) = x2 * x2 * y3 * x0;
+     A(ievt,670) = x2 * x2 * y3 * a2;
+     A(ievt,671) = x2 * x2 * y3 * y2;
+     A(ievt,672) = x2 * x2 * y3 * b2;
+     A(ievt,672) = x2 * x2 * y3 * y0;
+
+     A(ievt,673) = x2 * x2 * b3 * x0;
+     A(ievt,674) = x2 * x2 * b3 * a2;
+     A(ievt,675) = x2 * x2 * b3 * y2;
+     A(ievt,676) = x2 * x2 * b3 * b2;
+     A(ievt,676) = x2 * x2 * b3 * y0;
+
+     A(ievt,677) = x2 * x2 * x0 * a2;
+     A(ievt,678) = x2 * x2 * x0 * y2;
+     A(ievt,679) = x2 * x2 * x0 * b2;
+     A(ievt,679) = x2 * x2 * x0 * y0;
+
+     A(ievt,680) = x2 * x2 * a2 * y2;
+     A(ievt,681) = x2 * x2 * a2 * b2;
+     A(ievt,681) = x2 * x2 * a2 * y0;
+
+     A(ievt,682) = x2 * x2 * y2 * b2;
+     A(ievt,682) = x2 * x2 * y2 * y0;
+
+     A(ievt,682) = x2 * x2 * b2 * y0;
+
+     A(ievt,683) = a2 * a2 * t * x3;
+     A(ievt,684) = a2 * a2 * t * a3;
+     A(ievt,685) = a2 * a2 * t * y3;
+     A(ievt,686) = a2 * a2 * t * b3;
+     A(ievt,687) = a2 * a2 * t * x0;
+     A(ievt,688) = a2 * a2 * t * x2;
+     A(ievt,689) = a2 * a2 * t * y2;
+     A(ievt,691) = a2 * a2 * t * b2;
+     A(ievt,691) = a2 * a2 * t * y0;
+
+     A(ievt,692) = a2 * a2 * x3 * a3;
+     A(ievt,694) = a2 * a2 * x3 * y3;
+     A(ievt,695) = a2 * a2 * x3 * b3;
+     A(ievt,696) = a2 * a2 * x3 * x0;
+     A(ievt,697) = a2 * a2 * x3 * x2;
+     A(ievt,698) = a2 * a2 * x3 * y2;
+     A(ievt,699) = a2 * a2 * x3 * b2;
+     A(ievt,699) = a2 * a2 * x3 * y0;
+
+     A(ievt,700) = a2 * a2 * a3 * y3;
+     A(ievt,701) = a2 * a2 * a3 * b3;
+     A(ievt,702) = a2 * a2 * a3 * x0;
+     A(ievt,703) = a2 * a2 * a3 * x2;
+     A(ievt,704) = a2 * a2 * a3 * y2;
+     A(ievt,705) = a2 * a2 * a3 * b2;
+     A(ievt,705) = a2 * a2 * a3 * y0;
+
+     A(ievt,706) = a2 * a2 * y3 * b3;
+     A(ievt,707) = a2 * a2 * y3 * x0;
+     A(ievt,708) = a2 * a2 * y3 * x2;
+     A(ievt,709) = a2 * a2 * y3 * y2;
+     A(ievt,710) = a2 * a2 * y3 * b2;
+     A(ievt,710) = a2 * a2 * y3 * y0;
+
+     A(ievt,712) = a2 * a2 * b3 * x0;
+     A(ievt,713) = a2 * a2 * b3 * x2;
+     A(ievt,714) = a2 * a2 * b3 * y2;
+     A(ievt,715) = a2 * a2 * b3 * b2;
+     A(ievt,715) = a2 * a2 * b3 * y0;
+
+     A(ievt,716) = a2 * a2 * x0 * x2;
+     A(ievt,717) = a2 * a2 * x0 * y2;
+     A(ievt,718) = a2 * a2 * x0 * b2;
+     A(ievt,718) = a2 * a2 * x0 * y0;
+
+     A(ievt,719) = a2 * a2 * x2 * y2;
+     A(ievt,720) = a2 * a2 * x2 * b2;
+     A(ievt,720) = a2 * a2 * x2 * y0;
+
+     A(ievt,721) = a2 * a2 * y2 * b2;
+     A(ievt,721) = a2 * a2 * y2 * y0;
+
+     A(ievt,721) = a2 * a2 * b2 * y0;
+
+     A(ievt,722) = y2 * y2 * t * x3;
+     A(ievt,723) = y2 * y2 * t * a3;
+     A(ievt,724) = y2 * y2 * t * y3;
+     A(ievt,725) = y2 * y2 * t * b3;
+     A(ievt,726) = y2 * y2 * t * x0;
+     A(ievt,727) = y2 * y2 * t * x2;
+     A(ievt,728) = y2 * y2 * t * a2;
+     A(ievt,729) = y2 * y2 * t * b2;
+     A(ievt,729) = y2 * y2 * t * y0;
+
+     A(ievt,730) = y2 * y2 * x3 * a3;
+     A(ievt,731) = y2 * y2 * x3 * y3;
+     A(ievt,732) = y2 * y2 * x3 * b3;
+     A(ievt,733) = y2 * y2 * x3 * x0;
+     A(ievt,734) = y2 * y2 * x3 * x2;
+     A(ievt,735) = y2 * y2 * x3 * a2;
+     A(ievt,736) = y2 * y2 * x3 * b2;
+     A(ievt,736) = y2 * y2 * x3 * y0;
+
+     A(ievt,737) = y2 * y2 * a3 * y3;
+     A(ievt,734) = y2 * y2 * a3 * b3;
+     A(ievt,735) = y2 * y2 * a3 * x0;
+     A(ievt,736) = y2 * y2 * a3 * x2;
+     A(ievt,737) = y2 * y2 * a3 * a2;
+     A(ievt,738) = y2 * y2 * a3 * b2;
+     A(ievt,738) = y2 * y2 * a3 * y0;
+
+     A(ievt,739) = y2 * y2 * y3 * b3;
+     A(ievt,740) = y2 * y2 * y3 * x0;
+     A(ievt,741) = y2 * y2 * y3 * x2;
+     A(ievt,742) = y2 * y2 * y3 * a2;
+     A(ievt,743) = y2 * y2 * y3 * b2;
+     A(ievt,743) = y2 * y2 * y3 * y0;
+
+     A(ievt,744) = y2 * y2 * b3 * x0;
+     A(ievt,745) = y2 * y2 * b3 * x2;
+     A(ievt,746) = y2 * y2 * b3 * a2;
+     A(ievt,747) = y2 * y2 * b3 * b2;
+     A(ievt,747) = y2 * y2 * b3 * y0;
+
+     A(ievt,748) = y2 * y2 * x0 * x2;
+     A(ievt,749) = y2 * y2 * x0 * a2;
+     A(ievt,750) = y2 * y2 * x0 * b2;
+     A(ievt,750) = y2 * y2 * x0 * y0;
+
+     A(ievt,751) = y2 * y2 * x2 * a2;
+     A(ievt,752) = y2 * y2 * x2 * b2;
+     A(ievt,752) = y2 * y2 * x2 * y0;
+
+     A(ievt,753) = y2 * y2 * a2 * b2;
+     A(ievt,753) = y2 * y2 * a2 * y0;
+
+     A(ievt,753) = y2 * y2 * b2 * y0;
+	 
+     A(ievt,754) = b2 * b2 * t * x3;
+     A(ievt,755) = b2 * b2 * t * a3;
+     A(ievt,756) = b2 * b2 * t * y3;
+     A(ievt,757) = b2 * b2 * t * b3;
+     A(ievt,758) = b2 * b2 * t * x0;
+     A(ievt,759) = b2 * b2 * t * x2;
+     A(ievt,760) = b2 * b2 * t * a2;
+     A(ievt,761) = b2 * b2 * t * y2;
+     A(ievt,761) = b2 * b2 * t * y0;
+
+     A(ievt,762) = b2 * b2 * x3 * a3;
+     A(ievt,763) = b2 * b2 * x3 * y3;
+     A(ievt,764) = b2 * b2 * x3 * b3;
+     A(ievt,765) = b2 * b2 * x3 * x0;
+     A(ievt,766) = b2 * b2 * x3 * x2;
+     A(ievt,767) = b2 * b2 * x3 * a2;
+     A(ievt,768) = b2 * b2 * x3 * y2;
+     A(ievt,768) = b2 * b2 * x3 * y0;
+
+     A(ievt,769) = b2 * b2 * a3 * y3;
+     A(ievt,770) = b2 * b2 * a3 * b3;
+     A(ievt,771) = b2 * b2 * a3 * x0;
+     A(ievt,772) = b2 * b2 * a3 * x2;
+     A(ievt,773) = b2 * b2 * a3 * a2;
+     A(ievt,774) = b2 * b2 * a3 * y2;
+     A(ievt,774) = b2 * b2 * a3 * y0;
+
+     A(ievt,775) = b2 * b2 * y3 * b3;
+     A(ievt,776) = b2 * b2 * y3 * x0;
+     A(ievt,778) = b2 * b2 * y3 * x2;
+     A(ievt,779) = b2 * b2 * y3 * a2;
+     A(ievt,780) = b2 * b2 * y3 * y0;
+
+     A(ievt,781) = b2 * b2 * b3 * x0;
+     A(ievt,782) = b2 * b2 * b3 * x2;
+     A(ievt,783) = b2 * b2 * b3 * a2;
+     A(ievt,784) = b2 * b2 * b3 * y2;
+     A(ievt,784) = b2 * b2 * b3 * y0;
+
+     A(ievt,785) = b2 * b2 * x0 * x2;
+     A(ievt,786) = b2 * b2 * x0 * a2;
+     A(ievt,787) = b2 * b2 * x0 * y2;
+     A(ievt,787) = b2 * b2 * x0 * y0;
+
+     A(ievt,788) = b2 * b2 * x2 * a2;
+     A(ievt,789) = b2 * b2 * x2 * y2;
+     A(ievt,789) = b2 * b2 * x2 * y0;
+
+     A(ievt,790) = b2 * b2 * a2 * y2;
+     A(ievt,790) = b2 * b2 * a2 * y0;
+
+     A(ievt,790) = b2 * b2 * y2 * y0;
+
+     A(ievt,754) = y0 * y0 * t * x3;
+     A(ievt,755) = y0 * y0 * t * a3;
+     A(ievt,756) = y0 * y0 * t * y3;
+     A(ievt,757) = y0 * y0 * t * b3;
+     A(ievt,758) = y0 * y0 * t * x0;
+     A(ievt,759) = y0 * y0 * t * x2;
+     A(ievt,760) = y0 * y0 * t * a2;
+     A(ievt,761) = y0 * y0 * t * y2;
+     A(ievt,761) = y0 * y0 * t * b2;
+
+     A(ievt,762) = y0 * y0 * x3 * a3;
+     A(ievt,763) = y0 * y0 * x3 * y3;
+     A(ievt,764) = y0 * y0 * x3 * b3;
+     A(ievt,765) = y0 * y0 * x3 * x0;
+     A(ievt,766) = y0 * y0 * x3 * x2;
+     A(ievt,767) = y0 * y0 * x3 * a2;
+     A(ievt,768) = y0 * y0 * x3 * y2;
+     A(ievt,768) = y0 * y0 * x3 * b2;
+
+     A(ievt,769) = y0 * y0 * a3 * y3;
+     A(ievt,770) = y0 * y0 * a3 * b3;
+     A(ievt,771) = y0 * y0 * a3 * x0;
+     A(ievt,772) = y0 * y0 * a3 * x2;
+     A(ievt,773) = y0 * y0 * a3 * a2;
+     A(ievt,774) = y0 * y0 * a3 * y2;
+     A(ievt,774) = y0 * y0 * a3 * b2;
+
+     A(ievt,775) = y0 * y0 * y3 * b3;
+     A(ievt,776) = y0 * y0 * y3 * x0;
+     A(ievt,778) = y0 * y0 * y3 * x2;
+     A(ievt,779) = y0 * y0 * y3 * a2;
+     A(ievt,780) = y0 * y0 * y3 * b2;
+
+     A(ievt,781) = y0 * y0 * b3 * x3;
+     A(ievt,782) = y0 * y0 * b3 * x2;
+     A(ievt,783) = y0 * y0 * b3 * a2;
+     A(ievt,784) = y0 * y0 * b3 * y2;
+     A(ievt,784) = y0 * y0 * b3 * b2;
+
+     A(ievt,785) = y0 * y0 * x0 * x2;
+     A(ievt,786) = y0 * y0 * x0 * a2;
+     A(ievt,787) = y0 * y0 * x0 * y2;
+     A(ievt,787) = y0 * y0 * x0 * b2;
+
+     A(ievt,788) = y0 * y0 * x2 * a2;
+     A(ievt,789) = y0 * y0 * x2 * y2;
+     A(ievt,789) = y0 * y0 * x2 * b2;
+
+     A(ievt,790) = y0 * y0 * a2 * y2;
+     A(ievt,790) = y0 * y0 * a2 * b2;
+
+     A(ievt,790) = y0 * y0 * y2 * b2;
+
+     A(ievt,791) = t * x3 * a3 * y3;
+     A(ievt,792) = t * x3 * a3 * b3;
+     A(ievt,793) = t * x3 * a3 * x0;
+     A(ievt,794) = t * x3 * a3 * x2;
+     A(ievt,795) = t * x3 * a3 * a2;
+     A(ievt,796) = t * x3 * a3 * y2;
+     A(ievt,797) = t * x3 * a3 * b2;
+     A(ievt,797) = t * x3 * a3 * y0;
+
+     A(ievt,798) = t * x3 * y3 * b3;
+     A(ievt,799) = t * x3 * y3 * x0;
+     A(ievt,800) = t * x3 * y3 * x2;
+     A(ievt,801) = t * x3 * y3 * a2;
+     A(ievt,802) = t * x3 * y3 * y2;
+     A(ievt,803) = t * x3 * y3 * b2;
+     A(ievt,803) = t * x3 * y3 * y0;
+
+     A(ievt,804) = t * x3 * b3 * x0;
+     A(ievt,805) = t * x3 * b3 * x2;
+     A(ievt,806) = t * x3 * b3 * a2;
+     A(ievt,807) = t * x3 * b3 * y2;
+     A(ievt,808) = t * x3 * b3 * b2;
+     A(ievt,808) = t * x3 * b3 * y0;
+
+     A(ievt,809) = t * x3 * x0 * x2;
+     A(ievt,810) = t * x3 * x0 * a2;
+     A(ievt,811) = t * x3 * x0 * y2;
+     A(ievt,812) = t * x3 * x0 * b2;
+     A(ievt,812) = t * x3 * x0 * y0;
+
+     A(ievt,813) = t * x3 * x2 * a2;
+     A(ievt,814) = t * x3 * x2 * y2;
+     A(ievt,815) = t * x3 * x2 * b2;
+     A(ievt,816) = t * x3 * a2 * y2;
+     A(ievt,817) = t * x3 * a2 * b2;
+     A(ievt,817) = t * x3 * a2 * y0;
+
+     A(ievt,818) = t * x3 * y2 * b2;
+     A(ievt,818) = t * x3 * y2 * y0;
+
+     A(ievt,818) = t * x3 * b2 * y0;
+
+     A(ievt,819) = t * a3 * y3 * b3;
+     A(ievt,820) = t * a3 * y3 * x0;
+     A(ievt,821) = t * a3 * y3 * x2;
+     A(ievt,822) = t * a3 * y3 * a2;
+     A(ievt,823) = t * a3 * y3 * y2;
+     A(ievt,824) = t * a3 * y3 * b2;
+     A(ievt,824) = t * a3 * y3 * y0;
+
+     A(ievt,825) = t * a3 * b3 * x0;
+     A(ievt,826) = t * a3 * b3 * x2;
+     A(ievt,827) = t * a3 * b3 * a2;
+     A(ievt,828) = t * a3 * b3 * y2;
+     A(ievt,829) = t * a3 * b3 * b2;
+     A(ievt,829) = t * a3 * b3 * y0;
+
+     A(ievt,830) = t * a3 * x0 * x2;
+     A(ievt,831) = t * a3 * x0 * a2;
+     A(ievt,832) = t * a3 * x0 * y2;
+     A(ievt,833) = t * a3 * x0 * b2;
+     A(ievt,833) = t * a3 * x0 * y0;
+
+     A(ievt,834) = t * a3 * x2 * a2;
+     A(ievt,835) = t * a3 * x2 * y2;
+     A(ievt,836) = t * a3 * x2 * b2;
+     A(ievt,836) = t * a3 * x2 * y0;
+
+     A(ievt,837) = t * a3 * a2 * y2;
+     A(ievt,838) = t * a3 * a2 * b2;
+     A(ievt,838) = t * a3 * a2 * y0;
+
+     A(ievt,839) = t * a3 * y2 * b2;
+     A(ievt,839) = t * a3 * y2 * y0;
+
+     A(ievt,839) = t * a3 * b2 * y0;
+
+     A(ievt,840) = t * y3 * b3 * x0;
+     A(ievt,841) = t * y3 * b3 * x2;
+     A(ievt,842) = t * y3 * b3 * a2;
+     A(ievt,843) = t * y3 * b3 * y2;
+     A(ievt,844) = t * y3 * b3 * b2;
+     A(ievt,844) = t * y3 * b3 * y0;
+
+     A(ievt,845) = t * y3 * x0 * x2;
+     A(ievt,846) = t * y3 * x0 * a2;
+     A(ievt,847) = t * y3 * x0 * y2;
+     A(ievt,848) = t * y3 * x0 * b2;
+     A(ievt,848) = t * y3 * x0 * y0;
+
+     A(ievt,849) = t * y3 * x2 * a2;
+     A(ievt,850) = t * y3 * x2 * y2;
+     A(ievt,851) = t * y3 * x2 * b2;
+     A(ievt,851) = t * y3 * x2 * y0;
+
+     A(ievt,852) = t * y3 * a2 * y2;
+     A(ievt,853) = t * y3 * a2 * b2;
+     A(ievt,853) = t * y3 * a2 * y0;
+
+     A(ievt,854) = t * y3 * y2 * b2;
+     A(ievt,854) = t * y3 * y2 * y0;
+
+     A(ievt,854) = t * y3 * b2 * y0;
+
+     A(ievt,855) = t * b3 * x0 * x2;
+     A(ievt,856) = t * b3 * x0 * a2;
+     A(ievt,857) = t * b3 * x0 * y2;
+     A(ievt,858) = t * b3 * x0 * b2;
+     A(ievt,858) = t * b3 * x0 * y0;
+
+     A(ievt,859) = t * b3 * x2 * a2;
+     A(ievt,860) = t * b3 * x2 * y2;
+     A(ievt,861) = t * b3 * x2 * b2;
+     A(ievt,861) = t * b3 * x2 * y0;
+
+     A(ievt,862) = t * b3 * a2 * y2;
+     A(ievt,863) = t * b3 * a2 * b2;
+     A(ievt,863) = t * b3 * a2 * y0;
+
+     A(ievt,864) = t * b3 * y2 * b2;
+     A(ievt,864) = t * b3 * y2 * y0;
+
+     A(ievt,864) = t * b3 * b2 * y0;
+
+     A(ievt,865) = t * x0 * x2 * a2;
+     A(ievt,866) = t * x0 * x2 * y2;
+     A(ievt,867) = t * x0 * x2 * b2;
+     A(ievt,867) = t * x0 * x2 * y0;
+
+     A(ievt,868) = t * x0 * a2 * y2;
+     A(ievt,869) = t * x0 * a2 * b2;
+     A(ievt,869) = t * x0 * a2 * y0;
+
+     A(ievt,870) = t * x0 * y2 * b2;
+     A(ievt,870) = t * x0 * y2 * y0;
+
+     A(ievt,870) = t * x0 * b2 * y0;
+
+     A(ievt,871) = t * x2 * a2 * y2;
+     A(ievt,872) = t * x2 * a2 * b2;
+     A(ievt,872) = t * x2 * a2 * y0;
+
+     A(ievt,873) = t * x2 * y2 * b2;
+     A(ievt,873) = t * x2 * y2 * y0;
+
+     A(ievt,873) = t * x2 * b2 * y0;
+
+     A(ievt,874) = t * a2 * y2 * b2;
+     A(ievt,874) = t * a2 * y2 * y0;
+
+     A(ievt,874) = t * a2 * b2 * y0;
+
+     A(ievt,874) = t * y2 * b2 * y0;
+
+     A(ievt,875) = x3 * a3 * y3 * b3;
+     A(ievt,876) = x3 * a3 * y3 * x0;
+     A(ievt,877) = x3 * a3 * y3 * x2;
+     A(ievt,878) = x3 * a3 * y3 * a2;
+     A(ievt,879) = x3 * a3 * y3 * y2;
+     A(ievt,880) = x3 * a3 * y3 * b2;
+     A(ievt,880) = x3 * a3 * y3 * y0;
+
+     A(ievt,881) = x3 * a3 * b3 * x0;
+     A(ievt,882) = x3 * a3 * b3 * x2;
+     A(ievt,883) = x3 * a3 * b3 * a2;
+     A(ievt,884) = x3 * a3 * b3 * y2;
+     A(ievt,885) = x3 * a3 * b3 * b2;
+     A(ievt,885) = x3 * a3 * b3 * y0;
+
+     A(ievt,886) = x3 * a3 * x0 * x2;
+     A(ievt,887) = x3 * a3 * x0 * a2;
+     A(ievt,888) = x3 * a3 * x0 * y2;
+     A(ievt,889) = x3 * a3 * x0 * b2;
+     A(ievt,889) = x3 * a3 * x0 * y0;
+
+     A(ievt,890) = x3 * a3 * x2 * a2;
+     A(ievt,891) = x3 * a3 * x2 * y2;
+     A(ievt,892) = x3 * a3 * x2 * b2;
+     A(ievt,892) = x3 * a3 * x2 * y0;
+
+     A(ievt,893) = x3 * a3 * a2 * y2;
+     A(ievt,894) = x3 * a3 * a2 * b2;
+     A(ievt,894) = x3 * a3 * a2 * y0;
+
+     A(ievt,895) = x3 * a3 * y2 * b2;
+     A(ievt,895) = x3 * a3 * y2 * y0;
+
+     A(ievt,895) = x3 * a3 * b2 * y0;
+
+     A(ievt,896) = x3 * y3 * b3 * x0;
+     A(ievt,897) = x3 * y3 * b3 * x2;
+     A(ievt,898) = x3 * y3 * b3 * a2;
+     A(ievt,899) = x3 * y3 * b3 * y2;
+     A(ievt,900) = x3 * y3 * b3 * b2;
+     A(ievt,900) = x3 * y3 * b3 * y0;
+
+     A(ievt,901) = x3 * y3 * x0 * x2;
+     A(ievt,902) = x3 * y3 * x0 * a2;
+     A(ievt,903) = x3 * y3 * x0 * y2;
+     A(ievt,904) = x3 * y3 * x0 * b2;
+     A(ievt,904) = x3 * y3 * x0 * y0;
+
+     A(ievt,905) = x3 * y3 * x2 * a2;
+     A(ievt,906) = x3 * y3 * x2 * y2;
+     A(ievt,907) = x3 * y3 * x2 * b2;
+     A(ievt,907) = x3 * y3 * x2 * y0;
+
+     A(ievt,908) = x3 * y3 * a2 * y2;
+     A(ievt,909) = x3 * y3 * a2 * b2;
+     A(ievt,909) = x3 * y3 * a2 * y0;
+
+     A(ievt,910) = x3 * y3 * y2 * b2;
+     A(ievt,910) = x3 * y3 * y2 * y0;
+
+     A(ievt,910) = x3 * y3 * b2 * y0;
+
+     A(ievt,911) = x3 * b3 * x0 * x2;
+     A(ievt,912) = x3 * b3 * x0 * a2;
+     A(ievt,913) = x3 * b3 * x0 * y2;
+     A(ievt,914) = x3 * b3 * x0 * b2;
+     A(ievt,914) = x3 * b3 * x0 * y0;
+
+     A(ievt,915) = x3 * b3 * x2 * a2;
+     A(ievt,916) = x3 * b3 * x2 * y2;
+     A(ievt,917) = x3 * b3 * x2 * b2;
+     A(ievt,917) = x3 * b3 * x2 * y0;
+
+     A(ievt,918) = x3 * b3 * a2 * y2;
+     A(ievt,919) = x3 * b3 * a2 * b2;
+     A(ievt,919) = x3 * b3 * a2 * y0;
+
+     A(ievt,920) = x3 * b3 * y2 * b2;
+     A(ievt,920) = x3 * b3 * y2 * y0;
+
+     A(ievt,920) = x3 * b3 * b2 * y0;
+
+     A(ievt,921) = x3 * x0 * x2 * a2;
+     A(ievt,922) = x3 * x0 * x2 * y2;
+     A(ievt,923) = x3 * x0 * x2 * b2;
+     A(ievt,923) = x3 * x0 * x2 * y0;
+
+     A(ievt,924) = x3 * x0 * a2 * y2;
+     A(ievt,925) = x3 * x0 * a2 * b2;
+     A(ievt,925) = x3 * x0 * a2 * y0;
+
+     A(ievt,926) = x3 * x0 * y2 * b2;
+     A(ievt,926) = x3 * x0 * y2 * y0;
+
+     A(ievt,926) = x3 * x0 * b2 * y0;
+
+     A(ievt,927) = x3 * x2 * a2 * y2;
+     A(ievt,928) = x3 * x2 * a2 * b2;
+     A(ievt,928) = x3 * x2 * a2 * y0;
+
+     A(ievt,929) = x3 * x2 * y2 * b2;
+     A(ievt,929) = x3 * x2 * y2 * y0;
+
+     A(ievt,929) = x3 * x2 * b2 * y0;
+
+     A(ievt,930) = x3 * a2 * y2 * b2;
+     A(ievt,930) = x3 * a2 * y2 * y0;
+
+     A(ievt,930) = x3 * a2 * b2 * y0;
+
+     A(ievt,931) = a3 * y3 * b3 * x0;
+     A(ievt,932) = a3 * y3 * b3 * x2;
+     A(ievt,933) = a3 * y3 * b3 * a2;
+     A(ievt,934) = a3 * y3 * b3 * y2;
+     A(ievt,935) = a3 * y3 * b3 * b2;
+     A(ievt,935) = a3 * y3 * b3 * y0;
+
+     A(ievt,936) = a3 * y3 * x0 * x2;
+     A(ievt,937) = a3 * y3 * x0 * a2;
+     A(ievt,938) = a3 * y3 * x0 * y2;
+     A(ievt,939) = a3 * y3 * x0 * b2;
+     A(ievt,939) = a3 * y3 * x0 * y0;
+
+     A(ievt,940) = a3 * y3 * x2 * a2;
+     A(ievt,941) = a3 * y3 * x2 * y2;
+     A(ievt,942) = a3 * y3 * x2 * b2;
+     A(ievt,942) = a3 * y3 * x2 * y0;
+
+     A(ievt,943) = a3 * y3 * a2 * y2;
+     A(ievt,944) = a3 * y3 * a2 * b2;
+     A(ievt,944) = a3 * y3 * a2 * y0;
+
+     A(ievt,945) = a3 * y3 * y2 * b2;
+     A(ievt,945) = a3 * y3 * y2 * y0;
+
+     A(ievt,945) = a3 * y3 * b2 * y0;
+
+     A(ievt,946) = a3 * b3 * x0 * x2;
+     A(ievt,947) = a3 * b3 * x0 * a2;
+     A(ievt,948) = a3 * b3 * x0 * y2;
+     A(ievt,949) = a3 * b3 * x0 * b2;
+     A(ievt,949) = a3 * b3 * x0 * y0;
+
+     A(ievt,950) = a3 * b3 * x2 * a2;
+     A(ievt,951) = a3 * b3 * x2 * y2;
+     A(ievt,952) = a3 * b3 * x2 * b2;
+     A(ievt,952) = a3 * b3 * x2 * y0;
+
+     A(ievt,953) = a3 * b3 * a2 * y2;
+     A(ievt,954) = a3 * b3 * a2 * b2;
+     A(ievt,954) = a3 * b3 * a2 * y0;
+
+     A(ievt,955) = a3 * b3 * y2 * b2;
+     A(ievt,955) = a3 * b3 * y2 * y0;
+
+     A(ievt,955) = a3 * b3 * b2 * y0;
+
+     A(ievt,956) = a3 * x0 * x2 * a2;
+     A(ievt,957) = a3 * x0 * x2 * y2;
+     A(ievt,958) = a3 * x0 * x2 * b2;
+     A(ievt,958) = a3 * x0 * x2 * y0;
+
+     A(ievt,959) = a3 * x0 * a2 * y2;
+     A(ievt,960) = a3 * x0 * a2 * b2;
+     A(ievt,960) = a3 * x0 * a2 * y0;
+
+     A(ievt,961) = a3 * x0 * y2 * b2;
+     A(ievt,961) = a3 * x0 * y2 * y0;
+
+     A(ievt,961) = a3 * x0 * b2 * y0;
+
+     A(ievt,962) = a3 * x2 * a2 * y2;
+     A(ievt,963) = a3 * x2 * a2 * b2;
+     A(ievt,963) = a3 * x2 * a2 * y0;
+
+     A(ievt,964) = a3 * x2 * y2 * b2;
+     A(ievt,964) = a3 * x2 * y2 * y0;
+
+     A(ievt,964) = a3 * x2 * b2 * y0;
+
+     A(ievt,965) = a3 * a2 * y2 * b2;
+     A(ievt,965) = a3 * a2 * y2 * y0;
+
+     A(ievt,965) = a3 * a2 * b2 * y0;
+
+     A(ievt,966) = y3 * b3 * x0 * x2;
+     A(ievt,967) = y3 * b3 * x0 * a2;
+     A(ievt,968) = y3 * b3 * x0 * y2;
+     A(ievt,969) = y3 * b3 * x0 * b2;
+     A(ievt,969) = y3 * b3 * x0 * y0;
+
+     A(ievt,970) = y3 * b3 * x2 * a2;
+     A(ievt,971) = y3 * b3 * x2 * y2;
+     A(ievt,972) = y3 * b3 * x2 * b2;
+     A(ievt,972) = y3 * b3 * x2 * y0;
+
+     A(ievt,973) = y3 * b3 * a2 * y2;
+     A(ievt,974) = y3 * b3 * a2 * b2;
+     A(ievt,974) = y3 * b3 * a2 * y0;
+
+     A(ievt,975) = y3 * b3 * y2 * b2;
+     A(ievt,975) = y3 * b3 * y2 * y0;
+
+     A(ievt,975) = y3 * b3 * b2 * y0;
+
+     A(ievt,976) = y3 * x0 * x2 * a2;
+     A(ievt,977) = y3 * x0 * x2 * y2;
+     A(ievt,978) = y3 * x0 * x2 * b2;
+     A(ievt,978) = y3 * x0 * x2 * y0;
+
+     A(ievt,979) = y3 * x0 * a2 * y2;
+     A(ievt,980) = y3 * x0 * a2 * b2;
+     A(ievt,980) = y3 * x0 * a2 * y0;
+
+     A(ievt,981) = y3 * x0 * y2 * b2;
+     A(ievt,981) = y3 * x0 * y2 * y0;
+
+     A(ievt,981) = y3 * x0 * b2 * y0;
+
+     A(ievt,982) = y3 * x2 * a2 * y2;
+     A(ievt,983) = y3 * x2 * a2 * b2;
+     A(ievt,983) = y3 * x2 * a2 * y0;
+
+     A(ievt,984) = y3 * x2 * y2 * b2;
+     A(ievt,984) = y3 * x2 * y2 * y0;
+
+     A(ievt,984) = y3 * x2 * b2 * y0;
+
+     A(ievt,985) = y3 * a2 * y2 * b2;
+     A(ievt,985) = y3 * a2 * y2 * y0;
+
+     A(ievt,985) = y3 * a2 * b2 * y0;
+
+     A(ievt,986) = b3 * x0 * x2 * a2;
+     A(ievt,987) = b3 * x0 * x2 * y2;
+     A(ievt,988) = b3 * x0 * x2 * b2;
+     A(ievt,988) = b3 * x0 * x2 * y0;
+
+     A(ievt,989) = b3 * x0 * a2 * y2;
+     A(ievt,990) = b3 * x0 * a2 * b2;
+     A(ievt,990) = b3 * x0 * a2 * y0;
+
+     A(ievt,991) = b3 * x0 * y2 * b2;
+     A(ievt,991) = b3 * x0 * y2 * y0;
+
+     A(ievt,991) = b3 * x0 * b2 * y0;
+
+     A(ievt,992) = b3 * x2 * a2 * y2;
+     A(ievt,993) = b3 * x2 * a2 * b2;
+     A(ievt,993) = b3 * x2 * a2 * y0;
+
+     A(ievt,994) = b3 * x2 * y2 * b2;
+     A(ievt,994) = b3 * x2 * y2 * y0;
+
+     A(ievt,994) = b3 * x2 * b2 * y0;
+
+     A(ievt,995) = b3 * a2 * y2 * b2;
+     A(ievt,995) = b3 * a2 * y2 * y0;
+
+     A(ievt,995) = b3 * a2 * b2 * y0;
+
+     A(ievt,996) = x0 * x2 * a2 * y2;
+     A(ievt,997) = x0 * x2 * a2 * b2;
+     A(ievt,997) = x0 * x2 * a2 * y0;
+
+     A(ievt,998) = x0 * x2 * y2 * b2;
+     A(ievt,998) = x0 * x2 * y2 * y0;
+
+     A(ievt,998) = x0 * x2 * b2 * y0;
+
+     A(ievt,999) = x0 * a2 * y2 * b2;
+     A(ievt,999) = x0 * a2 * y2 * y0;
+
+     A(ievt,999) = x0 * a2 * b2 * y0;
+
+     A(ievt,1000) = x2 * a2 * y2 * b2;
+     A(ievt,1000) = x2 * a2 * y2 * y0;
+
+     A(ievt,1000) = x2 * a2 * b2 * y0;
+
+     A(ievt,1000) = a2 * y2 * b2 * y0;

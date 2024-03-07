@@ -10,31 +10,26 @@
     nWire:    &nwire  16
     cellSize: &cell   5.
     angle:    &xangle 0.
-    center:    9.
-#    center:    8.841
-#    center:    7.7818
-#   center:    6.701
+    center:    7.75
+
 - x2: #X1'
     z:         +2.7
     nWire:    *nwire
     cellSize: *cell
     angle:    *xangle
-    center:    8.5
-#    center:    8.365
-#    center:    6.247
+    center:    8.25
+
 - y1: #Y1
     z:         -2.1
     nWire:    *nwire
     cellSize: *cell
     angle:    &yangle 90.
-    center:    9
-#    center:    7.578
-#    center:    6.714
+    center:    7.75
+
 - y2: #Y1'
     z:         -6.9
     nWire:    *nwire
     cellSize: *cell
     angle:    *yangle
-    center:    8.5
-#    center:    7.115
-#    center:    6.278
+    center:    8.25
+

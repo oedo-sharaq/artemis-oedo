@@ -1,5 +1,3 @@
-# @file tim2dt.tmpl.yaml
-# @brief prepare dt for a mwdc detector
 # 
 # @date Create        : 2020-11-19 17:14:09 JST
 #       Last Modified : 2020-11-20 11:02:20 JST (ota)
@@ -27,6 +25,7 @@ Processor:
       InputCollection:      @NAME@_raw
       OutputCollection:     @NAME@_cal
       TimingConverterArray: prm_@NAME@_ch2ns
+      ChargeConverterArray: prm_@NAME@_ch2ns
       OutputTransparency:   0
 
   - name: proc_@NAME@_dt

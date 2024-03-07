@@ -1,0 +1,55 @@
+anchor: 
+  - &sruxmax 0.7
+  - &sruymax 0.5
+  - &srdxmax 0.7
+  - &srdymax 0.5
+
+  - &sruxq0ql ["(srppacu_x_qcal[0].fCharge - Max$(srppacu_x_qcal.fCharge*(srppacu_x_qcal.fID==srppacu_x_qcal[0].fID+1))) / (srppacu_x_qcal[0].fCharge + Max$(srppacu_x_qcal.fCharge*(srppacu_x_qcal.fID==srppacu_x_qcal[0].fID+1)))", 700,0,*sruxmax]
+  - &sruyq0ql ["(srppacu_y_qcal[0].fCharge - Max$(srppacu_y_qcal.fCharge*(srppacu_y_qcal.fID==srppacu_y_qcal[0].fID+1))) / (srppacu_y_qcal[0].fCharge + Max$(srppacu_y_qcal.fCharge*(srppacu_y_qcal.fID==srppacu_y_qcal[0].fID+1)))", 500,0,*sruymax]
+
+  - &sruxq0qr ["(srppacu_x_qcal[0].fCharge - Max$(srppacu_x_qcal.fCharge*(srppacu_x_qcal.fID==srppacu_x_qcal[0].fID-1))) / (srppacu_x_qcal[0].fCharge + Max$(srppacu_x_qcal.fCharge*(srppacu_x_qcal.fID==srppacu_x_qcal[0].fID-1)))", 700,0,*sruxmax]
+  - &sruyq0qr ["(srppacu_y_qcal[0].fCharge - Max$(srppacu_y_qcal.fCharge*(srppacu_y_qcal.fID==srppacu_y_qcal[0].fID-1))) / (srppacu_y_qcal[0].fCharge + Max$(srppacu_y_qcal.fCharge*(srppacu_y_qcal.fID==srppacu_y_qcal[0].fID-1)))", 500,0,*sruymax]
+
+  - &srdxq0ql ["(srppacd_x_qcal[0].fCharge - Max$(srppacd_x_qcal.fCharge*(srppacd_x_qcal.fID==srppacd_x_qcal[0].fID+1))) / (srppacd_x_qcal[0].fCharge + Max$(srppacd_x_qcal.fCharge*(srppacd_x_qcal.fID==srppacd_x_qcal[0].fID+1)))", 700,0,*srdxmax]
+  - &srdyq0ql ["(srppacd_y_qcal[0].fCharge - Max$(srppacd_y_qcal.fCharge*(srppacd_y_qcal.fID==srppacd_y_qcal[0].fID+1))) / (srppacd_y_qcal[0].fCharge + Max$(srppacd_y_qcal.fCharge*(srppacd_y_qcal.fID==srppacd_y_qcal[0].fID+1)))", 500,0,*srdymax]
+
+  - &srdxq0qr ["(srppacd_x_qcal[0].fCharge - Max$(srppacd_x_qcal.fCharge*(srppacd_x_qcal.fID==srppacd_x_qcal[0].fID-1))) / (srppacd_x_qcal[0].fCharge + Max$(srppacd_x_qcal.fCharge*(srppacd_x_qcal.fID==srppacd_x_qcal[0].fID-1)))", 700,0,*srdxmax]
+  - &srdyq0qr ["(srppacd_y_qcal[0].fCharge - Max$(srppacd_y_qcal.fCharge*(srppacd_y_qcal.fID==srppacd_y_qcal[0].fID-1))) / (srppacd_y_qcal[0].fCharge + Max$(srppacd_y_qcal.fCharge*(srppacd_y_qcal.fID==srppacd_y_qcal[0].fID-1)))", 500,0,*srdymax]
+
+
+
+
+group:
+  - name: srppacdqdxlr
+    title: SR-PPAC dqdxLR
+    contents:
+      - name: srppacu_x_q0qlqcal
+        title: srppacu X Q0QL
+        x: *sruxq0ql
+#      - name: srppacu_y_q0ql
+#        title: srppacu Y Q0Ql
+#        x: *sruyq0ql
+      - name: srppacu_x_q0qrqcal
+        title: srppacu X Q0QR
+        x: *sruxq0qr
+#      - name: srppacu_y_q0qr
+#        title: srppacu Y Q0QR
+#        x: *sruyq0qr
+#
+
+
+#      - name: srppacd_x_q0ql
+#        title: srppacd X Q0QL
+#        x: *srdxq0ql
+#      - name: srppacd_y_q0ql
+#        title: srppacd Y Q0Ql
+#        x: *srdyq0ql
+#      - name: srppacd_x_q0qr
+#        title: srppacd X Q0QR
+#        x: *srdxq0qr
+#      - name: srppacd_y_q0qr
+#        title: srppacd Y Q0QR
+#        x: *srdyq0qr
+
+
+

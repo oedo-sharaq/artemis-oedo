@@ -1,0 +1,109 @@
+anchor: 
+  - &srppacu_xid ["srppacu_x_cal.fID",30,30.5,60.5] 
+  - &srppacu_yid ["srppacu_y_cal.fID",28,15.5,43.5]
+  - &srppacd_xid ["srppacd_x_cal.fID",30,30.5,60.5] 
+  - &srppacd_yid ["srppacd_y_cal.fID",28,15.5,43.5]
+
+  - &srppacu_xq ["srppacu_x_cal.fCharge",200,0,90] 
+  - &srppacu_yq ["srppacu_y_cal.fCharge",200,0,90]
+  - &srppacd_xq ["srppacd_x_cal.fCharge",200,0,90] 
+  - &srppacd_yq ["srppacd_y_cal.fCharge",200,0,90]
+
+
+
+alias:
+ 
+  ydid25: srppacd_y_cal.fID==25  
+  ydid26: srppacd_y_cal.fID==26  
+  ydid27: srppacd_y_cal.fID==27  
+  ydid28: srppacd_y_cal.fID==28  
+  ydid29: srppacd_y_cal.fID==29  
+  ydid30: srppacd_y_cal.fID==30  
+  ydid31: srppacd_y_cal.fID==31  
+  ydid32: srppacd_y_cal.fID==32  
+  ydid33: srppacd_y_cal.fID==33  
+  ydid34: srppacd_y_cal.fID==34  
+  ydid35: srppacd_y_cal.fID==35  
+
+group:
+  - name: srppac_qid
+    title: SR-PPAC ID VS Charge
+    contents:
+      - name: srppacu_xqid
+        title: SR-PPAC X ID VS Charge UP
+        x: *srppacu_xid
+        y: *srppacu_xq
+      - name: srppacu_yqid
+        title: SR-PPAC Y ID VS Charge UP
+        x: *srppacu_yid
+        y: *srppacu_yq
+      - name: srppacd_xqid
+        title: SR-PPAC X ID VS Charge Down
+        x: *srppacd_xid
+        y: *srppacd_xq
+      - name: srppacd_yqid
+        title: SR-PPAC Y ID VS Charge Down
+        x: *srppacd_yid
+        y: *srppacd_yq
+
+
+
+  - name: srppac_qid_dy
+    title: SR-PPAC ID VS Charge DY fine
+    contents:
+      - name: srppacd_yqid25
+        title: SR-PPAC DY ID25
+        cut: ydid25
+        x: *srppacd_yid
+        y: *srppacd_yq
+      - name: srppacd_yqid26
+        title: SR-PPAC DY ID26
+        cut: ydid26
+        x: *srppacd_yid
+        y: *srppacd_yq
+      - name: srppacd_yqid27
+        title: SR-PPAC DY ID27
+        cut: ydid27
+        x: *srppacd_yid
+        y: *srppacd_yq
+      - name: srppacd_yqid28
+        title: SR-PPAC DY ID28
+        cut: ydid28
+        x: *srppacd_yid
+        y: *srppacd_yq
+      - name: srppacd_yqid29
+        title: SR-PPAC DY ID29
+        cut: ydid29
+        x: *srppacd_yid
+        y: *srppacd_yq
+      - name: srppacd_yqid30
+        title: SR-PPAC DY ID30
+        cut: ydid30
+        x: *srppacd_yid
+        y: *srppacd_yq
+      - name: srppacd_yqid31
+        title: SR-PPAC DY ID31
+        cut: ydid31
+        x: *srppacd_yid
+        y: *srppacd_yq
+      - name: srppacd_yqid32
+        title: SR-PPAC DY ID32
+        cut: ydid32
+        x: *srppacd_yid
+        y: *srppacd_yq
+      - name: srppacd_yqid33
+        title: SR-PPAC DY ID33
+        cut: ydid33
+        x: *srppacd_yid
+        y: *srppacd_yq
+      - name: srppacd_yqid34
+        title: SR-PPAC DY ID34
+        cut: ydid34
+        x: *srppacd_yid
+        y: *srppacd_yq
+      - name: srppacd_yqid35
+        title: SR-PPAC DY ID35
+        cut: ydid35
+        x: *srppacd_yid
+        y: *srppacd_yq
+

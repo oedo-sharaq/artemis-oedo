@@ -1,118 +1,36 @@
 Processor:
 
-  - name: loader_tof39_off
+  - name: proc_tc842_test_s2
+    type: art::TDiaTimingDataMappingProcessor
+    parameter: 
+      CatID:            202
+      DataTypeID:       0
+      Sparse:           1
+      OutputCollection: DiaS2pad
+ 
+  - name: proc_tc842_test_f3
+    type: art::TDiaTimingDataMappingProcessor
+    parameter: 
+      CatID:            217
+      DataTypeID:       0
+      Sparse:           1
+      OutputCollection: DiaF3pad
+
+
+  - name: loader_tof32_off
     type: art::TParameterArrayLoader
     parameter:
-      Name: prm_tof39_off
+      Name: prm_tof32_off
       Type: art::TAffineConverter
-      FileName: prm/tof/tof39_off.dat
+      FileName: prm/tof/tof32_off.dat
 
-  - name: loader_tof912_off
-    type: art::TParameterArrayLoader
+
+  - name: proc_toff3s2
+    type: art::TDiaPadTimingSubtractionProcessor
     parameter:
-      Name: prm_tof912_off
-      Type: art::TAffineConverter
-      FileName: prm/tof/tof912_off.dat
-
-  - name: loader_tof12s1_off
-    type: art::TParameterArrayLoader
-    parameter:
-      Name: prm_tof12s1_off
-      Type: art::TAffineConverter
-      FileName: prm/tof/tof12s1_off.dat
-
-  - name: proc_time_ave_fe9
-    type: art::TTimingAverageProcessor
-    parameter:
-      InputCollections:
-        - sr91_a_cal
-        - sr92_a_cal
-      OutputCollection: fe9timing
-      OutputTransparency: 0
-
-  - name: proc_time_ave_fe12
-    type: art::TTimingAverageProcessor
-    parameter:
-      InputCollections:
-        - src1_a_cal
-        - src2_a_cal
-      OutputCollection: fe12timing
-      OutputTransparency: 0
-
-  - name: proc_time_ave_s1
-    type: art::TTimingAverageProcessor
-    parameter:
-      InputCollections:
-        - sr11_a_cal
-        - sr12_a_cal
-      OutputCollection: s1timing
-      OutputTransparency: 0
-
-  - name: proc_tof39
-    type: art::TTimingSubtractionProcessor
-    parameter:
-      InputCollection:        fe9timing
-      OutputCollection:       tof39_pre
-#      StartTimingCollection:  f3pla
-      StartTimingCollection:  diapad
-      StartTimingDetID:       0
-      MaxDetID:               1
-      UseMultipleStartTiming: 1
-      OutputTransparency: 0
-
-  - name: proc_tof39_calib
-    type: art::TTimingChargeCalibrationProcessor
-    parameter:
-      InputCollection: tof39_pre
-      OutputCollection: tof39
-      TimingConverterArray: prm_tof39_off
-      InputIsDigital: 0
-
-
-  - name: proc_tof912
-    type: art::TTimingSubtractionProcessor
-    parameter:
-      InputCollection:        fe12timing
-      OutputCollection:       tof912_pre
-      StartTimingCollection:  fe9timing
-      StartTimingDetID:       0
-      MaxDetID:               1
-      UseMultipleStartTiming: 1
-      OutputTransparency: 0
-
-  - name: proc_tof912_calib
-    type: art::TTimingChargeCalibrationProcessor
-    parameter:
-      InputCollection: tof912_pre
-      OutputCollection: tof912
-      TimingConverterArray: prm_tof912_off
-      InputIsDigital: 0
-
-
-  - name: proc_toffe12s1
-    type: art::TTimingSubtractionProcessor
-    parameter:
-      InputCollection:        s1timing
-      OutputCollection:       tof12s1_pre
-      StartTimingCollection:  fe12timing
-      StartTimingDetID:       0
-      MaxDetID:               1
-      UseMultipleStartTiming: 1
-      OutputTransparency: 0
-
-  - name: proc_tof12s1_calib
-    type: art::TTimingChargeCalibrationProcessor
-    parameter:
-      InputCollection: tof12s1_pre
-      OutputCollection: tof12s1
-      TimingConverterArray: prm_tof12s1_off
-      InputIsDigital: 0
-
-#  - name: proc_beta12s1
-#    type: art::TTOF2BetaProcessor
-#    parameter:
-#      FlightLength: 7810
-#      Input: tof12s1
-#      Output: beta12s1
+      InputCollection1: DiaF3pad
+      InputCollection2: DiaS2pad
+      Toffset:          -2491.3
+      OutputCollection: tof32
 
 

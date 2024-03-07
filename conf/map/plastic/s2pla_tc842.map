@@ -1,0 +1,6 @@
+# Map file for S2plastic(TC842)
+#=========================SHCR============================
+#cat, id,[Dev, fp, det, geo, ch,][Dev, fp, det, geo, ch,]
+220,  0,  11, 22,  35,   0,  3 # S2pla tc842 L
+220,  1,  11, 22,  35,   0,  4 # S2pla tc842 R
+

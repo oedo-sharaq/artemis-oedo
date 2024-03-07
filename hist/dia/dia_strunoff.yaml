@@ -1,0 +1,657 @@
+anchor: 
+  - &tst1 ["tcal_dia_strip[3].fTiming",300,223,227]
+  - &tst2 ["tcal_dia_strip[4].fTiming",300,223,227]
+  - &run ["eventheader.fRunNumber",103,169.5,272.5]
+
+alias:
+ run170: eventheader.fRunNumber == 170 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run171: eventheader.fRunNumber == 171 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run172: eventheader.fRunNumber == 172 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run173: eventheader.fRunNumber == 173 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run174: eventheader.fRunNumber == 174 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run175: eventheader.fRunNumber == 175 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run176: eventheader.fRunNumber == 176 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run177: eventheader.fRunNumber == 177 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run178: eventheader.fRunNumber == 178 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run179: eventheader.fRunNumber == 179 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run180: eventheader.fRunNumber == 180 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run181: eventheader.fRunNumber == 181 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run182: eventheader.fRunNumber == 182 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run183: eventheader.fRunNumber == 183 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run184: eventheader.fRunNumber == 184 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run185: eventheader.fRunNumber == 185 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run186: eventheader.fRunNumber == 186 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run187: eventheader.fRunNumber == 187 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run188: eventheader.fRunNumber == 188 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run189: eventheader.fRunNumber == 189 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run190: eventheader.fRunNumber == 190 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run191: eventheader.fRunNumber == 191 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run192: eventheader.fRunNumber == 192 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run193: eventheader.fRunNumber == 193 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run194: eventheader.fRunNumber == 194 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run195: eventheader.fRunNumber == 195 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run196: eventheader.fRunNumber == 196 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run197: eventheader.fRunNumber == 197 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run198: eventheader.fRunNumber == 198 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run199: eventheader.fRunNumber == 199 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run200: eventheader.fRunNumber == 200 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run201: eventheader.fRunNumber == 201 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run202: eventheader.fRunNumber == 202 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run203: eventheader.fRunNumber == 203 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run204: eventheader.fRunNumber == 204 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run205: eventheader.fRunNumber == 205 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run206: eventheader.fRunNumber == 206 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run207: eventheader.fRunNumber == 207 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run208: eventheader.fRunNumber == 208 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run209: eventheader.fRunNumber == 209 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run210: eventheader.fRunNumber == 210 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run211: eventheader.fRunNumber == 211 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run212: eventheader.fRunNumber == 212 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run213: eventheader.fRunNumber == 213 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run214: eventheader.fRunNumber == 214 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run215: eventheader.fRunNumber == 215 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run216: eventheader.fRunNumber == 216 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run217: eventheader.fRunNumber == 217 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run218: eventheader.fRunNumber == 218 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run219: eventheader.fRunNumber == 219 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run220: eventheader.fRunNumber == 220 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run221: eventheader.fRunNumber == 221 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run222: eventheader.fRunNumber == 222 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run223: eventheader.fRunNumber == 223 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run224: eventheader.fRunNumber == 224 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run225: eventheader.fRunNumber == 225 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run226: eventheader.fRunNumber == 226 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run227: eventheader.fRunNumber == 227 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run228: eventheader.fRunNumber == 228 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run229: eventheader.fRunNumber == 229 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run230: eventheader.fRunNumber == 230 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run231: eventheader.fRunNumber == 231 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run232: eventheader.fRunNumber == 232 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run233: eventheader.fRunNumber == 233 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run234: eventheader.fRunNumber == 234 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run235: eventheader.fRunNumber == 235 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run236: eventheader.fRunNumber == 236 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run237: eventheader.fRunNumber == 237 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run238: eventheader.fRunNumber == 238 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run239: eventheader.fRunNumber == 239 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run240: eventheader.fRunNumber == 240 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run241: eventheader.fRunNumber == 241 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run242: eventheader.fRunNumber == 242 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run243: eventheader.fRunNumber == 243 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run244: eventheader.fRunNumber == 244 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run245: eventheader.fRunNumber == 245 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run246: eventheader.fRunNumber == 246 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run247: eventheader.fRunNumber == 247 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run248: eventheader.fRunNumber == 248 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run249: eventheader.fRunNumber == 249 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run250: eventheader.fRunNumber == 250 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run251: eventheader.fRunNumber == 251 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run252: eventheader.fRunNumber == 252 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run253: eventheader.fRunNumber == 253 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run254: eventheader.fRunNumber == 254 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run255: eventheader.fRunNumber == 255 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run256: eventheader.fRunNumber == 256 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run257: eventheader.fRunNumber == 257 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run258: eventheader.fRunNumber == 258 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run259: eventheader.fRunNumber == 259 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run260: eventheader.fRunNumber == 260 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run261: eventheader.fRunNumber == 261 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run262: eventheader.fRunNumber == 262 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run263: eventheader.fRunNumber == 263 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run264: eventheader.fRunNumber == 264 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run265: eventheader.fRunNumber == 265 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run266: eventheader.fRunNumber == 266 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run267: eventheader.fRunNumber == 267 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run268: eventheader.fRunNumber == 268 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run269: eventheader.fRunNumber == 269 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run270: eventheader.fRunNumber == 270 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run271: eventheader.fRunNumber == 271 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+ run272: eventheader.fRunNumber == 272 && mass_corstm_BLD_7th.fAq > 1.86 && mass_corstm_BLD_7th.fAq < 1.865; 
+
+
+group:
+  - name: chkdiastrip
+    title: chkDiaStrip
+    contents:
+      - name: diast1
+        title: S2 dia st1
+        x: *tst1
+      - name: diast1_run
+        title: S2 dia st1 vs Run
+        x: *tst1
+        y: *run
+      - name: diast2
+        title: S2 dia st2
+        x: *tst2
+      - name: diast2_run
+        title: S2 dia st2 vs Run
+        x: *tst2
+        y: *run
+ 
+  - name: chkdiastrip_run_170
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _170
+    cut: run170
+  - name: chkdiastrip_run_171
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _171
+    cut: run171
+  - name: chkdiastrip_run_172
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _172
+    cut: run172
+  - name: chkdiastrip_run_173
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _173
+    cut: run173
+  - name: chkdiastrip_run_174
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _174
+    cut: run174
+  - name: chkdiastrip_run_175
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _175
+    cut: run175
+  - name: chkdiastrip_run_176
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _176
+    cut: run176
+  - name: chkdiastrip_run_177
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _177
+    cut: run177
+  - name: chkdiastrip_run_178
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _178
+    cut: run178
+  - name: chkdiastrip_run_179
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _179
+    cut: run179
+
+  - name: chkdiastrip_run_180
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _180
+    cut: run180
+  - name: chkdiastrip_run_181
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _181
+    cut: run181
+  - name: chkdiastrip_run_182
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _182
+    cut: run182
+  - name: chkdiastrip_run_183
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _183
+    cut: run183
+  - name: chkdiastrip_run_184
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _184
+    cut: run184
+  - name: chkdiastrip_run_185
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _185
+    cut: run185
+  - name: chkdiastrip_run_186
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _186
+    cut: run186
+  - name: chkdiastrip_run_187
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _187
+    cut: run187
+  - name: chkdiastrip_run_188
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _188
+    cut: run188
+  - name: chkdiastrip_run_189
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _189
+    cut: run189
+
+  - name: chkdiastrip_run_190
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _190
+    cut: run190
+  - name: chkdiastrip_run_191
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _191
+    cut: run191
+  - name: chkdiastrip_run_192
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _192
+    cut: run192
+  - name: chkdiastrip_run_193
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _193
+    cut: run193
+  - name: chkdiastrip_run_194
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _194
+    cut: run194
+  - name: chkdiastrip_run_195
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _195
+    cut: run195
+  - name: chkdiastrip_run_196
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _196
+    cut: run196
+  - name: chkdiastrip_run_197
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _197
+    cut: run197
+  - name: chkdiastrip_run_198
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _198
+    cut: run198
+  - name: chkdiastrip_run_199
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _199
+    cut: run199
+
+  - name: chkdiastrip_run_200
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _200
+    cut: run200
+  - name: chkdiastrip_run_201
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _201
+    cut: run201
+  - name: chkdiastrip_run_202
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _202
+    cut: run202
+  - name: chkdiastrip_run_203
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _203
+    cut: run203
+  - name: chkdiastrip_run_204
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _204
+    cut: run204
+  - name: chkdiastrip_run_205
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _205
+    cut: run205
+  - name: chkdiastrip_run_206
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _206
+    cut: run206
+  - name: chkdiastrip_run_207
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _207
+    cut: run207
+  - name: chkdiastrip_run_208
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _208
+    cut: run208
+  - name: chkdiastrip_run_209
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _209
+    cut: run209
+
+  - name: chkdiastrip_run_210
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _210
+    cut: run210
+  - name: chkdiastrip_run_211
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _211
+    cut: run211
+  - name: chkdiastrip_run_212
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _212
+    cut: run212
+  - name: chkdiastrip_run_213
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _213
+    cut: run213
+  - name: chkdiastrip_run_214
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _214
+    cut: run214
+  - name: chkdiastrip_run_215
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _215
+    cut: run215
+  - name: chkdiastrip_run_216
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _216
+    cut: run216
+  - name: chkdiastrip_run_217
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _217
+    cut: run217
+  - name: chkdiastrip_run_218
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _218
+    cut: run218
+  - name: chkdiastrip_run_219
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _219
+    cut: run219
+
+  - name: chkdiastrip_run_220
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _220
+    cut: run220
+  - name: chkdiastrip_run_221
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _221
+    cut: run221
+  - name: chkdiastrip_run_222
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _222
+    cut: run222
+  - name: chkdiastrip_run_223
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _223
+    cut: run223
+  - name: chkdiastrip_run_224
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _224
+    cut: run224
+  - name: chkdiastrip_run_225
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _225
+    cut: run225
+  - name: chkdiastrip_run_226
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _226
+    cut: run226
+  - name: chkdiastrip_run_227
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _227
+    cut: run227
+  - name: chkdiastrip_run_228
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _228
+    cut: run228
+  - name: chkdiastrip_run_229
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _229
+    cut: run229
+
+  - name: chkdiastrip_run_230
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _230
+    cut: run230
+  - name: chkdiastrip_run_231
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _231
+    cut: run231
+  - name: chkdiastrip_run_232
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _232
+    cut: run232
+  - name: chkdiastrip_run_233
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _233
+    cut: run233
+  - name: chkdiastrip_run_234
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _234
+    cut: run234
+  - name: chkdiastrip_run_235
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _235
+    cut: run235
+  - name: chkdiastrip_run_236
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _236
+    cut: run236
+  - name: chkdiastrip_run_237
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _237
+    cut: run237
+  - name: chkdiastrip_run_238
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _238
+    cut: run238
+  - name: chkdiastrip_run_239
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _239
+    cut: run239
+
+  - name: chkdiastrip_run_240
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _240
+    cut: run240
+  - name: chkdiastrip_run_241
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _241
+    cut: run241
+  - name: chkdiastrip_run_242
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _242
+    cut: run242
+  - name: chkdiastrip_run_243
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _243
+    cut: run243
+  - name: chkdiastrip_run_244
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _244
+    cut: run244
+  - name: chkdiastrip_run_245
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _245
+    cut: run245
+  - name: chkdiastrip_run_246
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _246
+    cut: run246
+  - name: chkdiastrip_run_247
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _247
+    cut: run247
+  - name: chkdiastrip_run_248
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _248
+    cut: run248
+  - name: chkdiastrip_run_249
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _249
+    cut: run249
+
+  - name: chkdiastrip_run_250
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _250
+    cut: run250
+  - name: chkdiastrip_run_251
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _251
+    cut: run251
+  - name: chkdiastrip_run_252
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _252
+    cut: run252
+  - name: chkdiastrip_run_253
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _253
+    cut: run253
+  - name: chkdiastrip_run_254
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _254
+    cut: run254
+  - name: chkdiastrip_run_255
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _255
+    cut: run255
+  - name: chkdiastrip_run_256
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _256
+    cut: run256
+  - name: chkdiastrip_run_257
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _257
+    cut: run257
+  - name: chkdiastrip_run_258
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _258
+    cut: run258
+  - name: chkdiastrip_run_259
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _259
+    cut: run259
+
+  - name: chkdiastrip_run_260
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _260
+    cut: run260
+  - name: chkdiastrip_run_261
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _261
+    cut: run261
+  - name: chkdiastrip_run_262
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _262
+    cut: run262
+  - name: chkdiastrip_run_263
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _263
+    cut: run263
+  - name: chkdiastrip_run_264
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _264
+    cut: run264
+  - name: chkdiastrip_run_265
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _265
+    cut: run265
+  - name: chkdiastrip_run_266
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _266
+    cut: run266
+  - name: chkdiastrip_run_267
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _267
+    cut: run267
+  - name: chkdiastrip_run_268
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _268
+    cut: run268
+  - name: chkdiastrip_run_269
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _269
+    cut: run269
+
+  - name: chkdiastrip_run_270
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _270
+    cut: run270
+  - name: chkdiastrip_run_271
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _271
+    cut: run271
+  - name: chkdiastrip_run_272
+    title: chkS2_dia_strip_timing
+    clone: chkdiastrip
+    suffix: _272
+    cut: run272
+
+

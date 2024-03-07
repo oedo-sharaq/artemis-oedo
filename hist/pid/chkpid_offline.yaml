@@ -1,0 +1,81 @@
+anchor: 
+  - &s2aq ["s2aq",500,1.7,2.3]
+  - &s2z ["s2z",500,8,30]
+  - &s2aq_ca ["s2aq_ca",300,1.995,2.025]
+  - &s2z_ca ["s2z_ca",300,19,21]
+  - &s2z_proc ["mass.fZ",500,8,30]
+  - &s2aq_proc ["mass.fAq",500,1.7,2.3]
+  - &s2z_proc_pla ["mass_pla.fZ",500,8,30]
+  - &s2aq_proc_pla ["mass_pla.fAq",500,1.7,2.3]
+
+
+alias:
+ # tof30 : sr0_a_cal.fTiming - dia3pad[0].fTiming;
+ # tof32 : dias2pad_tc842.fCharge - dia3pad_tc842.fCharge;
+ # tof32 : ((dias2pad_tc842.fCharge-dia3pad_tc842.fCharge)+5.0e4)*1.e-3+2441.31;
+  tof32v : dias2pad[0].fTiming-dia3pad[0].fTiming;
+  s0.fX : sr0_xc0[0].fPosition + 49.28;
+ # s0xc  : s0.fX-24.0*(tof30-1066.);
+  s2de  : 1.03827*S2ssd.fEx*0.866;
+  s2brho: 4.4147*(1-sr0_xc0[0].fPosition/14856);
+  s2beta: 103499.78 / ( 299.79 * tof32v - 299.79 * 1455. );
+  s2gamma: 1./TMath::Sqrt(1-(s2beta)*(s2beta)); 
+  s2aq  : s2brho * 299.79 / (s2gamma * s2beta * 931.49);
+  de_v  : TMath::Log(5907.5*s2beta*s2beta)-TMath::Log(1.-s2beta*s2beta)-s2beta*s2beta; 
+  s2z   : -0.0513 + 7.451*TMath::Sqrt(s2de/de_v) * s2beta; 
+  window: TMath::Abs(trig_s2w.fTiming-11)<10;
+  ca_40_gate: TMath::Abs(s2z - 20.) < 0.5 && TMath::Abs(s2aq - 2.005) < 0.01;
+
+  placoin: TMath::Abs(s2pla_ecal.fCharge-S2ssd.fEx) < 10.;
+  placoin2: TMath::Abs(s2pla_ecal.fCharge-1.53974*S2ssd.fEx+41.7209) < 10.;
+  
+
+
+group:
+  - name: pid_offline 
+    title: PID offline
+    contents:
+      - name: pid_offline_all
+        title: PID All trigger dia tc842
+        x: *s2aq
+        y: *s2z
+      - name: pid_offline_proc
+        title: PID proc
+        x: *s2aq_proc
+        y: *s2z_proc
+      - name: pid_offline_proc_pla
+        title: PID proc_pla
+        x: *s2aq_proc_pla
+        y: *s2z_proc_pla
+      - name: pid_offline_proc_placoin
+        title: PID proc_placoin
+        cut: placoin
+        x: *s2aq_proc
+        y: *s2z_proc
+      - name: pid_offline_proc_placoin2
+        title: PID proc_placoin2
+        cut: placoin2
+        x: *s2aq_proc
+        y: *s2z_proc
+
+
+
+
+#      - name: pid_offline_window
+#        title: PID S2 window trigger dia tc842
+#        cut: window
+#        x: *s2aq
+#        y: *s2z
+#      - name: pid_offline_40ca
+#        title: PID S2 dia tc842 40Ca
+#        cut: ca_40_gate
+#        x: *s2aq_ca
+#        y: *s2z_ca
+
+
+
+
+
+
+
+

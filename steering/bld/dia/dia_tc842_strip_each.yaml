@@ -1,0 +1,178 @@
+Processor:
+#  - include: dia_tc842_strip.yaml
+
+  - name: proc_dia_timing_s2_strip0
+    type: art::TDiaStripTimingEachProcessor
+    parameter:
+      InputCollection1  : tcal_dia_strip
+      InputCollection2  : tcal_dia_pad
+      QTCStripL         : dias2strip_l
+      QTCStripR         : dias2strip_r
+      OutputCollection  : dia_t_s2st0
+      DetIDRange_Strip  : [2,5]
+      DetID_Pad         : 1
+      MultiStripAnalysis: 1
+      UseTDiffStripGate : 1
+      TDiffStrip1       : [0.,8.]
+      TDiffStrip2       : [-5.,5.]
+      TDiffStrip3       : [-5.,5.]
+      TDiffStrip4       : [-3.,5.]
+      UseQGate          : 0
+      WhichID           : 2
+      ParameterFile     : prm/dia/tof_offset_dummy.dat
+#      ParameterFile     : prm/dia/strip1/tof_offset_check.dat
+#      QminStrip1        : 490.0
+#      QminStrip2        : 500.0
+#      QminStrip3        : 490.0
+#      QminStrip4        : 480.0
+
+  - name: proc_dia_timing_s2_strip1
+    type: art::TDiaStripTimingEachProcessor
+    parameter:
+      InputCollection1  : tcal_dia_strip
+      InputCollection2  : tcal_dia_pad
+      QTCStripL         : dias2strip_l
+      QTCStripR         : dias2strip_r
+      OutputCollection  : dia_t_s2st1
+      DetIDRange_Strip  : [2,5]
+      DetID_Pad         : 1
+      MultiStripAnalysis: 1
+      UseTDiffStripGate : 1
+      TDiffStrip1       : [0.,8.]
+      TDiffStrip2       : [-5.,5.]
+      TDiffStrip3       : [-5.,5.]
+      TDiffStrip4       : [-3.,5.]
+      UseQGate          : 0
+      WhichID           : 3
+      ParameterFile     : prm/dia/tof_offset_dummy.dat
+#      ParameterFile     : prm/dia/strip1/tof_offset_check.dat
+#      QminStrip1        : 490.0
+#      QminStrip2        : 500.0
+#      QminStrip3        : 490.0
+#      QminStrip4        : 480.0
+
+#  - name: proc_dia_timing_s2_strip1_offset
+#    type: art::TDiaStripTimingEachProcessor
+#    parameter:
+#      InputCollection1  : tcal_dia_strip
+#      InputCollection2  : tcal_dia_pad
+#      QTCStripL         : dias2strip_l
+#      QTCStripR         : dias2strip_r
+#      OutputCollection  : dia_t_s2st1_off
+#      DetIDRange_Strip  : [2,5]
+#      DetID_Pad         : 1
+#      MultiStripAnalysis: 1
+#      UseTDiffStripGate : 1
+#      TDiffStrip1       : [0.,8.]
+#      TDiffStrip2       : [-5.,5.]
+#      TDiffStrip3       : [-5.,5.]
+#      TDiffStrip4       : [-3.,5.]
+#      UseQGate          : 0
+#      WhichID           : 3
+#      ParameterFile     : prm/dia/strip1/tof_offset_@RUN@.dat
+##      ParameterFile     : prm/dia/strip1/tof_offset_check.dat
+##      QminStrip1        : 490.0
+##      QminStrip2        : 500.0
+##      QminStrip3        : 490.0
+##      QminStrip4        : 480.0
+
+
+  - name: proc_dia_timing_s2_strip2
+    type: art::TDiaStripTimingEachProcessor
+    parameter:
+      InputCollection1  : tcal_dia_strip
+      InputCollection2  : tcal_dia_pad
+      QTCStripL         : dias2strip_l
+      QTCStripR         : dias2strip_r
+      OutputCollection  : dia_t_s2st2
+      DetIDRange_Strip  : [2,5]
+      DetID_Pad         : 1
+      MultiStripAnalysis: 1
+      UseTDiffStripGate : 1
+      TDiffStrip1       : [0.,8.]
+      TDiffStrip2       : [-5.,5.]
+      TDiffStrip3       : [-5.,5.]
+      TDiffStrip4       : [-3.,5.]
+      UseQGate          : 0
+      WhichID           : 4
+      ParameterFile     : prm/dia/tof_offset_dummy.dat
+#      ParameterFile     : prm/dia/strip1/tof_offset_check.dat
+#      QminStrip1        : 490.0
+#      QminStrip2        : 500.0
+#      QminStrip3        : 490.0
+#      QminStrip4        : 480.0
+#
+  - name: proc_dia_timing_s2_strip3
+    type: art::TDiaStripTimingEachProcessor
+    parameter:
+      InputCollection1  : tcal_dia_strip
+      InputCollection2  : tcal_dia_pad
+      QTCStripL         : dias2strip_l
+      QTCStripR         : dias2strip_r
+      OutputCollection  : dia_t_s2st3
+      DetIDRange_Strip  : [2,5]
+      DetID_Pad         : 1
+      MultiStripAnalysis: 1
+      UseTDiffStripGate : 1
+      TDiffStrip1       : [0.,8.]
+      TDiffStrip2       : [-5.,5.]
+      TDiffStrip3       : [-5.,5.]
+      TDiffStrip4       : [-3.,5.]
+      UseQGate          : 0
+      WhichID           : 5
+      ParameterFile     : prm/dia/tof_offset_dummy.dat
+#      ParameterFile     : prm/dia/strip1/tof_offset_check.dat
+#      QminStrip1        : 490.0
+#      QminStrip2        : 500.0
+#      QminStrip3        : 490.0
+#      QminStrip4        : 480.0
+
+  - name: proc_dia_tof32st0
+    type: art::TDiaTimingSubtractionProcessor
+    parameter:
+      InputCollection1: dia_t_f3
+      InputCollection2: dia_t_s2st0
+      Toffset:          -2125.3
+      OutputCollection: dia_tof32st0
+
+  - name: proc_dia_tof32st1
+    type: art::TDiaTimingSubtractionProcessor
+    parameter:
+      InputCollection1: dia_t_f3
+      InputCollection2: dia_t_s2st1
+      Toffset:          -2125.3
+      OutputCollection: dia_tof32st1
+
+#  - name: proc_dia_tof32st1_off
+#    type: art::TDiaTimingSubtractionProcessor
+#    parameter:
+#      InputCollection1: dia_t_f3
+#      InputCollection2: dia_t_s2st1_off
+#      Toffset:          -2125.3
+#      OutputCollection: dia_tof32st1_off
+
+
+  - name: proc_dia_tof32st2
+    type: art::TDiaTimingSubtractionProcessor
+    parameter:
+      InputCollection1: dia_t_f3
+      InputCollection2: dia_t_s2st2
+      Toffset:          -2125.3
+      OutputCollection: dia_tof32st2
+
+  - name: proc_dia_tof32st3
+    type: art::TDiaTimingSubtractionProcessor
+    parameter:
+      InputCollection1: dia_t_f3
+      InputCollection2: dia_t_s2st3
+#      Toffset:          -2125.3
+      Toffset:          -2130.65
+      OutputCollection: dia_tof32st3
+
+
+
+
+
+
+
+

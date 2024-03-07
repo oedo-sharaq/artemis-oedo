@@ -1,0 +1,120 @@
+anchor: 
+  - &sr0xid60 ["sr0_xcw[0].fPosition+49.28",200,11,14.5]
+  - &sr0xid61 ["sr0_xcw[0].fPosition+49.28",200,8.5,12]
+  - &sr0xid62 ["sr0_xcw[0].fPosition+49.28",200,6,9.5]
+  - &sr0xid63 ["sr0_xcw[0].fPosition+49.28",200,3.5,7]
+  - &sr0xid64 ["sr0_xcw[0].fPosition+49.28",200,1,4.5]
+  - &sr0xid65 ["sr0_xcw[0].fPosition+49.28",200,-1.5,2]
+  - &sr0xid66 ["sr0_xcw[0].fPosition+49.28",200,-4.,-0.5]
+  - &sr0xid67 ["sr0_xcw[0].fPosition+49.28",200,-6.5,-3.]
+  - &sr0xid68 ["sr0_xcw[0].fPosition+49.28",200,-9.,-5.5]
+  - &sr0xid69 ["sr0_xcw[0].fPosition+49.28",200,-11.5,-8.]
+  - &sr0xid70 ["sr0_xcw[0].fPosition+49.28",200,-14.,-10.5]
+  - &sr0xid71 ["sr0_xcw[0].fPosition+49.28",200,-16.5,-13.]
+  - &sr0xid72 ["sr0_xcw[0].fPosition+49.28",200,-19.,-15.5]
+  - &sr0xid73 ["sr0_xcw[0].fPosition+49.28",200,-21.5,-18.]
+  - &sr0xid74 ["sr0_xcw[0].fPosition+49.28",200,-24.,-20.5]
+  - &sr0xid75 ["sr0_xcw[0].fPosition+49.28",200,-26.5,-23.]
+
+
+
+alias: 
+  tof32 : dias2pad[0].fTiming - dia3pad[0].fTiming;
+  s2de  : 1.03827*S2ssd.fEx*0.866;
+  s2beta: 103499.78/(tof32-1455.)/299.79;
+  de_v  : TMath::Log(5907.5*s2beta*s2beta)-TMath::Log(1.-s2beta*s2beta)-s2beta*s2beta; 
+  s2z   : -0.0513 + 7.451*TMath::Sqrt(s2de/de_v) * s2beta; 
+  window: TMath::Abs(trig_s2w.fTiming-11)<10;
+#  s2zgate: TMath::Abs(s2z-24.5)<0.5    
+
+  id60gate: sr0_x_cal[0].fID==60 && TMath::Abs(s2z-24.9)<0.4;    
+  id61gate: sr0_x_cal[0].fID==61 && TMath::Abs(s2z-24.9)<0.4;    
+  id62gate: sr0_x_cal[0].fID==62 && TMath::Abs(s2z-24.9)<0.4;    
+  id63gate: sr0_x_cal[0].fID==63 && TMath::Abs(s2z-24.9)<0.4;    
+  id64gate: sr0_x_cal[0].fID==64 && TMath::Abs(s2z-24.9)<0.4;    
+  id65gate: sr0_x_cal[0].fID==65 && TMath::Abs(s2z-24.9)<0.4;    
+  id66gate: sr0_x_cal[0].fID==66 && TMath::Abs(s2z-24.9)<0.4;    
+  id67gate: sr0_x_cal[0].fID==67 && TMath::Abs(s2z-24.9)<0.4;    
+  id68gate: sr0_x_cal[0].fID==68 && TMath::Abs(s2z-24.9)<0.4;    
+  id69gate: sr0_x_cal[0].fID==69 && TMath::Abs(s2z-24.9)<0.4;    
+  id70gate: sr0_x_cal[0].fID==70 && TMath::Abs(s2z-24.9)<0.4;    
+  id71gate: sr0_x_cal[0].fID==71 && TMath::Abs(s2z-24.9)<0.4;    
+  id72gate: sr0_x_cal[0].fID==72 && TMath::Abs(s2z-24.9)<0.4;    
+  id73gate: sr0_x_cal[0].fID==73 && TMath::Abs(s2z-24.9)<0.4;    
+  id74gate: sr0_x_cal[0].fID==74 && TMath::Abs(s2z-24.9)<0.4;    
+  id75gate: sr0_x_cal[0].fID==75 && TMath::Abs(s2z-24.9)<0.4;    
+
+
+group:
+  - name: sr0pos_id
+    title: sr0 position gated w/ id 
+    contents:
+      - name: sr0xid60
+        title: sr0 x id60
+        cut: id60gate
+        x: *sr0xid60
+      - name: sr0xid61
+        title: sr0 x id61
+        cut: id61gate
+        x: *sr0xid61
+      - name: sr0xid62
+        title: sr0 x id62
+        cut: id62gate
+        x: *sr0xid62
+      - name: sr0xid63
+        title: sr0 x id63
+        cut: id63gate
+        x: *sr0xid63
+      - name: sr0xid64
+        title: sr0 x id64
+        cut: id64gate
+        x: *sr0xid64
+      - name: sr0xid65
+        title: sr0 x id65
+        cut: id65gate
+        x: *sr0xid65
+      - name: sr0xid66
+        title: sr0 x id66
+        cut: id66gate
+        x: *sr0xid66
+      - name: sr0xid67
+        title: sr0 x id67
+        cut: id67gate
+        x: *sr0xid67
+      - name: sr0xid68
+        title: sr0 x id68
+        cut: id68gate
+        x: *sr0xid68
+      - name: sr0xid69
+        title: sr0 x id69
+        cut: id69gate
+        x: *sr0xid69
+      - name: sr0xid70
+        title: sr0 x id70
+        cut: id70gate
+        x: *sr0xid70
+      - name: sr0xid71
+        title: sr0 x id71
+        cut: id71gate
+        x: *sr0xid71
+      - name: sr0xid72
+        title: sr0 x id72
+        cut: id72gate
+        x: *sr0xid72
+      - name: sr0xid73
+        title: sr0 x id73
+        cut: id73gate
+        x: *sr0xid73
+      - name: sr0xid74
+        title: sr0 x id74
+        cut: id74gate
+        x: *sr0xid74
+      - name: sr0xid75
+        title: sr0 x id75
+        cut: id75gate
+        x: *sr0xid75
+
+
+
+
+

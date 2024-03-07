@@ -1,0 +1,75 @@
+Anchor:
+   
+ - &input ridf/@NAME@@NUM@.ridf
+
+# - &output sh13_analysis/@USER@/@NAME@/@NUM@/chkbld@NAME@@NUM@.s2pla.root
+# - &output sh13_analysis/@USER@/@NAME@/@NUM@/chkbld@NAME@@NUM@.zcointest.root
+# - &output sh13_analysis/@USER@/@NAME@/@NUM@/chkbld@NAME@@NUM@.mconvert.root
+# - &output sh13_analysis/@USER@/@NAME@/@NUM@/chkbld@NAME@@NUM@.massdiastripeach.root
+# - &output sh13_analysis/@USER@/@NAME@/@NUM@/chkbld@NAME@@NUM@.sicalibtest.root
+# - &output sh13_analysis/@USER@/@NAME@/@NUM@/chkbld@NAME@@NUM@.zcalibtest.root
+# - &output sh13_analysis/@USER@/@NAME@/@NUM@/chkbld@NAME@@NUM@.masscortest.root
+# - &output sh13_analysis/@USER@/@NAME@/@NUM@/chkbld@NAME@@NUM@.f3dcgoe.root
+ - &output sh13_analysis/@USER@/@NAME@/@NUM@/chkbld@NAME@@NUM@.loadtest.root
+
+# - &histout sh13_analysis/@USER@/@NAME@/@NUM@/chkbld@NAME@@NUM@.mconvert.hist.root
+# - &histout sh13_analysis/@USER@/@NAME@/@NUM@/chkbld@NAME@@NUM@.ztest.hist.root
+# - &histout sh13_analysis/@USER@/@NAME@/@NUM@/chkbld@NAME@@NUM@.massdiastripeach.hist.root
+# - &histout sh13_analysis/@USER@/@NAME@/@NUM@/chkbld@NAME@@NUM@.sicalibtesth.hist.root
+# - &histout sh13_analysis/@USER@/@NAME@/@NUM@/chkbld@NAME@@NUM@.zcalibtesth.hist.root
+# - &histout sh13_analysis/@USER@/@NAME@/@NUM@/chkbld@NAME@@NUM@.masscortest.hist.root
+# - &histout sh13_analysis/@USER@/@NAME@/@NUM@/chkbld@NAME@@NUM@.f3dcgeo.hist.root
+ 
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+        - *input
+        
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+  - name: proc_gateinit
+    type: art::TGateArrayInitializer
+    parameter:
+      OutputTransparency: 1
+
+  - include: tref.yaml
+  - include: trig.yaml
+#  - include: bld/pla/pla_os22s.yaml
+#  - include: bld/pla/pla_tc842.yaml
+  - include: bld/dia/dia.yaml         # dia v1290
+  - include: 
+      name: bld/pla/pla_sh13.yaml
+      replace: 
+        CID: 108
+        FP: s2
+        RUN: @NUM@ 
+#  - include: bld/tc842/tc842_all.yaml         # dia tc842 raw
+#  - include: bld/dia/dia_tc842_strip.yaml # dia tc842 using strip
+  - include: bld/dia/dia_tc842_strip_each.yaml # dia tc842 using strip
+#  - include: bld/dia/dia_tc842.yaml # dia tc842 using pad
+#  - include: tof.yaml # dia tc842 using pad
+  - include: bld/srppac/srppac.yaml
+  - include: bld/si/ssd.yaml
+  - include: pi/pid.yaml
+  - include: bld/mwdc/chkmwdc_local.yaml
+  - include: pi/pid_cor.yaml
+#  - include: pi/pid_cor_esc.yaml
+  
+#  - include: pi/pid_eachstrip.yaml
+
+         
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: 
+        - *output
+
+

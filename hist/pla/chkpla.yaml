@@ -1,0 +1,240 @@
+anchor: 
+  - &plaq ["s2pla.fCharge",300,300,500]
+  - &plaqcor ["s2pla_ecal.fCharge",300,0,600]
+  - &ssd ["S2ssd.fEx",300,0,600]
+  - &evtnum1 ["eventheader.fRunNumber",10,169.5,178.5]
+  - &evtnum2 ["eventheader.fRunNumber",10,178.5,187.5]
+  - &evtnum3 ["eventheader.fRunNumber",10,187.5,196.5]
+  - &evtnum4 ["eventheader.fRunNumber",10,196.5,205.5]
+  - &evtnum5 ["eventheader.fRunNumber",10,205.5,214.5]
+  - &evtnum6 ["eventheader.fRunNumber",10,214.5,223.5]
+  - &evtnum7 ["eventheader.fRunNumber",10,223.5,232.5]
+  - &evtnum8 ["eventheader.fRunNumber",10,232.5,241.5]
+  - &evtnum9 ["eventheader.fRunNumber",10,241.5,250.5]
+  - &evtnum10 ["eventheader.fRunNumber",10,250.5,259.5]
+  - &evtnum11 ["eventheader.fRunNumber",10,259.5,268.5]
+  - &evtnum12 ["eventheader.fRunNumber",6,268.5,273.5]
+
+
+group:
+  - name: chkpla
+    title: chkpla
+    contents:
+      - name: s2plaq
+        title: s2pla Q
+        x: *plaq
+      - name: s2plaq_ecal
+        title: s2pla_ecal
+        x: *plaqcor
+      - name: s2ssd
+        title: s2plassd
+        x: *ssd
+      - name: s2plaqssd
+        title: s2pla q vs s2ssd
+        x: *ssd
+        y: *plaq
+      - name: s2plaq_corssd
+        title: s2pla ecal vs s2ssd
+        x: *ssd
+        y: *plaqcor
+
+  - name: pla_evt
+    title: chkpla each event
+    contents:
+      - name: s2plaqevt1
+        title: s2pla ecal vs eventnumber1
+        x: *evtnum1
+        y: *plaq
+      - name: s2plaqevt2
+        title: s2pla ecal vs eventnumber2
+        x: *evtnum2
+        y: *plaq
+      - name: s2plaqevt3
+        title: s2pla ecal vs eventnumber3
+        x: *evtnum3
+        y: *plaq
+      - name: s2plaqevt4
+        title: s2pla ecal vs eventnumber4
+        x: *evtnum4
+        y: *plaq
+      - name: s2plaqevt5
+        title: s2pla ecal vs eventnumber5
+        x: *evtnum5
+        y: *plaq
+      - name: s2plaqevt6
+        title: s2pla ecal vs eventnumber6
+        x: *evtnum6
+        y: *plaq
+      - name: s2plaqevt7
+        title: s2pla ecal vs eventnumber7
+        x: *evtnum7
+        y: *plaq
+      - name: s2plaqevt8
+        title: s2pla ecal vs eventnumber8
+        x: *evtnum8
+        y: *plaq
+      - name: s2plaqevt9
+        title: s2pla ecal vs eventnumber9
+        x: *evtnum9
+        y: *plaq
+      - name: s2plaqevt10
+        title: s2pla ecal vs eventnumber10
+        x: *evtnum10
+        y: *plaq
+      - name: s2plaqevt11
+        title: s2pla ecal vs eventnumber11
+        x: *evtnum11
+        y: *plaq
+      - name: s2plaqevt12
+        title: s2pla ecal vs eventnumber12
+        x: *evtnum12
+        y: *plaq
+
+  - name: placor_evt
+    title: chkpla ecal each event
+    contents:
+      - name: s2pla_corqevt1
+        title: s2pla_cor ecal vs eventnumber1
+        x: *evtnum1
+        y: *plaqcor
+      - name: s2pla_corqevt2
+        title: s2pla_cor ecal vs eventnumber2
+        x: *evtnum2
+        y: *plaqcor
+      - name: s2pla_corqevt3
+        title: s2pla_cor ecal vs eventnumber3
+        x: *evtnum3
+        y: *plaqcor
+      - name: s2pla_corqevt4
+        title: s2pla_cor ecal vs eventnumber4
+        x: *evtnum4
+        y: *plaqcor
+      - name: s2pla_corqevt5
+        title: s2pla_cor ecal vs eventnumber5
+        x: *evtnum5
+        y: *plaqcor
+      - name: s2pla_corqevt6
+        title: s2pla_cor ecal vs eventnumber6
+        x: *evtnum6
+        y: *plaqcor
+      - name: s2pla_corqevt7
+        title: s2pla_cor ecal vs eventnumber7
+        x: *evtnum7
+        y: *plaqcor
+      - name: s2pla_corqevt8
+        title: s2pla_cor ecal vs eventnumber8
+        x: *evtnum8
+        y: *plaqcor
+      - name: s2pla_corqevt9
+        title: s2pla_cor ecal vs eventnumber9
+        x: *evtnum9
+        y: *plaqcor
+      - name: s2pla_corqevt10
+        title: s2pla_cor ecal vs eventnumber10
+        x: *evtnum10
+        y: *plaqcor
+      - name: s2pla_corqevt11
+        title: s2pla_cor ecal vs eventnumber11
+        x: *evtnum11
+        y: *plaqcor
+      - name: s2pla_corqevt12
+        title: s2pla_cor ecal vs eventnumber12
+        x: *evtnum12
+        y: *plaqcor
+
+  - name: ssd_evt
+    title: chkssd  each event
+    contents:
+      - name: s2ssdqevt1
+        title: s2ssd  vs eventnumber1
+        x: *evtnum1
+        y: *ssd
+      - name: s2ssdqevt2
+        title: s2ssd  vs eventnumber2
+        x: *evtnum2
+        y: *ssd
+      - name: s2ssdqevt3
+        title: s2ssd  vs eventnumber3
+        x: *evtnum3
+        y: *ssd
+      - name: s2ssdqevt4
+        title: s2ssd  vs eventnumber4
+        x: *evtnum4
+        y: *ssd
+      - name: s2ssdqevt5
+        title: s2ssd  vs eventnumber5
+        x: *evtnum5
+        y: *ssd
+      - name: s2ssdqevt6
+        title: s2ssd  vs eventnumber6
+        x: *evtnum6
+        y: *ssd
+      - name: s2ssdqevt7
+        title: s2ssd  vs eventnumber7
+        x: *evtnum7
+        y: *ssd
+      - name: s2ssdqevt8
+        title: s2ssd  vs eventnumber8
+        x: *evtnum8
+        y: *ssd
+      - name: s2ssdqevt9
+        title: s2ssd  vs eventnumber9
+        x: *evtnum9
+        y: *ssd
+      - name: s2ssdqevt10
+        title: s2ssd  vs eventnumber10
+        x: *evtnum10
+        y: *ssd
+      - name: s2ssdqevt11
+        title: s2ssd  vs eventnumber11
+        x: *evtnum11
+        y: *ssd
+      - name: s2ssdqevt12
+        title: s2ssd  vs eventnumber12
+        x: *evtnum12
+        y: *ssd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

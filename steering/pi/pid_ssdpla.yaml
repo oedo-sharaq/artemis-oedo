@@ -1,0 +1,17 @@
+Processor:
+  - name: proc_pid_corst1_BLD_ssdpla
+    type: art::TMassCalibrationConverter
+    parameter:
+      S0PPAC: sr0_xcw
+      MWDC1: f3
+      MWDC2: s2
+      UsetwoMWDCs: 0
+      TofName: dia_tof32st1
+      CalibOrder: 3
+      ParameterFile: output/mass/theta_st1_ssdpla.dat
+      OutputName: mass_corst1_BLD_ssdpla
+      OutputTransparency: 0
+
+
+
+

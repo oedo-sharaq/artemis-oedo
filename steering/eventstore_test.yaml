@@ -1,0 +1,318 @@
+Anchor:
+   
+# - &input ridf/@NAME@@NUM@.ridf
+ - &tree_file sh13_analysis/hanai/physics/0170/chkbldphysics0170.ca.calibtest.root
+ - &output sh13_analysis/hanai/physics/0170/test_chkbldphysics0170.ca.calibtest.eventstore.root
+# - &histout sh13_analysis/hanai/optics/0123/eventstore@NAME@@NUM@.eventstore.hist.root
+
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: tree_store
+    type: art::TTreeEventStore
+    parameter:
+#      OutputTransparency: 1
+      TreeName: tree
+      MaxEventNum: 0
+      FileName:
+        - *tree_file
+ 
+#  - name: ridf
+#    type: art::TRIDFEventStore
+#    parameter:
+#      OutputTransparency: 1
+#      InputFiles:
+#        - *input
+        
+#  - name: mapper
+#    type: art::TMappingProcessor
+#    parameter:
+#      OutputTransparency: 1
+#  - name: proc_gateinit
+#    type: art::TGateArrayInitializer
+#    parameter:
+#      OutputTransparency: 1
+
+
+#  - include: tref.yaml
+##  - include: trig.yaml
+##  - include: bld/pla/pla_os22s.yaml
+##  - include: bld/tc842/tc842_all.yaml
+####  - include: bld/pla/pla_tc842.yaml
+#  - include: bld/dia/dia.yaml
+#  - include: bld/dia/dia_tc842_strip_each.yaml # dia tc842 using strip
+####  - include: bld/dia/dia_tc842.yaml
+#  - include: bld/dlppac/ppac.brips.yaml
+#  - include: bld/dlppac/dlppac.inc.yaml
+#  - include: bld/srppac/srppac.yaml
+#  - include: bld/mwdc/chkmwdc_local.yaml
+#  - include: bld/si/ssd.yaml
+  - include: pi/pid_test.yaml
+###  - name: proc_tc842_raw
+###    type: art::TSimpleDataMappingProcessor
+###    parameter:
+###      CatID:            217
+###      DataTypeID:       0
+###      Sparse:           1
+###      OutputCollection: tc842_raw
+###  - name: proc_dia35p_raw
+###    type: art::TSimpleDataMappingProcessor
+###    parameter:
+###      CatID:            218
+###      DataTypeID:       0
+###      Sparse:           1
+###      OutputCollection: dia3pad_5ps_raw
+###  - name: proc_dias25p_raw
+###    type: art::TSimpleDataMappingProcessor
+###    parameter:
+###      CatID:            219
+###      DataTypeID:       0
+###      Sparse:           1
+###      OutputCollection: dias2pad_5ps_raw
+
+### F3 MWDC Hist
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/mwdc/chkmwdc.tmpl.yaml
+#      Type:     art::TTreeProjection
+#      Replace: |
+#        plane: dc31   
+#        track: f3   
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/mwdc/chkmwdc.tmpl.yaml
+#      OutputFilename: *histout
+#      Type:     art::TTreeProjection
+#      Replace: |
+#        plane: dc32   
+#        track: f3   
+#
+#
+#### FE7 DL-PPAC Hist
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      Type:     art::TTreeProjection
+#      FileName: hist/dlppac/fe7_dlppac.yaml
+#
+#
+#### FE8 DL-PPAC Hist
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      Type:     art::TTreeProjection
+#      FileName: hist/dlppac/fe8_dlppac.yaml
+#
+#
+#### FE9 SR-PPAC Hist
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/chksrppac.yaml
+#      Type:     art::TTreeProjection
+#      Replace: |
+#        sr: sr91       
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/chksrppac.yaml
+#      Type:     art::TTreeProjection
+#      Replace: |
+#        sr: sr92       
+#
+#
+#### FE12 SR-PPAC Hist
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/chksrppac.yaml
+#      Type:     art::TTreeProjection
+#      Replace: |
+#        sr: src1       
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/chksrppac.yaml
+#      Type:     art::TTreeProjection
+#      Replace: |
+#        sr: src2       
+#
+#
+### S0 SR-PPAC Hist
+
+#  - name: projection_chksrppac_s0
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/chksrppac.yaml
+#      Type:     art::TTreeprojection
+#      Replace: |
+#        sr: sr0      
+#  - name: projection_dqdx_s0
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/dqdx_hist.yaml
+#      Type:     art::TTreeprojection
+#      Replace: |
+#        fp: S0      
+#        sru: sr0      
+#  - name: projection_dqdxlr_s0
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/dqdxlr_hist.yaml
+#      Type:     art::TTreeprojection
+#      OutputFilename: *histout
+#      Replace: |
+#        fp: S0      
+#        sru: sr0      
+#
+#  - name: projection_dqdxlr_s0
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/dqdxlr_qcal.yaml
+#      Type:     art::TTreeprojection
+
+#  - name: projection_dqdx_src
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/dqdx_hist_fe12.yaml
+#      Type:     art::TTreeprojection
+#      Replace: |
+#        fp: FE12      
+#        sru: src1      
+#        srd: src2  
+#  - name: projection_dqdxlr_src
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/dqdxlr_hist_fe12.yaml
+#      Type:     art::TTreeprojection
+#      Replace: |
+#        fp: FE12      
+#        sru: src1      
+#        srd: src2     
+
+
+
+
+#### FE10 MWDC Hist
+#
+##  - name: projection
+##    type: art::TTreeProjectionProcessor
+##    parameter:
+##      FileName: hist/mwdc/chkmwdc.tmpl.yaml
+##      Type:     art::TTreeProjection
+##      Replace: |
+##        plane: dca1   
+##
+##  - name: projection
+##    type: art::TTreeProjectionProcessor
+##    parameter:
+##      FileName: hist/mwdc/chkmwdc.tmpl.yaml
+##      Type:     art::TTreeProjection
+##      Replace: |
+##        plane: dca2   
+#
+#### S2 MWDC Hist
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/mwdc/chkmwdc.tmpl.yaml
+#      Type:     art::TTreeProjection
+#      Replace: |
+#        plane: dc21 
+#        track: s2  
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/mwdc/chkmwdc.tmpl.yaml
+#      OutputFilename: *histout
+#      Type:     art::TTreeProjection
+#      Replace: |
+#        plane: dc22   
+#        track: s2
+#### S2 Pla& VETO Hist
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      Type:     art::TTreeProjection
+#      FileName: hist/pla/s2_pla.yaml
+#
+#### F3 Dia Hist
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      Type:     art::TTreeProjection
+#      FileName: hist/dia/f3dia.yaml
+#
+#### S2 Dia Hist
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      Type:     art::TTreeProjection
+#      FileName: hist/dia/s2dia.yaml
+
+### PID
+
+#  - name: projection_pid
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/pid/chkpid.yaml
+#      Type:     art::TTreeprojection
+
+#  - name: projection_pid2
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/pid/chkpid2.yaml
+#      Type:     art::TTreeprojection
+
+
+#  - name: projection_qcalssd
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/qcal_hist.yaml
+#      Type:     art::TTreeprojection
+
+#  - name: projection_qcalssd2
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/qcalssd2.yaml
+#      Type:     art::TTreeprojection
+ 
+
+#  - name: projection_qcalzaq
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/qcal_zaq_hist.yaml
+#      Type:     art::TTreeprojection
+#
+#  - name: projection_pidooff
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/pid/chkpid_offline.yaml
+#      Type:     art::TTreeprojection
+# 
+           
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: 
+        - *output
+
+
+
+        

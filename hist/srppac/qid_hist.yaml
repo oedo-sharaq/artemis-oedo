@@ -1,0 +1,31 @@
+anchor: 
+  - &@sr@_x_calid ["@sr@_x_cal.fID",94,-0.5,93.5] 
+  - &@sr@_x_calq0 ["@sr@_x_cal[0].fCharge",200,32,52]
+ 
+
+alias:
+ tof30 : sr0_a_cal.fTiming - dia3pad[0].fTiming;
+# tof32 : dias2pad_tc842.fCharge - dia3pad_tc842.fCharge;
+ tof32 : ((dias2pad_tc842.fCharge-dia3pad_tc842.fCharge)+5.0e4)*1.e-3+2441.31;
+ s0.fX : sr0_xc0[0].fPosition + 49.28;
+ s0xc  : s0.fX-24.0*(tof30-1066.);
+ s2de  : 1.03827*S2ssd.fEx*0.866;
+ s2brho: 4.4147*(1-sr0_xc0[0].fPosition/14856);
+ s2beta: 103499.78 / ( 299.79 * tof32 - 299.79 * 1455. );
+ s2gamma: 1./TMath::Sqrt(1-(s2beta)*(s2beta)); 
+ s2aq  : s2brho * 299.79 / (s2gamma * s2beta * 931.49);
+ de_v  : TMath::Log(5907.5*s2beta*s2beta)-TMath::Log(1.-s2beta*s2beta)-s2beta*s2beta; 
+ s2z   : -0.0513 + 7.451*TMath::Sqrt(s2de/de_v) * s2beta; 
+ window: TMath::Abs(trig_s2w.fTiming-11)<10;
+ z26ate: TMath::Abs(s2z - 20.) < 0.5 && TMath::Abs(s2aq - 2.005) < 0.01;
+
+group:
+  - name: chkqid
+    title: Check SR-PPAC @sr@ Charge vs ID
+    contents:
+      - name: @sr@_x_id
+        title: @sr@ X ID
+        cut: z26gate
+        x: *@sr@_x_calid
+        y: *@sr@_x_calq0
+ 

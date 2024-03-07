@@ -1,0 +1,103 @@
+Processor:
+### F3
+  - include: 
+      name: dia_tc842.inc.yaml
+      replace:
+        CATID: 217
+        NAME: dia3pad_tc842
+#        RANGE: [680,700.]
+
+  - include: 
+      name: dia_tc842.inc.yaml
+      replace:
+        CATID: 213
+        NAME: dia3strip1_l_tc842
+#        RANGE: [680.,700.]
+
+  - include: 
+      name: dia_tc842.inc.yaml
+      replace:
+        CATID: 212
+        NAME: dia3strip1_r_tc842
+#        RANGE: [680.,700.]
+
+  - include: 
+      name: dia_tc842.inc.yaml
+      replace:
+        CATID: 215
+        NAME: dia3strip2_l_tc842
+#        RANGE: [680.,700.]
+
+  - include: 
+      name: dia_tc842.inc.yaml
+      replace:
+        CATID: 214
+        NAME: dia3strip2_r_tc842
+#        RANGE: [680.,700.]
+
+### S2
+  - include: 
+      name: dia_tc842.inc.yaml
+      replace:
+        CATID: 202
+        NAME: dias2pad_tc842
+#        RANGE: [680.,700.]
+
+  - include: 
+      name: dia_tc842.inc.yaml
+      replace:
+        CATID: 218
+        NAME: dias2strip0_l_tc842
+#        RANGE: [680.,700.]
+
+  - include: 
+      name: dia_tc842.inc.yaml
+      replace:
+        CATID: 220
+        NAME: dias2strip0_r_tc842
+#        RANGE: [680.,700.]
+
+  - include: 
+      name: dia_tc842.inc.yaml
+      replace:
+        CATID: 219
+        NAME: dias2strip1_l_tc842
+ #       RANGE: [680.,700.]
+
+  - include: 
+      name: dia_tc842.inc.yaml
+      replace:
+        CATID: 221
+        NAME: dias2strip1_r_tc842
+ #       RANGE: [680.,700.]
+
+  - include: 
+      name: dia_tc842.inc.yaml
+      replace:
+        CATID: 222
+        NAME: dias2strip2_l_tc842
+ #       RANGE: [680.,700.]
+
+  - include: 
+      name: dia_tc842.inc.yaml
+      replace:
+        CATID: 223
+        NAME: dias2strip2_r_tc842
+#        RANGE: [680.,700.]
+
+  - include: 
+      name: dia_tc842.inc.yaml
+      replace:
+        CATID: 200
+        NAME: dias2strip3_l_tc842
+ #       RANGE: [680.,700.]
+
+  - include: 
+      name: dia_tc842.inc.yaml
+      replace:
+        CATID: 201
+        NAME: dias2strip3_r_tc842
+#        RANGE: [680.,700.]
+
+
+

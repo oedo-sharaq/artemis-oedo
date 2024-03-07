@@ -2,114 +2,217 @@ Processor:
 ##### F3
 #####
   - include: 
-      name: time2dt.inc.yaml
+#      name: time2dt.inc.yaml
+      name: time2dt_sh.inc.yaml
       replace: 
         CATID: 20    
         NAME: dc31
-        TREDET: f3pla
+        TREDET: dia3pad
         TREFID: 0
+        VALIDTIME: [-60.,0,0,]
   - include:
-      name:  xxyyxxyy.inc.yaml
+   #   name:  xxyyxxyy.inc.yaml
+      name:  xxyyxxyy_sh.inc.yaml
       replace:
         NAME: dc31
 
   - include: 
-      name: time2dt.inc.yaml
+   #   name: time2dt.inc.yaml
+      name: time2dt_sh.inc.yaml
       replace: 
         CATID: 21    
         NAME: dc32
-        TREDET: f3pla
+        TREDET: dia3pad
         TREFID: 0
+        VALIDTIME: [-45.,30,0,]
+
   - include:
-      name:  xxyy.inc.yaml
+#      name:  xxyy.inc.yaml
+      name:  xxyy_sh.inc.yaml
       replace:
         NAME: dc32
 
-
 ##### FE10
+#####
+#  - include: 
+#      name: time2dt.inc.yaml
+#      replace: 
+#        CATID: 22
+#        NAME: dca1
+#        TREDET: dia3pad
+#        TREFID: 0
+#
+#  - include: 
+#      name: time2dt.inc.yaml
+#      replace: 
+#        CATID: 23    
+#        NAME: dca2
+#        TREDET: dia3pad
+#        TREFID: 0
+#
+#  - name: proc_dca1_geo
+#    type: art::TParameterLoader
+#    parameter:
+#      Name:     dca1
+#      Type:     art::TMWDCParameter
+#      FileName: prm/mwdc/dca1/geometry.yaml
+#
+#  - include:
+#      name:  xuy_load.inc.yaml
+#      replace:
+#        NAME: dca1
+#
+#  - name: proc_dca1_plane
+#    type: art::TMWDCPlaneProcessor
+#    parameter:
+#      InputCollection: dca1_dt
+#      MWDCName:        dca1
+#      ConverterList:
+#        - prm_dca1_dxdt_x
+#        - prm_dca1_dxdt_u
+#        - prm_dca1_dxdt_y
+#      OutputTransparency: 0
+#
+#  - name: proc_dca1_track
+#    type: art::TMWDCTrackingProcessor
+#    parameter:
+#      InputCollection:
+#        - dca1_x
+#        - dca1_u
+#        - dca1_y
+#      OutputCollection:   dca1
+#      OutputTransparency: 0
+#
+#  - name: proc_dca2_geo
+#    type: art::TParameterLoader
+#    parameter:
+#      Name:     dca2
+#      Type:     art::TMWDCParameter
+#      FileName: prm/mwdc/dca2/geometry.yaml
+#
+#  - include:
+#      name:  xuy_load.inc.yaml
+#      replace:
+#        NAME: dca2
+#
+#  - name: proc_dca2_plane
+#    type: art::TMWDCPlaneProcessor
+#    parameter:
+#      InputCollection: dca2_dt
+#      MWDCName:        dca2
+#      ConverterList:
+#        - prm_dca2_dxdt_x
+#        - prm_dca2_dxdt_u
+#        - prm_dca2_dxdt_y
+#      OutputTransparency: 0
+#
+#  - name: proc_dca2_track
+#    type: art::TMWDCTrackingProcessor
+#    parameter:
+#      InputCollection:
+#        - dca2_x
+#        - dca2_u
+#        - dca2_y
+#      OutputCollection:   dca2
+#      OutputTransparency: 0
+
+##### S2
 #####
   - include: 
       name: time2dt.inc.yaml
       replace: 
-        CATID: 22
-        NAME: dca1
-        TREDET: diapad
+        CATID: 24
+        NAME: dc21
+   #     TREDET: sr0_a_cal #onlne
+ #       TREDET: s2pla
+        TREDET: dias2pad
         TREFID: 0
 
   - include: 
       name: time2dt.inc.yaml
       replace: 
-        CATID: 23    
-        NAME: dca2
-        TREDET: diapad
+        CATID: 25    
+        NAME: dc22
+     #   TREDET: sr0_a_cal #online
+#        TREDET: s2pla
+        TREDET: dias2pad
         TREFID: 0
 
-  - name: proc_dca1_geo
+  - name: proc_dc21_geo
     type: art::TParameterLoader
     parameter:
-      Name:     dca1
+      Name:     dc21
       Type:     art::TMWDCParameter
-      FileName: prm/mwdc/dca1/geometry.yaml
+      FileName: prm/mwdc/dc21/geometry.yaml
 
   - include:
-      name:  xuy_load.inc.yaml
+      name:  xxuv_load.inc.yaml
       replace:
-        NAME: dca1
+        NAME: dc21
 
-  - name: proc_dca1_plane
+  - name: proc_dc21_plane
     type: art::TMWDCPlaneProcessor
     parameter:
-      InputCollection: dca1_dt
-      MWDCName:        dca1
+      InputCollection: dc21_dt
+      MWDCName:        dc21
       ConverterList:
-        - prm_dca1_dxdt_x
-        - prm_dca1_dxdt_u
-        - prm_dca1_dxdt_y
-      OutputTransparency: 0
+        - prm_dc21_dxdt_x1
+        - prm_dc21_dxdt_x2        
+        - prm_dc21_dxdt_u
+        - prm_dc21_dxdt_v
+      OutputTransparency: 0            
 
-  - name: proc_dca1_track
+  - name: proc_dc21_track
     type: art::TMWDCTrackingProcessor
     parameter:
       InputCollection:
-        - dca1_x
-        - dca1_u
-        - dca1_y
-      OutputCollection:   dca1
+        - dc21_x1
+        - dc21_x2        
+#        - dc21_u
+        - dc21_v
+      UseLocalPos: 1
+      OutputCollection:   dc21
       OutputTransparency: 0
 
-  - name: proc_dca2_geo
+  - name: proc_dc22_geo
     type: art::TParameterLoader
     parameter:
-      Name:     dca2
+      Name:     dc22
       Type:     art::TMWDCParameter
-      FileName: prm/mwdc/dca2/geometry.yaml
+      FileName: prm/mwdc/dc22/geometry.yaml
 
   - include:
-      name:  xuy_load.inc.yaml
+      name:  xxuv_load.inc.yaml
       replace:
-        NAME: dca2
+        NAME: dc22
 
-  - name: proc_dca2_plane
+  - name: proc_dc22_plane
     type: art::TMWDCPlaneProcessor
     parameter:
-      InputCollection: dca2_dt
-      MWDCName:        dca2
+      InputCollection: dc22_dt
+      MWDCName:        dc22
       ConverterList:
-        - prm_dca2_dxdt_x
-        - prm_dca2_dxdt_u
-        - prm_dca2_dxdt_y
-      OutputTransparency: 0
+        - prm_dc22_dxdt_x1
+        - prm_dc22_dxdt_x2        
+        - prm_dc22_dxdt_u
+        - prm_dc22_dxdt_v
+      OutputTransparency: 0            
 
-  - name: proc_dca2_track
+  - name: proc_dc22_track
     type: art::TMWDCTrackingProcessor
     parameter:
       InputCollection:
-        - dca2_x
-        - dca2_u
-        - dca2_y
-      OutputCollection:   dca2
+        - dc22_x1
+        - dc22_x2        
+#        - dc22_u
+        - dc22_v
+      UseLocalPos: 1
+      OutputCollection:   dc22
       OutputTransparency: 0
+      
+
 ########
   - include: f3mwdctrack.yaml
-  - include: fe10mwdctrack.yaml
+#  - include: fe10mwdctrack.yaml
+  - include: s2mwdctrack.yaml
   - include: mwdc_calib_local.yaml

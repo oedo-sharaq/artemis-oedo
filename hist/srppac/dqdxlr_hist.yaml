@@ -1,0 +1,89 @@
+anchor: 
+  - &@sru@xq0ql ["(@sru@_x_cal[0].fCharge - Max$(@sru@_x_cal.fCharge*(@sru@_x_cal.fID==@sru@_x_cal[0].fID+1))) / (@sru@_x_cal[0].fCharge + Max$(@sru@_x_cal.fCharge*(@sru@_x_cal.fID==@sru@_x_cal[0].fID+1)))", 800,0,0.8]
+  - &@sru@yq0ql ["(@sru@_y_cal[0].fCharge - Max$(@sru@_y_cal.fCharge*(@sru@_y_cal.fID==@sru@_y_cal[0].fID+1))) / (@sru@_y_cal[0].fCharge + Max$(@sru@_y_cal.fCharge*(@sru@_y_cal.fID==@sru@_y_cal[0].fID+1)))", 800,0,0.8]
+
+  - &@sru@xq0qr ["(@sru@_x_cal[0].fCharge - Max$(@sru@_x_cal.fCharge*(@sru@_x_cal.fID==@sru@_x_cal[0].fID-1))) / (@sru@_x_cal[0].fCharge + Max$(@sru@_x_cal.fCharge*(@sru@_x_cal.fID==@sru@_x_cal[0].fID-1)))", 800,0,0.8]
+  - &@sru@yq0qr ["(@sru@_y_cal[0].fCharge - Max$(@sru@_y_cal.fCharge*(@sru@_y_cal.fID==@sru@_y_cal[0].fID-1))) / (@sru@_y_cal[0].fCharge + Max$(@sru@_y_cal.fCharge*(@sru@_y_cal.fID==@sru@_y_cal[0].fID-1)))", 800,0,0.8]
+
+
+  - &@sru@xq0qlqcal ["(@sru@_x_qcal[0].fCharge - Max$(@sru@_x_qcal.fCharge*(@sru@_x_qcal.fID==@sru@_x_qcal[0].fID+1))) / (@sru@_x_qcal[0].fCharge + Max$(@sru@_x_qcal.fCharge*(@sru@_x_qcal.fID==@sru@_x_qcal[0].fID+1)))", 900,0,0.9]
+  - &@sru@yq0qlqcal ["(@sru@_y_qcal[0].fCharge - Max$(@sru@_y_qcal.fCharge*(@sru@_y_qcal.fID==@sru@_y_qcal[0].fID+1))) / (@sru@_y_qcal[0].fCharge + Max$(@sru@_y_qcal.fCharge*(@sru@_y_qcal.fID==@sru@_y_qcal[0].fID+1)))", 900,0,0.9]
+
+  - &@sru@xq0qrqcal ["(@sru@_x_qcal[0].fCharge - Max$(@sru@_x_qcal.fCharge*(@sru@_x_qcal.fID==@sru@_x_qcal[0].fID-1))) / (@sru@_x_qcal[0].fCharge + Max$(@sru@_x_qcal.fCharge*(@sru@_x_qcal.fID==@sru@_x_qcal[0].fID-1)))", 900,0,0.9]
+  - &@sru@yq0qrqcal ["(@sru@_y_qcal[0].fCharge - Max$(@sru@_y_qcal.fCharge*(@sru@_y_qcal.fID==@sru@_y_qcal[0].fID-1))) / (@sru@_y_qcal[0].fCharge + Max$(@sru@_y_qcal.fCharge*(@sru@_y_qcal.fID==@sru@_y_qcal[0].fID-1)))", 900,0,0.9]
+
+
+alias: 
+# pidgate: TMath::Abs(f5track.fX+26.6*((f5ppac1a.fTAnode+f5ppac2a.fTAnode)/2-diapad[0].fTiming-1250)-37606)<10
+#  s2wtrig: TMath::Abs(trig_s2w.fTiming-11)<10    
+#  tof32 : dias2pad[0].fTiming - dia3pad[0].fTiming;
+#  s2de  : 1.03827*S2ssd.fEx*0.866;
+#  s2beta: 103499.78/(tof32-1455.)/299.79;
+# # s2beta: 103499.78 / ( 299.79 * tof32 - 299.79 * 1455. );
+#  de_v  : TMath::Log(5907.5*s2beta*s2beta)-TMath::Log(1.-s2beta*s2beta)-s2beta*s2beta; 
+#  s2z   : -0.0513 + 7.451*TMath::Sqrt(s2de/de_v) * s2beta; 
+#  window: TMath::Abs(trig_s2w.fTiming-11)<10;
+#  s2zgate: TMath::Abs(s2z-24.9)<0.4    
+
+  tof30 : sr0_a_cal.fTiming - dia3pad[0].fTiming;
+ # tof32 : dias2pad_tc842.fCharge - dia3pad_tc842.fCharge;
+  tof32 : ((dias2pad_tc842.fCharge-dia3pad_tc842.fCharge)+5.0e4)*1.e-3+2441.31;
+  s0.fX : sr0_xc0[0].fPosition + 49.28;
+  s0xc  : s0.fX-24.0*(tof30-1066.);
+  s2de  : 1.03827*S2ssd.fEx*0.866;
+  s2brho: 4.4147*(1-sr0_xc0[0].fPosition/14856);
+  s2beta: 103499.78 / ( 299.79 * tof32 - 299.79 * 1455. );
+  s2gamma: 1./TMath::Sqrt(1-(s2beta)*(s2beta)); 
+  s2aq  : s2brho * 299.79 / (s2gamma * s2beta * 931.49);
+  de_v  : TMath::Log(5907.5*s2beta*s2beta)-TMath::Log(1.-s2beta*s2beta)-s2beta*s2beta; 
+  s2z   : -0.0513 + 7.451*TMath::Sqrt(s2de/de_v) * s2beta; 
+  window: TMath::Abs(trig_s2w.fTiming-11)<10;
+#  s2zgate: TMath::Abs(s2z-24.9)<0.4;    
+  s2zgate: TMath::Abs(s2z-20)<0.5;    
+
+
+group:
+  - name: srppacdqdxlr@fp@
+    title: SR-PPAC dqdxLR @fp@
+    contents:
+      - name: @sru@_x_q0ql
+        title: @sru@ X Q0QL
+#        cut: s2zgate
+        x: *@sru@xq0ql
+      - name: @sru@_y_q0ql
+        title: @sru@ Y Q0Ql
+#        cut: s2zgate
+        x: *@sru@yq0ql
+      - name: @sru@_x_q0qr
+        title: @sru@ X Q0QR
+#        cut: s2zgate
+        x: *@sru@xq0qr
+      - name: @sru@_y_q0qr
+        title: @sru@ Y Q0QR
+#        cut: s2zgate
+        x: *@sru@yq0qr
+
+  - name: srppacdqdxlr@fp@qcal
+    title: SR-PPAC dqdxLR @fp@ qcal
+    contents:
+      - name: @sru@_x_q0qlqcal
+        title: @sru@ X Q0QL qcal
+#        cut: s2zgate
+        x: *@sru@xq0qlqcal
+      - name: @sru@_y_q0qlqcal
+        title: @sru@ Y Q0Ql qcal
+#        cut: s2zgate
+        x: *@sru@yq0qlqcal
+      - name: @sru@_x_q0qrqcal
+        title: @sru@ X Q0QR qcal
+#        cut: s2zgate
+        x: *@sru@xq0qrqcal
+      - name: @sru@_y_q0qrqcal
+        title: @sru@ Y Q0QR qcal
+#        cut: s2zgate
+        x: *@sru@yq0qrqcal
+
+
+
+
+

@@ -1,0 +1,188 @@
+alias: 
+#  pidgate: "abs(f5pla[0].fTiming-dia3strip[0].fTiming-1242.0)<1.0 && abs(f5pla[0].fCharge-18200.)<900."
+  piddc31: "abs(dc31_raw.fCharge-810.)<110.&&abs(f5ppac1a.fTAnode-dia3pad.fTiming-2658.5)<0.7"
+  piddc32: "abs(dc32_raw.fCharge-750.)<80.&&abs(f5ppac1a.fTAnode-dia3pad.fTiming-2658.5)<0.7"
+  pidgate: "abs(f5ppac1a[0].fTAnode-dia3pad[0].fTiming-2658.5)<0.7 && abs(dc31_raw[0].fCharge-1000.)<120."
+  pidfe: "abs(sr0_xc0[0].fPosition+49.28)<60&&abs(sr0_a_cal.fTiming-dia3pad[0].fTiming-1066)<2"
+  pidv: "abs(sr0_xc0[0].fPosition+49.28)<60&&abs(sr0_a_cal.fTiming-dia3pad[0].fTiming-1093)<3"
+  dia3hit: "@dia3pad_raw.GetEntriesFast()>0"
+group:
+  - name: effdc31
+    title: Efficiency check for DC31
+    cut: piddc32
+    contents:
+      - name: pid
+        title: PID
+        x: ["f5pla[0].fTiming-dia3strip[0].fTiming",200,1210,1270]
+        y: ["f5pla[0].fCharge",200,0,25000.]
+
+      - name: pid2
+        title: PID2
+        x: ["f5ppac1a[0].fTAnode-dia3pad[0].fTiming",200,2650,2675]
+        y: ["dc31_raw[0].fCharge",200,0,1500]
+
+      - name: eff_x1
+        title: Eff. X1
+        x: ["@dc31_x1.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_x2
+        title: Eff. X2
+        x: ["@dc31_x2.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_y1
+        title: Eff. Y1
+        x: ["@dc31_y1.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_y2
+        title: Eff. Y2
+        x: ["@dc31_y2.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_x3
+        title: Eff. X3
+        x: ["@dc31_x3.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_x4
+        title: Eff. X4
+        x: ["@dc31_x4.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_y3
+        title: Eff. Y3
+        x: ["@dc31_y3.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_y4
+        title: Eff. Y4
+        x: ["@dc31_y4.GetEntriesFast()",10,-0.5,9.5]
+
+
+  - name: effdc32
+    title: Efficiency check for DC32
+    cut: piddc31
+    contents:
+      - name: pid
+        title: PID
+        x: ["f5pla[0].fTiming-dia3strip[0].fTiming",200,1210,1270]
+        y: ["f5pla[0].fCharge",200,0,25000.]
+
+      - name: pid2
+        title: PID2
+        x: ["f5ppac1a[0].fTAnode-dia3pad[0].fTiming",200,2650,2675]
+        y: ["dc32_raw[0].fCharge",200,0,1500]
+
+      - name: eff_x1
+        title: Eff. X1
+        x: ["@dc32_x1.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_x2
+        title: Eff. X2
+        x: ["@dc32_x2.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_y1
+        title: Eff. Y1
+        x: ["@dc32_y1.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_y2
+        title: Eff. Y2
+        x: ["@dc32_y2.GetEntriesFast()",10,-0.5,9.5]
+
+
+  - name: effdc21_pidfe
+    title: Efficiency check for DC21 (PID:Fe)
+    cut: pidfe
+    contents:
+      - name: pid
+        title: PID
+        x: ["sr0_a_cal.fTiming-dia3pad[0].fTiming",200,1050,1150]
+        y: ["sr0_xc0[0].fPosition+49.28",200,-80,80]
+
+      - name: eff_x1
+        title: Eff. X1
+        x: ["@dc21_x1.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_x2
+        title: Eff. X2
+        x: ["@dc21_x2.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_u
+        title: Eff. U
+        x: ["@dc21_u.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_v
+        title: Eff. V
+        x: ["@dc21_v.GetEntriesFast()",10,-0.5,9.5]
+
+  - name: effdc21_pidv
+    title: Efficiency check for DC21 (PID:V)
+    cut: pidv
+    contents:
+      - name: pid
+        title: PID
+        x: ["sr0_a_cal.fTiming-dia3pad[0].fTiming",200,1050,1150]
+        y: ["sr0_xc0[0].fPosition+49.28",200,-80,80]
+
+      - name: eff_x1
+        title: Eff. X1
+        x: ["@dc21_x1.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_x2
+        title: Eff. X2
+        x: ["@dc21_x2.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_u
+        title: Eff. U
+        x: ["@dc21_u.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_v
+        title: Eff. V
+        x: ["@dc21_v.GetEntriesFast()",10,-0.5,9.5]
+
+
+  - name: effdc22_pidfe
+    title: Efficiency check for DC22 (PID:Fe)
+    cut: pidfe
+    contents:
+      - name: pid
+        title: PID
+        x: ["sr0_a_cal.fTiming-dia3pad[0].fTiming",200,1050,1150]
+        y: ["sr0_xc0[0].fPosition+49.28",200,-80,80]
+
+      - name: eff_x1
+        title: Eff. X1
+        x: ["@dc22_x1.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_x2
+        title: Eff. X2
+        x: ["@dc22_x2.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_u
+        title: Eff. U
+        x: ["@dc22_u.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_v
+        title: Eff. V
+        x: ["@dc22_v.GetEntriesFast()",10,-0.5,9.5]
+
+  - name: effdc22_pidv
+    title: Efficiency check for DC22 (PID:V)
+    cut: pidv
+    contents:
+      - name: pid
+        title: PID
+        x: ["sr0_a_cal.fTiming-dia3pad[0].fTiming",200,1050,1150]
+        y: ["sr0_xc0[0].fPosition+49.28",200,-80,80]
+
+      - name: eff_x1
+        title: Eff. X1
+        x: ["@dc22_x1.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_x2
+        title: Eff. X2
+        x: ["@dc22_x2.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_u
+        title: Eff. U
+        x: ["@dc22_u.GetEntriesFast()",10,-0.5,9.5]
+
+      - name: eff_v
+        title: Eff. V
+        x: ["@dc22_v.GetEntriesFast()",10,-0.5,9.5]
+

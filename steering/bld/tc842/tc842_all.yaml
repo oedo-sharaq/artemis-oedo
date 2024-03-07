@@ -1,0 +1,98 @@
+Processor:
+  - include: 
+      name: tc842.inc.yaml
+      replace:
+        name: dias2s3_l_tc842
+        catid: 200 
+
+  - include: 
+      name: tc842.inc.yaml
+      replace:
+        name:  dias2s3_r_tc842
+        catid: 201
+
+  - include: 
+      name: tc842.inc.yaml
+      replace:
+        name: dias2pad_tc842
+        catid: 202 
+
+  - include: 
+      name: tc842.inc.yaml
+      replace:
+        name: s2pla_l_tc842
+        catid: 203 
+
+  - include: 
+      name: tc842.inc.yaml
+      replace:
+        name:  s2pla_r_tc842
+        catid: 204 
+
+  - include: 
+      name: tc842.inc.yaml
+      replace:
+        name: dia3s1_r_tc842
+        catid: 212 
+
+  - include: 
+      name: tc842.inc.yaml
+      replace:
+        name: dia3s1_l_tc842
+        catid: 213 
+
+  - include: 
+      name: tc842.inc.yaml
+      replace:
+        name: dia3s2_r_tc842
+        catid: 214 
+
+  - include: 
+      name: tc842.inc.yaml
+      replace:
+        name: dia3s2_l_tc842
+        catid: 215 
+
+  - include: 
+      name: tc842.inc.yaml
+      replace:
+        name: dia3pad_tc842
+        catid: 217
+
+  - include: 
+      name: tc842.inc.yaml
+      replace:
+        name: dias2s0_l_tc842
+        catid: 218 
+
+  - include: 
+      name: tc842.inc.yaml
+      replace:
+        name:  dias2s1_l_tc842
+        catid: 219 
+
+  - include: 
+      name: tc842.inc.yaml
+      replace:
+        name:  dias2s0_r_tc842
+        catid: 220 
+
+  - include: 
+      name: tc842.inc.yaml
+      replace:
+        name: dias2s1_r_tc842
+        catid: 221 
+
+  - include: 
+      name: tc842.inc.yaml
+      replace:
+        name: dias2s2_l_tc842
+        catid: 222 
+
+  - include: 
+      name: tc842.inc.yaml
+      replace:
+        name: dias2s2_r_tc842
+        catid: 223 
+
+

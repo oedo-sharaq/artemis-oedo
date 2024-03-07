@@ -1,0 +1,168 @@
+Anchor:
+ - &histout sh13_analysis/hanai/phys/merge/chks2pla_merge.247272.hist.root
+
+Processor:
+  - name: ridfevent
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      InputFiles:
+        - *ridf0
+        - *ridf1
+        - *ridf2
+        - *ridf3
+        - *ridf4
+        - *ridf5
+        - *ridf6
+        - *ridf7
+        - *ridf8
+        - *ridf9
+        - *ridf10
+        - *ridf11
+        - *ridf12
+        - *ridf13
+        - *ridf14
+        - *ridf15
+        - *ridf16
+        - *ridf17
+        - *ridf18
+        - *ridf19
+        - *ridf20
+        - *ridf21
+        - *ridf22
+        - *ridf23
+        - *ridf24
+        - *ridf25
+#        - *ridf26
+#        - *ridf27
+#        - *ridf28
+#        - *ridf29
+#        - *ridf30
+#        - *ridf31
+#        - *ridf32
+#        - *ridf33
+#        - *ridf34
+#        - *ridf35
+#        - *ridf36
+#        - *ridf37
+#        - *ridf38
+#        - *ridf39
+#        - *ridf40
+#        - *ridf41
+#        - *ridf42
+#        - *ridf43
+#        - *ridf44
+#        - *ridf45
+#        - *ridf46
+#        - *ridf47
+#        - *ridf48
+#        - *ridf49
+#        - *ridf50
+#        - *ridf51
+#        - *ridf52
+#        - *ridf53
+#        - *ridf54
+#        - *ridf55
+#        - *ridf56
+#        - *ridf57
+#        - *ridf58
+#        - *ridf59
+#        - *ridf60
+#        - *ridf61
+#        - *ridf62
+#        - *ridf63
+#        - *ridf64
+#        - *ridf65
+#        - *ridf66
+#        - *ridf67
+#        - *ridf68
+#        - *ridf69
+#        - *ridf70
+#        - *ridf71
+#        - *ridf72
+#        - *ridf73
+#        - *ridf74
+#        - *ridf75
+#        - *ridf76
+#        - *ridf77
+#        - *ridf78
+#        - *ridf79
+#        - *ridf80
+#        - *ridf81
+#        - *ridf82
+#        - *ridf83
+#        - *ridf84
+#        - *ridf85
+#        - *ridf86
+#        - *ridf87
+#        - *ridf88
+#        - *ridf89
+#        - *ridf90
+#        - *ridf91
+#        - *ridf92
+#        - *ridf93
+#        - *ridf94
+#        - *ridf95
+#        - *ridf96
+#        - *ridf97
+#        - *ridf98
+#        - *ridf99
+#        - *ridf100
+#        - *ridf101
+#        - *ridf102
+
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      MapConfig: mapper.conf
+
+  - name: proc_gateinit
+    type: art::TGateArrayInitializer
+    parameter:
+      OutputTransparency: 1
+
+  - include: tref.yaml
+  - include: trig.yaml
+  - include: bld/pla/pla_os22s.yaml
+#  - include: bld/dia/dia.yaml         # dia v1290
+#  - include: bld/dia/dia_tc842_strip.yaml # dia tc842 using strip
+#  - include: bld/srppac/srppac.yaml
+  - include: bld/si/ssd.yaml
+#  - include: pi/pid.yaml
+#  - include: bld/mwdc/chkmwdc_local.yaml
+
+# ||| CHANGE THE FILE NAME, PID GATE, AND  BLD PARAMETER BEFORE STARTING MACRO |||
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: 
+#        - sh13_analysis/hanai/phys/merge/chks2pla_merge.170272.root
+#        - sh13_analysis/hanai/phys/merge/chks2pla_merge.170221.root
+#        - sh13_analysis/hanai/phys/merge/chks2pla_merge.222246.root
+        - sh13_analysis/hanai/phys/merge/chks2pla_merge.247272.root
+#        - sh13_analysis/hanai/phys/merge/physics_merge.ca.170272.root
+#        - sh13_analysis/hanai/phys/merge/physics_merge.sc.170272.root
+#        - sh13_analysis/hanai/phys/merge/physics_merge.ti.170272.root
+#        - sh13_analysis/hanai/phys/merge/physics_merge.v.170272.root
+#        - sh13_analysis/hanai/phys/merge/physics_merge.cr.170272.root
+#        - sh13_analysis/hanai/phys/merge/physics_merge.mn.170272.root
+#        - sh13_analysis/hanai/phys/merge/physics_merge.fe.170272.root
+#        - sh13_analysis/hanai/phys/merge/physics_merge.co.170272.root
+#        - sh13_analysis/hanai/phys/merge/physics_merge.ni.170272.root
+#        - sh13_analysis/hanai/phys/merge/physics_merge.all.170272.root
+
+  - name: projection_chkpla
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/pla/chkpla.yaml
+      Type:     art::TTreeprojection
+      OutputFilename: *histout
+ 
+  - name: quit
+    type: art::TQuitProcessor
+
+

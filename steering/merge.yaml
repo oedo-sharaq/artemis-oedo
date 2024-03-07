@@ -1,0 +1,30 @@
+Anchor:
+   
+ - &input ridf/@NAME@@NUM@.ridf
+# - &input ridf_prep/@NAME@@NUM@.ridf
+ - &output output/merge/pid_@NAME@@NUM@.root
+
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+        - *input
+
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+      #MapConfig: mapper.conf
+      MapConfig: conf/map/apv/mapper.conf
+
+  - include: merge/mergemanager.yaml
+          
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: *output

@@ -1,0 +1,14 @@
+
+Processor:
+
+  - name: proc_pid_corst0
+    type: art::TMassCalibrationConverter
+    parameter:
+      S0PPAC: sr0_xcw
+      MWDC1: f3
+      TofName: dia_tof32st0
+      CalibOrder: 3
+      ParameterFile: output/mass/theta_st0.dat
+      OutputName: mass_corst0
+      OutputTransparency: 0
+

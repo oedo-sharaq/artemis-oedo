@@ -1,0 +1,170 @@
+   1. 
+   x3
+   a3
+   y3
+   b3
+   x0
+   x3 * a3
+   x3 * y3
+   x3 * b3
+   x3 * x0
+   a3 * y3 
+   a3 * b3 
+   a3 * x0 
+   y3 * b3 
+   y3 * x0 
+   b3 * x0 
+   x3 * x3 
+   a3 * a3 
+   y3 * y3 
+   b3 * b3 
+   x0 * x0 
+   x3 * a3 * y3 
+   x3 * a3 * b3 
+   x3 * a3 * x0 
+   x3 * y3 * b3 
+   x3 * y3 * x0 
+   x3 * b3 * x0 
+   a3 * y3 * b3 
+   a3 * y3 * x0 
+   a3 * b3 * x0 
+   y3 * b3 * x0 
+   x3 * x3 * a3 
+   x3 * x3 * y3 
+   x3 * x3 * b3 
+   x3 * x3 * x0 
+   a3 * a3 * x3 
+   a3 * a3 * y3 
+   a3 * a3 * b3 
+   a3 * a3 * x0 
+   y3 * y3 * x3 
+   y3 * y3 * a3 
+   y3 * y3 * b3 
+   y3 * y3 * x0 
+   b3 * b3 * x3 
+   b3 * b3 * a3 
+   b3 * b3 * y3 
+   b3 * b3 * x0 
+   x0 * x0 * x3 
+   x0 * x0 * a3 
+   x0 * x0 * y3 
+   x0 * x0 * b3 
+   x3 * x3 * x3 
+   a3 * a3 * a3 
+   y3 * y3 * y3 
+   b3 * b3 * b3 
+   x0 * x0 * x0 
+
+   1. * t 
+   x3 * t
+   a3 * t
+   y3 * t
+   b3 * t
+   x0 * t
+   x3 * a3 * t
+   x3 * y3 * t
+   x3 * b3 * t
+   x3 * x0 * t
+   a3 * y3 * t 
+   a3 * b3 * t 
+   a3 * x0 * t 
+   y3 * b3 * t 
+   y3 * x0 * t 
+   b3 * x0 * t 
+   x3 * x3 * t 
+   a3 * a3 * t 
+   y3 * y3 * t 
+   b3 * b3 * t 
+   x0 * x0 * t 
+   x3 * a3 * y3 * t 
+   x3 * a3 * b3 * t 
+   x3 * a3 * x0 * t 
+   x3 * y3 * b3 * t 
+   x3 * y3 * x0 * t 
+   x3 * b3 * x0 * t 
+   a3 * y3 * b3 * t 
+   a3 * y3 * x0 * t 
+   a3 * b3 * x0 * t 
+   y3 * b3 * x0 * t 
+   x3 * x3 * a3 * t 
+   x3 * x3 * y3 * t 
+   x3 * x3 * b3 * t 
+   x3 * x3 * x0 * t 
+   a3 * a3 * x3 * t 
+   a3 * a3 * y3 * t 
+   a3 * a3 * b3 * t 
+   a3 * a3 * x0 * t 
+   y3 * y3 * x3 * t 
+   y3 * y3 * a3 * t 
+   y3 * y3 * b3 * t 
+   y3 * y3 * x0 * t 
+   b3 * b3 * x3 * t 
+    b3 * b3 * a3 * t 
+    b3 * b3 * y3 * t 
+    b3 * b3 * x0 * t 
+    x0 * x0 * x3 * t 
+    x0 * x0 * a3 * t 
+    x0 * x0 * y3 * t 
+    x0 * x0 * b3 * t 
+    x3 * x3 * x3 * t 
+    a3 * a3 * a3 * t 
+    y3 * y3 * y3 * t 
+    b3 * b3 * b3 * t 
+    x0 * x0 * x0 * t 
+
+    1. * t * t 
+    x3 * t * t
+    a3 * t * t
+    y3 * t * t
+    b3 * t * t
+    x0 * t * t
+    x3 * a3 * t * t
+    x3 * y3 * t * t
+    x3 * b3 * t * t
+    x3 * x0 * t * t
+    a3 * y3 * t * t 
+    a3 * b3 * t * t 
+    a3 * x0 * t * t 
+    y3 * b3 * t * t 
+    y3 * x0 * t * t 
+    b3 * x0 * t * t 
+    x3 * x3 * t * t 
+    a3 * a3 * t * t 
+    y3 * y3 * t * t 
+    b3 * b3 * t * t 
+    x0 * x0 * t * t 
+    x3 * a3 * y3 * t * t 
+    x3 * a3 * b3 * t * t 
+    x3 * a3 * x0 * t * t 
+    x3 * y3 * b3 * t * t 
+    x3 * y3 * x0 * t * t 
+    x3 * b3 * x0 * t * t 
+    a3 * y3 * b3 * t * t 
+    a3 * y3 * x0 * t * t 
+    a3 * b3 * x0 * t * t 
+    y3 * b3 * x0 * t * t 
+    x3 * x3 * a3 * t * t 
+    x3 * x3 * y3 * t * t 
+    x3 * x3 * b3 * t * t 
+    x3 * x3 * x0 * t * t 
+    a3 * a3 * x3 * t * t 
+    a3 * a3 * y3 * t * t 
+    a3 * a3 * b3 * t * t 
+    a3 * a3 * x0 * t * t 
+    y3 * y3 * x3 * t * t 
+    y3 * y3 * a3 * t * t 
+    y3 * y3 * b3 * t * t 
+    y3 * y3 * x0 * t * t 
+    b3 * b3 * x3 * t * t 
+    b3 * b3 * a3 * t * t 
+    b3 * b3 * y3 * t * t 
+    b3 * b3 * x0 * t * t 
+    x0 * x0 * x3 * t * t 
+    x0 * x0 * a3 * t * t 
+    x0 * x0 * y3 * t * t 
+    x0 * x0 * b3 * t * t 
+    x3 * x3 * x3 * t * t 
+    a3 * a3 * a3 * t * t 
+    y3 * y3 * y3 * t * t 
+    b3 * b3 * b3 * t * t 
+    x0 * x0 * x0 * t * t 

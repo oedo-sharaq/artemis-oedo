@@ -1,0 +1,81 @@
+alias:
+ cut4849: Max$(@sr@_x_cal.fID==48)&&Max$(@sr@_x_cal.fID==49)
+ cut4748: Max$(@sr@_x_cal.fID==47)&&Max$(@sr@_x_cal.fID==48)
+ cut4647: Max$(@sr@_x_cal.fID==46)&&Max$(@sr@_x_cal.fID==47)
+ cut4546: Max$(@sr@_x_cal.fID==45)&&Max$(@sr@_x_cal.fID==46)
+ cut4445: Max$(@sr@_x_cal.fID==44)&&Max$(@sr@_x_cal.fID==45)
+ cut4444: Max$(@sr@_x_cal.fID==44)&&Max$(@sr@_x_cal.fID==44)
+
+# cut1718: Max$(@sr@_x_cal.fID==17)&&Max$(@sr@_x_cal.fID==18)
+# cut1617: Max$(@sr@_x_cal.fID==16)&&Max$(@sr@_x_cal.fID==17)
+# cut1516: Max$(@sr@_x_cal.fID==15)&&Max$(@sr@_x_cal.fID==16)
+# cut1415: Max$(@sr@_x_cal.fID==14)&&Max$(@sr@_x_cal.fID==15)
+# cut1184: Max$(@sr@_x_cal.fID==13)&&Max$(@sr@_x_cal.fID==14)
+# cut1213: Max$(@sr@_x_cal.fID==12)&&Max$(@sr@_x_cal.fID==13)
+# cut1112: Max$(@sr@_x_cal.fID==11)&&Max$(@sr@_x_cal.fID==12)
+
+group:
+  - name: @sr@_x_q_correlation 
+    title: SR-PPAC_X_Q_Correlation
+    contents:
+      - name: @sr@x_q48_q49
+        title: SR-PPACX q48q49 
+        cut: cut4849
+        x: ["Max$(@sr@_x_cal.fCharge*(@sr@_x_cal.fID==48))",100,0,100]
+        y: ["Max$(@sr@_x_cal.fCharge*(@sr@_x_cal.fID==49))",100,0,100]
+      - name: @sr@x_q47_q48
+        title: SR-PPACX q47q48 
+        cut: cut4748
+        x: ["Max$(@sr@_x_cal.fCharge*(@sr@_x_cal.fID==47))",100,0,100]
+        y: ["Max$(@sr@_x_cal.fCharge*(@sr@_x_cal.fID==48))",100,0,100]
+      - name: @sr@x_q46_q47
+        title: SR-PPACX q46q47 
+        cut: cut4647
+        x: ["Max$(@sr@_x_cal.fCharge*(@sr@_x_cal.fID==46))",100,0,100]
+        y: ["Max$(@sr@_x_cal.fCharge*(@sr@_x_cal.fID==47))",100,0,100]
+      - name: @sr@x_q45_q46
+        title: SR-PPACX q45q46 
+        cut: cut4546
+        x: ["Max$(@sr@_x_cal.fCharge*(@sr@_x_cal.fID==45))",100,0,100]
+        y: ["Max$(@sr@_x_cal.fCharge*(@sr@_x_cal.fID==46))",100,0,100]
+      - name: @sr@x_q44_q45
+        title: SR-PPACX q44q45 
+        cut: cut4445
+        x: ["Max$(@sr@_x_cal.fCharge*(@sr@_x_cal.fID==44))",100,0,100]
+        y: ["Max$(@sr@_x_cal.fCharge*(@sr@_x_cal.fID==45))",100,0,100]
+#      - name: @sr@x_q40_q41
+#        title: SR-PPACX q17q18 
+#        cut: cut1718
+#        x: ["Max$(srppac_x_cal.fCharge*(srppac_x_cal.fID==17))",100,0,70]
+#        y: ["Max$(srppac_x_cal.fCharge*(srppac_x_cal.fID==18))",100,0,70]
+#      - name: srppacx_q16_q17
+#        title: SR-PPACX q16q17 
+#        cut: cut1617
+#        x: ["Max$(srppac_x_cal.fCharge*(srppac_x_cal.fID==16))",100,0,70]
+#        y: ["Max$(srppac_x_cal.fCharge*(srppac_x_cal.fID==17))",100,0,70]
+#      - name: srppacx_q15_q16
+#        title: SR-PPACX q15q16 
+#        cut: cut1516
+#        x: ["Max$(srppac_x_cal.fCharge*(srppac_x_cal.fID==15))",100,0,70]
+#        y: ["Max$(srppac_x_cal.fCharge*(srppac_x_cal.fID==16))",100,0,70]
+#      - name: srppacx_q14_q15
+#        title: SR-PPACX q14q15 
+#        cut: cut1415
+#        x: ["Max$(srppac_x_cal.fCharge*(srppac_x_cal.fID==14))",100,0,70]
+#        y: ["Max$(srppac_x_cal.fCharge*(srppac_x_cal.fID==15))",100,0,70]
+#      - name: srppacx_q13_q14
+#        title: SR-PPACX q13q14 
+#        cut: cut1184
+#        x: ["Max$(srppac_x_cal.fCharge*(srppac_x_cal.fID==13))",100,0,70]
+#        y: ["Max$(srppac_x_cal.fCharge*(srppac_x_cal.fID==14))",100,0,70]
+#      - name: srppacx_q12_q13
+#        title: SR-PPACX q12q13 
+#        cut: cut1213
+#        x: ["Max$(srppac_x_cal.fCharge*(srppac_x_cal.fID==12))",100,0,70]
+#        y: ["Max$(srppac_x_cal.fCharge*(srppac_x_cal.fID==13))",100,0,70]
+#      - name: srppacx_q11_q12
+#        title: SR-PPACX q11q12 
+#        cut: cut1819
+#        x: ["Max$(srppac_x_cal.fCharge*(srppac_x_cal.fID==11))",100,0,70]
+#        y: ["Max$(srppac_x_cal.fCharge*(srppac_x_cal.fID==12))",100,0,70]
+ 

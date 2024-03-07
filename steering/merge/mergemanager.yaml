@@ -1,0 +1,7 @@
+Processor:
+  - name: for_creating_merge_rootfile+TS
+    type: art::TMergerProcessor
+    parameter:
+      Output: pid_data
+      CatID: 150
+

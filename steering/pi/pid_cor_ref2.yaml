@@ -1,0 +1,68 @@
+Processor:
+#  - name: proc_pid_cor
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      TofName: dia_tof32
+#      CalibOrder: 3
+#      ParameterFile: output/mass/theta.dat
+#      OutputName: mass_cor
+#      OutputTransparency: 0
+
+#  - name: proc_pid_corst0
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      TofName: dia_tof32st0
+#      CalibOrder: 3
+#      ParameterFile: output/mass/theta_st0.dat
+#      OutputName: mass_corst0
+#      OutputTransparency: 0
+
+#  - name: proc_pid_corst1
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      TofName: dia_tof32st1
+#      CalibOrder: 3
+#      ParameterFile: output/mass/theta_st1.dat
+#      OutputName: mass_corst1
+#      OutputTransparency: 0
+
+  - name: proc_pid_corst2_ref2
+    type: art::TMassCalibrationConverter
+    parameter:
+      S0PPAC: sr0_xcw
+      MWDC1: f3
+      TofName: dia_tof32st2
+      CalibOrder: 3
+      ParameterFile: output/mass/theta_st2_ref2.dat
+      OutputName: mass_corst2_ref2
+      OutputTransparency: 0
+
+#  - name: proc_pid_corst3
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      TofName: dia_tof32st3
+#      CalibOrder: 3
+#      ParameterFile: output/mass/theta_st3.dat
+#      OutputName: mass_corst3
+#      OutputTransparency: 0
+
+#  - name: proc_pid_corst2_2nd
+#    type: art::TMassCalibrationConverter
+#    parameter:
+#      S0PPAC: sr0_xcw
+#      MWDC1: f3
+#      TofName: dia_tof32st2
+#      CalibOrder: 3
+#      ParameterFile: output/mass/theta_st2_ref1_2step.dat
+#      OutputName: mass_corst2_2nd
+#      OutputTransparency: 0
+
+

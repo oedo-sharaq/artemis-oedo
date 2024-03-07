@@ -1,0 +1,397 @@
+anchor: 
+  - &dc31x1dt ["dc31_x1.fTiming",260,-53.,0.]
+  - &dc31x2dt ["dc31_x2.fTiming",260,-53.,0.]
+  - &dc31x3dt ["dc31_x3.fTiming",260,-53.,0.]
+  - &dc31x4dt ["dc31_x4.fTiming",260,-53.,0.]
+  - &dc31y1dt ["dc31_y1.fTiming",260,-53.,0.]
+  - &dc31y2dt ["dc31_y2.fTiming",260,-53.,0.]
+  - &dc31y3dt ["dc31_y3.fTiming",260,-53.,0.]
+  - &dc31y4dt ["dc31_y4.fTiming",260,-53.,0.]
+
+  - &dc32x1dt ["dc32_x1.fTiming",370,-42.,32.]
+  - &dc32x2dt ["dc32_x2.fTiming",370,-42.,32.]
+  - &dc32y1dt ["dc32_y1.fTiming",370,-42.,32.]
+  - &dc32y2dt ["dc32_y2.fTiming",370,-42.,32.]
+  - &dc32y2dt ["dc32_y2.fTiming",370,-42.,32.]
+
+  - &dc21x1dt ["dc21_x1.fTiming",800,-40.,120.]
+  - &dc21x2dt ["dc21_x1.fTiming",800,-40.,120.]
+  - &dc21udt ["dc21_u.fTiming",800,-40.,120.]
+  - &dc21vdt ["dc21_v.fTiming",800,-40.,120.]
+
+  - &dc22x1dt ["dc22_x1.fTiming",800,-30.,150.]
+  - &dc22x2dt ["dc22_x1.fTiming",800,-30.,150.]
+  - &dc22udt ["dc22_u.fTiming",800,-30.,150.]
+  - &dc22vdt ["dc22_v.fTiming",800,-30.,150.]
+
+
+  - &dc31x1q ["dc31_x1.fCharge",200,0.,1000.]
+  - &dc31x2q ["dc31_x2.fCharge",200,0.,1000.]
+  - &dc31x3q ["dc31_x3.fCharge",200,0.,1000.]
+  - &dc31x4q ["dc31_x4.fCharge",200,0.,1000.]
+  - &dc31y1q ["dc31_y1.fCharge",200,0.,1000.]
+  - &dc31y2q ["dc31_y2.fCharge",200,0.,1000.]
+  - &dc31y3q ["dc31_y3.fCharge",200,0.,1000.]
+  - &dc31y4q ["dc31_y4.fCharge",200,0.,1000.]
+
+  - &dc32x1q ["dc32_x1.fCharge",400,0.,1000.]
+  - &dc32x2q ["dc32_x2.fCharge",400,0.,1000.]
+  - &dc32y1q ["dc32_y1.fCharge",400,0.,1000.]
+  - &dc32y2q ["dc32_y2.fCharge",400,0.,1000.]
+  - &dc32y2q ["dc32_y2.fCharge",400,0.,1000.]
+
+  - &dc21x1q ["dc21_x1.fCharge",650,0.,120.]
+  - &dc21x2q ["dc21_x1.fCharge",650,0.,120.]
+  - &dc21uq ["dc21_u.fCharge", 650,0.,120.]
+  - &dc21vq ["dc21_v.fCharge", 650,0.,120.]
+
+  - &dc22x1q ["dc22_x1.fCharge",550,0.,120.]
+  - &dc22x2q ["dc22_x1.fCharge",550,0.,120.]
+  - &dc22uq ["dc22_u.fCharge",550,0.,120.]
+  - &dc22vq ["dc22_v.fCharge",550,0.,120.]
+
+  - &run ["eventheader.fRunNumber",103,169.5,272.5]
+
+
+alias: 
+  dc31x1qgate: TMath::Abs(dc31_x1.fCharge - 500) < 500;    
+  dc31x2qgate: TMath::Abs(dc31_x2.fCharge - 500) < 500;    
+  dc31x3qgate: TMath::Abs(dc31_x3.fCharge - 500) < 500;    
+  dc31x4qgate: TMath::Abs(dc31_x4.fCharge - 500) < 500;    
+  dc31y1qgate: TMath::Abs(dc31_y1.fCharge - 500) < 500;    
+  dc31y2qgate: TMath::Abs(dc31_y2.fCharge - 500) < 500;    
+  dc31y3qgate: TMath::Abs(dc31_y3.fCharge - 500) < 500;    
+  dc31y4qgate: TMath::Abs(dc31_y4.fCharge - 500) < 500;    
+
+  dc32x1qgate: TMath::Abs(dc32_x1.fCharge - 500) < 500;    
+  dc32x2qgate: TMath::Abs(dc32_x2.fCharge - 500) < 500;    
+  dc32y1qgate: TMath::Abs(dc32_y1.fCharge - 500) < 500;    
+  dc32y2qgate: TMath::Abs(dc32_y2.fCharge - 500) < 500;    
+
+  dc21x1qgate: TMath::Abs(dc21_x1.fCharge - 60) < 60;    
+  dc21x2qgate: TMath::Abs(dc21_x2.fCharge - 60) < 60;    
+  dc21uqgate: TMath::Abs(dc21_u.fCharge - 60) < 60;    
+  dc21vqgate: TMath::Abs(dc21_v.fCharge - 60) < 60;    
+
+  dc22x1qgate: TMath::Abs(dc22_x1.fCharge - 60) < 60;    
+  dc22x2qgate: TMath::Abs(dc22_x2.fCharge - 60) < 60;    
+  dc22uqgate: TMath::Abs(dc22_u.fCharge - 60) < 60;    
+  dc22vqgate: TMath::Abs(dc22_v.fCharge - 60) < 60;    
+
+
+group:
+  - name: dc31_dldt
+    title: DC31 dtdl 
+    contents:
+      - name: dc31_x1_qdt
+        title: DC31 x1 qdt
+        x: *dc31x1dt
+        y: *dc31x1q
+      - name: dc31_x2_qdt
+        title: DC31 x2 qdt
+        x: *dc31x2dt
+        y: *dc31x2q
+      - name: dc31_x3_qdt
+        title: DC31 x3 qdt
+        x: *dc31x3dt
+        y: *dc31x3q
+      - name: dc31_x4_qdt
+        title: DC31 x4 qdt
+        x: *dc31x4dt
+        y: *dc31x4q
+      - name: dc31_y1_qdt
+        title: DC31 y1 qdt
+        x: *dc31y1dt
+        y: *dc31y1q
+      - name: dc31_y2_qdt
+        title: DC31 y2 qdt
+        x: *dc31y2dt
+        y: *dc31y2q
+      - name: dc31_y3_qdt
+        title: DC31 y3 qdt
+        x: *dc31y3dt
+        y: *dc31y3q
+      - name: dc31_y4_qdt
+        title: DC31 y4 qdt
+        x: *dc31y4dt
+        y: *dc31y4q
+
+      - name: dc31_x1_dtdl
+        title: DC31 x1 dtdl
+        cut: dc31x1qgate
+        x: *dc31x1dt
+      - name: dc31_x2_dtdl
+        title: DC31 x2 dtdl
+        cut: dc31x2qgate
+        x: *dc31x2dt
+      - name: dc31_x3_dtdl
+        title: DC31 x3 dtdl
+        cut: dc31x3qgate
+        x: *dc31x3dt
+      - name: dc31_x4_dtdl
+        title: DC31 x4 dtdl
+        cut: dc31x4qgate
+        x: *dc31x4dt
+      - name: dc31_y1_dtdl
+        title: DC31 y1 dtdl
+        cut: dc31y1qgate
+        x: *dc31y1dt
+      - name: dc31_y2_dtdl
+        title: DC31 y2 dtdl
+        cut: dc31y2qgate
+        x: *dc31y2dt
+      - name: dc31_y3_dtdl
+        title: DC31 y3 dtdl
+        cut: dc31y3qgate
+        x: *dc31y3dt
+      - name: dc31_y4_dtdl
+        title: DC31 y4 dtdl
+        cut: dc31y4qgate
+        x: *dc31y4dt
+
+      - name: dc31_x1_dtdl_run
+        title: DC31 x1 dtdl RunNumber
+        cut: dc31x1qgate
+        x: *dc31x1dt
+        y: *run
+      - name: dc31_x2_dtdl_run
+        title: DC31 x2 dtdl RunNumber
+        cut: dc31x2qgate
+        x: *dc31x2dt
+        y: *run
+      - name: dc31_x3_dtdl_run
+        title: DC31 x3 dtdl RunNumber
+        cut: dc31x3qgate
+        x: *dc31x3dt
+        y: *run
+      - name: dc31_x4_dtdl_run
+        title: DC31 x4 dtdl RunNumber
+        cut: dc31x4qgate
+        x: *dc31x4dt
+        y: *run
+      - name: dc31_y1_dtdl_run 
+        title: DC31 y1 dtdl RunNumber
+        cut: dc31y1qgate
+        x: *dc31y1dt
+        y: *run
+      - name: dc31_y2_dtdl_run
+        title: DC31 y2 dtdl RunNumber
+        cut: dc31y2qgate
+        x: *dc31y2dt
+        y: *run
+      - name: dc31_y3_dtdl_run
+        title: DC31 y3 dtdl RunNumber
+        cut: dc31y3qgate
+        x: *dc31y3dt
+        y: *run
+      - name: dc31_y4_dtdl_run
+        title: DC31 y4 dtdl RunNumber
+        cut: dc31y4qgate
+        x: *dc31y4dt
+        y: *run
+
+  - name: dc32_dldt
+    title: DC32 dtdl 
+    contents:
+      - name: dc32_x1_qdt
+        title: DC32 x1 qdt
+        x: *dc32x1dt
+        y: *dc32x1q
+      - name: dc32_x2_qdt
+        title: DC32 x2 qdt
+        x: *dc32x2dt
+        y: *dc32x2q
+      - name: dc32_y1_qdt
+        title: DC32 y1 qdt
+        x: *dc32y1dt
+        y: *dc32y1q
+      - name: dc32_y2_qdt
+        title: DC32 y2 qdt
+        x: *dc32y2dt
+        y: *dc32y2q
+
+      - name: dc32_x1_dtdl
+        title: DC32 x1 dtdl
+        cut: dc32x1qgate
+        x: *dc32x1dt
+      - name: dc32_x2_dtdl
+        title: DC32 x2 dtdl
+        cut: dc32x2qgate
+        x: *dc32x2dt
+      - name: dc32_y1_dtdl
+        title: DC32 y1 dtdl
+        cut: dc32y1qgate
+        x: *dc32y1dt
+      - name: dc32_y2_dtdl
+        title: DC32 y2 dtdl
+        cut: dc32y2qgate
+        x: *dc32y2dt
+
+      - name: dc32_x1_dtdl_run
+        title: DC32 x1 dtdl RunNumber
+        cut: dc32x1qgate
+        x: *dc32x1dt
+        y: *run
+      - name: dc32_x2_dtdl_run
+        title: DC32 x2 dtdl RunNumber
+        cut: dc32x2qgate
+        x: *dc32x2dt
+        y: *run
+      - name: dc32_y1_dtdl_run
+        title: DC32 y1 dtdl RunNumber
+        cut: dc32y1qgate
+        x: *dc32y1dt
+        y: *run
+      - name: dc32_y2_dtdl_run 
+        title: DC32 y2 dtdl RunNumber
+        cut: dc32y2qgate
+        x: *dc32y2dt
+        y: *run
+
+
+  - name: dc21_dldt
+    title: DC21 dtdl 
+    contents:
+      - name: dc21_x1_qdt
+        title: DC21 x1 qdt
+        cut: dc21x1qgate
+        x: *dc21x1dt
+        y: *dc21x1q
+      - name: dc21_x2_qdt
+        title: DC21 x2 qdt
+        cut: dc21x2qgate
+        x: *dc21x2dt
+        y: *dc21x2q
+      - name: dc21_u_qdt
+        title: DC21 u qdt
+        cut: dc21uqgate
+        x: *dc21udt
+        y: *dc21uq
+      - name: dc21_v_qdt
+        title: DC21 v qdt
+        cut: dc21vqgate
+        x: *dc21vdt
+        y: *dc21vq
+
+      - name: dc21_x1_dtdl
+        title: DC21 x1 dtdl
+        cut: dc21x1qgate
+        x: *dc21x1dt
+      - name: dc21_x2_dtdl
+        title: DC21 x2 dtdl
+        cut: dc21x2qgate
+        x: *dc21x2dt
+      - name: dc21_u_dtdl
+        title: DC21 u dtdl
+        cut: dc21uqgate
+        x: *dc21udt
+      - name: dc21_v_dtdl
+        title: DC21 v dtdl
+        cut: dc21vqgate
+        x: *dc21vdt
+
+      - name: dc21_x1_dtdl_run
+        title: DC21 x1 dtdl RunNumber
+        cut: dc21x1qgate
+        x: *dc21x1dt
+        y: *run
+      - name: dc21_x2_dtdl_run
+        title: DC21 x2 dtdl RunNumber
+        cut: dc21x2qgate
+        x: *dc21x2dt
+        y: *run
+      - name: dc21_u_dtdl_run
+        title: DC21 u dtdl RunNumber
+        cut: dc21uqgate
+        x: *dc21udt
+        y: *run
+      - name: dc21_v_dtdl_run 
+        title: DC21 v dtdl RunNumber
+        cut: dc21vqgate
+        x: *dc21vdt
+        y: *run
+
+
+  - name: dc22_dldt
+    title: DC22 dtdl 
+    contents:
+      - name: dc22_x1_qdt
+        title: DC22 x1 qdt
+        cut: dc22x1qgate
+        x: *dc22x1dt
+        y: *dc22x1q
+      - name: dc22_x2_qdt
+        title: DC22 x2 qdt
+        cut: dc22x2qgate
+        x: *dc22x2dt
+        y: *dc22x2q
+      - name: dc22_u_qdt
+        title: DC22 u qdt
+        cut: dc22qugate
+        x: *dc22udt
+        y: *dc22uq
+      - name: dc22_v_qdt
+        title: DC22 v qdt
+        cut: dc22vqgate
+        x: *dc22vdt
+        y: *dc22vq
+
+      - name: dc22_x1_dtdl
+        title: DC22 x1 dtdl
+        cut: dc22x1qgate
+        x: *dc22x1dt
+      - name: dc22_x2_dtdl
+        title: DC22 x2 dtdl
+        cut: dc22x2qgate
+        x: *dc22x2dt
+      - name: dc22_u_dtdl
+        title: DC22 u dtdl
+        cut: dc22qugate
+        x: *dc22udt
+      - name: dc22_v_dtdl
+        title: DC22 v dtdl
+        cut: dc22vqgate
+        x: *dc22vdt
+
+      - name: dc22_x1_dtdl_run
+        title: DC22 x1 dtdl RunNumber
+        cut: dc22x1qgate
+        x: *dc22x1dt
+        y: *run
+      - name: dc22_x2_dtdl_run
+        title: DC22 x2 dtdl RunNumber
+        cut: dc22x2qgate
+        x: *dc22x2dt
+        y: *run
+      - name: dc22_u_dtdl_run
+        title: DC22 u dtdl RunNumber
+        cut: dc22qugate
+        x: *dc22udt
+        y: *run
+      - name: dc22_v_dtdl_run 
+        title: DC22 v dtdl RunNumber
+        cut: dc22vqgate
+        x: *dc22vdt
+        y: *run
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

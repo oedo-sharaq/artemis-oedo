@@ -1,0 +1,48 @@
+anchor: 
+  - &srdyq0qlcal ["(srppacd_y_qcal[0].fCharge - Max$(srppacd_y_qcal.fCharge*(srppacd_y_qcal.fID==srppacd_y_qcal[0].fID+1))) / (srppacd_y_qcal[0].fCharge + Max$(srppacd_y_qcal.fCharge*(srppacd_y_qcal.fID==srppacd_y_qcal[0].fID+1)))", 400,0,0.4]
+  - &srdyq0qrcal ["(srppacd_y_qcal[0].fCharge - Max$(srppacd_y_qcal.fCharge*(srppacd_y_qcal.fID==srppacd_y_qcal[0].fID-1))) / (srppacd_y_qcal[0].fCharge + Max$(srppacd_y_qcal.fCharge*(srppacd_y_qcal.fID==srppacd_y_qcal[0].fID-1)))", 400,0,0.4]
+
+  - &srdyq0qlqcal ["(srppacd_y_qqcal[0].fCharge - Max$(srppacd_y_qqcal.fCharge*(srppacd_y_qqcal.fID==srppacd_y_qqcal[0].fID+1))) / (srppacd_y_qqcal[0].fCharge + Max$(srppacd_y_qqcal.fCharge*(srppacd_y_qqcal.fID==srppacd_y_qqcal[0].fID+1)))", 400,0,0.4]
+  - &srdyq0qrqcal ["(srppacd_y_qqcal[0].fCharge - Max$(srppacd_y_qqcal.fCharge*(srppacd_y_qqcal.fID==srppacd_y_qqcal[0].fID-1))) / (srppacd_y_qqcal[0].fCharge + Max$(srppacd_y_qqcal.fCharge*(srppacd_y_qqcal.fID==srppacd_y_qqcal[0].fID-1)))", 400,0,0.4]
+
+  - &srdyq0qlqcalaxin ["(srppacd_y_qcalaxin[0].fCharge - Max$(srppacd_y_qcalaxin.fCharge*(srppacd_y_qcalaxin.fID==srppacd_y_qcalaxin[0].fID+1))) / (srppacd_y_qcalaxin[0].fCharge + Max$(srppacd_y_qcalaxin.fCharge*(srppacd_y_qcalaxin.fID==srppacd_y_qcalaxin[0].fID+1)))", 400,0,0.4]
+  - &srdyq0qrqcalaxin ["(srppacd_y_qcalaxin[0].fCharge - Max$(srppacd_y_qcalaxin.fCharge*(srppacd_y_qcalaxin.fID==srppacd_y_qcalaxin[0].fID-1))) / (srppacd_y_qcalaxin[0].fCharge + Max$(srppacd_y_qcalaxin.fCharge*(srppacd_y_qcalaxin.fID==srppacd_y_qcalaxin[0].fID-1)))", 400,0,0.4]
+
+
+
+
+
+group:
+#  - name: srppacdqdxlrcal
+#    title: SR-PPAC dqdxLRcal
+#    contents:
+#      - name: srppacd_y_q0qlcal
+#        title: srppacd Y Q0Qlcal
+#        x: *srdyq0qlcal
+#      - name: srppacd_y_q0qrcal
+#        title: srppacd Y Q0QRcal
+#        x: *srdyq0qrcal
+#
+
+#  - name: srppacdqdxlrqcal
+#    title: SR-PPAC dqdxLRqcal
+#    contents:
+#      - name: srppacd_y_q0qlqcal
+#        title: srppacd Y Q0Qlqcal
+#        x: *srdyq0qlqcal
+#      - name: srppacd_y_q0qrqcal
+#        title: srppacd Y Q0QRqcal
+#        x: *srdyq0qrqcal
+
+
+  - name: srppacdqdxlrqcalaxin
+    title: SR-PPAC dqdxLRqcalaxin
+    contents:
+      - name: srppacd_y_q0qlqcalaxin
+        title: srppacd Y Q0Qlqcalaxin
+        x: *srdyq0qlqcalaxin
+      - name: srppacd_y_q0qrqcalaxin
+        title: srppacd Y Q0QRqcalaxin
+        x: *srdyq0qrqcalaxin
+
+

@@ -1,0 +1,42 @@
+Processor:
+  - name: proc_@NAME@_ch2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name:     prm_@NAME@_ch2ns
+      Type:     art::TAffineConverter
+      FileName: prm/mwdc/@NAME@/ch2ns.dat
+
+  - name: proc_@NAME@_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter:
+      CatID:              @CATID@
+      TimingTypeID:       0
+      OutputCollection:   @NAME@_raw
+      OutputTransparency: 0
+
+  - name: proc_@NAME@_cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection:      @NAME@_raw
+      OutputCollection:     @NAME@_cal
+      TimingConverterArray: prm_@NAME@_ch2ns
+      OutputTransparency:   0
+
+  - name: proc_@NAME@_dt
+    type: art::TTimingSubtractionProcessor
+    parameter:
+      InputCollection:       @NAME@_cal
+      OutputCollection:      @NAME@_dt
+      StartTimingCollection: @TREDET@
+      StartTimingDetID:   @TREFID@
+      OutputTransparency:   0
+
+  - name: proc_@NAME@_dtval
+    type: art::TTimeValidator
+    parameter:
+      InputCollection: @NAME@_dt
+      OutputCollection: @NAME@_dtval
+      ValidTimeRange: @VALIDTIME@
+
+
+

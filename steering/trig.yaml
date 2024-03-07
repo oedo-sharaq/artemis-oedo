@@ -1,0 +1,92 @@
+Processor:
+  - name: proc_trig_prm
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm_trig
+      Type: art::TAffineConverter
+      FileName: prm/trig/ch2ns.dat
+
+  - name: proc_trig_raw
+    type: art::TTimingChargeMappingProcessor
+    parameter: 
+      CatID: 100
+      TimingTypeID: 0
+      TrailingComesFirst: 1
+      OutputCollection: trig_raw
+
+  - name: proc_trig_cal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter: 
+      InputCollection: trig_raw
+      OutputCollection: trig
+      TimingConverterArray: prm_trig
+      ChargeConverterArray: prm_trig
+
+
+#  - name: proc_trig_raw
+#    type: art::TSimpleDataMappingProcessor
+##    type: art::TTimingChargeCalibrationProcessor
+#    parameter:
+#      CatID:            100
+#      DataTypeID:       0
+#      Sparse:           0
+#      OutputCollection: trig_raw
+#
+  - name: proc_trigsep
+    type: art::TSeparateOutputProcessor
+    parameter:
+      InputCollection: trig
+      OutputCollections: 
+        - trig_s2w
+        - trig_s2ds
+        - trig_f3ds
+
+#  - name: gate_array_init
+#    type: art::TGateArrayInitializer
+#    parameter:
+#      OutputTransparency: 1
+#     
+#  - name: trigger_gates
+#    type: art::TTreeFormulaGateProcessor
+#    parameter:
+#      Definitions:
+#        - "gateS2w; (trig_s2w.fTiming > 0 && trig_s2w.fTiming < 20)"
+#        - "gateS2DS; (coin_f3ds.fTiming > 0 && coin_f3ds.fTiming < 1000000)"
+#        - "gateF3DS; (trig_f3ds.fTIming >120 && trig_f3ds.fTiming < 160)"
+
+#  - name: s2w_gate_formula
+#    type: art::TTreeFormulaGateProcessor
+#    parameter:
+#      Definitions:
+##        - "singlehit; dia3pad_raw@.GetEntriesFast()==1"
+##        - "srt; sr0_x_cal[0].fTiming < -1930"
+##        - "s2w; trig_s2w[0].fTiming > -4000. && trig_s2w[0].fTiming < -3000." #sh13bld0275
+#       - "s2wfe; trig_s2w[0].fTiming > 9. && trig_s2w[0].fTiming< 15. && abs(S2ssd.fEx-227.) < 7." #physics170
+#
+#  - name: s2w_gatestop
+#    type: art::TGateStopProcessor
+#    parameter:
+#      GateName: "s2wfe"
+#
+#
+  - name: s2w_gate_formula
+    type: art::TTreeFormulaGateProcessor
+    parameter:
+      Definitions:
+#        - "singlehit; dia3pad_raw@.GetEntriesFast()==1"
+#        - "srt; sr0_x_cal[0].fTiming < -1930"
+#        - "s2w; trig_s2w[0].fTiming > -4000. && trig_s2w[0].fTiming < -3000." #sh13bld0275
+       - "s2w; trig_s2w[0].fTiming > 9. && trig_s2w[0].fTiming< 15." #physics170
+#       - "s2wfe; trig_s2w[0].fTiming > 9. && trig_s2w[0].fTiming< 15. && abs(S2ssd.fEx-227.) < 7." #physics170
+
+  - name: s2w_gatestop
+    type: art::TGateStopProcessor
+    parameter:
+      GateName: "s2w"
+#      GateName: "s2wfe"
+
+
+
+
+
+

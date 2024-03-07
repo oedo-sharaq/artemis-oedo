@@ -1,0 +1,37 @@
+anchor: 
+  - &sruxmax 0.3
+  - &sruymax 0.3
+  - &srdxmax 0.3
+  - &srdymax 0.3
+
+  - &sruxq0q1 ["(srppacu_x_qcal[0].fCharge - srppacu_x_qcal[1].fCharge) / (srppacu_x_qcal[0].fCharge + srppacu_x_qcal[1].fCharge+Alt$(srppacu_x_qcal[2].fCharge,0))", 300,0,*sruxmax]
+  - &sruyq0q1 ["(srppacu_y_qcal[0].fCharge - srppacu_y_qcal[1].fCharge) / (srppacu_y_qcal[0].fCharge + srppacu_y_qcal[1].fCharge+Alt$(srppacu_y_qcal[2].fCharge,0))", 300,0,*sruymax]
+  - &srdxq0q1 ["(srppacd_x_qcal[0].fCharge - srppacd_x_qcal[1].fCharge) / (srppacd_x_qcal[0].fCharge + srppacd_x_qcal[1].fCharge+Alt$(srppacd_x_qcal[2].fCharge,0))", 300,0,*srdxmax]
+  - &srdyq0q1 ["(srppacd_y_qcal[0].fCharge - srppacd_y_qcal[1].fCharge) / (srppacd_y_qcal[0].fCharge + srppacd_y_qcal[1].fCharge+Alt$(srppacd_y_qcal[2].fCharge,0))", 300,0,*srdymax]
+
+
+alias:
+ xuidcut: srppacu_x_raw.fID > 45 && srppacu_x_raw.fID < 51
+ xdidcut: srppacd_x_raw.fID > 45 && srppacd_x_raw.fID < 51
+
+group:
+  - name: srppacdqdxqcal
+    title: SR-PPAC dqdx
+    contents:
+      - name: srppacu_x_q0q1cal
+        title: srppacu X Q0Q1
+#        cut: xuidcut
+        x: *sruxq0q1
+#      - name: srppacu_y_q0q1
+#        title: srppacu Y Q0Q1
+#        x: *sruyq0q1
+#
+#      - name: srppacd_x_q0q1
+#        title: srppacd X Q0Q1
+##        cut: xdidcut
+#        x: *srdxq0q1
+#      - name: srppacd_y_q0q1
+#        title: srppacd Y Q0Q1
+#        x: *srdyq0q1
+
+

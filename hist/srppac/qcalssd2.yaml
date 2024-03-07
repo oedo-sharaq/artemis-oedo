@@ -1,0 +1,55 @@
+anchor: 
+  - &s2aq ["s2aq",500,1.7,2.3]
+  - &s2z ["s2z",500,8,30]
+  - &sr0id ["sr0_x_cal.fID",94,-0.5,93.5]
+  - &sr0q0 ["sr0_x_cal[0].fCharge",500,0,55]
+  - &sr0q1 ["sr0_x_cal[1].fCharge",500,0,55]
+  - &sr0q2 [["sr0_x_cal[2].fCharge",500,0,55]
+
+
+alias:
+ tof30 : sr0_a_cal.fTiming - dia3pad[0].fTiming;
+# tof32 : dias2pad_tc842.fCharge - dia3pad_tc842.fCharge;
+ tof32 : ((dias2pad_tc842.fCharge-dia3pad_tc842.fCharge)+5.0e4)*1.e-3+2441.31;
+ s0.fX : sr0_xc0[0].fPosition + 49.28;
+ s0xc  : s0.fX-24.0*(tof30-1066.);
+ s2de  : 1.03827*S2ssd.fEx*0.866;
+ s2brho: 4.4147*(1-sr0_xc0[0].fPosition/14856);
+ s2beta: 103499.78 / ( 299.79 * tof32 - 299.79 * 1455. );
+ s2gamma: 1./TMath::Sqrt(1-(s2beta)*(s2beta)); 
+ s2aq  : s2brho * 299.79 / (s2gamma * s2beta * 931.49);
+ de_v  : TMath::Log(5907.5*s2beta*s2beta)-TMath::Log(1.-s2beta*s2beta)-s2beta*s2beta; 
+ s2z   : -0.0513 + 7.451*TMath::Sqrt(s2de/de_v) * s2beta; 
+ window: TMath::Abs(trig_s2w.fTiming-11)<10;
+ ssdgate1: TMath::Abs(S2ssd.fEx-227.)<6;
+ ssdgate2: TMath::Abs(S2ssd.fEx-178.7)<8;
+ ssdgate3: TMath::Abs(S2ssd.fEx-142.)<5;
+
+
+group:
+  - name: qcal2SSD
+    title: Q cal2 SSD
+    contents:
+      - name: hqiddeg1
+        title: S0 Q vs ID gated w/ SSD 227
+        cut: ssdgate1
+        x: *sr0id
+        y: *sr0q0
+      - name: hqiddeg2
+        title: S0 Q vs ID gated w/ SSD 178
+        cut: ssdgate2
+        x: *sr0id
+        y: *sr0q1
+      - name: hqiddeg3
+        title: S0 Q vs ID gated w/ SSD 142
+        cut: ssdgate3
+        x: *sr0id
+        y: *sr0q2
+
+
+
+
+
+
+
+

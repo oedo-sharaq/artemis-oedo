@@ -1,0 +1,31 @@
+Processor:
+  - name: proc_tc842_um2ns
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm:tc842:um2ns
+      Type: art::TAffineConverter
+      FileName: prm/dia/um2ns.dat
+
+  - name: proc_tc842_@NAEM@_raw
+    type: art::TDiaTimingDataMappingProcessor
+    parameter: 
+      CatID:            @CATID@
+      DataTypeID:       0
+      Sparse:           1
+      OutputCollection: @NAME@_raw
+
+#  - name: proc_tc842_@NAME@_cal
+#    type: art::TTimingChargeCalibrationProcessor
+#    parameter:
+#      InputCollection: @NAME@_raw
+#      OutputCollection: @NAME@_cal
+#      TimingConverterArray: prm:tc842:um2ns
+
+#  - name: proc_tc842_@NAME@_val
+#    type: art::TTimeValidator
+#    parameter: 
+#      InputCollection: @NAME@_cal
+#      OutputCollection: @NAME@_val
+#      ValidTimeRange: @RANGE@
+
+

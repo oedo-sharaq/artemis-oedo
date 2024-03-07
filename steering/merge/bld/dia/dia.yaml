@@ -1,0 +1,14 @@
+Processor:
+  - include: 
+      name: dia.inc.yaml
+      replace:
+        CATa: 5
+        CATs: 6
+        FP: dia3
+  - include: 
+      name: dia.inc.yaml
+      replace:
+        CATa: 7 
+        CATs: 8
+        FP: dias2
+

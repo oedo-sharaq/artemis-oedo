@@ -1,0 +1,173 @@
+Processor:
+##### F3
+#####
+  - include: 
+#      name: time2dt.inc.yaml
+      name: time2dt_sh.inc.yaml
+      replace: 
+        CATID: 20    
+        NAME: dc31
+        TREDET: dia3pad
+        TREFID: 0
+        VALIDTIME: [-60.,0,0,]
+  - include:
+   #   name:  xxyyxxyy.inc.yaml
+      name:  xxyyxxyy_sh.inc_for_each_z.yaml
+      replace:
+        NAME: dc31
+        PRM: phys170ca
+#        PRM: phys170sc
+#        PRM: phys170ti
+#        PRM: phys170v
+#        PRM: phys170cr
+#        PRM: phys170mn
+#        PRM: phys170fe
+#        PRM: phys170co
+#        PRM: phys170ni
+
+
+  - include: 
+   #   name: time2dt.inc.yaml
+      name: time2dt_sh.inc.yaml
+      replace: 
+        CATID: 21    
+        NAME: dc32
+        TREDET: dia3pad
+        TREFID: 0
+        VALIDTIME: [-45.,30,0,]
+
+  - include:
+#      name:  xxyy.inc.yaml
+      name:  xxyy_sh.inc_for_each_z.yaml
+      replace:
+        NAME: dc32
+        PRM: phys170ca
+#        PRM: phys170sc
+#        PRM: phys170ti
+#        PRM: phys170v
+#        PRM: phys170cr
+#        PRM: phys170mn
+#        PRM: phys170fe
+#        PRM: phys170co
+#        PRM: phys170ni
+
+##### S2
+#####
+  - include: 
+      name: time2dt.inc.yaml
+      replace: 
+        CATID: 24
+        NAME: dc21
+   #     TREDET: sr0_a_cal #onlne
+ #       TREDET: s2pla
+        TREDET: dias2pad
+        TREFID: 0
+
+  - include: 
+      name: time2dt.inc.yaml
+      replace: 
+        CATID: 25    
+        NAME: dc22
+     #   TREDET: sr0_a_cal #online
+#        TREDET: s2pla
+        TREDET: dias2pad
+        TREFID: 0
+
+  - name: proc_dc21_geo
+    type: art::TParameterLoader
+    parameter:
+      Name:     dc21
+      Type:     art::TMWDCParameter
+      FileName: prm/mwdc/dc21/geometry.yaml
+
+  - include:
+      name:  xxuv_load.inc_for_each_z.yaml
+      replace:
+        NAME: dc21
+        PRM: phys170ca
+#        PRM: phys170sc
+#        PRM: phys170ti
+#        PRM: phys170v
+#        PRM: phys170cr
+#        PRM: phys170mn
+#        PRM: phys170fe
+#        PRM: phys170co
+#        PRM: phys170ni
+
+
+  - name: proc_dc21_plane
+    type: art::TMWDCPlaneProcessor
+    parameter:
+      InputCollection: dc21_dt
+      MWDCName:        dc21
+      ConverterList:
+        - prm_dc21_dxdt_x1
+        - prm_dc21_dxdt_x2        
+        - prm_dc21_dxdt_u
+        - prm_dc21_dxdt_v
+      OutputTransparency: 0            
+
+  - name: proc_dc21_track
+    type: art::TMWDCTrackingProcessor
+    parameter:
+      InputCollection:
+        - dc21_x1
+        - dc21_x2        
+#        - dc21_u
+        - dc21_v
+      UseLocalPos: 1
+      OutputCollection:   dc21
+      OutputTransparency: 0
+
+  - name: proc_dc22_geo
+    type: art::TParameterLoader
+    parameter:
+      Name:     dc22
+      Type:     art::TMWDCParameter
+      FileName: prm/mwdc/dc22/geometry.yaml
+
+  - include:
+      name:  xxuv_load.inc_for_each_z.yaml
+      replace:
+        NAME: dc22
+        PRM: phys170ca
+#        PRM: phys170sc
+#        PRM: phys170ti
+#        PRM: phys170v
+#        PRM: phys170cr
+#        PRM: phys170mn
+#        PRM: phys170fe
+#        PRM: phys170co
+#        PRM: phys170ni
+
+
+  - name: proc_dc22_plane
+    type: art::TMWDCPlaneProcessor
+    parameter:
+      InputCollection: dc22_dt
+      MWDCName:        dc22
+      ConverterList:
+        - prm_dc22_dxdt_x1
+        - prm_dc22_dxdt_x2        
+        - prm_dc22_dxdt_u
+        - prm_dc22_dxdt_v
+      OutputTransparency: 0            
+
+  - name: proc_dc22_track
+    type: art::TMWDCTrackingProcessor
+    parameter:
+      InputCollection:
+        - dc22_x1
+        - dc22_x2        
+#        - dc22_u
+        - dc22_v
+      UseLocalPos: 1
+      OutputCollection:   dc22
+      OutputTransparency: 0
+      
+
+########
+  - include: f3mwdctrack.yaml
+#  - include: fe10mwdctrack.yaml
+  - include: s2mwdctrack.yaml
+  - include: mwdc_calib_local.yaml

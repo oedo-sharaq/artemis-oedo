@@ -1,0 +1,95 @@
+Processor:
+  - name: proc_dia_tdc_l
+    type: art::TDiaTimingDataMappingProcessor
+    parameter:
+      CatID:            306
+      DataTypeID:       0
+      Sparse:           0
+      OutputCollection: traw_dia_l
+  - name: proc_dia_tdc_r
+    type: art::TDiaTimingDataMappingProcessor
+    parameter:
+      CatID:            306
+      DataTypeID:       1
+      Sparse:           0
+      OutputCollection: traw_dia_r
+  - name: proc_dia_tdc_pad
+    type: art::TDiaTimingDataMappingProcessor
+    parameter:
+      CatID:            307
+      DataTypeID:       0
+      Sparse:           0
+      OutputCollection: traw_dia_pad
+
+  - name: proc_dia_pad
+    type: art::TDiaPadCalibrationProcessor
+    parameter:
+      InputCollection:  traw_dia_pad
+      OutputCollection: tcal_dia_pad
+
+  - name: proc_dia_strip
+    type: art::TDiaStripCalibrationProcessor
+    parameter:
+      InputCollection1: traw_dia_l
+      InputCollection2: traw_dia_r
+      LRPadDiffConst: [-372.,-372.,0.,-5.7,-5.26,0.]
+      StartTimingCollection: tcal_dia_pad
+      OutputCollection: tcal_dia_strip
+
+#  - name: proc_dia_strip_val
+#    type: art::TDiaStripCalibrationProcessor
+#    parameter:
+#      InputCollection: tcal_dia_strip
+#      ValidTimeRange: []
+#      OutputCollection: tcal_dia_strip_val
+
+  - name: proc_dia_timing_f3
+#    type: art::TDiaTimingProcessor
+    type: art::TDiaStripTimingProcessor
+    parameter:
+      InputCollection1  : tcal_dia_strip
+      InputCollection2  : tcal_dia_pad
+      QTCStripL         : dia3strip_l
+      QTCStripR         : dia3strip_r
+      OutputCollection  : dia_t_f3
+      DetIDRange_Strip  : [0,1]
+      DetID_Pad         : 0
+      MultiStripAnalysis: 1
+      UseTDiffStripGate : 1
+      TDiffStrip2       : [-10.,10.]
+      TDiffStrip3       : [-10.,10.]
+      UseQGate          : 0
+#      QminStrip2        : 480.0
+#      QminStrip3        : 490.0
+      
+  - name: proc_dia_timing_s2
+#    type: art::TDiaTimingProcessor
+    type: art::TDiaStripTimingProcessor
+    parameter:
+      InputCollection1  : tcal_dia_strip
+      InputCollection2  : tcal_dia_pad
+      QTCStripL         : dias2strip_l
+      QTCStripR         : dias2strip_r
+      OutputCollection  : dia_t_s2
+      DetIDRange_Strip  : [2,5]
+      DetID_Pad         : 1
+      MultiStripAnalysis: 1
+      UseTDiffStripGate : 1
+      TDiffStrip1       : [0.,8.]
+      TDiffStrip2       : [-5.,5.]
+      TDiffStrip3       : [-5.,5.]
+      TDiffStrip4       : [-3.,5.]
+      UseQGate          : 0
+#      QminStrip1        : 490.0
+#      QminStrip2        : 500.0
+#      QminStrip3        : 490.0
+#      QminStrip4        : 480.0
+
+  - name: proc_dia_tof32
+    type: art::TDiaTimingSubtractionProcessor
+    parameter:
+      InputCollection1: dia_t_f3
+      InputCollection2: dia_t_s2
+      Toffset:          -2125.3
+      OutputCollection: dia_tof32
+

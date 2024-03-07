@@ -1,0 +1,52 @@
+anchor:
+  - &ridf1 ridf/physics0170.ridf
+  - &ridf2 ridf/physics0224.ridf
+  - &output sh13_analysis/hanai/phys/merge/chkbld_physics_merge.test.root
+
+Processor:
+  - name: ridfevent
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency:  1
+      InputFiles:
+        - *ridf1
+        - *ridf2
+
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      MapConfig: mapper.conf
+
+  - name: proc_gateinit
+    type: art::TGateArrayInitializer
+    parameter:
+      OutputTransparency: 1
+
+
+
+  - include: tref.yaml
+  - include: trig.yaml
+  - include: bld/pla/pla_os22s.yaml
+  - include: bld/pla/pla_tc842.yaml
+  - include: bld/dia/dia.yaml         # dia v1290
+ # - include: bld/dia/dia_tc842_strip.yaml # dia tc842 using strip
+#  - include: bld/dia/dia_tc842.yaml # dia tc842 using pad
+  - include: tof.yaml # dia tc842 using pad
+  - include: bld/srppac/srppac.yaml
+  - include: bld/si/ssd.yaml
+  - include: pi/pid.yaml
+  - include: bld/mwdc/chkmwdc_local.yaml
+
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: 
+        - *output
+  - name: quit
+    type: art::TQuitProcessor
+
+

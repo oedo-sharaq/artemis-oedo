@@ -1,0 +1,53 @@
+anchor: 
+  - &mass_stm_cr_a ["mass_corstm_BLD_8th_maxz.fAq",5000,1.74,1.76]
+  - &mass_stm_cr_b ["mass_corstm_BLD_8th_maxz.fAq",5000,1.78,1.80]
+  - &mass_stm_cr_c ["mass_corstm_BLD_8th_maxz.fAq",5000,1.825,1.845]
+  - &mass_stm_cr_d ["mass_corstm_BLD_8th_maxz.fAq",5000,1.87,1.89]
+  - &mass_stm_cr_e ["mass_corstm_BLD_8th_maxz.fAq",5000,1.90,1.92]
+  - &mass_stm_cr_f ["mass_corstm_BLD_8th_maxz.fAq",5000,1.94,1.96]
+  - &mass_stm_cr_aa ["mass_corstm_BLD_8th_maxz.fAq",1000,1.74,1.76]
+  - &mass_stm_cr_bb ["mass_corstm_BLD_8th_maxz.fAq",1000,1.78,1.80]
+  - &mass_stm_cr_cc ["mass_corstm_BLD_8th_maxz.fAq",1000,1.825,1.845]
+  - &mass_stm_cr_dd ["mass_corstm_BLD_8th_maxz.fAq",1000,1.87,1.89]
+  - &mass_stm_cr_ee ["mass_corstm_BLD_8th_maxz.fAq",1000,1.90,1.92]
+  - &mass_stm_cr_ff ["mass_corstm_BLD_8th_maxz.fAq",1000,1.94,1.96]
+
+
+
+group:
+  - name: chkmass_stm_cr
+    title: chkMASS_stm_Cr
+    contents:
+      - name: mass_stm_cr_a
+        title: Mass  Cr a SCrD4th 8step
+        x: *mass_stm_cr_a
+      - name: mass_stm_cr_b
+        title: Mass  Cr b SCrD4th 8step
+        x: *mass_stm_cr_b
+      - name: mass_stm_cr_c
+        title: Mass  Cr c SCrD4th 8step
+        x: *mass_stm_cr_c
+      - name: mass_stm_cr_e
+        title: Mass  Cr e SCrD4th 8step
+        x: *mass_stm_cr_e
+      - name: mass_stm_cr_f
+        title: Mass  Cr f SCrD4th 8step
+        x: *mass_stm_cr_f
+      - name: mass_stm_cr_aa
+        title: Mass  Cr aa SCrD4th 8step
+        x: *mass_stm_cr_aa
+      - name: mass_stm_cr_bb
+        title: Mass  Cr bb SCrD4th 8step
+        x: *mass_stm_cr_bb
+      - name: mass_stm_cr_cc
+        title: Mass  Cr cc SCrD4th 8step
+        x: *mass_stm_cr_cc
+      - name: mass_stm_cr_ee
+        title: Mass  Cr ee SCrD4th 8step
+        x: *mass_stm_cr_ee
+      - name: mass_stm_cr_ff
+        title: Mass  Cr ff SCrD4th 8step
+        x: *mass_stm_cr_ff
+
+
+

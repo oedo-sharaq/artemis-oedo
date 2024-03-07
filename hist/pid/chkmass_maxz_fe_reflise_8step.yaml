@@ -1,0 +1,65 @@
+anchor: 
+  - &mass_stm_fe_a ["mass_corstm_BLD_8th_maxz.fAq",5000,1.72,1.74]
+  - &mass_stm_fe_b ["mass_corstm_BLD_8th_maxz.fAq",5000,1.76,1.78]
+  - &mass_stm_fe_c ["mass_corstm_BLD_8th_maxz.fAq",5000,1.79,1.81]
+  - &mass_stm_fe_d ["mass_corstm_BLD_8th_maxz.fAq",5000,1.83,1.85]
+  - &mass_stm_fe_e ["mass_corstm_BLD_8th_maxz.fAq",5000,1.87,1.89]
+  - &mass_stm_fe_f ["mass_corstm_BLD_8th_maxz.fAq",5000,1.92,1.94]
+  - &mass_stm_fe_g ["mass_corstm_BLD_8th_maxz.fAq",5000,1.95,1.97]
+  - &mass_stm_fe_aa ["mass_corstm_BLD_8th_maxz.fAq",1000,1.72,1.74]
+  - &mass_stm_fe_bb ["mass_corstm_BLD_8th_maxz.fAq",1000,1.76,1.78]
+  - &mass_stm_fe_cc ["mass_corstm_BLD_8th_maxz.fAq",1000,1.79,1.81]
+  - &mass_stm_fe_dd ["mass_corstm_BLD_8th_maxz.fAq",1000,1.83,1.85]
+  - &mass_stm_fe_ee ["mass_corstm_BLD_8th_maxz.fAq",1000,1.87,1.89]
+  - &mass_stm_fe_ff ["mass_corstm_BLD_8th_maxz.fAq",1000,1.92,1.94]
+  - &mass_stm_fe_gg ["mass_corstm_BLD_8th_maxz.fAq",1000,1.95,1.97]
+
+
+group:
+  - name: chkmass_stm_fe
+    title: chkMASS_stm_Fe
+    contents:
+      - name: mass_stm_fe_a
+        title: Mass  Fe a SFeD4th 8step
+        x: *mass_stm_fe_a
+      - name: mass_stm_fe_b
+        title: Mass  Fe b SFeD4th 8step
+        x: *mass_stm_fe_b
+      - name: mass_stm_fe_c
+        title: Mass  Fe c SFeD4th 8step
+        x: *mass_stm_fe_c
+      - name: mass_stm_fe_d
+        title: Mass  Fe d SFeD4th 8step
+        x: *mass_stm_fe_d
+      - name: mass_stm_fe_e
+        title: Mass  Fe e SFeD4th 8step
+        x: *mass_stm_fe_e
+      - name: mass_stm_fe_f
+        title: Mass  Fe f SFeD4th 8step
+        x: *mass_stm_fe_f
+      - name: mass_stm_fe_g
+        title: Mass  Fe g SFeD4th 8step
+        x: *mass_stm_fe_g
+      - name: mass_stm_fe_aa
+        title: Mass  Fe aa SFeD4th 8step
+        x: *mass_stm_fe_aa
+      - name: mass_stm_fe_bb
+        title: Mass  Fe bb SFeD4th 8step
+        x: *mass_stm_fe_bb
+      - name: mass_stm_fe_cc
+        title: Mass  Fe cc SFeD4th 8step
+        x: *mass_stm_fe_cc
+      - name: mass_stm_fe_dd
+        title: Mass  Fe dd SFeD4th 8step
+        x: *mass_stm_fe_dd
+      - name: mass_stm_fe_ee
+        title: Mass  Fe ee SFeD4th 8step
+        x: *mass_stm_fe_ee
+      - name: mass_stm_fe_ff
+        title: Mass  Fe ff SFeD4th 8step
+        x: *mass_stm_fe_ff
+      - name: mass_stm_fe_gg
+        title: Mass  Fe gg SFeD4th 8step
+        x: *mass_stm_fe_gg
+
+

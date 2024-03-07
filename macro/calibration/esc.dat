@@ -1,0 +1,111 @@
+// constant
+     A(ievt,0) = 1.; 
+// 1st order
+     A(ievt,7)  = x2;
+     A(ievt,8)  = a2;
+     A(ievt,9)  = y2;
+     A(ievt,10) = b2;
+// 2nd order 
+//2000
+     A(ievt,17) = x2 * x2;
+     A(ievt,18) = a2 * a2;
+     A(ievt,19) = y2 * y2;
+     A(ievt,20) = b2 * b2;
+//1100   
+     A(ievt,60) = x2 * a2;
+     A(ievt,61) = x2 * y2;
+     A(ievt,62) = x2 * b2;
+ 
+     A(ievt,63) = a2 * y2;
+     A(ievt,64) = a2 * b2;
+ 
+     A(ievt,65) = y2 * b2;
+// 3rd order
+//3000
+     A(ievt,72) = x2 * x2 * x2;
+     A(ievt,73) = a2 * a2 * a2;
+     A(ievt,74) = y2 * y2 * y2;
+     A(ievt,75) = b2 * b2 * b2;
+//2100
+     A(ievt,136) = x2 * x2 * a2;
+     A(ievt,137) = x2 * x2 * y2;
+     A(ievt,138) = x2 * x2 * b2;
+ 
+     A(ievt,145) = a2 * a2 * x2;
+     A(ievt,146) = a2 * a2 * y2;
+     A(ievt,147) = a2 * a2 * b2;
+ 
+     A(ievt,154) = y2 * y2 * x2;
+     A(ievt,155) = y2 * y2 * a2;
+     A(ievt,156) = y2 * y2 * b2;
+ 
+     A(ievt,163) = b2 * b2 * x2;
+     A(ievt,164) = b2 * b2 * a2;
+     A(ievt,165) = b2 * b2 * y2;
+//1110 
+     A(ievt,282) = x2 * a2 * y2;
+     A(ievt,283) = x2 * a2 * b2;
+ 
+     A(ievt,284) = x2 * y2 * b2;
+ 
+     A(ievt,285) = a2 * y2 * b2;
+// 4th order
+//4000
+     A(ievt,292) = x2 * x2 * x2 * x2;
+     A(ievt,293) = a2 * a2 * a2 * a2;
+     A(ievt,294) = y2 * y2 * y2 * y2;
+     A(ievt,295) = b2 * b2 * b2 * b2;
+//3100
+
+     A(ievt,356) = x2 * x2 * x2 * a2;
+     A(ievt,357) = x2 * x2 * x2 * y2;
+     A(ievt,358) = x2 * x2 * x2 * b2;
+
+     A(ievt,365) = a2 * a2 * a2 * x2;
+     A(ievt,366) = a2 * a2 * a2 * y2;
+     A(ievt,367) = a2 * a2 * a2 * b2;
+
+     A(ievt,374) = y2 * y2 * y2 * x2;
+     A(ievt,375) = y2 * y2 * y2 * a2;
+     A(ievt,376) = y2 * y2 * y2 * b2;
+
+     A(ievt,383) = b2 * b2 * b2 * x2;
+     A(ievt,384) = b2 * b2 * b2 * a2;
+     A(ievt,385) = b2 * b2 * b2 * y2;
+//2200
+
+     A(ievt,425) = x2 * x2 * a2 * a2;
+     A(ievt,426) = x2 * x2 * y2 * y2;
+     A(ievt,427) = x2 * x2 * b2 * b2;
+
+     A(ievt,428) = a2 * a2 * y2 * y2;
+     A(ievt,429) = a2 * a2 * b2 * b2;
+
+     A(ievt,430) = y2 * y2 * b2 * b2;
+//2110
+
+     A(ievt,680) = x2 * x2 * a2 * y2;
+     A(ievt,681) = x2 * x2 * a2 * b2;
+
+     A(ievt,682) = x2 * x2 * y2 * b2;
+
+     A(ievt,719) = a2 * a2 * x2 * y2;
+     A(ievt,720) = a2 * a2 * x2 * b2;
+
+     A(ievt,721) = a2 * a2 * y2 * b2;
+
+     A(ievt,751) = y2 * y2 * x2 * a2;
+     A(ievt,752) = y2 * y2 * x2 * b2;
+
+     A(ievt,753) = y2 * y2 * a2 * b2;
+
+     A(ievt,788) = b2 * b2 * x2 * a2;
+     A(ievt,789) = b2 * b2 * x2 * y2;
+
+     A(ievt,790) = b2 * b2 * a2 * y2;
+
+//1111
+     A(ievt,1000) = x2 * a2 * y2 * b2;
+
+
+
