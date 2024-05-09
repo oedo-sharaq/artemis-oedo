@@ -2,14 +2,20 @@ Type: art::TPPACParameter
 Contents:
   fe7ppac1:
     ns2mm:
-    - 1.240
-    - 1.242
+#    - 1.240
+#    - 1.242
+    - 1.212
+    - 1.228
     delayoffset:
-    - 0.92
-    - 1.58
+#    - 0.92
+#    - 1.58
+    - -1.24775
+    - -0.985438
     linecalib:
-    - -9.119
-    - 2.9301
+#    - -9.119
+#    - 2.9301
+    - 0.0
+    - 0.0
     exchange: 0
     reflectx: 0
     geometry:
@@ -41,9 +47,14 @@ Contents:
     TXSumLimit:
     - -800.0
     - 800.0
+#    - -80000.0
+#    - 80000.0
+
     TYSumLimit:
     - -800.0
     - 800.0
+#    - -80000.0
+#    - 80000.0
   fe8ppac:
     ns2mm:
     - 1.226
