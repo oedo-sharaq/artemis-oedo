@@ -183,4 +183,135 @@ Processor:
       detoffset: 0
       turned: 1
 
+#prm ch2ns
+  - name: proc:ppac:ns2fC
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm:ppac:ns2fC
+      Type: art::TExpConverter
+#      FileName: prm/srppac/ns2fC_700V.dat
+      FileName: prm/srppac/ns2fC_745V.dat
+
+  - name: proc:ppac:@NAME@x:qcal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: @NAME@_x_cal
+      OutputCollection: @NAME@_x_qcal
+#      TimingConverterArray: prm:ppac:ch2ns_x
+      ChargeConverterArray: prm:ppac:ns2fC
+
+  - name: proc:ppac:@NAME@y:qcal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: @NAME@_y_cal
+      OutputCollection: @NAME@_y_qcal
+#      TimingConverterArray: prm:ppac:ch2ns_y
+      ChargeConverterArray: prm:ppac:ns2fC
+
+## position 
+#  - name: planeq0q1q2proc:@NAME@x
+#    type: art::TSRPPACPlaneQ1Q2Q0Q2Processor
+#    parameter:
+#      InputCollection: @NAME@_x_qcal
+#      OutputCollection: @NAME@_x_q
+##      srppacparameter: geometry_srppac_x
+#      Verbose: 0
+#      nStrip: 94
+#      stripWidth: 2.55
+#      center: 46.5
+#      z: -174.
+#      detoffset: 0
+#      turned: 1
+
+#  - name: planeq0q1q2proc:@NAME@y
+#    type: art::TSRPPACPlaneQ1Q2Q0Q2Processor
+#    parameter:
+#      InputCollection: @NAME@_y_qcal
+#      OutputCollection: @NAME@_y_q
+##      srppacparameter: geometry_srppac_y
+#      Verbose: 0
+#      nStrip: 58
+#      stripWidth: 2.58
+#      center: 28.5
+#      z: -166.
+#      detoffset: 0
+#      turned: 1
+
+
+#  - name: planeGRproc:@NAME@x
+#    type: art::TSRPPACPlaneGeneralizedRatioProcessor
+#    parameter:
+#      InputCollection: @NAME@_x_qcal
+#      OutputCollection: @NAME@_x_gl
+#      bvalue: 1
+#      Verbose: 0
+#      nStrip: 94
+#      stripWidth: 2.55
+#      center: 46.5
+#      z: -174.
+#      detoffset: 0
+#      turned: 1
+
+#  - name: planeGRproc:@NAME@y
+#    type: art::TSRPPACPlaneGeneralizedRatioProcessor
+#    parameter:
+#      InputCollection: @NAME@_y_qcal
+#      OutputCollection: @NAME@_y_gl
+#      bvalue: 1
+#      Verbose: 0
+#      nStrip: 58
+#      stripWidth: 2.58
+#      center: 28.5
+#      z: -166.
+#      detoffset: 0
+#      turned: 1
+
+
+  - name: planeprocq:@NAME@x
+    type: art::TSRPPACPlaneProcessor
+    parameter:
+      InputCollection: @NAME@_x_qcal
+      OutputCollection: @NAME@_x_q
+#      srppacparameter: geometry_srppac_y
+      Verbose: 0
+      nStrip: 58
+      stripWidth: 2.58
+      center: 28.5
+      z: -166.
+      detoffset: 0
+      turned: 1
+
+  - name: planeq0q1q2proc:@NAME@x
+    type: art::TSRPPACPlaneQ1Q2Q0Q2Processor
+    parameter:
+      InputCollection: @NAME@_x_q
+      OutputCollection: @NAME@_x_qt
+#      srppacparameter: geometry_srppac_x
+      Verbose: 0
+      nStrip: 94
+      stripWidth: 2.55
+      center: 46.5
+      z: -174.
+      detoffset: 0
+      turned: 1
+
+  - name: planeGRproc:@NAME@x
+    type: art::TSRPPACPlaneGeneralizedRatioProcessor
+    parameter:
+      InputCollection: @NAME@_x_q
+      OutputCollection: @NAME@_x_gl
+      bvalue: 1
+      Verbose: 0
+      nStrip: 94
+      stripWidth: 2.55
+      center: 46.5
+      z: -174.
+      detoffset: 0
+      turned: 1
+
+
+
+
+
+
 
