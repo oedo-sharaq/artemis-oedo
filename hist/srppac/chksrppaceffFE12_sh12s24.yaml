@@ -1,0 +1,50 @@
+anchor: 
+  - &src1_x_ent ["src1_x_cal@.GetEntriesFast()",8,-0.5,7.5]
+  - &src1_y_ent ["src1_y_cal@.GetEntriesFast()",8,-0.5,7.5]
+  - &src2_x_ent ["src2_x_cal@.GetEntriesFast()",8,-0.5,7.5]
+  - &src2_y_ent ["src2_y_cal@.GetEntriesFast()",8,-0.5,7.5]
+
+alias:
+ sr11xtransmission: sr11_x_cal@.GetEntriesFast() > 0
+
+group:
+  - name: srppaceffFE12
+    title: SR-PPAC Efficiency FE12
+    contents:
+      - name: src1_x_ent
+        title: src1 X Entry
+        x: *src1_x_ent
+      - name: src1_y_ent
+        title: src1 Y Entry
+        x: *src1_y_ent
+      - name: src2_x_ent
+        title: src2 X Entry
+        x: *src2_x_ent
+      - name: src2_y_ent
+        title: src2 Y Entry
+        x: *src2_y_ent
+
+      - name: src1_x_ent
+        title: src1 X Entry w/ sr11 hit
+        cut: sr11transmission
+        x: *src1_x_ent
+      - name: src1_y_ent
+        title: src1 Y Entry w/ sr11 hit
+        cut: sr11transmission
+        x: *src1_y_ent
+      - name: src2_x_ent
+        title: src2 X Entry w/ sr11 hit
+        cut: sr11transmission
+        x: *src2_x_ent
+      - name: src2_y_ent
+        title: src2 Y Entry w/ sr11 hit
+        cut: sr11transmission
+        x: *src2_y_ent
+
+
+
+
+
+
+
+
