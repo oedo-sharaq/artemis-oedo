@@ -18,6 +18,9 @@ TRawDataTriggeredList.cc
 TModuleDecoderA3100FreeRunTSI.cc
 TTimingChargeTriggeredListMappingProcessor.cc
 TTimingAverageProcessor.cc
+TExpConverter.cc
+TSRPPACPlaneGeneralizedRatioProcessor.cc
+TSRPPACPlaneQ1Q2Q0Q2Processor.cc
 )
 
 
@@ -39,6 +42,9 @@ TRawDataTriggeredList.h
 TModuleDecoderA3100FreeRunTSI.h
 TTimingChargeTriggeredListMappingProcessor.h
 TTimingAverageProcessor.h
+TExpConverter.h
+TSRPPACPlaneGeneralizedRatioProcessor.h
+TSRPPACPlaneQ1Q2Q0Q2Processor.h
 )
 
 add_library(${LIB_NAME} SHARED ${SOURCES})
