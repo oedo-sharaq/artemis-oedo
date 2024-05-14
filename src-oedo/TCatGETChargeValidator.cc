@@ -51,7 +51,7 @@ void TCatGETChargeValidator::Process()
       TCatPulseShape *pulse = static_cast<TCatPulseShape*>((input)->UncheckedAt(i));
       Double_t Qval = pulse->GetCharge();
 
-      if ( Qval > fThreshold  ) continue;
+      if ( Qval < fThreshold  ) continue;
 
       TCatPulseShape *out = static_cast<TCatPulseShape*>(fOutput->ConstructedAt(fOutput->GetEntriesFast()));
       pulse->Copy(*out);
