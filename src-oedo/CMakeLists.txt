@@ -19,6 +19,7 @@ TModuleDecoderA3100FreeRunTSI.cc
 TTimingChargeTriggeredListMappingProcessor.cc
 TTimingAverageProcessor.cc
 TSRPPACPlaneProcessorV2.cc
+TCatGETChargeValidator.cc
 )
 
 
@@ -41,7 +42,9 @@ TModuleDecoderA3100FreeRunTSI.h
 TTimingChargeTriggeredListMappingProcessor.h
 TTimingAverageProcessor.h
 TSRPPACPlaneProcessorV2.h
+TCatGETChargeValidator.h
 )
+
 
 add_library(${LIB_NAME} SHARED ${SOURCES})
 

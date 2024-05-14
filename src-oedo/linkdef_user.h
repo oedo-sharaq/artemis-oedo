@@ -45,6 +45,7 @@
 #pragma link C++ class art::TPIDSingleSectionProcessor;
 #pragma link C++ class art::TCmdPadZoom;
 #pragma link C++ class art::TSRPPACPlaneProcessorV2;
+#pragma link C++ class art::TCatGETChargeValidator;
 #endif // __CINT__
 
 #endif // LINKDEF_USER_H
