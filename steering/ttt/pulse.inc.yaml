@@ -54,19 +54,19 @@ Processor:
 #      TpcGasProp: ""  # [TString] name of tpc static gas property
       Verbose: 1  # [Int_t] verbose level (default 1 : non quiet) 
 
-#  - name: MyTCatGETChargeValidator
-#    type: art::TCatGETChargeValidator
-#    parameter:
-#      Input: @BRNAME@_pulse  # [TString] name of input beam hits
-#      Output: @BRNAME@_val  # [TString] name of output beam hits
-#      OutputTransparency: 0  # [Bool_t] Output is persistent if false (default)
-#      Threshold: 0  # [Double_t] threshold of charge
-#      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
-#
   - name: @BRNAME@:catm
     type: art::TTimingChargeCalibrationProcessor
     parameter:
       InputCollection: @BRNAME@_pulse
       OutputCollection: @BRNAME@_hit
       ChargeConverterArray: @BRNAME@_prm
+    
+  - name: MyTCatGETChargeValidator
+    type: art::TCatGETChargeValidator
+    parameter:
+      Input: @BRNAME@_hit  # [TString] name of input beam hits
+      Output: @BRNAME@_val  # [TString] name of output beam hits
+      OutputTransparency: 0  # [Bool_t] Output is persistent if false (default)
+      Threshold: 2  # [Double_t] threshold of charge
+      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
     
