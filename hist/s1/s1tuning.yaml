@@ -1,27 +1,27 @@
 anchor:
   - &nbin   200
-  - &xmin  -200
-  - &xmax   200
-  - &xminz  -40
-  - &xmaxz   40
-  - &amin  -200
-  - &amax   200
-  - &aminz  -20
-  - &amaxz   20
-  - &ymin  -100
-  - &ymax   100
-  - &yminz  -40
-  - &ymaxz   40
-  - &bmin  -50
-  - &bmax   50
-  - &bminz  -20
-  - &bmaxz   20
+  - &xmin  -150
+  - &xmax   150
+  - &xminz  -150
+  - &xmaxz   150
+  - &amin  -150
+  - &amax   150
+  - &aminz  -150
+  - &amaxz   150
+  - &ymin  -150
+  - &ymax   150
+  - &yminz  -150
+  - &ymaxz   150
+  - &bmin  -150
+  - &bmax   150
+  - &bminz  -50
+  - &bmaxz   50
   - &t39min   400
   - &t39max   460
   - &t912min  200
   - &t912max  300
   - &t12s1min 100
-  - &t12s1max 140
+  - &t12s1max 300
   - &demin  10.
   - &demax  120.
   - &totemin   300.
@@ -38,6 +38,16 @@ group:
         x: [t39,*nbin,*t39min,*t39max]    
         y: [fe9x,200,-50,50]    
 
+      - name : pidchk
+        title: pidchk
+        x: [t39,*nbin,*t39min,*t39max]    
+        y: [s1x,200,-200,200]    
+
+      - name : pidchk2
+        title: pidchk2
+        x: [fe9x,200,-200,200]
+        y: [s1x,200,-200,200]     	
+
       - name : tof912
         title: TOF(9-12)
         x: [t912,*nbin,*t912min,*t912max]
@@ -52,11 +62,11 @@ group:
 
       - name : tke
         title: TKE
-        x: [tke,*nbin,18,30]
+        x: [tke,*nbin,10,30]
 
       - name : tke_vs_s1x
         title: TKE VS S1X
-        x: [tke,*nbin,18,30]
+        x: [tke,*nbin,10,30]
         y: [s1x,*nbin,*xmin,*xmax]
 
       - name : tof12s1_vs_tof912
@@ -194,16 +204,74 @@ group:
         x: [s0b,*nbin,*bminz,*bmaxz]
         y: [s1ycs0y,*nbin,*ymin,*ymax]        
        
+      - name : aoq
+        title: nanchatte A/Q
+        x: [aoq,200,2.3,2.8]
+
+      - name : s1x_vs_aoq
+        title: S1X vs nanchatte A/Q
+        x: [aoq,200,2.3,2.8]
+        y: [s1x,*nbin,*xmin,*xmax]
+
+      - name : s1y_vs_aoq
+        title: S1Y vs nanchatte A/Q
+        x: [aoq,200,2.3,2.8]
+        y: [s1y,*nbin,*ymin,*ymax]
+
+      - name : s1a_vs_aoq
+        title: S1A vs nanchatte A/Q
+        x: [aoq,200,2.3,2.8]
+        y: [s1a,*nbin,*amin,*amax]
+
+      - name : s0x_vs_aoq
+        title: S0X vs nanchatte A/Q
+        x: [aoq,200,2.3,2.8]
+        y: [s0x,*nbin,*xmin,*xmax]
+
+      - name : s0y_vs_aoq
+        title: S0Y vs nanchatte A/Q
+        x: [aoq,200,2.3,2.8]
+        y: [s0y,*nbin,*ymin,*ymax]
+
+      - name : s0a_vs_aoq
+        title: S0A vs nanchatte A/Q
+        x: [aoq,200,2.3,2.8]
+        y: [s0a,*nbin,*amin,*amax]
+
+      - name : tof12s1_vs_aoq
+        title: TOF(12-S1) vs nanchatte A/Q
+        x: [aoq,200,2.3,2.8]
+        y: [t12s1,*nbin,*t12s1min,*t12s1max]
+
+      - name : tofdiff_vs_aoq
+        title: TOFDiff vs nanchatte A/Q
+        x: [aoq,200,2.3,2.8]
+        y: [tofdiff,*nbin,260.,280.]
 
   - name: s1tuning_gpid
     title: S1 tuning (g pid)
     clone: s1tuning
-    cut: gpid
+    cut: gpid #&& gpac9 && gpacc && gpac1
+
+#  - name: s1tuning_gpids1pad
+#    title: S1 tuning (g pid s1 pid)
+#    clone: s1tuning
+#    cut: gpid && gpac9 && gpacc && gpac1 && gs1pid
 
   - name: s1tuning_gpids0x
     title: S1 tuning (g pid S0X)
     clone: s1tuning
-    cut: gpid && gs0x
+    cut: gpid && gs0x #&& gpac9 && gpacc && gpac1
+
+  - name: s1tuning_gpids0a
+    title: S1 tuning (g pid S0A)
+    clone: s1tuning
+    cut: gpid && gs0a #&& gpac9 && gpacc && gpac1
+
+  - name: s1tuning_gpids0xs0a
+    title: S1 tuning (g pid S0X S0A)
+    clone: s1tuning
+    cut: gpid && gs0x #&& gs0a && gpac9 && gpacc && gpac1
 
 #  - name: s1tuning_gpids0a
 #    title: S1 tuning (g pid S0A)
@@ -213,17 +281,22 @@ group:
   - name: s1tuning_gpids0y
     title: S1 tuning (g pid S0Y)
     clone: s1tuning
-    cut: gpid && gs0y
+    cut: gpid && gs0y #&& gpac9 && gpacc && gpac1
+
+  - name: s1tuning_gpids0b
+    title: S1 tuning (g pid S0B)
+    clone: s1tuning
+    cut: gpid && gs0b #&& gpac9 && gpacc && gpac1
 
   - name: s1tuning_gpids0xs0y
     title: S1 tuning (g pid S0X S0Y)
     clone: s1tuning
-    cut: gpid && gs0x && gs0y
+    cut: gpid && gs0x && gs0y #&& gpac9 && gpacc && gpac1
 
-  - name: s1tuning_gpids0y
+  - name: s1tuning_gpids1x
     title: S1 tuning (g pid S1X)
     clone: s1tuning
-    cut: gpid && gs1x
+    cut: gpid && gs1x #&& gpac9 && gpacc && gpac1
 
 #  - name: s1tuning_gpids0b
 #    title: S1 tuning (g pid S0B)
@@ -238,5 +311,5 @@ group:
   - name: s1tuning_gpidt912
     title: S1 tuning (g pid TOF912)
     clone: s1tuning
-    cut: gpid && gt912
+    cut: gpid #&& gt912 && gpac9 && gpacc && gpac1
 
