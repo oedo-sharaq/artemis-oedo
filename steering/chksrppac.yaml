@@ -1,6 +1,7 @@
 Anchor:
 # - &input ridf_rftest/@NAME@@NUM@.ridf
- - &input ridf/@NAME@@NUM@.ridf
+# - &input ridf/@NAME@@NUM@.ridf
+ - &input prep/@NAME@@NUM@.ridf
  - &output output/@NAME@/@NUM@/chksrppac@NAME@@NUM@.root
  - &histout output/@NAME@/@NUM@/chksrppac@NAME@@NUM@.hist.root
 

@@ -48,7 +48,7 @@ tree->SetAlias("tofcs","(sr11_a_cal[0].fTiming+sr12_a_cal[0].fTiming)/2-(src1_a_
 tree->SetAlias("fe10.fT","fe9.fT+(fe12.fT-fe9.fT)*4753.75/(4753.75+9687.93)");
 
 
-//tree->SetAlias("pidgate","abs(sr9.fX+3.07655*(tof39-3310)<15");  // pidgate w/ fe9
+ tree->SetAlias("pidgate","abs(sr9.fX+4.572*(tof39-1075))<15");  // pidgate w/ fe9
 
 
 }
