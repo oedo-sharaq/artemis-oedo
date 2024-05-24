@@ -223,7 +223,7 @@ void shiftplot(const std::string &runname, const std::string &runnum, const std:
    gROOT->ProcessLine(print_cmd.c_str());
    if (print)
    {
-      print_cmd = ".! lpr -o fit-to-page -o media=A4 -o sides=two-sided-long-edge " + pdf_name_prefix + ".pdf";
+      print_cmd = ".! lp -o fit-to-page -o media=A4 -o sides=two-sided-long-edge " + pdf_name_prefix + ".pdf";
       gROOT->ProcessLine(print_cmd.c_str());
    }
 }

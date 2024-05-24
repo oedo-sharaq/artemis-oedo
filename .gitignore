@@ -24,3 +24,5 @@ artemislogon.C
 thisartemis-oedo.sh
 .vscode/launch.json
 .display
+/shift_figures/
+/getdata/
