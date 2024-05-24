@@ -3,8 +3,8 @@ anchor:
   - &yy1fraw_charge ["yy1fraw.fCharge",500,-0.5,4095.5] 
   - &csiraw_pre_id ["csiraw_pre.fID",32,-0.5,31.5] 
   - &csiraw_pre_charge ["csiraw_pre.fCharge",100,-0.5,1999.5] 
-  - &tinat_id ["tinat.fID",16,-0.5,15.5] 
-  - &tinat_timing ["tinat.fTiming",100,-0.5,3999.5] 
+  - &tinat_id ["tinat.fID",26,-0.5,25.5] 
+  - &tinat_timing ["tinat.fTiming",100,-10000.5,9999.5] 
 
 group:
   - name: chk_s0vme

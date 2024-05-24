@@ -1,0 +1,211 @@
+Anchor:
+   
+ - &input ridf/@NAME@@NUM@.ridf
+ - &output output/@NAME@/@NUM@/all@NAME@@NUM@.root
+ - &histout output/@NAME@/@NUM@/all@NAME@@NUM@.hist.root
+ - &maxevt 100000
+
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+        - *input
+      MaxEventNum: *maxevt 
+        
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+
+  - include:
+      name: ttt/get.inc.yaml
+      replace:
+        NUM: @GET@
+        CATDATA: tttdata
+
+  - include: trig_select/trig.yaml
+#  - name: stop_proc_coin
+#    type: art::TGateStopProcessor
+#    parameter:
+#      GateName: "gateF3DS"
+
+
+
+  - include: chktina.param.yaml 
+
+  - include: tref.yaml
+  - include: bld/pla/pla_os22s.yaml
+  - include: bld/dia/dia.yaml
+#  - include: bld/dlppac/ppac.brips.yaml
+#  - include: bld/dlppac/dlppac.inc.yaml
+  - include: bld/srppac/srppac.yaml
+#  - include: bld/mwdc/chkmwdc_local.yaml
+#  - include: vtof.yaml
+#  - include: tof.yaml
+  - include: ic/ic.yaml
+#  - include: ic/ic_waveform.yaml
+  - include: ttt.sakura.yaml
+#  - include: chktina.online.yaml
+#
+#  - include: v1190_tref_tina.sakura.yaml
+  - include: v1190_tref.yaml
+  - include: si/tina_timing.yaml
+  - include: si/tina2.yaml
+#  
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      Type:     art::TTreeProjection
+#      FileName: hist/s1/s1.yaml
+
+### FE9 SR-PPAC Hist
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/srppac/chksrppac.yaml
+      Type:     art::TTreeProjection
+      Replace: |
+        sr: sr91       
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/srppac/chksrppac.yaml
+      Type:     art::TTreeProjection
+      Replace: |
+        sr: sr92       
+
+
+### FE12 SR-PPAC Hist
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/srppac/chksrppac.yaml
+      Type:     art::TTreeProjection
+      Replace: |
+        sr: src1       
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/srppac/chksrppac.yaml
+      Type:     art::TTreeProjection
+      Replace: |
+        sr: src2       
+
+### S0 TiNA Hist
+  
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/tina/yy1.yaml
+      Type:     art::TTreeProjection
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/tina/ttt.yaml
+      Type:     art::TTreeProjection
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/tina/s0vme.yaml
+      Type:     art::TTreeProjection
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/tina/s0correlation.yaml 
+      Type:     art::TTreeProjection
+
+### S1 SR-PPAC Hist
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/srppac/chksrppac.yaml
+      Type:     art::ttreeprojection
+      Replace: |
+        sr: sr11      
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/srppac/chksrppac.yaml
+      Type:     art::TTreeProjection
+      Replace: |
+        sr: sr12       
+
+# S1 IC
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type:     art::TTreeProjection
+      FileName: hist/s1/ic_shift.yaml
+
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      Type:     art::TTreeProjection
+#      FileName: hist/s1/ic_waveform.yaml
+
+# pid and dia
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/pid/pid.yaml
+#      Type:     art::TTreeProjection
+
+          
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: 
+        - *output
+
+#### S1 SR-PPAC Hist
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/chksrppac.yaml
+#      Type:     art::ttreeprojection
+#      Replace: |
+#        sr: sr11      
+#
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/chksrppac.yaml
+#      Type:     art::TTreeProjection
+#      Replace: |
+#        sr: sr12       
+#
+## S1 IC
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      Type:     art::TTreeProjection
+#      FileName: hist/s1/ic_shift.yaml
+#
+## pid and dia
+#  - name: projection
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/pid/pid.yaml
+#      Type:     art::TTreeProjection
+#
+#          
+#  - name: outputtree
+#    type: art::TOutputTreeProcessor
+#    parameter:
+#      FileName: 
+#        - *output

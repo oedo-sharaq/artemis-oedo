@@ -6,7 +6,8 @@ target_link_libraries(${exec_name} ${ROOT_LIBRARIES} ${YAML_CPP_LIBRARIES}
     artemis::catcmd artemis::catloop artemis::catcore artemis::artcont artemis::catmc
     artemis::artdecoder artemis::artridf artemis::artrdf artemis::arthist
     artemis::artparam artemis::artshare artemis::CAT oedo
-    GETDecoder arrow parquet
+    GETDecoder
+    artget_sh12
 )
 
 install(TARGETS ${exec_name}
@@ -23,4 +24,5 @@ if(BUILD_PARQUET)
 find_package(Arrow REQUIRED)
 find_package(Parquet REQUIRED)
 addExec(DumpParquet)
+target_link_libraries(DumpParquet arrow parquet)
 endif()

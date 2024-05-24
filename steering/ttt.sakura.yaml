@@ -4,14 +4,14 @@ Processor:
     parameter:
       Type: 11
       OutputName: ttt_front_pad
-      Bads: [283] 
+      Bads: [280,283] 
 
   - name: backpad
     type: art::TCatReadoutPadConditionProcessor
     parameter:
       Type: 11
       OutputName: ttt_back_pad
-      Bads: [57, 80, 172, 472, 492] 
+ #     Bads: [57, 80, 172, 472, 492] 
 
   - include:
       name: ttt/pulse.inc.yaml

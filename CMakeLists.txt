@@ -8,8 +8,10 @@ list(APPEND CMAKE_PREFIX_PATH $ENV{ROOTSYS})
 set(CMAKE_INSTALL_PREFIX ${CMAKE_SOURCE_DIR}/install/ CACHE PATH "install dir" FORCE)
 
 # Build options
+
 option(BUILD_PARQUET "option to build with parquet outputs (requires Apache Arrow libraries)" OFF)
 message(${BUILD_PARQUET})
+
 
 # path definitions
 find_package(artemis HINTS ${TARTSYS} REQUIRED)
@@ -30,6 +32,7 @@ include(${ROOT_USE_FILE})
 link_directories(${ARTEMIS_GET_LIB_DIR})
 
 add_subdirectory(src-oedo)
+add_subdirectory(src-get)
 add_subdirectory(analysis)
 
 configure_file(

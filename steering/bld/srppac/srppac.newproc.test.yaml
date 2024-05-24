@@ -1,0 +1,98 @@
+Processor:
+#prm ch2ns
+  - name: proc:ppac:ns2fC
+    type: art::TParameterArrayLoader
+    parameter:
+      Name: prm:ppac:ns2fC
+      Type: art::TExpConverter
+#      FileName: prm/srppac/ns2fC_700V.dat
+      FileName: prm/srppac/ns2fC_745V.dat
+
+  - name: proc:ppac:src1x:qcal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: src1_x_cal
+      OutputCollection: src1_x_qcal
+#      TimingConverterArray: prm:ppac:ch2ns_x
+      ChargeConverterArray: prm:ppac:ns2fC
+
+  - name: proc:ppac:src1y:qcal
+    type: art::TTimingChargeCalibrationProcessor
+    parameter:
+      InputCollection: src1_y_cal
+      OutputCollection: src1_y_qcal
+#      TimingConverterArray: prm:ppac:ch2ns_y
+      ChargeConverterArray: prm:ppac:ns2fC
+
+# position 
+  - name: planeq0q1q2proc:src1x
+    type: art::TSRPPACPlaneQ1Q2Q0Q2Processor
+    parameter:
+      InputCollection: src1_x_qcal
+      OutputCollection: src1_x_q
+#      srppacparameter: geometry_srppac_x
+      Verbose: 0
+      nStrip: 94
+      stripWidth: 2.55
+      center: 46.5
+      z: -174.
+      detoffset: 0
+      turned: 1
+
+  - name: planeq0q1q2proc:src1y
+    type: art::TSRPPACPlaneQ1Q2Q0Q2Processor
+    parameter:
+      InputCollection: src1_y_qcal
+      OutputCollection: src1_y_q
+#      srppacparameter: geometry_srppac_y
+      Verbose: 0
+      nStrip: 58
+      stripWidth: 2.58
+      center: 28.5
+      z: -166.
+      detoffset: 0
+      turned: 1
+
+
+  - name: planeGRproc:src1x
+    type: art::TSRPPACPlaneGeneralizedRatioProcessor
+    parameter:
+      InputCollection: src1_x_qcal
+      OutputCollection: src1_x_gl
+#      srppacparameter: geometry_srppac_x
+      Verbose: 0
+      nStrip: 94
+      stripWidth: 2.55
+      center: 46.5
+      z: -174.
+      detoffset: 0
+      turned: 1
+	  bvalue: 0.86 #700V
+#	  bvalue: 0.84 #745V
+#	  bvalue: 0.81 #800V
+
+  - name: planeGRproc:src1y
+    type: art::TSRPPACPlaneGeneralizedRatioProcessor
+    parameter:
+      InputCollection: src1_y_qcal
+      OutputCollection: src1_y_gl
+#      srppacparameter: geometry_srppac_y
+      Verbose: 0
+      nStrip: 58
+      stripWidth: 2.58
+      center: 28.5
+      z: -166.
+      detoffset: 0
+      turned: 1
+	  bvalue: 0.86 #700V
+#	  bvalue: 0.84 #745V
+#	  bvalue: 0.81 #800V
+
+
+
+
+
+
+
+
+

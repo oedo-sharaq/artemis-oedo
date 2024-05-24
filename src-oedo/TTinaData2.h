@@ -28,14 +28,10 @@ public:
    void SetTheta(Double_t arg) { fTheta = arg; }
    Double_t GetPhi() const {return fPhi;}
    void SetPhi(Double_t arg) { fPhi = arg; }
-   Int_t GetDeid() const {return fDeid;}
-   void SetDeid(Int_t arg) { fDeid = arg; }
-   Int_t GetEid() const {return fEid;}
-   void SetEid(Int_t arg) { fEid = arg; }
-   Double_t GetX() const {return fX;}
-   void SetX(Double_t arg) { fX = arg; }
-   Double_t GetY() const {return fY;}
-   void SetY(Double_t arg) { fY = arg; }
+   Double_t GetDeid() const {return fDeid;}
+   void SetDeid(Double_t arg) { fDeid = arg; }
+   Double_t GetEid() const {return fEid;}
+   void SetEid(Double_t arg) { fEid = arg; }
 
    virtual void Copy(TObject& dest) const;
    virtual void Clear(Option_t *opt="");
@@ -46,12 +42,10 @@ protected:
    Double_t fTiming;
    Double_t fTheta;
    Double_t fPhi;
-   Int_t fDeid;
-   Int_t fEid;
-   Double_t fX;
-   Double_t fY;
+   Double_t fDeid;
+   Double_t fEid;
 
    ClassDef(TTinaData2,1)
 };
 
-#endif // TTinaDATA2_H
+#endif // TTinaDATA_H

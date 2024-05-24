@@ -10,7 +10,8 @@ anchor:
   - &@sr@_x_calq0 ["@sr@_x_cal[0].fCharge",100,0,100]
   - &@sr@_x_calq1 ["@sr@_x_cal[1].fCharge",100,0,100]
   - &@sr@_x_calq2 ["@sr@_x_cal[2].fCharge",100,0,100]
-  - &@sr@_x_ent ["@sr@_x_cal@.GetEntriesFast()",8,-0.5,7.5]
+#  - &@sr@_x_ent ["@sr@_x_cal@.GetEntriesFast()",8,-0.5,7.5]
+  - &@sr@_x_ent ["@sr@_x_cal@.GetEntriesFast()",20,0.5,20.5]
  
   - &@sr@_y_rawid ["@sr@_y_raw.fID",58,-0.5,57.5] 
   - &@sr@_y_rawt ["@sr@_y_raw.fTiming",1000,-10000,10000]
@@ -23,7 +24,8 @@ anchor:
   - &@sr@_y_calq0 ["@sr@_y_cal[0].fCharge",100,0,100]
   - &@sr@_y_calq1 ["@sr@_y_cal[1].fCharge",100,0,100]
   - &@sr@_y_calq2 ["@sr@_y_cal[2].fCharge",100,0,100]
-  - &@sr@_y_ent ["@sr@_y_cal@.GetEntriesFast()",8,-0.5,7.5]
+#  - &@sr@_y_ent ["@sr@_y_cal@.GetEntriesFast()",8,-0.5,7.5]
+  - &@sr@_y_ent ["@sr@_y_cal@.GetEntriesFast()",20,0.5,20.5]
 
 
 alias:
@@ -56,7 +58,9 @@ group:
       - name: @sr@_x_q2
         title: @sr@ X Q2 Charge
         x: *@sr@_x_calq2
-
+      - name: @sr@_x_ent
+        title: @sr@ X Multiplicity
+        x: *@sr@_x_ent
 
 
       - name: @sr@_y_id
@@ -81,6 +85,9 @@ group:
       - name: @sr@_y_q2
         title: @sr@ Y Q2 Charge
         x: *@sr@_y_calq2
+      - name: @sr@_y_ent
+        title: @sr@ Y Multiplicity
+        x: *@sr@_y_ent
 
 
 

@@ -42,7 +42,7 @@ Processor:
   - include: ttt.sakura.yaml
 #  - include: chktina.online.yaml
 #
-  - include: v1190_tref_tina.sakura.yaml
+  - include: v1190_tref.yaml
   - include: si/tina_timing.yaml
   - include: si/tina2.yaml
 #  

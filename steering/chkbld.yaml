@@ -1,6 +1,7 @@
 Anchor:
    
  - &input ridf/@NAME@@NUM@.ridf
+# - &input /home/sh12/bripsdata/run0065.ridf
 # - &histout output/@NAME@/@NUM@/chk@NAME@@NUM@.hist.root
  - &output output/@NAME@/@NUM@/chkbld@NAME@@NUM@.root
  - &histout output/@NAME@/@NUM@/chkbld@NAME@@NUM@.hist.root
@@ -30,6 +31,37 @@ Processor:
   - include: bld/mwdc/chkmwdc_local.yaml
   - include: rf.yaml
 
+### F3 DL-PPAC Hist
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type:     art::TTreeProjection
+      FileName: hist/dlppac/f3_dlppac.yaml
+
+### F4 DL-PPAC Hist
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type:     art::TTreeProjection
+      FileName: hist/dlppac/f4_dlppac.yaml
+
+### F5 DL-PPAC Hist
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type:     art::TTreeProjection
+      FileName: hist/dlppac/f5_dlppac.yaml
+
+### F6 DL-PPAC Hist
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      Type:     art::TTreeProjection
+      FileName: hist/dlppac/f6_dlppac.yaml
 
 
 ### FE7 DL-PPAC Hist

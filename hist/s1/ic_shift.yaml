@@ -21,63 +21,20 @@ alias:
   s1y: "(560.8*sr12_y[0].fPosition-210.8*sr11_y[0].fPosition)/350."
   s1b: "(sr12_y[0].fPosition-sr11_y[0].fPosition)/350.*1000."
 
-  t35: "tof35[0].fTiming"
-  t39: "tof39[0].fTiming"
-  t912: "tof912[0].fTiming"
-  t12s1: "tof12s1[0].fTiming"
-
-  de: "icde[0].fValue"
-  tote: "icave[0].fValue*30."
-
-#  aq35: "aq35.fValue"
-#  z35: "z35.fValue"
-
-# for vertical focus tuning at large vertical magnification f.p.
-  s1xctof: "s1x-19.3*(t12s1-128.)"
-  s1xctofs0x: "s1x-19.3*(t12s1-128.)+0.26*s0x"
-  s1actof: "s1a-9.66*(t12s1-128.)"
-  s1actofs0x: "s1a-9.66*(t12s1-128)+0.88*(s0x-0.47)"
-#  s1ycs0y: "s1y+8.0*(s0y-6.6)"
-  s1ycs0y: "s1y+7.0*(s0y-5.55)"
-
-# gates on each f.p.
-## F5
-#  gf5x: "abs(f5x-0.0) < 1."
-#  gf5a: "abs(f5a) < 1."
-#  gf5y: "abs(f5y-0.0) < 1."
-#  gf5b: "abs(f5b) < 1."
-## FE9
-#  gfe9x: "abs(fe9x-0.0) < 3."
-#  gfe9a: "abs(fe9a) < 1."
-#  gfe9y: "abs(fe9y-0.0) < 3."
-#  gfe9b: "abs(fe9b) < 3."
-# S0
-  gs0x: "abs(s0x-0.0) < 1."
-  gs0a: "abs(s0a-0.0) < 1."
-  gs0y: "abs(s0y-0.0) < 1."
-  gs0b: "abs(s0b-0.0) < 1."
-
-# S1
-  gs1x: "abs(s1x) < 5."
-  gs1y: "abs(s1y) < 5."
-
-# tof
-  gt39: "abs(t39-428.51) < 1."
-  gt912: "abs(t912-239.63) < 1."
 
 # pid gate
 #  gpid: "abs(fe9x)<10.&&abs(t39+0.10*fe9x-1071.)<1.5"
 
-  s1y: "(560.8*sr12_y[0].fPosition-210.8*sr11_y[0].fPosition)/350."
+#  s1y: "(560.8*sr12_y[0].fPosition-210.8*sr11_y[0].fPosition)/350."
 
-  t12s1: "tof12s1[0].fTiming"
-  beta: "7813./299.79/t12s1"
-  gamma: "1./TMath::Sqrt(1.-beta*beta)"
-  tke: "(gamma-1)*931.49406"
+#  t12s1: "tof12s1[0].fTiming"
+#  beta: "7813./299.79/t12s1"
+#  gamma: "1./TMath::Sqrt(1.-beta*beta)"
+#  tke: "(gamma-1)*931.49406"
 
-  t39: "tof39[0].fTiming"
+#  t39: "tof39[0].fTiming"
 #  gpid: "abs(fe9x)<30.&&abs(t39+0.127*fe9x-419.5)<1.5"
-  gpid: "abs(fe9x)<30.&&abs(t39+0.156*fe9x-419)<1.5" # 130Te beam
+#  gpid: "abs(fe9x)<30.&&abs(t39+0.156*fe9x-419)<1.5" # 130Te beam 
 
 
 
@@ -105,8 +62,8 @@ anchors:
   - &bmax   0.4
   - &nbin   150
   - &tdiv   200
-  - &tmin   -500
-  - &tmax   20000
+  - &tmin   -5000
+  - &tmax   5000
 
 
 group:
@@ -118,28 +75,23 @@ group:
      title: s1ic id
      x: *icch
 
-   - name: s1y
-     title: s1y
-     x: [s1y, 400, -200, 200]
-
-#   - name: tof12s1
-#     title: tof12s1
-#     x: [tof12s1[0].fTiming, 200, 100, 150]
-
-   - name: t12s1
-     title: t12s1
-     x: [t12s1, 200, 100, 200]
-
-   - name: TKE
-     title: TKE
-     x: [tke, 100, 0, 50]
-
-
-   - name: s1ic_charge
-     title: s1ic charge
-     x: *icch
-     y: [qraw, *div1, *qmin, *qmax]
-
+#   - name: s1y
+#     title: s1y
+#     x: [s1y, 400, -200, 200]
+#
+#   - name: t12s1
+#     title: t12s1
+#     x: [t12s1, 200, 100, 200]
+#
+#   - name: TKE
+#     title: TKE
+#     x: [tke, 100, 0, 50]
+#
+#   - name: s1ic_charge
+#     title: s1ic charge
+#     x: *icch
+#     y: [qraw, *div1, *qmin, *qmax]
+#
    - name: s1ic_chargecal
      title: s1ic charge cal
      x: *icch
@@ -156,203 +108,33 @@ group:
      x: *icch
      y: [qcal, *div1, *cmin, *cmax]
 
-   - name: s1ic_chargecal_gtke
-     title: s1ic charge cal tke gate
-     cut: "abs(s1y)<10 && abs(tke -24.5) < 0.25"
-     x: *icch
-     y: [qcal, *div1, *cmin, *cmax]
-
-   - name: s1_pos
-     title: s1 position for debug
-     x: [s1x, 200, -200, 200]
-     y: [s1y, 200, -200, 200]
-
-   - name: tof_12s1
-     title: tof FE12-S1 for debug
-     x: [t12s1, 200, 100, 200]
-
-   - name: tke
-     title: tke by tof for debug
-     x: [tke, 200, 0, 50]
-
-   - name: pid
-     title: pid for debug
-     x: [fe9x, 200, -50, 50]
-     y: [t39, 200, 410, 450]
-
-#   - name: s1ic_chargecal_xygate
-#     title: s1ic charge cal XYgate
-#     cut: "abs(s1x)<5 && abs(s1y)<5"
+#   - name: s1ic_chargecal_gtke
+#     title: s1ic charge cal tke gate
+#     cut: "abs(s1y)<10 && abs(tke -24.5) < 0.25"
 #     x: *icch
 #     y: [qcal, *div1, *cmin, *cmax]
 #
-#   - name: tof_s1_fe12_vs_s1x
-#     title: TOF(S1-FE12) vs S1X
-#     x: [t12s1, *div1, *tmin, *tmax]
-#     y: [s1x, *div1, *xmin, *xmax]
+#   - name: s1_pos
+#     title: s1 position for debug
+#     x: [s1x, 200, -200, 200]
+#     y: [s1y, 200, -200, 200]
 #
-#   - name: ic0_xygate
-#     title: ic0 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[0].fCharge", 500, 0, 2000]
+#   - name: tof_12s1
+#     title: tof FE12-S1 for debug
+#     x: [t12s1, 200, 100, 200]
 #
-#   - name: ic1_xygate
-#     title: ic1 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[1].fCharge", 500, 0, 2000]
+#   - name: tke
+#     title: tke by tof for debug
+#     x: [tke, 200, 0, 50]
 #
-#   - name: ic2_xygate
-#     title: ic2 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[2].fCharge", 500, 0, 2000]
-#
-#   - name: ic3_xygate
-#     title: ic3 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[3].fCharge", 500, 0, 2000]
-#
-#   - name: ic4_xygate
-#     title: ic4 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[4].fCharge", 500, 0, 2000]
-#
-#   - name: ic5_xygate
-#     title: ic5 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[5].fCharge", 500, 0, 2000]
-#
-#   - name: ic6_xygate
-#     title: ic6 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[6].fCharge", 500, 0, 2000]
-#
-#   - name: ic7_xygate
-#     title: ic7 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[7].fCharge", 500, 0, 2000]
-#
-#   - name: ic8_xygate
-#     title: ic8 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[8].fCharge", 500, 0, 2000]
-#
-#   - name: ic9_xygate
-#     title: ic9 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[9].fCharge", 500, 0, 2000]
-#
-#   - name: ic10_xygate
-#     title: ic10 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[10].fCharge", 500, 0, 2000]
-#
-#   - name: ic11_xygate
-#     title: ic11 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[11].fCharge", 500, 0, 2000]
-#
-#   - name: ic12_xygate
-#     title: ic12 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[12].fCharge", 500, 0, 2000]
-#
-#   - name: ic13_xygate
-#     title: ic13 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[13].fCharge", 500, 0, 2000]
-#
-#   - name: ic14_xygate
-#     title: ic14 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[14].fCharge", 500, 0, 2000]
-#
-#   - name: ic15_xygate
-#     title: ic15 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[15].fCharge", 500, 0, 2000]
-#
-#   - name: ic16_xygate
-#     title: ic16 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[16].fCharge", 500, 0, 2000]
-#
-#   - name: ic17_xygate
-#     title: ic17 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[17].fCharge", 500, 0, 2000]
-#
-#   - name: ic18_xygate
-#     title: ic18 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[18].fCharge", 500, 0, 2000]
-#
-#   - name: ic19_xygate
-#     title: ic19 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[19].fCharge", 500, 0, 2000]
-#
-#   - name: ic20_xygate
-#     title: ic20 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[20].fCharge", 500, 0, 2000]
-#
-#   - name: ic21_xygate
-#     title: ic21 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[21].fCharge", 500, 0, 2000]
-#
-#   - name: ic22_xygate
-#     title: ic22 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[22].fCharge", 500, 0, 2000]
-#
-#   - name: ic23_xygate
-#     title: ic23 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[23].fCharge", 500, 0, 2000]
-#
-#   - name: ic24_xygate
-#     title: ic24 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[24].fCharge", 500, 0, 2000]
-#
-#   - name: ic25_xygate
-#     title: ic25 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[25].fCharge", 500, 0, 2000]
-#
-#   - name: ic26_xygate
-#     title: ic26 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[26].fCharge", 500, 0, 2000]
-#
-#   - name: ic27_xygate
-#     title: ic27 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[27].fCharge", 500, 0, 2000]
-#
-#   - name: ic28_xygate
-#     title: ic28 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[28].fCharge", 500, 0, 2000]
-#
-#   - name: ic29_xygate
-#     title: ic29 XYgate
-#     cut: "abs(s1x)<20 && abs(s1y)<5"
-#     x: ["icraw[29].fCharge", 500, 0, 2000]
+#   - name: pid
+#     title: pid for debug
+#     x: [fe9x, 200, -50, 50]
+#     y: [t39, 200, 410, 450]
 #
 
-#   - name: deltaE
-#     title: delta E
-#     x: [icde.fValue, *div1, *cmin, *cmax]
-
-#   - name: totalE
-#     title: total E
-#     x: [icave.fValue, *div1, *cmin, *cmax]
-
-
-- name: ic_gpid
-  title: IC (g pid)
-  clone: ic
-  cut: gpid
-
+#- name: ic_gpid
+#  title: IC (g pid)
+#  clone: ic
+#  cut: gpid
+#

@@ -1,8 +1,0 @@
-Processor:
-### YY1 and Csi
-#  - include: v1190_tref_tina.yaml
-  - include: si/tdc.sakura.yaml
-  - include: si/tina.sakura.yaml
-
-### TTT
-#  - include: ttt.sakura.yaml

@@ -1,0 +1,129 @@
+anchor: 
+- &fe9_x ["(542.25*sr91_x[0].fPosition-122.5*sr92_x[0].fPosition)/419.75",200,-50,50]
+- &fe9_a ["1000.*(sr92_x[0].fPosition-sr91_x[0].fPosition)/419.75",200,-50,50]
+- &fe9_y ["(542.25*sr91_y[0].fPosition-122.5*sr92_y[0].fPosition)/419.75",200,-70,70]
+- &fe9_b ["1000.*(sr92_y[0].fPosition-sr91_y[0].fPosition)/419.75",200,-50,50]
+
+- &s0_x ["50.0+(1962*src2_x[0].fPosition-1462*src1_x[0].fPosition)/500.",200,-50,50]
+- &s0_a ["1000.*(src2_x[0].fPosition-src1_x[0].fPosition)/500.",200,-50,50]
+- &s0_y ["(1972*(src2_y[0].fPosition-31)-1452*(src1_y[0].fPosition-31))/500.",200,-80,80]
+- &s0_b ["1000.*((src2_y[0].fPosition-31)-(src1_y[0].fPosition-31))/500.",200,-40,40]
+
+- &s1_x ["(560.8*sr12_x[0].fPosition-210.8*sr11_x[0].fPosition)/350.",200,-150,150]
+- &s1_a ["1000.*(sr12_x[0].fPosition-sr11_x[0].fPosition)/350.",200,-80,80]
+- &s1_y ["(560.8*sr12_y[0].fPosition-210.8*sr11_y[0].fPosition)/350.",200,-100,100]
+- &s1_b ["1000.*(sr12_y[0].fPosition-sr11_y[0].fPosition)/350.",200,-30,30]
+
+
+alias:
+  tof39: (sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-diapad[0].fTiming
+  sr9.fX: (542.25*sr91_x[0].fPosition-122.5*sr92_x[0].fPosition)/419.75
+  fe9.pid: sr9.fX+3.07655*tof39-3310
+  pidgate: abs(fe9.pid)<15
+
+group:
+  - name: chkcorrelation@fe9
+    title: Check FE9
+    contents:
+      - name: fe9_x
+        title: fe9 X [mm] (50Ca) 
+        cut: pidgate
+        x: *fe9_x
+#        xtitle: X [mm]
+      - name: fe9_a
+        title: fe9 A [mrad] (50Ca)
+        cut: pidgate
+        x: *fe9_a
+      - name: fe9_y
+        title: fe9 Y [mm] (50Ca)
+        cut: pidgate
+        x: *fe9_y
+      - name: fe9_b
+        title: fe9 B [mrad] (50Ca)
+        cut: pidgate
+        x: *fe9_b
+      - name: fe9_yx
+        title: fe9 Y [mm] vs fe9 X [mm] (50Ca)
+        cut: pidgate
+        x: *fe9_x
+        y: *fe9_y
+      - name: fe9_xa
+        title: fe9 X [mm] vs fe9 A [mrad] (50Ca)
+        cut: pidgate
+        x: *fe9_a
+        y: *fe9_x
+      - name: fe9_yb
+        title: fe9 Y [mm] vs fe9 B [mrad] (50Ca)
+        cut: pidgate
+        x: *fe9_b
+        y: *fe9_y
+
+  - name: chkcorrelation@s0
+    title: Check S0
+    contents:
+      - name: s0_x
+        title: S0 X [mm] (50Ca)
+        cut: pidgate
+        x: *s0_x
+      - name: s0_a
+        title: S0 A [mrad] (50Ca)
+        cut: pidgate
+        x: *s0_a
+      - name: s0_y
+        title: S0 Y [mm] (50Ca)
+        cut: pidgate
+        x: *s0_y
+      - name: s0_b
+        title: S0 B [mrad] (50Ca)
+        cut: pidgate
+        x: *s0_b
+      - name: s0_yx
+        title: S0 Y [mm] vs S0 X [mm] (50Ca)
+        cut: pidgate
+        x: *s0_x
+        y: *s0_y
+      - name: s0_xa
+        title: S0 X [mm] vs S0 A [mrad] (50Ca)
+        cut: pidgate
+        x: *s0_a
+        y: *s0_x
+      - name: s0_yb
+        title: S0 Y [mm] vs S0 B [mrad] (50Ca)
+        cut: pidgate
+        x: *s0_b
+        y: *s0_y
+
+  - name: chkcorrelation@s1
+    title: Check S1
+    contents:
+      - name: s1_x
+        title: s1 X [mm] (50Ca)
+        cut: pidgate
+        x: *s1_x
+      - name: s1_a
+        title: s1 A [mrad] (50Ca)
+        cut: pidgate
+        x: *s1_a
+      - name: s1_y
+        title: s1 Y [mm] (50Ca)
+        cut: pidgate
+        x: *s1_y
+      - name: s1_b
+        title: s1 B [mrad] (50Ca)
+        cut: pidgate
+        x: *s1_b
+      - name: s1_yx
+        title: s1 Y [mm] vs s1 X [mm] (50Ca)
+        cut: pidgate
+        x: *s1_x
+        y: *s1_y
+      - name: s1_xa
+        title: s1 X [mm] vs s1 A [mrad] (50Ca)
+        cut: pidgate
+        x: *s1_a
+        y: *s1_x
+      - name: s1_yb
+        title: s1 Y [mm] vs s1 B [mrad] (50Ca)
+        cut: pidgate
+        x: *s1_b
+        y: *s1_y
