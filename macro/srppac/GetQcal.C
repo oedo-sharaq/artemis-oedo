@@ -1,23 +1,23 @@
 
 void GetQcal(){
 
-  gROOT->ProcessLine("hsrc1q0idxhigh->FitSlicesY()");
-  gROOT->ProcessLine("hsrc1q0idxlow->FitSlicesY()");
-  gROOT->ProcessLine("hsrc1q0idyhigh->FitSlicesY()");
-  gROOT->ProcessLine("hsrc1q0idylow->FitSlicesY()");
-  gROOT->ProcessLine("hsrc2q0idxhigh->FitSlicesY()");
-  gROOT->ProcessLine("hsrc2q0idxlow->FitSlicesY()");
-  gROOT->ProcessLine("hsrc2q0idyhigh->FitSlicesY()");
-  gROOT->ProcessLine("hsrc2q0idylow->FitSlicesY()");
+//  gROOT->ProcessLine("hsrc1q0idxhigh->FitSlicesY()");
+//  gROOT->ProcessLine("hsrc1q0idxlow->FitSlicesY()");
+//  gROOT->ProcessLine("hsrc1q0idyhigh->FitSlicesY()");
+//  gROOT->ProcessLine("hsrc1q0idylow->FitSlicesY()");
+//  gROOT->ProcessLine("hsrc2q0idxhigh->FitSlicesY()");
+//  gROOT->ProcessLine("hsrc2q0idxlow->FitSlicesY()");
+//  gROOT->ProcessLine("hsrc2q0idyhigh->FitSlicesY()");
+//  gROOT->ProcessLine("hsrc2q0idylow->FitSlicesY()");
 
-//  gROOT->ProcessLine("hsrc1q0idxhigh->FitSlicesX()");
-//  gROOT->ProcessLine("hsrc1q0idxlow->FitSlicesX()");
-//  gROOT->ProcessLine("hsrc1q0idyhigh->FitSlicesX()");
-//  gROOT->ProcessLine("hsrc1q0idylow->FitSlicesX()");
-//  gROOT->ProcessLine("hsrc2q0idxhigh->FitSlicesX()");
-//  gROOT->ProcessLine("hsrc2q0idxlow->FitSlicesX()");
-//  gROOT->ProcessLine("hsrc2q0idyhigh->FitSlicesX()");
-//  gROOT->ProcessLine("hsrc2q0idylow->FitSlicesX()");
+  gROOT->ProcessLine("hsrc1q0idx->FitSlicesY()");
+  gROOT->ProcessLine("hsrc1q1idx->FitSlicesY()");
+  gROOT->ProcessLine("hsrc1q0idy->FitSlicesY()");
+  gROOT->ProcessLine("hsrc1q1idy->FitSlicesY()");
+  gROOT->ProcessLine("hsrc2q0idx->FitSlicesY()");
+  gROOT->ProcessLine("hsrc2q1idx->FitSlicesY()");
+  gROOT->ProcessLine("hsrc2q0idy->FitSlicesY()");
+  gROOT->ProcessLine("hsrc2q1idy->FitSlicesY()");
 
 
   TH1D *hist_high[4];
@@ -26,27 +26,42 @@ void GetQcal(){
   TH1D *hist_sigma_low[4];
 
 
-  hist_high[0] = (TH1D*)gROOT->FindObject("hsrc1q0idxhigh_1");
-  hist_low[0]  = (TH1D*)gROOT->FindObject("hsrc1q0idxlow_1");
-  hist_high[1] = (TH1D*)gROOT->FindObject("hsrc1q0idyhigh_1");
-  hist_low[1]  = (TH1D*)gROOT->FindObject("hsrc1q0idylow_1");
-  hist_high[2] = (TH1D*)gROOT->FindObject("hsrc2q0idxhigh_1");
-  hist_low[2]  = (TH1D*)gROOT->FindObject("hsrc2q0idxlow_1");
-  hist_high[3] = (TH1D*)gROOT->FindObject("hsrc2q0idyhigh_1");
-  hist_low[3]  = (TH1D*)gROOT->FindObject("hsrc2q0idylow_1");
+//  hist_high[0] = (TH1D*)gROOT->FindObject("hsrc1q0idxhigh_1");
+//  hist_low[0]  = (TH1D*)gROOT->FindObject("hsrc1q0idxlow_1");
+//  hist_high[1] = (TH1D*)gROOT->FindObject("hsrc1q0idyhigh_1");
+//  hist_low[1]  = (TH1D*)gROOT->FindObject("hsrc1q0idylow_1");
+//  hist_high[2] = (TH1D*)gROOT->FindObject("hsrc2q0idxhigh_1");
+//  hist_low[2]  = (TH1D*)gROOT->FindObject("hsrc2q0idxlow_1");
+//  hist_high[3] = (TH1D*)gROOT->FindObject("hsrc2q0idyhigh_1");
+//  hist_low[3]  = (TH1D*)gROOT->FindObject("hsrc2q0idylow_1");
 
-  hist_sigma_high[0] = (TH1D*)gROOT->FindObject("hsrc1q0idxhigh_2");
-  hist_sigma_low[0]  = (TH1D*)gROOT->FindObject("hsrc1q0idxlow_2");
-  hist_sigma_high[1] = (TH1D*)gROOT->FindObject("hsrc1q0idyhigh_2");
-  hist_sigma_low[1]  = (TH1D*)gROOT->FindObject("hsrc1q0idylow_2");
-  hist_sigma_high[2] = (TH1D*)gROOT->FindObject("hsrc2q0idxhigh_2");
-  hist_sigma_low[2]  = (TH1D*)gROOT->FindObject("hsrc2q0idxlow_2");
-  hist_sigma_high[3] = (TH1D*)gROOT->FindObject("hsrc2q0idyhigh_2");
-  hist_sigma_low[3]  = (TH1D*)gROOT->FindObject("hsrc2q0idylow_2");
+  hist_high[0] = (TH1D*)gROOT->FindObject("hsrc1q0idx_1");
+  hist_low[0]  = (TH1D*)gROOT->FindObject("hsrc1q1idx_1");
+  hist_high[1] = (TH1D*)gROOT->FindObject("hsrc1q0idy_1");
+  hist_low[1]  = (TH1D*)gROOT->FindObject("hsrc1q1idy_1");
+  hist_high[2] = (TH1D*)gROOT->FindObject("hsrc2q0idx_1");
+  hist_low[2]  = (TH1D*)gROOT->FindObject("hsrc2q1idx_1");
+  hist_high[3] = (TH1D*)gROOT->FindObject("hsrc2q0idy_1");
+  hist_low[3]  = (TH1D*)gROOT->FindObject("hsrc2q1idy_1");
 
-  Int_t nbin_1 = 0;
-  Int_t nbin_2 = 0;
-  Int_t nbin = 0;
+//  hist_sigma_high[0] = (TH1D*)gROOT->FindObject("hsrc1q0idxhigh_2");
+//  hist_sigma_low[0]  = (TH1D*)gROOT->FindObject("hsrc1q0idxlow_2");
+//  hist_sigma_high[1] = (TH1D*)gROOT->FindObject("hsrc1q0idyhigh_2");
+//  hist_sigma_low[1]  = (TH1D*)gROOT->FindObject("hsrc1q0idylow_2");
+//  hist_sigma_high[2] = (TH1D*)gROOT->FindObject("hsrc2q0idxhigh_2");
+//  hist_sigma_low[2]  = (TH1D*)gROOT->FindObject("hsrc2q0idxlow_2");
+//  hist_sigma_high[3] = (TH1D*)gROOT->FindObject("hsrc2q0idyhigh_2");
+//  hist_sigma_low[3]  = (TH1D*)gROOT->FindObject("hsrc2q0idylow_2");
+
+  hist_sigma_high[0] = (TH1D*)gROOT->FindObject("hsrc1q0idx_2");
+  hist_sigma_low[0]  = (TH1D*)gROOT->FindObject("hsrc1q1idx_2");
+  hist_sigma_high[1] = (TH1D*)gROOT->FindObject("hsrc1q0idy_2");
+  hist_sigma_low[1]  = (TH1D*)gROOT->FindObject("hsrc1q1idy_2");
+  hist_sigma_high[2] = (TH1D*)gROOT->FindObject("hsrc2q0idx_2");
+  hist_sigma_low[2]  = (TH1D*)gROOT->FindObject("hsrc2q1idx_2");
+  hist_sigma_high[3] = (TH1D*)gROOT->FindObject("hsrc2q0idy_2");
+  hist_sigma_low[3]  = (TH1D*)gROOT->FindObject("hsrc2q1idy_2");
+
 
 for(int j = 0; j < 4; j++){
   char *filename;
