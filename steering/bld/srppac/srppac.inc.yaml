@@ -80,7 +80,7 @@ Processor:
     parameter:
       InputCollection: @NAME@_a_raw
       OutputCollection: @NAME@_a_val
-      ValidTimeRange: @VALIDTIME@
+      ValidTimeRange: @AnodeVALIDTIME@
 #      ValidTimeRange: [-20000,-16000,0]  # temporary
 #      ValidTimeRange: [190000,200000,0]  # run3176
   - name: proc:ppac:@NAME@x:val

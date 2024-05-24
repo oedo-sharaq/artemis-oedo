@@ -1,8 +1,8 @@
 Anchor:
 # - &input ridf_rftest/@NAME@@NUM@.ridf
  - &input /mnt/shfs02/sh12/@NAME@@NUM@.ridf
- - &output output/srppac/@NAME@/@NUM@/chksrppac_newproc@NAME@@NUM@.root
- - &histout output/srppac/@NAME@/@NUM@/chksrppac_newproc@NAME@@NUM@.hist.root
+ - &output output/srppac/@NAME@/@NUM@/chksrppac_newproc@NAME@@NUM@.tval.root
+ - &histout output/srppac/@NAME@/@NUM@/chksrppac_newproc@NAME@@NUM@.tval.hist.root
 
 Processor:
   - name: timer
@@ -21,8 +21,10 @@ Processor:
       OutputTransparency: 1
 
   - include: tref.yaml
+  - include: bld/dia/dia.yaml
+  - include: bld/dlppac/dlppac.brips.yaml
   - include: bld/srppac/srppac.yaml
-
+  - include: trig_select/trig.yaml
 
 #### FE9 SR-PPAC Hist
 #
@@ -60,7 +62,7 @@ Processor:
 #
 #
 #
-#### FE12 SR-PPAC Hist
+### FE12 SR-PPAC Hist
 #
 #  - name: projection
 #    type: art::TTreeProjectionProcessor
@@ -84,17 +86,17 @@ Processor:
 #      FileName: hist/srppac/chksrppaceffFE12.yaml
 #      Type:     art::TTreeProjection
 #
-#  - name: projection
-#    type: art::TTreeProjectionProcessor
-#    parameter:
-#      FileName: hist/srppac/dqdx_hist.yaml
-#      Type:     art::TTreeProjection
-#      Replace: |
-#        fp: fe12       
-#        sru: src1       
-#        srd: src2       
-#
-#
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/srppac/dqdx_hist.yaml
+      Type:     art::TTreeProjection
+      Replace: |
+        fp: fe12       
+        sru: src1       
+        srd: src2       
+
+
 #### S1 SR-PPAC Hist
 #
 #  - name: projection
@@ -124,8 +126,24 @@ Processor:
 #        sru: sr11       
 #        srd: sr12       
 
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/srppac/qcal.yaml
+      Type:     art::TTreeProjection
+
+
+  - name: projection
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/srppac/activeslit.yaml
+      Type:     art::TTreeProjection
+      OutputFilename: *histout
+
+
   - name: outputtree
     type: art::TOutputTreeProcessor
     parameter:
       FileName: 
         - *output
+

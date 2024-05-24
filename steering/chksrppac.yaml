@@ -22,6 +22,7 @@ Processor:
 
   - include: tref.yaml
   - include: bld/srppac/srppac.yaml
+  - include: trig_select/trig.yaml
 
 
 ### FE9 SR-PPAC Hist

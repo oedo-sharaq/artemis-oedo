@@ -12,7 +12,7 @@ Processor:
     parameter:
       InputCollection: coin_raw
       OutputCollection: coin
-      ValidTimeRange: [0, 7e4,0]
+      ValidTimeRange: [-1e5, 1e5, 0]
   - name: proc_coinsep
     type: art::TSeparateOutputProcessor
     parameter:
@@ -23,6 +23,7 @@ Processor:
         - coin_s0
         - coin_s1
         - coin_fe12
+        - coin_activeslit
 
   - name: gate_array_init
     type: art::TGateArrayInitializer

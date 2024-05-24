@@ -17,6 +17,16 @@ tree->SetAlias("src.fA","(src2_x[0].fPosition-src1_x[0].fPosition)/500.");
 tree->SetAlias("src.fY","(1962*(src2_y[0].fPosition-31)-1462*(src1_y[0].fPosition-31))/500.");
 tree->SetAlias("src.fB","((src2_y[0].fPosition-31)-(src1_y[0].fPosition-31))/500.");
 
+tree->SetAlias("src_qt.fX","50.0+(1962*src2_x_qt[0].fPosition-1462*src1_x_qt[0].fPosition)/500.");
+tree->SetAlias("src_qt.fA","(src2_x_qt[0].fPosition-src1_x_qt[0].fPosition)/500.");
+tree->SetAlias("src_qt.fY","(1962*(src2_y_qt[0].fPosition-31)-1462*(src1_y_qt[0].fPosition-31))/500.");
+tree->SetAlias("src_qt.fB","((src2_y_qt[0].fPosition-31)-(src1_y_qt[0].fPosition-31))/500.");
+
+tree->SetAlias("src_gl.fX","50.0+(1962*src2_x_gl[0].fPosition-1462*src1_x_gl[0].fPosition)/500.");
+tree->SetAlias("src_gl.fA","(src2_x_gl[0].fPosition-src1_x_gl[0].fPosition)/500.");
+tree->SetAlias("src_gl.fY","(1962*(src2_y_gl[0].fPosition-31)-1462*(src1_y_gl[0].fPosition-31))/500.");
+tree->SetAlias("src_gl.fB","((src2_y_gl[0].fPosition-31)-(src1_y_gl[0].fPosition-31))/500.");
+
 tree->SetAlias("hole.fX","50.0+(1242*src2_x[0].fPosition-742*src1_x[0].fPosition)/500.");
 tree->SetAlias("hole.fA","(src2_x[0].fPosition-src1_x[0].fPosition)/500.");
 tree->SetAlias("hole.fY","(1242*(src2_y[0].fPosition-31)-742*(src1_y[0].fPosition-31))/500.");

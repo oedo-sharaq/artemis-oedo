@@ -24,3 +24,6 @@ artemislogon.C
 thisartemis-oedo.sh
 .vscode/launch.json
 .display
+/getdata/
+*.swp
+*.swo

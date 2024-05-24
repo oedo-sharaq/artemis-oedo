@@ -1,0 +1,155 @@
+anchor: 
+- &src1_q0x ["src1_x_cal[0].fCharge",200,0,70]
+- &src1_q1x ["src1_x_cal[1].fCharge",200,0,70]
+- &src1_q2x ["src1_x_cal[2].fCharge",200,0,70]
+- &src1_id0x ["src1_x_cal[0].fID",94,-0.5,93.5]
+- &src1_id1x ["src1_x_cal[1].fID",94,-0.5,93.5]
+- &src1_id2x ["src1_x_cal[2].fID",94,-0.5,93.5]
+
+- &src2_q0x ["src2_x_cal[0].fCharge",200,0,70]
+- &src2_q1x ["src2_x_cal[1].fCharge",200,0,70]
+- &src2_q2x ["src2_x_cal[2].fCharge",200,0,70]
+- &src2_id0x ["src2_x_cal[0].fID",94,-0.5,93.5]
+- &src2_id1x ["src2_x_cal[1].fID",94,-0.5,93.5]
+- &src2_id2x ["src2_x_cal[2].fID",94,-0.5,93.5]
+
+- &src1_q0y ["src1_y_cal[0].fCharge",200,0,80]
+- &src1_q1y ["src1_y_cal[1].fCharge",200,0,80]
+- &src1_q2y ["src1_y_cal[2].fCharge",200,0,80]
+- &src1_id0y ["src1_y_cal[0].fID",58,-0.5,57.5]
+- &src1_id1y ["src1_y_cal[1].fID",58,-0.5,57.5]
+- &src1_id2y ["src1_y_cal[2].fID",58,-0.5,57.5]
+
+- &src2_q0y ["src2_y_cal[0].fCharge",200,0,80]
+- &src2_q1y ["src2_y_cal[1].fCharge",200,0,80]
+- &src2_q2y ["src2_y_cal[2].fCharge",200,0,80]
+- &src2_id0y ["src2_y_cal[0].fID",58,-0.5,57.5]
+- &src2_id1y ["src2_y_cal[1].fID",58,-0.5,57.5]
+- &src2_id2y ["src2_y_cal[2].fID",58,-0.5,57.5]
+
+
+alias:
+  tof39: (sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-diapad[0].fTiming
+  sr9X: (542.25*sr91_x[0].fPosition-122.5*sr92_x[0].fPosition)/419.75
+  srcX: 50.0+(1962*src2_x[0].fPosition-1462*src1_x[0].fPosition)/500.
+  srcY: (1962*(src2_y[0].fPosition-31)-1462*(src1_y[0].fPosition-31))/500
+  select_xside: srcX > 5
+  select_yside: srcY < -5
+  pidx: TMath::Abs(tof39 + sr9X * 0.2 - 1075) < 6 && srcX > 5
+  pidy: TMath::Abs(tof39 + sr9X * 0.2 - 1075) < 6 && srcY < -5
+  xc1q0q1: TMath::Abs(src1_x_cal[0].fCharge - src1_x_cal[1].fCharge) < 2
+  xc1q1q2: TMath::Abs(src1_x_cal[1].fCharge - src1_x_cal[2].fCharge) < 2
+  yc1q0q1: TMath::Abs(src1_y_cal[0].fCharge - src1_y_cal[1].fCharge) < 2
+  yc1q1q2: TMath::Abs(src1_y_cal[1].fCharge - src1_y_cal[2].fCharge) < 2
+  xc2q0q1: TMath::Abs(src2_x_cal[0].fCharge - src2_x_cal[1].fCharge) < 2
+  xc2q1q2: TMath::Abs(src2_x_cal[1].fCharge - src2_x_cal[2].fCharge) < 2
+  yc2q0q1: TMath::Abs(src2_y_cal[0].fCharge - src2_y_cal[1].fCharge) < 2
+  yc2q1q2: TMath::Abs(src2_y_cal[1].fCharge - src2_y_cal[2].fCharge) < 2
+
+group:
+  - name: idqcal
+    title: Q vs ID for qcal
+    contents:
+      - name: hsrc1q0idx
+        title: Q0 vs ID  src1x w/ pidgate  
+        cut: pidy
+        x: *src1_id0x
+        y: *src1_q0x
+      - name: hsrc1q1idx
+        title: Q1 vs ID  src1x w/ pidgate  
+        cut: pidy
+        x: *src1_id1x
+        y: *src1_q1x
+      - name: hsrc1q2idx
+        title: Q2 vs ID  src1x w/ pidgate  
+        cut: pidy
+        x: *src1_id2x
+        y: *src1_q2x
+      - name: hsrc1q0idy
+        title: Q0 vs ID  src1y w/ pidgate  
+        cut: pidx
+        x: *src1_id0x
+        y: *src1_q0x
+      - name: hsrc1q1idy
+        title: Q1 vs ID  src1y w/ pidgate  
+        cut: pidx
+        x: *src1_id1y
+        y: *src1_q1y
+      - name: hsrc1q2idy
+        title: Q2 vs ID  src1y w/ pidgate  
+        cut: pidx
+        x: *src1_id2y
+        y: *src1_q2y
+      - name: hsrc2q0idx
+        title: Q0 vs ID  src2x w/ pidgate  
+        cut: pidy
+        x: *src2_id0x
+        y: *src2_q0x
+      - name: hsrc2q1idx
+        title: Q1 vs ID  src2x w/ pidgate  
+        cut: pidy
+        x: *src2_id1x
+        y: *src2_q1x
+      - name: hsrc2q2idx
+        title: Q2 vs ID  src2x w/ pidgate  
+        cut: pidy
+        x: *src2_id2x
+        y: *src2_q2x
+      - name: hsrc2q0idy
+        title: Q0 vs ID  src2y w/ pidgate  
+        cut: pidx
+        x: *src2_id0x
+        y: *src2_q0x
+      - name: hsrc2q1idy
+        title: Q1 vs ID  src2y w/ pidgate  
+        cut: pidx
+        x: *src2_id1y
+        y: *src2_q1y
+      - name: hsrc2q2idy
+        title: Q2 vs ID  src2y w/ pidgate  
+        cut: pidx
+        x: *src2_id2y
+        y: *src2_q2y
+
+      - name: hsrc1q0idxhigh
+        title: Q0 vs ID  src1x w/ pidgate High 
+        cut: pidy && xc1q0q1
+        x: *src1_id0x
+        y: *src1_q0x
+      - name: hsrc1q0idxlow
+        title: Q0 vs ID  src1x w/ pidgate Low
+        cut: pidy && xc1q1q2
+        x: *src1_id0x
+        y: *src1_q0x
+      - name: hsrc1q0idyhigh
+        title: Q0 vs ID  src1y w/ pidgate High
+        cut: pidx && yc1q0q1
+        x: *src1_id0y
+        y: *src1_q0y
+      - name: hsrc1q0idylow
+        title: Q0 vs ID  src1y w/ pidgate Low
+        cut: pidx && yc1q1q2
+        x: *src1_id0y
+        y: *src1_q0y
+
+      - name: hsrc2q0idxhigh
+        title: Q0 vs ID  src2x w/ pidgate High 
+        cut: pidy && xc2q0q1
+        x: *src2_id0x
+        y: *src2_q0x
+      - name: hsrc2q0idxlow
+        title: Q0 vs ID  src2x w/ pidgate Low
+        cut: pidy && xc2q1q2
+        x: *src2_id0x
+        y: *src2_q0x
+      - name: hsrc2q0idyhigh
+        title: Q0 vs ID  src2y w/ pidgate High
+        cut: pidx && yc2q0q1
+        x: *src2_id0y
+        y: *src2_q0y
+      - name: hsrc2q0idylow
+        title: Q0 vs ID  src2y w/ pidgate Low
+        cut: pidx && yc2q1q2
+        x: *src2_id0y
+        y: *src2_q0y
+
