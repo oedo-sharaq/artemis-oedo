@@ -31,6 +31,9 @@ link_directories(${ARTEMIS_GET_LIB_DIR})
 
 add_subdirectory(src-oedo)
 add_subdirectory(src-get)
+if(${BUILD_PARQUET})
+    add_subdirectory(src-parquet)
+endif()
 add_subdirectory(analysis)
 
 configure_file(
