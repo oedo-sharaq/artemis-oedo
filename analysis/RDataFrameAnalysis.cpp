@@ -2,6 +2,7 @@
 // This program generates root files with a tree containing a branch of the ExampleTwoDataClass.
 // named "ExampleData". ExampleData.data1_ and data2_ will be filled with random Gaussian events.
 #include <iostream>
+#include <getopt.h>
 #include "TROOT.h"
 #include "ROOT/RDataFrame.hxx"
 #include "TClonesArray.h"
