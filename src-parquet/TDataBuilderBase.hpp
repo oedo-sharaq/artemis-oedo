@@ -30,10 +30,12 @@ public:
     virtual void Finalize(arrow::FieldVector &, arrow::ArrayVector &) = 0;
 
     std::string GetName() const { return name_; }
+    bool GetUseClonesarray() const { return use_clonesarray_; }
 
 protected:
     arrow::MemoryPool *pool_;
     std::string name_;
+    bool use_clonesarray_;
 };
 
 #endif /*__TDATA_BUILDER_BASE_HPP__*/

@@ -5,17 +5,23 @@ set(LIB_NAME parquetDump)
 
 set(SOURCES
     TDataBuilderBase.cpp
+    TEventHeaderDataBuilder.cpp
     TSimpleDataBuilder.cpp
     TTimingChargeDataBuilder.cpp
     TSRPPACPlaneDataBuilder.cpp
+    TMWDCHitDataBuilder.cpp
+    TTrackingResultDataBuilder.cpp
     TParquetFileWriter.cpp
 )
 
 set(HEADERS
     TDataBuilderBase.hpp
+    TEventHeaderDataBuilder.hpp
     TSimpleDataBuilder.hpp
     TTimingChargeDataBuilder.hpp
     TSRPPACPlaneDataBuilder.hpp
+    TMWDCHitDataBuilder.hpp
+    TTrackingResultDataBuilder.hpp
     TParquetFileWriter.hpp
 )
 
@@ -42,7 +48,9 @@ target_link_libraries(${LIB_NAME}
         artemis::artshare
         artemis::CAT
         ${YAML_CPP_LIBRARIES}
+        GETDecoder
         oedo
+        artget_sh12
         arrow
         parquet
 )
@@ -60,18 +68,18 @@ install(TARGETS ${LIB_NAME}
     LIBRARY DESTINATION lib
 )
 
-function(addParquetExec exec_name)
-    add_executable(${exec_name} ${exec_name}.cpp)
-    target_include_directories(${exec_name} PRIVATE /opt/artemis/include ${CMAKE_CURRENT_SOURCE_DIR}/src-oedo)
-    target_link_directories(${exec_name} PRIVATE /opt/artemis/lib )
-    target_link_libraries(${exec_name} arrow parquet ${ROOT_LIBRARIES} ${YAML_CPP_LIBRARIES}
-    artemis::catcmd artemis::catloop artemis::catcore artemis::artcont artemis::catmc
-    artemis::artdecoder artemis::artridf artemis::artrdf artemis::arthist
-    artemis::artparam artemis::artshare artemis::CAT oedo
-    GETDecoder
-    artget_sh12)
-
-    install(TARGETS ${exec_name}
-        RUNTIME DESTINATION bin)
-endfunction()
+#function(addParquetExec exec_name)
+#    add_executable(${exec_name} ${exec_name}.cpp)
+#    target_include_directories(${exec_name} PRIVATE /opt/artemis/include ${CMAKE_CURRENT_SOURCE_DIR}/src-oedo)
+#    target_link_directories(${exec_name} PRIVATE /opt/artemis/lib )
+#    target_link_libraries(${exec_name} arrow parquet ${ROOT_LIBRARIES} ${YAML_CPP_LIBRARIES}
+#    artemis::catcmd artemis::catloop artemis::catcore artemis::artcont artemis::catmc
+#    artemis::artdecoder artemis::artridf artemis::artrdf artemis::arthist
+#    artemis::artparam artemis::artshare artemis::CAT oedo
+#    GETDecoder
+#    artget_sh12)
+#
+#    install(TARGETS ${exec_name}
+#        RUNTIME DESTINATION bin)
+#endfunction()
 

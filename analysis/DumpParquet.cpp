@@ -25,6 +25,9 @@
 #include "TParquetFileWriter.hpp"
 #include "TTimingChargeDataBuilder.hpp"
 #include "TSRPPACPlaneDataBuilder.hpp"
+#include "TMWDCHitDataBuilder.hpp"
+#include "TTrackingResultDataBuilder.hpp"
+#include "TEventHeaderDataBuilder.hpp"
 
 /** prints usage **/
 void usage(char *argv0)
@@ -37,8 +40,8 @@ void usage(char *argv0)
 // Main function
 int main(int argc, char **argv)
 {
-        // TString dypath = gSystem->GetDynamicPath();
-        // TString incpath = gSystem->GetIncludePath();
+        TString dypath = gSystem->GetDynamicPath();
+        TString incpath = gSystem->GetIncludePath();
         // incpath.Append(gSystem->GetFromPipe("artemis-config --cflags"));
         // dypath.Append(gSystem->GetFromPipe("artemis-config --dypaths"));
         // dypath.Append(":/home/sh12s24/art_analysis/user/yokoyama/install/lib");
@@ -49,11 +52,11 @@ int main(int argc, char **argv)
 
         // gSystem->SetDynamicPath(dypath);
         // gSystem->SetIncludePath(incpath);
-        //  gSystem->Load("libGETDecoder");
-        //  gSystem->Load("libMinuit");
-        //  gSystem->Load("libGenetic");
-        // gSystem->Load("libartshare");
-        // gSystem->Load("libCAT");
+	//  gSystem->Load("libGETDecoder");
+        //   gSystem->Load("libMinuit");
+        //   gSystem->Load("libGenetic");
+        //  gSystem->Load("libartshare");
+        //  gSystem->Load("libCAT");
         gSystem->Load("liboedo");
         // gSystem->Load("libartget_sh12");
 
@@ -97,17 +100,29 @@ int main(int argc, char **argv)
 
         art::TParquetFileWriter writer(rd);
 
-        // Define builder objects
-        writer.AddBuilder(std::make_shared<art::TTimingChargeDataBuilder>("src1_x_raw"));
-        writer.AddBuilder(std::make_shared<art::TTimingChargeDataBuilder>("src1_y_raw"));
-        writer.AddBuilder(std::make_shared<art::TTimingChargeDataBuilder>("src2_x_raw"));
-        writer.AddBuilder(std::make_shared<art::TTimingChargeDataBuilder>("src2_y_raw"));
-        writer.AddBuilder(std::make_shared<art::TSRPPACPlaneDataBuilder>("src1_x"));
-        writer.AddBuilder(std::make_shared<art::TSRPPACPlaneDataBuilder>("src1_y"));
-        writer.AddBuilder(std::make_shared<art::TSRPPACPlaneDataBuilder>("src2_x"));
-        writer.AddBuilder(std::make_shared<art::TSRPPACPlaneDataBuilder>("src2_y"));
-        writer.AddBuilder(std::make_shared<art::TTimingChargeDataBuilder>("activeslit"));
+        // Fill event header data
+        auto event_header = std::make_shared<art::TEventHeaderDataBuilder>("eventheader");
 
+        // Define builder objects
+        writer.AddBuilder(event_header);
+	writer.AddBuilder(std::make_shared<art::TTimingChargeDataBuilder>("sr11_x_cal"));
+        writer.AddBuilder(std::make_shared<art::TMWDCHitDataBuilder>("dc31_x1"));
+        writer.AddBuilder(std::make_shared<art::TMWDCHitDataBuilder>("dc31_x2"));
+        writer.AddBuilder(std::make_shared<art::TMWDCHitDataBuilder>("dc31_x3"));
+        writer.AddBuilder(std::make_shared<art::TMWDCHitDataBuilder>("dc31_x4"));
+        writer.AddBuilder(std::make_shared<art::TMWDCHitDataBuilder>("dc31_y1"));
+        writer.AddBuilder(std::make_shared<art::TMWDCHitDataBuilder>("dc31_y2"));
+        writer.AddBuilder(std::make_shared<art::TMWDCHitDataBuilder>("dc31_y3"));
+        writer.AddBuilder(std::make_shared<art::TMWDCHitDataBuilder>("dc31_y4"));
+        writer.AddBuilder(std::make_shared<art::TMWDCHitDataBuilder>("dc32_x1"));
+        writer.AddBuilder(std::make_shared<art::TMWDCHitDataBuilder>("dc32_x2"));
+        writer.AddBuilder(std::make_shared<art::TMWDCHitDataBuilder>("dc32_y1"));
+        writer.AddBuilder(std::make_shared<art::TMWDCHitDataBuilder>("dc32_y2"));
+        writer.AddBuilder(std::make_shared<art::TTrackingResultDataBuilder>("f3"));
+	writer.AddBuilder(std::make_shared<art::TSRPPACPlaneDataBuilder>("sr11_x"));
+
+        rd->Foreach([&](art::TEventHeader &input)
+                    { event_header->FillEventHeader(input); }, {event_header->GetName()});
         writer.Fill();
         writer.Write(output_file_name);
         return 0;

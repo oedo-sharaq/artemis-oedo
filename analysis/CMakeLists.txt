@@ -8,6 +8,8 @@ target_link_libraries(${exec_name} ${ROOT_LIBRARIES} ${YAML_CPP_LIBRARIES}
     artemis::artparam artemis::artshare artemis::CAT oedo
     GETDecoder
     artget_sh12
+#    /opt/artemis/lib/libartdecoder.so
+    #added by kojima
 )
 
 install(TARGETS ${exec_name}
@@ -43,6 +45,6 @@ function(addParquetExec exec_name)
 endfunction()
 
 addParquetExec(DumpParquet)
-addParquetExec(DumpParquet_Pulser)
+#addParquetExec(DumpParquet_Pulser)
 
 endif()

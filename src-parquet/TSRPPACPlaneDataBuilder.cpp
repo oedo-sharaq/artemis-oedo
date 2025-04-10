@@ -24,7 +24,7 @@ void art::TSRPPACPlaneDataBuilder::Finalize(arrow::FieldVector &fields, arrow::A
     std::shared_ptr<arrow::Array> list_position_array;
     PARQUET_THROW_NOT_OK(list_position_builder_->Finish(&list_position_array));
 
-    fields.emplace_back(arrow::field(name_ + ".fPosition", arrow::list(arrow::float32())));
+    fields.emplace_back(arrow::field(name_ + "_position", arrow::list(arrow::float32())));
     arrays.emplace_back(list_position_array);
     return;
 }

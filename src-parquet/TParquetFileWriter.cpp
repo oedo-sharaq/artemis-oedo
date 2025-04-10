@@ -26,9 +26,12 @@ void art::TParquetFileWriter::Fill()
     // Fill arrow for each builder
     for (const auto builder : builder_vec_)
     {
-        std::cout << "Filling " << builder->GetName() << " to arrow." << std::endl;
-        data_frame_->Foreach([&](const TClonesArray &input)
-                             { builder->FillArrow(input); }, {builder->GetName()});
+        std::cout << "Filling " << builder->GetName() << " to arrow (" << builder->GetUseClonesarray() << ")" << std::endl;
+	if (builder->GetUseClonesarray())
+	{
+            data_frame_->Foreach([&](const TClonesArray &input)
+                                 { builder->FillArrow(input); }, {builder->GetName()});
+	}
     }
 
     // Finalize the arrays
