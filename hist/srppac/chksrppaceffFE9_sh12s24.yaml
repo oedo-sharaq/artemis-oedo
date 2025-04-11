@@ -1,0 +1,65 @@
+anchor: 
+  - &sr91_x_ent ["sr91_x_cal@.GetEntriesFast()",10,-0.5,9.5]
+  - &sr91_y_ent ["sr91_y_cal@.GetEntriesFast()",10,-0.5,9.5]
+  - &sr92_x_ent ["sr92_x_cal@.GetEntriesFast()",10,-0.5,9.5]
+  - &sr92_y_ent ["sr92_y_cal@.GetEntriesFast()",10,-0.5,9.5]
+
+alias:
+ src1transmission: src1_x_cal@.GetEntriesFast() > 0   
+ sr11transmission: sr11_x_cal@.GetEntriesFast() > 0   
+
+group:
+  - name: srppaceffFE9
+    title: SR-PPAC Efficiency FE9
+    contents:
+      - name: sr91_x_ent
+        title: sr91 X Entry
+        x: *sr91_x_ent
+      - name: sr91_y_ent
+        title: sr91 Y Entry
+        x: *sr91_y_ent
+      - name: sr92_x_ent
+        title: sr92 X Entry
+        x: *sr92_x_ent
+      - name: sr92_y_ent
+        title: sr92 Y Entry
+        x: *sr92_y_ent
+
+      - name: sr91_x_ent
+        title: sr91 X Entry w/ src1 hit
+        cut: src1transmission
+        x: *sr91_x_ent
+      - name: sr91_y_ent
+        title: sr91 Y Entry w/ src1 hit
+        cut: src1transmission
+        x: *sr91_y_ent
+      - name: sr92_x_ent
+        title: sr92 X Entry w/ src1 hit
+        cut: src1transmission
+        x: *sr92_x_ent
+      - name: sr92_y_ent
+        title: sr92 Y Entry w/ src1 hit
+        cut: src1transmission
+        x: *sr92_y_ent
+
+      - name: sr91_x_ent
+        title: sr91 X Entry w/ sr11 hit
+        cut: sr11transmission
+        x: *sr91_x_ent
+      - name: sr91_y_ent
+        cut: sr11transmission
+        x: *sr91_y_ent
+      - name: sr92_x_ent
+        title: sr92 X Entry w/ sr11 hit
+        cut: sr11transmission
+        x: *sr92_x_ent
+      - name: sr92_y_ent
+        title: sr92 Y Entry w/ sr11 hit
+        cut: sr11transmission
+        x: *sr92_y_ent
+
+
+
+
+
+

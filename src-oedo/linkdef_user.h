@@ -44,9 +44,11 @@
 #pragma link C++ class art::TBrhoReconstructProcessorS1;
 #pragma link C++ class art::TPIDSingleSectionProcessor;
 #pragma link C++ class art::TCmdPadZoom;
+
 #pragma link C++ class art::TExpConverter+;
 #pragma link C++ class art::TSRPPACPlaneGeneralizedRatioProcessor;
 #pragma link C++ class art::TSRPPACPlaneQ1Q2Q0Q2Processor;
+
 #endif // __CINT__
 
 #endif // LINKDEF_USER_H

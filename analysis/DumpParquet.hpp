@@ -14,6 +14,7 @@
 #include "TEventHeader.h"
 #include "TTimingChargeData.h"
 #include "TSRPPACPlaneData.h"
+
 #include <arrow/api.h>
 #include <arrow/io/api.h>
 #include <arrow/pretty_print.h>
@@ -63,8 +64,10 @@ public:
     const std::vector<art::TTimingChargeData *> GetVector(const TClonesArray &input)
     {
         std::vector<art::TTimingChargeData *> vec;
+        
 		if (!input.GetEntriesFast())
 			return vec;
+
         TIter next(&input);
         TObject *obj;
         while ((obj = next()))

@@ -45,6 +45,5 @@ function(addParquetExec exec_name)
 endfunction()
 
 addParquetExec(DumpParquet)
-#addParquetExec(DumpParquet_Pulser)
 
 endif()

@@ -1,0 +1,30 @@
+anchor: 
+  - &sr11_x_ent ["sr11_x_cal@.GetEntriesFast()",8,-0.5,7.5]
+  - &sr11_y_ent ["sr11_y_cal@.GetEntriesFast()",8,-0.5,7.5]
+  - &sr12_x_ent ["sr12_x_cal@.GetEntriesFast()",8,-0.5,7.5]
+  - &sr12_y_ent ["sr12_y_cal@.GetEntriesFast()",8,-0.5,7.5]
+
+alias:
+
+group:
+  - name: srppaceffS1
+    title: SR-PPAC Efficiency S1
+    contents:
+      - name: sr11_x_ent
+        title: sr11 X Entry
+        x: *sr11_x_ent
+      - name: sr11_y_ent
+        title: sr11 Y Entry
+        x: *sr11_y_ent
+      - name: sr12_x_ent
+        title: sr12 X Entry
+        x: *sr12_x_ent
+      - name: sr12_y_ent
+        title: sr12 Y Entry
+        x: *sr12_y_ent
+
+
+
+
+
+

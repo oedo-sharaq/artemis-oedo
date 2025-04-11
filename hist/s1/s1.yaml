@@ -10,15 +10,19 @@ alias:
   fe9y: "(542.25*sr91_y[0].fPosition-122.5*sr92_y[0].fPosition)/419.75"
   fe9b: "(sr92_y[0].fPosition-sr91_y[0].fPosition)/419.75*1000."
 
-  s0x: "(1972*src2_x[0].fPosition-1452*src1_x[0].fPosition)/520.*-1."
-  s0a: "(src2_x[0].fPosition-src1_x[0].fPosition)/520.*1000.*-1."
-#  s0y: "(1972*src2_y[0].fPosition-1452*src1_y[0].fPosition)/520."
-  s0y: "(1972*src2_y[0].fPosition-1452*src1_y[0].fPosition)/520.-30."
-  s0b: "(src2_y[0].fPosition-src1_y[0].fPosition)/520.*1000."
-
-  s1x: "(560.8*sr12_x[0].fPosition-210.8*sr11_x[0].fPosition)/350.*-1."
+  s0x: "50.0+(1655*src2_x[0].fPosition-1100*src1_x[0].fPosition)/500."
+  s0a: "1000.*(src2_x[0].fPosition-src1_x[0].fPosition)/500."
+  s0y: "(1655*(src2_y[0].fPosition-31)-1100*(src1_y[0].fPosition-31))/500."
+  s0b: "1000.*((src2_y[0].fPosition-31)-(src1_y[0].fPosition-31))/500."
+#
+#  s0x: "(1972*src2_x[0].fPosition-1452*src1_x[0].fPosition)/520.*-1."
+#  s0a: "(src2_x[0].fPosition-src1_x[0].fPosition)/520.*1000.*-1."
+#  s0y: "(1972*src2_y[0].fPosition-1452*src1_y[0].fPosition)/520.-30."
+#  s0b: "(src2_y[0].fPosition-src1_y[0].fPosition)/520.*1000."
+#
+  s1x: "(632*sr12_x[0].fPosition-282*sr11_x[0].fPosition)/350.*-1."
   s1a: "(sr12_x[0].fPosition-sr11_x[0].fPosition)/350.*1000.*-1."
-  s1y: "(560.8*sr12_y[0].fPosition-210.8*sr11_y[0].fPosition)/350."
+  s1y: "(632*sr12_y[0].fPosition-282*sr11_y[0].fPosition)/350."
   s1b: "(sr12_y[0].fPosition-sr11_y[0].fPosition)/350.*1000."
 
   t35: "tof35[0].fTiming"
@@ -30,38 +34,23 @@ alias:
   tote: "icave[0].fValue*30."
 
 
-  beta: "7813./299.79/t12s1"
+  beta: "8308./299.79/t12s1"
   gamma: "1./TMath::Sqrt(1.-beta*beta)"
   tke: "(gamma-1)*931.49406"
 
-#  aq35: "aq35.fValue"
-#  z35: "z35.fValue"
-
-# for vertical focus tuning at large vertical magnification f.p.
-#  s1xctof: "s1x-19.3*(t12s1-128.)"
-  s1xctof: "s1x-17.53*(t12s1-116.)"
-  s1xctofs0x: "s1x-19.3*(t12s1-128.)+0.26*s0x"
+  s1xctof: "s1x-14.59*(t12s1-157.5)"
+  s1xctofs0x: "s1x-14.59*(t12s1-157.5)+0.53*(s0x+8.0)"
   s1actof: "s1a-9.66*(t12s1-128.)"
   s1actofs0x: "s1a-9.66*(t12s1-128)+0.88*(s0x-0.47)"
-#  s1ycs0y: "s1y+8.0*(s0y-6.6)"
-#  s1ycs0y: "s1y+7.5*(s0y-5.55)"
   s1ycs0y: "s1y+8.5*(s0y-5.55)"
 
-# gates on each f.p.
-## F5
-#  gf5x: "abs(f5x-0.0) < 1."
-#  gf5a: "abs(f5a) < 1."
-#  gf5y: "abs(f5y-0.0) < 1."
-#  gf5b: "abs(f5b) < 1."
-## FE9
-#  gfe9x: "abs(fe9x-0.0) < 3."
-#  gfe9a: "abs(fe9a) < 1."
-#  gfe9y: "abs(fe9y-0.0) < 3."
-#  gfe9b: "abs(fe9b) < 3."
+  aoq: "2.49808-0.00114385*s1xctofs0x+2e-6*s1a*s1a"
+  tofdiff: "t912-1.33466*(t12s1-160.)"
+
 # S0
   gs0x: "abs(s0x-0.0) < 5."
   gs0a: "abs(s0a-0.0) < 1."
-  gs0y: "abs(s0y-0.0) < 5."
+  gs0y: "abs(s0y-1.0) < 5."
   gs0b: "abs(s0b-0.0) < 1."
 
 # S1
@@ -69,15 +58,19 @@ alias:
   gs1y: "abs(s1y) < 5."
 
 # tof
-
   gt39: "abs(t39-428.51) < 1."
   gt912: "abs(t912-239.63) < 1."
-
+# ppac
+#  gpac9: "abs(sr91_x[0].fPosition)<150&&abs(sr91_y[0].fPosition)<150&&abs(sr92_x[0].fPosition)<150&&abs(sr92_y[0].fPosition)<150"
+#  gpacc: "abs(src1_x[0].fPosition)<150&&abs(src1_y[0].fPosition)<150&&abs(src2_x[0].fPosition)<150&&abs(src2_y[0].fPosition)<150"
+#  gpac1: "abs(sr11_x[0].fPosition)<150&&abs(sr11_y[0].fPosition)<150&&abs(sr12_x[0].fPosition)<150&&abs(sr12_y[0].fPosition)<150"
+#
 # pid gate
 #  gpid: "abs(fe9x)<10.&&abs(t39+0.10*fe9x-1071.)<1.5"
 #  gpid: "abs(fe9x)<30.&&abs(t39+0.127*fe9x-428.5)<1.5" # 130Sn beam
-  gpid: "abs(fe9x)<30.&&abs(t39+0.156*fe9x-433.6)<1.5" # 124Sn beam
-
+  #gpid: "abs(fe9x)<30.&&abs(t39+0.156*fe9x-433.6)<1.5" # 124Sn beam
+  gpid: "abs(fe9x)<30.&&abs(t39+0.190*fe9x-430.)<5.0" # sh12
+  gs1pid: "abs(s1x - (1.478101e+01*t12s1 + -2.213853e+03) ) < 10"
 
 include:
   - hist/s1/s1tuning.yaml

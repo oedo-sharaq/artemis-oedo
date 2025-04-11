@@ -40,7 +40,7 @@ Processor:
       FallingThreshold: 30 # [Float_t] threshold for falling edge
       InputCollection: @BRNAME@_sub  # [StringVec_t] pulse data (TCatPulseShape)
       MaxLength: 150  # [Int_t] maximum length to be valid
-      NumAvgPoints: 5  # [Int_t] number of average points
+      NumAvgPoints: 10  # [Int_t] number of average points
       NumSampleForBaseline: 10  # [Int_t] the number of sample for the calculation of baseline
       OffsetRange: [-10000, 10000]  # [FloatVec_t] minimum and maximum range of offset
       OutputCollection: @BRNAME@_pulse  # [TString] output pulse data (TCatPulseShape)
@@ -53,10 +53,20 @@ Processor:
       Time2Drift: 3  # [Int_t] type of time to calculate drift length (0: offset, 1: cfd (0.5), 2: peak
 #      TpcGasProp: ""  # [TString] name of tpc static gas property
       Verbose: 1  # [Int_t] verbose level (default 1 : non quiet) 
+
   - name: @BRNAME@:catm
     type: art::TTimingChargeCalibrationProcessor
     parameter:
       InputCollection: @BRNAME@_pulse
       OutputCollection: @BRNAME@_hit
       ChargeConverterArray: @BRNAME@_prm
+    
+  - name: MyTCatGETChargeValidator
+    type: art::TCatGETChargeValidator
+    parameter:
+      Input: @BRNAME@_hit  # [TString] name of input beam hits
+      Output: @BRNAME@_val  # [TString] name of output beam hits
+      OutputTransparency: 0  # [Bool_t] Output is persistent if false (default)
+      Threshold: 2  # [Double_t] threshold of charge
+      Verbose: 1  # [Int_t] verbose level (default 1 : non quiet)
     

@@ -1,6 +1,6 @@
 Anchor:
 # - &input_GET /mnt/data/getdaq01/tina/cobo00/run_@NUM@   
- - &input_GET getdata/cobo00/run_@NUM@   
+ - &input_GET getdata/run_@NUM@   
 # - &input_GET getdata_sakura01_02/cobo00/run_@NUM@   
  - &seg0 segdataGET0
 
