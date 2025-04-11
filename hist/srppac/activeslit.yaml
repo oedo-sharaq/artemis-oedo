@@ -1,0 +1,64 @@
+anchor: 
+- &src_x ["50.0+(1962*src2_x[0].fPosition-1462*src1_x[0].fPosition)/500.",300,-40,40]
+- &src_y ["(1962*(src2_y[0].fPosition-31)-1462*(src1_y[0].fPosition-31))/500.",300,-40,40]
+
+- &src_x_qt ["50.0+(1962*src2_x_qt[0].fPosition-1462*src1_x_qt[0].fPosition)/500.",300,-40,40]
+- &src_y_qt ["(1962*(src2_y_qt[0].fPosition-31)-1462*(src1_y_qt[0].fPosition-31))/500.",300,-40,40]
+
+- &src_x_gl ["50.0+(1962*src2_x_gl[0].fPosition-1462*src1_x_gl[0].fPosition)/500.",300,-40,40]
+- &src_y_gl ["(1962*(src2_y_gl[0].fPosition-31)-1462*(src1_y_gl[0].fPosition-31))/500.",300,-40,40]
+
+
+alias:
+  srcX: 50.0+(1962*src2_x[0].fPosition-1462*src1_x[0].fPosition)/500.
+  srcY: (1962*(src2_y[0].fPosition-31)-1462*(src1_y[0].fPosition-31))/500
+
+  srcX_qt: 50.0+(1962*src2_x_qt[0].fPosition-1462*src1_x_qt[0].fPosition)/500.
+  srcY_qt: (1962*(src2_y_qt[0].fPosition-31)-1462*(src1_y_qt[0].fPosition-31))/500.
+  
+  srcX_gl: 50.0+(1962*src2_x_gl[0].fPosition-1462*src1_x_gl[0].fPosition)/500.
+  srcY_gl: (1962*(src2_y_gl[0].fPosition-31)-1462*(src1_y_gl[0].fPosition-31))/500.
+
+  select_xside: coin_activeslit[0].fTiming > 35300 &&coin_activeslit[0].fTiming < 36250 && srcX > 5
+  select_yside: coin_activeslit[0].fTiming > 35300 &&coin_activeslit[0].fTiming < 36250 && srcY < -5
+
+  select_xside_qt: coin_activeslit[0].fTiming > 35300 &&coin_activeslit[0].fTiming < 36250 && srcX_qt > 5
+  select_yside_qt: coin_activeslit[0].fTiming > 35300 &&coin_activeslit[0].fTiming < 36250 && srcY_qt < -5
+
+  select_xside_gl: coin_activeslit[0].fTiming > 35300 &&coin_activeslit[0].fTiming < 36250 && srcX_gl > 5
+  select_yside_gl: coin_activeslit[0].fTiming > 35300 &&coin_activeslit[0].fTiming < 36250 && srcY_gl < -5
+
+
+
+group:
+  - name: chkcorrelation@fe9
+    title: Check FE9
+    contents:
+      - name: hxac
+        title: Extrapolarion basic X  
+        cut: select_yside
+        x: *src_x
+      - name: hyac
+        title: Extrapolation basic Y
+        cut: select_xside
+        x: *src_y
+
+      - name: hxac_qt
+        title: Extrapolarion basic X qt  
+        cut: select_yside_qt
+        x: *src_x_qt
+      - name: hyac_qt
+        title: Extrapolation basic Y qt
+        cut: select_xside_qt
+        x: *src_y_qt
+
+      - name: hxac_gl
+        title: Extrapolarion basic X gl
+        cut: select_yside_gl
+        x: *src_x_gl
+      - name: hyac_gl
+        title: Extrapolation basic Y gl
+        cut: select_xside_gl
+        x: *src_y_gl
+
+

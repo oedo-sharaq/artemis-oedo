@@ -14,9 +14,9 @@
 
 #ifdef __CINT__
 
-#pragma link off all globals;
-#pragma link off all classes;
-#pragma link off all functions;
+//#pragma link off all globals;
+//#pragma link off all classes;
+//#pragma link off all functions;
 
 #pragma link C++ class art::TChargeValidateProcessor;
 #pragma link C++ class art::TTimeValidator;
@@ -44,8 +44,11 @@
 #pragma link C++ class art::TBrhoReconstructProcessorS1;
 #pragma link C++ class art::TPIDSingleSectionProcessor;
 #pragma link C++ class art::TCmdPadZoom;
-#pragma link C++ class art::TSRPPACPlaneProcessorV2;
-#pragma link C++ class art::TCatGETChargeValidator;
+
+#pragma link C++ class art::TExpConverter+;
+#pragma link C++ class art::TSRPPACPlaneGeneralizedRatioProcessor;
+#pragma link C++ class art::TSRPPACPlaneQ1Q2Q0Q2Processor;
+
 #endif // __CINT__
 
 #endif // LINKDEF_USER_H

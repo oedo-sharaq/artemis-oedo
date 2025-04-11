@@ -4,7 +4,7 @@ tree->SetAlias("tof39","(sr91_a_cal[0].fTiming+sr92_a_cal[0].fTiming)/2-diapad[0
 tree->SetAlias("f5.fT","(f5ppac1a[0].fTAnode+f5ppac1b[0].fTAnode+f5ppac2a[0].fTAnode+f5ppac2b[0].fTAnode)/4.");
 tree->SetAlias("tof35","f5.fT-diapad[0].fTiming");
 
-tree->SetAlias("pidgate","abs(f5track.fX-23.676*(tof35-2658)+20)<15"); 
+//tree->SetAlias("pidgate","abs(f5track.fX-23.676*(tof35-2658)+20)<15"); 
 //tree->SetAlias("pidgate","abs(sr9.fX+3.07655*tof39-3310)<15"); 
 
 tree->SetAlias("sr9.fX","(542.25*sr91_x[0].fPosition-122.5*sr92_x[0].fPosition)/419.75");
@@ -12,15 +12,6 @@ tree->SetAlias("sr9.fA","(sr92_x[0].fPosition-sr91_x[0].fPosition)/419.75");
 tree->SetAlias("sr9.fY","(542.25*sr91_y[0].fPosition-122.5*sr92_y[0].fPosition)/419.75");
 tree->SetAlias("sr9.fB","(sr92_y[0].fPosition-sr91_y[0].fPosition)/419.75");
 
-
-
-//tracking at s0 focus (362 mm upstream of the target)
-tree->SetAlias("s0.fX","50.0+(1655*src2_x[0].fPosition-1100*src1_x[0].fPosition)/500.");
-tree->SetAlias("s0.fA","(src2_x[0].fPosition-src1_x[0].fPosition)/500.");
-tree->SetAlias("s0.fY","(1655*(src2_y[0].fPosition-31)-1100 *(src1_y[0].fPosition-31))/500.");
-tree->SetAlias("s0.fB","((src2_y[0].fPosition-31)-(src1_y[0].fPosition-31))/500.");
-
- // tracking at s0 target
 tree->SetAlias("src.fX","50.0+(1962*src2_x[0].fPosition-1462*src1_x[0].fPosition)/500.");
 tree->SetAlias("src.fA","(src2_x[0].fPosition-src1_x[0].fPosition)/500.");
 tree->SetAlias("src.fY","(1962*(src2_y[0].fPosition-31)-1462*(src1_y[0].fPosition-31))/500.");
@@ -35,13 +26,10 @@ tree->SetAlias("src_gl.fX","50.0+(1962*src2_x_gl[0].fPosition-1462*src1_x_gl[0].
 tree->SetAlias("src_gl.fA","(src2_x_gl[0].fPosition-src1_x_gl[0].fPosition)/500.");
 tree->SetAlias("src_gl.fY","(1962*(src2_y_gl[0].fPosition-31)-1462*(src1_y_gl[0].fPosition-31))/500.");
 tree->SetAlias("src_gl.fB","((src2_y_gl[0].fPosition-31)-(src1_y_gl[0].fPosition-31))/500.");
- 
-//tree->SetAlias("hole.fX","50.0+(1242*src2_x[0].fPosition-742*src1_x[0].fPosition)/500.");
-tree->SetAlias("hole.fX","50.0+(1297*src2_x[0].fPosition-742*src1_x[0].fPosition)/500.");
 
+tree->SetAlias("hole.fX","50.0+(1242*src2_x[0].fPosition-742*src1_x[0].fPosition)/500.");
 tree->SetAlias("hole.fA","(src2_x[0].fPosition-src1_x[0].fPosition)/500.");
-//tree->SetAlias("hole.fY","(1242*(src2_y[0].fPosition-31)-742*(src1_y[0].fPosition-31))/500.");
-tree->SetAlias("hole.fY","(1297*(src2_y[0].fPosition-31)-742*(src1_y[0].fPosition-31))/500.");
+tree->SetAlias("hole.fY","(1242*(src2_y[0].fPosition-31)-742*(src1_y[0].fPosition-31))/500.");
 tree->SetAlias("hole.fB","((src2_y[0].fPosition-31)-(src1_y[0].fPosition-31))/500.");
 
 tree->SetAlias("sr1.fX","(560.8*sr12_x[0].fPosition-210.8*sr11_x[0].fPosition)/350.");
@@ -60,7 +48,11 @@ tree->SetAlias("tofcs","(sr11_a_cal[0].fTiming+sr12_a_cal[0].fTiming)/2-(src1_a_
 tree->SetAlias("fe10.fT","fe9.fT+(fe12.fT-fe9.fT)*4753.75/(4753.75+9687.93)");
 
 
- tree->SetAlias("pidgate","abs(sr9.fX+4.572*(tof39-1075))<15");  // pidgate w/ fe9
+//tree->SetAlias("pidgate","abs(sr9.fX+3.07655*(tof39-3310)<15");  // pidgate w/ fe9
+//tree->SetAlias("pidgate","abs(sr9.fX)<30.&&abs(tof39+0.156*sr9.fX-433.6)<1.5");  // pidgate w/ fe9
+
+//tree->SetAlias("pg","abs(sr9.fX+3.07655*(tof39-3310))<15");  // pidgate w/ fe9
+tree->SetAlias("pidgate","abs(tof39 + sr9.fX * 0.2 - 1075) < 6 ");
 
 
 }

@@ -1,3 +1,25 @@
+# ignore all
+/*
+/.*
+
+# managed
+!/analysis
+!/conf
+!/hist
+!/macro
+!/prm
+!/src-get
+!/src-parquet
+!/steering
+!.gitignore
+!artemislogon.C.in
+!artlogin.sh
+!mapper.conf
+!README.md
+!setbldprm.sh
+!thisartemis-oedo.sh.in
+
+# ignore extensions
 *~
 *.o
 *.so
@@ -5,25 +27,9 @@
 *dict.cc
 *.pcm
 *#
-src/1l
-src/compile.log
-.vncdisplay
-output
-ridf
-figs
 *.root
 *.ps
 *.pdf
 *.parquet
-.root_hist
-current/
-share
-s0test
-build/
-install/
-artemislogon.C
-thisartemis-oedo.sh
-.vscode/launch.json
-.display
-/shift_figures/
-/getdata/
+*.swp
+*.swo

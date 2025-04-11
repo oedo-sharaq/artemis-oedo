@@ -18,8 +18,9 @@ TRawDataTriggeredList.cc
 TModuleDecoderA3100FreeRunTSI.cc
 TTimingChargeTriggeredListMappingProcessor.cc
 TTimingAverageProcessor.cc
-TSRPPACPlaneProcessorV2.cc
-TCatGETChargeValidator.cc
+TExpConverter.cc
+TSRPPACPlaneGeneralizedRatioProcessor.cc
+TSRPPACPlaneQ1Q2Q0Q2Processor.cc
 )
 
 
@@ -41,8 +42,9 @@ TRawDataTriggeredList.h
 TModuleDecoderA3100FreeRunTSI.h
 TTimingChargeTriggeredListMappingProcessor.h
 TTimingAverageProcessor.h
-TSRPPACPlaneProcessorV2.h
-TCatGETChargeValidator.h
+TExpConverter.h
+TSRPPACPlaneGeneralizedRatioProcessor.h
+TSRPPACPlaneQ1Q2Q0Q2Processor.h
 )
 
 

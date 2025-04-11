@@ -3,7 +3,10 @@ void chksreffQ2(){
  Int_t nData = tree->GetEntries();
 
  Double_t sr91x_nHitTwo = tree->GetEntries("TMath::Abs(sr91_x_cal[0].fID - sr91_x_cal[1].fID) < 2");
- Double_t sr91x_nHitThree = tree->GetEntries("(sr91_x_cal[1].fID + sr91_x_cal[2].fID) == sr91_x_cal[0].fID*2");
+
+// Double_t sr91x_nHitThree = tree->GetEntries("(sr91_x_cal[1].fID + sr91_x_cal[2].fID) == sr91_x_cal[0].fID*2");
+ Double_t sr91x_nHitThree = tree->GetEntries("((sr91_x_cal[1].fID + sr91_x_cal[2].fID) == sr91_x_cal[0].fID*2) && TMath::Abs(sr91_x_cal[0].fID - sr91_x_cal[1].fID) < 2");
+
 
 
  Double_t effsr91x = 100. * (sr91x_nHitThree / sr91x_nHitTwo);
