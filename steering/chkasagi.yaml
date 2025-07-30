@@ -1,0 +1,91 @@
+Anchor:
+ - &input rawdata/asagipulse@NUM@.ridf
+ - &output output/@NUM@/chkasagi_@NUM@.tree.root
+ - &histout output/@NUM@/chkasagi_@NUM@.hist.root
+
+Processor:
+  - name: timer
+    type: art::TTimerProcessor
+
+  - name: ridf
+    type: art::TRIDFEventStore
+    parameter:
+      OutputTransparency: 1
+      InputFiles:
+        - *input
+        
+  - name: mapper
+    type: art::TMappingProcessor
+    parameter:
+      OutputTransparency: 1
+      MapConfig: conf/mapper.conf
+
+  - name: proc_gateinit
+    type: art::TGateArrayInitializer
+    parameter:
+      OutputTransparency: 1
+
+  - include: bld/srppac/srppacasagi.yaml
+#  - include: bld/mwdc/chkmwdc_local.yaml
+
+### S1 SR-PPAC Hist
+#
+#  - name: projection_mwdc_dc31
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/mwdc/chkmwdc.tmpl.yaml
+#      Type:     art::TTreeprojection
+#      Replace: |
+#        plane: dc31      
+#        track: f3      
+# 
+#  - name: projection_mwdc_dc32
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/mwdc/chkmwdc.tmpl.yaml
+#      Type:     art::TTreeprojection
+#      Replace: |
+#        plane: dc32      
+#        track: f3      
+
+  - name: projection_chksrppac
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/srppac/chksrppac.yaml
+      Type:     art::TTreeprojection
+      Replace: |
+        sr: sr11      
+
+#  - name: projection_dqdx
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/dqdx_hist_h487.yaml
+#      Type:     art::TTreeprojection
+#      Replace: |
+#        fp: 103      
+#        sru: sr11      
+
+#  - name: projection_dqdxlr
+#    type: art::TTreeProjectionProcessor
+#    parameter:
+#      FileName: hist/srppac/dqdxlr_hist_h487.yaml
+#      Type:     art::TTreeprojection
+#      Replace: |
+#        fp: 103      
+#        sru: sr11      
+
+  - name: projection_position
+    type: art::TTreeProjectionProcessor
+    parameter:
+      FileName: hist/srppac/chkposition.yaml
+      Type:     art::TTreeprojection
+      OutputFilename: *histout
+      Replace: |
+        sr: sr11      
+
+
+  - name: outputtree
+    type: art::TOutputTreeProcessor
+    parameter:
+      FileName: 
+        - *output

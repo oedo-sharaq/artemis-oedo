@@ -1,0 +1,12 @@
+Processor:
+####
+  - include: 
+      name: srppacasagi.inc.yaml
+      replace:
+        NAME: sr11
+        CATIDa: 52 
+        CATIDx: 53
+        CATIDy: 54
+      ##  VALIDTIME: [-9000,-7000,0]
+        AnodeVALIDTIME: [-100000,100000,0]
+        VALIDTIME: [-100000,100000,0]

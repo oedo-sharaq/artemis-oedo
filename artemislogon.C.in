@@ -16,6 +16,7 @@
    // load libraries
    gSystem->Load("libartshare");
    gSystem->Load("libCAT");
+   gSystem->Load("liboedo");
    //gSystem->Load("{liborig}"); // when use original library
 
    TCatCmdFactory *cf = TCatCmdFactory::Instance();
