@@ -21,6 +21,7 @@ TTimingAverageProcessor.cc
 TExpConverter.cc
 TSRPPACPlaneGeneralizedRatioProcessor.cc
 TSRPPACPlaneQ1Q2Q0Q2Processor.cc
+TAsagiMappingProcessor.cc
 )
 
 
@@ -45,6 +46,7 @@ TTimingAverageProcessor.h
 TExpConverter.h
 TSRPPACPlaneGeneralizedRatioProcessor.h
 TSRPPACPlaneQ1Q2Q0Q2Processor.h
+TAsagiMappingProcessor.h
 )
 
 

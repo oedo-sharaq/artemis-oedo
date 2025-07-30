@@ -11,12 +11,11 @@
 #ifndef LINKDEF_USER_H
 #define LINKDEF_USER_H
 
-
 #ifdef __CINT__
 
-//#pragma link off all globals;
-//#pragma link off all classes;
-//#pragma link off all functions;
+// #pragma link off all globals;
+// #pragma link off all classes;
+// #pragma link off all functions;
 
 #pragma link C++ class art::TChargeValidateProcessor;
 #pragma link C++ class art::TTimeValidator;
@@ -26,7 +25,7 @@
 #pragma link C++ class art::TTinaData2;
 #pragma link C++ class art::TDaliProcessor;
 #pragma link C++ class art::TDaliData;
-//#pragma link C++ class art::TModuleDecoderA3100;
+// #pragma link C++ class art::TModuleDecoderA3100;
 #pragma link C++ class art::TModuleDecoderA3100FreeRunTSI;
 #pragma link C++ class art::TModuleDecoderSIS3301;
 #pragma link C++ class art::TSimpleDataMappingProcessor;
@@ -45,11 +44,12 @@
 #pragma link C++ class art::TPIDSingleSectionProcessor;
 #pragma link C++ class art::TCmdPadZoom;
 
-#pragma link C++ class art::TExpConverter+;
+#pragma link C++ class art::TExpConverter + ;
 #pragma link C++ class art::TSRPPACPlaneGeneralizedRatioProcessor;
 #pragma link C++ class art::TSRPPACPlaneQ1Q2Q0Q2Processor;
+
+#pragma link C++ class art::TAsagiMappingProcessor;
 
 #endif // __CINT__
 
 #endif // LINKDEF_USER_H
-
